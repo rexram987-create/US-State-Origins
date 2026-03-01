@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>אלבמה - US State Origins</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        alabamaRed: '#D71920'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-8">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-6">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת ראשית ומטא-דאטה -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-2xl shadow-xl p-8 mb-8 border-t-4 border-alabamaRed">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-right">
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-2">אלבמה</h1>
+                <p class="text-xl text-accent font-semibold tracking-wide">Alabama</p>
+            </div>
+            <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 w-full md:w-auto text-center">
+                <p class="text-slate-400 text-sm italic mb-1">תאריך ייסוד / הצטרפות לאיחוד:</p>
+                <p class="text-2xl font-bold text-white">14 בדצמבר, 1819</p>
+                <p class="text-xs text-slate-500 mt-1 uppercase tracking-tighter">המדינה ה-22 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-8">
+        
+        <!-- אטימולוגיה: מקור השם -->
+        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
+            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2">1. מחקר אטימולוגי מלא ומחולק</h2>
+            <div class="space-y-6">
+                <p class="text-lg leading-relaxed">שם המדינה נגזר משמו של נהר אלבמה, אשר הונצח על שם בני שבט ה**אלבמה** (Alibamu) המקומיים. הניתוח הבלשני שואב משפות המוסקוגית והצ'וקטו:</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                    <div class="bg-slate-800/80 p-5 rounded-xl border-r-4 border-accent shadow-inner">
+                        <h3 class="font-bold text-white mb-3 text-lg">פירוק רכיבי השם:</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="text-accent font-black ml-2">•</span>
+                                <div><strong class="text-white">Alba:</strong> צמחייה, עשבי תיבול, יער או סבך צפוף.</div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent font-black ml-2">•</span>
+                                <div><strong class="text-white">Amo:</strong> פועל שמשמעותו לחתוך, לקצור, לנקות או לאסוף.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-900/50 p-5 rounded-xl border-r-4 border-green-500 flex flex-col justify-center">
+                        <h3 class="font-bold text-white mb-2 text-lg italic">המשמעות הכוללת:</h3>
+                        <p class="text-slate-300 text-lg">
+                            הפירוש המחקרי המדויק הוא <span class="text-white font-bold underline decoration-green-500">"אוספי הצמחים"</span> או <span class="text-white font-bold underline decoration-green-500">"מנקי הסבך"</span>, תיאור המעיד על היותם חקלאים מיומנים שביראו יערות למטרות עיבוד.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- סיבת בחירת השם -->
+        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
+            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2">2. סיבת בחירת השם</h2>
+            <div class="text-lg leading-relaxed text-slate-300 space-y-4">
+                <p>הבחירה בשם "אלבמה" נבעה מרצון לשמר את הזהות הגיאוגרפית של האזור כפי שנתפס על ידי משלחות המחקר המוקדמות. בשנת 1540, מגלה הארצות הספרדי **הרננדו דה סוטו** תיעד את השבט בשם "Alibamu", ומאז השם השתרש במפות האירופאיות.</p>
+                <p>כאשר הטריטוריה הפכה למדינה ב-1819, השם כבר היה מזוהה לחלוטין עם הנהר הראשי המזין את כלכלת האזור, והוא אומץ רשמית כסמל להמשכיות המקום.</p>
+            </div>
+        </section>
+
+        <!-- וקסילולוגיה: ניתוח הדגל -->
+        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
+            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2">3. וקסילולוגיה: ניתוח הדגל וסמליו</h2>
+            
+            <!-- תצוגת הדגל - תיקוןOverlap -->
+            <div class="flex flex-col items-center mb-8">
+                <div class="w-full max-w-md aspect-[3/2] bg-white rounded-lg overflow-hidden shadow-2xl border-4 border-slate-700 relative">
+                    <!-- ייצוג ויזואלי של הדגל (St. Andrew's Cross) -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-[120%] h-8 sm:h-12 bg-alabamaRed rotate-45 absolute"></div>
+                        <div class="w-[120%] h-8 sm:h-12 bg-alabamaRed -rotate-45 absolute"></div>
+                    </div>
+                </div>
+                <!-- כיתוב מתחת לדגל במקום עליו -->
+                <p class="mt-4 text-slate-400 font-bold text-lg bg-slate-800 px-6 py-2 rounded-full border border-slate-700 shadow-sm">
+                    דגל אלבמה (St. Andrew's Cross)
+                </p>
+            </div>
+
+            <div class="space-y-8">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-3 flex items-center">
+                        <span class="w-2 h-6 bg-alabamaRed ml-3 rounded-full"></span>
+                        ניתוח עיצוב וצבעים:
+                    </h3>
+                    <p class="text-lg text-slate-300">הדגל, שאומץ ב-1895, מבוסס על "סאלטייר" (Saltire) - צלב אלכסוני. הבחירה בצבע **אדום ארגמן** על רקע לבן נועדה ליצור ניגודיות חזקה וברורה הנראית למרחוק.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-800/50 p-6 rounded-xl border-t-2 border-alabamaRed shadow-md">
+                        <h4 class="font-bold text-white mb-2 text-lg italic">מקור הצלב:</h4>
+                        <p class="text-slate-300">העיצוב מושפע ישירות מה**צלב של סנט אנדרו**. היסטוריונים וקסילולוגים מצביעים על כך שזהו מחווה ל"צלב של בורגונדי" אשר התנוסס מעל המבצרים הספרדיים באלבמה בתקופה הקולוניאלית.</p>
+                    </div>
+                    <div class="bg-slate-800/50 p-6 rounded-xl border-t-2 border-slate-500 shadow-md">
+                        <h4 class="font-bold text-white mb-2 text-lg italic">משמעות היסטורית:</h4>
+                        <p class="text-slate-300">העיצוב נבחר בתקופה שלאחר מלחמת האזרחים. המטרה הייתה ליצור דגל שיזכיר את סמלי הדרום, אך בצורה מופשטת וריבונית שתתקבל כדגל מדינה רשמי בתוך האיחוד המחודש.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר -->
+    <footer class="w-full max-w-4xl mt-16 pt-8 border-t border-slate-800 text-center">
+        <p class="text-slate-500 text-sm font-medium tracking-widest">
+            האתר נוצר על ידי ג'מיני ורם | 2026
+        </p>
+    </footer>
+
+</body>
+</html>
+
