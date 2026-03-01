@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>אלסקה - US State Origins</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        alaskaBlue: '#0f204b',
+                        alaskaGold: '#ffb81c'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+        }
+        .star { color: #ffb81c; position: absolute; font-size: 1.2rem; filter: drop-shadow(0 0 2px rgba(255,184,28,0.8)); }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-8">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-6">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת ראשית -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-2xl shadow-xl p-8 mb-8 border-t-4 border-alaskaBlue">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-right">
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-2">אלסקה</h1>
+                <p class="text-xl text-accent font-semibold tracking-wide">Alaska</p>
+            </div>
+            <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 w-full md:w-auto text-center shadow-inner">
+                <p class="text-slate-400 text-sm italic mb-1">תאריך ייסוד / הצטרפות לאיחוד:</p>
+                <p class="text-2xl font-bold text-white">3 בינואר, 1959</p>
+                <p class="text-xs text-slate-500 mt-1 uppercase tracking-tighter font-bold">המדינה ה-49 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-8">
+        
+        <!-- 1. אטימולוגיה: מחקר מעמיק ומחולק -->
+        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
+            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2 flex items-center">
+                <span class="ml-3">1.</span> מחקר אטימולוגי מלא ומחולק
+            </h2>
+            <div class="space-y-6">
+                <p class="text-lg leading-relaxed">השם "אלסקה" נובע משפת ה**אלאוטית** (Unangam Tunuu), השפה הילידית של תושבי האיים האלאוטיים. השם עבר גלגול פונטי דרך השפה הרוסית לפני שאומץ לאנגלית.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-slate-800/80 p-5 rounded-xl border-r-4 border-accent shadow-inner">
+                        <h3 class="font-bold text-white mb-3 text-lg underline">פירוק המילה האלאוטית (Alaxsxaq):</h3>
+                        <ul class="space-y-3">
+                            <li><strong class="text-accent font-bold">Alax:</strong> השורש המציין יבשה, אדמה או מסה קרקעית.</li>
+                            <li><strong class="text-accent font-bold">Sxaq:</strong> סיומת המציינת אובייקט שהים פועל עליו (היבשה העומדת מול הגלים).</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-900/50 p-5 rounded-xl border-r-4 border-blue-500 flex flex-col justify-center">
+                        <h3 class="font-bold text-white mb-2 text-lg italic font-bold">המשמעות האטימולוגית:</h3>
+                        <p class="text-slate-300 text-lg">
+                            הפירוש המילולי המדויק הוא <span class="text-white font-bold underline">"האדמה אליה מכוונת פעולת הים"</span>. בהקשר היסטורי רחב יותר, המושג מתורגם כ<span class="text-white font-bold underline">"הארץ הגדולה"</span> או <span class="text-white font-bold underline text-blue-400">"היבשת"</span>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. סיבת בחירת השם -->
+        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
+            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2 flex items-center">
+                <span class="ml-3">2.</span> סיבת בחירת השם
+            </h2>
+            <div class="text-lg leading-relaxed text-slate-300 space-y-4">
+                <p>השם נבחר במקור על ידי מגלי ארצות וסוחרים רוסים (Аляска) כדי לתאר את הטריטוריה החדשה. לאחר רכישת אלסקה ב-1867 על ידי ארצות הברית, התנהל ויכוח לגבי שמה של הטריטוריה.</p>
+                <p>הסנאטור **צ'ארלס סאמנר** היה זה שהכריע את הכף, בטענה שיש לשמור על השם המקומי והמקורי של הארץ כפי שכינו אותה ילידיה. הוא ראה בשם "אלסקה" ביטוי לעוצמה, גודל וחיבור לטבע הפראי של האזור הצפוני ביותר ביבשת.</p>
+            </div>
+        </section>
+
+        <!-- 3. וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו -->
+        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
+            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2 flex items-center">
+                <span class="ml-3">3.</span> וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו
+            </h2>
+            
+            <!-- ייצוג ויזואלי של הדגל -->
+            <div class="flex flex-col items-center mb-10">
+                <div class="w-full max-w-md aspect-[3/2] bg-[#0f204b] rounded-lg overflow-hidden shadow-2xl border-4 border-slate-800 relative">
+                    <span class="star" style="top: 15%; left: 80%; font-size: 1.8rem;">★</span> <!-- Polaris -->
+                    <span class="star" style="top: 75%; left: 15%;">★</span>
+                    <span class="star" style="top: 80%; left: 30%;">★</span>
+                    <span class="star" style="top: 72%; left: 45%;">★</span>
+                    <span class="star" style="top: 60%; left: 55%;">★</span>
+                    <span class="star" style="top: 45%; left: 48%;">★</span>
+                    <span class="star" style="top: 35%; left: 35%;">★</span>
+                    <span class="star" style="top: 40%; left: 20%;">★</span>
+                </div>
+                <p class="mt-4 text-slate-400 font-bold text-lg bg-slate-800 px-6 py-2 rounded-full border border-slate-700 shadow-sm">
+                    דגל אלסקה (שמונת הכוכבים)
+                </p>
+            </div>
+
+            <!-- נסיבות יצירה מורחבות -->
+            <div class="space-y-10">
+                <div class="bg-slate-800/40 p-6 rounded-xl border-r-4 border-alaskaGold shadow-md">
+                    <h3 class="text-xl font-bold text-white mb-4 italic underline">נסיבות היצירה: סיפורו של בני בנסון</h3>
+                    <div class="space-y-4 text-lg text-slate-300">
+                        <p>בשנת 1927, כאשר אלסקה הייתה טריטוריה, ארגן ה**לגיון האמריקאי** תחרות עיצוב דגל לילדי בית ספר. **בני בנסון**, נער יתום בן 13 ממוצא אלאוטי-רוסי, הגיש הצעה שזכתה במקום הראשון מתוך 142 משתתפים.</p>
+                        <p>בני זכה בשעון זהב ובמלגה, ועיצובו הפשוט והעוצמתי אומץ רשמית והפך לסמל של המדינה עד היום. דגל אלסקה הוא אחד הדגלים הבודדים בעולם שעוצבו על ידי ילד.</p>
+                    </div>
+                </div>
+
+                <!-- פירוט הכוכבים והצבעים (המידע ששוחזר במלואו) -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-white mb-3 flex items-center">
+                        <span class="w-2 h-6 bg-accent ml-3 rounded-full"></span>
+                        סמליות הכוכבים והצבעים בפירוט מלא:
+                    </h3>
+                    
+                    <div class="space-y-6 text-lg text-slate-300">
+                        <div class="bg-slate-800/50 p-6 rounded-xl border-b-2 border-alaskaGold shadow-md">
+                            <h4 class="font-bold text-white mb-3 text-xl underline italic text-alaskaGold">שמונת כוכבי הזהב:</h4>
+                            <p>הדגל כולל שמונה כוכבים מוזהבים על רקע כחול עמוק. שבעה כוכבים קטנים יותר יוצרים את קבוצת **"העגלה הגדולה"** (Big Dipper), והכוכב השמיני, הממוקם בפינה הימנית העליונה והוא הגדול ביותר, הוא **כוכב הצפון** (Polaris).</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-slate-900/40 p-5 rounded-xl border-r-4 border-white shadow-inner">
+                                <h4 class="font-bold text-white mb-2 text-lg">העגלה הגדולה (Ursa Major):</h4>
+                                <p>מסמלת את ה**עוצמה** והסיבולת של המדינה. הקבוצה היא חלק מקבוצת "הדובה הגדולה", חיה המזוהה עם הטבע הפראי של אלסקה ועם חוסנם של תושביה.</p>
+                            </div>
+                            <div class="bg-slate-900/40 p-5 rounded-xl border-r-4 border-accent shadow-inner">
+                                <h4 class="font-bold text-white mb-2 text-lg">כוכב הצפון (Polaris):</h4>
+                                <p>מסמל את המיקום הגאוגרפי הצפוני ביותר של האיחוד, ואת התקווה וההדרכה לעתיד המדינה. אלסקה מכונה לעיתים קרובות <span class="text-accent font-bold">The North Star State</span> בזכות סמל זה.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-800/30 p-5 rounded-xl border-r-4 border-blue-500">
+                            <h4 class="font-bold text-white mb-2 text-lg">הצבע הכחול:</h4>
+                            <p>מייצג את שמי הלילה של אלסקה, את האגמים הכחולים ואת פרח ה**"זכור-אותי"** (Forget-me-not), הפרח הרשמי של המדינה המסמל זיכרון והמשכיות.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר -->
+    <footer class="w-full max-w-4xl mt-16 pt-8 border-t border-slate-800 text-center">
+        <p class="text-slate-500 text-sm font-medium tracking-widest uppercase">
+            האתר נוצר על ידי ג'מיני ורם | 2026
+        </p>
+    </footer>
+
+</body>
+</html>
+
