@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>US State Origins - אטלס שמות ודגלים</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a', /* רקע כהה עמוק למסכי OLED */
+                        cardBg: '#1e293b', /* צבע כרטיס ליצירת ניגודיות */
+                        accent: '#38bdf8'  /* צבע הדגשה */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* התאמה אישית לגלילה חלקה */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-8">
+    
+    <!-- כותרת האתר ומטא-דאטה -->
+    <header class="w-full max-w-5xl bg-cardBg rounded-2xl shadow-2xl p-6 mb-8 border border-slate-700">
+        <div class="text-center mb-6">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-accent tracking-tight mb-2">
+                אטלס שמות ודגלים: ארצות הברית
+            </h1>
+            <p class="text-slate-400 text-lg sm:text-xl font-medium">
+                המאגר המלא למקור השמות (אטימולוגיה) ותולדות הדגלים (וקסילולוגיה)
+            </p>
+        </div>
+
+        <div class="space-y-3 text-base sm:text-lg text-slate-300 bg-slate-800/50 p-5 rounded-xl border border-slate-600 shadow-inner">
+            <p><strong class="text-white">שנת היצירה:</strong> 2026</p>
+            <p><strong class="text-white">סיבת הבנייה:</strong> הקמת מאגר מידע היסטורי, אטימולוגי ווקסילולוגי מקיף אודות 50 מדינות ארצות הברית. הפרויקט מתמקד בפירוק אטימולוגי נרחב של שמות המדינות וניתוח וקסילולוגי מעמיק של סמלי הדגלים, ללא פשרות על עומק המידע.</p>
+        </div>
+    </header>
+
+    <!-- רשת המדינות (Grid) -->
+    <main class="w-full max-w-5xl flex-grow">
+        <h2 class="text-2xl font-semibold mb-6 text-slate-100 border-r-4 border-accent pr-4 py-1">
+            חקירה לפי מדינה:
+        </h2>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 mb-12">
+            <!-- רשימת המדינות (דוגמה למדינות נבחרות, השאר יתווספו עם הזמן) -->
+            <a href="states/alabama.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">אלבמה</span></a>
+            <a href="states/alaska.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">אלסקה</span></a>
+            <a href="states/arizona.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">אריזונה</span></a>
+            <a href="states/arkansas.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">ארקנסו</span></a>
+            <a href="states/california.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">קליפורניה</span></a>
+            <a href="states/colorado.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">קולורדו</span></a>
+            <a href="states/delaware.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">דלאוור</span></a>
+            <a href="states/florida.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">פלורידה</span></a>
+            <a href="states/georgia.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">ג'ורג'יה</span></a>
+            <a href="states/hawaii.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">הוואי</span></a>
+            <a href="states/idaho.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">איידהו</span></a>
+            <a href="states/illinois.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">אילינוי</span></a>
+            <a href="states/indiana.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">אינדיאנה</span></a>
+            <a href="states/iowa.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">איווה</span></a>
+            <a href="states/kansas.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">קנזס</span></a>
+            <a href="states/kentucky.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">קנטקי</span></a>
+            <a href="states/louisiana.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">לואיזיאנה</span></a>
+            <a href="states/maine.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">מיין</span></a>
+            <a href="states/maryland.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">מרילנד</span></a>
+            <a href="states/massachusetts.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">מסצ'וסטס</span></a>
+            <a href="states/michigan.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">מישיגן</span></a>
+            <a href="states/minnesota.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">מינסוטה</span></a>
+            <a href="states/mississippi.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">מיסיסיפי</span></a>
+            <a href="states/missouri.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">מיזורי</span></a>
+            <a href="states/montana.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">מונטנה</span></a>
+            <a href="states/nebraska.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">נברסקה</span></a>
+            <a href="states/nevada.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">נבדה</span></a>
+            <a href="states/new-hampshire.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">ניו המפשייר</span></a>
+            <a href="states/new-jersey.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">ניו ג'רזי</span></a>
+            <a href="states/new-mexico.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">ניו מקסיקו</span></a>
+            <a href="states/new-york.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">ניו יורק</span></a>
+            <a href="states/north-carolina.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">קרוליינה הצפונית</span></a>
+            <a href="states/north-dakota.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">דקוטה הצפונית</span></a>
+            <a href="states/ohio.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">אוהיו</span></a>
+            <a href="states/oklahoma.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">אוקלהומה</span></a>
+            <a href="states/oregon.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">אורגון</span></a>
+            <a href="states/pennsylvania.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">פנסילבניה</span></a>
+            <a href="states/rhode-island.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">רוד איילנד</span></a>
+            <a href="states/south-carolina.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">קרוליינה הדרומית</span></a>
+            <a href="states/south-dakota.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">דקוטה הדרומית</span></a>
+            <a href="states/tennessee.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">טנסי</span></a>
+            <a href="states/texas.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">טקסס</span></a>
+            <a href="states/utah.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">יוטה</span></a>
+            <a href="states/vermont.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">ורמונט</span></a>
+            <a href="states/virginia.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">וירג'יניה</span></a>
+            <a href="states/washington.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">וושינגטון</span></a>
+            <a href="states/west-virginia.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">וירג'יניה המערבית</span></a>
+            <a href="states/wisconsin.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">ויסקונסין</span></a>
+            <a href="states/wyoming.html" class="flex items-center justify-center min-h-[70px] bg-cardBg hover:bg-slate-700 transition-all border border-slate-700 rounded-xl p-3 text-center shadow-md hover:scale-105 active:scale-95"><span class="text-lg font-medium">ויומינג</span></a>
+        </div>
+    </main>
+
+    <!-- פוטר עם קרדיטים -->
+    <footer class="w-full max-w-5xl mt-auto pt-6 border-t border-slate-700 text-center">
+        <p class="text-slate-400 text-sm sm:text-base font-medium">
+            האתר נוצר על ידי ג'מיני ורם | 2026
+        </p>
+    </footer>
+
+</body>
+</html>
