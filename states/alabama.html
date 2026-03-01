@@ -25,6 +25,7 @@
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             -webkit-tap-highlight-color: transparent;
         }
+        .etymology-box { background: rgba(30, 41, 59, 0.7); border-right: 4px solid #38bdf8; }
     </style>
 </head>
 <body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-8">
@@ -56,37 +57,49 @@
 
     <main class="w-full max-w-4xl space-y-8">
         
-        <!-- אטימולוגיה: מקור השם -->
+        <!-- 1. מחקר אטימולוגי מורחב ומפורט ביותר -->
         <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
             <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2">1. מחקר אטימולוגי מלא ומחולק</h2>
             <div class="space-y-6">
-                <p class="text-lg leading-relaxed">שם המדינה נגזר משמו של נהר אלבמה, אשר הונצח על שם בני שבט ה**אלבמה** (Alibamu) המקומיים. הניתוח הבלשני שואב משפות המוסקוגית והצ'וקטו:</p>
+                <p class="text-lg leading-relaxed">השם **"אלבמה"** נושא עמו היסטוריה לשונית מרתקת המקשרת בין נהרות האזור לבין העמים הילידיים שחיו על גדותיהם. המחקר האטימולוגי מתחקה אחר מקורות המילה בשפות ממשפחת ה**מוסקוגית** (Muskogean), ובעיקר בניב ה**צ'וקטו** (Choctaw).</p>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
-                    <div class="bg-slate-800/80 p-5 rounded-xl border-r-4 border-accent shadow-inner">
-                        <h3 class="font-bold text-white mb-3 text-lg">פירוק רכיבי השם:</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <span class="text-accent font-black ml-2">•</span>
-                                <div><strong class="text-white">Alba:</strong> צמחייה, עשבי תיבול, יער או סבך צפוף.</div>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent font-black ml-2">•</span>
-                                <div><strong class="text-white">Amo:</strong> פועל שמשמעותו לחתוך, לקצור, לנקות או לאסוף.</div>
-                            </li>
-                        </ul>
+                <!-- פירוק רכיבים נרחב -->
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="etymology-box p-6 rounded-xl shadow-inner space-y-4">
+                        <h3 class="font-bold text-white text-xl underline decoration-accent">פירוק רכיבי השם המקוריים:</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-slate-900/40 p-4 rounded-lg">
+                                <p class="text-accent font-bold text-xl mb-1">Alba / Alahba</p>
+                                <p class="text-slate-300">בניב הצ'וקטו המקורי, מונח זה אינו מציין רק "צמח", אלא תיאור רחב של **צמחייה סבוכה, עשבי תיבול, יערות עבותים או סבך קני סוף**. המונח מתייחס למסה הירוקה המכסה את האדמה הפורייה שבין הנהרות.</p>
+                            </div>
+
+                            <div class="bg-slate-900/40 p-4 rounded-lg">
+                                <p class="text-accent font-bold text-xl mb-1">Amo / Amon</p>
+                                <p class="text-slate-300">זהו פועל שמשמעותו רחבה יותר מ"חיתוך". הוא מציין פעולה של **קטיף, איסוף, ניקוי האדמה מצמחייה או בירוא יערות**. השימוש בפועל זה מעיד על הפיכת הטבע הפראי לשטח הניתן לעיבוד חקלאי.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-slate-900/50 p-5 rounded-xl border-r-4 border-green-500 flex flex-col justify-center">
-                        <h3 class="font-bold text-white mb-2 text-lg italic">המשמעות הכוללת:</h3>
-                        <p class="text-slate-300 text-lg">
-                            הפירוש המחקרי המדויק הוא <span class="text-white font-bold underline decoration-green-500">"אוספי הצמחים"</span> או <span class="text-white font-bold underline decoration-green-500">"מנקי הסבך"</span>, תיאור המעיד על היותם חקלאים מיומנים שביראו יערות למטרות עיבוד.
+
+                    <div class="bg-slate-800/50 p-6 rounded-xl border-r-4 border-green-500">
+                        <h3 class="font-bold text-white mb-3 text-lg italic">המשמעות המשולבת וההקשר התרבותי:</h3>
+                        <p class="text-lg leading-relaxed">
+                            הצירוף יוצר את המילה <span class="text-white font-bold italic">"Alabamu"</span>. הפירוש המדויק ביותר הוא <span class="text-white font-bold underline">"אלו המנקים את הצמחייה"</span> או <span class="text-white font-bold underline">"קוצרי העשב"</span>. 
                         </p>
+                        <p class="mt-3 text-slate-300">
+                            מבחינה אנתרופולוגית, השם אינו רק תיאור פיזי, אלא מעמד של השבט: שבט של חקלאים שהתמחו בבירוא סבך היערות לצורך זריעת תירס ושעועית, בניגוד לשבטים נודדים או ציידים בלבד.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-700 text-sm">
+                        <h4 class="text-slate-400 font-bold mb-2 uppercase tracking-widest">התפתחות פונטית:</h4>
+                        <p class="text-slate-400">השם תועד לראשונה על ידי הספרדים כ-**Alibamu**, עבר לצרפתית כ-**Alibamon**, ובוסט (הגייה) האנגלית המודרנית התייצב על **Alabama**. חוקרים מציינים כי במילון הצ'וקטו של סיירוס ביינגטון (1850), המילה מופיעה כביטוי לעבודה חקלאית קולקטיבית.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- סיבת בחירת השם -->
+        <!-- 2. סיבת בחירת השם -->
         <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
             <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2">2. סיבת בחירת השם</h2>
             <div class="text-lg leading-relaxed text-slate-300 space-y-4">
@@ -95,23 +108,31 @@
             </div>
         </section>
 
-        <!-- וקסילולוגיה: ניתוח הדגל -->
+        <!-- 3. וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו -->
         <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
-            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2">3. וקסילולוגיה: ניתוח הדגל וסמליו</h2>
+            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2">3. וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו</h2>
             
-            <!-- תצוגת הדגל - תיקוןOverlap -->
+            <!-- תצוגת הדגל -->
             <div class="flex flex-col items-center mb-8">
                 <div class="w-full max-w-md aspect-[3/2] bg-white rounded-lg overflow-hidden shadow-2xl border-4 border-slate-700 relative">
-                    <!-- ייצוג ויזואלי של הדגל (St. Andrew's Cross) -->
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="w-[120%] h-8 sm:h-12 bg-alabamaRed rotate-45 absolute"></div>
-                        <div class="w-[120%] h-8 sm:h-12 bg-alabamaRed -rotate-45 absolute"></div>
+                        <div class="w-[120%] h-8 sm:h-12 bg-alabamaRed rotate-45 absolute shadow-sm"></div>
+                        <div class="w-[120%] h-8 sm:h-12 bg-alabamaRed -rotate-45 absolute shadow-sm"></div>
                     </div>
                 </div>
-                <!-- כיתוב מתחת לדגל במקום עליו -->
                 <p class="mt-4 text-slate-400 font-bold text-lg bg-slate-800 px-6 py-2 rounded-full border border-slate-700 shadow-sm">
                     דגל אלבמה (St. Andrew's Cross)
                 </p>
+            </div>
+
+            <!-- נסיבות יצירה נרחבות -->
+            <div class="bg-slate-800/40 p-6 rounded-xl border-r-4 border-alabamaRed shadow-md mb-8">
+                <h3 class="text-xl font-bold text-white mb-4 italic underline underline-offset-4">נסיבות יצירת הדגל: הרקע ההיסטורי והחקיקה</h3>
+                <div class="space-y-4 text-lg text-slate-300 leading-relaxed">
+                    <p>הדגל הנוכחי של אלבמה אומץ ב-16 בפברואר 1895, שנים רבות לאחר מלחמת האזרחים. המדינה חיפשה סמל ריבוני שיחליף את דגלי המלחמה השונים ויעניק לה זהות ייחודית בתוך האיחוד.</p>
+                    <p>**ג'ון וו. א. סנפורד ג'וניור**, חבר בית המחוקקים, היה הכוח המניע מאחורי החוק. השראתו הגיעה ישירות מהדגל של רגימנט הרגלים ה-60 של אלבמה, עליו פיקד אביו. סנפורד ביקש ליצור דגל נקי המבוסס על "צלב סנט אנדרו" (Saltire), סמל שהיה נפוץ בהיסטוריה הצבאית והימית של האזור.</p>
+                    <p>החוק שחוקק ב-1895 קובע במפורש כי הצלב יהיה בצבע אדום על רקע לבן, וכי רוחב פסי הצלב לא יפחת משישה אינץ'. המטרה הייתה ליצור דגל בולט ומינימליסטי שישדר יציבות וסמכות.</p>
+                </div>
             </div>
 
             <div class="space-y-8">
@@ -120,17 +141,17 @@
                         <span class="w-2 h-6 bg-alabamaRed ml-3 rounded-full"></span>
                         ניתוח עיצוב וצבעים:
                     </h3>
-                    <p class="text-lg text-slate-300">הדגל, שאומץ ב-1895, מבוסס על "סאלטייר" (Saltire) - צלב אלכסוני. הבחירה בצבע **אדום ארגמן** על רקע לבן נועדה ליצור ניגודיות חזקה וברורה הנראית למרחוק.</p>
+                    <p class="text-lg text-slate-300">העיצוב מבוסס על ניגודיות מקסימלית בין אדום ללבן. הצלב האלכסוני הוא בחירה קלאסית בווקסילולוגיה, המקשרת את המדינה למורשת נוצרית והיסטורית עתיקה.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="bg-slate-800/50 p-6 rounded-xl border-t-2 border-alabamaRed shadow-md">
-                        <h4 class="font-bold text-white mb-2 text-lg italic">מקור הצלב:</h4>
-                        <p class="text-slate-300">העיצוב מושפע ישירות מה**צלב של סנט אנדרו**. היסטוריונים וקסילולוגים מצביעים על כך שזהו מחווה ל"צלב של בורגונדי" אשר התנוסס מעל המבצרים הספרדיים באלבמה בתקופה הקולוניאלית.</p>
+                        <h4 class="font-bold text-white mb-2 text-lg italic text-alabamaRed">מקור הצלב:</h4>
+                        <p class="text-slate-300">הצלב מסמל את סנט אנדרו. וקסילולוגים מציינים כי העיצוב מהדהד את ה**צלב של בורגונדי**, דגל שהתנוסס מעל אלבמה בתקופה בה הייתה תחת שלטון ספרדי קולוניאלי.</p>
                     </div>
                     <div class="bg-slate-800/50 p-6 rounded-xl border-t-2 border-slate-500 shadow-md">
                         <h4 class="font-bold text-white mb-2 text-lg italic">משמעות היסטורית:</h4>
-                        <p class="text-slate-300">העיצוב נבחר בתקופה שלאחר מלחמת האזרחים. המטרה הייתה ליצור דגל שיזכיר את סמלי הדרום, אך בצורה מופשטת וריבונית שתתקבל כדגל מדינה רשמי בתוך האיחוד המחודש.</p>
+                        <p class="text-slate-300">למרות הדמיון לדגלי הקונפדרציה, העיצוב הנקי ללא כוכבים נועד לייצג את אלבמה כישות ריבונית העומדת בזכות עצמה, תוך מתן כבוד למורשת הדרומית בצורה מופשטת.</p>
                     </div>
                 </div>
             </div>
