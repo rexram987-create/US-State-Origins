@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>אריזונה - US State Origins</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        arizonaBlue: '#002664', /* Old Glory Blue */
+                        arizonaGold: '#FFB81C',
+                        arizonaCopper: '#B87333',
+                        arizonaRed: '#BE0B31'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ray-container {
+            background: #FFB81C;
+            position: relative;
+            overflow: hidden;
+        }
+        /* CSS simulation of the 13 rays */
+        .ray {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200%;
+            height: 100%;
+            background: #BE0B31;
+            transform-origin: 0 0;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-8">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-6">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת המדינה -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-2xl shadow-xl p-8 mb-8 border-t-4 border-arizonaCopper">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-right">
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-2">אריזונה</h1>
+                <p class="text-xl text-accent font-semibold tracking-wide">Arizona</p>
+            </div>
+            <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 w-full md:w-auto text-center shadow-inner">
+                <p class="text-slate-400 text-sm italic mb-1">תאריך ייסוד / הצטרפות לאיחוד:</p>
+                <p class="text-2xl font-bold text-white">14 בפברואר, 1912</p>
+                <p class="text-xs text-slate-500 mt-1 uppercase tracking-tighter font-bold">המדינה ה-48 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-8">
+        
+        <!-- 1. מחקר אטימולוגי מלא ומחולק -->
+        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
+            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2">1. מחקר אטימולוגי מלא ומחולק</h2>
+            <div class="space-y-6">
+                <p class="text-lg leading-relaxed text-slate-300">
+                    מקור השם "אריזונה" שנוי במחלוקת בקרב היסטוריונים, אך התיאוריה המקובלת והמתועדת ביותר קושרת אותו לשפות הילידיות של האזור, ובפרט לשפת ה**אואודהם** (O'odham).
+                </p>
+                
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="bg-slate-800/80 p-6 rounded-xl border-r-4 border-accent shadow-inner">
+                        <h3 class="font-bold text-white mb-4 text-xl underline">הפירוק השפתי (Ali ṣonak):</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start bg-slate-900/40 p-3 rounded-lg">
+                                <span class="text-accent font-black text-2xl ml-3">Ali</span>
+                                <div>
+                                    <p class="text-white font-bold">משמעות: קטן / זעיר.</p>
+                                    <p class="text-sm text-slate-400 font-medium">מתאר את קנה המידה של המשאב הטבעי המדובר.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start bg-slate-900/40 p-3 rounded-lg">
+                                <span class="text-accent font-black text-2xl ml-3">ṣonak</span>
+                                <div>
+                                    <p class="text-white font-bold">משמעות: מקום המעיין / בסיס המים.</p>
+                                    <p class="text-sm text-slate-400 font-medium">המילה ṣon מתארת בסיס או יסוד, ובהקשר זה - את מקור נביעת המים.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-6 rounded-xl border-r-4 border-arizonaCopper">
+                        <h3 class="font-bold text-white mb-2 text-lg italic">המשמעות הכוללת:</h3>
+                        <p class="text-lg text-slate-300 leading-relaxed">
+                            הצירוף יוצר את המילה <span class="text-white font-bold">"Arrizonac"</span> (בגרסה הספרדית המוקדמת), שמשמעותה המדויקת היא <span class="text-white font-bold underline decoration-arizonaCopper">"מקום המעיין הקטן"</span>. 
+                        </p>
+                        <p class="mt-3 text-slate-400 text-sm leading-relaxed">
+                            *הערה מחקרית:* קיימת תיאוריה משנית המציעה כי המקור הוא בבאסקית (Arritz Ona - "הסלע הטוב"), אך רוב הבלשנים מעדיפים את המקור הילידי בשל הקרבה הגיאוגרפית של שבטי האואודהם למכרות שבהם נמצא השם לראשונה.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. סיבת בחירת השם -->
+        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
+            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2">2. סיבת בחירת השם</h2>
+            <div class="text-lg leading-relaxed text-slate-300 space-y-4">
+                <p>השם הפך למזוהה עם האזור בעקבות גילוי מאגרי כסף אדירים בשנת 1736 במחנה כרייה ספרדי שנקרא *Real de Arrizonac*. השם "אריזונק" הפך לסינונים לעושר מינרלי ותקווה.</p>
+                <p>כאשר הוקמה הטריטוריה באופן רשמי בשנת 1863, ביקשו המחוקקים האמריקאים שם שישקף את ההיסטוריה המקומית ואת העושר של האדמה. השם "אריזונה" נבחר פה אחד כגרסה אנגלית נוחה להגייה של השם הילידי-ספרדי הוותיק.</p>
+            </div>
+        </section>
+
+        <!-- 3. וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו -->
+        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
+            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2">3. וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו</h2>
+            
+            <!-- ייצוג ויזואלי של דגל אריזונה -->
+            <div class="flex flex-col items-center mb-10">
+                <div class="w-full max-w-md aspect-[3/2] rounded-lg overflow-hidden shadow-2xl border-4 border-slate-800 relative flex flex-col">
+                    <!-- Top half with rays -->
+                    <div class="flex-1 ray-container">
+                        <!-- Simplified Rays using CSS -->
+                        <div class="ray" style="transform: rotate(-75deg) translate(-50%, -50%);"></div>
+                        <div class="ray" style="transform: rotate(-45deg) translate(-50%, -50%);"></div>
+                        <div class="ray" style="transform: rotate(-15deg) translate(-50%, -50%);"></div>
+                        <div class="ray" style="transform: rotate(15deg) translate(-50%, -50%);"></div>
+                        <div class="ray" style="transform: rotate(45deg) translate(-50%, -50%);"></div>
+                        <div class="ray" style="transform: rotate(75deg) translate(-50%, -50%);"></div>
+                    </div>
+                    <!-- Bottom half Blue -->
+                    <div class="flex-1 bg-arizonaBlue"></div>
+                    <!-- Copper Star -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-arizonaCopper text-6xl drop-shadow-lg">★</div>
+                </div>
+                <p class="mt-4 text-slate-400 font-bold text-lg bg-slate-800 px-6 py-2 rounded-full border border-slate-700">
+                    דגל אריזונה (The Copper Star Flag)
+                </p>
+            </div>
+
+            <!-- נסיבות יצירה נרחבות -->
+            <div class="space-y-10">
+                <div class="bg-slate-800/40 p-6 rounded-xl border-r-4 border-arizonaRed shadow-md">
+                    <h3 class="text-xl font-bold text-white mb-4 italic underline underline-offset-4">נסיבות היצירה: מהירי והדויק</h3>
+                    <div class="space-y-4 text-lg text-slate-300 leading-relaxed">
+                        <p>סיפורו של דגל אריזונה מתחיל בשנת 1910, עוד לפני שהפכה למדינה. קולונל **צ'ארלס וילפרד האריס**, מפקד המשמר הלאומי של אריזונה, הוביל את נבחרת הקליעה של הטריטוריה לתחרות הלאומית בבאפלו, ניו יורק.</p>
+                        <p>האריס שם לב שלכל שאר הנבחרות היה דגל ייחודי המייצג אותן, בזמן שנבחרת אריזונה נותרה ללא סמל. הוא החליט לעצב דגל שישדר עוצמה, היסטוריה ומשאבים. הוא רשם את הסקיצה הראשונה על דף נייר, והדגל נתפר לראשונה על ידי **נאן היידן**, אשתו של הנציג הטריטוריאלי קארל היידן.</p>
+                        <p>הדגל אומץ רשמית על ידי המדינה ב-27 בפברואר 1917, למרות שמושל אריזונה דאז סירב לחתום על החוק (הוא הפך לחוק ללא חתימתו) מכיוון שחשב שהעיצוב "צעקני מדי".</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-white mb-3 flex items-center">
+                        <span class="w-2 h-6 bg-arizonaCopper ml-3 rounded-full"></span>
+                        סמליות הצבעים והאלמנטים:
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-slate-800/50 p-6 rounded-xl border-b-2 border-arizonaRed shadow-md">
+                            <h4 class="font-bold text-white mb-3 text-lg underline italic text-arizonaRed">13 הקרניים (אדום וזהב):</h4>
+                            <p class="text-slate-300">הקרניים מסמלות את 13 המושבות המקוריות של ארה"ב, אך צבעיהן הם מחווה לדגל ספרד (הצבעים שהביאו משלחות קורונדו לאזור ב-1540). המבנה יוצר תחושה של **שקיעה מרהיבה** מעל המדבר.</p>
+                        </div>
+
+                        <div class="bg-slate-800/50 p-6 rounded-xl border-b-2 border-arizonaCopper shadow-md">
+                            <h4 class="font-bold text-white mb-3 text-lg underline italic text-arizonaCopper">כוכב הנחושת המרכזי:</h4>
+                            <p class="text-slate-300">אריזונה היא יצרנית הנחושת הגדולה ביותר בארה"ב. הכוכב במרכז הדגל מסמל את ה**עושר המינרלי** ואת ענף המכרות המהווה את עמוד השדרה של כלכלת המדינה מאז הקמתה.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/30 p-5 rounded-xl border-r-4 border-arizonaBlue">
+                        <h4 class="font-bold text-white mb-2 text-lg italic">הכחול בתחתית:</h4>
+                        <p class="text-slate-300 text-lg leading-relaxed">זהו "כחול החירות" (Liberty Blue), הזהה לכחול בדגל ארצות הברית. הוא מייצג את נאמנותה של אריזונה לאיחוד ואת המרחבים הפתוחים של שמי המדבר הצלולים.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר -->
+    <footer class="w-full max-w-4xl mt-16 pt-8 border-t border-slate-800 text-center">
+        <p class="text-slate-500 text-sm font-medium tracking-widest uppercase">
+            האתר נוצר על ידי ג'מיני ורם | 2026
+        </p>
+    </footer>
+
+</body>
+</html>
+
