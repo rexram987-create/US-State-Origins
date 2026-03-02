@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>דקוטה הצפונית - US State Origins</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        ndBlue: '#002664', /* The deep blue of the ND flag */
+                        ndGold: '#FFD700',
+                        ndRed: '#E4002B'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.7;
+        }
+        .section-card { @apply bg-cardBg rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-700; }
+        .highlight-box { @apply bg-slate-900/60 p-6 sm:p-8 rounded-2xl border-r-4 border-accent shadow-inner; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-8">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-6">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-bold text-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת המדינה - אופטימיזציה ל-S25 Ultra -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-3xl shadow-2xl p-6 sm:p-10 mb-10 border-t-8 border-ndBlue relative overflow-hidden">
+        <div class="absolute -top-20 -left-20 w-64 h-64 bg-ndBlue/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
+            <div class="text-center md:text-right">
+                <h1 class="text-5xl sm:text-6xl font-black text-white mb-3 tracking-tight">דקוטה הצפונית</h1>
+                <p class="text-2xl text-accent font-bold tracking-widest opacity-90 uppercase">North Dakota</p>
+            </div>
+            <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 w-full md:w-auto text-center shadow-inner relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-2 h-full bg-ndBlue"></div>
+                <p class="text-slate-400 text-sm font-bold italic mb-2">תאריך ייסוד / הצטרפות לאיחוד:</p>
+                <p class="text-3xl font-black text-white">2 בנובמבר, 1889</p>
+                <p class="text-sm text-accent mt-3 font-black uppercase bg-accent/10 py-1.5 px-4 rounded-full inline-block">המדינה ה-39 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-12">
+        
+        <!-- 1. מחקר אטימולוגי מלא ומחולק -->
+        <section class="section-card">
+            <h2 class="text-3xl font-black text-accent mb-8 border-b border-slate-700 pb-4 flex items-center">
+                <span class="bg-accent text-darkBg w-10 h-10 rounded-lg flex items-center justify-center ml-4 text-xl font-black">1</span>
+                מחקר אטימולוגי מלא ומחולק
+            </h2>
+            
+            <div class="space-y-8">
+                <p class="text-xl leading-relaxed text-slate-300">
+                    השם **"דקוטה"** אינו מתאר אזור גיאוגרפי במקורו, אלא מתעד מושג סוציולוגי ופוליטי מרתק מתוך שפת בני שבט ה**סו** (Sioux) – ליתר דיוק, הניב המזרחי (Santee) שלהם. השם אומץ על ידי הצרפתים והבריטים כדי לתאר את העמים הרבים שחיו במרחבי הערבות העצומים.
+                </p>
+
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="highlight-box border-ndGold">
+                        <h3 class="text-2xl font-bold text-white mb-6 underline decoration-ndGold decoration-4 underline-offset-8">הפירוק השפתי המדויק (Dakhóta):</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-slate-800 p-6 rounded-xl border border-slate-600 shadow-md">
+                                <p class="text-accent font-black text-3xl mb-3 italic">dakhó-</p>
+                                <p class="text-slate-300 text-lg font-medium">שורש פרוטו-סוּאני המציין הדדיות, שותפות גורל, קשר הדוק, או הסכם עמוק של שלום. הוא משקף קרבה שלעתים קרובות קשורה לבריתות צבאיות והישרדותיות.</p>
+                            </div>
+                            <div class="bg-slate-800 p-6 rounded-xl border border-slate-600 shadow-md">
+                                <p class="text-accent font-black text-3xl mb-3 italic">-ta</p>
+                                <p class="text-slate-300 text-lg font-medium">סיומת דקדוקית (Suffix) המציינת מצב של ריבוי או שיוך קולקטיבי לקבוצה מאוחדת וגדולה.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-ndBlue/20 p-8 rounded-2xl border-r-4 border-ndBlue shadow-md">
+                        <h3 class="font-black text-white mb-3 text-2xl italic">המשמעות האטימולוגית והתרבותית:</h3>
+                        <p class="text-xl text-slate-200 leading-relaxed font-medium mb-4">
+                            הפירוש המילולי המדויק ביותר הוא <span class="text-white font-black underline decoration-accent">"בעלי הברית"</span> או <span class="text-white font-black underline decoration-accent">"רשת של חברים מאוחדים"</span>. 
+                        </p>
+                        <p class="text-lg text-slate-300 leading-relaxed">
+                            עבור הילידים, השם "דקוטה" ייצג את ברית **"שבע המדורות" (Oceti Sakowin)** – קונפדרציה פוליטית וצבאית עצומה של שבטים ששיתפו פעולה בשליטה על צפון המישורים הגדולים של אמריקה. כשהמתיישבים האירופאים הגיעו, הם השתמשו במונח זה כדי להגדיר את כל השטח האדיר שבו שלטו אותם "בעלי ברית".
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. תולדות הטריטוריה: הקמה, מיקום וחזון -->
+        <section class="section-card">
+            <h2 class="text-3xl font-black text-accent mb-8 border-b border-slate-700 pb-4 flex items-center">
+                <span class="bg-accent text-darkBg w-10 h-10 rounded-lg flex items-center justify-center ml-4 text-xl font-black">2</span>
+                תולדות הטריטוריה: הקמה, מיקום וחזון
+            </h2>
+            
+            <div class="space-y-10">
+                <!-- רקע ההקמה -->
+                <div class="bg-slate-800/40 p-8 rounded-2xl border-r-4 border-ndGold shadow-lg">
+                    <h3 class="text-2xl font-black text-white mb-4 italic underline decoration-ndGold decoration-2">טריטוריית דקוטה ומהפכת "חוות הבוננזה"</h3>
+                    <p class="text-lg text-slate-300 leading-relaxed mb-4">
+                        בשנת 1861 חתם הנשיא ג'יימס ביוקנן על החוק המקים את "טריטוריית דקוטה", מרחב אדיר מימדים שכלל את צפון ודרום דקוטה, וחלקים ממונטנה וויומינג. החזון המוקדם עבור חלקה הצפוני של הטריטוריה היה פשוט ושאפתני: להפוך את הערבות השוממות ל"אסם התבואה של העולם".
+                    </p>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        השינוי הדרמטי התרחש בשנות ה-70 וה-80 של המאה ה-19 עם סלילת **מסילת הרכבת הצפונית הפסיפית** (Northern Pacific Railway). כדי לעודד התיישבות, חברות הרכבת פרסמו מסעות תעמולה באירופה שהביאו רבבות מהגרים, בעיקר מנורווגיה, גרמניה ואיסלנד. בניגוד לדרום שנשען על כריית זהב, דקוטה הצפונית התאפיינה ב**חוות בוננזה (Bonanza Farms)** – חוות ענק ממוכנות לייצור חיטה שהשתרעו על עשרות אלפי דונמים, ויצרו עושר חקלאי חסר תקדים.
+                    </p>
+                </div>
+
+                <!-- סיבת בחירת המיקום -->
+                <div class="bg-slate-800/40 p-8 rounded-2xl border-r-4 border-accent shadow-lg">
+                    <h3 class="text-2xl font-black text-white mb-4 italic underline decoration-accent decoration-2">סיבת בחירת המיקום: עמק הנהר האדום</h3>
+                    <p class="text-lg text-slate-300 leading-relaxed mb-4">
+                        מרכז הכובד הכלכלי וההתיישבותי של המדינה מוקם במזרחה – ב**עמק הנהר האדום** (Red River Valley). עמק זה הוא למעשה קרקעיתה של ימת אגאסי (Lake Agassiz) העתיקה מעידן הקרח, מה שהותיר אחריו אדמת טין שחורה ופורייה להפליא, מהטובות בעולם לגידול יבולים. 
+                        מבחינה אסטרטגית, מיקומה הקיצוני הצפוני של המדינה שימש כחיץ מול קנדה הבריטית וכנקודת מוצא לכוחות פדרליים שיצאו למאבק בשבטי הסו المערביים (כמו פורט אברהם לינקולן, המצודה ממנה רכב גנרל קאסטר אל מותו בקרב בליטל ביגהורן).
+                    </p>
+                </div>
+
+                <!-- עובדות מעניינות מורחבות -->
+                <div class="bg-slate-900/60 p-8 rounded-2xl border border-slate-600 shadow-inner">
+                    <h3 class="text-2xl font-bold text-accent mb-6 flex items-center underline decoration-ndGold">
+                        פרטים מיוחדים על המדינה וגיבוריה
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-300">
+                        <div class="space-y-4">
+                            <h4 class="text-ndGold font-black text-xl italic underline">החווה של תיאודור רוזוולט (1883):</h4>
+                            <p class="text-lg">כשהיה צעיר ובדיוק איבד את אשתו ואמו באותו היום (1884), הגיע **תיאודור רוזוולט** לדקוטה הצפונית לחפש מזור לנפשו. הוא הקים את חוות "אלקהורן" באזור ה-Badlands, חי כבוקר (Cowboy) מחוספס, צד בופאלו ולמד על בוריו את הטבע האמריקאי הפראי. מאוחר יותר אמר הנשיא ה-26: <span class="italic font-bold text-white">"מעולם לא הייתי הופך לנשיא ארצות הברית, ללא החוויות שעברתי בדקוטה הצפונית."</span></p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-ndGold font-black text-xl italic underline">גן השלום הבינלאומי (The Peace Garden State):</h4>
+                            <p class="text-lg">הכינוי הרשמי של המדינה נובע מפארק ענק (International Peace Garden) שהוקם ב-1932 ונחצה בדיוק על ידי קו הגבול הבינלאומי שבין דקוטה הצפונית למחוז מניטובה שבקנדה. הפארק אינו מגודר כלל, והוא מוקדש להבטחה ההיסטורית לפיה שתי האומות (ארה"ב וקנדה) לעולם לא יישאו נשק זו נגד זו. זהו סמל נדיר של שכנות טובה ונטולת גבולות צבאיים.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. סיבת בחירת השם - החלוקה הגיאוגרפית -->
+        <section class="section-card">
+            <h2 class="text-3xl font-black text-accent mb-8 border-b border-slate-700 pb-4">3. סיבת בחירת השם המלא והחלוקה הפוליטית</h2>
+            <div class="text-xl leading-relaxed text-slate-300 space-y-6">
+                <p>השם המקורי "דקוטה" נשמר בגאווה כהוקרה לשבטים ההיסטוריים ולהמשכיות הטריטוריאלית. אולם ההחלטה להתפצל ל"צפונית" ול"דרומית" נבעה מקרע כלכלי ופוליטי עמוק בשנות ה-80 של המאה ה-19.</p>
+                <p>הצפון נשלט על ידי ברוני הרכבות ואליטות החקלאות של מינסוטה (שפעלו סביב הבירה ביסמרק), בעוד הדרום התאפיין בחוואים ומשפחות שחיפשו את מזלם במכרות הזהב ובמרכזי האוכלוסייה הצפופים יותר. תושבי דרום הטריטוריה הרגישו שהצפון מנצל אותם כלכלית ודרשו מדינה משלהם לאורך קו הרוחב ה-46.</p>
+                <p class="bg-slate-800 p-5 rounded-xl border-r-4 border-slate-500 italic mt-4 text-lg">
+                    כאשר הגיע רגע ההכרזה ב-2 בנובמבר 1889, נשיא ארה"ב, **בנג'מין הריסון**, סירב לתת עדיפות פוליטית לאף צד. הוא הורה לערבב לחלוטין את מסמכי הייסוד של הצפון והדרום, כיסה אותם וחתם עליהם "על עיוור". כתוצאה מכך, איש אינו יודע מבחינה משפטית איזה מסמך נחתם קודם, אך בשל סדר האלף-בית האנגלי (North לפני South), דקוטה הצפונית מוכרת רשמית כמדינה ה-39 והדרומית כ-40.
+                </p>
+            </div>
+        </section>
+
+        <!-- 4. וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו -->
+        <section class="section-card">
+            <h2 class="text-3xl font-black text-accent mb-8 border-b border-slate-700 pb-4 flex items-center">
+                <span class="bg-accent text-darkBg w-10 h-10 rounded-lg flex items-center justify-center ml-4 text-xl font-black">4</span>
+                וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו
+            </h2>
+            
+            <!-- ייצוג ויזואלי של דגל דקוטה הצפונית -->
+            <div class="flex flex-col items-center mb-12">
+                <div class="w-full max-w-md aspect-[3/2] bg-[#002664] rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-600 relative flex flex-col items-center justify-center p-4">
+                    <!-- Eagle representation -->
+                    <div class="text-ndGold text-7xl font-black drop-shadow-2xl relative z-10">🦅</div>
+                    <!-- Stars circle simulation -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[80%] border-4 border-dashed border-white/10 rounded-full opacity-50"></div>
+                    <!-- Ribbon simulation -->
+                    <div class="mt-6 bg-ndRed px-6 py-1.5 rounded-sm border border-ndGold shadow-lg relative z-10">
+                        <span class="text-xs text-white font-black uppercase tracking-widest">North Dakota</span>
+                    </div>
+                </div>
+                <p class="mt-6 text-slate-400 font-black text-xl bg-slate-800 px-8 py-3 rounded-full border border-slate-700 shadow-lg italic">
+                    דגל הרגימנט ה-1 של דקוטה הצפונית (אומץ ב-1911)
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                <div class="bg-slate-800/40 p-8 rounded-2xl border-r-4 border-ndRed shadow-md">
+                    <h3 class="text-2xl font-black text-white mb-6 italic underline decoration-ndRed decoration-2">נסיבות יצירת הדגל: שלל קרב וגאווה לאומית</h3>
+                    <div class="space-y-6 text-lg text-slate-300 leading-relaxed">
+                        <p>הדגל הרשמי של דקוטה הצפונית נושא סיפור ייחודי – הוא אחד הדגלים הבודדים בארה"ב שלא עוצב על ידי ועדה ממשלתית או בתחרות פומבית, אלא נולד ישירות משדה הקרב. זהו למעשה העתק כמעט זהה של הדגל שנישא בקרב על ידי **רגימנט הרגלים המתנדבים ה-1 של דקוטה הצפונית** (1st North Dakota Infantry).</p>
+                        <p>הרגימנט לחם בגבורה במלחמת ארצות הברית–ספרד (1898) ולאחר מכן במלחמת ארצות הברית–הפיליפינים (1899). תחת פיקודו של קולונל ג'ון פראיין (John H. Fraine), נשאו חיילי הרגימנט דגל כחול מעוטר בעיט במהלך עשרות היתקלויות צבאיות ברחבי האוקיינוס השקט.</p>
+                        <p>כאשר החיילים שבו למולדתם בתום המלחמה, הדגל שלהם, שהיה ספוג באבק הקרבות ההיסטוריים, הפך לסמל של גאווה מדינתית עצומה. ההערצה לגבורתם הייתה כה גדולה, עד שב-3 במרץ 1911, החליטה האסיפה המחוקקת של המדינה פשוט לאמץ את הנס הקרבי של הרגימנט כדגל המדינה הרשמי, עם שינוי קטן אחד בלבד.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-black text-white mb-4 flex items-center">
+                        <span class="w-3 h-8 bg-ndGold ml-3 rounded-full"></span>
+                        סמליות האלמנטים ההרלדיים בדגל:
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-slate-800/50 p-6 rounded-xl border-b-4 border-ndGold shadow-md">
+                            <h4 class="font-black text-white mb-3 text-lg underline italic text-ndGold">העיט הקירח (The Bald Eagle):</h4>
+                            <p class="text-slate-300">במרכז השדה הכחול כהה ניצב העיט הלאומי האמריקאי עם כנפיים פרושות. העיט מסמל את הכוח, החירות והריבונות של ארצות הברית, ומעיד על נאמנותה המוחלטת של המדינה לאיחוד ולשלטון הפדרלי.</p>
+                        </div>
+
+                        <div class="bg-slate-800/50 p-6 rounded-xl border-b-4 border-white shadow-md">
+                            <h4 class="font-black text-white mb-3 text-lg underline italic">המגן, החיצים וענף הזית:</h4>
+                            <p class="text-slate-300">על חזהו של העיט מגן המורכב מ-13 פסים (לזכר המושבות המקוריות). בטופרו הימני העיט אוחז ב**ענף זית** המסמל רצון לשלום, אך בטופרו השמאלי הוא חובק **אגודת חיצים**, המסמלים את המוכנות הצבאית להילחם על הערכים הללו.</p>
+                        </div>
+
+                        <div class="bg-slate-800/50 p-6 rounded-xl border-b-4 border-accent shadow-md">
+                            <h4 class="font-black text-white mb-3 text-lg underline italic text-accent">13 הכוכבים והשמש:</h4>
+                            <p class="text-slate-300">מעל ראשו של העיט מסודרים 13 כוכבים מוזהבים במבנה של שתי קשתות (קשת של 7 וקשת של 6 כוכבים). מעליהם בוקעות קרני שמש בהירות, המייצגות את לידתה והופעתה של אומה חדשה לעולם מתוך שורשי שלוש-עשרה המושבות.</p>
+                        </div>
+
+                        <div class="bg-slate-800/50 p-6 rounded-xl border-b-4 border-ndRed shadow-md">
+                            <h4 class="font-black text-white mb-3 text-lg underline italic text-ndRed">סרטי הכיתוב (השינוי היחיד):</h4>
+                            <p class="text-slate-300">במקור, הסרט שבפי העיט נושא את המוטו הלאומי *E Pluribus Unum* (מתוך רבים, אחד). השינוי היחיד שעשתה המדינה מהדגל הצבאי המקורי היה הוספת הסרט האדום מתחת לעיט ב-1911, שעליו נכתב בזהב <strong class="text-white">"NORTH DAKOTA"</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-20 pt-10 border-t border-slate-800 text-center">
+        <div class="flex flex-col items-center gap-2">
+            <p class="text-slate-500 text-sm font-black tracking-[0.3em] uppercase">
+                US State Origins Project
+            </p>
+            <p class="text-slate-400 text-lg font-bold">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
