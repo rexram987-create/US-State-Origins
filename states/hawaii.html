@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>הוואי - US State Origins - מחקר עומק</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#020617',
+                        cardBg: '#0f172a',
+                        accent: '#38bdf8',
+                        hawaiiRed: '#C8102E',
+                        hawaiiBlue: '#012169',
+                        hawaiiGold: '#f59e0b'
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(56, 189, 248, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.8;
+            background: radial-gradient(circle at top right, #1e293b, #020617);
+        }
+        .okina { color: #38bdf8; font-family: serif; font-weight: 900; }
+        .content-fade { animation: fadeIn 0.8s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-8">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-5xl mb-8 content-fade">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-all font-bold text-lg group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2 transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות המלא
+        </a>
+    </nav>
+
+    <!-- כותרת ראשית - מותאם אישית ל-S25 Ultra -->
+    <header class="w-full max-w-5xl bg-cardBg/80 backdrop-blur-md rounded-[2.5rem] shadow-glow p-8 sm:p-14 mb-12 border border-slate-700/50 relative overflow-hidden content-fade">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 relative z-10">
+            <div class="text-center md:text-right">
+                <h1 class="text-6xl sm:text-8xl font-black text-white mb-4 tracking-tighter">הוואי</h1>
+                <p class="text-3xl text-accent font-bold tracking-[0.2em] uppercase">Hawai<span class="okina">ʻ</span>i</p>
+                <div class="h-1.5 w-32 bg-hawaiiRed mt-4 rounded-full"></div>
+            </div>
+            <div class="bg-slate-900/80 p-8 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-2 uppercase tracking-widest">תאריך הצטרפות רשמי:</p>
+                <p class="text-4xl font-black text-white">21 באוגוסט, 1959</p>
+                <div class="mt-4 py-2 px-6 bg-hawaiiRed/20 text-hawaiiRed border border-hawaiiRed/30 rounded-full font-black text-sm inline-block">
+                    המדינה ה-50 והאחרונה באיחוד
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-5xl space-y-16 content-fade">
+        
+        <!-- 1. מחקר אטימולוגי מקיף ומושווה -->
+        <section class="bg-cardBg rounded-[2.5rem] p-8 sm:p-12 shadow-2xl border border-slate-800">
+            <h2 class="text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-6 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-5 text-2xl font-black shadow-lg">1</span>
+                מחקר אטימולוגי מלא ומחולק
+            </h2>
+            
+            <div class="space-y-12">
+                <div class="text-2xl leading-relaxed text-slate-300 font-medium border-r-8 border-accent pr-8 py-2">
+                    השם "הוואי" הוא הרבה מעבר לכינוי גיאוגרפי; זהו מושג רוחני המהווה את התשתית של התרבות הפולינזית כולה. המחקר האטימולוגי חושף קשרים בין-איים המשתרעים על פני אלפי קילומטרים באוקיינוס השקט.
+                </div>
+
+                <div class="grid grid-cols-1 gap-10">
+                    <div class="bg-slate-900/40 p-8 sm:p-12 rounded-[2rem] border-r-8 border-hawaiiGold shadow-inner">
+                        <h3 class="text-3xl font-black text-white mb-10 underline decoration-hawaiiGold decoration-4 underline-offset-8">ניתוח רכיבי השם הפרוטו-פולינזיים:</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            <div class="space-y-4">
+                                <p class="text-hawaiiGold font-black text-5xl mb-4 italic tracking-tighter">Hawa / Sawa</p>
+                                <p class="text-slate-300 text-xl leading-relaxed">
+                                    שורש עתיק זה מופיע כמעט בכל השפות הפולינזיות (כמו *Savaiki* בסמואה או *Hawaiki* אצל המאורים). משמעותו היא **"נחלה"**, **"מקום מוצא"** או **"בית הנשמות"**. במיתולוגיה הילידית, זהו האי האגדי שממנו הגיעו האבות הקדמונים ואליו חוזרים המתים כדי להתאחד עם האלים. המילה מרמזת על מקום של ראשוניות ובריאה.
+                                </p>
+                            </div>
+                            <div class="space-y-4">
+                                <p class="text-hawaiiGold font-black text-5xl mb-4 italic tracking-tighter">-i<span class="okina">ʻ</span>i / -iki</p>
+                                <p class="text-slate-300 text-xl leading-relaxed">
+                                    הרכיב השני מציין **"ספציפיות"** או **"קדושה"**. בשפת הוואי המודרנית, ה-Okina (הסימן <span class="okina">ʻ</span>) אינה רק סימן פיסוק אלא עיצור לכל דבר המייצג עצירה גרונית. עצירה זו החליפה את הצליל "k" הנפוץ בניבים דרומיים יותר, והיא מעניקה לשם את המקצב המקוטע והייחודי לו, המדגיש את חשיבות כל הברה והברה.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/50 p-10 rounded-[2rem] border-r-8 border-accent shadow-2xl">
+                        <h3 class="font-black text-white mb-6 text-3xl italic">סינתזה מחקרית והקשר מיתולוגי:</h3>
+                        <div class="space-y-8 text-xl text-slate-300 leading-relaxed">
+                            <p>
+                                הפירוש המילולי המדויק ביותר המקובל על בלשנים הוא <span class="text-white font-black underline decoration-accent text-3xl">"המולדת העתיקה והקדושה"</span>. השם משקף את האמונה כי האיים אינם סתם פיסות אדמה, אלא התגלמות של "Hawaiki" עלי אדמות. 
+                            </p>
+                            <p class="bg-slate-900/80 p-8 rounded-2xl border border-slate-700 italic">
+                                <strong>המסורת על הנווט Hawai<span class="okina">ʻ</span>i Loa:</strong> לפי אחת האגדות המרכזיות, נווט דגול בשם זה גילה את האיים לאחר מסע של חודשים בלב ים. הוא החליט לקרוא לארכיפלג על שמו, ולכל אי בנפרד העניק את שמות ילדיו (מאווי, אואהו וכו'). מחקרים מודרניים מציעים כי הסיפור מייצג את גל ההגירה המרכזי מהמרקיז (Marquesas) בסביבות שנת 400 לספירה.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. תולדות הממלכה וה"מושבה" האמריקאית -->
+        <section class="bg-cardBg rounded-[2.5rem] p-8 sm:p-12 shadow-2xl border border-slate-800">
+            <h2 class="text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-6 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-5 text-2xl font-black shadow-lg">2</span>
+                תולדות המדינה: מממלכה לריבונות אמריקאית
+            </h2>
+            
+            <div class="space-y-12">
+                <!-- הקמת הממלכה -->
+                <div class="bg-slate-800/40 p-10 rounded-2xl border-r-8 border-hawaiiGold shadow-lg">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-hawaiiGold decoration-2">עידן איחוד האיים: המלך קמהאמהה הראשון (1795)</h3>
+                    <div class="space-y-6 text-xl text-slate-300 leading-relaxed">
+                        <p>
+                            הוואי היא המדינה היחידה בארצות הברית שהייתה בעברה **ממלכה ריבונית ומאוחדת** המוכרת על ידי מעצמות העולם. בשנת 1795, הצליח המלך **קמהאמהה הגדול** (Kamehameha I) לאחד את כל האיים תחת שלטון מרכזי אחד. הוא עשה זאת באמצעות שילוב נדיר של כריזמה פוליטית ילידית ושימוש בטכנולוגיה צבאית מערבית (תותחים ורובים) שקיבל מסוחרים בריטים.
+                        </p>
+                        <p>
+                            במהלך המאה ה-19, הממלכה עברה תהליך מודרניזציה מואץ. הוקמו בתי ספר, אומצה חוקה, והוואי הפכה למרכז סחר עולמי של סוכר ולווייתנים. קפטן ג'יימס קוק, שהגיע לאיים ב-1778, כינה אותם "איי סנדוויץ'", אך המלך קמהאמהה התעקש על השם "ממלכת הוואי" כביטוי לעצמאות לאומית.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- המהפכה והכיבוש -->
+                <div class="bg-slate-800/40 p-10 rounded-2xl border-r-8 border-hawaiiRed shadow-lg">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-hawaiiRed decoration-2">נסיבות ההפיכה והפיכתה ל"טריטוריה" (1893-1898)</h3>
+                    <div class="space-y-6 text-xl text-slate-300 leading-relaxed">
+                        <p>
+                            סיפור הפיכתה של הוואי לחלק מארצות הברית הוא מהנושאים הטעונים ביותר בהיסטוריה האמריקאית. לקראת סוף המאה ה-19, קבוצה של אנשי עסקים אמריקאים (בעלי מטעי סוכר ואננס הידועים כ-"The Big Five") חתרו תחת השלטון המלוכני כדי להבטיח את רווחיהם הכלכליים ואת הסחר עם ארה"ב ללא מכסים.
+                        </p>
+                        <p>
+                            בינואר 1893, בגיבוי כוחות נחתים מהספינה *USS Boston*, בוצעה הפיכה צבאית נגד המלכה האחרונה, **ליליואוקלאני**. המלכה, שביקשה למנוע טבח בעמה, ויתרה על סמכויותיה תחת מחאה רשמית לממשלת ארה"ב. לאחר תקופה קצרה כ"רפובליקה" נשלטת-אמריקאים, סופחה הוואי כטריטוריה ב-1898. רק בשנת 1993, מאה שנים לאחר מכן, חתם הנשיא קלינטון על "החלטת ההתנצלות" (Apology Resolution) המכירה בכך שהדחת המלוכה הייתה בלתי חוקית.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- חשיבות אסטרטגית -->
+                <div class="bg-slate-900/60 p-10 rounded-2xl border border-slate-700 shadow-inner">
+                    <h3 class="text-3xl font-bold text-accent mb-6 flex items-center underline decoration-accent">
+                        הסיבה הגיאופוליטית: פרל הארבור ומרכז האוקיינוס השקט
+                    </h3>
+                    <p class="text-xl text-slate-300 leading-relaxed">
+                        הסיבה המרכזית לכך שארצות הברית סירבה לוותר על ריבונותה באיים הייתה **פרל הארבור** (Pearl Harbor). הנמל הטבעי והעמוק באי אואהו שימש כנכס הצבאי החשוב ביותר בחצי הכדור המערבי. המיקום של הוואי, בדיוק במרכז הדרך בין אמריקה לאסיה, הפך אותה ל"תחנת דלק" ומוקד שליטה הכרחי לכל סחר עולמי ופעילות צבאית באוקיינוס השקט. התקפת הפתע היפנית ב-1941 קיבעה סופית את התפיסה האמריקאית שהוואי היא קו ההגנה הקדמי והחיוני ביותר של האיחוד.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. וקסילולוגיה: מחקר הדגל ונסיבות יצירתו -->
+        <section class="bg-cardBg rounded-[2.5rem] p-8 sm:p-12 shadow-2xl border border-slate-800">
+            <h2 class="text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-6 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-5 text-2xl font-black shadow-lg">3</span>
+                וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו
+            </h2>
+            
+            <!-- תצוגת הדגל המעוצבת -->
+            <div class="flex flex-col items-center mb-16">
+                <div class="w-full max-w-md aspect-[3/2] bg-white rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-slate-700 relative flex flex-col group">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none"></div>
+                    <!-- 8 Stripes -->
+                    <div class="flex-1 w-full bg-white"></div>
+                    <div class="flex-1 w-full bg-hawaiiRed"></div>
+                    <div class="flex-1 w-full bg-hawaiiBlue"></div>
+                    <div class="flex-1 w-full bg-white"></div>
+                    <div class="flex-1 w-full bg-hawaiiRed"></div>
+                    <div class="flex-1 w-full bg-hawaiiBlue"></div>
+                    <div class="flex-1 w-full bg-white"></div>
+                    <div class="flex-1 w-full bg-hawaiiRed"></div>
+                    
+                    <!-- Canton (Union Jack) -->
+                    <div class="absolute top-0 left-0 h-[50%] w-[45%] bg-hawaiiBlue flex items-center justify-center overflow-hidden border-r-2 border-b-2 border-slate-900">
+                        <div class="relative w-full h-full flex items-center justify-center">
+                            <div class="absolute w-[150%] h-4 bg-white transform rotate-45"></div>
+                            <div class="absolute w-[150%] h-4 bg-white transform -rotate-45"></div>
+                            <div class="absolute w-[150%] h-2 bg-hawaiiRed transform rotate-45"></div>
+                            <div class="absolute w-[150%] h-2 bg-hawaiiRed transform -rotate-45"></div>
+                            <div class="absolute w-full h-8 bg-white"></div>
+                            <div class="absolute h-full w-8 bg-white"></div>
+                            <div class="absolute w-full h-4 bg-hawaiiRed"></div>
+                            <div class="absolute h-full w-4 bg-hawaiiRed"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-10 text-slate-400 font-black text-3xl bg-slate-900 px-12 py-5 rounded-full border border-slate-700 shadow-2xl italic tracking-widest">
+                    Ka Hae Hawai<span class="okina">ʻ</span>i
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                <div class="bg-slate-800/40 p-10 rounded-2xl border-r-8 border-hawaiiRed shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-hawaiiRed decoration-2">נסיבות יצירת הדגל: גאונות דיפלומטית בלב ים</h3>
+                    <div class="space-y-6 text-xl text-slate-300 leading-relaxed">
+                        <p>
+                            דגל הוואי הוא הדגל היחיד בארצות הברית הכולל את ה**יוניון ג'ק** הבריטי. הוא לא עוצב כדגל מדינה אמריקאית, אלא ככלי הישרדות דיפלומטי של המלך קמהאמהה הראשון בסביבות שנת 1816.
+                        </p>
+                        <p>
+                            <strong>הפשרה הדיפלומטית:</strong> במהלך מלחמת 1812 בין בריטניה לארה"ב, מצא עצמו המלך בבעיה: הנפת דגל בריטי (שקיבל במתנה מקפטן ונקובר) הרגיזה את האמריקאים, והנפת דגל ארה"ב הרגיזה את הבריטים. כדי להצהיר על **ניטרליות וריבונות**, הורה המלך לשלב את שני האלמנטים: היוניון ג'ק בפינה (כאות כבוד לברית עם בריטניה) ופסי רוחב בהשראת הדגל האמריקאי. התוצאה הייתה דגל "היברידי" שאיפשר לספינות הוואי לשוט בבטחה מבלי להיות מותקפות על ידי אף אחת מהמעצמות.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="space-y-10">
+                    <h3 class="text-3xl font-black text-white mb-8 flex items-center">
+                        <span class="w-3 h-10 bg-accent ml-4 rounded-full shadow-lg"></span>
+                        סמליות האלמנטים המורחבת:
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div class="bg-slate-900/60 p-10 rounded-3xl border-b-8 border-hawaiiBlue shadow-2xl">
+                            <h4 class="font-black text-white mb-6 text-2xl underline italic text-accent">היוניון ג'ק (Union Jack):</h4>
+                            <p class="text-slate-300 text-xl leading-relaxed">מסמל את הקשר ההיסטורי העמוק של הוואי לאימפריה הבריטית, שהייתה המעצמה הראשונה להכיר בעצמאות האיים. זהו שריד ויזואלי לתקופה שבה המלוכה שאבה את השראתה מהמבנה הפרלמנטרי והטקסי של בריטניה.</p>
+                        </div>
+
+                        <div class="bg-slate-900/60 p-10 rounded-3xl border-b-8 border-hawaiiRed shadow-2xl">
+                            <h4 class="font-black text-white mb-6 text-2xl underline italic text-hawaiiRed">שמונת הפסים (8 Stripes):</h4>
+                            <p class="text-slate-300 text-xl leading-relaxed mb-6 italic font-bold">הפסים האופקיים (לבן, אדום, כחול) מייצגים את שמונת האיים המרכזיים המרכיבים את הארכיפלג המאוחד:</p>
+                            <div class="grid grid-cols-2 gap-4 text-lg font-black text-slate-400">
+                                <span class="flex items-center"><span class="w-2 h-2 bg-hawaiiGold ml-2 rounded-full"></span>הוואי</span>
+                                <span class="flex items-center"><span class="w-2 h-2 bg-hawaiiGold ml-2 rounded-full"></span>מאווי</span>
+                                <span class="flex items-center"><span class="w-2 h-2 bg-hawaiiGold ml-2 rounded-full"></span>אואהו</span>
+                                <span class="flex items-center"><span class="w-2 h-2 bg-hawaiiGold ml-2 rounded-full"></span>קאואיי</span>
+                                <span class="flex items-center"><span class="w-2 h-2 bg-hawaiiGold ml-2 rounded-full"></span>מולוקאי</span>
+                                <span class="flex items-center"><span class="w-2 h-2 bg-hawaiiGold ml-2 rounded-full"></span>לאנאי</span>
+                                <span class="flex items-center"><span class="w-2 h-2 bg-hawaiiGold ml-2 rounded-full"></span>נייהאוו</span>
+                                <span class="flex items-center"><span class="w-2 h-2 bg-hawaiiGold ml-2 rounded-full"></span>קאהולאווה</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר מעוצב -->
+    <footer class="w-full max-w-5xl mt-24 pt-16 border-t border-slate-800 text-center pb-12">
+        <div class="flex flex-col items-center gap-6">
+            <div class="flex gap-4">
+                <div class="w-3 h-3 bg-hawaiiRed rounded-full"></div>
+                <div class="w-3 h-3 bg-white rounded-full"></div>
+                <div class="w-3 h-3 bg-hawaiiBlue rounded-full"></div>
+            </div>
+            <p class="text-slate-500 text-sm font-black tracking-[0.5em] uppercase">
+                US State Origins - The Complete Research Archive
+            </p>
+            <p class="text-slate-400 text-2xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
