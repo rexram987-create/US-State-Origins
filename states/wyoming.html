@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ויומינג - US State Origins - מחקר עומק</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#020617',
+                        cardBg: '#0f172a',
+                        accent: '#38bdf8',
+                        wyoBlue: '#002664',
+                        wyoRed: '#BE0B31',
+                        wyoGold: '#FFB81C'
+                    },
+                    boxShadow: {
+                        'glow': '0 0 25px rgba(56, 189, 248, 0.2)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.8;
+            background: radial-gradient(circle at top right, #1e293b, #020617);
+        }
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-800 relative overflow-hidden; }
+        .highlight-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-8 border-accent shadow-inner; }
+        .bison-shape { position: relative; width: 240px; height: 160px; background: white; clip-path: polygon(10% 20%, 90% 20%, 95% 40%, 90% 80%, 10% 80%, 5% 40%); }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-8">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-5xl mb-8">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-all font-bold text-xl group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2 transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת ראשית - מותאם אישית ל-S25 Ultra -->
+    <header class="w-full max-w-5xl bg-cardBg/90 backdrop-blur-xl rounded-[3rem] shadow-glow p-10 sm:p-16 mb-16 border border-slate-700/50 relative overflow-hidden text-center md:text-right">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-12 relative z-10">
+            <div>
+                <h1 class="text-6xl sm:text-9xl font-black text-white mb-6 tracking-tighter">ויומינג</h1>
+                <p class="text-3xl text-accent font-bold tracking-[0.3em] uppercase">Wyoming</p>
+                <div class="h-2 w-48 bg-wyoRed mt-6 rounded-full mx-auto md:mr-0"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-[2.5rem] border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">תאריך הצטרפות רשמי:</p>
+                <p class="text-5xl font-black text-white">10 ביולי, 1890</p>
+                <div class="mt-6 py-3 px-8 bg-wyoBlue/30 text-accent border border-accent/40 rounded-full font-black text-lg inline-block">
+                    המדינה ה-44 באיחוד
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-5xl space-y-20">
+        
+        <!-- 1. מחקר אטימולוגי מורחב - הסבר הנדידה הגיאוגרפית -->
+        <section class="section-card">
+            <h2 class="text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-16 h-16 rounded-2xl flex items-center justify-center ml-6 text-3xl font-black shadow-lg">1</span>
+                מחקר אטימולוגי מלא: "השם שנדד חצי יבשת"
+            </h2>
+            
+            <div class="space-y-12">
+                <div class="text-2xl leading-relaxed text-slate-300 font-medium border-r-8 border-accent pr-10 py-4">
+                    סיפורה של ויומינג הוא אנומליה היסטורית: המדינה נמצאת בהרי הרוקי שבמערב, אך שמה נגזר משפה ילידית של שבט ה**דלאוור** (Munsee Delaware) שחי במקור בחוף המזרחי, מרחק של כ-3,000 קילומטרים משם.
+                </div>
+
+                <div class="grid grid-cols-1 gap-12">
+                    <div class="bg-slate-900/40 p-10 sm:p-14 rounded-[2.5rem] border-r-8 border-wyoRed shadow-inner">
+                        <h3 class="text-3xl font-black text-white mb-10 underline decoration-wyoRed decoration-4 underline-offset-8">הפירוק השפתי המדויק (xwé:wamink):</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <div class="space-y-6">
+                                <p class="text-accent font-black text-6xl mb-6 italic tracking-tighter">xwé:</p>
+                                <p class="text-slate-300 text-2xl leading-relaxed">
+                                    שורש בשפת המונסי המציין **"גדול"**, **"נרחב"** או **"כביר"**. הוא משמש לתיאור של מרחבים גיאוגרפיים שאין להם קץ פיזי נראה לעין.
+                                </p>
+                            </div>
+                            <div class="space-y-6">
+                                <p class="text-accent font-black text-6xl mb-6 italic tracking-tighter">wamink</p>
+                                <p class="text-slate-300 text-2xl leading-relaxed">
+                                    הרכיב מציין **"עמק נהר שטוח"** או **"מישור"**. השילוב המלא *xwé:wamink* מתורגם כ<span class="text-white font-bold underline decoration-accent">"במישור הנהר הגדול"</span>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/50 p-12 rounded-[2.5rem] border-r-8 border-wyoGold shadow-2xl">
+                        <h3 class="font-black text-white mb-8 text-4xl italic">מדוע השם "נדד" למערב?</h3>
+                        <div class="space-y-8 text-2xl text-slate-300 leading-relaxed">
+                            <p>
+                                השם הפך לפופולרי במזרח ארה"ב בעקבות "עמק ויומינג" שבפנסילבניה, שהתפרסם בגלל קרב אכזרי במהפכה האמריקאית ובגלל פואמה מפורסמת של תומאס קמפבל משנת 1809, *"Gertrude of Wyoming"*. השם הפך למזוהה בתרבות האמריקאית עם "יופי פראי ושקט".
+                            </p>
+                            <p class="bg-slate-900/80 p-10 rounded-3xl border border-slate-700">
+                                <strong>החלטה פוליטית (1865):</strong> כאשר הוקמה הטריטוריה המערבית, חבר הקונגרס **ג'יימס אשלי** מאוהיו הציע את השם. אשלי, שמעולם לא ביקר באזור, פשוט "היה מאוהב" בצליל הפואטי של השם הפנסילבני. למרות שתושבי המקום העדיפו שמות כמו "שאיין" (על שם השבט המקומי) או "לינקולן", אשלי כפה את דעתו בקונגרס, וכך קיבלה מדינה במערב שם של עמק במזרח.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. תולדות המדינה: טריטוריה, רכבת וזכויות אזרח -->
+        <section class="section-card">
+            <h2 class="text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-16 h-16 rounded-2xl flex items-center justify-center ml-6 text-3xl font-black shadow-lg">2</span>
+                תולדות המדינה: טריטוריה, רכבת וזכויות אזרח
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="bg-slate-800/40 p-12 rounded-3xl border-r-8 border-wyoRed shadow-lg">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-wyoRed decoration-2">נסיבות הקמה: הרכבת כעורק חיים</h3>
+                    <p class="text-2xl text-slate-300 leading-relaxed">
+                        ויומינג לא הוקמה בגלל זהב או חקלאות, אלא בגלל גיאומטריה. חברת הרכבת **Union Pacific** הייתה זקוקה לנתיב הקל ביותר לחציית הרי הרוקי. "המעבר הדרומי" (South Pass) בוויומינג איפשר לרכבות לחצות את היבשת ללא שיפועים קיצוניים. המדינה נוצרה כרצועה סביב פסי הרכבת, וכל הערים הגדולות שלה (שאיין, לאראמי, רולינס) הוקמו כתחנות אספקה לרכבת הקיטור.
+                    </p>
+                </div>
+
+                <div class="bg-slate-800/40 p-12 rounded-3xl border-r-8 border-wyoGold shadow-lg">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-wyoGold decoration-2">חלוצת השוויון (The Equality State)</h3>
+                    <div class="space-y-6 text-2xl text-slate-300 leading-relaxed">
+                        <p>
+                            בשנת 1869, ויומינג הדהימה את העולם כשהעניקה לנשים זכות הצבעה – 50 שנה לפני שאר ארה"ב. הסיבה הייתה מעשית: בטריטוריה היו 6 גברים על כל אישה אחת, והממשל רצה למשוך נשים להתיישב באזור. 
+                        </p>
+                        <p class="font-bold text-white border-r-4 border-accent pr-6">
+                            כאשר הקונגרס ניסה לכפות עליהם לבטל זכות זו כתנאי להפיכה למדינה ב-1890, שלח בית המחוקקים מברק מפורסם: "אנו נישאר מחוץ לאיחוד מאה שנים, אך לא נבוא בלעדי נשותינו".
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו -->
+        <section class="section-card">
+            <h2 class="text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-16 h-16 rounded-2xl flex items-center justify-center ml-6 text-3xl font-black shadow-lg">3</span>
+                וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <div class="w-full max-w-lg aspect-[3/2] bg-wyoBlue rounded-[3rem] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6)] border-4 border-slate-700 relative flex flex-col group p-6">
+                    <div class="absolute inset-0 border-[20px] border-wyoRed"></div>
+                    <div class="absolute inset-[20px] border-[10px] border-white"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+                        <div class="bison-shape shadow-2xl flex items-center justify-center scale-125">
+                            <div class="w-20 h-20 rounded-full border-4 border-wyoBlue flex items-center justify-center p-1">
+                                <span class="text-[8px] text-wyoBlue font-black text-center leading-tight">THE GREAT SEAL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-4xl bg-slate-900 px-16 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest">
+                    דגל הביזון (Monarch of the Plains)
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                <div class="bg-slate-800/40 p-12 rounded-3xl border-r-8 border-wyoRed shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-wyoRed decoration-2">נסיבות היצירה: תחרות ה-DAR והטעות שהשתרשה</h3>
+                    <p class="text-2xl text-slate-300 leading-relaxed">
+                        הדגל עוצב ב-1916 על ידי **ורנה קיז**. ורנה תכננה שהביזון יפנה אל עבר המרחבים (לכיוון פתיחת הדגל). אולם, כשהדגלים הראשונים יוצרו, הוחלט להפוך את כיוון הביזון כך שיפנה לכיוון התורן. בווקסילולוגיה, חיות אמורות תמיד "לצעוד" לכיוון התורן כדי לא להיראות כבורחות בקרב. ורנה קיבלה את השינוי, והעיצוב הפך לסמל של עוצמה וסיבולת.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-2xl">
+                    <div class="bg-slate-900/60 p-10 rounded-3xl border-b-8 border-wyoBlue shadow-2xl">
+                        <h4 class="font-black text-white mb-6 underline italic text-accent">צבעי החופש:</h4>
+                        <p class="text-slate-300 leading-relaxed">הכחול מייצג את השמיים וההרים, הלבן את הטוהר, והאדום את דמם של החלוצים והילידים שעיצבו את האדמה.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-10 rounded-3xl border-b-8 border-wyoRed shadow-2xl">
+                        <h4 class="font-black text-white mb-6 underline italic text-wyoRed">הביזון (Bison):</h4>
+                        <p class="text-slate-300 leading-relaxed">מייצג את עדר האדיר ששלט במישורים. הוא נחשב ל"מונרך של המישורים" ומסמל את חוסנה של המדינה.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-5xl mt-32 pt-20 border-t border-slate-800 text-center pb-20">
+        <div class="flex flex-col items-center gap-8">
+            <p class="text-slate-500 text-lg font-black tracking-[0.6em] uppercase">
+                US State Origins Archive
+            </p>
+            <p class="text-slate-400 text-3xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
