@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>יוטה - מחקר אקדמי מורחב ומעודכן</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#F9A01B', /* Beehive Gold */
+                        utBlue: '#002244',
+                        utRed: '#AA0615'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 border-accent shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-white font-black text-2xl mb-5 underline italic decoration-slate-500/50 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-accent relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">יוטה</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Utah - The Beehive State</p>
+                <div class="h-2 w-56 bg-utRed mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(170,6,21,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">4 בינואר, 1896</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-45 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות תרבותית-לשונית
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    שמה של יוטה הוא תוצר של מפגש לשוני מרובע: שפות ילידיות, מתרגמים ספרדים, ושגיאות הגייה אנגליות של מתיישבים מאוחרים. למרבה האירוניה, השם הרשמי של המדינה נבחר על ידי פוליטיקאים בוושינגטון כנגד רצונם המפורש של מייסדי המדינה המורמונים (שביקשו לקרוא לה "דזרט").
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Yuta / Ute -->
+                    <div class="etymology-box border-accent">
+                        <p class="text-accent font-black text-5xl mb-6 italic tracking-tighter">Yuta / Ute</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> המילה נגזרה מהשפה האפאצ'ית הקדומה (Apachean) כ-*Yudah* (שפירושה "גבוה" או "עליון"), והתגלגלה לשם השבט האינדיאני "יוּט" (Ute) שאכלס את אזור האגן הגדול והרי הרוקי.</p>
+                            <p><strong>משמעות היסטורית:</strong> "אנשי ההרים" או "אנשי השמש העולה".</p>
+                            <p><strong>ניתוח מחקרי:</strong> שבטי האפאצ'י השתמשו במונח זה כדי לתאר את שכניהם, בני שבט היוט, שחיו בפסגות ההרים הגבוהות. כאשר חוקרים ספרדים, כמו פרנסיסקו קורונאדו, חדרו לאזור במאה ה-16, הם שמעו את המילה מהאפאצ'ים ותעתקו אותה לספרדית כ-"Yuta" (יוּטָה). המתיישבים האנגלו-אמריקאים שהגיעו מאוחר יותר הפכו את הכתיב ל-Utah, תוך השמטת הצליל הספרדי ואימוץ הגייה אנגלית שמסתיימת בתנועה פתוחה.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/60 p-10 rounded-[2rem] border-r-8 border-utBlue shadow-xl mt-10">
+                    <h3 class="font-black text-white mb-6 text-2xl italic underline decoration-utBlue underline-offset-8">המאבק הפוליטי על השם (1850):</h3>
+                    <div class="space-y-6 text-slate-300 leading-loose">
+                        <p>כאשר המתיישבים המורמונים הקימו את מדינתם העצמאית במדבר, הם קראו לה **"מדינת דזרט" (State of Deseret)** – מילה הלקוחה מ"ספר מורמון" שמשמעותה "דבורת דבש", סמל לתעשייה ושיתוף פעולה. הם שלחו נציגים לוושינגטון כדי לבקש צירוף לאיחוד תחת שם זה.</p>
+                        <p>אולם, הקונגרס האמריקאי, שחשדנותו כלפי המורמונים הייתה עצומה, סירב בתוקף להעניק למדינה החדשה שם בעל מטען דתי מובהק. במסגרת "פשרת 1850", הקונגרס הקים את הטריטוריה, אך כפה עליה את השם הניטרלי והגיאוגרפי "יוטה", כאות כבוד לשבט האינדיאני המקומי (שכנגדו המורמונים לחמו מאוחר יותר). זוהי מהלומה תרבותית שהמורמונים נאלצו לבלוע כדי לזכות בהכרה פדרלית.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: התיאולוגיה הפכה למדינה
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- ג'וזף סמית' -->
+                <div class="personality-card border-r-8 border-utBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-utBlue decoration-4 underline-offset-8">ההוגה והנביא: ג'וזף סמית' (Joseph Smith)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1805–1844. <strong>תואר היסטורי:</strong> מייסד כנסיית ישוע המשיח של קדושי האחרית.</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות והתגלות:</h4>
+                            <p class="leading-loose">סמית' נולד למשפחת חוואים ענייה במדינת ורמונט ולאחר מכן עבר למערב ניו יורק – אזור שכונה "המחוז השרוף" (Burned-over district) בשל הלהט הדתי ותנועות ההתעוררות ששטפו אותו. סמית' הצעיר גדל בסביבה של חיפוש רוחני נואש וסערה תיאולוגית. בשנת 1820, כשהיה בן 14 בלבד, חווה לטענתו התגלות (ה"חזון הראשון") שבה נאמר לו שכל הכנסיות הקיימות סטו מן הדרך האמיתית. מאוחר יותר טען כי הונחה על ידי מלאך לחשוף "לוחות זהב" קדומים, שאותם תרגם לספר שהוא הבסיס לאמונה המורמונית – **ספר מורמון**.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - הרסטורציה וציון:</h4>
+                            <p class="leading-loose">האידיאולוגיה של סמית' דגלה ברסטורציה (שחזור) מלאה של הכנסייה הנוצרית הקדומה, עם היררכיה של נביאים ושליחים חיים. מעבר לתיאולוגיה, חזונו היה גיאופוליטי: הוא האמין שעליו לאסוף את כל המאמינים ולהקים את "ציון" (Zion) החדשה על אדמת אמריקה – חברה קומונלית, צודקת ומופרדת מהעולם המושחת. בניסיון ליישם זאת, עברה הקהילה מניו יורק לאוהיו, למיזורי ולבסוף לאילינוי.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">המשבר והעברת הלפיד (1844):</h4>
+                            <p class="leading-loose">סמית' מעולם לא דרך ביוטה. ביוני 1844, בעקבות מתחים אלימים עם הציבור הלא-מורמוני (שזעם על כוחו הפוליטי של סמית' ועל חשיפת נוהג הפוליגמיה), הוא נכלא בקרתג', אילינוי. המון זועם פרץ לכלא ורצח אותו. הירצחו הפך אותו למרטיר והותיר את הקהילה מול סכנת השמדה, מה שחייב מנהיגות מסוג חדש לחלוטין – מנהיגות ביצועית ואסטרטגית.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- בריגהאם יאנג -->
+                <div class="personality-card border-r-8 border-accent shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-accent decoration-4 underline-offset-8">הבונה, משה האמריקאי והמושל: בריגהאם יאנג (Brigham Young)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1801–1877. <strong>תואר היסטורי:</strong> מושל טריטוריית יוטה ונשיא הכנסייה.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות ורקע - הנגר הפרגמטי:</h4>
+                            <p class="leading-loose">כמו סמית', גם יאנג נולד בורמונט למשפחת חקלאים ענייה. עקב עוני קשה, הוא לא קיבל השכלה מסודרת ועבד כנגר ונפח אומן כדי לשרוד. הרקע המעשי והטכני הזה היה קריטי; בעוד סמית' היה איש רוח וטקסטים, יאנג היה איש של בנייה, ארגון פרויקטים וחומר. כאשר המיר את דתו למורמוניות ב-1832, הוא הביא עמו יכולות ניהול לוגיסטיות חסרות תקדים.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה פוליטית - בדלנות עצמאית:</h4>
+                            <p class="leading-loose">האידיאולוגיה של יאנג גובשה מתוך טראומת הרדיפות של קהילתו. הוא האמין שלמורמונים אין מקום בטוח בתוך החברה האמריקאית הרגילה. משנתו דגלה בבדלנות מוחלטת (Isolationism), הסתמכות עצמית קיצונית (ייצור עצמי של כל צורכי הקהילה ללא תלות בסחר חיצוני), והקמת אוטונומיה פוליטית-דתית הרחק מעיני הממשל הפדרלי בוושינגטון. הוא בחר באזור האגן הגדול המדברי דווקא משום שאף אמריקאי אחר לא רצה בו.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - מסע הפליטים הגדול באמריקה:</h4>
+                            <ul class="list-disc list-inside space-y-4 text-lg leading-loose">
+                                <li><strong>יציאת מצרים האמריקאית (1846–1847):</strong> יאנג ארגן והוביל מסע לוגיסטי גאוני של כ-70,000 פליטים מורמונים על פני 2,000 קילומטרים של מישורים, נהרות והרים. ב-24 ביולי 1847, כשהשקיף מעגלת החולים שלו אל עבר עמק מלח שומם, הכריז: <span class="highlight-text">"This is the right place"</span> (זהו המקום הנכון).</li>
+                                <li><strong>בניית יוטה (Deseret):</strong> יאנג לא רק הקים את העיר סולט לייק סיטי, אלא שרטט ותכנן מאות התנחלויות במרחב אדיר הכולל את יוטה, נבאדה, ואיידהו של ימינו. הוא היה מתכנן ערים גאון שהטמיע את שיטת הגריד הרחב ואת תעלות ההשקיה שאפשרו חקלאות במדבר. בזכותו, יוטה הפכה למדינה העשירה והמסודרת ביותר במערב.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: סמלים של הישרדות ונס
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים / ציפור מדינתית -->
+                <div class="culture-highlight border-accent">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-accent">ציפור המדינה והישועה: השחף הקליפורני (California Gull)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">ציפור המדינה הרשמית (ה"נס" של 1848)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        זה אולי נשמע אבסורדי שמדינה מדברית המרוחקת כ-1,000 קילומטרים מהאוקיינוס תבחר בשחף כסמל הלאומי שלה, אך עבור יוטה, השחף הקליפורני (Larus californicus) אינו סתם חיה – הוא סמל להתערבות אלוהית ולהישרדות פיזית של אומה שלמה.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        בפנומנולוגיה המורמונית, אירוע זה ידוע כ**"נס השחפים" (Miracle of the Gulls)**. באביב 1848, לאחר החורף הקטלני הראשון של המתיישבים, הם זרעו את היבולים הראשונים שלהם בעמק סולט לייק – יבולים שעליהם הייתה תלויה הישרדותם לקראת החורף הבא. לפתע, נחילי ענק של "צרצרי מורמון" (חרקים טורפניים וענקיים) ירדו מההרים והחלו לחסל את הצמחייה הרכה. החקלאים ניסו הכל: אש, מים, ומכות במקלות, אך הצרצרים היו רבים מדי, והייאוש השתלט.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        אז, על פי המסורת המקומית, עננים לבנים הופיעו מעל ימת המלח הגדולה – להקות עצומות של שחפים קליפורניים ירדו על השדות. השחפים החלו לטרוף את הצרצרים בטירוף, וכאשר התמלאו, הקיאו אותם והמשיכו לאכול עוד ועוד במשך שבועות. פעולה ביולוגית פשוטה זו (שחפים מגיעים לאגם לאכול חרקים) נתפסה כנס שמיימי ישיר שהציל את הקהילה ממוות ברעב. כאות הוקרה, השחף מוגן בחוק ביוטה ואף הוקמה לכבודו אנדרטה מוזהבת ("אנדרטת השחף") בכיכר המקדש בסולט לייק סיטי.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-utRed">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-utRed">המנה הלאומית: Jell-O ירוק ותפוחי אדמה של הלוויות</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">קולינריה של קהילה, חסכנות והתאספות</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הזהות הקולינרית של יוטה ייחודית בנוף האמריקאי, שכן היא אינה נובעת מחומרי גלם טבעיים באזור, אלא מהדינמיקה הסוציולוגית של "משפחות מרובות ילדים וקהילות אדוקות".
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-accent">תפוחי אדמה של הלוויות (Funeral Potatoes):</span> המנה האייקונית והמנחמת ביותר ביוטה. מדובר בקדירה חמה (Casserole) המורכבת מתפוחי אדמה מגורדים, שמנת חמוצה, קרם מרק עוף, המון גבינת צ'דר, ומעליה שכבה פריכה של פתיתי תירס (Cornflakes) כתושים. השם הטרגי לכאורה נובע מתפקידה התרבותי: בארגון הנשים של הכנסייה המורמונית (Relief Society), נהוג להביא ארוחות למשפחה אבלה לאחר הלוויה. הקדירה הזו, שהיא זולה, מנחמת ומספיקה לעשרות אנשים, הפכה למנה הבסיסית בטקסים קהילתיים, וכיום היא מוגשת גם בחגים, חתונות ומפגשים משפחתיים.</li>
+                        <li><span class="text-white font-bold underline decoration-utBlue">ג'לי ירוק עם גזר מגורד (Green Jell-O):</span> החל משנת 2001, ג'לי הוא ה"חטיף המדינתי" הרשמי. יוטה מחזיקה בשיא העולמי של צריכת ג'לי לנפש. בסוף המאה ה-20, אמהות מורמוניות חיפשו דרכים יצירתיות, זולות ומהירות להאכיל משפחות של 6 עד 10 ילדים ולהוסיף צבע לשולחן האוכל. ג'לי ירוק (לרוב בטעם ליים) שעליו מפוזרים חתיכות גזר מגורד או קוביות אננס, נחשב למנה צדדית "מהודרת" בארוחות כנסייה. צריכת הג'לי כה מזוהה עם המורמונים, עד שהאזור התרבותי של יוטה, דרום איידהו ומזרח נבאדה מכונה על ידי דמוגרפים כ"רצועת הג'לי" (The Jell-O Belt).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-accent shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic">The Beehive State (מדינת הכוורת)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">אתוס של עבודה משותפת וויתור על האגו</p>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        הכינוי "מדינת הכוורת" אינו מתייחס לחקלאות דבש ביוטה, אלא מהווה אלגוריה תיאולוגית וסוציולוגית עמוקה לאופי החברה הנדרש כדי לשרוד במדבר שומם.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-lg mt-6">
+                        ב"ספר מורמון" מופיעה המילה **"דזרט" (Deseret)**, שפירושה במילון הטקסטואלי הוא "דבורת דבש". התיאולוגיה המורמונית רואה בדבורה את המודל המושלם לבניית חברה утоפית: כל דבורה פועלת בחריצות אינסופית (Industry), ללא אנוכיות, ומקריבה את רווחתה האישית למען הקולקטיב ולמען בניית ה"כוורת" (ממלכת האל/ציון). 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-lg mt-6">
+                        כאשר בריגהאם יאנג הוביל את המתיישבים לאגן הגדול, הדרך היחידה להפריח את השממה הייתה ויתור מוחלט על הקפיטליזם האינדיבידואלי שאפיין את שאר חלוצי המערב הפראי (כמו בטקסס או בקליפורניה). ביוטה, החקלאים עבדו בצוותים משותפים כדי לחפור תעלות השקיה ציבוריות ולבנות מחסני מזון משותפים. תפיסת ה"כוורת" יצרה חברה הרמונית, ממושמעת, בעלת יכולת ביצועית אדירה, שהפכה את יוטה ממדבר מלח לאימפריה חקלאית ותעשייתית. סמל הכוורת (Skep) מוטבע בכל פינה ביוטה – ממסמכים רשמיים, דרך כבישים, ועד לסמלי המשטרה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: מהפכת העיצוב הלאומי של 2024
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל יוטה החדש (2024) -->
+                <div class="w-full max-w-3xl aspect-[3/2] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col group">
+                    <!-- פס כחול עליון (שמיים אופטימיים) -->
+                    <div class="h-[40%] bg-utBlue relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
+                    </div>
+                    <!-- פס לבן אמצעי (הרים עם שיניים) -->
+                    <div class="h-[25%] bg-white relative">
+                        <!-- יצירת מראה של הרים עם clip-path -->
+                        <div class="absolute -top-10 left-0 right-0 h-20 bg-white" style="clip-path: polygon(0% 100%, 0% 50%, 15% 10%, 30% 60%, 50% 0%, 70% 60%, 85% 10%, 100% 50%, 100% 100%);"></div>
+                    </div>
+                    <!-- פס אדום תחתון (הקניונים) -->
+                    <div class="h-[35%] bg-[#AA0615]"></div>
+                    
+                    <!-- משושה כחול במרכז עם הכוורת -->
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+                        <div class="w-48 h-56 bg-utBlue flex flex-col items-center justify-center border-4 border-accent shadow-2xl transition-transform duration-700 group-hover:scale-110" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                            <div class="text-accent text-6xl drop-shadow-md">🍯</div> <!-- ייצוג לכוורת זהב -->
+                            <div class="text-white text-3xl mt-2 drop-shadow-md">⭐</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    דגל יוטה החדש <br><span class="text-xl font-medium text-slate-500">(אומץ רשמית ב-9 במרץ 2024)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-accent shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-accent decoration-4">מהפכת העיצוב - פרידה מהחותם המסורתי:</h3>
+                    <p class="text-xl leading-loose">
+                        במשך למעלה ממאה שנים, דגלה של יוטה היה מה שמכונה בווקסילולוגיה (חקר דגלים) כ"סדין כחול עם סמל" (Seal on a bedsheet) – חותם המדינה מודפס על רקע כחול כהה, שקשה מאוד לזיהוי מרחוק. בשנת 2023, החליט בית המחוקקים של יוטה לבצע צעד אמיץ וליצור דגל מודרני, גרפי ובעל משמעות חזותית עמוקה שיוכל לשמש את האזרחים בגאווה. לאחר קמפיין ציבורי עצום, נבחר העיצוב הנוכחי, שהפך לדגל הרשמי במרץ **2024**.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-utBlue shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-utBlue">גיאוגרפיה צבעונית (כחול, לבן, אדום):</h4>
+                        <p class="leading-loose text-lg">שלושת הפסים בדגל מייצגים את הנוף המגוון של יוטה. **הפס הכחול** העליון מסמל את השמיים הפתוחים, האגמים הגדולים, והאופטימיות של המדינה. **הפס הלבן** האמצעי, בעל חמש הפסגות המשוננות, מייצג באופן מובהק את הרי הרוקי המושלגים בחורף, שהם ליבת התיירות והטבע. **הפס האדום** התחתון מסמל את האדמה האדומה והקניונים הדרמטיים של דרום יוטה (אזור הפארקים הלאומיים כמו ציון וברייס), כמו גם את החוסן של תושבי המדינה.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-accent shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-accent">המשושה, הכוורת והכוכב:</h4>
+                        <p class="leading-loose text-lg">במרכז מונח **משושה כחול ממוסגר בזהב** – הצורה הגיאומטרית של תא כוורת. בתוכו מופיעה **כוורת זהב** (The Beehive), הסמל העתיק של יוטה מ-1847 המייצג תעשייה, קהילה, ומורשת. מתחת לכוורת, בין שני הקווים הזהובים התומכים בה, מופיע **כוכב מחומש לבן** בעל חמש זוויות. הכוכב אינו מייצג רק תקווה, אלא גם את כניסתה של יוטה לאיחוד (כוכב מתוך דגל ארה"ב) בשנת 1896, לאחר עשורים של עימות והתנגדות לממשל הפדרלי.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-accent rounded-full shadow-[0_0_15px_rgba(249,160,27,0.6)]"></div>
+                <div class="w-6 h-6 bg-utBlue rounded-full shadow-[0_0_15px_rgba(0,34,68,0.6)]"></div>
+                <div class="w-6 h-6 bg-utRed rounded-full shadow-[0_0_15px_rgba(170,6,21,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
