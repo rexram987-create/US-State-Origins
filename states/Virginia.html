@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>וירג'יניה - מחקר אקדמי מורחב ומלא</title>
+    <title>וירג'יניה - מחקר אקדמי מורחב ומעודכן</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -26,139 +26,140 @@
         body { 
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             -webkit-tap-highlight-color: transparent;
-            line-height: 1.8;
+            line-height: 1.85;
         }
-        /* גודל גופן 18px קבוע לטקסט רץ לנוחות ב-S25 Ultra */
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
         p, li, span, div, blockquote { font-size: 1.125rem; } 
-        .section-card { @apply bg-cardBg rounded-3xl p-8 sm:p-12 shadow-2xl border border-slate-700 mb-12; }
-        .etymology-box { @apply bg-slate-900/60 p-6 rounded-2xl border-r-4 border-accent shadow-inner mb-6; }
-        .personality-card { @apply bg-slate-800/50 p-6 rounded-2xl border border-slate-600 mb-8; }
-        .colonial-highlight { @apply bg-vgaBlue/10 p-8 rounded-2xl border-l-4 border-vgaBlue mb-8; }
-        .sub-header { @apply text-vgaGold font-black text-xl mb-4 underline italic decoration-vgaGold/30 underline-offset-8; }
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 border-accent shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-vgaGold font-black text-2xl mb-5 underline italic decoration-vgaGold/40 underline-offset-8; }
     </style>
 </head>
 <body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
 
     <!-- ניווט עליון -->
-    <nav class="w-full max-w-4xl mb-8">
-        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-bold text-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
             </svg>
             חזרה לאטלס המדינות
         </a>
     </nav>
 
     <!-- כותרת מחקר אקדמי -->
-    <header class="w-full max-w-4xl bg-cardBg rounded-3xl shadow-2xl p-10 sm:p-16 mb-12 border-t-8 border-vgaBlue relative overflow-hidden">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-right relative z-10">
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-vgaBlue relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
             <div>
-                <h1 class="text-4xl sm:text-6xl font-black text-white mb-2 tracking-tight">וירג'יניה</h1>
-                <p class="text-2xl text-accent font-bold tracking-[0.2em] uppercase italic">Virginia - Academic Research Archive</p>
-                <div class="h-1.5 w-48 bg-vgaRed mt-6 rounded-full mx-auto md:mr-0"></div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">וירג'יניה</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Virginia - Academic Research Archive</p>
+                <div class="h-2 w-56 bg-vgaRed mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(190,11,49,0.5)]"></div>
             </div>
-            <div class="bg-slate-900/90 p-8 rounded-2xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
-                <p class="text-slate-400 text-sm font-black italic mb-2 uppercase tracking-tighter">הצטרפות רשמית לאיחוד:</p>
-                <p class="text-4xl font-black text-white">25 ביוני, 1788</p>
-                <p class="text-sm text-accent mt-4 font-bold bg-accent/10 py-2 px-5 rounded-full inline-block border border-accent/20">המדינה ה-10 באיחוד</p>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">25 ביוני, 1788</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-10 באיחוד</p>
             </div>
         </div>
     </header>
 
-    <main class="w-full max-w-4xl space-y-16">
+    <main class="w-full max-w-4xl space-y-20">
         
         <!-- 1. אטימולוגיה: ניתוח פילולוגי מלכותי מולקולרי -->
         <section class="section-card">
-            <h2 class="text-3xl font-black text-accent mb-10 border-b border-slate-700 pb-6 flex items-center">
-                <span class="bg-accent text-darkBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl font-black">1</span>
-                אטימולוגיה
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: ניתוח פילולוגי מולקולרי
             </h2>
             
-            <div class="space-y-8">
-                <p class="leading-relaxed text-slate-300 font-medium italic border-r-4 border-slate-600 pr-6">
-                    השם "וירג'יניה" אינו תוצר של תיאור גיאוגרפי מקומי, אלא הבניה פוליטית-תרבותית שנועדה לקשר את היבשת החדשה ישירות ללב הריבונות האנגלית של המאה ה-16. השם מבוסס על השפה הלטינית, שהייתה שפת המדע והמשפט של התקופה.
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-600 pr-8 text-xl">
+                    השם "וירג'יניה" אינו תוצר של תיאור גיאוגרפי מקומי, אלא הבניה פוליטית-תרבותית שנועדה לקשר את היבשת החדשה ישירות ללב הריבונות האנגלית של המאה ה-16. השם מבוסס על השפה הלטינית, שהייתה שפת המדע, הדיפלומטיה והמשפט של התקופה.
                 </p>
 
-                <div class="space-y-6">
-                    <!-- פירוק מולקולרי של השם -->
-                    <div class="etymology-box">
-                        <p class="text-accent font-black text-4xl mb-4 italic tracking-tighter">Virgo / Virgin-</p>
-                        <div class="space-y-3">
+                <div class="space-y-8">
+                    <!-- Virgo -->
+                    <div class="etymology-box border-accent">
+                        <p class="text-accent font-black text-5xl mb-6 italic tracking-tighter">Virgo / Virgin-</p>
+                        <div class="space-y-4">
                             <p><strong>מקור:</strong> לטינית קלאסית.</p>
-                            <p><strong>משמעות:</strong> "בתולה".</p>
-                            <p><strong>ניתוח מחקרי:</strong> השם הוענק לטריטוריה בשנת 1584 על ידי סר וולטר ראלי במטרה להנציח את המלכה **אליזבת הראשונה**, שכונתה "המלכה הבתולה". מעבר למחווה האישית, המילה סימלה אידיאולוגיה קולוניאלית: האדמה נתפסה כ"בתולית" (Terra Virgo) – מקום שטרם נגאל על ידי תרבות "נכונה" וממתין להתיישבות פרוטסטנטית אנגלית שתעניק לו צורה וסדר.</p>
+                            <p><strong>משמעות מילולית:</strong> "בתולה".</p>
+                            <p><strong>ניתוח מחקרי והקשר פוליטי:</strong> השם הוענק לטריטוריה בשנת 1584 על ידי סר וולטר ראלי במטרה להנציח את המלכה **אליזבת הראשונה**, שכונתה "המלכה הבתולה" (משום שמעולם לא נישאה והקדישה את חייה לאומה). מעבר למחווה האישית והחנופה המלכותית, המילה סימלה אידיאולוגיה קולוניאלית עמוקה: האדמה של העולם החדש נתפסה כ"בתולית" (Terra Virgo) – מקום טהור שטרם נגאל על ידי תרבות אירופאית, וממתין ל"עיבור" פוליטי ודתי על ידי האומה הפרוטסטנטית האנגלית, כמשקל נגד לספרדים הקתולים שהשתלטו על דרום היבשת.</p>
                         </div>
                     </div>
 
+                    <!-- -ia -->
                     <div class="etymology-box border-vgaGold">
-                        <p class="text-vgaGold font-black text-4xl mb-4 italic tracking-tighter">-ia</p>
-                        <div class="space-y-3">
+                        <p class="text-vgaGold font-black text-5xl mb-6 italic tracking-tighter">-ia</p>
+                        <div class="space-y-4">
                             <p><strong>מקור:</strong> סיומת לטינית פונקציונלית.</p>
-                            <p><strong>משמעות:</strong> "ארץ של" או "נחלה של".</p>
-                            <p><strong>ניתוח מחקרי:</strong> הסיומת יוצרת הגדרה טריטוריאלית ספציפית. **Virginia** היא "ארצה של הבתולה". בתחילה, הגדרה זו הייתה רחבה מאוד וכללה את כל שטחי צפון אמריקה שטרם נתפסו על ידי הספרדים, מה שהיווה הכרזת ריבונות אנגלית גורפת על היבשת.</p>
+                            <p><strong>משמעות מילולית:</strong> "ארץ של" או "נחלה של".</p>
+                            <p><strong>ניתוח מחקרי:</strong> הסיומת יוצרת הגדרה טריטוריאלית ספציפית ומוחלטת. השילוב **Virginia** משמעותו המילולית היא "ארצה של הבתולה". בתחילה, הגדרה זו הייתה רחבה בצורה חסרת פרופורציה, וכללה את כל שטחי החוף המזרחי של צפון אמריקה שטרם נתפסו על ידי הספרדים. זו הייתה הכרזת ריבונות אנגלית גורפת על יבשת שלמה באמצעות מילה אחת.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. כרוניקה של ריבונות: ניתוח אישים מרכזיים -->
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
         <section class="section-card">
-            <h2 class="text-3xl font-black text-accent mb-10 border-b border-slate-700 pb-6 flex items-center">
-                <span class="bg-accent text-darkBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl font-black">2</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
                 כרוניקה של ריבונות: הוגים ובונים
             </h2>
             
-            <div class="space-y-12">
+            <div class="space-y-16">
                 <!-- סר וולטר ראלי -->
-                <div class="personality-card border-r-8 border-vgaGold">
-                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-vgaGold decoration-4 underline-offset-8">ההוגה והיזם: סר וולטר ראלי (Sir Walter Raleigh)</h3>
-                    <div class="space-y-6">
-                        <p><strong>שנות חיים:</strong> 1552–1618.</p>
+                <div class="personality-card border-r-8 border-vgaGold shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-vgaGold decoration-4 underline-offset-8">ההוגה והיזם: סר וולטר ראלי (Sir Walter Raleigh)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1552–1618.</p>
                         
-                        <div class="bg-black/20 p-6 rounded-xl">
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
                             <h4 class="sub-header">ילדות ורקע מעצב:</h4>
-                            <p>ראלי נולד בדבון, אנגליה, למשפחת אצולה כפרית קטנה אך מקושרת. ילדותו עברה בצל רדיפות דתיות קשות תחת שלטונה של מרי הראשונה הקתולית. החוויות הללו הטמיעו בו שנאה יוקדת לאימפריה הספרדית ותחושת שליחות להגן על הפרוטסטנטיות האנגלית, מה שהוביל אותו מאוחר יותר להשקיע את כל הונו בכיבוש המערב.</p>
+                            <p class="leading-loose">ראלי נולד בדבון, אנגליה, למשפחת אצולה כפרית קטנה אך מקושרת. ילדותו עברה בצל מאבקים דתיים אלימים תחת שלטונה של "בלאדי מרי" (מרי הראשונה הקתולית), אשר רדפה את משפחתו הפרוטסטנטית. החוויות הללו הטמיעו בו איבה תהומית לאימפריה הספרדית (שהייתה מגנת הקתוליות) ותחושת שליחות עזה להגן על הפרוטסטנטיות האנגלית ולהרחיב את גבולותיה מחוץ לאירופה.</p>
                         </div>
 
-                        <div class="bg-black/20 p-6 rounded-xl">
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
                             <h4 class="sub-header">אידיאולוגיה קולוניאלית:</h4>
-                            <p>ראלי האמין שעל אנגליה להפוך למעצמה ימית (Sea Power) כדי לשרוד. האידיאולוגיה שלו דגלה ב"התפשטות מונעת רווח": הוא ראה בווירג'יניה מקור לזהב, חומרי גלם לספינות, ובסיס אסטרטגי לשוד של ספינות האוצר הספרדיות. הוא חזה אימפריה שבה המסחר והצי הם עמודי התווך.</p>
+                            <p class="leading-loose">ראלי היה מהראשונים באנגליה שהבינו את משמעות ה"גאופוליטיקה הימית". הוא האמין שעל אנגליה להפוך למעצמת-ים (Sea Power) כדי להבטיח את שרידותה הכלכלית. האידיאולוגיה שלו דגלה ב"התפשטות מונעת רווח": הוא ראה בווירג'יניה מקור לזהב, חומרי גלם לבניית ספינות הצי, ובעיקר – בסיס מבצעי קדמי ומבוצר לשוד ופשיטות על ספינות האוצר הספרדיות שעשו את דרכן מהקריביים לאירופה.</p>
                         </div>
 
-                        <div class="bg-black/20 p-6 rounded-xl">
-                            <h4 class="sub-header">הישגים ופרויקטים:</h4>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li><strong>1584:</strong> קיבל את הזיכיון המלכותי הראשון לייסוד התיישבות באמריקה.</li>
-                                <li><strong>מושבת רואנוק (1585-1587):</strong> מימן וניהל את הניסיונות הראשונים להקמת מושבה קבועה. למרות שכשלו ("המושבה האבודה"), הם פתחו את הדרך המחשבתית להתיישבות עתידית.</li>
-                                <li>החדרת הטבק ותפוחי האדמה לחצר המלוכה האנגלית, מה ששינה את הרגלי הצריכה האירופיים.</li>
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים ופרויקטים מרכזיים:</h4>
+                            <ul class="list-disc list-inside space-y-4 text-lg leading-loose">
+                                <li><strong>1584:</strong> ראלי הצליח להשיג מהמלכה אליזבת את הזיכיון המלכותי הראשון והנדיר לייסוד התיישבות במזרח אמריקה.</li>
+                                <li><strong>מושבת רואנוק (1585-1587):</strong> הוא מימן וארגן את המשלחות הראשונות להקמת "המושבה האבודה". למרות שהפרויקט קרס טרגית, הוא פתח את הדלת המחשבתית והמעשית להתיישבות האנגלית הקבועה.</li>
+                                <li><strong>השפעה תרבותית:</strong> הוא נחשב לאדם שהחדיר את צריכת הטבק ואת תפוחי האדמה לחצר המלוכה האנגלית, מהלכים ששינו דרמטית את הכלכלה והחקלאות של אירופה כולה.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <!-- קפטן ג'ון סמית' -->
-                <div class="personality-card border-r-8 border-accent">
-                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-accent decoration-4 underline-offset-8">הבונה והמושיע: קפטן ג'ון סמית' (John Smith)</h3>
-                    <div class="space-y-6">
-                        <p><strong>שנות חיים:</strong> 1580–1631.</p>
+                <div class="personality-card border-r-8 border-accent shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-accent decoration-4 underline-offset-8">הבונה והמושיע: קפטן ג'ון סמית' (John Smith)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1580–1631. <strong>תקופת פעילות במושבה:</strong> 1607–1609.</p>
 
-                        <div class="bg-black/20 p-6 rounded-xl">
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
                             <h4 class="sub-header">ילדות ורקע מחוספס:</h4>
-                            <p>בניגוד לראלי האריסטוקרט, סמית' נולד למשפחת חקלאים בלינקולנשייר. בגיל 16, לאחר מות אביו, ברח מהבית והפך לשכיר חרב. הוא לחם ברחבי אירופה, נפל בשבי העות'מאנים, נמכר כעבד ברוסיה, ורצח את אדונו כדי לברוח חזרה לאנגליה. הרקע הזה הפך אותו לאדם חסר פחד, מעשי מאוד ובעל יכולת הישרדות פנומנלית.</p>
+                            <p class="leading-loose">בניגוד גמור לראלי האריסטוקרט, סמית' נולד למשפחת חקלאים שוכרי-אדמה בלינקולנשייר. לאחר מות אביו כשהיה בן 16, הוא נמלט מחיי הכפר והפך לשכיר חרב. במהלך שירותו, לחם ברחבי יבשת אירופה, הגיע עד טרנסילבניה, שם נשבה על ידי העות'מאנים, נמכר כעבד ברוסיה, רצח את אדונו כדי להשתחרר וחזר לאנגליה בדרך לא דרך. חוויות קיצוניות אלו עיצבו אדם בעל יכולות הישרדות פנומנליות, חסר פחד, ופרגמטי עד כאב.</p>
                         </div>
 
-                        <div class="bg-black/20 p-6 rounded-xl">
-                            <h4 class="sub-header">אידיאולוגיה של מנהיגות:</h4>
-                            <p>סמית' בז לאצולה ה"בטלנית" שהגיעה למושבה בחיפוש אחר זהב קל. האידיאולוגיה שלו הייתה מבוססת על מריטוקרטיה (שלטון המוכשרים) ומשמעת צבאית נוקשה. הוא האמין שרק עבודה פיזית מאומצת והתאמה לתנאי השטח יבטיחו את הישרדות הגזע האנגלי בעולם החדש.</p>
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה של מנהיגות קולוניאלית:</h4>
+                            <p class="leading-loose">סמית' הגיע לג'יימסטאון כחלק מהמשלחת המקורית ומיד בז ל"ג'נטלמנים" (האצילים) שחיפשו זהב בנחל במקום לזרוע תירס ולבנות ביצורים. האידיאולוגיה שלו התבססה על מריטוקרטיה קשוחה: לא התואר קובע, אלא כוח העבודה והמועילות לקהילה. הוא האמין שרק משמעת צבאית נוקשה והסתגלות מהירה למציאות בשטח – כולל סחר ולמידה מהילידים – יבטיחו את הישרדות האנגלים בווירג'יניה.</p>
                         </div>
 
-                        <div class="bg-black/20 p-6 rounded-xl">
-                            <h4 class="sub-header">הישגים ופרויקטים מרכזיים:</h4>
-                            <ul class="list-disc list-inside space-y-2">
-                                <li><strong>הצלת ג'יימסטאון (1607–1609):</strong> הנהיג את חוק "מי שלא עובד, לא אוכל" (He who will not work shall not eat), ובכך מנע את התפרקות המושבה ברעב.</li>
-                                <li><strong>מיפוי מפרץ צ'ספיק (1608):</strong> ערך מסעות חקר מסוכנים וצייר מפות כה מדויקות, שהן שימשו את המתיישבים במשך למעלה מ-70 שנה.</li>
-                                <li>יצירת בריתות אסטרטגיות (ומתוחות) עם שבטי הפאוטן, תוך שימוש בדיפלומטיה חריפה.</li>
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים ופרויקטים מכוננים:</h4>
+                            <ul class="list-disc list-inside space-y-4 text-lg leading-loose">
+                                <li><strong>הצלת ג'יימסטאון (1608):</strong> כשהמושבה עמדה על סף התפרקות ומוות ברעב, סמית' לקח את הפיקוד. הוא הכריז על חוק הברזל שעיצב את האתוס האמריקאי: <span class="text-white font-bold bg-slate-700 px-2 py-1 rounded">"מי שלא עובד, לא יאכל"</span> (He that will not work shall not eat). מדיניות זו הצילה את חיי המתיישבים.</li>
+                                <li><strong>דיפלומטיה עם הילידים:</strong> סמית' יצר רשת מורכבת של קשרי מסחר, איומים ובריתות עם קונפדרציית הפאוטן, כולל הקשר ההיסטורי עם בתו של המנהיג, פוקהונטס, שמנע השמדה מוחלטת של המושבה.</li>
+                                <li><strong>פרויקט המיפוי (1608):</strong> סמית' יצא למסעות חקר אמיצים במפרץ צ'ספיק וסביבותיו. המפות ששרטט היו כה מדויקות גיאוגרפית ומפורטות, שהן שימשו את המתיישבים והנווטים כמעט 100 שנים קדימה.</li>
                             </ul>
                         </div>
                     </div>
@@ -166,75 +167,70 @@
             </div>
         </section>
 
-        <!-- 3. תקופת המושבה: הניסוי הגדול והתהוות הריבונות (1607–1776) -->
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
         <section class="section-card">
-            <h2 class="text-2xl sm:text-3xl font-black text-accent mb-10 border-b border-slate-700 pb-6 flex items-center">
-                <span class="bg-accent text-darkBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl font-black">3</span>
-                תקופת המושבה: הניסוי הגדול והתהוות הריבונות
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: בעל החיים והמנה הלאומית
             </h2>
             
-            <div class="space-y-12">
-                <div class="colonial-highlight">
-                    <h3 class="text-2xl font-black text-white mb-6 italic underline">ייסוד ג'יימסטאון (1607) וסיבת הבנייה:</h3>
-                    <p class="text-slate-300 leading-relaxed mb-6">
-                        ב-14 במאי 1607, עגנו שלוש ספינות בתוך נהר הג'יימס. סיבת הבנייה הייתה בראש ובראשונה **ביטחונית וכלכלית**: המיקום נבחר בעומק הנהר כדי להיות מוסתר מספינות סיור ספרדיות. המתיישבים נשלחו על ידי "חברת וירג'יניה" למצוא זהב ודרך ימית למזרח. המושבה כמעט נכחדה ב"זמן הרעב" (1609-1610) כאשר רק 60 מתוך 500 מתיישבים שרדו.
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-vgaRed">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-vgaRed">בעל החיים הלאומי: שועל מצוי (Red Fox)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">בעל חיים מדינתי רשמי (אומץ היסטורית)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הבחירה ב**שועל מצוי (Red Fox)** כחיה המזוהה עם וירג'יניה נטועה עמוק בתוך ההיסטוריה המעמדית של המדינה ובתרבות האצולה של המטעים (Plantations). בניגוד למדינות המערב שאימצו חיות ספר מחוספסות, השועל האדום מסמל מסורת אנגלית עתיקה שהועתקה במדויק לעולם החדש: **ציד שועלים (Fox Hunting)**.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        אליטת בעלי האדמות של וירג'יניה, ה"קבאלירס" (Cavaliers), ראו בעצמם ממשיכי דרכה של האריסטוקרטיה הבריטית. הם ייבאו לווירג'יניה גם את השועלים האדומים מאירופה (שכנראה התרבו עם זנים מקומיים) וגם את כלבי הציד (Foxhounds) המיוחדים לשם כך. ציד השועלים לא היה רק ספורט; הוא היה סמל סטטוס, מפגש חברתי-פוליטי לבני המעמד הגבוה, ודרך להפגין שליטה על הטבע המקומי.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        **ג'ורג' וושינגטון** עצמו, אחד האבות המייסדים ומגדולי בניה של וירג'יניה, היה חובב מושבע של ציד שועלים באחוזתו במאונט ורנון. הוא אף היה שותף בטיפוח גזע הכלבים האמריקאי המיוחד לציד זה (American Foxhound), שהוא למעשה כלב המדינה של וירג'יניה. כך, השועל האדום כרוך בקשר בלתי ניתן לניתוק עם שכבת ההנהגה ההיסטורית של וירג'יניה.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <!-- הכלכלה -->
-                    <div class="bg-slate-900/60 p-8 rounded-3xl border-r-4 border-vgaGold shadow-2xl">
-                        <h4 class="text-2xl font-black text-white mb-6 underline decoration-vgaGold italic">כלכלת הטבק ("הזהב החום")</h4>
-                        <p class="text-slate-400 text-sm font-black mb-4 uppercase">פרויקט הדגל: 1612 | ג'ון רולף</p>
-                        <p class="text-slate-300 leading-relaxed">
-                            הזהב לא נמצא, אך המתיישב **ג'ון רולף** הצליח להכליא זרעי טבק קריביים שיצרו מוצר מתוק ומבוקש באירופה. הטבק הפך לעמוד השדרה של וירג'יניה. הוא שימש כמטבע רשמי, קבע את צורת ההתיישבות במטעים רחבי ידיים לאורך הנהרות, ויצר דרישה עצומה לכוח עבודה. דרישה זו הובילה ב-1619 להגעת הספינה ההולנדית הראשונה עם עבדים אפריקאים, אירוע ששינה את הגורל החברתי של אמריקה לנצח.
-                        </p>
-                    </div>
-
-                    <!-- הממשל -->
-                    <div class="bg-slate-900/60 p-8 rounded-3xl border-r-4 border-accent shadow-2xl">
-                        <h4 class="text-2xl font-black text-white mb-6 underline decoration-accent italic">בית הנבחרים (House of Burgesses)</h4>
-                        <p class="text-slate-400 text-sm font-black mb-4 uppercase">הקמה: 1619 | המודל: דמוקרטיה נציגותית</p>
-                        <p class="text-slate-300 leading-relaxed">
-                            וירג'יניה הייתה ערש הדמוקרטיה. ב-1619 התכנס במושבה הפרלמנט הנבחר הראשון בעולם החדש. זה היה ניסוי נועז בשלטון עצמי שאיפשר לבעלי האדמות לחוקק חוקים מקומיים. המוסד הזה חינך דורות של מנהיגים (כמו ג'פרסון וושינגטון) והטמיע את התפיסה שמיסים וחוקים צריכים להיקבע על ידי נציגי העם, מה שהוביל בסופו של דבר למהפכה.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-slate-800/40 p-8 rounded-2xl border border-slate-700 shadow-inner">
-                    <h4 class="text-xl font-black text-white mb-4">פרויקטים תשתיתיים מרכזיים במושבה:</h4>
-                    <ul class="space-y-4 text-slate-300">
-                        <li><span class="text-accent font-bold">1693:</span> הקמת קולג' "ויליאם ומרי" – המוסד האקדמי השני העתיק ביותר בארה"ב, שהפך למרכז האינטלקטואלי של המהפכה.</li>
-                        <li><span class="text-accent font-bold">1699:</span> העברת הבירה לג'יימסטאון לוויליאמסבורג – תכנון עירוני מודרני ראשון מסוגו במושבות.</li>
-                    </ul>
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-vgaGold">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-vgaGold">המנה הלאומית: בשר חזיר כפרי (Virginia Country Ham)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מורשת קולינרית של שימור והישרדות</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של וירג'יניה מוגדרת פנומנולוגית על ידי מוצר אחד המגלם בתוכו את היסטוריית ההתיישבות, האקלים והחקלאות של המדינה: **בשר החזיר הכפרי של וירג'יניה (Virginia Country Ham)**. מנה זו היא הרבה מעבר לאוכל; היא טכנולוגיית שימור של המאה ה-17 שהפכה למעדן תרבותי.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        המתיישבים האנגלים הראשונים בג'יימסטאון הביאו עמם חזירים, שהתגלו כחיות ההישרדות המושלמות לעולם החדש – הם שוטטו חופשי ביערות, ניזונו מבלוטים ובוטנים, והתרבו במהירות. אולם, ללא קירור באקלים הלח והחם של וירג'יניה, היה צורך למצוא דרך לשמר את הבשר לקראת החורף. המתיישבים אימצו שילוב של טכניקות אירופאיות וילידיות: הבשר הומלח בכבדות, יובש באוויר במשך חודשים, ולאחר מכן עושן בעץ היקורי (Hickory) מקומי. 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        המרכז ההיסטורי והמפורסם ביותר של תעשייה זו נמצא בעיירה **סמית'פילד (Smithfield)** במזרח וירג'יניה. ה"סמית'פילד האם" הפך למותג כה יוקרתי (בדומה לשמפניה בצרפת), עד שהחוק המדינתי קובע שרק בשר שעבר את תהליך השימור והיישון המדויק בתוך גבולות העיירה יכול לשאת שם זה. המנה מוגשת בדרך כלל בפרוסות דקות, עם ביסקוויטים דרומיים וחמאת תפוחים, והיא מהווה חוט מקשר ישיר בין תושבי וירג'יניה המודרניים לאבותיהם המייסדים.
+                    </p>
                 </div>
             </div>
         </section>
 
         <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
         <section class="section-card">
-            <h2 class="text-2xl sm:text-3xl font-black text-accent mb-10 border-b border-slate-700 pb-6 flex items-center">
-                <span class="bg-accent text-darkBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl font-black">4</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
                 אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
             </h2>
             
-            <div class="space-y-10">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <!-- The Old Dominion -->
-                    <div class="bg-slate-900/40 p-10 rounded-3xl border-r-8 border-vgaBlue shadow-2xl">
-                        <h3 class="text-2xl font-black text-white mb-6 underline italic">The Old Dominion (הנחלה העתיקה)</h3>
-                        <p class="text-slate-400 text-sm font-black mb-4 uppercase">מקור: המאה ה-17 | צ'ארלס השני</p>
-                        <p class="text-slate-300 leading-relaxed">
-                            זהו כינוי המבטא נאמנות פוליטית עמוקה. במהלך מלחמת האזרחים האנגלית (1642–1651), וירג'יניה נותרה נאמנה לכתר האנגלי בזמן שאנגליה עצמה הייתה תחת שלטון הרפובליקני של אוליבר קרומוול. המלך צ'ארלס השני כינה אותה "הנחלה העתיקה והנאמנה ביותר שלי", וקיבע את מעמדה כמעוז של אצילות ושמרנות אנגלית בלב המערב.
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-vgaBlue shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Old Dominion (הנחלה העתיקה)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מקור היסטורי: המלך צ'ארלס השני (מאה ה-17)</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            כינוי המבטא נאמנות פוליטית עמוקה ושורשית למוסד המלוכה הבריטי טרם המהפכה האמריקאית. במהלך מלחמת האזרחים האנגלית הסוערת (1642–1651), כאשר אנגליה נפלה תחת השלטון הרפובליקני של אוליבר קרומוול, וירג'יניה נותרה המושבה היחידה שהפגינה נאמנות גלויה לכתר. כאות הוקרה, המלך הגולה (ולימים השליט שהושב לכסאו) צ'ארלס השני קרא לווירג'יניה "הנחלה העתיקה והנאמנה ביותר שלי". הכינוי קיבע את מעמדה של וירג'יניה כמעוז של אצילות, שמרנות אנגלית, והמשכיות מעמדית בלב היבשת החדשה.
                         </p>
                     </div>
 
                     <!-- Mother of Presidents -->
-                    <div class="bg-slate-900/40 p-10 rounded-3xl border-r-8 border-vgaRed shadow-2xl">
-                        <h3 class="text-2xl font-black text-white mb-6 underline italic">Mother of Presidents (אם הנשיאים)</h3>
-                        <p class="text-slate-400 text-sm font-black mb-4 uppercase">מקור: המאה ה-18 וה-19</p>
-                        <p class="text-slate-300 leading-relaxed">
-                            וירג'יניה סיפקה לארצות הברית שמונה נשיאים, כולל ארבעה מתוך חמשת הנשיאים הראשונים. הכינוי מעיד על הדומיננטיות המוחלטת של האליטה הווירג'ינית בעיצוב החוקה, הצבא והמוסדות הפדרליים. המדינה נתפסה כ"מעיין" שממנו נובעת המנהיגות האמריקאית הראויה.
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-vgaRed shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">Mother of Presidents (אם הנשיאים)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מקור היסטורי: שחרור האומה (המאות ה-18 וה-19)</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            וירג'יניה הייתה כור ההיתוך והמעיין האינטלקטואלי ממנו צמחה המנהיגות של הרפובליקה האמריקאית הצעירה. המדינה הצמיחה מתוכה שמונה נשיאים, כולל ארבעה מתוך חמשת הנשיאים הראשונים: ג'ורג' וושינגטון, תומאס ג'פרסון, ג'יימס מדיסון וג'יימס מנרו. הכינוי מעיד על הדומיננטיות המוחלטת של האליטה הווירג'ינית בעיצוב חוקת ארצות הברית, כינון הצבא, והקמת המוסדות הפדרליים שמלווים את האומה עד היום. המדינה נתפסת כ"רחם" הפוליטי שממנו הגיחה המנהיגות הראויה.
                         </p>
                     </div>
                 </div>
@@ -243,50 +239,49 @@
 
         <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
         <section class="section-card">
-            <h2 class="text-2xl sm:text-3xl font-black text-accent mb-10 border-b border-slate-700 pb-6 flex items-center">
-                <span class="bg-accent text-darkBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl font-black">5</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
                 וקסילולוגיה: ניתוח סמיוטי של דגל המדינה
             </h2>
             
             <div class="flex flex-col items-center mb-16">
                 <!-- ייצוג ויזואלי של דגל וירג'יניה -->
-                <div class="w-full max-w-sm aspect-[3/2] bg-vgaBlue rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] border-4 border-slate-700 relative flex items-center justify-center p-8 group">
-                    <div class="w-48 h-48 rounded-full border-4 border-white flex flex-col items-center justify-center bg-white/20 backdrop-blur-md shadow-2xl transition-transform group-hover:scale-110">
-                        <div class="text-vgaGold font-black text-[14px] mb-2 tracking-widest">VIRGINIA</div>
-                        <div class="text-white text-6xl drop-shadow-lg">🛡️</div>
-                        <div class="text-white text-[9px] mt-4 font-black tracking-tighter">SIC SEMPER TYRANNIS</div>
+                <div class="w-full max-w-2xl aspect-[3/2] bg-vgaBlue rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex items-center justify-center p-10 group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/40 pointer-events-none"></div>
+                    <div class="w-64 h-64 rounded-full border-[6px] border-white flex flex-col items-center justify-center bg-white/20 backdrop-blur-lg shadow-2xl transition-transform duration-700 group-hover:scale-110">
+                        <div class="text-vgaGold font-black text-lg mb-2 tracking-[0.4em] uppercase drop-shadow-md">Virginia</div>
+                        <div class="text-white text-7xl drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] transform -translate-y-1">🛡️</div>
+                        <div class="text-white text-[10px] mt-4 font-black tracking-[0.2em] border-t-2 border-white/40 pt-2 w-4/5 text-center">SIC SEMPER TYRANNIS</div>
                     </div>
                 </div>
-                <p class="mt-8 text-slate-400 font-black text-2xl bg-slate-900 px-12 py-4 rounded-full border border-slate-700 shadow-2xl italic tracking-widest">
-                    דגל וירג'יניה - הניצחון על העריצות
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest">
+                    דגל וירג'יניה - הניצחון המוחלט על העריצות
                 </p>
             </div>
 
-            <div class="space-y-12 text-slate-300">
-                <!-- נסיבות היצירה -->
-                <div class="bg-slate-800/40 p-10 rounded-2xl border-r-8 border-vgaBlue shadow-xl">
-                    <h3 class="text-2xl font-black text-white mb-6 italic underline decoration-vgaBlue decoration-2">נסיבות היצירה וזהות המתכנן (1776)</h3>
-                    <p class="text-xl leading-relaxed">
-                        הדגל והחותם של וירג'יניה עוצבו בעיצומה של המהפכה האמריקאית, בשנת **1776**. המתכנן הראשי היה **ג'ורג' מייסון** (George Mason), מחבר "הצהרת הזכויות של וירג'יניה". מייסון רצה ליצור סמל שיבטא את ההתנגדות המוחלטת לעריצות המלוכה הבריטית. בניגוד לדגלים אחרים המשתמשים בסמלים הרלדיים אירופיים, מייסון בחר בדימויים קלאסיים רומיים המדגישים את חירות הפרט מול כוח המדינה.
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-vgaBlue shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-vgaBlue decoration-4">נסיבות יצירת הסמל המהפכני (1776):</h3>
+                    <p class="text-xl leading-loose">
+                        החותם המדינתי המופיע על הדגל (שאומץ רשמית במתכונת זו רק ב-1861, אך החותם קיים מ-1776) עוצב בשיאה של מלחמת העצמאות האמריקאית. המתכנן הראשי היה **ג'ורג' מייסון** (George Mason), אינטלקטואל, מחבר "הצהרת הזכויות של וירג'יניה" ואחד האבות המייסדים. בניגוד לדגלי המלוכה שהסתמכו על מגנים, אריות וסמלים הרלדיים אירופיים הקשורים למשפחות מלוכה, מייסון בחר לשאוב השראה מדימויים קלאסיים מהרפובליקה הרומית. המטרה הייתה ליצור סמל שימחק כל קשר למורשת הבריטית וידגיש את ערכי חירות הפרט מול כוחה של המדינה המדכאת.
                     </p>
                 </div>
 
-                <!-- פירוט סמלי מורחב -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div class="bg-slate-900/60 p-10 rounded-3xl border-b-8 border-accent shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-2xl underline italic text-accent">האמזונה ווירטוס (Virtue):</h4>
-                        <p class="leading-relaxed">במרכז החותם ניצבת הדמות הנשית "ווירטוס" (סגולה/מידה טובה). היא לבושה כאמזונה, שד אחד חשוף (סמל לחירות קלאסית), אוחזת בחנית המופנית כלפי מטה כסימן לכך שהקרב הסתיים בניצחון. היא מייצגת את הרוח הלוחמת של המדינה הנלחמת עבור חירותה.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-accent shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-accent">דמות האמזונה ווירטוס (Virtue):</h4>
+                        <p class="leading-loose text-lg">במרכז החותם ניצבת הדמות המיתולוגית הנשית "ווירטוס", המייצגת את סגולות המידה הטובה והאומץ של המדינה. היא לבושה כשריון של אמזונה לוחמת. בידה האחת היא אוחזת חנית הפונה כלפי מטה, כסימן לכך שהקרב כבר הסתיים בניצחון, ובידה השנייה חרב מונחת בנדנה, סמל לכוח שמופעל רק למען הצדק.</p>
                     </div>
-                    <div class="bg-slate-900/60 p-10 rounded-3xl border-b-8 border-vgaRed shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-2xl underline italic text-vgaRed">העריץ המובס:</h4>
-                        <p class="leading-relaxed">מתחת לרגליה של ווירטוס שרוע העריץ (המסמל את המלך ג'ורג' השלישי). כתרו מוטל הצידה בבוז, הוא מחזיק בשוט ושרשרת שבורה – סמלים לעבדות ולכפייה שהופסקו. זהו מסר חזותי אלים וברור: כל מי שינסה לשעבד את וירג'יניה, סופו להימחץ.</p>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-vgaRed shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-vgaRed">העריץ המובס וההשפלה:</h4>
+                        <p class="leading-loose text-lg">מתחת לרגליה של ווירטוס שרוע אדם – זהו "העריץ", המהווה ייצוג ישיר של מלך בריטניה ג'ורג' השלישי. כתרו המלכותי מוטל על הקרקע בבוז, ובידיו נראים שוט ושרשרת שבורה – סמלים מובהקים לדיכוי, למיסוי לא צודק ולעבדות פוליטית שנופצו. זוהי הצהרה ויזואלית אלימה וחד-משמעית המאפיינת את רוח המהפכה.</p>
                     </div>
                 </div>
 
-                <div class="bg-slate-800/50 p-10 rounded-3xl border-r-8 border-vgaGold shadow-inner">
-                    <h4 class="text-2xl font-black text-white mb-4 italic underline decoration-vgaGold">המוטו: Sic Semper Tyrannis</h4>
-                    <p class="text-xl leading-relaxed italic">
-                        "כך תמיד לעריצים" – אלו היו המילים המיוחסות לברוטוס בעת רצח יוליוס קיסר. המוטו מבטא את המחויבות הנצחית של וירג'יניה להגן על החירות הפוליטית בכל מחיר.
+                <div class="bg-slate-800/60 p-12 rounded-[2.5rem] border-r-8 border-vgaGold shadow-inner text-center">
+                    <h4 class="text-4xl font-black text-white mb-6 italic underline decoration-vgaGold">המוטו הלטיני: Sic Semper Tyrannis</h4>
+                    <p class="text-2xl leading-loose italic font-bold">
+                        "כך תמיד לעריצים". אלו הן, על פי המסורת, המילים שצעק ברוטוס בעת רציחתו של יוליוס קיסר ברומא העתיקה. המוטו על הדגל מבטא את ההצהרה הנצחית של תושבי וירג'יניה: כל מי שינסה לפגוע בחירותם הפוליטית ולשעבד אותם – יסיים מובס, שרוע על הקרקע.
                     </p>
                 </div>
             </div>
@@ -295,17 +290,17 @@
     </main>
 
     <!-- פוטר אתר ממותג -->
-    <footer class="w-full max-w-4xl mt-32 pt-20 border-t border-slate-800 text-center pb-20">
-        <div class="flex flex-col items-center gap-8">
-            <div class="flex gap-4">
-                <div class="w-4 h-4 bg-vgaBlue rounded-full shadow-lg"></div>
-                <div class="w-4 h-4 bg-vgaRed rounded-full shadow-lg"></div>
-                <div class="w-4 h-4 bg-vgaGold rounded-full shadow-lg"></div>
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-vgaBlue rounded-full shadow-[0_0_15px_rgba(0,38,100,0.6)]"></div>
+                <div class="w-6 h-6 bg-vgaRed rounded-full shadow-[0_0_15px_rgba(190,11,49,0.6)]"></div>
+                <div class="w-6 h-6 bg-vgaGold rounded-full shadow-[0_0_15px_rgba(255,184,28,0.6)]"></div>
             </div>
-            <p class="text-slate-500 text-lg font-black tracking-[0.6em] uppercase">
-                US State Origins - Complete Research Archive
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
             </p>
-            <p class="text-slate-400 text-3xl font-black">
+            <p class="text-slate-400 text-4xl font-black">
                 האתר נוצר על ידי ג'מיני ורם | 2026
             </p>
         </div>
@@ -313,4 +308,5 @@
 
 </body>
 </html>
+
 
