@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>טנסי - מחקר אקדמי מורחב ומעודכן</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#ef4444', /* Tennessee Red */
+                        tnBlue: '#002d65',
+                        tnWhite: '#ffffff'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 border-accent shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-white font-black text-2xl mb-5 underline italic decoration-slate-500/50 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-accent relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">טנסי</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Tennessee - Academic Research Archive</p>
+                <div class="h-2 w-56 bg-tnBlue mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(0,45,101,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">1 ביוני, 1796</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-16 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: ניתוח פילולוגי מולקולרי
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    השם "טנסי" הוא אנדרטה לשונית לעמים הילידיים שאכלסו את עמקי האפלצ'ים טרם הגעת האירופאים. בניגוד לשמות המנציחים מלכים אנגלים, שם זה צמח מתוך הטופוגרפיה והתרבות של אומת הצ'רוקי (Cherokee), ועבר גלגולים פונטיים דרך חוקרים ספרדים ובריטים עד לקיבועו הנוכחי.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Ta-na-si -->
+                    <div class="etymology-box border-accent">
+                        <p class="text-accent font-black text-5xl mb-6 italic tracking-tighter">Ta-na-si / Tanasqui</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפת הצ'רוקי (Cherokee) והיוצ'י (Yuchi).</p>
+                            <p><strong>משמעות היסטורית:</strong> "טנאסי" היה שמו של כפר מרכזי של בני הצ'רוקי ששכן על גדות נהר הליטל-טנסי (Little Tennessee River), באזור מחוז מונרו של ימינו. הכפר שימש כבירה פוליטית ומרכז סחר עבור הילידים.</p>
+                            <p><strong>ניתוח מחקרי של המשמעות:</strong> הפירוש המדויק של המילה אבד במהלך הדורות עקב העקירה הכפויה של הצ'רוקי ("נתיב הדמעות"). עם זאת, חוקרי שפות ילידיות מציעים שתי משמעויות מרכזיות שנותרו בפולקלור: האחת היא **"מקום מפגש"** (Meeting Place) – על שום היות הכפר צומת דרכים חשוב לסחר בין שבטים. השנייה היא **"הנהר המתפתל"** או "הנהר בעל העיקולים הרבים", המתארת במדויק את המורפולוגיה של נהר הטנסי שחוצב את דרכו דרך האזור ההררי.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/60 p-10 rounded-[2rem] border-r-8 border-tnBlue shadow-xl mt-10">
+                    <h3 class="font-black text-white mb-6 text-2xl italic underline decoration-tnBlue underline-offset-8">כרוניקת התיעוד והקיבוע:</h3>
+                    <div class="space-y-6 text-slate-300 leading-loose">
+                        <p><strong>1567:</strong> מגלה הארצות הספרדי **חואן פארדו** (Juan Pardo) היה האירופאי הראשון שתיעד את השם בכתב. הוא סייר באזור וציין ביומניו יישוב ילידי מבוצר בשם "Tanasqui".</p>
+                        <p><strong>1755:</strong> מושל קרוליינה הדרומית הבריטי, ג'יימס גלן, השתמש רשמית באיות האנגלי "Tennessee" במכתביו כדי לתאר את האזור והנהר. כאשר המדינה נוסדה ב-1796 מתוך מה שנקרא עד אז "הטריטוריה הדרום-מערבית", בחרו האבות המייסדים לאמץ את השם הילידי המרשים הזה, כאקט של חיבור אותנטי למרחב הגיאוגרפי והתנתקות מן השמות הבריטיים שאפיינו את מדינות החוף המזרחי.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: הוגים, לוחמים ובונים
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- ג'ון סבייר -->
+                <div class="personality-card border-r-8 border-accent shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-accent decoration-4 underline-offset-8">הלוחם, המייסד והמושל הראשון: ג'ון סבייר (John Sevier)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1745–1815. <strong>תקופת כהונה כמושל:</strong> 1796-1801, 1803-1809.</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות ורקע בספר:</h4>
+                            <p class="leading-loose">סבייר נולד בעמק שננדואה (Shenandoah Valley) בווירג'יניה, עמוק בתוך קו הספר (The Frontier) של אמריקה הקולוניאלית. הוא היה בן למשפחת מהגרים הוגנוטים (פרוטסטנטים צרפתים שברחו מרדיפות). בניגוד לאריסטוקרטים של ערי החוף המזרחי, סבייר גדל בסביבה אלימה שדרשה הישרדות יומיומית. הוא לא רכש השכלה אקדמית פורמלית, אלא התחנך בשטח – בלחימה, בציד, ובמסחר עם השבטים הילידיים. כינויו העממי והנערץ היה "Nolichucky Jack", על שם הנהר שעל גדותיו התיישב.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה קולוניאלית - עצמאות ההר:</h4>
+                            <p class="leading-loose">סבייר ייצג אידיאולוגיה פוליטית של התפשטות אגרסיבית מערבה ושלטון עצמי קיצוני. הוא האמין שלמתיישבי ההרים (הידועים כ-Overmountain Men) יש זכות טבעית וריבונית לנהל את חייהם ואת אדמותיהם ללא כל התערבות של אצולת החוף הפחדנית או פוליטיקאים רחוקים שאינם מבינים את סכנות המערב. אמונה בוערת זו אף הובילה אותו למרוד במדינת האם (קרוליינה הצפונית) ולנסות להקים מדינה עצמאית לחלוטין בשם "מדינת פרנקלין" (State of Franklin) בשנים 1784–1788. למרות שהניסיון כשל, הוא הוכיח את הרצון הפוליטי העצמאי של התושבים.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים:</h4>
+                            <p class="leading-loose">במהלך מלחמת העצמאות האמריקאית (1780), הנהיג סבייר את המיליציות של מתיישבי ההרים לניצחון מכריע, מוחץ ובלתי צפוי ב**קרב קינגס מאונטיין** (Battle of Kings Mountain). הניצחון עצר את התקדמות הצבא הבריטי בדרום ארצות הברית ונחשב לאחת מנקודות המפנה של המלחמה. לאחר שטנסי התקבלה לאיחוד ב-1796, סבייר נבחר למושל הראשון שלה. הוא עיצב את המיליציה המדינתית, ניהל מערכות צבאיות קשות מול שבט הצ'רוקי, והניח את היסודות לזהות המחוספסת והפטריוטית של טנסי.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- וויליאם בלאונט -->
+                <div class="personality-card border-r-8 border-tnBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-tnBlue decoration-4 underline-offset-8">ההוגה הפוליטי ואדריכל הטריטוריה: וויליאם בלאונט (William Blount)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1749–1800.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">רקע ואידיאולוגיה אריסטוקרטית:</h4>
+                            <p class="leading-loose">בניגוד מוחלט לסבייר המחוספס, בלאונט נולד למשפחה עשירה, מיוחסת ומקושרת היטב בקרוליינה הצפונית. הוא היה משקיע נדל"ן ואריסטוקרט פוליטי. הוא היה אחד מהחותמים על חוקת ארצות הברית מטעם מדינתו. האידיאולוגיה שלו התמקדה בהרחבת האימפריה הכלכלית-אמריקאית באמצעות ספקולציות מקרקעין. הוא ראה באדמות העצומות של טנסי הזדמנות היסטורית להתעשרות אישית מחד, וליצירת כוח פוליטי פדרלי חדש במערב מאידך, גם אם הדבר היה כרוך בדחיקת הילידים באמצעות חוזים משפטיים מפוקפקים או לחץ צבאי.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הבנייה והישגים (מטריטוריה למדינה):</h4>
+                            <p class="leading-loose">ב-1790, מינה הנשיא ג'ורג' וושינגטון את בלאונט למושל של "הטריטוריה מדרום לנהר אוהיו" (שנודעה כטריטוריה הדרום-מערבית – השטח שהפך לטנסי). בלאונט היה המוח האדמיניסטרטיבי והדיפלומטי שמאחורי בניית המדינה: הוא קבע את הבירה בעיר קנוקסוויל (Knoxville), תכנן את מוסדות החוק הראשונים, כרת חוזים עם הילידים (כמו חוזה הולסטון), וניוט בכישרון רב את המהלכים הפוליטיים המסובכים בקונגרס בוושינגטון. מהלכים אלו הם שהובילו בסופו של דבר להכרזת העצמאות של טנסי ולהצטרפותה לאיחוד ב-1796 כמדינה ה-16. ללא חוש הדיפלומטיה והארגון של בלאונט, טנסי הייתה עלולה להישאר טריטוריה מפוצלת ופראית עוד עשרות שנים.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: בעל החיים והמנה הלאומית
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-accent">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-accent">בעל החיים הלאומי: הדביבון המצוי (The Raccoon)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">חיית הבר המדינתית הרשמית (אומץ ב-1971)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הדביבון המצוי (Procyon lotor) אינו סתם חיית בר בטנסי; הוא סמל היסטורי החקוק בסלע של תרבות ה"ספר" (Frontier) האמריקאית. באזורי ההרים המסועפים והיערות העבותים של האפלצ'ים במזרח טנסי, הדביבון היה בעל חיים נפוץ, אינטליגנטי להפליא ובעל כושר הישרדות נדיר – תכונות שהמתיישבים והציידים הראשונים העריצו והזדהו עמן לחלוטין.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        אך יותר מכל, הדביבון קשור ויזואלית ותודעתית לגיבורי האומה הגדולים ביותר שנולדו ופעלו בטנסי, ובראשם **דייווי קרוקט** (Davy Crockett) – הידוע כ"מלך גבול הבר" (King of the Wild Frontier). כובע עור הדביבון (Coonskin Cap), עם הזנב המפוספס המשתלשל מאחור, הפך לפריט הלבוש המזוהה ביותר עם החלוץ האמריקאי העצמאי, החופשי והלוחם. אימוץ הדביבון כחיית הבר הרשמית בשנת 1971 נועד לכבד ולהנציח את אבותיה של טנסי, אותם מתיישבים קשוחים שבנו את המדינה במו ידיהם מתוך יערות הפרא.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-tnBlue">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-tnBlue">המנה הלאומית: ברביקיו ממפיס ועוף חריף של נאשוויל</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">סיפורה הקולינרי של מדינה מפוצלת</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        לטנסי אין מנה לאומית אחת בודדת המעוגנת בחוק, וזאת משום שהמדינה מפוצלת גיאוגרפית ותרבותית באופן עמוק ("Grand Divisions"). עם זאת, מבחינה פנומנולוגית, הקולינריה של טנסי נשענת על שני עמודי תווך היסטוריים ומוכרים עולמית, המייצגים את ההיסטוריה האפרו-אמריקאית והדרומית שלה:
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-accent">ברביקיו בנוסח ממפיס (Memphis-style BBQ):</span> הגסטרונומיה של מערב טנסי. מבוססת בעיקר על צלעות חזיר הנצלות שעות ארוכות בעישון איטי (Slow-smoked) מעל עץ היקורי. הייחוד של ממפיס מול שאר הדרום הוא ה"ראב היבש" (Dry Rub) – הבשר משופשף בתערובת של תבלינים, פפריקה, שום ומלח, ומוגש לרוב ללא רוטב עגבניות דביק. שיטת בישול זו נולדה מתוך תרבות העבדים והעובדים השחורים סביב נהר המיסיסיפי, שהצליחו להפוך נתחי בשר זולים וקשים למעדן עולמי.</li>
+                        <li><span class="text-white font-bold underline decoration-tnBlue">עוף חריף של נאשוויל (Nashville Hot Chicken):</span> המנה האייקונית של מרכז טנסי. מדובר בעוף מטוגן הטבול במשחה לוהטת (Paste) של שומן מומס והרבה מאוד פלפל קאיין. המנה מוגשת מסורתית על פרוסת לחם לבן פשוט (כדי לספוג את השמן החריף) ומוכתרת בפרוסות מלפפון חמוץ. האגדה מספרת שהמנה הומצאה בשנות ה-30 על ידי אישה שרצתה לנקום בבן זוגה הרודף-נשים (ת'ורנטון פרינס) ולכן הכינה לו עוף מפוצץ בחריפות. למרבה ההפתעה הוא אהב את זה, ופתח את מסעדת "Prince's" הפועלת עד היום ומייצגת את תרבות האוכל של הקהילה השחורה בבירת המדינה.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-accent shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic">The Volunteer State (מדינת המתנדבים)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">אתוס של הקרבה צבאית</p>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        הכינוי "מדינת המתנדבים" הוא אולי הכינוי המפורסם והמוטמע ביותר בארצות הברית, והוא מגדיר במדויק את האתוס החברתי של טנסי: פטריוטיזם עמוק, מיליטריזם כפרי, ונכונות גורפת ללחום עבור האומה. 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-lg mt-6">
+                        השורשים של הכינוי נעוצים ב**מלחמת 1812**. באותה מלחמה קיומית, הגנרל (ולימים הנשיא) אנדרו ג'קסון ביקש לגייס כוחות מטנסי כדי להילחם בבריטים בקרב המפורסם על ניו אורלינס. אלפי אזרחי טנסי עזבו את החוות שלהם והתנדבו מרצונם החופשי להילחם, והיוו גורם מכריע בניצחון. 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-lg mt-6">
+                        המוניטין הזה התקבע סופית והפך לאגדה עשורים לאחר מכן, ב**מלחמת ארצות הברית–מקסיקו** (1846). כאשר מזכיר המלחמה הפדרלי פרסם קריאה לגיוס של 2,800 חיילים בלבד ממדינת טנסי, לא פחות מ-30,000 תושבי טנסי התייצבו בלשכות הגיוס. היענות דמיונית זו הוכיחה מעבר לכל ספק את רוח ההקרבה של המדינה, הפכה את "המתנדבים" לכינוי הרשמי של האזרחים, ומשמשת עד היום כשמה של קבוצת הספורט האייקונית של אוניברסיטת טנסי.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: ניתוח סמיוטי והיסטורי של דגל המדינה
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל טנסי -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-accent rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex items-center justify-center p-10 group">
+                    <!-- הפס הכחול בקצה הימני של הדגל האמיתי -->
+                    <div class="absolute right-0 top-0 bottom-0 w-1/12 bg-tnBlue border-l-[3px] border-white"></div>
+                    <div class="w-64 h-64 rounded-full border-[3px] border-white flex items-center justify-center bg-tnBlue backdrop-blur-lg shadow-2xl transition-transform duration-700 group-hover:scale-110 relative">
+                        <!-- שלושת הכוכבים המסודרים נכון -->
+                        <div class="absolute w-full h-full animate-spin-slow" style="animation-duration: 40s;">
+                            <div class="absolute top-1/4 left-[42%] text-white text-6xl transform -translate-x-1/2 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]">⭐</div>
+                            <div class="absolute bottom-1/4 left-[20%] text-white text-6xl transform translate-x-1/2 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]">⭐</div>
+                            <div class="absolute bottom-[35%] right-[15%] text-white text-6xl transform -translate-x-1/2 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]">⭐</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest">
+                    דגל טנסי (עוצב על ידי לירוי ריבס, 1905)
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-accent shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-accent decoration-4">נסיבות היצירה ומאבק האחדות (1905):</h3>
+                    <p class="text-xl leading-loose">
+                        הדגל המרהיב והסימטרי של טנסי עוצב בשנת 1905 על ידי קפטן **לירוי ריבס** (LeRoy Reeves), קצין במשמר הלאומי של טנסי. מטרתו הייתה ליצור סמל גרפי מודרני שניתן לזהות מרחוק בקלות (בניגוד לדגלים עמוסים בחותמות מדינה), ושמאחד תחתיו מדינה שסבלה מקיטוב פנימי קשה מאז מלחמת האזרחים.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">שלושת הכוכבים (הגראנד-דיוויז'נס):</h4>
+                        <p class="leading-loose text-lg">טנסי מפוצלת גיאוגרפית, כלכלית ותרבותית לשלושה אזורים שונים לחלוטין (המוגדרים בחוק כ-Grand Divisions): **מערב טנסי** (אזור מישור נהר המיסיסיפי, חקלאות ובלוז), **מרכז טנסי** (גבעות מתגלגלות, בירת המדינה ומוזיקת קאנטרי) ו**מזרח טנסי** (הרי האפלצ'ים המבודדים ותרבות ההרים). שלושת הכוכבים מייצגים בדיוק את שלושת האזורים הללו. על פי חוק המדינה, חובה ששני כוכבים לעולם לא יהיו מסודרים באותו קו אופקי או במקביל לקצה הדגל, כדי למנוע מצב סמלי שבו אזור אחד ממוקם "גבוה" יותר מהאחרים.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-tnBlue shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-tnBlue">המעגל הכחול והפס האנכי:</h4>
+                        <p class="leading-loose text-lg">המעגל הכחול הבלתי פוסק, שבתוכו קשורים שלושת הכוכבים, מסמל את האחדות הנצחית של שלושת האזורים השונים לכדי מדינה אחת חזקה ובלתי ניתנת לפירוק. הפס הכחול האנכי (הממוסגר בלבן) בקצה הימני הרחוק של הדגל נועד, לדברי המעצב ריבס, להוסיף אלמנט אסתטי ולמנוע מהדגל להיראות אדום מדי ומשעמם כאשר הוא תלוי ללא תנועה על התורן במזג אוויר חסר רוח.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-accent rounded-full shadow-[0_0_15px_rgba(239,68,68,0.6)]"></div>
+                <div class="w-6 h-6 bg-tnWhite rounded-full shadow-[0_0_15px_rgba(255,255,255,0.6)]"></div>
+                <div class="w-6 h-6 bg-tnBlue rounded-full shadow-[0_0_15px_rgba(0,45,101,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
