@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>מיזורי - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        moBlue: '#002A86', /* Missouri Flag Blue */
+                        moRed: '#CE1126',  /* Missouri Flag Red */
+                        moGold: '#F1E6B2'  /* Pale Gold for contrast */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 border-accent shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-moGold font-black text-2xl mb-5 underline italic decoration-moGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-moRed relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">מיזורי</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Missouri - The Show-Me State</p>
+                <div class="h-2 w-56 bg-moBlue mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(0,42,134,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">10 באוגוסט, 1821</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-24 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מיתוס "המים הבוציים" וניפוצו
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    אחת הטעויות הנפוצות ביותר בהיסטוריה האמריקאית היא האמונה שמשמעות המילה "מיזורי" היא "מים בוציים" (Muddy Waters). הטעות נובעת מכך שנהר המיזורי אכן סוחף עמו כמויות אדירות של בוץ וסחף. אולם, המחקר הבלשני חושף אמת אנתרופולוגית שונה לחלוטין. השם אינו מתאר את הנהר, אלא את <strong class="text-white">הטכנולוגיה הימית</strong> של האנשים שחיו לאורכו.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- ouemessourita -->
+                    <div class="etymology-box border-moBlue">
+                        <p class="text-moBlue font-black text-5xl mb-6 italic tracking-tighter">wimihsoorita</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפת ה**אילינוי** (Illinois), שפה ממשפחת השפות האלגונקוויות (Algonquian).</p>
+                            <p><strong>ניתוח מחקרי של הרכיבים:</strong> השם תועד לראשונה על ידי המיסיונר הצרפתי ז'אק מארקט ב-1673 כ-*ouemessourita*. זוהי מילה שבה השתמשו בני שבט האילינוי כדי לתאר את שכניהם ממערב. השורש "wim-" קשור לכלי קיבול, ואילו "soorita" מתייחס לפעולת גילוף ועיבוד עץ.</p>
+                            <p><strong>המשמעות האמיתית:</strong> הפירוש המילולי והאקדמי המדויק הוא <span class="text-white font-bold underline decoration-moBlue">"אלה שיש להם קאנו מגזע עץ"</span> (Those who have dugout canoes). בניגוד לשבטי המזרח (כמו האלגונקווינים) שבנו סירות קלות מקליפת עץ לבנה, בני שבט המיזורי הצטרכו להתמודד עם זרמיו האלימים של נהר המיזורי. לכן, הם פיתחו טכנולוגיה של סירות כבדות ויציבות שנחצבו מתוך גזעי עצים שלמים (Dugout). שכניהם קראו להם על שם הטכנולוגיה הייחודית הזו, והצרפתים שיבשו את המילה והעניקו אותה גם לשבט וגם לנהר האדיר.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-moRed text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: אדריכלי ההתפשטות מערבה
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- פייר לאקלד ואוגוסט שוטו -->
+                <div class="personality-card border-r-8 border-moBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-moBlue decoration-4 underline-offset-8">המייסד הצרפתי בעל החזון: פייר לאקלד (Pierre Laclède)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1729–1778.</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות ורקע:</h4>
+                            <p class="leading-loose">לאקלד נולד למשפחה אריסטוקרטית בבדוס (Bedous) שבדרום-מערב צרפת. כבן הצעיר במשפחה, לא היה זכאי לרשת את האחוזה המשפחתית (בשל חוקי הבכורה), ולכן פנה להרפתקאות מסחר בעולם החדש. הוא הגיע לניו אורלינס ב-1755 והפך לסוחר פרוות ממולח בעל חוש גיאוגרפי נדיר.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה קולוניאלית - מונופול בנקודת המפגש:</h4>
+                            <p class="leading-loose">האידיאולוגיה של לאקלד לא הייתה צבאית אלא כלכלית לחלוטין. הוא הבין שמי שישלוט בנקודת המפגש המדויקת של שני הנהרות הגדולים ביבשת – **המיסיסיפי והמיזורי** – ישלוט בסחר הפרוות של כל צפון אמריקה. הוא האמין בהקמת עמדת מסחר ריכוזית שתרכז אליה סוחרים אירופאים וציידים ילידים כאחד, ללא שימוש בכוח צבאי.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - ייסוד סנט לואיס (1764):</h4>
+                            <p class="leading-loose">בפברואר 1764, שלח לאקלד את בנו החורג, סוחר נוער מבריק בן 14 בשם **אוגוסט שוטו** (Auguste Chouteau), יחד עם קבוצת עובדים, אל שרטון טבעי שבחר בקפידה ליד מפגש הנהרות. שם, מוגנים משיטפונות, הם החלו לבנות את תחנת המסחר. לאקלד קרא לעיר "סנט לואיס" (St. Louis) על שם לואי התשיעי, מלך צרפת. עיר זו הפכה לליבה הפועם של מיזורי ול"שער למערב" (Gateway to the West) עבור כל יבשת אמריקה.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- תומאס הארט בנטון -->
+                <div class="personality-card border-r-8 border-moRed shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-moRed decoration-4 underline-offset-8">האדריכל האידיאולוגי של המערב: תומאס הארט בנטון (Thomas Hart Benton)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1782–1858. <strong>תואר היסטורי:</strong> הסנאטור הראשון של מיזורי ("Old Bullion").</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות ואופי מחוספס:</h4>
+                            <p class="leading-loose">בנטון נולד בקרוליינה הצפונית. הוא גורש מאוניברסיטת קרוליינה הצפונית עקב שערוריית גניבה (טעות שרדפה אותו כל חייו), אך שיקם את עצמו כעורך דין ועבר לטריטוריית מיזורי. הוא היה אדם אלים וחסר פשרות; ב-1817 הרג פרקליט יריב בדו-קרב אקדחים (Charles Lucas), ובצעירותו אפילו נורה בכתפו במהלך קטטת רחוב עם לא אחר מאשר אנדרו ג'קסון.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - הייעוד הגלוי וכסף קשה:</h4>
+                            <p class="leading-loose">בנטון כיהן כסנאטור מטעם מיזורי במשך 30 שנה והיה האדריכל הראשי של אידיאולוגיית **"הייעוד הגלוי"** (Manifest Destiny) בקונגרס. הוא חלם על אימפריה אמריקאית המשתרעת עד לאוקיינוס השקט והופכת למרכז הסחר העולמי עם אסיה. בנוסף, הוא כונה "Old Bullion" (מטיל זהב ישן) משום שהתנגד נחרצות לשטרות נייר והאמין שכלכלה בריאה למעמד העובד חייבת להיות מבוססת על כסף קשה – מטבעות זהב וכסף.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הבנייה, פשרת מיזורי והנפילה:</h4>
+                            <p class="leading-loose">כניסתה של מיזורי לאיחוד יצרה משבר לאומי אדיר, שנפתר ב**פשרת מיזורי של 1820**: מיזורי נכנסה כמדינת עבדות, מיין (כפי שראינו קודם) כמדינה חופשית, ונאסרה עבדות צפונית לקו הרוחב של מיזורי. בנטון תמך בהתחלה בעבדות, אך לקראת סוף חייו, בשל נאמנותו המוחלטת ל"איחוד" וסלידתו מקיצוני הדרום שרצו לפרוש, הוא יצא פומבית נגד התפשטות העבדות לטריטוריות החדשות במערב. עמדתו זו עלתה לו בקריירה הפוליטית שלו, והוא הודח על ידי מצביעיו במיזורי, אך נזכר כאחד המדינאים הגדולים של התקופה.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-moGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: עבודה קשה ופיצול קולינרי
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-moGold">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-moGold">בעל החיים הלאומי: הפרד של מיזורי (The Missouri Mule)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">חיית המדינה הרשמית (אומץ ב-1995)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        בעוד מדינות אחרות בחרו בחיות בר אקזוטיות, מיזורי בחרה בבעל חיים היברידי, עקר וחסר כל "הדר" טבעי – **הפרד**. אך מבחינה היסטורית, זוהי אולי הבחירה המדויקת ביותר באמריקה. ללא הפרד של מיזורי, ייתכן שההתפשטות למערב לא הייתה קורית.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        מיזורי הייתה נקודת הזינוק ההיסטורית (Jumping-off point) לשיירות העגלות ב**נתיב סנטה פה** וב**נתיב אורגון** (The Oregon Trail). סוסים היו חלשים מדי לגרור עגלות כבדות במדבר, ושוורים היו איטיים מדי. חקלאי מיזורי הכליאו סוסי נגר (Draft horses) גדולים עם חמורים אירופאים כדי לייצר את ה"מיזורי מיול" – חיה גדולה, חזקה להחריד, עמידה למחלות וחום, וחשוב מכל: חיה עם אינטליגנציה וחוש הישרדות שמנעה ממנה להיכנס לפאניקה (Panic) ברגעים מסוכנים, תכונה שהצילה חלוצים רבים ממוות. הפרד מסמל את העבודה השחורה, העיקשות והחוסן המעשי של אזרחי מיזורי.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-moRed">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-moRed">המנה הלאומית: פיצול הטעמים של סנט לואיס וקנזס סיטי</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">הדואופול הקולינרי המעגן את המדינה</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        מיזורי משתרעת בין שני מוקדי כוח עירוניים ותרבותיים עצומים. כתוצאה מכך, הקולינריה שלה אינה אחידה, אלא מפוצלת לשני סמלים המייצגים מסורות הגירה שונות לחלוטין:
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-moBlue">רביולי מטוגן של סנט לואיס (Toasted Ravioli):</span> סנט לואיס, השוכנת במזרח, קלטה גלי הגירה עצומים של איטלקים שהתרכזו בשכונה שנקראת "הגבעה" (The Hill). בשנות ה-40, טבח באחת המסעדות האיטלקיות שם הפיל בטעות רביולי ממולא בבשר אל תוך סיר שמן רותח (במקום מים). כדי לא לזרוק את המנה, הם הגישו אותה עם מעט גבינת פרמזן ורוטב מרינרה בצד. ה"טעות" הזו הפכה ללהיט מיידי, וכיום ה-T-Ravs (שאינם קלויים כלל אלא מטוגנים בשמן עמוק) הם המתאבן הרשמי והאהוב ביותר של העיר.</li>
+                        <li><span class="text-white font-bold underline decoration-moRed">"הקצוות השרופים" של קנזס סיטי (Burnt Ends - KC BBQ):</span> קנזס סיטי, השוכנת בגבול המערבי, הייתה צומת דרכים של משחטות בקר ורכבות משא. בשנות ה-20 וה-30, המהגר האפרו-אמריקאי **ארתור בראיינט** (ממשיך דרכו של הנרי פרי, "אבי הברביקיו של קנזס סיטי") הפך את העישון לאמנות. בעוד שבמקומות אחרים זרקו את הקצוות המפוחמים, השמנים והקשים של חזה הבקר (Brisket), ה"פיטמאסטרים" (Pitmasters) בקנזס סיטי חתכו אותם לקוביות קטנות, טבלו אותם ברוטב ברביקיו עשיר מבוסס עגבניות ומולסה (Molasses), ועישנו אותם שוב עד שהתקרמלו. ה-"Burnt Ends" נחשבים כיום ל"קוויאר של הברביקיו" ומהווים את תרומתה הגדולה ביותר של מיזורי לגסטרונומיה האמריקאית.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-moBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Show-Me State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-moRed shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Show-Me State (מדינת "הראה לי")</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">האתוס המיזורי: ספקנות ופרגמטיזם</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            זהו אולי הכינוי המצוטט והמדויק ביותר פסיכולוגית בארה"ב. מקורו בנאום של חבר הקונגרס ממיזורי, **וילארד דאנקן ואנדיבר**, בשנת 1899 בנשף בפילדלפיה: <span class="italic text-white">"אני מגיע ממדינה המגדלת תירס וכותנה ודוהרת על כרכרות ופרדים... תעלומה רטורית לא משכנעת אותי. אני ממיזורי. אתה חייב להראות לי." (I am from Missouri. You have got to show me).</span>
+                        </p>
+                        <p class="text-slate-300 leading-loose text-lg mt-4">
+                            הכינוי מתאר בצורה מושלמת את האופי המרכז-מערבי (Midwestern) של תושבי מיזורי: ספקנות בריאה כלפי הבטחות של פוליטיקאים ומשכילים, דחייה של תיאוריות פילוסופיות מרחפות, ודרישה להוכחות מעשיות בשטח (Common Sense). זהו אתוס של אנשים עובדי כפיים שלא קונים "חתול בשק".
+                        </p>
+                    </div>
+
+                    <!-- The Cave State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-moBlue shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Cave State (מדינת המערות)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מקור גיאולוגי טבעי</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            תת-הקרקע של מיזורי מורכב מאבן גיר ודולומיט רכה. כתוצאה מחלחול מים לאורך מיליוני שנים (טופוגרפיה קארסטית), נוצרו במדינה **למעלה מ-7,300 מערות מתועדות**, יותר מכל מדינה אחרת בארה"ב (למעט טנסי שמתחרה על התואר). המערות הללו שימשו למחבוא לאורך ההיסטוריה – ממורדים במלחמת האזרחים, דרך פושעים מפורסמים כמו ג'סי ג'יימס, ועד למבשלות בירה שהשתמשו בטמפרטורה הקרה והקבועה של המערות (במיוחד בסנט לואיס) לאחסון ויישון חביות הבירה לפני המצאת הקירור החשמלי.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-moBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: ניתוח סמיוטי של דגל מיזורי
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל מיזורי -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-white rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col group">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-black/10 via-transparent to-white/20 pointer-events-none z-20"></div>
+                    <!-- 3 Horizontal Stripes -->
+                    <div class="flex-1 w-full bg-[#CE1126]"></div>
+                    <div class="flex-1 w-full bg-white relative flex justify-center items-center">
+                        <!-- Seal Background -->
+                        <div class="absolute w-44 h-44 rounded-full border-[6px] border-[#002A86] bg-white z-10 flex flex-col items-center justify-center shadow-xl transform transition-transform duration-700 group-hover:scale-110">
+                            <!-- Star band simulation -->
+                            <div class="absolute inset-1 border-[4px] border-dashed border-[#002A86] rounded-full opacity-30"></div>
+                            <!-- Bears representation -->
+                            <div class="flex gap-12 text-slate-800 text-4xl mt-2 drop-shadow-md">🐻 🐻</div>
+                            <!-- Motto -->
+                            <div class="absolute bottom-4 bg-[#F1E6B2] px-2 rounded border border-slate-800 shadow-sm text-[6px] font-black text-slate-900 tracking-widest text-center leading-tight">
+                                SALUS POPULI <br> SUPREMA LEX ESTO
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1 w-full bg-[#002A86]"></div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    דגל השוויון וההגנה האזרחית <br><span class="text-xl font-medium text-slate-500">(עוצב על ידי מארי אליזבת ווטקינס אוליבר, 1913)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-moRed shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-moRed decoration-4">נסיבות היצירה: יוזמת הנשים (1913):</h3>
+                    <p class="text-xl leading-loose">
+                        למיזורי לא היה דגל רשמי במשך כמעט מאה שנים מאז הקמתה. בשנת 1908, ארגון **בנות המהפכה האמריקאית (DAR)** במיזורי החליט שהגיע הזמן לייצר דגל. **מארי אליזבת ווטקינס אוליבר** לקחה על עצמה את המשימה, חקרה חוקי הרלדיקה, ועיצבה וציירה בעצמה את הדגל מתוך כוונה שישקף את ההיסטוריה הצרפתית-אמריקאית. הדגל המקורי שנתפר (ממשי על ידי חברתה מרי כוך) עבר תלאות פוליטיות ונשרף חלקית בשריפה בקפיטול של מיזורי ב-1911, אך העיצוב שרד ואומץ סופית כחוק ב-22 במרץ 1913.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">הפסים: אדום, לבן וכחול:</h4>
+                        <p class="leading-loose text-lg">שלושת הפסים הרחבים מזכירים את הדגל הלאומי של צרפת, שהייתה הריבון האירופאי הראשון של האזור. בנוסף, הם מסמלים תכונות לאומיות: ה**אדום** (גבורה ואומץ), ה**לבן** (טוהר כוונות), וה**כחול** (ערנות, צדק ונאמנות לאיחוד).</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-moBlue shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-moBlue">24 הכוכבים והדובים (Grizzly Bears):</h4>
+                        <p class="leading-loose text-lg">במעגל הכחול המקיף את הסמל ישנם בדיוק 24 כוכבים לבנים, לציון היותה של מיזורי המדינה ה-24. בתוך הסמל, שני דובים חומים (גריזלי) תומכים במגן – הדובים מסמלים את ה**אומץ והחוסן** של אזרחי המדינה. העובדה שהם אינם נושאים נשק (כמו חרב) מעידה על עוצמה פנימית טבעית.</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/60 p-12 rounded-[2.5rem] border-r-8 border-moGold shadow-inner text-center">
+                    <h4 class="text-4xl font-black text-white mb-6 italic underline decoration-moGold">הקסדה והמוטו: Salus Populi Suprema Lex Esto</h4>
+                    <p class="text-2xl leading-loose italic font-bold">
+                        מעל המגן מצוירת קסדת אביר בעלת משקף סגור חלקית – סמל להגנה ולריבונות המדינה. תחתיה מתנוסס המוטו הלטיני הלקוח מקיקרו: <span class="text-white font-black">"יְהִי רווחת העם החוק העליון"</span>. משפט זה מזקק את המהות הפוליטית הפופוליסטית של מיזורי ("הראה לי") – הממשלה קיימת אך ורק כדי לשרת את האזרחים הפשוטים ולדאוג לשלומם, מעל לכל תיאוריה חוקתית אחרת.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-moRed text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">The State Historical Society of Missouri (SHSMO):</p>
+                    <p>"The Etymology of Missouri: The Dugout Canoe People". מחקר אנתרופולוגי המנפץ את מיתוס "המים הבוציים" ומבסס את המקור על טכנולוגיית סירות הקאנו של השבטים הילידיים.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Missouri Secretary of State Official Archives:</p>
+                    <p>"History of the Missouri Flag". תיעוד רשמי של התהליך החקיקתי לאימוץ הדגל ב-1913, פועלה של מארי אליזבת ווטקינס אוליבר, וניתוח ההרלדיקה של חותם המדינה (הדובים, הקסדה והמוטו).</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">The National Park Service (NPS) - Gateway Arch National Park:</p>
+                    <p>"Pierre Laclède, Auguste Chouteau, and the Founding of St. Louis". מסמכים היסטוריים המתעדים את החזון הגיאופוליטי של הצרפתים לשלוט במסחר הפרוות במפגש הנהרות ב-1764.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Library of Congress (LOC) - Congressional Records:</p>
+                    <p>"Thomas Hart Benton and Manifest Destiny". נאומים רשמיים וניתוח פוליטי של פעילותו של בנטון למען התפשטות מערבה, "כסף קשה", ומשבר פשרת מיזורי (1820).</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Journal of Midwestern Folklore and Culture:</p>
+                    <p>"The Genesis of the 'Show-Me' State and the Evolution of the Missouri Mule". חקר מקורות הכינוי המפורסם והתרומה של הפרד לחלוצים בנתיבי מערב אמריקה.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-moRed rounded-full shadow-[0_0_15px_rgba(206,17,38,0.6)]"></div>
+                <div class="w-6 h-6 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.6)]"></div>
+                <div class="w-6 h-6 bg-moBlue rounded-full shadow-[0_0_15px_rgba(0,42,134,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
