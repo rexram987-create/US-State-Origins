@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>טקסס - מחקר אקדמי מורחב ומעודכן</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        txRed: '#BF0A30',
+                        txBlue: '#002868',
+                        txWhite: '#FFFFFF',
+                        accent: '#BF0A30'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 border-accent shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-white font-black text-2xl mb-5 underline italic decoration-slate-500/50 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-txBlue relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">טקסס</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Texas - The Lone Star Republic</p>
+                <div class="h-2 w-56 bg-txRed mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(191,10,48,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">29 בדצמבר, 1845</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-28 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-txBlue text-txWhite w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות תרבותית-לשונית
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    שמה של טקסס מהווה תעודה היסטורית למפגש התרבויות הקדום ביבשת. בניגוד למדינות ששמן נגזר ממקור לטיני או אירופאי קלאסי, השם טקסס נולד מתוך אי-הבנה לשונית וחברתית בין מגלי ארצות ספרדים לבין קונפדרציית השבטים הילידית של ה"קאדו" (Caddo) במאה ה-16 וה-17.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Táyshaʼ -->
+                    <div class="etymology-box border-txBlue">
+                        <p class="text-txBlue font-black text-5xl mb-6 italic tracking-tighter">Táyshaʼ</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> השפה ה"קאדואית" (Caddoan), שפתה של קונפדרציית שבטים חקלאית ועוצמתית ששלטה במזרח טקסס ובלואיזיאנה.</p>
+                            <p><strong>משמעות מילולית:</strong> "חבר", "בן-ברית" או "ידיד".</p>
+                            <p><strong>ניתוח מחקרי:</strong> הילידים השתמשו במילה זו כדי להבדיל בין שבטים החברים בקונפדרציה המורחבת וביןנים בעלי ברית, לבין שבטי אויב (כמו האפאצ'י). כאשר המיסיונרים והחוקרים הספרדים הראשונים הגיעו לאזור מזרח טקסס בסוף המאה ה-17, הם שמעו את הילידים מברכים זה את זה (ואותם) במילה זו. הספרדים, בטעות קלאסית של חוקרים, הניחו שזהו שמו של השבט או של האזור כולו, והחלו להתייחס לאוכלוסייה ולטריטוריה כ-"הטקסס הגדולים" (The Great Texas).</p>
+                        </div>
+                    </div>
+
+                    <!-- Tejas / Texas -->
+                    <div class="etymology-box border-txRed">
+                        <p class="text-txRed font-black text-5xl mb-6 italic tracking-tighter">Tejas -> Texas</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> תעתיק פונטי ספרדי עתיק.</p>
+                            <p><strong>האבולוציה של הכתיב:</strong> בספרדית של המאה ה-16 וה-17, האות **X** נהגתה כצליל "ש" (Sh), בדומה לשפות הילידיות (למשל México נהגתה כ-"משיקו"). לכן, המילה *Táysha* נכתבה על ידי הספרדים כ-**Texas** (ונהגתה "טשאס"). במאה ה-18, האקדמיה המלכותית הספרדית ביצעה רפורמה לשונית שבה הצליל התחלף לצליל חיכי קשה (כמו "ח"), והאות X הוחלפה פעמים רבות באות **J** (למשל: Tejas). עם זאת, כשהמתיישבים האנגלו-אמריקאים הגיעו לאזור במאה ה-19, הם אימצו את הכתיב ההיסטורי עם ה-X, אך הגו אותו לפי חוקי הקריאה האנגליים כ-"אקס" – וכך התקבע השם האייקוני **Texas**.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-txBlue text-txWhite w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: הוגים, מורדים ודיפלומטים
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- סטיבן פ. אוסטין -->
+                <div class="personality-card border-r-8 border-txBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-txBlue decoration-4 underline-offset-8">ההוגה ואבי טקסס: סטיבן פולר אוסטין (Stephen F. Austin)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1793–1836. <strong>תואר היסטורי:</strong> "The Father of Texas".</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות ורקע - יורש העופרת:</h4>
+                            <p class="leading-loose">אוסטין נולד בווירג'יניה אך גדל במיזורי, שם ניהל אביו, מוזס אוסטין, אימפריית כריית עופרת שקרסה כלכלית בפאניקה של 1819. סטיבן היה צעיר משכיל, שקט, מעונב ומשפטן בהכשרתו. בניגוד לדימוי הקאובוי המחוספס של טקסס, אוסטין היה דיפלומט ובירוקרט מבריק. על ערש דווי, השביע אותו אביו לקחת על עצמו את פרויקט חייו: יישוב של משפחות אנגלו-אמריקאיות בטריטוריה הספרדית-מקסיקנית של טקסס.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה קולוניאלית - ה"אמפרסריו" הממושמע:</h4>
+                            <p class="leading-loose">האידיאולוגיה של אוסטין לא הייתה התפשטות אימפריאליסטית אלימה, אלא אסימילציה חוקית. כ"אמפרסריו" (סוכן הגירה המורשה על ידי ממשלת מקסיקו), הוא דרש ממתיישביו לקבל על עצמם את החוק המקסיקני, להפוך לאזרחי מקסיקו ולהמיר את דתם (לפחות באופן רשמי) לקתוליות. הוא האמין שטקסס יכולה לשגשג כפרובינציה אנגלו-אמריקאית נאמנה בתוך הרפובליקה של מקסיקו, והשקיע שנים ארוכות בדיפלומטיה מייגעת במקסיקו סיטי כדי לשמור על השלום.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הבנייה והישגים (ה"שלוש מאות הישנים"):</h4>
+                            <p class="leading-loose">בשנת 1821, הוביל אוסטין את ה"Old Three Hundred" – 300 המשפחות האמריקאיות הראשונות לתוך טקסס. הוא ניהל את חלוקת האדמות, הקים מערכת משפט מקומית ויצר כלכלה מתפקדת יש מאין. רק כשהדיקטטור המקסיקני סנטה אנה ביטל את החוקה המקסיקנית של 1824 וכלא את אוסטין למשך שנה וחצי, השתנתה האידיאולוגיה של אוסטין. עם שחרורו, הוא הכריז ש"המלחמה היא המוצא היחיד", והניע את המהפכה הטקסנית שהובילה להקמת הרפובליקה. הוא נפטר מדלקת ריאות חודשים ספורים לאחר עצמאות טקסס.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- סם יוסטון -->
+                <div class="personality-card border-r-8 border-txRed shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-txRed decoration-4 underline-offset-8">הלוחם, המושיע והנשיא: סמואל "סם" יוסטון (Sam Houston)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1793–1863. <strong>תואר היסטורי:</strong> נשיא רפובליקת טקסס (פעמיים).</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות ורקע - העורב המאומץ:</h4>
+                            <p class="leading-loose">יוסטון נולד בווירג'יניה, אך כנער במזרח טנסי, סירב לעבוד בחנות המשפחתית וברח מהבית כדי לחיות עם שבט הצ'רוקי במשך שלוש שנים. הם אימצו אותו העניקו לו את השם "Col-on-neh" (העורב). הוא למד את שפתם, את מנהגיהם ופיתח כבוד עמוק לילידים (דבר שהשפיע על המדיניות שלו בהמשך חייו). יוסטון היה ענק פיזית, כריזמטי, הרפתקן ותלמידו הפוליטי המובהק של אנדרו ג'קסון.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה פוליטית - האיחוד מעל לכל:</h4>
+                            <p class="leading-loose">למרות שהיה נשיאה של טקסס העצמאית, האידיאולוגיה העליונה של יוסטון הייתה "ג'קסונית" – שימור כוחו של האיחוד האמריקאי הפדרלי. הוא ניהל את טקסס כרפובליקה עצמאית (1836–1845) לא כמטרה סופית, אלא כאסטרטגיית המתנה עד שארצות הברית תסכים לספח אותה. מאוחר יותר, ערב מלחמת האזרחים ב-1861, כשהיה מושל טקסס, סירב בתוקף להישבע אמונים לקונפדרציה הדרומית בטענה שפירוק האיחוד הוא אסון. עקב כך, הוא הודח מתפקידו בבושת פנים.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ההישג המכונן - קרב סן חסינטו (21 באפריל 1836):</h4>
+                            <p class="leading-loose">זהו הרגע שעיצב את טקסס לנצח. לאחר התבוסה והטבח המורלי במצודת ה"אלאמו" (Alamo), צבאו של סנטה אנה המקסיקני רדף אחרי המורדים. יוסטון הנהיג נסיגה אסטרטגית שזכתה לביקורת קשה, עד שהגיע לרגע הנכון. ב-21 באפריל, בסן חסינטו, הוא פיקד על מתקפת פתע צהריים נגד הצבא המקסיקני הישן. הקרב ארך **18 דקות בלבד**, ובמהלכו הושמד הצבא המקסיקני וסנטה אנה נשבה. ב-18 הדקות הללו, סם יוסטון חצב בחרבו את גבולותיה של אומה חדשה: רפובליקת טקסס העצמאית.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-txBlue text-txWhite w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: סמלי ההישרדות של טקסס
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-txRed">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-txRed">בעל החיים הלאומי: טקסס לונגהורן (Texas Longhorn)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">יונק המדינה הגדול הרשמי (אומץ ב-1995)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הטקסס לונגהורן, או "ארוך-הקרניים הטקסני", אינו רק זן של בקר; הוא המנוע הכלכלי, התרבותי והמיתולוגי שהקים את טקסס מעפר לאחר מלחמת האזרחים וחיבר את זהות ה"קאובוי" (Cowboy) האמריקאי.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        האבולוציה של הזן מרתקת: הוא נוצר למעשה מחיבור פראי וחסר שליטה במישורי דרום טקסס בין בקר ספרדי (Retinto) שהובא במאה ה-16, לבין בקר אנגלי שהביאו המתיישבים של אוסטין במאה ה-19. התוצאה הייתה חיה היברידית קשוחה מאין כמותה: חסינה למחלות (כמו קדחת הקרציות), מסוגלת לשרוד חודשים ללא מים זורמים תוך לעיסת קקטוסים, ובעלת קרניים היכולות להגיע למוטת רוחב של מעל שני מטרים (המשמשות כרדיאטור טבעי לקירור וכנשק נגד זאבים ופומות).
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        אחרי מלחמת האזרחים (1865), הכלכלה הדרומית הייתה מרוסקת, אך מיליוני לונגהורנים פראיים שוטטו בטקסס. היווצרות עידן "מסעות הבקר" (Cattle Drives) הגדולים, שבהם קאובויז טקסנים הובילו עדרים עצומים צפונה אל מסילות הרכבת בקנזס ובמיזורי, הזרימה מיליוני דולרים של זהב בחזרה לטקסס והצילה אותה מפשיטת רגל. הלונגהורן מסמל את החוסן, הסתגלנות והשגשוג שצמחו מתוך השממה הטקסנית.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-txBlue">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-txBlue">המנה הלאומית: צ'ילי קון קרנה וברביקיו חזה בקר (Brisket)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">הדואופול הקולינרי המעגן את גבולות הטעם</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של טקסס משקפת את ההגירה למדינה. היא הוכרזה בחוק כזהות רשמית בעלת שני עמודי תווך:
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-txRed">צ'ילי קון קרנה (Chili con carne):</span> המנה המדינתית הרשמית מאז 1977. מקורה אינו במקסיקו, אלא בעיר **סן אנטוניו** שבטקסס. בסוף המאה ה-19, נשים ממוצא מקסיקני שכונו "מלכות הצ'ילי" (Chili Queens) נהגו להקים דוכנים בכיכרות העיר בלילות, ומכרו תבשיל קדירה לוהט של בשר בקר קצוץ דק (לא טחון!), פלפלי צ'ילי מיובשים, כמון ושום. החוק הטקסני הבלתי כתוב קובע באופן נחרץ: בצ'ילי טקסני אמיתי **אין שעועית** (No beans!). זוהי מנה המייצגת את מורשת ה"טחאנו" (Tejano) – תושבי טקסס ממוצא מקסיקני.</li>
+                        <li><span class="text-white font-bold underline decoration-txBlue">ברביקיו מרכז-טקסס (Texas Brisket):</span> בניגוד לברביקיו של ממפיס או קרוליינה (שמבוסס על חזיר), טקסס היא ארץ הבקר. במרכז טקסס התיישבו במאה ה-19 מהגרים **גרמנים וצ'כים**, שהקימו קצביות (Meat Markets). כדי למנוע מנתחי בשר קשים כמו "חזה בקר" (Brisket) להתקלקל בחום הכבד, הם החלו לעשן אותם במשך 12 עד 18 שעות בעץ פקאן או אלון, תוך שימוש בתיבול בסיסי ביותר של מלח ופלפל שחור גרוס בלבד (Dalmatian Rub). התוצאה היא בשר רך להפליא עם "טבעת עשן" (Smoke Ring) ורודה ויפהפייה, הנפרס לעיני הלקוח ומוגש על נייר קצבים. המנה היא סמל למיזוג בין טכניקות קצבות אירופאיות לבקר הבר האמריקאי.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-txBlue text-txWhite w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-accent shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic">The Lone Star State (מדינת הכוכב הבודד)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">אתוס של ריבונות, אינדיבידואליזם והתנגדות</p>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        כינוי זה הוא ההגדרה העצמית החזקה ביותר באמריקה. "הכוכב הבודד" הוא אינו רק קישוט גרפי; הוא תזכורת פוליטית, חוקית ופסיכולוגית לעובדה שטקסס הייתה אומה ריבונית, עצמאית לחלוטין, מוכרת על ידי מעצמות אירופה (רפובליקת טקסס, 1836–1845) לפני שהסכימה מרצונה החופשי להצטרף לארצות הברית.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-lg mt-6">
+                        מבחינה פנומנולוגית, "הכוכב הבודד" מסמל את הבדידות המזהרת שבה עמדה טקסס מול עריצות הדיקטטורה של הממשל המקסיקני, כאשר אף מדינה אחרת (כולל ארה"ב) לא שלחה צבא רשמי לעזרתה במלחמת העצמאות שלה. הכינוי מעצב עד היום את האופי הטקסני המודרני: סלידה מהתערבות ממשלתית פדרלית (של וושינגטון), גאווה כלכלית עצומה, ותחושה שתמיד קיימת להם הזכות המוסרית – גם אם לא החוקית – לנהל את עצמם בעצמם. בטקסס, הכוכב הבודד נמצא בכל מקום: על גשרים, סמלי משטרה, חגורות, ואפילו מוטבע בבטון של מחלפים בכבישים מהירים.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-txBlue text-txWhite w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: ניתוח סמיוטי של דגל הלאום הטקסני
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל טקסס (לונג סטאר) -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-txWhite rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex group">
+                    <!-- הפס הכחול עם הכוכב -->
+                    <div class="w-1/3 h-full bg-txBlue flex items-center justify-center relative z-10 transition-all duration-700 group-hover:w-[40%]">
+                        <div class="text-txWhite text-7xl drop-shadow-[0_5px_10px_rgba(0,0,0,0.6)] transform group-hover:scale-110 transition-transform duration-500">⭐</div>
+                    </div>
+                    <!-- הפסים הלבן והאדום -->
+                    <div class="w-2/3 h-full flex flex-col">
+                        <div class="w-full h-1/2 bg-txWhite"></div>
+                        <div class="w-full h-1/2 bg-txRed"></div>
+                    </div>
+                    <!-- שכבת ברק -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none z-20"></div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    דגל "הכוכב הבודד" <br><span class="text-xl font-medium text-slate-500">(אומץ רשמית כדגל הרפובליקה ב-1839)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-txBlue shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-txBlue decoration-4">מעמד ייחודי במשפט ובסמליות:</h3>
+                    <p class="text-xl leading-loose">
+                        דגל "הכוכב הבודד" (The Lone Star Flag) תוכנן בשנת 1838 על ידי סנאטור מהרפובליקה של טקסס בשם ויליאם ה. וורטון, והוא צויר ככל הנראה על ידי צ'ארלס ב. סטיוארט. ייחודו המוחלט של הדגל נובע מכך שהוא אינו "עוד" דגל של מדינה בתוך ארצות הברית, אלא **דגל של מדינה ריבונית שהפך לדגל של State**. על פי קוד הדגל הפדרלי, טקסס היא אחת המדינות הבודדות שמותר להן באופן מעשי להניף את דגלה באותו הגובה בדיוק כמו דגל ארה"ב (כיוון שהייתה מדינה ריבונית שוות ערך), אף שחוקי הכבוד דורשים שהדגל הלאומי יהיה משמאל או במרכז העדלאידע.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-txBlue shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-txBlue">הצבעים הפדרליים (אדום, לבן, כחול):</h4>
+                        <p class="leading-loose text-lg">מעצבי הדגל בחרו במכוון להשתמש באותם צבעים מדויקים כמו דגל ארצות הברית, כאות כבוד למורשת האנגלו-אמריקאית ולערכים הדמוקרטיים שהביאו איתם המתיישבים מטנסי, קנטקי ווירג'יניה. על פי החוק המדינתי: **הכחול** מסמל נאמנות (Loyalty), **הלבן** מסמל טוהר (Purity), ו**האדום** מסמל אומץ ולחימה עד טיפת הדם האחרונה (Bravery).</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-txWhite shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-300">כוכב בעל חמישה קודקודים:</h4>
+                        <p class="leading-loose text-lg">הכוכב הבודד והמסיבי במרכז הפס הכחול הוא הלב של הסמיוטיקה הטקסנית. הוא מורכב מחמישה קודקודים, אשר על פי המסורת הלא-רשמית מייצגים את חמשת המאפיינים של האזרח הטקסני הטוב: פטריוטיזם, דתיונות (צדקות), אומץ לב, נאמנות לאומה, וזהירות פוליטית. מעל לכל, הכוכב מסמל את כל טקסס כ"ישות אחת, מאוחדת ובלתי ניתנת לחלוקה", העומדת בגבורה מול כל איום חיצוני.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-txBlue rounded-full shadow-[0_0_15px_rgba(0,40,104,0.6)]"></div>
+                <div class="w-6 h-6 bg-txWhite rounded-full shadow-[0_0_15px_rgba(255,255,255,0.6)]"></div>
+                <div class="w-6 h-6 bg-txRed rounded-full shadow-[0_0_15px_rgba(191,10,48,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
