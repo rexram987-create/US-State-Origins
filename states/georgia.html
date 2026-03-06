@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ג'ורג'יה - US State Origins</title>
+    <title>ג'ורג'יה - מחקר אקדמי מורחב ואולטימטיבי</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -14,9 +14,10 @@
                         darkBg: '#0f172a',
                         cardBg: '#1e293b',
                         accent: '#38bdf8',
-                        georgiaRed: '#BA0C2F',
-                        georgiaBlue: '#002A5C',
-                        georgiaGold: '#DAA520'
+                        gaRed: '#BA0C2F',  /* Georgia Flag Red */
+                        gaBlue: '#00205B', /* Georgia Flag Blue */
+                        gaGold: '#D4AF37', /* State Seal Gold */
+                        peach: '#FFCBA4'   /* Peach highlight */
                     }
                 }
             }
@@ -26,218 +27,323 @@
         body { 
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
         }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-gaGold font-black text-2xl mb-5 underline italic decoration-gaGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
     </style>
 </head>
-<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-8">
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
 
     <!-- ניווט עליון -->
-    <nav class="w-full max-w-4xl mb-6">
-        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-medium">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
             </svg>
             חזרה לאטלס המדינות
         </a>
     </nav>
 
-    <!-- כותרת המדינה -->
-    <header class="w-full max-w-4xl bg-cardBg rounded-2xl shadow-xl p-8 mb-8 border-t-4 border-georgiaRed">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-center md:text-right">
-                <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-2">ג'ורג'יה</h1>
-                <p class="text-xl text-accent font-semibold tracking-wide">Georgia</p>
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-gaRed relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">ג'ורג'יה</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Georgia - Empire State of the South</p>
+                <div class="h-2 w-56 bg-gaGold mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(212,175,55,0.5)]"></div>
             </div>
-            <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 w-full md:w-auto text-center shadow-inner">
-                <p class="text-slate-400 text-sm italic mb-1">תאריך ייסוד / הצטרפות לאיחוד:</p>
-                <p class="text-2xl font-bold text-white">2 בינואר, 1788</p>
-                <p class="text-xs text-slate-500 mt-1 uppercase tracking-tighter font-bold">המדינה ה-4 באיחוד</p>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">2 בינואר, 1788</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-4 באיחוד</p>
             </div>
         </div>
     </header>
 
-    <main class="w-full max-w-4xl space-y-8">
+    <main class="w-full max-w-4xl space-y-20">
         
-        <!-- 1. מחקר אטימולוגי מלא ומחולק -->
-        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
-            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2 flex items-center">
-                <span class="ml-2">1.</span> מחקר אטימולוגי מלא ומחולק
-            </h2>
-            <div class="space-y-6">
-                <p class="text-lg leading-relaxed text-slate-300">
-                    השם "ג'ורג'יה" הוא לטיניזציה של השם האנגלי "ג'ורג'" (George), שניתן למושבה כהוקרה למלך בריטניה דאז, ג'ורג' השני. אולם, הפירוק האטימולוגי העמוק יותר מוביל אותנו אל יוון העתיקה.
-                </p>
-                
-                <div class="grid grid-cols-1 gap-4">
-                    <div class="bg-slate-800/80 p-6 rounded-xl border-r-4 border-accent shadow-inner">
-                        <h3 class="font-bold text-white mb-4 text-xl underline">הפירוק השפתי (מיוונית עתיקה ללטינית):</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start bg-slate-900/40 p-3 rounded-lg">
-                                <span class="text-accent font-black text-2xl ml-3">Gē / Ge</span>
-                                <div>
-                                    <p class="text-white font-bold">משמעות: אדמה / ארץ (γῆ).</p>
-                                    <p class="text-sm text-slate-400 font-medium">השורש המציין את הקרקע הפיזית (מוכר גם במילים כמו גיאוגרפיה, גיאולוגיה).</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start bg-slate-900/40 p-3 rounded-lg">
-                                <span class="text-accent font-black text-2xl ml-3">Ergon</span>
-                                <div>
-                                    <p class="text-white font-bold">משמעות: עבודה / פעולה (ἔργον).</p>
-                                    <p class="text-sm text-slate-400 font-medium">מתאר עשייה ועיבוד פיזי של החומר.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start bg-slate-900/40 p-3 rounded-lg">
-                                <span class="text-accent font-black text-2xl ml-3">-ia</span>
-                                <div>
-                                    <p class="text-white font-bold">משמעות: ארצו של- / נחלתו של-.</p>
-                                    <p class="text-sm text-slate-400 font-medium">סיומת לטינית קלאסית לציון טריטוריה ריבונית.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-slate-900/50 p-6 rounded-xl border-r-4 border-white">
-                        <h3 class="font-bold text-white mb-2 text-lg italic">המשמעות האטימולוגית המקובלת:</h3>
-                        <p class="text-lg text-slate-300 leading-relaxed">
-                            חיבור השורשים היווניים יוצר את המילה <span class="text-white font-bold">"Geōrgios" (גאורגיוס)</span>, שמשמעותה <span class="text-white font-bold underline decoration-accent">"איכר"</span> או <span class="text-white font-bold underline decoration-accent">"עובד אדמה"</span>. 
-                        </p>
-                        <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-                            כאשר מוסיפים את הסיומת "ia", השם "Georgia" אומר למעשה: <strong class="text-white">"ארצו של עובד האדמה"</strong>, משמעות אירונית ופואטית לאור העובדה שג'ורג'יה תוכננה להיות מושבה חקלאית נטולת עבדים, שבה כל מתיישב אמור היה לעבד את חלקתו במו ידיו.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. ההיסטוריה של הקמת המושבה -->
-        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
-            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2 flex items-center">
-                <span class="ml-2">2.</span> תולדות המושבה: הקמה, מיקום וחזון
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: האירוניה של עובד האדמה
             </h2>
             
-            <div class="space-y-8">
-                <!-- רקע ההקמה -->
-                <div class="bg-slate-800/40 p-6 rounded-xl border-r-4 border-georgiaGold shadow-md">
-                    <h3 class="text-xl font-bold text-white mb-3 italic underline">הרקע להקמת המושבה (1732)</h3>
-                    <p class="text-lg text-slate-300 leading-relaxed">
-                        ג'ורג'יה הייתה המושבה ה-13 והאחרונה מבין שלוש-עשרה המושבות המקוריות שהקימה בריטניה בצפון אמריקה. היא הוקמה ביוזמתו של גנרל **ג'יימס אוגלת'ורפ** (James Oglethorpe), איש חזון ופילנתרופ בריטי. אוגלת'ורפ נחרד ממצבם של אסירי החובות (אנשים שנכלאו משום שלא יכלו לשלם את חובותיהם) בבתי הכלא בבריטניה, וביקש להקים מושבה שתשמש כ"מקלט לעניים ראויים" (Worthy poor), מקום בו יוכלו לפתוח דף חדש כחקלאים. מלך בריטניה, ג'ורג' השני, העניק לו את הזיכיון (Charter) ב-1732.
-                    </p>
-                </div>
-
-                <!-- סיבת בחירת המיקום -->
-                <div class="bg-slate-800/40 p-6 rounded-xl border-r-4 border-georgiaRed shadow-md">
-                    <h3 class="text-xl font-bold text-white mb-3 italic underline">סיבת בחירת מיקום המושבה</h3>
-                    <p class="text-lg text-slate-300 leading-relaxed">
-                        המיקום של ג'ורג'יה לא נבחר במקרה, אלא נבע משיקולים אסטרטגיים-צבאיים מובהקים של הכתר הבריטי. ג'ורג'יה הוקמה כדי לשמש כ**אזור חיץ (Buffer Zone) צבאי**. 
-                        מעברה הצפוני שכנה מושבת קרוליינה הדרומית העשירה והרווחית (שהכניסה כסף רב לבריטניה מגידולי אורז), ומדרומה שכנה פלורידה שנשלטה על ידי האימפריה הספרדית (אויבתה של בריטניה). המטרה של ג'ורג'יה הייתה לספוג את ההתקפות הספרדיות ולהגן על המושבות הבריטיות הצפוניות יותר. מתיישביה הראשונים נבחרו לא רק בשל מצבם הכלכלי, אלא גם בשל כשירותם לשמש כמיליציה צבאית מגנה.
-                    </p>
-                </div>
-
-                <!-- עובדות מעניינות -->
-                <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-600 shadow-inner">
-                    <h3 class="text-xl font-bold text-accent mb-4 flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2 text-georgiaGold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        פרטים מיוחדים על חזון המושבה (הניסוי של ג'ורג'יה)
-                    </h3>
-                    <ul class="space-y-4 text-slate-300">
-                        <li class="flex items-start">
-                            <span class="text-georgiaGold font-bold text-xl ml-3">1.</span>
-                            <p><strong>איסור על עבדות:</strong> ג'ורג'יה הייתה המושבה הדרומית היחידה שאסרה על עבדות עם הקמתה. אוגלת'ורפ סבר שעבדות מנוגדת למוסר, ושהיא תהפוך את המתיישבים הלבנים לעצלנים ותחליש את החוסן הצבאי של אזור החיץ.</p>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-georgiaGold font-bold text-xl ml-3">2.</span>
-                            <p><strong>איסור על רום ועורכי דין:</strong> כדי לשמור על חברה יצרנית והרמונית, הזיכיון המקורי אסר על הכנסת משקאות חריפים (כמו רום) ועל פעילות של עורכי דין, מתוך אמונה שהמתיישבים צריכים ליישב את סכסוכיהם בעצמם ללא משפטים ארוכים.</p>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-slate-500 font-bold text-xl ml-3">*</span>
-                            <p class="italic text-sm text-slate-400">יש לציין כי הניסוי האוטופי הזה נכשל; עד שנות ה-50 של המאה ה-18, תחת לחץ כלכלי, ג'ורג'יה אישרה חוקית את העבדות ואת צריכת האלכוהול, והפכה למושבת מטעים בדומה לקרוליינה הדרומית.</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו -->
-        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
-            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2 flex items-center">
-                <span class="ml-2">3.</span> וקסילולוגיה: ניתוח הדגל וסמליו
-            </h2>
-            
-            <!-- ייצוג ויזואלי של דגל ג'ורג'יה (2003) -->
-            <div class="flex flex-col items-center mb-10">
-                <div class="w-full max-w-md aspect-[3/2] bg-white rounded-lg overflow-hidden shadow-2xl border-4 border-slate-800 relative flex flex-col">
-                    <!-- 3 Horizontal Stripes -->
-                    <div class="h-1/3 w-full bg-georgiaRed"></div>
-                    <div class="h-1/3 w-full bg-white"></div>
-                    <div class="h-1/3 w-full bg-georgiaRed"></div>
-                    
-                    <!-- Canton (Top Left corner) -->
-                    <div class="absolute top-0 left-0 h-[66.66%] w-1/2 bg-georgiaBlue flex items-center justify-center">
-                        <div class="relative w-24 h-24">
-                            <!-- Circle of 13 stars placeholder -->
-                            <div class="absolute inset-0 border-2 border-dashed border-georgiaGold rounded-full opacity-50"></div>
-                            <!-- State Coat of Arms simplified representation -->
-                            <div class="absolute inset-2 flex flex-col items-center justify-center">
-                                <div class="w-12 h-2 bg-georgiaGold mb-1 rounded"></div> <!-- Arch -->
-                                <div class="flex gap-2">
-                                    <div class="w-1.5 h-10 bg-georgiaGold rounded"></div> <!-- Pillar 1 -->
-                                    <div class="w-1.5 h-10 bg-georgiaGold rounded"></div> <!-- Pillar 2 -->
-                                    <div class="w-1.5 h-10 bg-georgiaGold rounded"></div> <!-- Pillar 3 -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <p class="mt-4 text-slate-400 font-bold text-lg bg-slate-800 px-6 py-2 rounded-full border border-slate-700">
-                    דגל ג'ורג'יה (אומץ ב-2003)
-                </p>
-            </div>
-
-            <!-- נסיבות יצירה וניתוח -->
             <div class="space-y-10">
-                <div class="bg-slate-800/40 p-6 rounded-xl border-r-4 border-georgiaBlue shadow-md">
-                    <h3 class="text-xl font-bold text-white mb-4 italic underline underline-offset-4">היסטוריית העיצוב: מהקונפדרציה לפיוס</h3>
-                    <div class="space-y-4 text-lg text-slate-300 leading-relaxed">
-                        <p>הדגל הנוכחי של ג'ורג'יה, שאומץ ב-8 במאי 2003, נוצר לאחר עשורים של מחלוקות פוליטיות עמוקות סביב דגל המדינה הקודם (משנת 1956), שכלל את צלב המערכה של הקונפדרציה ונחשב על ידי רבים לסמל טעון וגזעני.</p>
-                        <p>הדגל הנוכחי עוצב במטרה להוות פשרה: מצד אחד, הוא מבוסס על המבנה של "Stars and Bars" - הדגל הלאומי הראשון של הקונפדרציה (שני פסים אדומים ופס לבן באמצע, עם קנטון כחול), ובכך מכבד את מורשת הדרום ההיסטורית בצורה מתונה יותר. מצד שני, הוא משלב את סמל המדינה הרשמי ומרחיק את המדינה מדגלי הקרב השנויים במחלוקת.</p>
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    השם "ג'ורג'יה" ניתן באופן רשמי בשנת 1732 כדי לכבד את פטרונה של המושבה. אולם, כאשר מפרקים את השם לשורשיו העתיקים, מתגלה אחת האירוניות המבריקות ביותר בהיסטוריה האמריקאית: המדינה שהפכה לסמל של חקלאות מטעים מפלצתית ועבודת כפיים (ולעיתים עבודת כפייה), נושאת שם שמשמעותו המילולית המדויקת היא "עבודת אדמה".
+                </p>
+
+                <div class="space-y-8">
+                    <!-- George -->
+                    <div class="etymology-box border-gaRed">
+                        <p class="text-gaRed font-black text-5xl mb-6 italic tracking-tighter">George (Georgios)</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> המילה היוונית העתיקה Γεώργιος (Georgios).</p>
+                            <p><strong>פירוק לשוני:</strong> השם מורכב מהמילים <span class="font-bold text-white">"Ge" (γῆ)</span> שמשמעותה 'אדמה/ארץ' (כמו בגיאוגרפיה), והמילה <span class="font-bold text-white">"Ergon" (ἔργον)</span> שמשמעותה 'עבודה/מלאכה'.</p>
+                            <p><strong>משמעות היסטורית:</strong> הפירוש המילולי הוא "איש עבודת האדמה" או "איכר". במקרה זה, המושבה נקראה על שמו של **ג'ורג' השני, מלך בריטניה**, שהעניק את הזיכיון המלכותי להקמתה כמושבה ה-13 והאחרונה של בריטניה באמריקה הצפונית.</p>
+                        </div>
+                    </div>
+
+                    <!-- ia -->
+                    <div class="etymology-box border-gaBlue">
+                        <p class="text-gaBlue font-black text-5xl mb-6 italic tracking-tighter">-ia</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> סיומת לטינית קלאסית.</p>
+                            <p><strong>משמעות מילולית:</strong> "ארץ של..." או "מקום השייך ל...".</p>
+                            <p><strong>הסינתזה המלאה (Georgia):</strong> "ארצו של ג'ורג'". ברמה העמוקה יותר, השם מתרגם ל**"ארץ החקלאות"**. בחירת השם הייתה מהלך דיפלומטי חנפני כלפי המלך, אך גם תאמה את חזונם האוטופי של המייסדים להקים רשת של חוות קטנות שיעובדו על ידי אזרחים חופשיים (ולא על ידי עבדים) - חזון שקרס לחלוטין כעבור שני עשורים.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-gaRed text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: האוטופיסט והדיפלומט הילידי
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- ג'יימס אוגלת'ורפ -->
+                <div class="personality-card border-r-8 border-gaBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-gaBlue decoration-4 underline-offset-8">הפילנתרופ האוטופיסט: ג'יימס אדוארד אוגלת'ורפ (James Oglethorpe)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1696–1785. <strong>מעמד:</strong> מייסד מושבת ג'ורג'יה.</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות והתעוררות חברתית:</h4>
+                            <p class="leading-loose">אוגלת'ורפ נולד בסארי, אנגליה, למשפחת אצולה עשירה. הוא חונך באוניברסיטת אוקספורד ושירת כקצין צבא תחת הנסיך יוג'ין מסבויה. נקודת המפנה בחייו התרחשה כאשר חברו הקרוב הושלך ל"כלא בעלי חובות" (כלא פליט) בלונדון, שם נדבק באבעבועות שחורות ומת בתנאים מחרידים. הטרגדיה הזו הפכה את אוגלת'ורפ לרפורמטור חברתי שהקדיש את חייו לעזרה ל"עניים הראויים" של בריטניה.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - ניסוי חברתי קיצוני ("תוכנית ג'ורג'יה"):</h4>
+                            <p class="leading-loose">האידיאולוגיה של אוגלת'ורפ הייתה שילוב של נאורות פילנתרופית והגנה צבאית. הוא ייסד את ג'ורג'יה כ"מדינת חיץ" (Buffer State) בין המושבות האנגליות העשירות מצפון לבין הספרדים בפלורידה. כדי שהמושבה תהיה חזקה מוסרית וצבאית, הוא העביר חוקים חסרי תקדים לאותה תקופה: **הוא אסר לחלוטין על עבדות** (מתוך אמונה שעבודה שחורה מנוונת את האזרח הלבן), אסר על הכנסת רום ומשקאות חריפים (כדי למנוע שכרות ובטלה), ואסר על עורכי דין ואחוזות ענק.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים וקריסת החלום (1733):</h4>
+                            <p class="leading-loose">ב-1733, אוגלת'ורפ והמתיישבים הקימו את העיר **סוואנה (Savannah)**, שתוכננה בגאונות כרשת של כיכרות פתוחות ("The Oglethorpe Plan") המהוות פלא אדריכלי עד היום. הוא פיקד בהצלחה על הכוחות שהדפו את הפלישה הספרדית בקרב "הביצה המדממת" (1742). אולם, האוטופיה שלו קרסה. המתיישבים בג'ורג'יה קינאו בשכניהם מקרוליינה הדרומית שהתעשרו מכותנה וגידול אורז באמצעות עבדים. הלחץ הכלכלי גבר, ב-1751 בוטל האיסור על העבדות, וג'ורג'יה הפכה למוקד של כלכלת מטעים אכזרית – היפוך מוחלט מחזון מייסדה.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="space-y-6">
-                    <h3 class="text-xl font-bold text-white mb-3 flex items-center">
-                        <span class="w-2 h-6 bg-georgiaGold ml-3 rounded-full"></span>
-                        ניתוח סמלי חותם המדינה (בקנטון הכחול):
-                    </h3>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-slate-800/50 p-6 rounded-xl border-b-2 border-georgiaGold shadow-md">
-                            <h4 class="font-bold text-white mb-3 text-lg underline italic text-georgiaGold">קשת החוקה ושלושת העמודים:</h4>
-                            <p class="text-slate-300">במרכז הקנטון (הריבוע הכחול) ניצב סמל המדינה, הכולל קשת המייצגת את **החוקה של ג'ורג'יה**. הקשת נתמכת על ידי שלושה עמודים המייצגים את שלוש רשויות השלטון: הרשות המחוקקת, הרשות המבצעת והרשות השופטת.</p>
+                <!-- צ'יף טומוצ'יצ'י -->
+                <div class="personality-card border-r-8 border-gaGold shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-gaGold decoration-4 underline-offset-8">הדיפלומט והמגן הילידי: צ'יף טומוצ'יצ'י (Tomochichi)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1644(בערך)–1739. <strong>מעמד:</strong> המנהיג הראשי (Mico) של שבט היאמקרו (Yamacraw).</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">רקע - מנהיגות של גולים:</h4>
+                            <p class="leading-loose">טומוצ'יצ'י לא היה רק "צ'יף מסורתי", אלא בונה-אומה בעצמו. הוא גיבש את שבט היאמקרו מקבוצה של פליטים אינדיאנים (מיוצאי שבטי הקריק והיאמסי) שלא הסכימו עם הבריתות הפוליטיות של אחיהם, והתיישבו על צוק (Yamacraw Bluff) המשקיף על נהר סוואנה. הוא היה אדם גבוה, מרשים, בעל אבחנה גיאופוליטית נדירה, שהבין שהבריטים עומדים לשנות את מאזן הכוחות ביבשת.</p>
                         </div>
 
-                        <div class="bg-slate-800/50 p-6 rounded-xl border-b-2 border-white shadow-md">
-                            <h4 class="font-bold text-white mb-3 text-lg underline italic">המוטו והחייל:</h4>
-                            <p class="text-slate-300">סביב העמודים מלופף סרט הנושא את המוטו של המדינה: <strong class="text-white">"Wisdom, Justice, Moderation"</strong> (חכמה, צדק, מתינות). לצידם עומד איש מיליציה בלבוש מהפכני עם חרב שלופה, המייצג את נכונותם של תושבי ג'ורג'יה להגן על החוקה ועל הריבונות.</p>
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - ברית אסטרטגית וחינוך:</h4>
+                            <p class="leading-loose">האידיאולוגיה של טומוצ'יצ'י דגלה בהישרדות שבטית דרך דו-קיום וכלכלה, ולא דרך מלחמה. הוא האמין שהסחר עם הבריטים (כלי נשק, מתכות ובדים תמורת פרוות וקרקע) יחזק את עמו מול אויביהם הספרדים והאינדיאנים. בניגוד לילידים אחרים, הוא עמד על כך שהבריטים יקימו בתי ספר עבור ילדי שבטו, כדי שילמדו לקרוא ולכתוב באנגלית ולא ירומו בחוזי סחר עתידיים.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - הפגישה עם המלך (1734):</h4>
+                            <p class="leading-loose">ללא הסכמתו של טומוצ'יצ'י, מושבת ג'ורג'יה הקטנה הייתה מושמדת בתוך שבועות. הוא העניק לאוגלת'ורפ את השטח שעליו נבנתה העיר סוואנה ודאג לאספקת מזון למתיישבים החולים בחורף הראשון. ב-1734, בגיל 90, הפליג טומוצ'יצ'י יחד עם אוגלת'ורפ ללונדון. הוא נפגש אישית עם המלך ג'ורג' השני, חתם על אמנות סחר רשמיות, והפך לגיבור תרבותי באנגליה. עם מותו, נקבר בכיכר המרכזית של סוואנה בטקס צבאי בריטי מלא – סמל נדיר של כבוד בין שני העולמות.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="bg-slate-800/30 p-5 rounded-xl border-r-4 border-georgiaBlue">
-                        <h4 class="font-bold text-white mb-2 text-lg italic">13 הכוכבים:</h4>
-                        <p class="text-slate-300 text-lg leading-relaxed">
-                            מעגל של שלושה-עשר כוכבים לבנים מקיף את הסמל. כוכבים אלו מייצגים את ג'ורג'יה ואת 12 אחיותיה שהרכיבו יחד את שלוש-עשרה המושבות המקוריות של ארצות הברית, ובכך מחברים את הדגל לתקופת הייסוד המוקדמת.
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: יונקי הים ומיתולוגיית האפרסק
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-gaBlue">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-gaBlue">היונק הימי הרשמי: האובלנה הצפון-אטלנטית (Right Whale)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">סמל אקולוגי עליון (אומץ ב-1985)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הבחירה ביונק הימי **Eubalaena glacialis** (האובלנה הצפון-אטלנטית) כסמל של ג'ורג'יה מתעדת את הניגודיות שבין ההיסטוריה של ציד לבין המאמץ המודרני לשימור. השם "Right Whale" (הלווייתן ה"נכון") ניתן לו על ידי ציידי לווייתנים במאות ה-18 וה-19, משום שהוא היה "הלווייתן הנכון לצוד" – הוא שוחה לאט, עשיר מאוד בשומן (Blubber), וצף על פני המים לאחר מותו. תכונות אלו הביאו את הגזע לסף הכחדה מוחלט (נותרו בעולם כ-350 פרטים בלבד).
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        הקשר העמוק והקריטי לג'ורג'יה טמון בכך שחופי ג'ורג'יה (ופלורידה השכנה) הם **אזור ההמלטה (Calving grounds) היחיד הידוע בעולם** עבור נקבות המין הזה. בכל חורף, הלווייתנות הענקיות נודדות אלפי קילומטרים ממימי קנדה וניו אינגלנד הקפואים דרומה אל המים הרדודים והחמימים של חופי ג'ורג'יה כדי ללדת ולטפל בגוריהן. ג'ורג'יה אימצה את החיה כסמל של אחריות אקולוגית וכהכרה בכך שגורלו של המין תלוי בהגנה על חופיה.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית / פרי -->
+                <div class="culture-highlight border-peach">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-[#FFCBA4]">הפרי והמנה הלאומית: האפרסק של ג'ורג'יה וקובלר אפרסקים</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">נשק פסיכולוגי של מיתוג מחדש לאחר מלחמה</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        האפרסק אינו פרי ילידי של אמריקה (מקורו בסין), אך הוא הפך לאבן היסוד התרבותית של ג'ורג'יה. נזירים ספרדים הביאו אפרסקים לחופי ג'ורג'יה במאה ה-16, אך הפרי הפך למיתוס לאומי רק לאחר מלחמת האזרחים האמריקאית (1865).
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        לאחר המלחמה, כלכלת ג'ורג'יה (שהתבססה על כותנה ועבדות) הייתה מרוסקת, ואדמותיה נחרבו על ידי "מצעד הים" של הגנרל שרמן. "המלך כותנה" (King Cotton) זוהה באופן מוחלט עם עבדות, מוות ועוני. חקלאים בג'ורג'יה חיפשו יבול חלופי שלא נשא מטען דם. האפרסק (ובעיקר זן ה-Elberta שפותח על ידי סמואל רומף) שגשג באדמת החימר האדומה של המדינה, והצריך שעות קור מעטות בחורף שג'ורג'יה סיפקה באופן מושלם.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        חקלאים ופוליטיקאים בג'ורג'יה השתמשו באפרסק למיתוג מחדש (Rebranding) של הדרום. האפרסק שווק לאליטות של הצפון הפרוטסטנטי כפרי מתוק, מעודן, אלגנטי ואריסטוקרטי – ההפך הגמור מהכותנה המחוספסת והעקובה מדם. המנה הקולינרית המזוהה ביותר היא ה**קובלר אפרסקים (Peach Cobbler)** – קינוח כפרי, חם ומנחם שנאפה במחבת ברזל יצוקה עם שכבת בצק חמאתית ועבה מעל פירות מבושלים בסוכר ותבלינים. הקובלר הפך לסמל ה"הכנסת האורחים הדרומית" (Southern Hospitality).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-gaRed text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Peach State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-peach shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-[#FFCBA4]">The Peach State</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מיתוג של מתיקות ונוסטלגיה</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי "מדינת האפרסק" הוענק באופן רשמי רק ב-1995 (והוטבע על גבי לוחיות הרישוי). למרבה האירוניה, ג'ורג'יה מייצרת כיום פחות אפרסקים מקליפורניה ואפילו מקרוליינה הדרומית. עם זאת, התודעה הפסיכולוגית (הפנומנולוגיה) חזקה מהסטטיסטיקה. הכינוי מעגן את ג'ורג'יה במוח האמריקאי כיעד כפרי, חם ומתוק, והציל אותה תדמיתית מהאסוציאציות הקשות של העבר הדרומי שלה. הרחוב הראשי באטלנטה (בירת המדינה) נקרא "פיצ'טרי" (Peachtree), ולמעלה מ-70 רחובות אחרים בעיר נושאים את המילה אפרסק בשמם.
                         </p>
                     </div>
+
+                    <!-- Empire State of the South -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-gaBlue shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">Empire State of the South</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">גאוות התיעוש הדרומי</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            כינוי זה הופיע לראשונה בשנות ה-40 של המאה ה-19. הוא נועד להקביל את ג'ורג'יה לניו יורק (הידועה כ-Empire State של הצפון). באותה תקופה, ג'ורג'יה עברה תהליך תיעוש פנומנלי: היא פרסה את רשת מסילות הברזל הארוכה והמתקדמת ביותר בדרום, הקימה מפעלי טקסטיל אדירים (The Augusta Mills), והפכה למרכז המסחרי הבלתי מעורער של הקונפדרציה. הכינוי משדר כוח, הובלה כלכלית ואמביציה פוליטית שהפכו את העיר אטלנטה לבירה הכלכלית המודרנית של דרום ארצות הברית עד ימינו.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-gaBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: פשרת הקונפדרציה ושלושת העמודים
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל ג'ורג'יה (2003) -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#BA0C2F] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-white/10 pointer-events-none z-20"></div>
+                    
+                    <!-- 3 Horizontal Stripes -->
+                    <div class="w-full h-1/3 bg-[#BA0C2F]"></div>
+                    <div class="w-full h-1/3 bg-white"></div>
+                    <div class="w-full h-1/3 bg-[#BA0C2F]"></div>
+
+                    <!-- Canton (Blue square in top left) -->
+                    <div class="absolute top-0 left-0 w-[45%] h-[66.66%] bg-[#00205B] flex items-center justify-center transform transition-transform duration-700 group-hover:scale-105 z-10 shadow-lg">
+                        
+                        <!-- 13 Stars (Circular representation) -->
+                        <div class="absolute inset-4 border-[2px] border-dashed border-white/40 rounded-full animate-spin-slow" style="animation-duration: 60s;"></div>
+                        
+                        <!-- State Seal Elements (Arch & Pillars in Gold) -->
+                        <div class="flex flex-col items-center justify-center z-10 mt-2">
+                            <!-- Arch -->
+                            <div class="w-24 h-4 border-t-8 border-x-8 border-[#D4AF37] rounded-t-full mb-1"></div>
+                            <!-- 3 Pillars -->
+                            <div class="flex gap-4 mb-1">
+                                <div class="w-2 h-16 bg-[#D4AF37] shadow-sm"></div>
+                                <div class="w-2 h-16 bg-[#D4AF37] shadow-sm relative">
+                                    <!-- Militiaman simulation -->
+                                    <div class="absolute top-4 -left-3 text-white text-xl">🧍‍♂️</div>
+                                </div>
+                                <div class="w-2 h-16 bg-[#D4AF37] shadow-sm"></div>
+                            </div>
+                            <div class="text-[#D4AF37] font-black text-[10px] uppercase tracking-widest mt-1">In God We Trust</div>
+                        </div>
+
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    קשת החוקה והפסים הלאומיים <br><span class="text-xl font-medium text-slate-500">(דגל הפשרה שאומץ ב-2003)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-gaRed shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-gaRed decoration-4">נסיבות היצירה ומלחמות הדגלים:</h3>
+                    <p class="text-xl leading-loose">
+                        לג'ורג'יה יש את ההיסטוריה הוקסילולוגית הסוערת ביותר בארה"ב. בשנת 1956, כתגובת נגד אלימה ופוליטית להחלטת בית המשפט העליון שקבעה כי הפרדה גזעית בבתי ספר היא לא חוקית, שינתה ג'ורג'יה את דגלה וכללה בו את **צלב הקרב של הקונפדרציה** (הדגל הדרומי המוכר ביותר, המזוהה לעיתים קרובות עם גזענות). 
+                        לאחר עשרות שנים של חרמות כלכליים ולחצים (במיוחד סביב אולימפיאדת אטלנטה 1996), שונה הדגל ב-2001 לעיצוב כחול ומבולגן שנחשב ל"מכוער ביותר באמריקה". ב-2003, נערך משאל עם שהביא לאימוץ הדגל הנוכחי. הפשרה המבריקה והשנויה במחלוקת של מעצבי 2003: הם הסירו את צלב הקרב הפוגעני, אך ביססו את הדגל החדש <strong class="text-white">במדויק על הדגל הלאומי הראשון של הקונפדרציה (The Stars and Bars)</strong> – דגל שמעורר פחות אנטגוניזם ציבורי אך משמר את מורשת הדרום.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-gaBlue shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-gaBlue">הקנטון והכוכבים:</h4>
+                        <p class="leading-loose text-lg">בקנטון (הפינה השמאלית העליונה) הכחול ישנם **13 כוכבים לבנים**, המייצגים את 13 המושבות המקוריות שייסדו את ארצות הברית, שג'ורג'יה הייתה אחת מהן (והאחרונה שבהן). הכחול המלכותי מייצג נאמנות לאיחוד.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-gaGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-gaGold">קשת החוקה ושלושת העמודים:</h4>
+                        <p class="leading-loose text-lg">במרכז הכוכבים מופיע סמל המדינה בצבע זהב. קשת גדולה המייצגת את **החוקה** (המסגרת התומכת בחברה) מונחת על גבי **שלושה עמודים**, המסמלים את שלוש רשויות השלטון (המחוקקת, המבצעת והשופטת). על העמודים כרוך סרט עם המוטו הלאומי: *Wisdom* (חוכמה - לרשות המחוקקת), *Justice* (צדק - לרשות השופטת), ו-*Moderation* (מתינות - לרשות המבצעת). חייל מיליציה חמוש בחרב עומד בין העמוד השני לשלישי, ומסמל את נכונותה של ג'ורג'יה להגן על החוקה בכוח הזרוע.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">New Georgia Encyclopedia (University of Georgia):</p>
+                    <p>"James Oglethorpe and the Founding of Georgia". ניתוח מקיף של "תוכנית ג'ורג'יה", חזון המושבה ללא עבדים וללא אלכוהול, והקריסה הסוציולוגית של המודל האוטופי.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Georgia Historical Society (GHS):</p>
+                    <p>"Tomochichi and the Yamacraw". מחקר על הדיפלומטיה האינדיאנית של טומוצ'יצ'י, מסעו החשוב לאנגליה, והברית האסטרטגית שהצילה את סוואנה מהספרדים.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Southern Foodways Alliance:</p>
+                    <p>"The Myth and Reality of the Georgia Peach". היסטוריה כלכלית-תרבותית המסבירה כיצד האפרסק שווק מחדש על ידי חקלאי ג'ורג'יה כדי לשקם את תדמית הדרום אחרי מלחמת האזרחים.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"The Georgia Flag Controversy". ניתוח מלחמות הדגלים של ג'ורג'יה, מוסף צלב הקרב ב-1956 במחאה על זכויות אזרח, והפשרה הפוליטית של דגל ה-Stars and Bars ב-2003.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Department of Natural Resources (Georgia):</p>
+                    <p>"North Atlantic Right Whale Conservation". סקירה אקולוגית על חשיבות חופי ג'ורג'יה כאתר ההמלטה היחיד בעולם של מין הלווייתן הנמצא בסכנת הכחדה קריטית.</p>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- פוטר -->
-    <footer class="w-full max-w-4xl mt-16 pt-8 border-t border-slate-800 text-center">
-        <p class="text-slate-500 text-sm font-medium tracking-widest uppercase">
-            האתר נוצר על ידי ג'מיני ורם | 2026
-        </p>
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-gaRed rounded-full shadow-[0_0_15px_rgba(186,12,47,0.6)]"></div>
+                <div class="w-6 h-6 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.6)]"></div>
+                <div class="w-6 h-6 bg-gaBlue rounded-full shadow-[0_0_15px_rgba(0,32,91,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
     </footer>
 
 </body>
