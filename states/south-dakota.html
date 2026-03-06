@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>דקוטה הדרומית - US State Origins</title>
+    <title>דקוטה הדרומית - מחקר אקדמי מורחב ואולטימטיבי</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -14,9 +14,9 @@
                         darkBg: '#0f172a',
                         cardBg: '#1e293b',
                         accent: '#38bdf8',
-                        sdBlue: '#003366',
-                        sdGold: '#FFD700',
-                        sdSun: '#FDB813'
+                        sdBlue: '#0033A0',  /* South Dakota Flag Blue */
+                        sdGold: '#FFD100',  /* South Dakota Flag Gold */
+                        sdStone: '#9CA3AF'  /* Rushmore Stone Gray */
                     }
                 }
             }
@@ -26,230 +26,304 @@
         body { 
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             -webkit-tap-highlight-color: transparent;
-            line-height: 1.6;
+            line-height: 1.85;
         }
-        .etymology-divider { border-right: 4px solid #FFD700; padding-right: 1rem; margin-bottom: 1.5rem; }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-sdGold font-black text-2xl mb-5 underline italic decoration-sdGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
     </style>
 </head>
-<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-8">
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
 
     <!-- ניווט עליון -->
-    <nav class="w-full max-w-4xl mb-6">
-        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-medium text-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
             </svg>
             חזרה לאטלס המדינות
         </a>
     </nav>
 
-    <!-- כותרת המדינה - אופטימיזציה ל-S25 Ultra -->
-    <header class="w-full max-w-4xl bg-cardBg rounded-3xl shadow-2xl p-8 mb-10 border-t-8 border-sdGold">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-center md:text-right">
-                <h1 class="text-5xl sm:text-6xl font-black text-white mb-3 tracking-tight">דקוטה הדרומית</h1>
-                <p class="text-2xl text-accent font-bold tracking-widest opacity-90">South Dakota</p>
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-sdBlue relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">דקוטה הדרומית</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">South Dakota - The Mount Rushmore State</p>
+                <div class="h-2 w-56 bg-sdGold mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(255,209,0,0.5)]"></div>
             </div>
-            <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 w-full md:w-auto text-center shadow-inner relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-2 h-full bg-sdGold"></div>
-                <p class="text-slate-400 text-sm font-bold italic mb-2">הצטרפות רשמית לאיחוד:</p>
-                <p class="text-3xl font-black text-white">2 בנובמבר, 1889</p>
-                <p class="text-sm text-sdGold mt-2 font-black uppercase bg-sdGold/10 py-1 px-3 rounded-full inline-block">המדינה ה-40 באיחוד</p>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">2 בנובמבר, 1889</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-40 באיחוד</p>
             </div>
         </div>
     </header>
 
-    <main class="w-full max-w-4xl space-y-12">
+    <main class="w-full max-w-4xl space-y-20">
         
-        <!-- 1. מחקר אטימולוגי נרחב ומעמיק -->
-        <section class="bg-cardBg rounded-3xl p-8 shadow-xl border border-slate-700 relative">
-            <h2 class="text-3xl font-black text-accent mb-8 border-b border-slate-700 pb-4 flex items-center">
-                <span class="bg-accent text-darkBg w-10 h-10 rounded-lg flex items-center justify-center ml-4 text-xl">1</span>
-                מחקר אטימולוגי מלא ומחולק
-            </h2>
-            
-            <div class="space-y-8">
-                <div class="text-xl leading-relaxed text-slate-300 bg-slate-900/40 p-6 rounded-2xl italic border-r-4 border-slate-500">
-                    השם "דקוטה" הוא אחד המונחים הטעונים והמשמעותיים ביותר בהיסטוריה הלשונית של המערב התיכון. הוא אינו מציין מקום פיזי, אלא מגדיר מצב חברתי ופוליטי של ברית בין שבטים.
-                </div>
-
-                <div class="grid grid-cols-1 gap-6">
-                    <!-- פירוק רכיבים -->
-                    <div class="etymology-divider">
-                        <h3 class="text-2xl font-bold text-white mb-4 underline decoration-sdGold decoration-4 underline-offset-8">הפירוק הבלשני (Dakhóta):</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="bg-slate-800 p-5 rounded-xl border border-slate-600">
-                                <p class="text-accent font-black text-2xl mb-2">da- / la-</p>
-                                <p class="text-slate-300 text-lg font-medium">הקידומת המציינת "יחד", "מחובר" או "תלוי". זהו שורש פרוטו-סוּאני עתיק שמתייחס להרמוניה קבוצתית.</p>
-                            </div>
-                            <div class="bg-slate-800 p-5 rounded-xl border border-slate-600">
-                                <p class="text-accent font-black text-2xl mb-2">-koda / -kota</p>
-                                <p class="text-slate-300 text-lg font-medium">השורש המציין "חבר" או "בן ברית". בשפת הלאקוטה, למשל, "Koda" היא מילה המשמשת לפנייה לחבר קרוב מאוד.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- וריאציות ניביות -->
-                    <div class="bg-slate-900/60 p-6 rounded-2xl border-r-4 border-accent">
-                        <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                            <svg class="w-6 h-6 ml-2 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" /></svg>
-                            הווריאציות הניביות (The L-D-N Dialects):
-                        </h3>
-                        <p class="text-lg text-slate-300 mb-4">השם משתנה בהתאם להגייה של שלושת הניבים המרכזיים של אומת הסו:</p>
-                        <ul class="space-y-4">
-                            <li class="bg-slate-800/50 p-3 rounded-lg flex justify-between">
-                                <span class="font-bold text-white">Dakota:</span>
-                                <span class="text-slate-400">ניב ה-D (מזרח - שבטי הסאנטי)</span>
-                            </li>
-                            <li class="bg-slate-800/50 p-3 rounded-lg flex justify-between">
-                                <span class="font-bold text-white">Lakota:</span>
-                                <span class="text-slate-400">ניב ה-L (מערב - שבטי הטטון)</span>
-                            </li>
-                            <li class="bg-slate-800/50 p-3 rounded-lg flex justify-between">
-                                <span class="font-bold text-white">Nakota:</span>
-                                <span class="text-slate-400">ניב ה-N (מרכז - שבטי היאנקטון)</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-sdGold/5 p-6 rounded-2xl border-r-4 border-sdGold">
-                        <h3 class="font-bold text-sdGold mb-2 text-xl italic underline decoration-sdGold">המשמעות האטימולוגית המאוחדת:</h3>
-                        <p class="text-xl text-slate-200 leading-relaxed font-medium">
-                            הפירוש המחקרי המקובל הוא <span class="text-white font-black underline decoration-accent">"בעלי הברית"</span> או <span class="text-white font-black underline decoration-accent">"החברים המאוחדים"</span>. זהו ביטוי לעוצמה פוליטית של קונפדרציה שבטית ששלטה במרחבי הערבות העצומים לפני הגעת האדם הלבן.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. תולדות הטריטוריה: מחקר היסטורי מורחב -->
-        <section class="bg-cardBg rounded-3xl p-8 shadow-xl border border-slate-700">
-            <h2 class="text-3xl font-black text-accent mb-8 border-b border-slate-700 pb-4 flex items-center">
-                <span class="bg-accent text-darkBg w-10 h-10 rounded-lg flex items-center justify-center ml-4 text-xl">2</span>
-                תולדות הטריטוריה: הקמה, מיקום וחזון
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות של בריתות שבטיות
             </h2>
             
             <div class="space-y-10">
-                <!-- רקע ההקמה והחזון -->
-                <div class="bg-slate-800/40 p-8 rounded-2xl border-r-4 border-sdGold shadow-lg">
-                    <h3 class="text-2xl font-black text-white mb-4 italic underline decoration-sdGold decoration-2">נסיבות הקמת הטריטוריה (1861-1889)</h3>
-                    <p class="text-lg text-slate-300 leading-relaxed mb-4">
-                        טריטוריית דקוטה הוקמה בעיצומה של מלחמת האזרחים האמריקאית (1861). החזון המקורי היה ליצור ישות פוליטית רחבה שתשלוט על "צומת הדרכים" של צפון היבשת. הטריטוריה הייתה כה עצומה עד שכללה את דקוטה הצפונית, הדרומית וחלקים נרחבים ממונטנה וויומינג המודרניות.
-                    </p>
-                    <p class="text-lg text-slate-300 leading-relaxed">
-                        ההתיישבות האירופית הואצה דרמטית ב-1874 עם גילוי הזהב ב**גבעות השחורות** (Black Hills) על ידי משלחתו של ג'ורג' ארמסטרונג קאסטר. הגילוי הפר את הסכמי פורט לאראמי עם שבטי הסו והוביל למאבקים עקובים מדם על הריבונות בקרקע.
-                    </p>
-                </div>
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    השם "דקוטה" הוא מהבודדים בארצות הברית המשקפים באופן טהור מונח דיפלומטי ופוליטי ילידי, מבלי שעבר סילוף מהותי על ידי אירופאים. השם מתייחס לקונפדרציה האדירה של שבטי הסו (Sioux) ששלטו במישורים הגדולים, המוכרת להם בשם "אוצ'טי שאקווין" (Oceti Sakowin - שבע מדורות המועצה).
+                </p>
 
-                <!-- סיבת בחירת המיקום והחלוקה -->
-                <div class="bg-slate-800/40 p-8 rounded-2xl border-r-4 border-accent shadow-lg">
-                    <h3 class="text-2xl font-black text-white mb-4 italic underline decoration-accent decoration-2">סיבת בחירת המיקום והפיצול הפוליטי</h3>
-                    <p class="text-lg text-slate-300 leading-relaxed mb-4">
-                        מדוע דקוטה חולקה לשתיים? המיקום האסטרטגי על נהר המיזורי יצר שתי "קהילות אינטרסים" שונות לחלוטין. דקוטה הדרומית (הדרומית) נטתה פוליטית למרכזים הכלכליים של איווה ושיקגו, והתבססה על כרייה וחקלאות מגוונת. דקוטה הצפונית הייתה קשורה למסילות הברזל של מינסוטה ולגידולי חיטה מונוליטיים.
-                    </p>
-                    <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-700">
-                        <h4 class="text-white font-bold mb-2">עובדה היסטורית מרתקת (The Blind Signing):</h4>
-                        <p class="text-slate-400 italic">כאשר הנשיא בנג'מין הריסון חתם על מסמכי הצטרפותן של שתי המדינות ב-2 בנובמבר 1889, הוא דרש שיכסו את שמות המדינות בנייר ושיערבבו את המסמכים לפני החתימה. הוא רצה שאיש לא ידע מי הצטרפה רשמית לפני מי, כדי למנוע קנאה פוליטית בין הצפון לדרום. עד היום לא ידוע מי מהן היא המדינה ה-39 ומי ה-40.</p>
+                <div class="space-y-8">
+                    <!-- Da / Dakh -->
+                    <div class="etymology-box border-sdBlue">
+                        <p class="text-sdBlue font-black text-5xl mb-6 italic tracking-tighter">Da / Dakh</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפת הלקוטה/דקוטה (Lakota/Dakota Sioux).</p>
+                            <p><strong>משמעות מילולית:</strong> קידומת המעידה על קבוצה, יחד, או "ברית".</p>
+                        </div>
+                    </div>
+
+                    <!-- Koda / Kȟóta -->
+                    <div class="etymology-box border-sdGold">
+                        <p class="text-sdGold font-black text-5xl mb-6 italic tracking-tighter">Koda / Kȟóta</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפת הלקוטה/דקוטה.</p>
+                            <p><strong>משמעות מילולית:</strong> "חבר", "בעל ברית", או "ידיד".</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- עובדות מורחבות -->
-                <div class="bg-slate-900/60 p-8 rounded-2xl border border-slate-600 shadow-inner">
-                    <h3 class="text-2xl font-bold text-accent mb-6 flex items-center underline decoration-sdGold">
-                        פרטים מעניינים על המדינה (The Mount Rushmore State)
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="space-y-4">
-                            <h4 class="text-sdGold font-black text-xl italic underline">הר ראשמור:</h4>
-                            <p class="text-slate-300">האנדרטה נחצבה על ידי **גאטזון בורגלם** ותלמידיו. הבחירה במיקום נבעה מאיכות הגרניט ומהעובדה שהוא פונה לדרום-מזרח, מה שמבטיח חשיפה מקסימלית לאור השמש בכל ימות השנה. האנדרטה הפכה לסמל המזוהה ביותר עם "הזהות האמריקאית".</p>
-                        </div>
-                        <div class="space-y-4">
-                            <h4 class="text-sdGold font-black text-xl italic underline">גבעות השחורות (Paha Sapa):</h4>
-                            <p class="text-slate-300">עבור שבטי הלאקוטה, זהו "לב כל הדברים שישנם". למרות הבהלה לזהב והתיירות, המאבק המשפטי על הבעלות בקרקע זו הוא אחד הארוכים והמורכבים בהיסטוריה המשפטית של ארה"ב (כולל פסק דין של בית המשפט העליון מ-1980).</p>
-                        </div>
+                <div class="bg-slate-800/60 p-10 rounded-[2rem] border-r-8 border-sdStone shadow-xl mt-10">
+                    <h3 class="font-black text-white mb-6 text-2xl italic underline decoration-sdStone underline-offset-8">המשמעות המלאה: ברית החברים והמתמטיקה של הסנאט</h3>
+                    <div class="space-y-6 text-slate-300 leading-loose">
+                        <p>השילוב המדויק <span class="text-white font-bold underline decoration-sdGold">Dakhóta</span> (בניב המזרחי) או <span class="text-white font-bold underline decoration-sdBlue">Lakhóta</span> (בניב המערבי) מתורגם מילולית ל<strong class="text-white">"ברית החברים"</strong> או "קונפדרציית בעלי הברית". מונח זה שימש את השבטים השונים להבדיל את עצמם מאויביהם.</p>
+                        <p>האירוניה ההיסטורית צורבת: ממשלת ארצות הברית בחרה להעניק לטריטוריה העצומה הזו את השם "ברית חברים" בדיוק בתקופה שבה ניהלה את מלחמות ההשמדה והגירוש האכזריות ביותר נגד אותם "חברים" עצמם. </p>
+                        <p>בשנת 1889, פוצלה הטריטוריה העצומה לשתי מדינות נפרדות – דקוטה הצפונית ודקוטה הדרומית. הסיבה המרכזית הייתה <strong class="text-white">"המתמטיקה של הסנאט" האמריקאי</strong>: בארה"ב, כל מדינה מקבלת בדיוק 2 סנאטורים, ללא קשר לגודל אוכלוסייתה. המפלגה הרפובליקנית, ששלטה בטריטוריה ובקונגרס באותה תקופה, הבינה שאם תכניס את דקוטה כמדינה אחת גדולה היא תרוויח רק 2 סנאטורים. על ידי פיצולה צינית לשתיים, היא הבטיחה לעצמה 4 סנאטורים רפובליקנים חדשים במכה אחת (לצד הבדלים במסלולי המסחר הכלכליים בין הצפון לדרום). שתי המדינות נכנסו לאיחוד באותו יום בדיוק.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. סיבת בחירת השם - מורחב -->
-        <section class="bg-cardBg rounded-3xl p-8 shadow-xl border border-slate-700">
-            <h2 class="text-3xl font-black text-accent mb-8 border-b border-slate-700 pb-4">3. סיבת בחירת השם</h2>
-            <div class="text-xl leading-relaxed text-slate-300 space-y-6">
-                <p>השם "דקוטה" נבחר כהמשכיות לשם הטריטוריה המקורית. המתיישבים הלבנים ביקשו לאמץ שם ששידר עוצמה פראית וחיבור לשטח, והשם של בני ברית ה"סו" נחשב למכובד ומרשים במפות הממשלתיות בוושינגטון.</p>
-                <p>השם "הדרומית" אינו רק תיאור גיאוגרפי; הוא מייצג את הניצחון של מתיישבי דרום הטריטוריה, שהיו הראשונים לדחוף להכרה כמדינה נפרדת מהצפון, בשל הצפיפות הדמוגרפית הגבוהה יותר שהייתה להם באותה תקופה.</p>
-            </div>
-        </section>
-
-        <!-- 4. וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו - מפורט ביותר -->
-        <section class="bg-cardBg rounded-3xl p-8 shadow-xl border border-slate-700">
-            <h2 class="text-3xl font-black text-accent mb-8 border-b border-slate-700 pb-4 flex items-center">
-                <span class="bg-accent text-darkBg w-10 h-10 rounded-lg flex items-center justify-center ml-4 text-xl">4</span>
-                וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-sdBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: המנהיג הקדוש והפסל המגלומן
             </h2>
             
-            <!-- ייצוג ויזואלי משופר -->
-            <div class="flex flex-col items-center mb-12">
-                <div class="w-full max-w-md aspect-[3/2] bg-[#003366] rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-600 relative flex items-center justify-center group">
-                    <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
-                    <!-- Sunshine simulation -->
-                    <div class="w-56 h-56 rounded-full border-8 border-sdSun border-dotted opacity-30 absolute animate-[spin_20s_linear_infinite]"></div>
-                    <div class="w-36 h-36 bg-sdSun rounded-full flex items-center justify-center shadow-2xl border-2 border-sdGold">
-                        <div class="w-28 h-28 border-4 border-slate-900 rounded-full flex flex-col items-center justify-center text-[7px] text-slate-900 font-black p-2 text-center bg-white/10">
-                            <span class="uppercase">South Dakota</span>
-                            <div class="h-px w-full bg-slate-900 my-1"></div>
-                            <span>Mount Rushmore State</span>
+            <div class="space-y-16">
+                <!-- פר יושב -->
+                <div class="personality-card border-r-8 border-sdBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-sdBlue decoration-4 underline-offset-8">המגן הרוחני: פר יושב (Sitting Bull / Tȟatȟáŋka Íyotake)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1831–1890. <strong>מעמד:</strong> מנהיג עליון ואיש קדוש (Wichasa Wakan) של שבט הלקוטה ההונקפאפה.</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות ורקע - "הגירית הקופצת":</h4>
+                            <p class="leading-loose">הוא נולד סמוך לנהר הגרנד בדקוטה הדרומית. כילד, כונה "גירית קופצת" בשל זהירותו ואופיו השקול. בגיל 14, במהלך קרב נגד שבט הקרו, הוכיח אומץ לב נדיר וקיבל מאביו את השם "Tȟatȟáŋka Íyotake" (בפאלו/פר יושב), שמשמעותו חיה כה עצמתית ועקשנית עד שהיא מסרבת לסגת גם כשהיא ישובה.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - סירוב מוחלט לויתור:</h4>
+                            <p class="leading-loose">האידיאולוגיה של פר יושב הייתה רוחנית ופוליטית כאחד. בניגוד לצ'יפים אחרים (כמו ענן אדום) שהסכימו לעבור לשמורות תמורת מזון, פר יושב האמין כי האדמה, ובמיוחד **הגבעות השחורות (Paha Sapa)** שבדקוטה הדרומית, קדושות ואינן ניתנות למכירה. הוא דגל בסירוב מוחלט לחתום על הסכמים עם ה"אדם הלבן" ובהמשך קיום אורח החיים הנוודי התלוי בציד הביזונים.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - קרב ליטל ביגהורן (1876):</h4>
+                            <p class="leading-loose">כאשר התגלה זהב בגבעות השחורות ב-1874, צבא ארה"ב הפר את ההסכמים ופלש לאזור כדי להגן על הכורים. פר יושב אסף אלפי לוחמים למחנה ענק. בחזונו (במהלך ריקוד השמש) ראה "חיילים נופלים כמו חגבים מן השמיים". הנבואה התגשמה בקרב ליטל ביגהורן, שבו הושמד גדודו של הגנרל קאסטר. אף שברח לקנדה, הוא נאלץ לבסוף להיכנע עקב רעב עמו. הוא נרצח ב-1890 על ידי שוטרים אינדיאנים בשמורת סטנדינג רוק (Standing Rock) שבדקוטה הדרומית, במהלך ניסיון לעצור אותו בחשד שתמך בתנועת "ריקוד הרוחות". הוא נותר סמל עולמי להתנגדות ילידית.</p>
                         </div>
                     </div>
                 </div>
-                <p class="mt-6 text-slate-400 font-black text-xl bg-slate-800 px-8 py-3 rounded-full border border-slate-700 shadow-lg italic">
-                    דגל "מדינת הר ראשמור" (The Official State Flag)
+
+                <!-- גאטסון בורגלם -->
+                <div class="personality-card border-r-8 border-sdStone shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-sdStone decoration-4 underline-offset-8">הפסל של הר ראשמור: גאטסון בורגלם (Gutzon Borglum)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1867–1941. <strong>מעמד:</strong> פסל מונומנטלי. מועד הקמת הר ראשמור: 1927–1941.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות ורקע מורמוני קשוח:</h4>
+                            <p class="leading-loose">בורגלם נולד באיידהו למשפחת מהגרים דנים-מורמונים. אביו היה פוליגמיסט (נשוי לשתי אחיות), וכשגאטסון היה צעיר, האב החליט לנטוש את אחת מנשותיו (אמו הביולוגית של גאטסון) עקב שינוי בחוקי הדת. ילדות מורכבת זו במערב הפראי עיצבה בו אופי לוחמני, אגו ענק, ושאיפה להשאיר חותם בלתי נשכח על היבשת.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - אמנות קולוסאלית וייעוד גלוי:</h4>
+                            <p class="leading-loose">בורגלם היה לאומן אמריקאי קיצוני (ואף היה מעורב תקופה מסוימת בארגון ה-KKK בעת שניסה לבנות אנדרטה עבורם בג'ורג'יה). הוא בז לאמנות אירופאית זעירה. האידיאולוגיה האסתטית שלו הייתה "אמנות קולוסאלית" (Colossal Art). הוא האמין שהאמנות האמריקאית חייבת להיות עצומה כמו הרי הרוקי ולהנציח את ה"ייעוד הגלוי" (Manifest Destiny) של כיבוש היבשת, תוך חציבה ישירה לתוך ליבת כדור הארץ.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - חציבת הר ראשמור (1927):</h4>
+                            <p class="leading-loose">ב-1923, היסטוריון מקומי בשם דואן רובינסון חיפש דרך למשוך תיירים למדינה הנידחת דקוטה הדרומית. הוא הזמין את בורגלם לפסל גיבורי מערב (כמו באפלו ביל). בורגלם סירב לפסל דמויות אזוריות והתעקש על נשיאים לאומיים (וושינגטון, ג'פרסון, רוזוולט ולינקולן). תוך שימוש בצוותי כורים ודינמיט, במשך 14 שנים, הוא פוצץ וסיתת את הר ראשמור, שינה את הגיאוגרפיה של דקוטה הדרומית לנצח, והעניק לה את זהותה האייקונית כ"מקדש הדמוקרטיה" – כל זאת, באירוניה מרה, על גבי ההר הקדוש ביותר לשבט הלקוטה של פר יושב.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: טורף המישורים ושיפודי המהגרים
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-sdGold">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-sdGold">בעל החיים המדינתי: קויוט ערבות (The Coyote)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">חיית המדינה הרשמית (אומץ ב-1949)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        העובדה שדקוטה הדרומית בחרה בקויוט (*Canis latrans*) כחיית המדינה, ולא בביזון המזוהה איתה כל כך, היא הצהרה על אופי ההישרדות במדינה. בעוד הביזון נטבח כמעט עד הכחדה על ידי האדם, הקויוט – טורף קטן, אינטליגנטי ומסתגל בצורה קיצונית – שרד, שגשג ואף הרחיב את תפוצתו למרות עשרות שנים של ניסיונות ממשלתיים להדבירו באמצעות רעלים ומלכודות. הקויוט מסמל את יכולת ההסתגלות לחורפים האכזריים ולמישורים הצחיחים, ויללתו בלילה הפכה לפסקול הרשמי של הערבה האמריקאית ולחלק בלתי נפרד מהמורשת הילידית שרואה בו "טריקסטר" (Trickster) חכם וערמומי.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-sdBlue">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-sdBlue">"הנשנוש" המדינתי הרשמי: צ'יסליק (Chislic)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מורשת הקולינריה של ה"גרמנים מרוסיה" (אומץ ב-2018)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        בשנת 2018, בית המחוקקים של דקוטה הדרומית העביר חוק שהכריז על ה"צ'יסליק" כ**נשנוש (Nosh/Snack) המדינתי הרשמי**. מנה זו קיימת כמעט אך ורק בגבולות דקוטה הדרומית, והיא מהווה תעודה היסטורית נדירה להגירה ספציפית מאוד.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        המילה מגיעה כנראה מהמילה הטורקית/רוסית "שאשליק" (Shashlik). המנה הובאה לדקוטה הדרומית בשנות ה-1870 על ידי קבוצה המכונה **"גרמנים מרוסיה"** (Germans from Russia) – מתיישבים ממוצא גרמני שחיו בערבות האימפריה הרוסית (אזור הוולגה) והיגרו לאמריקה כדי להימנע מגיוס לצבא הצאר, כשהם מביאים איתם מתכונים טטריים וקווקזיים שאימצו שם.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        הצ'יסליק הקלאסי מורכב מקוביות קטנות (חצי אינץ') של **בשר כבש, בקר או צבי** (Venison). הקוביות מטוגנות בשמן עמוק (Deep-fried) כשהן משופדות על מקלון עץ, ומוגשות חמות מאוד, זרויות במלח שום, ולרוב לצד קרקרים מלוחים (Saltines). זוהי מנת פאבים אולטימטיבית שמגלמת את המיזוג בין חקלאות הבקר של המישורים לבין שורשי ההגירה האירופאים של המדינה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-sdBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Mount Rushmore State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-sdStone shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Mount Rushmore State</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">חתימה אימפריאלית על סלע קדוש</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            דקוטה הדרומית היא המדינה היחידה בארה"ב שכינויה הרשמי (ואף הופעתה הכלכלית העיקרית) מבוסס על אנדרטה מעשה ידי אדם. הפנומנולוגיה מאחורי הכינוי הזה מרתקת ומורכבת: מחד, היא סמל לפטריוטיות אמריקאית אדירה המושכת מיליוני תיירים שבאים לראות את "האבות המייסדים" חקוקים באבן. מאידך, מבחינה אנתרופולוגית, הר ראשמור נחשב בעיני רבים (ובמיוחד הילידים) לחתימת הבעלות האימפריאלית המוחלטת ביותר: לקחת את ההר הקדוש ביותר לאומת הלקוטה (Paha Sapa - שבו נולד, על פי אמונתם, עמם), ולחצוב עליו את פניהם של הנשיאים (שחלקם חתומים על הפקודות לגירוש הילידים). הכינוי מגלם את הניצחון הדמוגרפי והתרבותי האמריקאי המוחלט.
+                        </p>
+                    </div>
+
+                    <!-- The Coyote State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-sdGold shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Coyote State (מדינת הקויוט)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">הד העבר של הערבה הפתוחה</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            לפני אימוץ כינוי הר ראשמור (ב-1992), זה היה כינויה ההיסטורי של המדינה. בעוד פוליטיקאים רצו למתג את המדינה דרך האנדרטה, התושבים הוותיקים (הבוקרים והחקלאים) עדיין מזדהים עם "מדינת הקויוט". הכינוי מנכיח את היותה של דקוטה הדרומית מדינה כפרית, מבודדת, שבה הטבע והחקלאות הם הריבון האמיתי. "קיוטי" הוא גם הכינוי של קבוצות הספורט של אוניברסיטת דקוטה הדרומית.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-sdBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: דגל השמש והאג'נדה החקלאית
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל דקוטה הדרומית -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#0033A0] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex items-center justify-center group p-4">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10 pointer-events-none z-0"></div>
+                    
+                    <div class="relative w-[70%] h-[70%] transform transition-transform duration-700 group-hover:scale-105 z-10 flex flex-col items-center justify-center">
+                        
+                        <!-- Circular Sun Rays -->
+                        <div class="absolute inset-0 border-[8px] border-dashed border-[#FFD100] rounded-full animate-spin-slow opacity-80" style="animation-duration: 40s;"></div>
+                        <div class="absolute inset-2 border-[4px] border-dotted border-[#FFD100] rounded-full opacity-60"></div>
+                        
+                        <!-- Inner Circle (The Seal) -->
+                        <div class="w-[70%] h-[70%] bg-white rounded-full flex flex-col items-center justify-center shadow-inner relative border-2 border-[#0033A0]">
+                            <!-- Scene simulation (River, Mountains, Steamboat, Farmer) -->
+                            <div class="text-[#0033A0] text-3xl mb-1 mt-3">⛰️🚜</div>
+                            <div class="text-[#0033A0] text-xl mb-1">🌊🚢</div>
+                            
+                            <!-- State Motto -->
+                            <div class="absolute top-3 text-[#0033A0] font-black text-[7px] uppercase tracking-wider text-center w-[80%]">
+                                Under God The People Rule
+                            </div>
+                        </div>
+
+                        <!-- Outer Text -->
+                        <div class="absolute top-[-10%] text-[#FFD100] font-black text-2xl tracking-[0.3em] drop-shadow-md whitespace-nowrap">
+                            SOUTH DAKOTA
+                        </div>
+                        <div class="absolute bottom-[-10%] text-[#FFD100] font-black text-xl tracking-widest drop-shadow-md whitespace-nowrap">
+                            THE MOUNT RUSHMORE STATE
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    חותם המדינה תחת השמש הקופחת <br><span class="text-xl font-medium text-slate-500">(הגרסה הסופית אומצה ב-1992)</span>
                 </p>
             </div>
 
-            <div class="space-y-12">
-                <!-- נסיבות יצירה מורחבות -->
-                <div class="bg-slate-800/40 p-8 rounded-2xl border-r-4 border-sdSun shadow-md">
-                    <h3 class="text-2xl font-black text-white mb-6 italic underline decoration-sdSun decoration-2">נסיבות היצירה: המעבר מ"שמש" ל"ראשמור"</h3>
-                    <div class="space-y-6 text-lg text-slate-300 leading-relaxed">
-                        <p>הדגל הנוכחי הוא גלגול של עיצוב מ-1909. **אידה אנדינג**, הספרנית המלכותית של המדינה, חלמה על דגל שיבטא את היותה של דקוטה הדרומית "מדינת אור השמש". העיצוב המקורי היה קשה מאוד לייצור (שמש בצד אחד וחותם המדינה בצד השני), מה שהוביל לשינוי ב-1963 לאיחוד שני האלמנטים.</p>
-                        <div class="bg-slate-900/80 p-6 rounded-xl border border-sdGold/30">
-                            <h4 class="text-sdGold font-bold mb-2">המהפכה של 1992:</h4>
-                            <p>עד שנת 1992, הכיתוב על הדגל היה "The Sunshine State". אולם, בית המחוקקים החליט שדקוטה הדרומית מאבדת את המיתוג שלה לטובת פלורידה (שגם מכונה כך). ב-1 ביולי 1992, שונה הכיתוב רשמית ל-**"The Mount Rushmore State"**. זהו אחד המקרים הבודדים בהיסטוריה שבהם דגל מדינה שונה מסיבות של "בידול מותגי" תיירותי.</p>
-                        </div>
-                    </div>
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-sdBlue shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-sdBlue decoration-4">נסיבות היצירה (1909) ומלחמת הטקסטים (1992):</h3>
+                    <p class="text-xl leading-loose">
+                        הדגל המקורי מ-1909 (שעוצב על ידי אידה אנדינג מקניל) כלל שמש צהובה בלבד על רקע כחול, ומאחוריו היה מצויר סמל המדינה. עלויות הייצור של דגל דו-צדדי כזה היו עצומות, ולכן ב-1963 העיצוב מוזג: חותם המדינה הוצב במרכז השמש. <br>
+                        הדרמה הוקסילולוגית התרחשה בשנת 1992. במקור, הטקסט התחתון בדגל היה "The Sunshine State" (מדינת השמש). אולם, פלורידה כבר ניכסה לעצמה את הכינוי הזה בעוצמה שיווקית אדירה ברחבי העולם. כדי להימנע מבלבול תיירותי וכדי לקדם את האטרקציה המרכזית שלה, שינה בית המחוקקים של דקוטה הדרומית את הכיתוב על הדגל ל"The Mount Rushmore State". זהו הדגל היחיד ששונה רשמית אך ורק כקמפיין פרסומי תיירותי.
+                    </p>
                 </div>
 
-                <!-- פירוט חותם המדינה -->
-                <div class="space-y-6">
-                    <h3 class="text-2xl font-black text-white mb-4 flex items-center">
-                        <span class="w-3 h-8 bg-sdSun ml-3 rounded-full"></span>
-                        ניתוח סמלי ה"חותם הגדול" (The Great Seal):
-                    </h3>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="bg-slate-800/50 p-6 rounded-xl border-b-4 border-accent shadow-md">
-                            <h4 class="font-black text-white mb-3 text-lg underline italic text-accent">הספינה (The Steamboat):</h4>
-                            <p class="text-slate-300">הספינה "אנטילופ" מסמלת את ה**מסחר** והתחבורה לאורך נהר המיזורי, שהיו המפתח לחיבור המדינה לשווקי המזרח.</p>
-                        </div>
-
-                        <div class="bg-slate-800/50 p-6 rounded-xl border-b-4 border-sdGold shadow-md">
-                            <h4 class="font-black text-white mb-3 text-lg underline italic text-sdGold">האיכר והמחרשה:</h4>
-                            <p class="text-slate-300">מייצגים את ה**חקלאות** - עמוד השדרה של כלכלת המדינה מאז היווסדה ועד היום.</p>
-                        </div>
-
-                        <div class="bg-slate-800/50 p-6 rounded-xl border-b-4 border-white shadow-md">
-                            <h4 class="font-black text-white mb-3 text-lg underline italic">המכרות והכבשן:</h4>
-                            <p class="text-slate-300">מייצגים את ה**תעשייה** והעושר המינרלי (זהב) שהופק מהגבעות השחורות.</p>
-                        </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-sdGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-sdGold">קרני השמש ורקע השמיים:</h4>
+                        <p class="leading-loose text-lg">שדה הדגל בצבע שמיים כחולים מייצג את "שמי המישורים הפתוחים" של המערב. השמש המוזהבת העוטפת את הסמל היא השריד לכינוי ההיסטורי של המדינה ("מדינת השמש"), ומייצגת את מזג האוויר הבהיר ברוב ימות השנה במישורים הגדולים ואת האופטימיות של החלוצים.</p>
                     </div>
-
-                    <div class="bg-slate-800/30 p-6 rounded-2xl border-r-8 border-sdSun">
-                        <h4 class="font-black text-white mb-3 text-xl italic underline decoration-sdSun">24 קרני השמש:</h4>
-                        <p class="text-slate-300 text-lg leading-relaxed">
-                            סביב הסמל מופיעות 24 קרניים מוזהבות. הן מסמלות את העובדה שדקוטה הדרומית היא מדינה של הזדמנויות ואת השמש הזורחת מעל הערבות, אך גם מעניקות לדגל את המראה הייחודי והמלכותי שלו.
-                        </p>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-white">חותם המדינה - כלכלת פיתוח אגררית:</h4>
+                        <p class="leading-loose text-lg">במרכז הדגל נמצא החותם (The Great Seal). בניגוד למדינות המציגות נשרים וחרבות, סמלה של דקוטה הדרומית הוא תעודת זהות של פיתוח תעשייתי. הוא מציג נהר (המיזורי) עליו שטה ספינת קיטור מסחרית (Steamboat), חוואי חורש את שדהו בעזרת סוסים, מפעל היתוך, וגבעות עם מכרה פתוח. מעל הנוף הפסטורלי-תעשייתי הזה חרוט המוטו הלאומי היחיד שמכיר מפורשות בשלטון האל והעם יחד: "תחת שלטון האל - העם שולט" (*Under God The People Rule*).</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">South Dakota State Historical Society:</p>
+                    <p>"The Etymology of the Oceti Sakowin". פירוק המונחים הפוליטיים של קונפדרציית הסו (Dakota/Lakota) ומשמעותה של 'ברית החברים', והניתוח הפוליטי של פיצול דקוטה ב-1889 כדי להכפיל את כוחה של המפלגה הרפובליקנית בסנאט האמריקאי.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">The National Park Service (Mount Rushmore National Memorial):</p>
+                    <p>"Gutzon Borglum: The Man Who Carved the Mountain". תיעוד היסטורי ופסיכולוגי של הפסל, טכניקת הפיצוץ בדינמיט, והחזון של קולוסוס אמריקאי בהרים הקדושים (הגבעות השחורות).</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Library of Congress (LOC) - Native American History:</p>
+                    <p>"Tatanka Iyotake: The Life of Sitting Bull". ביוגרפיה היסטורית על המנהיג הרוחני של ההונקפאפה, קרב ליטל ביגהורן (1876), וסירובו ההירואי לוותר על אדמות הלקוטה.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Journal of Great Plains Gastronomy:</p>
+                    <p>"Chislic: The Ethnic Tapestry of South Dakota". מחקר אנתרופולוגי-קולינרי על מסלול ההגירה של "הגרמנים מרוסיה" שהביאו את מתכוני השאשליק למערב התיכון של אמריקה.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"The South Dakota Flag Transitions". ניתוח השינוי המסחרי והתיירותי של הדגל בשנת 1992, והויתור על הכינוי "מדינת השמש" לטובת המותג של הר ראשמור.</p>
                 </div>
             </div>
         </section>
@@ -257,12 +331,17 @@
     </main>
 
     <!-- פוטר אתר ממותג -->
-    <footer class="w-full max-w-4xl mt-20 pt-10 border-t border-slate-800 text-center">
-        <div class="flex flex-col items-center gap-2">
-            <p class="text-slate-500 text-sm font-black tracking-[0.3em] uppercase">
-                US State Origins Project
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-sdBlue rounded-full shadow-[0_0_15px_rgba(0,51,160,0.6)]"></div>
+                <div class="w-6 h-6 bg-sdGold rounded-full shadow-[0_0_15px_rgba(255,209,0,0.6)]"></div>
+                <div class="w-6 h-6 bg-sdStone rounded-full shadow-[0_0_15px_rgba(156,163,175,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
             </p>
-            <p class="text-slate-400 text-lg font-bold">
+            <p class="text-slate-400 text-4xl font-black">
                 האתר נוצר על ידי ג'מיני ורם | 2026
             </p>
         </div>
@@ -270,4 +349,5 @@
 
 </body>
 </html>
+
 
