@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ויומינג - US State Origins - מחקר עומק</title>
+    <title>ויומינג - מחקר אקדמי מורחב ואולטימטיבי</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -11,15 +11,12 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#020617',
-                        cardBg: '#0f172a',
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
                         accent: '#38bdf8',
-                        wyoBlue: '#002664',
-                        wyoRed: '#BE0B31',
-                        wyoGold: '#FFB81C'
-                    },
-                    boxShadow: {
-                        'glow': '0 0 25px rgba(56, 189, 248, 0.2)',
+                        wyBlue: '#002868',  /* Wyoming Flag Blue */
+                        wyRed: '#BF0A30',   /* Wyoming Flag Red */
+                        wyBrown: '#8B4513'  /* Bison Brown */
                     }
                 }
             }
@@ -29,174 +26,312 @@
         body { 
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             -webkit-tap-highlight-color: transparent;
-            line-height: 1.8;
-            background: radial-gradient(circle at top right, #1e293b, #020617);
+            line-height: 1.85;
         }
-        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-800 relative overflow-hidden; }
-        .highlight-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-8 border-accent shadow-inner; }
-        .bison-shape { position: relative; width: 240px; height: 160px; background: white; clip-path: polygon(10% 20%, 90% 20%, 95% 40%, 90% 80%, 10% 80%, 5% 40%); }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-wyRed font-black text-2xl mb-5 underline italic decoration-wyRed/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
     </style>
 </head>
-<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-8">
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
 
     <!-- ניווט עליון -->
-    <nav class="w-full max-w-5xl mb-8">
-        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-all font-bold text-xl group">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2 transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
             </svg>
             חזרה לאטלס המדינות
         </a>
     </nav>
 
-    <!-- כותרת ראשית - מותאם אישית ל-S25 Ultra -->
-    <header class="w-full max-w-5xl bg-cardBg/90 backdrop-blur-xl rounded-[3rem] shadow-glow p-10 sm:p-16 mb-16 border border-slate-700/50 relative overflow-hidden text-center md:text-right">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-12 relative z-10">
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-wyBrown relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
             <div>
-                <h1 class="text-6xl sm:text-9xl font-black text-white mb-6 tracking-tighter">ויומינג</h1>
-                <p class="text-3xl text-accent font-bold tracking-[0.3em] uppercase">Wyoming</p>
-                <div class="h-2 w-48 bg-wyoRed mt-6 rounded-full mx-auto md:mr-0"></div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">ויומינג</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Wyoming - The Equality State</p>
+                <div class="h-2 w-56 bg-wyBrown mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(139,69,19,0.5)]"></div>
             </div>
-            <div class="bg-slate-900/90 p-10 rounded-[2.5rem] border border-slate-700 w-full md:w-auto text-center shadow-2xl">
-                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">תאריך הצטרפות רשמי:</p>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
                 <p class="text-5xl font-black text-white">10 ביולי, 1890</p>
-                <div class="mt-6 py-3 px-8 bg-wyoBlue/30 text-accent border border-accent/40 rounded-full font-black text-lg inline-block">
-                    המדינה ה-44 באיחוד
-                </div>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-44 באיחוד</p>
             </div>
         </div>
     </header>
 
-    <main class="w-full max-w-5xl space-y-20">
+    <main class="w-full max-w-4xl space-y-20">
         
-        <!-- 1. מחקר אטימולוגי מורחב - הסבר הנדידה הגיאוגרפית -->
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
         <section class="section-card">
-            <h2 class="text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-16 h-16 rounded-2xl flex items-center justify-center ml-6 text-3xl font-black shadow-lg">1</span>
-                מחקר אטימולוגי מלא: "השם שנדד חצי יבשת"
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: השם שנדד מחוף לחוף
             </h2>
             
-            <div class="space-y-12">
-                <div class="text-2xl leading-relaxed text-slate-300 font-medium border-r-8 border-accent pr-10 py-4">
-                    סיפורה של ויומינג הוא אנומליה היסטורית: המדינה נמצאת בהרי הרוקי שבמערב, אך שמה נגזר משפה ילידית של שבט ה**דלאוור** (Munsee Delaware) שחי במקור בחוף המזרחי, מרחק של כ-3,000 קילומטרים משם.
-                </div>
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    האטימולוגיה של ויומינג מייצגת גניבה גיאוגרפית פנומנלית. השם "ויומינג" הוא שם אינדיאני טהור, אולם הוא שייך לשבטים שלא חיו באזור זה מעולם, אלא במרחק של יותר מ-3,000 קילומטרים מזרחה משם.
+                </p>
 
-                <div class="grid grid-cols-1 gap-12">
-                    <div class="bg-slate-900/40 p-10 sm:p-14 rounded-[2.5rem] border-r-8 border-wyoRed shadow-inner">
-                        <h3 class="text-3xl font-black text-white mb-10 underline decoration-wyoRed decoration-4 underline-offset-8">הפירוק השפתי המדויק (xwé:wamink):</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                            <div class="space-y-6">
-                                <p class="text-accent font-black text-6xl mb-6 italic tracking-tighter">xwé:</p>
-                                <p class="text-slate-300 text-2xl leading-relaxed">
-                                    שורש בשפת המונסי המציין **"גדול"**, **"נרחב"** או **"כביר"**. הוא משמש לתיאור של מרחבים גיאוגרפיים שאין להם קץ פיזי נראה לעין.
-                                </p>
-                            </div>
-                            <div class="space-y-6">
-                                <p class="text-accent font-black text-6xl mb-6 italic tracking-tighter">wamink</p>
-                                <p class="text-slate-300 text-2xl leading-relaxed">
-                                    הרכיב מציין **"עמק נהר שטוח"** או **"מישור"**. השילוב המלא *xwé:wamink* מתורגם כ<span class="text-white font-bold underline decoration-accent">"במישור הנהר הגדול"</span>.
-                                </p>
-                            </div>
+                <div class="space-y-8">
+                    <!-- xwé:wam -->
+                    <div class="etymology-box border-wyBrown">
+                        <p class="text-wyBrown font-black text-5xl mb-6 italic tracking-tighter">xwé:wam</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפת המוּנסֵי (Munsee) של שבטי הלנאפה (Lenape) מהחוף המזרחי.</p>
+                            <p><strong>משמעות מילולית:</strong> "במישור הנהר הגדול".</p>
+                            <p><strong>התפתחות היסטורית:</strong> המילה המקורית *xwé:wamənk* תיארה עמק נהר ספציפי בפנסילבניה (עמק ויומינג). בשנת 1809 כתב המשורר הסקוטי תומאס קמפבל פואמה רומנטית מפורסמת בשם "גרטרוד מוויומינג" (על טבח שאירע באותו עמק בפנסילבניה). הפואמה הפכה ללהיט ענק באמריקה ובאירופה, והמילה "ויומינג" הפכה למילה נרדפת ל"עמק רחב ופסטורלי".</p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="bg-slate-800/50 p-12 rounded-[2.5rem] border-r-8 border-wyoGold shadow-2xl">
-                        <h3 class="font-black text-white mb-8 text-4xl italic">מדוע השם "נדד" למערב?</h3>
-                        <div class="space-y-8 text-2xl text-slate-300 leading-relaxed">
-                            <p>
-                                השם הפך לפופולרי במזרח ארה"ב בעקבות "עמק ויומינג" שבפנסילבניה, שהתפרסם בגלל קרב אכזרי במהפכה האמריקאית ובגלל פואמה מפורסמת של תומאס קמפבל משנת 1809, *"Gertrude of Wyoming"*. השם הפך למזוהה בתרבות האמריקאית עם "יופי פראי ושקט".
-                            </p>
-                            <p class="bg-slate-900/80 p-10 rounded-3xl border border-slate-700">
-                                <strong>החלטה פוליטית (1865):</strong> כאשר הוקמה הטריטוריה המערבית, חבר הקונגרס **ג'יימס אשלי** מאוהיו הציע את השם. אשלי, שמעולם לא ביקר באזור, פשוט "היה מאוהב" בצליל הפואטי של השם הפנסילבני. למרות שתושבי המקום העדיפו שמות כמו "שאיין" (על שם השבט המקומי) או "לינקולן", אשלי כפה את דעתו בקונגרס, וכך קיבלה מדינה במערב שם של עמק במזרח.
-                            </p>
+                <div class="bg-slate-800/60 p-10 rounded-[2rem] border-r-8 border-wyRed shadow-xl mt-10">
+                    <h3 class="font-black text-white mb-6 text-2xl italic underline decoration-wyRed underline-offset-8">הגניבה השמית (1865):</h3>
+                    <div class="space-y-6 text-slate-300 leading-loose">
+                        <p>כאשר הקונגרס האמריקאי רצה לארגן טריטוריה חדשה במערב במקום בו עברו פסי הרכבת (Union Pacific), נדרש שם. חבר הקונגרס מאוהיו, ג'יימס אשלי (James Ashley), הציע את השם "ויומינג" בשנת 1865.</p>
+                        <p>למרות שהשבטים המקומיים בטריטוריה החדשה (כמו שושוני, אראפהו ושיין) דיברו שפות שונות לחלוטין, ואף על פי שהטריטוריה רצופה בהרי הרוקי ולא מורכבת רק מ"עמק נהר", הקונגרס אהב את הצליל הרומנטי של הפואמה מסקוטלנד. כך קיבלה מדינה במערב הפרוע שם אינדיאני מהחוף המזרחי – מילה שהילידים המקומיים לא הכירו כלל.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-wyBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: איש ההרים והשופטת פורצת הדרך
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- ג'ון קולטר -->
+                <div class="personality-card border-r-8 border-wyBrown shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-wyBrown decoration-4 underline-offset-8">מגלה הארצות שהוכרז כמשוגע: ג'ון קולטר (John Colter)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1774–1812. <strong>תואר:</strong> "איש ההרים" (Mountain Man) הראשון.</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות והצטרפות למסע:</h4>
+                            <p class="leading-loose">קולטר נולד בווירג'יניה, אך נמשך אל הספר הפראי. הוא גויס להיות צייד וסייר במשלחת המפורסמת של לואיס וקלארק (1804). בדרכם חזרה מהאוקיינוס השקט, כשרוב חברי המשלחת כמהו לחזור לציוויליזציה במיזורי, קולטר קיבל אישור מיוחד לעזוב את המשלחת ולהישאר מאחור במערב הפראי כדי לצוד פרוות בונה (Beaver) בהרים.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">המסע והגילוי (חורף 1807):</h4>
+                            <p class="leading-loose">קולטר יצא למסע רגלי בודד בחורף האכזרי של הרי הרוקי. הוא היה האדם הלבן הראשון שחצה את הקורדיירה של צפון-מערב ויומינג וגילה את האזור שהפך לימים לפארק הלאומי **ילוסטון (Yellowstone)** ואת הרי הגרנד טיטון (Grand Teton). הוא ראה גייזרים מתפרצים, בריכות בוץ מבעבעות ונהרות מעלים קיטור. בנוסף, קולטר נודע בשל סיפור הישרדותו המטורף, ה-"Colter's Run", שבו שבט בלאקפוט הפשיט אותו ערום לחלוטין, נתן לו יתרון קל וצד אותו לשעשוע, אך קולטר הצליח לרוץ יחף למרחק של קילומטרים רבים ולשרוד.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">חוסר האמון הציבורי (Colter's Hell):</h4>
+                            <p class="leading-loose">כשקולטר חזר לבסוף לסנט לואיס וסיפר לאנשים על האדמה הרותחת והמים שמתפרצים לשמיים בויומינג, איש לא האמין לו. הציבור, שמעולם לא ראה פעילות גיאותרמית כזו, לעג לו, כינה אותו בדאי מוחלט, והדביק לאזור התיאורטי שלו את השם הלועג **"הגיהינום של קולטר" (Colter's Hell)**. רק עשרות שנים לאחר מכן התברר שסיפוריו היו מדויקים להפליא.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- אסתר הוברט מוריס -->
+                <div class="personality-card border-r-8 border-wyRed shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-wyRed decoration-4 underline-offset-8">אדריכלית השוויון: אסתר הוברט מוריס (Esther Hobart Morris)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1814–1902. <strong>מעמד:</strong> שופטת השלום (Justice of the Peace) הראשונה בארה"ב.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">רקע - הגירה בעקבות זהב:</h4>
+                            <p class="leading-loose">מוריס נולדה בניו יורק למשפחה אנטי-עבדות, אך התייתמה בצעירותה. היא הפכה לתופרת, נישאה, התאלמנה, ובעקבות סכסוך ירושה הבינה את חוסר האונים המשפטי של נשים. ב-1869, כשהיא בת 55 ואם לילדים, היא עברה למחנה הכורים האלים "סאות' פאס סיטי" (South Pass City) בויומינג בעקבות בעלה השני וגילוי זהב.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה פוליטית - מסיבת התה של זכות ההצבעה:</h4>
+                            <p class="leading-loose">מוריס הביאה איתה את רעיונות תנועת ה"סופרג'יסטיות". האגדה (שאושרה חלקית היסטורית) מספרת שלפני הבחירות למועצה המחוקקת של הטריטוריה, היא הזמינה לביתה את שני המועמדים היריבים לשתות תה. היא גרמה להם להבטיח בפומבי שמי מהם שייבחר יגיש הצעת חוק למתן זכות הצבעה לנשים. המועמד שניצח, ויליאם ברייט (William Bright), אכן קיים את הבטחתו.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - חוק 1869 וכס השיפוט:</h4>
+                            <p class="leading-loose">ב-10 בדצמבר 1869 חוקקה טריטוריית ויומינג באופן דרמטי את **החוק הראשון בהיסטוריה האמריקאית (ואחד הראשונים בעולם) המעניק זכות הצבעה בלתי מוגבלת לנשים**. כעבור חודשיים (פברואר 1870), הפכה מוריס בעצמה ל**אישה הראשונה אי פעם שכיהנה בתפקיד שופטת פוליטית בארה"ב**. כשהיא כיהנה כשופטת במחנה כורים גס ואלים, היא הוכיחה למדינה כולה שנשים יכולות לכהן במשרות פוליטיות ומשפטיות בהצלחה. פעולתה הקנתה לויומינג לנצח את התואר "מדינת השוויון".</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. תולדות המדינה: טריטוריה, רכבת וזכויות אזרח -->
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
         <section class="section-card">
-            <h2 class="text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-16 h-16 rounded-2xl flex items-center justify-center ml-6 text-3xl font-black shadow-lg">2</span>
-                תולדות המדינה: טריטוריה, רכבת וזכויות אזרח
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: הסוס שלא נכנע ונזיד רועי הצאן
             </h2>
             
             <div class="space-y-14">
-                <div class="bg-slate-800/40 p-12 rounded-3xl border-r-8 border-wyoRed shadow-lg">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-wyoRed decoration-2">נסיבות הקמה: הרכבת כעורק חיים</h3>
-                    <p class="text-2xl text-slate-300 leading-relaxed">
-                        ויומינג לא הוקמה בגלל זהב או חקלאות, אלא בגלל גיאומטריה. חברת הרכבת **Union Pacific** הייתה זקוקה לנתיב הקל ביותר לחציית הרי הרוקי. "המעבר הדרומי" (South Pass) בוויומינג איפשר לרכבות לחצות את היבשת ללא שיפועים קיצוניים. המדינה נוצרה כרצועה סביב פסי הרכבת, וכל הערים הגדולות שלה (שאיין, לאראמי, רולינס) הוקמו כתחנות אספקה לרכבת הקיטור.
+                <!-- בעל החיים / סמל המדינה -->
+                <div class="culture-highlight border-wyBlue">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-wyBlue">החיה המדינתית התרבותית: הסוס "סטימבוט" (Steamboat)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">סמל הבאקינג-הורס האגדי (Bucking Horse)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        החיה המזוהה ביותר עם ויומינג אינה מין ביולוגי, אלא חיה ספציפית בעלת שם וביוגרפיה: הסוס **Steamboat** (ספינת קיטור). זהו הסוס המופיע על דגלה של ויומינג, על לוחיות הרישוי שלה, ועל סמל המדינה הרשמי (אומץ רשמית כסמל ב-1936 ע"י לסטר האנט).
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        "סטימבוט" היה סוס מסורס (Gelding) שנולד בחוות ויומינג ב-1896. בעקבות פציעה באפו בצעירותו, הוא נשם בצורה כבדה שהזכירה רעש של ספינת קיטור, ומכאן שמו. הוא התפרסם כסוס ה"באקינג" (Bucking - הבועט/משליך מהגב) הטוב ביותר בעולם במופעי רודיאו. סטימבוט היה סוס אינטליגנטי, עצמתי וכמעט בלתי ניתן לרכיבה. 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        הוא סירב להישבר. רק קומץ של רוכבים האגדיים הצליחו לשרוד עליו את שניות הזמן הנדרשות ברודיאו מבלי שייזרקו בעוצמה לאדמה. הוא זכה בתואר "הסוס הבלתי נרכב של העולם" ב-1901. עבור תושבי ויומינג, סטימבוט מסמל את הרוח העצמאית, העקשנית, והבלתי-מתפשרת של המדינה - רוח שלא ניתן לאלף אותה לחלוטין.
                     </p>
                 </div>
 
-                <div class="bg-slate-800/40 p-12 rounded-3xl border-r-8 border-wyoGold shadow-lg">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-wyoGold decoration-2">חלוצת השוויון (The Equality State)</h3>
-                    <div class="space-y-6 text-2xl text-slate-300 leading-relaxed">
-                        <p>
-                            בשנת 1869, ויומינג הדהימה את העולם כשהעניקה לנשים זכות הצבעה – 50 שנה לפני שאר ארה"ב. הסיבה הייתה מעשית: בטריטוריה היו 6 גברים על כל אישה אחת, והממשל רצה למשוך נשים להתיישב באזור. 
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-wyBrown">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-wyBrown">המנה התרבותית המובהקת: תבשיל כבש באסקי (Basque Lamb Stew)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מורשת של רועי צאן בודדים במישורים הגבוהים</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        לצד בשר ביזונים وסטייקים של בקר, המאכל שמספר את ההיסטוריה ההגירתית המרתקת ביותר בויומינג הוא תבשיל הכבש של חבל הבאסקים. 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        בסוף המאה ה-19 ובתחילת המאה ה-20, אלפי מהגרים מאזור חבל הבאסקים (שבין ספרד לצרפת) הגיעו לויומינג. הם נשכרו להיות רועי צאן במישורים הפתוחים והמדבריים-למחצה. הם חיו חיי בדידות מוחלטים בחורפים קשים ובקיצים לוהטים, כשביתם הוא רק קרון כבשים קטן (Sheep wagon) שהם גררו ממקום למקום.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        כדי לשרוד, הם פיתחו קולינריית תבשילים בסיר אחד שניצלו את חומרי הגלם הזמינים ביותר: **בשר כבש (Mutton/Lamb), שום, פלפלים, עגבניות, תפוחי אדמה ומעט יין אדום או חומץ**. התבשיל התבשל באטיות על מדורה פתוחה מחוץ לקרון במשך שעות ארוכות, והפיץ ריח שאליו נאספו כל כלבי הרועים. גם היום, באזורים כמו ג'ונסון קאונטי, המסעדות עדיין מגישות ארוחות באסקיות כבדות המוגשות "בסגנון משפחתי" (Family style) ומשמרות את תרבות העבודה המפרכת של רועי ויומינג.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-wyBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: פמיניזם במערב הפרוע
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Equality State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-wyRed shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Equality State (מדינת השוויון)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">ראשוניות היסטורית ביחסי מגדר</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            האנומליה הגדולה של ויומינג טמונה בניגוד בין הדימוי המאצ'ואיסטי של בוקרים, כורים ורובים, לבין היותה החלוצה הפמיניסטית הגדולה של ההיסטוריה הפוליטית האמריקאית. הכינוי "מדינת השוויון" ניתן לה בזכות אותה חקיקה אגדית מ-1869 (50 שנה לפני התיקון ה-19 לחוקת ארה"ב שאפשר לנשים להצביע בכל המדינה). מדוע דווקא ויומינג? פנומנולוגים טוענים כי בחברה קשה והישרדותית במערב, שבה נשים עבדו בחווה, סבלו ממתקפות ילידים וניהלו עסקים בדיוק כמו הגברים (והיו במיעוט מספרי עצום של 1:6 מול הגברים), הגברים הבינו שעליהם להתייחס לנשים כשותפות פוליטיות מלאות כדי לשמור עליהן בטריטוריה.
                         </p>
-                        <p class="font-bold text-white border-r-4 border-accent pr-6">
-                            כאשר הקונגרס ניסה לכפות עליהם לבטל זכות זו כתנאי להפיכה למדינה ב-1890, שלח בית המחוקקים מברק מפורסם: "אנו נישאר מחוץ לאיחוד מאה שנים, אך לא נבוא בלעדי נשותינו".
+                    </div>
+
+                    <!-- The Cowboy State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-wyBrown shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Cowboy State (מדינת הבוקרים)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">המותג הלאומי של אמריקה</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            כינוי זה אומץ באופן לא רשמי (ומופיע כיום גם על לוחיות הרישוי המאוירות) ומתחבר ישירות לסוס "סטימבוט" שהוזכר קודם. במציאות שבה חוות בקר ורודיאו ממוסחר תפסו את מקומם של אילי הנפט ואילי הפחם, הכינוי שומר על הרומנטיקה של "המערב הישן" (The Old West). ויומינג אימצה את המותג הזה כה חזק, עד שקוד ההתנהגות של הבוקרים (The Code of the West) עוגן בשנת 2010 כחוק האתי הרשמי של המדינה!
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו -->
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
         <section class="section-card">
-            <h2 class="text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-16 h-16 rounded-2xl flex items-center justify-center ml-6 text-3xl font-black shadow-lg">3</span>
-                וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-wyBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: הביזון הגדול והסמל החקלאי
             </h2>
             
             <div class="flex flex-col items-center mb-16">
-                <div class="w-full max-w-lg aspect-[3/2] bg-wyoBlue rounded-[3rem] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6)] border-4 border-slate-700 relative flex flex-col group p-6">
-                    <div class="absolute inset-0 border-[20px] border-wyoRed"></div>
-                    <div class="absolute inset-[20px] border-[10px] border-white"></div>
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                        <div class="bison-shape shadow-2xl flex items-center justify-center scale-125">
-                            <div class="w-20 h-20 rounded-full border-4 border-wyoBlue flex items-center justify-center p-1">
-                                <span class="text-[8px] text-wyoBlue font-black text-center leading-tight">THE GREAT SEAL</span>
+                <!-- ייצוג ויזואלי של דגל ויומינג ב-CSS -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#BF0A30] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex items-center justify-center p-4 group">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10 pointer-events-none z-0"></div>
+                    
+                    <div class="relative w-full h-full transform transition-transform duration-700 group-hover:scale-105 z-10">
+                        
+                        <!-- Inner White and Blue rectangles -->
+                        <div class="absolute inset-4 border-[6px] border-white"></div>
+                        <div class="absolute inset-6 bg-[#002868] flex items-center justify-center">
+                            
+                            <!-- White Bison Silhouette Approximation -->
+                            <div class="w-[60%] h-[50%] bg-white rounded-t-[50px] rounded-bl-[20px] rounded-br-[40px] relative flex items-center justify-center shadow-md">
+                                <!-- Head and Hump shaping -->
+                                <div class="absolute -left-4 top-4 w-12 h-16 bg-white rounded-full"></div>
+                                <div class="absolute right-4 top-2 w-20 h-10 bg-white rounded-full"></div>
+                                
+                                <!-- State Seal inside Bison -->
+                                <div class="w-16 h-16 rounded-full border-[2px] border-[#002868] flex items-center justify-center bg-white z-20">
+                                    <!-- Tiny detail approximation inside seal -->
+                                    <span class="text-[8px] font-bold text-[#002868]">SEAL</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <p class="mt-12 text-slate-400 font-black text-4xl bg-slate-900 px-16 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest">
-                    דגל הביזון (Monarch of the Plains)
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    דגל הביזון הלבן <br><span class="text-xl font-medium text-slate-500">(עוצב על ידי ורנה קיז, 1917)</span>
                 </p>
             </div>
 
-            <div class="space-y-12">
-                <div class="bg-slate-800/40 p-12 rounded-3xl border-r-8 border-wyoRed shadow-xl">
-                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-wyoRed decoration-2">נסיבות היצירה: תחרות ה-DAR והטעות שהשתרשה</h3>
-                    <p class="text-2xl text-slate-300 leading-relaxed">
-                        הדגל עוצב ב-1916 על ידי **ורנה קיז**. ורנה תכננה שהביזון יפנה אל עבר המרחבים (לכיוון פתיחת הדגל). אולם, כשהדגלים הראשונים יוצרו, הוחלט להפוך את כיוון הביזון כך שיפנה לכיוון התורן. בווקסילולוגיה, חיות אמורות תמיד "לצעוד" לכיוון התורן כדי לא להיראות כבורחות בקרב. ורנה קיבלה את השינוי, והעיצוב הפך לסמל של עוצמה וסיבולת.
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-wyRed shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-wyRed decoration-4">נסיבות היצירה (1916) וזכייתה של צעירה:</h3>
+                    <p class="text-xl leading-loose">
+                        כמו מדינות רבות, דגל ויומינג נולד מתוך תחרות של ארגון ה-DAR (בנות המהפכה האמריקאית) בשנת 1916. הזוכה מתוך 37 העיצובים שהוגשו הייתה **ורנה קייז (Verna Keyes)**, בחורה בת 24 שעבדה כמוכרת פרחים וזה עתה סיימה קולג'. היא זכתה בפרס של 20 דולר. העיצוב שלה הציג ביזון אמריקאי לבן במרכז, אולם בציור המקורי שלה הביזון פנה ימינה (לכיוון פתח הדגל). כאשר בית המחוקקים אימץ את הדגל ב-1917, המלצה של מומחים דרשה להפוך את הביזון כך שיפנה שמאלה (לכיוון התורן) – כפי שנהוג בסימבוליקה צבאית שבה בעלי חיים תמיד צריכים לפנות אל מול הרוח.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-2xl">
-                    <div class="bg-slate-900/60 p-10 rounded-3xl border-b-8 border-wyoBlue shadow-2xl">
-                        <h4 class="font-black text-white mb-6 underline italic text-accent">צבעי החופש:</h4>
-                        <p class="text-slate-300 leading-relaxed">הכחול מייצג את השמיים וההרים, הלבן את הטוהר, והאדום את דמם של החלוצים והילידים שעיצבו את האדמה.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-wyBlue shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-wyBlue">הגבול המשולש (אדום, לבן וכחול):</h4>
+                        <p class="leading-loose text-lg">שדה הדגל (המסגרת) בנוי משלושה צבעים בולטים המשקפים את צבעי ארה"ב, אך נטען במשמעויות מקומיות על ידי היוצרת: **האדום (במסגרת החיצונית העבה)** מייצג את האינדיאנים ואת דם החלוצים שנשפך בכיבוש המערב. **הלבן (בפס הפנימי הדק)** מסמל טוהר וכנות. **הכחול (ברקע המרכזי)** מסמל את שמי החורף הגבוהים והבהירים של הרי ויומינג, נאמנות לאיחוד, וצדק חברתי.</p>
                     </div>
-                    <div class="bg-slate-900/60 p-10 rounded-3xl border-b-8 border-wyoRed shadow-2xl">
-                        <h4 class="font-black text-white mb-6 underline italic text-wyoRed">הביזון (Bison):</h4>
-                        <p class="text-slate-300 leading-relaxed">מייצג את עדר האדיר ששלט במישורים. הוא נחשב ל"מונרך של המישורים" ומסמל את חוסנה של המדינה.</p>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-white">הביזון והחותם הלאומי:</h4>
+                        <p class="leading-loose text-lg">במרכז ניצב צללית של **ביזון אמריקאי לבן**, מלכי המישורים שהיוו את מקור החיים לפני בוא האדם הלבן. הוא מסמל כוח ואת הטבע הפראי של המדינה. מוטבע עליו כמו כוויה/צריבה (Brand) **חותם המדינה של ויומינג**, אשר נושא את המוטו "Equal Rights" (זכויות שוות - אזכור נצחי לאסתר מוריס) ודמויות של כורה מינרלים ובוקר-חקלאי העומדים לצד אישה מוקפת בשוויון.</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">WyoHistory.org (Wyoming State Historical Society):</p>
+                    <p>"The Etymology of Wyoming". ההיסטוריה הגניאלוגית של השם שנדד מעמק הלנאפה בפנסילבניה, דרך הפואמה הסקוטית של תומאס קמפבל ב-1809, ועד ל"גניבת" השם על ידי הקונגרס עבור המערב ב-1865.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Yellowstone National Park Archives (NPS):</p>
+                    <p>"John Colter: The First Mountain Man". מסמכים המתעדים את סיור החורף האגדי שלו ב-1807, גילוי פעילות הגייזרים, והלגלוג הציבורי שהוביל לכינוי "Colter's Hell".</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Wyoming Council for the Humanities:</p>
+                    <p>"Esther Hobart Morris and the Right to Vote". תיעוד אקדמי של מסיבת התה האגדית בסאות' פאס סיטי, ותקדימי החקיקה של 1869 שהפכו את ויומינג למדינת השוויון ולמוקד פמיניזם עולמי.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">American Heritage Center (University of Wyoming):</p>
+                    <p>"Steamboat: The Symbol of Wyoming". יומני רכיבה ודוחות היסטוריים על סוס ה"באקינג" שנולד ב-1896, סירב להירכב, והפך לקמע התרבותי הבלתי מעורער של המדינה.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"Verna Keyes and the Wyoming Flag". ניתוח תחרות העיצוב של 1916, הבחירה הסימבולית בצבעי האדום והלבן, והשינוי הכיווני שנכפה על הביזון על פי חוקי ההרלדיקה הצבאית.</p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- פוטר אתר ממותג -->
-    <footer class="w-full max-w-5xl mt-32 pt-20 border-t border-slate-800 text-center pb-20">
-        <div class="flex flex-col items-center gap-8">
-            <p class="text-slate-500 text-lg font-black tracking-[0.6em] uppercase">
-                US State Origins Archive
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-wyBlue rounded-full shadow-[0_0_15px_rgba(0,40,104,0.6)]"></div>
+                <div class="w-6 h-6 bg-wyRed rounded-full shadow-[0_0_15px_rgba(191,10,48,0.6)]"></div>
+                <div class="w-6 h-6 bg-wyBrown rounded-full shadow-[0_0_15px_rgba(139,69,19,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
             </p>
-            <p class="text-slate-400 text-3xl font-black">
+            <p class="text-slate-400 text-4xl font-black">
                 האתר נוצר על ידי ג'מיני ורם | 2026
             </p>
         </div>
@@ -204,4 +339,5 @@
 
 </body>
 </html>
+
 
