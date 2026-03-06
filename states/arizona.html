@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>אריזונה - US State Origins</title>
+    <title>אריזונה - מחקר אקדמי מורחב ואולטימטיבי</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -13,11 +13,11 @@
                     colors: {
                         darkBg: '#0f172a',
                         cardBg: '#1e293b',
-                        accent: '#38bdf8',
-                        arizonaBlue: '#002664', /* Old Glory Blue */
-                        arizonaGold: '#FFB81C',
-                        arizonaCopper: '#B87333',
-                        arizonaRed: '#BE0B31'
+                        accent: '#B87333', /* Copper */
+                        azRed: '#BF0A30',
+                        azGold: '#FFB612',
+                        azBlue: '#002868',
+                        azCopper: '#B87333'
                     }
                 }
             }
@@ -27,178 +27,339 @@
         body { 
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
         }
-        .ray-container {
-            background: #FFB81C;
-            position: relative;
-            overflow: hidden;
-        }
-        /* CSS simulation of the 13 rays */
-        .ray {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 200%;
-            height: 100%;
-            background: #BE0B31;
-            transform-origin: 0 0;
-            clip-path: polygon(0 0, 100% 0, 50% 100%);
-        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-azCopper font-black text-2xl mb-5 underline italic decoration-azCopper/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
     </style>
 </head>
-<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-8">
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
 
     <!-- ניווט עליון -->
-    <nav class="w-full max-w-4xl mb-6">
-        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-medium">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
             </svg>
             חזרה לאטלס המדינות
         </a>
     </nav>
 
-    <!-- כותרת המדינה -->
-    <header class="w-full max-w-4xl bg-cardBg rounded-2xl shadow-xl p-8 mb-8 border-t-4 border-arizonaCopper">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-center md:text-right">
-                <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-2">אריזונה</h1>
-                <p class="text-xl text-accent font-semibold tracking-wide">Arizona</p>
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-azCopper relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">אריזונה</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Arizona - The Grand Canyon State</p>
+                <div class="h-2 w-56 bg-azGold mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(255,182,18,0.5)]"></div>
             </div>
-            <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 w-full md:w-auto text-center shadow-inner">
-                <p class="text-slate-400 text-sm italic mb-1">תאריך ייסוד / הצטרפות לאיחוד:</p>
-                <p class="text-2xl font-bold text-white">14 בפברואר, 1912</p>
-                <p class="text-xs text-slate-500 mt-1 uppercase tracking-tighter font-bold">המדינה ה-48 באיחוד</p>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">14 בפברואר, 1912</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-48 באיחוד</p>
             </div>
         </div>
     </header>
 
-    <main class="w-full max-w-4xl space-y-8">
+    <main class="w-full max-w-4xl space-y-20">
         
-        <!-- 1. מחקר אטימולוגי מלא ומחולק -->
-        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
-            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2">1. מחקר אטימולוגי מלא ומחולק</h2>
-            <div class="space-y-6">
-                <p class="text-lg leading-relaxed text-slate-300">
-                    מקור השם "אריזונה" שנוי במחלוקת בקרב היסטוריונים, אך התיאוריה המקובלת והמתועדת ביותר קושרת אותו לשפות הילידיות של האזור, ובפרט לשפת ה**אואודהם** (O'odham).
-                </p>
-                
-                <div class="grid grid-cols-1 gap-4">
-                    <div class="bg-slate-800/80 p-6 rounded-xl border-r-4 border-accent shadow-inner">
-                        <h3 class="font-bold text-white mb-4 text-xl underline">הפירוק השפתי (Ali ṣonak):</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start bg-slate-900/40 p-3 rounded-lg">
-                                <span class="text-accent font-black text-2xl ml-3">Ali</span>
-                                <div>
-                                    <p class="text-white font-bold">משמעות: קטן / זעיר.</p>
-                                    <p class="text-sm text-slate-400 font-medium">מתאר את קנה המידה של המשאב הטבעי המדובר.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start bg-slate-900/40 p-3 rounded-lg">
-                                <span class="text-accent font-black text-2xl ml-3">ṣonak</span>
-                                <div>
-                                    <p class="text-white font-bold">משמעות: מקום המעיין / בסיס המים.</p>
-                                    <p class="text-sm text-slate-400 font-medium">המילה ṣon מתארת בסיס או יסוד, ובהקשר זה - את מקור נביעת המים.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-slate-900/50 p-6 rounded-xl border-r-4 border-arizonaCopper">
-                        <h3 class="font-bold text-white mb-2 text-lg italic">המשמעות הכוללת:</h3>
-                        <p class="text-lg text-slate-300 leading-relaxed">
-                            הצירוף יוצר את המילה <span class="text-white font-bold">"Arrizonac"</span> (בגרסה הספרדית המוקדמת), שמשמעותה המדויקת היא <span class="text-white font-bold underline decoration-arizonaCopper">"מקום המעיין הקטן"</span>. 
-                        </p>
-                        <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-                            *הערה מחקרית:* קיימת תיאוריה משנית המציעה כי המקור הוא בבאסקית (Arritz Ona - "הסלע הטוב"), אך רוב הבלשנים מעדיפים את המקור הילידי בשל הקרבה הגיאוגרפית של שבטי האואודהם למכרות שבהם נמצא השם לראשונה.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. סיבת בחירת השם -->
-        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
-            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2">2. סיבת בחירת השם</h2>
-            <div class="text-lg leading-relaxed text-slate-300 space-y-4">
-                <p>השם הפך למזוהה עם האזור בעקבות גילוי מאגרי כסף אדירים בשנת 1736 במחנה כרייה ספרדי שנקרא *Real de Arrizonac*. השם "אריזונק" הפך לסינונים לעושר מינרלי ותקווה.</p>
-                <p>כאשר הוקמה הטריטוריה באופן רשמי בשנת 1863, ביקשו המחוקקים האמריקאים שם שישקף את ההיסטוריה המקומית ואת העושר של האדמה. השם "אריזונה" נבחר פה אחד כגרסה אנגלית נוחה להגייה של השם הילידי-ספרדי הוותיק.</p>
-            </div>
-        </section>
-
-        <!-- 3. וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו -->
-        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
-            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2">3. וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו</h2>
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות מדברית וניפוץ מיתוסים
+            </h2>
             
-            <!-- ייצוג ויזואלי של דגל אריזונה -->
-            <div class="flex flex-col items-center mb-10">
-                <div class="w-full max-w-md aspect-[3/2] rounded-lg overflow-hidden shadow-2xl border-4 border-slate-800 relative flex flex-col">
-                    <!-- Top half with rays -->
-                    <div class="flex-1 ray-container">
-                        <!-- Simplified Rays using CSS -->
-                        <div class="ray" style="transform: rotate(-75deg) translate(-50%, -50%);"></div>
-                        <div class="ray" style="transform: rotate(-45deg) translate(-50%, -50%);"></div>
-                        <div class="ray" style="transform: rotate(-15deg) translate(-50%, -50%);"></div>
-                        <div class="ray" style="transform: rotate(15deg) translate(-50%, -50%);"></div>
-                        <div class="ray" style="transform: rotate(45deg) translate(-50%, -50%);"></div>
-                        <div class="ray" style="transform: rotate(75deg) translate(-50%, -50%);"></div>
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    במשך שנים רבות, טענה אמונה עממית נפוצה (שקודמה גם על ידי חוקרים ספרדים) כי השם "אריזונה" מורכב מהמילים הספרדיות *Árida Zona* (אזור צחיח/יבש). אולם, המחקר הבלשני והאנתרופולוגי המודרני מפריך זאת לחלוטין. מקור השם נטוע עמוק בשפת ה**או'אודאם** (O'odham), השייכת לשבטי הפימה המקומיים, ומתאר תופעה הידרולוגית מיקרוסקופית במדבר העצום.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- alĭ -->
+                    <div class="etymology-box border-azCopper">
+                        <p class="text-azCopper font-black text-5xl mb-6 italic tracking-tighter">alĭ</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפת האו'אודאם.</p>
+                            <p><strong>משמעות מילולית:</strong> קטן, מועט, או צעיר.</p>
+                            <p><strong>ניתוח מחקרי:</strong> תואר זה שימש את הילידים כדי לאפיין את הגודל והספיקה של מקורות מים בסביבה המדברית הקשה של מדבר סונורה. במדבר, המילה "קטן" אינה מעידה על חוסר חשיבות, אלא על נדירות שהופכת את המקום לקריטי להישרדות.</p>
+                        </div>
                     </div>
-                    <!-- Bottom half Blue -->
-                    <div class="flex-1 bg-arizonaBlue"></div>
-                    <!-- Copper Star -->
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-arizonaCopper text-6xl drop-shadow-lg">★</div>
+
+                    <!-- ṣonak -->
+                    <div class="etymology-box border-azBlue">
+                        <p class="text-azBlue font-black text-5xl mb-6 italic tracking-tighter">ṣonak</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפת האו'אודאם.</p>
+                            <p><strong>משמעות מילולית:</strong> מעיין, נביעה, או מקור מים היוצא מהאדמה.</p>
+                        </div>
+                    </div>
                 </div>
-                <p class="mt-4 text-slate-400 font-bold text-lg bg-slate-800 px-6 py-2 rounded-full border border-slate-700">
-                    דגל אריזונה (The Copper Star Flag)
+
+                <div class="bg-slate-800/60 p-10 rounded-[2rem] border-r-8 border-azGold shadow-xl mt-10">
+                    <h3 class="font-black text-white mb-6 text-2xl italic underline decoration-azGold underline-offset-8">הסינתזה הספרדית ("אריזונק"):</h3>
+                    <div class="space-y-6 text-slate-300 leading-loose">
+                        <p>השילוב המדויק <span class="text-white font-bold underline decoration-azGold">alĭ ṣonak</span> מתורגם ל<strong class="text-white">"מעיין קטן"</strong>. זה היה שמו של כפר ילידי סמוך לגבול מקסיקו-אריזונה של ימינו. </p>
+                        <p>בשנת 1736 התגלו באזור זה מרבצי כסף אדירים ומפלצתיים (כדורי כסף ששקלו מאות קילוגרמים ונקראו Planchas de Plata). התגלית גרמה לבהלה לכסף, וחוואים וכורים ספרדים נהרו לאזור. הספרדים שמעו את שם הכפר הילידי ותעתקו אותו לספרדית כ-**Arizonac** (אריזונק). עם הזמן, האות 'c' נשרה, והשם **Arizona** הפך למונח הגיאוגרפי המזוהה עם צפון מדבר סונורה כולו.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-azBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: המיסיונר והמושל על החמור
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- אוסביו קינו -->
+                <div class="personality-card border-r-8 border-azGold shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-azGold decoration-4 underline-offset-8">ההוגה, הממפה והמיסיונר: האב אוסביו קינו (Eusebio Francisco Kino)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1645–1711. <strong>מעמד:</strong> כומר ישועי, אסטרונום, ואבי ההתיישבות המודרנית באריזונה.</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות ורקע מדע-דתי:</h4>
+                            <p class="leading-loose">אוסביו קינו נולד בשם צ'יני (Chini) בעיירה קטנה בהרי הדולומיטים, באיטליה של ימינו. הוא התחנך במיטב האוניברסיטאות הישועיות של אוסטריה ובוואריה, והתמחה במתמטיקה, אסטרונומיה וקרטוגרפיה (שרטוט מפות). אף שהוצעה לו משרה כפרופסור יוקרתי, הוא בחר להצטרף למסדר הישועי ולצאת כמיסיונר למדבריות האכזריים של ספרד החדשה (מקסיקו ואריזונה).</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - הומניזם חקלאי ישועי:</h4>
+                            <p class="leading-loose">האידיאולוגיה של קינו הייתה מהפכנית לתקופתה. בניגוד לקונקיסטאדורים הספרדים שחיפשו לשעבד את הילידים במכרות, קינו האמין ב"התנצרות דרך שגשוג כלכלי". הוא טען שאי אפשר לדבר על רוחניות עם אנשים רעבים. חזונו היה להקים רשת של מיסיונים שיתפקדו למעשה כחוות מודרניות, שיספקו ביטחון תזונתי עצמאי לילידים ויגנו עליהם מניצול אירופאי.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - 24 מיסיונים ופרדוקס קליפורניה:</h4>
+                            <p class="leading-loose">קינו רכב על סוסו למעלה מ-80,000 קילומטרים ברחבי אריזונה וסונורה. הוא ייסד 24 מיסיונים (כולל המיסיון המפורסם סן חאווייר דל באק בטוסון). ההישג הכלכלי הגדול ביותר שלו היה ייבוא צאן, בקר, ועצי פרי למדבר, מה שהפך אותו ל"אבי תעשיית הבקר של אריזונה". הישגו המדעי המפורסם היה שרטוט המפה המדויקת הראשונה של האזור (ב-1705), שבה הוכיח מבחינה מדעית ויבשתית ש**חצי האי באחה קליפורניה אינו אי**, בניגוד למה שחשבו כל הקרטוגרפים באירופה עד אז.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ג'ורג' וו. פ. האנט -->
+                <div class="personality-card border-r-8 border-azCopper shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-azCopper decoration-4 underline-offset-8">הבונה הפופוליסט והמושל הראשון: ג'ורג' וו. פ. האנט (George W. P. Hunt)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1859–1934. <strong>מעמד:</strong> נשיא ועידת החוקה והמושל ה-1 של אריזונה.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות, בריחה והגעה על חמור:</h4>
+                            <p class="leading-loose">האנט נולד במיזורי למשפחה שאיבדה את כל הונה במלחמת האזרחים. ילדותו הייתה רצופת עוני. בגיל 18 ברח מהבית, עבד כמלח מים מתוקים וככורה זהב. הפנומנולוגיה של האנט מתחילה ביום שבו נכנס רגלית לעיירת הכורים גלוב (Globe), אריזונה, בשנת 1881, כשהוא מוביל את כל רכושו עלי אדמות על גבו של חמור קטן ועיוור. מהתחלה ענייה זו, הוא עבד כמלצר, טיפס בסולם החברתי, הפך לבנקאי עשיר ולפוליטיקאי החזק במדינה (זכה לכינוי "ג'ורג' סוס-הים" בשל מבנה גופו הגדול ושפמו העצום).</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - פרוגרסיביזם אנטי-תאגידי:</h4>
+                            <p class="leading-loose">האנט היה פופוליסט טהור. למרות שהפך לעשיר, הוא הזדהה עם כורי הנחושת ולא עם בעלי המכרות. האידיאולוגיה שלו דגלה בזכויות עובדים קיצוניות, שמונה שעות עבודה ביום, תמיכה בארגוני עובדים, והתנגדות אלימה למונופולים של חברות הכרייה וחברות הרכבת (ששלטו דאז במערב). הוא אף התנגד נחרצות לעונש מוות (דבר נדיר מאוד באותה תקופה במערב הפראי).</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - חוקת 1912:</h4>
+                            <p class="leading-loose">כנסיית החוקה של אריזונה בשנת 1910 נוהלה תחת שרביטו. החוקה שניסח הייתה כה פרוגרסיבית ורדיקלית (היא כללה סעיף המאפשר לאזרחים "לפטר" או להדיח שופטים), עד שהנשיא השמרן וויליאם הווארד טאפט סירב לאשר את כניסת אריזונה לאיחוד. האנט וצוותו מחקו טקטית את הסעיף השנוי במחלוקת כדי לקבל מדינאות ב-14 בפברואר 1912, ומיד לאחר שאלבמה הפכה למדינה, הם העבירו את הסעיף מחדש כתיקון חוקתי. האנט כיהן כמושל לא פחות משבע קדנציות, ועיצב את המסגרת האזרחית של אריזונה המודרנית.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: חתול הכורים ותאונת המטבח בטוסון
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-azCopper">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-azCopper">חיית המדינה: הרינגטייל / חתול הכורים (Ringtail / Bassariscus astutus)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">יונק המדינה הרשמי - סמל הישרדותי של המערב הפראי (אומץ ב-1986)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        היונק הרשמי של אריזונה אינו פומה אמתית וגם לא זאב. הרינגטייל (דביבון זנב-טבעת) הוא בעל חיים קטן, ביישן ופעיל לילה, ששייך בכלל למשפחת הדביבונים (Raccoons), אך נראה כמו הכלאה בין חתול לשועל קטן. 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        אריזונה בחרה בו לא בגלל המראה שלו, אלא בגלל תפקידו ההיסטורי בחיי הכורים שיישבו את המדינה. במאה ה-19, מחנות הכרייה של נחושת וכסף סבלו ממכות נוראיות של חולדות ועכברים שאכלו את אספקת המזון הדלה. הכורים גילו שהרינגטייל ניתן לאילוף חלקי בקלות. הם נהגו להשאיר קופסאות פח עם מעט מזון מחוץ לבקתותיהם כדי לפתות את החיות הקטנות פנימה. ברגע שהרינגטייל התבסס בבקתה, הוא חיסל את כל אוכלוסיית המכרסמים. בשל כך הוא זכה לכינוי האגדי **"Miner's Cat" (חתול הכורים)**, והפך לסמל של שיתוף פעולה בין האדם לטבע המדברי.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-azRed">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-azRed">המנה הלאומית: צ'ימיצ'אנגה (Chimichanga)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">התאונה הקולינרית שהגדירה את מטבח הסונורה</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של אריזונה נשלטת לחלוטין על ידי מטבח ה"סונורה" (Sonoran Desert) – מיזוג חם בין טעמים מקסיקניים, חומרי גלם של ילידים אמריקאים ושפע של בשר בקר מהחוות האמריקאיות. סמל הדגל של מטבח זה הוא ה**צ'ימיצ'אנגה** – למעשה בוריטו בשר (לרוב עם בקר מפורק, "מאצ'קה") שעבר טיגון עמוק, המוגש מכוסה בשמנת חמוצה, גבינה וגוואקמולי.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        אריזונה תובעת בעלות היסטורית מלאה על המצאת המנה. הפנומנולוגיה המקומית המפורסמת ביותר מספרת על תאונה משנת **1922 בעיר טוסון (Tucson)**. מוניקה פלין (Monica Flin), בעלת מסעדת 'El Charro Cafe' (הפועלת עד היום ומנוהלת ברצף על ידי אותה משפחה), הכינה בוריטו כשאחת האחייניות שלה נתקלה בה. הבוריטו נפל מידיה הישר אל תוך סיר שמן רותח. 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        פלין העצבנית עמדה לפלוט את קללת הרחוב המקסיקנית המוכרת "צ'ינגאדה!" (*Chingada*), אך כיוון שילדים היו בחדר, היא עיוותה את המילה ברגע האחרון וצעקה מילת ג'יבריש חסרת פשר: **"צ'ימיצ'אנגה!" (Chimichanga!)**. כשהיא הוציאה את הבוריטו הפריך והזהוב מהשמן וטעמה אותו, התגלה מעדן חדש. המנה מסמלת את החדשנות והאלתור של חלוצי המדבר המקסיקנים-אמריקאים של אריזונה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-azBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Grand Canyon State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-azGold shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Grand Canyon State</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">תזכורת פילוסופית לאפסיות האדם</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הגרנד קניון הוא הפלא הגיאולוגי המוכר ביותר בצפון אמריקה (שאורכו 446 ק"מ ועומקו כ-1.8 ק"מ). אולם ככינוי פנומנולוגי של המדינה (המופיע על לוחיות הרישוי שלה), הוא משדר מסר של הוד (Sublime) ופרופורציה. נהר הקולורדו חצב את הקניון במשך קרוב ל-6 מיליון שנים. עבור תושבי אריזונה, הקניון הוא תזכורת תמידית לכוחו הבלתי נתפס של הטבע אל מול אפסיות הזמן האנושי. האומה האמריקאית כולה בת פחות מ-300 שנה, בעוד סלעי הווישנו שבתחתית הקניון בני קרוב לשני מיליארד שנים. המדינה כולה מגדירה עצמה דרך מונומנט של זמן גיאולוגי עמוק.
+                        </p>
+                    </div>
+
+                    <!-- The Copper State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-azCopper shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Copper State (מדינת הנחושת)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">עיקרון 5 ה-C של הכלכלה</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            בעוד הקניון מסמל את הרוח, הנחושת מסמלת את החומר. אריזונה מפיקה כ-60% מכלל הנחושת של ארצות הברית עד היום. החל מסוף המאה ה-19 (עם הופעת הטלגרף, הטלפון ורשתות החשמל), הנחושת של אריזונה היא זו ש"חישמלה את אמריקה". הכינוי הזה מעוגן באתוס היסטורי שנלמד בבתי הספר באריזונה כ-"עיקרון חמשת ה-C" (The 5 C's of Arizona) שהיוו את עמודי התווך של המדינה: **C**opper (נחושת), **C**attle (בקר), **C**otton (כותנה), **C**itrus (הדרים), ו-**C**limate (אקלים/תיירות).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-azBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: ניתוח סמיוטי של זריחת השמש והנחושת
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל אריזונה ב-SVG מדויק לחלוטין -->
+                <div class="w-full max-w-2xl bg-black rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative">
+                    <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto transform transition-transform duration-700 hover:scale-105">
+                        <!-- Bottom Half: Liberty Blue -->
+                        <rect y="200" width="600" height="200" fill="#002868" />
+                        
+                        <!-- Top Half: 13 Rays of Red and Gold -->
+                        <!-- Clip top half to keep rays within bounds -->
+                        <g clip-path="url(#topHalf)">
+                            <!-- Base Gold background -->
+                            <rect width="600" height="200" fill="#FFB612" />
+                            <!-- 7 Red Rays originating from center (300, 200) -->
+                            <!-- Mathematical approximation of 13 even rays (360/26 = ~13.8 degrees per slice) -->
+                            <!-- Ray 1 (Left horizontal) -->
+                            <polygon points="300,200 0,200 0,160" fill="#BF0A30" />
+                            <!-- Ray 2 -->
+                            <polygon points="300,200 0,85 45,0" fill="#BF0A30" />
+                            <!-- Ray 3 -->
+                            <polygon points="300,200 135,0 215,0" fill="#BF0A30" />
+                            <!-- Ray 4 (Center vertical) -->
+                            <polygon points="300,200 270,0 330,0" fill="#BF0A30" />
+                            <!-- Ray 5 -->
+                            <polygon points="300,200 385,0 465,0" fill="#BF0A30" />
+                            <!-- Ray 6 -->
+                            <polygon points="300,200 555,0 600,85" fill="#BF0A30" />
+                            <!-- Ray 7 (Right horizontal) -->
+                            <polygon points="300,200 600,160 600,200" fill="#BF0A30" />
+                        </g>
+                        <clipPath id="topHalf">
+                            <rect width="600" height="200" />
+                        </clipPath>
+
+                        <!-- Center Copper Star -->
+                        <g transform="translate(300,200)">
+                            <!-- Scale up a 5-pointed star -->
+                            <!-- Star points: r=100, inner r=~38 -->
+                            <polygon points="0,-100 22,-31 95,-31 36,12 59,81 0,38 -59,81 -36,12 -95,-31 -22,-31" fill="#B87333" />
+                        </g>
+                    </svg>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    דגל 13 הקרניים של אריזונה <br><span class="text-xl font-medium text-slate-500">(עוצב על ידי קולונל צ'ארלס הריס, 1917)</span>
                 </p>
             </div>
 
-            <!-- נסיבות יצירה נרחבות -->
-            <div class="space-y-10">
-                <div class="bg-slate-800/40 p-6 rounded-xl border-r-4 border-arizonaRed shadow-md">
-                    <h3 class="text-xl font-bold text-white mb-4 italic underline underline-offset-4">נסיבות היצירה: מהירי והדויק</h3>
-                    <div class="space-y-4 text-lg text-slate-300 leading-relaxed">
-                        <p>סיפורו של דגל אריזונה מתחיל בשנת 1910, עוד לפני שהפכה למדינה. קולונל **צ'ארלס וילפרד האריס**, מפקד המשמר הלאומי של אריזונה, הוביל את נבחרת הקליעה של הטריטוריה לתחרות הלאומית בבאפלו, ניו יורק.</p>
-                        <p>האריס שם לב שלכל שאר הנבחרות היה דגל ייחודי המייצג אותן, בזמן שנבחרת אריזונה נותרה ללא סמל. הוא החליט לעצב דגל שישדר עוצמה, היסטוריה ומשאבים. הוא רשם את הסקיצה הראשונה על דף נייר, והדגל נתפר לראשונה על ידי **נאן היידן**, אשתו של הנציג הטריטוריאלי קארל היידן.</p>
-                        <p>הדגל אומץ רשמית על ידי המדינה ב-27 בפברואר 1917, למרות שמושל אריזונה דאז סירב לחתום על החוק (הוא הפך לחוק ללא חתימתו) מכיוון שחשב שהעיצוב "צעקני מדי".</p>
-                    </div>
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-azRed shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-azRed decoration-4">נסיבות היצירה והתחרות הארצית (1911-1917):</h3>
+                    <p class="text-xl leading-loose">
+                        הצורך בדגל עלה לראשונה ב-1911 כאשר קבוצת הקליעה של המשמר הלאומי של טריטוריית אריזונה נסעה לתחרות לאומית באוהיו (Camp Perry). שם הבחינו החיילים שלכל שאר המדינות יש דגלים להתהדר בהם, בעוד הם צעדו ללא דגל. קפטן צוות הקליעה, **צ'ארלס וו. הריס** (Charles W. Harris), חזר לאריזונה והחליט לעצב דגל. הוא שרטט את העיצוב המקורי בעזרתו של קארל היידן (איש קונגרס לעתיד), ומסר אותו לאשתו של היידן כדי שתתפור את הדגל הראשון. העיצוב הבהיר והגיאומטרי הזה, ששבר את מסורת ה"סדין הכחול" העמוס בסמלים של רוב מדינות ארה"ב, אומץ רשמית בחוק ב-27 בפברואר 1917, למרות שמושל המדינה, תומאס קמפבל, סירב לחתום עליו.
+                    </p>
                 </div>
 
-                <div class="space-y-6">
-                    <h3 class="text-xl font-bold text-white mb-3 flex items-center">
-                        <span class="w-2 h-6 bg-arizonaCopper ml-3 rounded-full"></span>
-                        סמליות הצבעים והאלמנטים:
-                    </h3>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-slate-800/50 p-6 rounded-xl border-b-2 border-arizonaRed shadow-md">
-                            <h4 class="font-bold text-white mb-3 text-lg underline italic text-arizonaRed">13 הקרניים (אדום וזהב):</h4>
-                            <p class="text-slate-300">הקרניים מסמלות את 13 המושבות המקוריות של ארה"ב, אך צבעיהן הם מחווה לדגל ספרד (הצבעים שהביאו משלחות קורונדו לאזור ב-1540). המבנה יוצר תחושה של **שקיעה מרהיבה** מעל המדבר.</p>
-                        </div>
-
-                        <div class="bg-slate-800/50 p-6 rounded-xl border-b-2 border-arizonaCopper shadow-md">
-                            <h4 class="font-bold text-white mb-3 text-lg underline italic text-arizonaCopper">כוכב הנחושת המרכזי:</h4>
-                            <p class="text-slate-300">אריזונה היא יצרנית הנחושת הגדולה ביותר בארה"ב. הכוכב במרכז הדגל מסמל את ה**עושר המינרלי** ואת ענף המכרות המהווה את עמוד השדרה של כלכלת המדינה מאז הקמתה.</p>
-                        </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-azGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-azGold">13 קרני השמש (אדום וזהב):</h4>
+                        <p class="leading-loose text-lg">חציו העליון של הדגל מורכב מ-13 קרניים לסירוגין של אדום וזהב. למספר 13 יש משמעות לאומית: הוא מסמל את **13 המושבות המקוריות** שהקימו את ארה"ב. הצבעים עצמם הם צבעי דגל ספרד, כהוקרה למורשת הספרדית ולמשלחת הכיבוש המוקדמת של פרנסיסקו קורונאדו במאה ה-16. מבחינה חזותית, הקרניים מייצגות את השקיעות המרהיבות והאייקוניות של המדבר המערבי.</p>
                     </div>
-
-                    <div class="bg-slate-800/30 p-5 rounded-xl border-r-4 border-arizonaBlue">
-                        <h4 class="font-bold text-white mb-2 text-lg italic">הכחול בתחתית:</h4>
-                        <p class="text-slate-300 text-lg leading-relaxed">זהו "כחול החירות" (Liberty Blue), הזהה לכחול בדגל ארצות הברית. הוא מייצג את נאמנותה של אריזונה לאיחוד ואת המרחבים הפתוחים של שמי המדבר הצלולים.</p>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-azCopper shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-azCopper">כוכב הנחושת וכחול החירות:</h4>
+                        <p class="leading-loose text-lg">במרכז הדגל קבוע כוכב גדול מחומש בצבע **נחושת (Copper)**, המייצג באופן ברור את תעשיית הכרייה שהייתה הלב הפועם של הכלכלה האריזונית. הכוכב עולה מתוך חציו התחתון של הדגל, הצבוע כולו ב**כחול עמוק**. גוון זה מוגדר בחוק המדינה כ"כחול חירות" (Liberty Blue), והוא זהה בדיוק מוחלט לכחול שמופיע בדגל הלאומי של ארצות הברית, כדי להדגיש את נאמנותה של המדינה הצעירה לאיחוד.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-azBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">The University of Arizona Press:</p>
+                    <p>"Arizona Place Names". מחקר מקיף של ההיסטוריון וויל ק. בארנס, המוכיח חד משמעית כי "Árida Zona" הוא מיתוס כוזב, ומאשש את המקור בשפת האו'אודאם: alĭ ṣonak (המעיין הקטן).</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Arizona Historical Society (AHS):</p>
+                    <p>"The Life and Maps of Father Eusebio Kino". תיעוד ביוגרפי על מסעותיו של המיסיונר האיטלקי, בניית המיסיונים בדרום, ותרומתו להפרכת המיתוס שקליפורניה היא אי.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Library of Congress (LOC) - Constitution Archives:</p>
+                    <p>"George W.P. Hunt and the Arizona Constitution". ניתוח פוליטי של הוועידה ב-1910, הקרב על הסעיף הרדיקלי להדחת שופטים, והתנגשותו של האנט עם הנשיא טאפט.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Tucson Historic Preservation Foundation & Smithsonian Folklife:</p>
+                    <p>"The Birth of the Chimichanga". תיעוד התאונה הקולינרית ההיסטורית ב-1922 במסעדת 'אל צ'ארו' ויצירת המאכל הלא-פורמלי שמגדיר את מטבח הסונורה.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"Charles W. Harris and the Arizona Flag". ניתוח הרקע ליצירת הדגל על ידי קבוצת הקליעה הלאומית, והסימבוליקה העמוקה שמאחורי 13 הקרניים וצבעי ספרד.</p>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- פוטר -->
-    <footer class="w-full max-w-4xl mt-16 pt-8 border-t border-slate-800 text-center">
-        <p class="text-slate-500 text-sm font-medium tracking-widest uppercase">
-            האתר נוצר על ידי ג'מיני ורם | 2026
-        </p>
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-azRed rounded-full shadow-[0_0_15px_rgba(191,10,48,0.6)]"></div>
+                <div class="w-6 h-6 bg-azGold rounded-full shadow-[0_0_15px_rgba(255,182,18,0.6)]"></div>
+                <div class="w-6 h-6 bg-azBlue rounded-full shadow-[0_0_15px_rgba(0,40,104,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
     </footer>
 
 </body>
 </html>
+
 
