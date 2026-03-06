@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>אוקלהומה - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        okBlue: '#0052A5', /* Oklahoma Flag Blue */
+                        okSand: '#D2B48C', /* Shield / Buckskin */
+                        okRed: '#A91F24'   /* Accent Red */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-okSand font-black text-2xl mb-5 underline italic decoration-okSand/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-okBlue relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">אוקלהומה</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Oklahoma - The Sooner State</p>
+                <div class="h-2 w-56 bg-okSand mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(210,180,140,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">16 בנובמבר, 1907</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-46 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות ילידית מחושבת
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    בניגוד לשמות מדינות רבים (כמו מיין או טקסס) שצמחו מתוך שיבושים, אי-הבנות או סלנג של מלחים, השם "אוקלהומה" הוטבע <strong class="text-white">במכוון ובאופן מודע</strong> על ידי מנהיג ילידי כהצהרה פוליטית ולאומית. זהו תחדיש (Neologism) המורכב משתי מילים בשפת הצ'וקטו (Choctaw), אשר אוחדו לראשונה בשנת 1866.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Okla -->
+                    <div class="etymology-box border-okBlue">
+                        <p class="text-okBlue font-black text-5xl mb-6 italic tracking-tighter">Okla</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפת הצ'וקטו (אחת משפות משפחת המוסקוגי בדרום-מזרח ארה"ב).</p>
+                            <p><strong>משמעות מילולית:</strong> "אנשים", "שבט", "אומה" או "אנשי-ה...".</p>
+                            <p><strong>ניתוח מחקרי:</strong> מילה זו משמשת כקידומת לתיאור קולקטיב אנושי. בדומה לאופן שבו בשפות אירופאיות משתמשים בסיומת "לנד" (Land - ארץ של...), בשפות המוסקוגיות ההתייחסות לטריטוריה אינה מתחילה באדמה אלא באנשים המאכלסים אותה.</p>
+                        </div>
+                    </div>
+
+                    <!-- Humma -->
+                    <div class="etymology-box border-okRed">
+                        <p class="text-okRed font-black text-5xl mb-6 italic tracking-tighter">Humma</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפת הצ'וקטו.</p>
+                            <p><strong>משמעות מילולית:</strong> הצבע "אדום".</p>
+                            <p><strong>ניתוח מחקרי:</strong> הצבע האדום נשא משמעות כפולה: מצד אחד, הוא תיאור פיזי של גוון העור שהאירופאים ייחסו לילידים, אך מצד שני, בתרבות המוסקוגית, "אדום" קשור ללחימה, כבוד ודם הגיבורים.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/60 p-10 rounded-[2rem] border-r-8 border-okSand shadow-xl mt-10">
+                    <h3 class="font-black text-white mb-6 text-2xl italic underline decoration-okSand underline-offset-8">הסינתזה וההצהרה הפוליטית:</h3>
+                    <div class="space-y-6 text-slate-300 leading-loose">
+                        <p>השילוב המדויק **Okla-Humma** מתורגם ל-<span class="text-white font-bold underline decoration-okSand">"האנשים האדומים"</span> (Red People). המונח הוטבע על ידי צ'יף שבט הצ'וקטו, **אלן רייט** (Allen Wright), במהלך משא ומתן קשה עם הממשל הפדרלי בוושינגטון בשנת 1866 (לאחר מלחמת האזרחים). באותה תקופה, האזור היה מכונה בפי האמריקאים "הטריטוריה האינדיאנית". </p>
+                        <p>רייט רצה להבטיח שהזהות של האזור תישאר בבעלות הילידים גם אם יעבור רפורמה חוקתית, והציע את השם בשפת אמו. הקונגרס האמריקאי אימץ את השם, וב-1890 הוא הפך לשם הרשמי של מחצית מהטריטוריה, ולאחר מכן לשם המדינה כולה ב-1907. זוהי המדינה היחידה ששמה פשוט מתורגם באופן גאה ומוצהר ל"אנשים אדומים".</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-okBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: התנגשות בין עולמות
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- אלן רייט -->
+                <div class="personality-card border-r-8 border-okBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-okBlue decoration-4 underline-offset-8">ההוגה הדיפלומט: אלן רייט (Allen Wright - Kilihote)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1826–1885. <strong>מעמד:</strong> המנהיג הראשי של אומת הצ'וקטו (1866-1870).</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות ורקע - בנתיב הדמעות:</h4>
+                            <p class="leading-loose">אלן רייט נולד בשם Kilihote במיסיסיפי, אך בהיותו ילד צעיר גורשה משפחתו יחד עם שאר אומת הצ'וקטו במסע המוות והגירוש הידוע כ"נתיב הדמעות" אל עבר הטריטוריה ההודית (אוקלהומה של ימינו). בדרך, שני הוריו מתו והוא נותר יתום בגיל שש. הוא גודל על ידי משפחות בצ'וקטו ולבסוף התחנך על ידי מיסיונרים פרסביטריאנים, ששינו את שמו לאלן רייט. רייט ניצל את ההזדמנות, למד אנגלית ברמת שפת אם, ובהמשך סיים לימודי תיאולוגיה בניו יורק, מה שהפך אותו לאחד האינדיאנים המשכילים ביותר בדורו.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - הישרדות דרך אסימילציה חינוכית:</h4>
+                            <p class="leading-loose">האידיאולוגיה של רייט הייתה פרגמטית לחלוטין. הוא הבין שהמלחמה הצבאית נגד האימפריה האמריקאית אבודה מראש. הדרך היחידה של הצ'וקטו והילידים לשמר את אדמתם וזהותם הייתה דרך חינוך, שליטה בחוק האמריקאי, ויכולת לנהל משא ומתן פוליטי בוושינגטון בשפת הכובש. הוא תרגם את ספר החוקים של אומת הצ'וקטו לאנגלית ולצ'וקטו, ושימש כדיפלומט הראשי שלהם.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - הסכם 1866 וטביעת השם:</h4>
+                            <p class="leading-loose">במהלך מלחמת האזרחים, שבטים רבים (כולל הצ'וקטו) חתמו על בריתות עם הקונפדרציה הדרומית. כשזו הובסה, הממשל הפדרלי המנצח רצה להעניש את השבטים ולהחרים את אדמותיהם. רייט הוביל את משלחת המשא ומתן לוושינגטון כדי להציל את האומה. אף שנאלץ לוותר על חלק מהאדמות, חוכמתו הדיפלומטית מנעה עקירה נוספת. באותו משא ומתן, הוא הציע לאחד את הטריטוריות תחת שם אחד חוקי – "אוקלהומה". המורשת שלו היא שמה של המדינה כולה.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- וויליאם "אלפלפה ביל" מאריי -->
+                <div class="personality-card border-r-8 border-okRed shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-okRed decoration-4 underline-offset-8">הבונה והמחוקק הרדיקלי: וויליאם ה. מאריי (William "Alfalfa Bill" Murray)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1869–1856. <strong>מעמד:</strong> נשיא ועידת החוקה (1906) והמושל ה-9 של המדינה.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות ורקע - מחוספס מהעריסה:</h4>
+                            <p class="leading-loose">מאריי נולד בטקסס, למשפחה ענייה ברמה מחרידה. אמו מתה כשהיה בן שנתיים, ואביו היה נוצרי פנאטי ואלים. בגיל 12 בלבד, מאריי ושני אחיו ברחו מהבית וחיו ברחובות, קטפו כותנה וישנו בשדות. למרות חוסר השכלתו הרשמית, הוא היה אוטודידקט מזהיר שקרא כל ספר פוליטי או משפטי שהצליח להניח עליו את ידיו. בגיל 29 עבר לטריטוריה האינדיאנית (אוקלהומה) כעורך דין, והתחתן עם אחייניתו של מושל אומת הצ'יקאסו – מה שהעניק לו כוח פוליטי אדיר.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה קוטבית - פופוליזם והפרדה גזעית:</h4>
+                            <p class="leading-loose">האידיאולוגיה של מאריי הייתה תערובת פרדוקסלית של פרוגרסיביות ואפליה. מצד אחד, הוא היה פופוליסט אגררי נלהב (מכאן כינויו "אלפלפה", סוג של מספוא), נלחם בתאגידי ענק ובמונופולים, והגן על החקלאי העני. מצד שני, הוא היה גזען לבן אדוק שהאמין בעליונות הגזע הלבן ותמך באופן פעיל בחוקי הפרדה גזעית (Jim Crow).</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - ניסוח מדינת אוקלהומה:</h4>
+                            <p class="leading-loose">מאריי היה נשיא **וועידת החוקה של אוקלהומה בשנת 1906**. תחת שרביטו, נכתבה חוקה שהייתה אחת הפרוגרסיביות והארוכות ביותר בהיסטוריה האמריקאית (הגבלת יום עבודה ל-8 שעות, פיקוח מחמיר על תאגידים, יוזמות אזרחיות) – אך במקביל, מאריי דאג להכניס סעיפים שכפו הפרדה גזעית בבתי הספר ובתחבורה ציבורית. למרות אופיו הקיצוני והבוטה, החוקה שלו התקבלה, ואוקלהומה הפכה למדינה ב-1907. הוא השאיר אחריו חותם שנוי במחלוקת אך בלתי ניתן למחיקה על המסגרת החוקית של המדינה.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: אדוני המישורים והאנומליה הקולינרית
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-okSand">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-okSand">בעל החיים הלאומי: הביזון האמריקאי (American Bison / Buffalo)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">יונק המדינה הרשמי - סמל החיים והכמעט-הכחדה (אומץ ב-1972)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הביזון אינו עוד חיית בר באוקלהומה; הוא תמצית ההיסטוריה והטרגדיה של המישורים הגדולים (Great Plains). חיה אדירה זו, שמשקלה יכול להגיע לכ-1,000 קילוגרם, סיפקה לשבטי הילידים (במיוחד לאומות המישורים כמו הקומאנצ'י והקיווה שפעלו במערב אוקלהומה) את כל צורכיהם: בשר, כלי נשק מהעצמות, אוהלים מהעורות, ואפילו דלק למדורה מהגללים שיובשו. 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        בסוף המאה ה-19, ממשלת ארה"ב וציידים פרטיים יצאו במסע ציד תעשייתי ומכוון שטבח במיליוני ביזונים, כטקטיקה צבאית-כלכלית שנועדה להרעיב את השבטים האינדיאנים ולהכניע אותם. הביזון הגיע לסף הכחדה מוחלט. אימוץ הביזון כחיית המדינה של אוקלהומה הוא הכרה באשמת העבר, הוקרה לחיה שקיימה את התרבויות המקוריות, וסמל להצלחת מאמצי השימור המודרניים (כיום, אוקלהומה מטפחת עדרים מוגנים בשמורות הטבע שלה).
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-okRed">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-okRed">המנה הלאומית: הארוחה המדינתית של אוקלהומה (The Official State Meal)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">אנומליה חקיקתית: 11 מנות בחוק אחד (אומץ ב-1988)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        בעוד רוב המדינות בוחרות קינוח אחד או מאכל בודד (כמו צ'ילי בטקסס), בשנת 1988 החליט בית המחוקקים של אוקלהומה להכריז בחוק על <strong class="text-white">ארוחה שלמה, עצומה ועתירת קלוריות</strong> כמנה הלאומית. המטרה הייתה לייצג את שפע התוצרת החקלאית ואת המיזוג התרבותי של אוקלהומה – השוכנת בקו התפר שבין הדרום העמוק למערב התיכון.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        <strong class="text-white underline decoration-accent">הארוחה החוקית של אוקלהומה כוללת את כל המרכיבים הבאים (ביחד!):</strong><br>
+                    </p>
+                    <ul class="list-disc list-inside space-y-4 mt-4 text-slate-300 leading-loose text-xl">
+                        <li><strong class="text-okSand">המנות העיקריות:</strong> סטייק עוף מטוגן (Chicken Fried Steak - בקר דפוק ומטוגן בבלילה כמו עוף, סמל לחקלאות בקר כפרית) ובשר חזיר מעושן בברביקיו (Barbeque Pork).</li>
+                        <li><strong class="text-okSand">התוספות (The Sides):</strong> במיה מטוגנת (Fried Okra), סקווש (Squash - קישוא דלעת ילידי), תירס, גריטס (Grits - דייסת תירס דרומית), שעועית שחורת עין (Black-eyed peas).</li>
+                        <li><strong class="text-okSand">פחמימות ורטבים:</strong> ביסקוויטים דרומיים מוגשים עם "רוטב נקניקיות" סמיך (Sausage Gravy) ולחם תירס (Cornbread).</li>
+                        <li><strong class="text-okSand">קינוחים:</strong> פאי פקאן טרי ותותים.</li>
+                    </ul>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        ארוחה מפלצתית זו היא המטאפורה הקולינרית לאנשי אוקלהומה: חקלאים אנשי כפיים שזקוקים לאלפי קלוריות מנחמות אחרי יום שבירת אדמה (Sod-busting) במישורים מוכי רוח הטורנדו.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-okBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: כאשר הרמאים הופכים לגיבורים
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-okRed shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic">The Sooner State (מדינת ה"מוקדמים")</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">אתוס של עקיפת חוקים ויזמות חלוצית</p>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        כינוי זה הוא אולי האנומליה הסוציולוגית המרתקת ביותר בכינויי המדינות. מקורו באירוע היסטורי יחיד: <strong class="text-white">מרוץ האדמות של אוקלהומה ב-1889</strong> (The Land Rush). 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-lg mt-6">
+                        הממשל הפדרלי פתח שני מיליון דונם של אדמה אינדיאנית להתיישבות לבנה. החוק היה ברור: ב-22 באפריל בצהריים המדויקים, יירו בתותח, ועשרות אלפי מתיישבים יורשו לדהור על סוסים ועגלות כדי לתקוע יתד ולתבוע בעלות על חלקה. אלו שפעלו לפי החוק וחיכו נקראו "Boomers". 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-lg mt-6">
+                        אך היו כאלה שסירבו לחכות. הם התגנבו אל מעבר לגבולות בלילה הקודם, התחבאו בשיחים, וברגע שהתותח נורה – הם פשוט צצו מתוך האדמה וזכו בחלקות הטובות ביותר על גדות הנחלים. אותם מתיישבים כונו בבוז <strong class="text-white">"Sooners"</strong> (אלה שבאו "מוקדם יותר"). מבחינה חוקית – הם היו רמאים מוחלטים.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-lg mt-6">
+                        אולם, עם השנים, הפסיכולוגיה הציבורית התהפכה. ה"סונרס" נתפסו לא כפושעים, אלא כסמל ליזמות אמריקאית שאינה יודעת גבולות, שאפתנות, אנרגיה ותושייה לעקוף בירוקרטיה כבדה. אוניברסיטת אוקלהומה (OU) בחרה ב"סונרס" ככינוי הרשמי של קבוצות הספורט שלה, וב-1908 המדינה אימצה זאת כזהות הפנומנולוגית שלה. האתוס הוכשר.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-okBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: ניתוח סמיוטי של דגל ההרמוניה
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל אוקלהומה בטכנולוגיית CSS מודרנית -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#0052A5] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col items-center justify-center group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/30 pointer-events-none z-20"></div>
+                    
+                    <!-- מרכז הדגל - סמל האוסייג' -->
+                    <div class="relative z-10 flex flex-col items-center transform transition-transform duration-700 group-hover:scale-110 mt-6">
+                        
+                        <!-- מגן עור הביזון -->
+                        <div class="w-48 h-48 bg-[#D2B48C] rounded-full border-4 border-[#8B4513] relative flex items-center justify-center shadow-2xl">
+                            <!-- צלבים על המגן (כוכבים ילידיים) -->
+                            <div class="text-[#8B4513] text-5xl opacity-60">✚</div>
+                            <!-- נוצות המשתלשלות (סימולציה) -->
+                            <div class="absolute -bottom-10 flex gap-6">
+                                <div class="w-2 h-10 bg-white border border-slate-400 rounded-b-full shadow-md rotate-12"></div>
+                                <div class="w-2 h-12 bg-white border border-slate-400 rounded-b-full shadow-md"></div>
+                                <div class="w-2 h-10 bg-white border border-slate-400 rounded-b-full shadow-md -rotate-12"></div>
+                            </div>
+                        </div>
+
+                        <!-- הצלבת המקטרת וענף הזית -->
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-full">
+                            <!-- מקטרת (Calumet) -->
+                            <div class="absolute w-[120%] h-3 bg-[#8B4513] rotate-[35deg] rounded-full shadow-md"></div>
+                            <!-- ענף זית (Olive Branch) -->
+                            <div class="absolute w-[120%] h-3 bg-green-700 -rotate-[35deg] rounded-full shadow-md flex items-center justify-evenly">
+                                <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                                <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- מילת המדינה שנוספה ב-1941 -->
+                    <div class="mt-14 z-10">
+                        <span class="text-white text-5xl font-black tracking-[0.4em] uppercase drop-shadow-md">Oklahoma</span>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    מגן האוסייג' ומקטרת השלום <br><span class="text-xl font-medium text-slate-500">(עוצב על ידי לואיז פלוק, 1925)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-okBlue shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-okBlue decoration-4">נסיבות היצירה (1925) והתיקון ב-1941:</h3>
+                    <p class="text-xl leading-loose">
+                        דגלה הראשון של אוקלהומה ב-1911 כלל כוכב בודד עם הספרה "46" על רקע אדום. אולם, לאחר המהפכה הבולשביקית ברוסיה, דגלים אדומים הפכו למזוהים באופן מיידי עם קומוניזם, מה שעורר אי-נוחות עזה במדינה. בשנת 1925 ארגנה אגודת "בנות המהפכה האמריקאית" (DAR) תחרות לעיצוב דגל חדש. הזוכה הייתה אמנית מקומית בשם **לואיז פנל פלוק** (Louise Funk Fluke), שיצרה עיצוב הרלדי חסר תקדים בנוף האמריקאי – סמל המתבסס כולו על חפצים פיזיים ודו-קיום תרבותי ולא על חותמות אירופאיות. <br>
+                        בשנת 1941 הוסיפו מחוקקי המדינה את המילה "OKLAHOMA" באותיות לבנות מתחת למגן, צעד שנועד להילחם באנאלפביתיות ובחוסר זיהוי של הדגל (החלטה השנויה במחלוקת עד היום בקרב מעצבי דגלים, הרואים בכיתוב על דגל טעם פגום).
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-okSand shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-okSand">מגן האוסייג' (Osage Shield):</h4>
+                        <p class="leading-loose text-lg">במרכז הדגל נמצא מגן מסורתי של שבט האוסייג' האינדיאני, העשוי מעור ביזון שעליו נמתחו רצועות חיזוק. משתלשלות ממנו שבע נוצות נשר. על המגן מצוירים שישה צלבים (Crosses), שהם סמלים ילידיים קדומים לכוכבים, המייצגים שאיפות נשגבות. המגן מסמל הגנה על הקרקע ומייצג את ההיסטוריה של הילידים כמיליציה וכשומרי אדמה.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-green-600 shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-green-500">הצלבת השלום: מזרח ומערב:</h4>
+                        <p class="leading-loose text-lg">מונחים על גבי המגן בצורת X שני חפצים: **מקטרת שלום ילידית (Calumet)** ו**ענף זית אירופאי/קלאסי**. חפיפה זו היא הסמל האמריקאי המובהק ביותר לפיוס ודו-קיום. היא מסמלת ברית של שלום בין "האדם הלבן" לבין "האדם האדום" (החקוק בשמה של אוקלהומה). הרקע הכחול (Choctaw Blue) נלקח מדגל שבט הצ'וקטו מימי מלחמת האזרחים, ומוסיף לסמל השלמה ויזואלית של נאמנות ומסירות.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-okBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">The Oklahoma Historical Society (OHS):</p>
+                    <p>"Allen Wright and the Origin of the State Name". תיעוד המסמכים משנת 1866 וההחלטה להשתמש ב"אוקלהומה" (האנשים האדומים) כצעד דיפלומטי על ידי צ'יף שבט הצ'וקטו.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Oklahoma State Legislature Archives:</p>
+                    <p>"The Official State Meal (HCR 1083 - 1988)". פירוט תהליך החקיקה החריג שהוביל לאימוץ ארוחה בת 11 מנות, המשלבת את המטבח הדרומי ומסורות המערב התיכון.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Library of Congress (LOC) - Westward Expansion:</p>
+                    <p>"The Land Rush of 1889 and the Sooners". אנתרופולוגיה של ההתיישבות, הסבר על פריצת הגבולות לפני הזריחה, והמעבר של הכינוי "Sooner" מפושע פדרלי לסמל יזמות.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">The Chronicles of Oklahoma:</p>
+                    <p>"William H. 'Alfalfa Bill' Murray: Paradox of the Populist". מחקר מעמיק על כתיבת חוקת 1906, הקרב על זכויות פועלים מול תמיכתו הבלתי מתפשרת בחוקי הפרדה גזעית (Jim Crow).</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"Louise Fluke and the Osage Shield Flag". ניתוח סמיוטי של מרכיבי הדגל, הסיבה לזניחת הדגל האדום המקורי מ-1911 בשל החשש מקומוניזם, והתוספת הטקסטואלית ב-1941.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-okBlue rounded-full shadow-[0_0_15px_rgba(0,82,165,0.6)]"></div>
+                <div class="w-6 h-6 bg-okSand rounded-full shadow-[0_0_15px_rgba(210,180,140,0.6)]"></div>
+                <div class="w-6 h-6 bg-okRed rounded-full shadow-[0_0_15px_rgba(169,31,36,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
