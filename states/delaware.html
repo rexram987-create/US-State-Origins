@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>דלאוור - US State Origins</title>
+    <title>דלאוור - מחקר אקדמי מורחב ואולטימטיבי</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -14,9 +14,9 @@
                         darkBg: '#0f172a',
                         cardBg: '#1e293b',
                         accent: '#38bdf8',
-                        delawareBlue: '#7BA4D5',
-                        delawareBuff: '#D3A270',
-                        delawareGold: '#DAA520'
+                        deBlue: '#658B9C', /* Colonial Blue */
+                        deBuff: '#D4B872', /* Colonial Buff / Tan */
+                        deDiamond: '#F3F4F6'
                     }
                 }
             }
@@ -26,188 +26,344 @@
         body { 
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
         }
-        .diamond-flag {
-            background-color: #D3A270;
-            width: 140px;
-            height: 140px;
-            transform: rotate(45deg);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-        }
-        .diamond-inner {
-            transform: rotate(-45deg);
-        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-deBuff font-black text-2xl mb-5 underline italic decoration-deBuff/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
     </style>
 </head>
-<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-8">
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
 
     <!-- ניווט עליון -->
-    <nav class="w-full max-w-4xl mb-6">
-        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-medium">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
             </svg>
             חזרה לאטלס המדינות
         </a>
     </nav>
 
-    <!-- כותרת המדינה -->
-    <header class="w-full max-w-4xl bg-cardBg rounded-2xl shadow-xl p-8 mb-8 border-t-4 border-delawareBlue">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-center md:text-right">
-                <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-2">דלאוור</h1>
-                <p class="text-xl text-accent font-semibold tracking-wide">Delaware</p>
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-deBlue relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">דלאוור</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Delaware - The First State</p>
+                <div class="h-2 w-56 bg-deBuff mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(212,184,114,0.5)]"></div>
             </div>
-            <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 w-full md:w-auto text-center shadow-inner">
-                <p class="text-slate-400 text-sm italic mb-1">תאריך ייסוד / הצטרפות לאיחוד:</p>
-                <p class="text-2xl font-bold text-white">7 בדצמבר, 1787</p>
-                <p class="text-xs text-delawareBuff mt-1 uppercase tracking-tighter font-bold">המדינה ה-1 באיחוד (The First State)</p>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">7 בדצמבר, 1787</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-1 באיחוד</p>
             </div>
         </div>
     </header>
 
-    <main class="w-full max-w-4xl space-y-8">
+    <main class="w-full max-w-4xl space-y-20">
         
-        <!-- 1. מחקר אטימולוגי מלא ומחולק -->
-        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
-            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2 flex items-center">
-                <span class="ml-2">1.</span> מחקר אטימולוגי מלא ומחולק
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: האציל הנעדר וההשתלטות הלשונית
             </h2>
-            <div class="space-y-6">
-                <p class="text-lg leading-relaxed text-slate-300">
-                    שמה של דלאוור הוא מקרה ייחודי שבו שם של אציל אירופי הוענק לנהר, למפרץ, למדינה ולאומה אינדיאנית שלמה. המקור הוא **תומאס ווסט, הלורד דה לה וור השלישי**.
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    האטימולוגיה של דלאוור היא שרשרת אבסורדית של טעויות וחנופה קולוניאלית. המדינה אינה קרויה על שם הילידים, ואף לא על שם אישיות שחקרה אותה, אלא על שמו של פוליטיקאי ואציל בריטי שכמעט ולא דרך על אדמתה. השם התגלגל מהאציל אל הנהר, מהנהר אל שבט הילידים, ולבסוף אל המדינה כולה.
                 </p>
-                
-                <div class="grid grid-cols-1 gap-4">
-                    <div class="bg-slate-800/80 p-6 rounded-xl border-r-4 border-accent shadow-inner">
-                        <h3 class="font-bold text-white mb-4 text-xl underline">הפירוק השפתי (צרפתית נורמנית):</h3>
+
+                <div class="space-y-8">
+                    <!-- De La -->
+                    <div class="etymology-box border-deBlue">
+                        <p class="text-deBlue font-black text-5xl mb-6 italic tracking-tighter">De La</p>
                         <div class="space-y-4">
-                            <div class="flex items-start bg-slate-900/40 p-4 rounded-lg">
-                                <span class="text-accent font-black text-2xl ml-3">De La</span>
-                                <div>
-                                    <p class="text-white font-bold">משמעות: "של ה-" / "מן ה-" (Of the / From the).</p>
-                                    <p class="text-sm text-slate-400 font-medium">מילית יחס נורמנית המעידה על שיוך לאחוזה או לתואר אצולה.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start bg-slate-900/40 p-4 rounded-lg">
-                                <span class="text-accent font-black text-2xl ml-3">Warr / Werre</span>
-                                <div>
-                                    <p class="text-white font-bold">משמעות: מלחמה (Guerre / War).</p>
-                                    <p class="text-sm text-slate-400 font-medium italic">מקור המילה הוא פרנקוני עתיק (werra), שפירושו סכסוך או בלבול, והוא התפתח למונח המודרני למלחמה.</p>
-                                </div>
-                            </div>
+                            <p><strong>מקור פילולוגי:</strong> צרפתית-נורמנית עתיקה (השפה שהייתה נפוצה בקרב האצולה הבריטית בימי הביניים).</p>
+                            <p><strong>משמעות מילולית:</strong> "של ה..." או "מתוך ה...".</p>
                         </div>
                     </div>
 
-                    <div class="bg-slate-900/50 p-6 rounded-xl border-r-4 border-delawareBuff">
-                        <h3 class="font-bold text-white mb-2 text-lg italic">המשמעות האטימולוגית הכוללת:</h3>
-                        <p class="text-lg text-slate-300 leading-relaxed">
-                            הפירוש המילולי הוא <span class="text-white font-bold underline decoration-accent">"איש המלחמה"</span>. השם עבר גלגול פונטי מאנגלית עתיקה ונורמנית עד שהפך ל-"Delaware" המוכר לנו היום. 
+                    <!-- Warr -->
+                    <div class="etymology-box border-deBuff">
+                        <p class="text-deBuff font-black text-5xl mb-6 italic tracking-tighter">Warr / Werre</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> אנגלית תיכונה או צרפתית-נורמנית (guerre/werre).</p>
+                            <p><strong>משמעות מילולית:</strong> מלחמה (War).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/60 p-10 rounded-[2rem] border-r-8 border-deDiamond shadow-xl mt-10">
+                    <h3 class="font-black text-white mb-6 text-2xl italic underline decoration-deDiamond underline-offset-8">שרשרת השיום (The Naming Chain):</h3>
+                    <div class="space-y-6 text-slate-300 leading-loose">
+                        <p>השם מתייחס ל**תומאס ווסט, הברון השלישי דה לה וור (Baron De La Warr)**, שמשמעות תוארו היא "איש המלחמה" או "זה שבא מן המלחמה". הלורד דה לה וור מונה למושל המושבה הבריטית הראשונה (ג'יימסטאון, וירג'יניה) בשנת 1610.</p>
+                        <p>בשנת 1610, חוקר בריטי תחת פיקודו, סמואל ארגול, הפליג צפונה ונתקל במפרץ גדול ונהר עצום. כדי להחניף לבוס שלו, הוא קרא להם "מפרץ דלאוור" ו"נהר דלאוור". השבטים הילידים שחיו לאורך הנהר (שקראו לעצמם לני-לנאפה / Leni-Lenape) כונו בטעות על ידי המתיישבים האירופאים "אינדיאנים של דלאוור" (Delaware Indians). כך נוצר מצב אירוני בו אומה ילידית שלמה באמריקה ומועצת מדינה אימצו זהות המבוססת על שמו של אציל צרפתי-נורמני שמעולם לא התיישב שם.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-deBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: מלחמת הישרדות ורוכב החצות
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- תומאס ווסט, הלורד דה לה וור -->
+                <div class="personality-card border-r-8 border-deBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-deBlue decoration-4 underline-offset-8">האציל המושיע: תומאס ווסט, הברון דה לה וור (Thomas West)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1577–1618. <strong>תואר היסטורי:</strong> המושל הראשון של וירג'יניה (לכל החיים).</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">רקע - אריסטוקרטיה מלידה:</h4>
+                            <p class="leading-loose">תומאס ווסט נולד לאחת המשפחות החזקות באנגליה של התקופה האליזבתנית. הוא התחנך באוניברסיטת אוקספורד, שירת בבית הנבחרים, ולחם בצבא הבריטי בהולנד ואירלנד. כיוון שהיה מקורב לכתר, הוא נבחר על ידי "חברת וירג'יניה" של לונדון להוביל ולשקם את המושבה הגוססת בג'יימסטאון.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - צבאיות קולוניאלית קשיחה:</h4>
+                            <p class="leading-loose">האידיאולוגיה של ווסט הייתה שמושבות באמריקה אינן יכולות להתקיים כדמוקרטיות של סוחרים. הוא האמין בממשל צבאי מחמיר, דיכוי כוחני של שבטים ילידים, והשלטת משמעת מוחלטת בקרב המתיישבים כדי להבטיח את שרידות האימפריה בארץ זרה.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - הצלת אמריקה הבריטית (1610):</h4>
+                            <p class="leading-loose">כאשר הגיע הצי של דה לה וור לג'יימסטאון ביוני 1610, הוא מצא מושבה הרוסה. המתיישבים ששרדו את "שנת ההרעבה" (Starving Time) כבר נטשו את המבצר והיו בדרכם חזרה לאנגליה בספינות. דה לה וור עצר אותם, הורה להם לחזור, והשליט חוק צבאי ("Lawes Divine, Morall and Martiall"). הוא הציל את המושבה מחיסול מוחלט, ויזם מסעות מלחמה אכזריים (המלחמה האנגלו-פוהאטנית הראשונה) שהבטיחו את האחיזה הבריטית בצפון אמריקה. ללא פעולתו, ייתכן וארה"ב דוברת האנגלית לא הייתה קמה. הוא מת בים בדרכו חזרה לאמריקה ב-1618.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- סיזר רודני -->
+                <div class="personality-card border-r-8 border-deBuff shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-deBuff decoration-4 underline-offset-8">החולה שדהר אל העצמאות: סיזר רודני (Caesar Rodney)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1728–1784. <strong>מעמד:</strong> נציג דלאוור לקונגרס הקונטיננטלי וחותם על הכרזת העצמאות.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">רקע טרגי - מחלה ואריסטוקרטיה:</h4>
+                            <p class="leading-loose">סיזר רודני נולד בדובר (Dover), דלאוור, למשפחת בעלי מטעים עשירה. למרות מעמדו, חייו היו רצופי סבל גופני. הוא סבל מאסטמה כרונית ומ**סרטן הפנים**, מחלה מחרידה שאכלה לאיטה את צד פניו ועינו, מה שאילץ אותו לחבוש צעיף משי ירוק על חצי פניו באופן תמידי כדי להסתיר את הפצעים הכואבים.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - עצמאות בכל מחיר:</h4>
+                            <p class="leading-loose">רודני היה רדיקל תקיף שתמך בהתנתקות מלאה מבריטניה. בניגוד לנציגים רבים שחיפשו פשרה עם המלך ג'ורג', רודני האמין שאין דרך חזרה, והיה מוכן לסכן את חייו ואת הונו העצום (כבוגד בכתר) למען הרעיון של רפובליקה חופשית, על אף שהיה חולה נוטה למות.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - מסע החצות המיתולוגי (יולי 1776):</h4>
+                            <p class="leading-loose">ב-1 ביולי 1776, הקונגרס בפילדלפיה הצביע על עצמאות. המשלחת של דלאוור (שמנתה 3 אנשים) הייתה בתיקו: תומאס מקיין תמך, ג'ורג' ריד התנגד, ורודני נעדר בשל מחלתו ושהה בביתו בדובר. אם דלאוור לא הייתה מצביעה בעד, החזית המאוחדת של 13 המושבות הייתה נשברת. מקיין שלח רוכב בהול להזעיק את רודני. <br>
+                            אף שהיה חולה אנושות וסבל מכאבי תופת, רודני בן ה-47 עלה על סוסו ב-1 ביולי בערב, ו**דהר 112 קילומטרים (70 מייל) לאורך כל הלילה בתוך סופת רעמים וגשם זלעפות**. הוא הגיע לקונגרס ב-2 ביולי, ספוג מים ומכוסה בוץ, נכנס לאולם וקרא: "כיוון שאני מאמין שקולה של דלאוור תומך בכך... אני מצביע בעד!". הצבעתו שברה את התיקו, איפשרה את הכרזת העצמאות, וקיבעה את מעמדו כגיבור הלאומי הגדול של המדינה הקטנה.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: תרנגולות קרב ושיירי מטבחיים
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-deBlue">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-deBlue">ציפור המדינה: התרנגולת הכחולה של דלאוור (The Blue Hen)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">סמל של לוחמה היסטורית ואגרסיביות (אומץ ב-1939)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        התרנגולת הכחולה של דלאוור אינה חיית בר, אלא זן של תרנגולת מבויתת שהוצלב במיוחד עבור... **קרבות תרנגולים**. הקשר שלה לזהות המדינה נובע ישירות ממלחמת העצמאות האמריקאית (1776).
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        קפטן ג'ונתן קולדוול (Jonathan Caldwell), מפקד פלוגת חי"ר מדלאוור, ואנשיו היו ידועים כלוחמים אכזריים ביותר. בזמנם החופשי במחנות הצבא, הם נהגו לארגן קרבות תרנגולים עם זן מיוחד שהביאו ממחוז קנט (Kent) שבדלאוור. לתרנגולים אלו הייתה פלומה בגוון כחלחל-אפור, והם נודעו באכזריותם, עורמתם וסירובם להיכנע בקרב.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        עד מהרה, החיילים של קולדוול, שלחמו בגבורה מול הבריטים בקרבות בלונג איילנד ווייט פליינס, זכו לכינוי <strong class="text-white">"האפרוחים של התרנגולת הכחולה" (Blue Hen's Chickens)</strong>. הכינוי המלחמתי והעקשן דבק בכל אזרחי המדינה. כיום, אוניברסיטת דלאוור משתמשת ב-Blue Hen כקמע הרשמי שלה, ומגדלת להקה קטנה של תרנגולות קרב כחולות (כיום הן כבר לא נלחמות) בקמפוס לצרכי מורשת.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-deBuff">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-deBuff">המנה התרבותית המובהקת: סקראפל (Scrapple)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">חסכנות חקלאית שהפכה למעדן בוקר</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        דלאוור חולקת את המורשת הקולינרית של המיד-אטלנטיק עם דוברי הגרמנית של פנסילבניה (Pennsylvania Dutch), אך היא אימצה מנה אחת לליבה והפכה לבירת הייצור העולמית שלה: ה**סקראפל**. 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        סקראפל היא מנה שנולדה מתוך הישרדות וחסכנות כפרית אולטימטיבית: האיכר לא זורק דבר. לאחר שחיטת החזיר, נלקחו כל ה"שאריות" (Scraps) – ראשי חזיר, איברים פנימיים, עצמות ושומן – והורתחו לתוך מרק עשיר. למרק הזה הוסיפו קמח תירס (Cornmeal) או קמח כוסמת (Buckwheat) ותבלינים (מרווה, פלפל שחור). העיסה התבשלה עד שהפכה לדייסה סמיכה, שניצקה לתבניות מלבניות וקוררה עד להתמצקות (כמו כיכר לחם).
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        כדי לאכול אותה, פורסים את הכיכר הדוחה למראה לפרוסות דקות ומטגנים אותן במחבת עד שהן הופכות לפריכות מבחוץ ונימוחות מבפנים. זוהי ארוחת הבוקר המובהקת של דלאוור, המוגשת לרוב עם סירופ מייפל מתוק. חברת "RAPA Scrapple" פועלת בעיר ברידג'וויל בדלאוור מאז 1926 ונחשבת ליצרנית הגדולה בעולם, והעיר מארחת מדי שנה את ה"אפל-סקראפל פסטיבל" המסורתי.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-deBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: פסיכולוגיה של בכורה ואבנים טובות
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The First State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-deBlue shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The First State (המדינה הראשונה)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">ראשוניות חוקתית מול אפסיות גיאוגרפית</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            דלאוור היא המדינה השנייה הכי קטנה בשטחה בארה"ב. כדי לפצות על משקלה הדמוגרפי והגיאוגרפי האפסי, היא מבססת את הפנומנולוגיה והגאווה הלאומית שלה על מושג אחד: **בכורה**. ב-7 בדצמבר 1787, האסיפה של דלאוור הייתה הראשונה לאשרר (Ratify) את החוקה החדשה של ארצות הברית, ובכך הפכה משפטית למדינה ה"ראשונה" באיחוד. תואר זה מקנה לה עד היום זכויות טקסיות אדירות: המשלחת של דלאוור צועדת תמיד ראשונה בכל מצעד נשיאותי, והכינוי מופיע בגאווה על לוחיות הרישוי, כמסר שגודל פיזי אינו מעיד על חשיבות היסטורית.
+                        </p>
+                    </div>
+
+                    <!-- The Diamond State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-deDiamond shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-deDiamond">The Diamond State (מדינת היהלום)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מטאפורה גיאופוליטית</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            בניגוד לארקנסו (שם באמת נכרים יהלומים מהאדמה), לדלאוור אין שום קשר מינרלי ליהלומים. הכינוי הוא מטאפורה פוליטית וכלכלית שהוטבעה (על פי האגדה) על ידי הנשיא **תומאס ג'פרסון**. הוא תיאר את דלאוור כיהלום: <span class="text-white italic">"קטנה במידותיה, אך בעלת ערך עצום"</span>. ג'פרסון התייחס למיקומה הגיאופוליטי האסטרטגי על החוף המזרחי – חולשת על נהר דלאוור ומהווה ציר גישה ימי מרכזי לפילדלפיה וללב המסחרי של האומה המתהווה.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. תולדות המושבה: הקמה, מיקום וחזון -->
-        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
-            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2 flex items-center">
-                <span class="ml-2">2.</span> תולדות המושבה: הקמה, מיקום וחזון
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-deBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: מדי הגנרל ואחוות החקלאים
             </h2>
             
-            <div class="space-y-8">
-                <!-- רקע ההקמה -->
-                <div class="bg-slate-800/40 p-6 rounded-xl border-r-4 border-delawareGold shadow-md">
-                    <h3 class="text-xl font-bold text-white mb-3 italic underline">רקע ההקמה (שוודיה, הולנד ואנגליה)</h3>
-                    <p class="text-lg text-slate-300 leading-relaxed">
-                        דלאוור החלה כפסיפס של התיישבויות אירופיות. היא הוקמה לראשונה כ"שוודיה החדשה" (New Sweden) בשנת 1638 על ידי חברת שוודיה הדרומית, בראשות פטר מינואיט. מאוחר יותר נכבשה על ידי ההולנדים (1655) ולבסוף על ידי הבריטים (1664). בשנת 1682, הוענקו "שלושת המחוזות התחתונים" (Lower Counties) של דלאוור ל**ויליאם פן**, מייסד פנסילבניה, שחיפש מוצא לים עבור המושבה שלו.
-                    </p>
-                </div>
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל דלאוור ב-CSS -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#658B9C] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex items-center justify-center group">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-black/10 via-transparent to-white/10 pointer-events-none z-0"></div>
+                    
+                    <div class="relative w-full h-full transform transition-transform duration-700 group-hover:scale-105 z-10 flex flex-col items-center justify-center">
+                        
+                        <!-- The Buff Diamond -->
+                        <div class="w-[60%] h-[75%] bg-[#D4B872] flex items-center justify-center shadow-lg relative" style="clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);">
+                            
+                            <!-- Coat of Arms Simulation -->
+                            <div class="flex flex-col items-center mt-2 z-10">
+                                <!-- Ship Crest -->
+                                <div class="text-[#0f172a] text-lg -mb-1">⛵</div>
+                                
+                                <!-- Shield -->
+                                <div class="w-20 h-24 border-[3px] border-[#0f172a] flex flex-col items-center justify-between p-1 bg-white relative">
+                                    <div class="w-full border-b-[2px] border-[#0f172a] pb-1 flex justify-around">
+                                        <span class="text-[10px]">🌾</span><span class="text-[10px]">🌽</span>
+                                    </div>
+                                    <div class="w-full text-center">
+                                        <span class="text-xs">🐂</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Motto -->
+                                <div class="text-[#0f172a] font-bold text-[8px] uppercase tracking-widest mt-1">Liberty and Independence</div>
+                            </div>
 
-                <!-- סיבת בחירת המיקום -->
-                <div class="bg-slate-800/40 p-6 rounded-xl border-r-4 border-delawareBlue shadow-md">
-                    <h3 class="text-xl font-bold text-white mb-3 italic underline">סיבת בחירת המיקום האסטרטגי</h3>
-                    <p class="text-lg text-slate-300 leading-relaxed">
-                        המיקום נבחר בשל השליטה על **מפרץ ונהר דלאוור**. זהו אחד מנתיבי המים החשובים ביותר בחוף המזרחי, המאפשר גישה עמוקה ליבשת. עבור הבריטים והשוודים, המיקום שימש כמרכז סחר פרוות ותבואה, וכנקודת הגנה אסטרטגית המונעת מספינות אויב לעלות במעלה הנהר לכיוון פילדלפיה וניו ג'רזי.
-                    </p>
-                </div>
+                            <!-- Supporters (Farmer & Militiaman simulation) -->
+                            <div class="absolute left-6 top-[35%] text-2xl">👨‍🌾</div>
+                            <div class="absolute right-6 top-[35%] text-2xl">💂‍♂️</div>
+                        </div>
 
-                <!-- עובדות מעניינות -->
-                <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-600 shadow-inner">
-                    <h3 class="text-xl font-bold text-accent mb-4 flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2 text-delawareGold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        פרטים מיוחדים על המושבה
-                    </h3>
-                    <ul class="space-y-4 text-slate-300">
-                        <li class="flex items-start">
-                            <span class="text-delawareGold font-bold text-xl ml-3">1.</span>
-                            <p><strong>המצאת ה-Log Cabin:</strong> המתיישבים השוודים והפינים בדלאוור היו אלו שהביאו לצפון אמריקה את טכניקת הבנייה של "בתי לוג" (בתי עץ מנסורת שלמה), שהפכו לסמל המובהק של הספר האמריקאי.</p>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-delawareGold font-bold text-xl ml-3">2.</span>
-                            <p><strong>עצמאות מפנסילבניה:</strong> למרות שהייתה תחת שלטונו של ויליאם פן, דלאוור שמרה על בית מחוקקים נפרד משלה החל מ-1704, מה שסלל את דרכה להפוך למדינה ריבונית עצמאית לחלוטין במהפכה.</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. סיבת בחירת השם -->
-        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
-            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2">3. סיבת בחירת השם</h2>
-            <div class="text-lg leading-relaxed text-slate-300 space-y-4">
-                <p>השם הוענק למפרץ בשנת 1610 על ידי **סמואל ארגול**, שביקש להחניף ללורד דה לה וור, מושל וירג'יניה. הבחירה הייתה פוליטית לחלוטין – ניסיון לחזק את הקשרים עם הכתר ועם הממשל הקולוניאלי בווירג'יניה. השם "דלאוור" נשאר יציב לאורך כל חילופי השלטון בין השוודים, ההולנדים והאנגלים.</p>
-            </div>
-        </section>
-
-        <!-- 4. וקסילולוגיה: ניתוח הדגל ונסיבות יצירתו -->
-        <section class="bg-cardBg rounded-2xl p-6 shadow-lg border border-slate-700">
-            <h2 class="text-2xl font-bold text-accent mb-6 border-b border-slate-700 pb-2">4. וקסילולוגיה: ניתוח הדגל וסמליו</h2>
-            
-            <div class="flex flex-col items-center mb-10">
-                <div class="w-full max-w-md aspect-[3/2] bg-delawareBlue rounded-lg overflow-hidden shadow-2xl border-4 border-slate-800 relative flex items-center justify-center">
-                    <div class="diamond-flag flex items-center justify-center">
-                        <div class="diamond-inner flex flex-col items-center">
-                            <div class="w-16 h-12 bg-white/30 border border-slate-900 rounded-sm mb-1"></div>
-                            <span class="text-[7px] font-black text-slate-900">DECEMBER 7, 1787</span>
+                        <!-- Date at the bottom -->
+                        <div class="absolute bottom-6 text-white font-black text-xl tracking-[0.2em] drop-shadow-md">
+                            DECEMBER 7, 1787
                         </div>
                     </div>
                 </div>
-                <p class="mt-4 text-slate-400 font-bold text-lg bg-slate-800 px-6 py-2 rounded-full border border-slate-700">
-                    דגל דלאוור (אומץ ב-1913)
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    צבעי וושינגטון ביהלום <br><span class="text-xl font-medium text-slate-500">(אומץ ב-24 ביולי 1913)</span>
                 </p>
             </div>
 
-            <div class="space-y-8">
-                <div class="bg-slate-800/40 p-6 rounded-xl border-r-4 border-delawareBlue shadow-md">
-                    <h3 class="text-xl font-bold text-white mb-4 italic underline">נסיבות היצירה והצבעים הקולוניאליים</h3>
-                    <p class="text-lg text-slate-300 leading-relaxed">
-                        הדגל אומץ רשמית ב-24 ביולי 1913. הצבעים שנבחרו – **כחול קולוניאלי** ו**באף** – הם מחווה ישירה למדיו של הגנרל **ג'ורג' וושינגטון**. דלאוור ביקשה להדגיש את היותה המדינה הראשונה שאישרה את החוקה, ואת תרומתה המכריעה לצבא הקונטיננטלי. צורת המעוין (היהלום) במרכז היא התייחסות לכינוי המדינה "The Diamond State" – קטנה אך יקרת ערך.
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-deBuff shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-deBuff decoration-4">נסיבות היצירה (1913) והצבעים ההיסטוריים:</h3>
+                    <p class="text-xl leading-loose">
+                        הדגל הרשמי של דלאוור אומץ ב-1913, ותוכנן כדי להדהד משמעות כפולה: מהפכנית וגיאוגרפית. הרקע של הדגל אינו כחול רגיל (Navy), אלא **"כחול קולוניאלי" (Colonial Blue)** בהיר ואפרפר. צבע היהלום במרכז הוא צבע חום-צהבהב שמוגדר בחוק כ-**"Buff"**. 
+                        אלו אינם צבעים אקראיים; אלו הם **הצבעים הרשמיים של המדים שלחמו בהם כוחות הצבא הקונטיננטלי** בפיקודו הישיר של הגנרל ג'ורג' וושינגטון (וגם מדיהם של חיילי דלאוור, האפרוחים של התרנגולת הכחולה). הבחירה בצבעי המדים מקבעת את המורשת הלוחמנית של המדינה הקטנה.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-slate-800/50 p-6 rounded-xl border-b-2 border-delawareGold shadow-md">
-                        <h4 class="font-bold text-white mb-2 italic">האיכר והחייל:</h4>
-                        <p class="text-slate-300 italic">מייצגים את האזרח היצרני (חקלאות) ואת המגן (מיליציה), המוטו שבתחתית הוא "חירות ועצמאות".</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-deDiamond shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-deDiamond">היהלום ותאריך הבכורה:</h4>
+                        <p class="leading-loose text-lg">צורת היהלום הגדולה ממוקמת במרכז הדגל כדי להנכיח בצורה ויזואלית את הכינוי המיתולוגי מג'פרסון – "מדינת היהלום". מתחת ליהלום מתנוסס תאריך באותיות גדולות (7 בדצמבר 1787), שהוא המסר הפוליטי החשוב ביותר של המדינה: תאריך אישרור החוקה, שהופך אותה דה-יורה ל"מדינה הראשונה".</p>
                     </div>
-                    <div class="bg-slate-800/50 p-6 rounded-xl border-b-2 border-white shadow-md">
-                        <h4 class="font-bold text-white mb-2 italic">השור, החיטה והתירס:</h4>
-                        <p class="text-slate-300 italic">סמלים לכלכלת המדינה המוקדמת שהתבססה על גידול בקר ודגנים לייצוא.</p>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-deBlue shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-deBlue">סמל המדינה: אחוות המחרשה והרובה:</h4>
+                        <p class="leading-loose text-lg">
+                            בתוך היהלום שוכן סמל המדינה (Coat of Arms) משנת 1777. המגן במרכז כולל סמלי שפע: אגודת חיטה, קלח תירס, ושור. מעליו מצוירת ספינת סוחר בעלת מפרשים מלאים, המסמלת את סחר החוף על נהר דלאוור. משני צידי המגן עומדים "תומכים" (Supporters): מימין **חקלאי** האוחז במעדר, ומשמאל **איש מיליציה** (חייל) האוחז במוסקט. השילוב שלהם מתאר חברה שהיא מפרנסת ולוחמת גם יחד, הנשענת על חקלאות ומגינה על עצמה בכוח תחת המוטו: "חירות ועצמאות".
+                        </p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Delaware Historical Society:</p>
+                    <p>"The Midnight Ride of Caesar Rodney". ארכיון המתעד את מחלתו הסופנית של רודני, את מסלול הרכיבה שלו ב-1776 דרך סופות הרעמים, והמשמעות הפוליטית של שבירת התיקו לטובת הכרזת העצמאות.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">The Etymology of the States (Library of Congress):</p>
+                    <p>"Naming Delaware: Thomas West, Lord De La Warr". הוכחת המקור הצרפתי-נורמני של התואר ("מלחמה") והאבסורד שבהפיכתו לשם של שבט אינדיאני (לני-לנאפה).</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Delaware Public Archives (DPA):</p>
+                    <p>"The Blue Hen's Chickens: Revolutionary Origins". היסטוריה צבאית ותרבותית על קפטן קולדוול ואנשיו, מסורת קרבות התרנגולים במחנות הצבא, ואימוץ הציפור לסמל מדינתי ב-1939.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Journal of Mid-Atlantic Folklife:</p>
+                    <p>"Scrapple: The Ultimate Survival Food of the East Coast". ניתוח סוציולוגי ותזונתי של ניצול מלא של שחיטת חזירים (Nose-to-tail eating) והמסורת של פסטיבל האפל-סקראפל בברידג'וויל.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"The Colonial Colors of the Delaware Flag". ניתוח הבחירה המכוונת בגווני Blue & Buff כמחווה ישירה למדי הצבא הקונטיננטלי של וושינגטון ולשנת הבכורה של המדינה (1787).</p>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- פוטר -->
-    <footer class="w-full max-w-4xl mt-16 pt-8 border-t border-slate-800 text-center">
-        <p class="text-slate-500 text-sm font-medium tracking-widest uppercase">
-            האתר נוצר על ידי ג'מיני ורם | 2026
-        </p>
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-deBlue rounded-full shadow-[0_0_15px_rgba(101,139,156,0.6)]"></div>
+                <div class="w-6 h-6 bg-deBuff rounded-full shadow-[0_0_15px_rgba(212,184,114,0.6)]"></div>
+                <div class="w-6 h-6 bg-deDiamond rounded-full shadow-[0_0_15px_rgba(243,244,246,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
     </footer>
 
 </body>
 </html>
+
 
