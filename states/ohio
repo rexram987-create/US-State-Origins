@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>אוהיו - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        ohBlue: '#002868',  /* Ohio Flag Blue */
+                        ohRed: '#BF0A30',   /* Ohio Flag Red */
+                        ohSilver: '#C0C0C0' /* Silver/White accent */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-ohBlue font-black text-2xl mb-5 underline italic decoration-ohBlue/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-ohRed relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">אוהיו</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Ohio - The Buckeye State</p>
+                <div class="h-2 w-56 bg-ohBlue mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(0,40,104,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">1 במרץ, 1803</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-17 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות של מים זורמים
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    כמו מדינות רבות במערב התיכון, שמה של אוהיו נגזר משמו של הנהר המרכזי המגדיר את גבולה הדרומי. השם נובע ישירות מהשפות האירוקויות (Iroquoian) של השבטים ששלטו בעמק לפני הגעת הצרפתים והבריטים, ומתאר את הגיאוגרפיה הפיזית של הנהר כמערכת תחבורה יבשתית.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Ohi: -->
+                    <div class="etymology-box border-ohRed">
+                        <p class="text-ohRed font-black text-5xl mb-6 italic tracking-tighter">Ohi / Ohiyo</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפת הסנקה (Seneca), אחת מחמש אומות קונפדרציית האירוקוי.</p>
+                            <p><strong>משמעות מילולית:</strong> הקידומת או מילת הבסיס למשהו "גדול", "טוב" או "מפואר".</p>
+                        </div>
+                    </div>
+
+                    <!-- :yo' -->
+                    <div class="etymology-box border-ohBlue">
+                        <p class="text-ohBlue font-black text-5xl mb-6 italic tracking-tighter">:yo' / yi</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפת הסנקה.</p>
+                            <p><strong>משמעות מילולית:</strong> "נהר" או "נחל".</p>
+                            <p><strong>ניתוח מחקרי:</strong> השילוב המדויק **Ohi:yo'** מתורגם ל<strong class="text-white">"הנהר הטוב"</strong> או <strong class="text-white">"הנהר הגדול"</strong>. עבור שבט הסנקה, נהר האוהיו היה מערכת המסחר, הציד והתחבורה החשובה ביותר שלהם. כאשר חוקרים צרפתים (בראשות רנה-רובר קוואלייה, סייר דה לה סאל) הגיעו לאזור במאה ה-17, הם שמעו את האירוקוי משתמשים בשם זה. הצרפתים תרגמו את השם ישירות לצרפתית כ-**"La Belle Rivière"** (הנהר היפה/הטוב), אך במקביל תעתקו את הצליל המקורי כ-**Ohio**. האמריקאים ירשו את השם והעניקו אותו לטריטוריה הצפון-מערבית שהפכה למדינה.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-ohBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: האריסטוקרט המודח וחלוצי התעופה
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- ארתור סנט קלייר -->
+                <div class="personality-card border-r-8 border-ohBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-ohBlue decoration-4 underline-offset-8">המייסד המודח: ארתור סנט קלייר (Arthur St. Clair)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1737–1818. <strong>מעמד:</strong> המושל הראשון של הטריטוריה הצפון-מערבית (שכללה את אוהיו).</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-ohSilver">ילדות ורקע - קצין האימפריה:</h4>
+                            <p class="leading-loose">סנט קלייר נולד בסקוטלנד למשפחה מכובדת, ולמד רפואה באוניברסיטת אדינבורו לפני שקנה עמדת קצונה בצבא הבריטי. הוא נשלח לאמריקה כדי להילחם במלחמת הצרפתים והאינדיאנים, אך מאוחר יותר התיישב בפנסילבניה והפך לאחד הגנרלים הבכירים של ג'ורג' וושינגטון במלחמת העצמאות האמריקאית (למרות שאיבד את מבצר טיקונדרוגה באחת התבוסות המביכות של המלחמה).</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-ohSilver">אידיאולוגיה - פדרליזם אליטיסטי:</h4>
+                            <p class="leading-loose">ב-1787 מונה סנט קלייר למושל הטריטוריה הצפון-מערבית (ממנה תצמח אוהיו). האידיאולוגיה הפוליטית שלו הייתה "פדרליסטית" נוקשה. הוא האמין שהמתיישבים הפשוטים באוהיו (חקלאים ואנשי ספר) אינם משכילים או ראויים מספיק כדי לשלוט בעצמם. הוא דגל בממשל ריכוזי סמכותני, התעמת עם בתי המחוקקים המקומיים, וסירב לאשר חוקים דמוקרטיים שהיו מעבירים את הכוח לידי העם.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-ohSilver">התרסקות צבאית ופוליטית (1791 ו-1802):</h4>
+                            <p class="leading-loose">הקריירה שלו נמחצה בשני אירועים. צבאית: ב-1791, בהוראת וושינגטון, הוא הוביל צבא כדי לדכא את קונפדרציית הילידים באוהיו, אך מחנהו הושמד ב"תבוסת סנט קלייר" (St. Clair's Defeat) – התבוסה הגדולה והעקובה מדם ביותר של צבא ארה"ב אי פעם מול ילידים אמריקאים. פוליטית: עקב התנגדותו הקיצונית להענקת מעמד מדינה (Statehood) לאוהיו מחשש לאובדן כוחו מול המפלגה הדמוקרטית-רפובליקנית, הנשיא תומאס ג'פרסון הדיח אותו בבושת פנים ב-1802, חודשים ספורים לפני שאוהיו הפכה למדינה עצמאית.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- האחים רייט -->
+                <div class="personality-card border-r-8 border-ohRed shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-ohRed decoration-4 underline-offset-8">משני ההיסטוריה האנושית: האחים רייט (Orville & Wilbur Wright)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> אורוויל (1871–1948), וילבור (1867–1912). <strong>מעמד:</strong> ממציאי המטוס הממונע הראשון.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-ohSilver">ילדות של מכניקה וחקרנות בדייטון:</h4>
+                            <p class="leading-loose">אף שטיסתם ההיסטורית נערכה בצפון קרוליינה (קיטי הוק), האחים רייט הם תוצר טהור של העיר דייטון (Dayton), אוהיו. בניו של בישוף, הם גדלו בבית שעודד קריאה וסקרנות. הם לא סיימו מעולם תיכון באופן רשמי, אך היו אוטודידקטים גאונים. הם פתחו בדייטון בית דפוס ובהמשך חנות לייצור ותיקון אופניים. הניסיון שלהם עם מנגנוני שרשראות, שיווי משקל של אופניים, ויצירת חלקים מכניים קלים – היה הבסיס להבנת האווירודינמיקה.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-ohSilver">אידיאולוגיה - אמפיריציזם ושליטה תלת-ממדית:</h4>
+                            <p class="leading-loose">בעוד מדענים עשירים בני דורם חיפשו מנועים חזקים יותר כדי "לדחוף" כלי טיס לאוויר בכוח הזרוע, האידיאולוגיה ההנדסית של האחים רייט הייתה אלגנטית: **שליטה תחילה**. הם הבינו שאי אפשר להטיס כלי באוויר מבלי לשלוט בו בשלושה צירים במקביל (גלגול, סבסוב ועלרוד). הם המציאו את שיטת "עיוות הכנף" (Wing-warping) ובנו את מנהרת הרוח הראשונה באוהיו כדי לבדוק כנפיים באופן אמפירי ולא תיאורטי.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-ohSilver">הישגים מכוננים - 12 השניות (1903):</h4>
+                            <p class="leading-loose">ב-17 בדצמבר 1903, הם הוכיחו את התיאוריות שפיתחו באוהיו: ה"רייט פלייר" התרומם לאוויר ל-12 שניות. הם שבו לדייטון והמשיכו לשפר את המטוסים שלהם מעל "שדה הופמן" באוהיו (השדה התעופתי הראשון בעולם). אוהיו מתהדרת עד היום בכינוי "מקום הולדתה של התעופה" (Birthplace of Aviation) בזכות המפעל האינטלקטואלי שהקימו שם שני מתקני האופניים.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: חיות יער ומטבח מהגרים ייחודי
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-ohSilver">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-ohSilver">בעל החיים המדינתי: אייל פרדי לבן-זנב (White-tailed Deer)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">יונק המדינה הרשמי (אומץ ב-1988)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הבחירה באייל הלבן-זנב (Odocoileus virginianus) ליונק המדינה אינה רק עניין של נוכחות זואולוגית בטבע, אלא הכרה מוחלטת בכך שבלעדיו, ההיסטוריה האנושית באוהיו לא הייתה מתאפשרת.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        עבור האומות הילידיות באוהיו (כמו השוני, המיאמי והוואינדוט), האייל היה ציר החיים המרכזי. הוא סיפק בשר עשיר בחלבון לאורך כל עונות השנה. עורו (Buckskin) עובד ברמה אומנותית כדי לייצר בגדים, מוקסינים ואוהלים מבודדי קור. העצמות והקרניים הפכו לכלי נשק, מחטים ולקרסי דיג.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        כאשר המתיישבים האנגלו-אמריקאים חצו את נהר האוהיו כדי להקים חוות מבודדות ביערות הסבוכים, ציד האייל היה לעיתים ההבדל היחיד בין חורף שורד למוות ברעב. יתרה מזאת, עורות הצבי (Bucks) הפכו למטבע סחר חליפין (Barter) כה רשמי בקרב סוחרי הספר, שעד היום המילה האמריקאית לדולר בסלנג היא **"Buck"** (קרן/עור של צבי). האייל הלבן-זנב מייצג את בסיס הפירמידה של ההישרדות ביבשת.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-ohRed">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-ohRed">המנה הלאומית: צ'ילי סינסינטי (Cincinnati Chili) וממתק באקאיי</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מהגרים מקדוניים יוצרים אנומליה תרבותית</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הגסטרונומיה של אוהיו מתפצלת בין "אוכל מנחם" של המערב התיכון (כמו פיירוגי) לבין אחת האנומליות הקולינריות המפורסמות ביותר בארצות הברית: **הצ'ילי של סינסינטי**.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        בניגוד לצ'ילי הטקסני (החריף ומבוסס הבקר), הצ'ילי של סינסינטי הומצא בשנת 1922 על ידי מהגר מקדוני/יווני בשם **טום קיראדג'ייף** (Tom Kiradjieff), שפתח מסעדה קטנה בשם "Empress Chili" לצד תיאטרון ה"אמפרס". טום רקח תבשיל בשר בטחינה דקה המבוסס על תבלינים ים-תיכוניים של תבשילי קדירה יווניים: <strong class="text-white">קינמון, ציפורן, פלפל אנגלי, ולעיתים אף קורטוב של שוקולד מריר</strong>.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        הצ'ילי הזה אינו נאכל כמרק בקערה, אלא משמש כ"רוטב" המוגש בצורת בנייה היררכית שנקראת בשפת המקום **"Way"**: צלחת ספגטי, עליה נמזג הצ'ילי, ועליו נערמת הר של גבינת צ'דר מגורדת ("3-way"). ניתן להוסיף גם בצל קצוץ ושעועית ("4-way" או "5-way").
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        לקינוח, המדינה מזוהה לחלוטין עם **ממתק הבאקאיי (Buckeye Candy)** – כדורי חמאת בוטנים רכה ומתוקה, שטבולים חלקית בשוקולד מריר/חלב, כך שעיגול קטן של חמאת בוטנים נשאר גלוי למעלה, מה שגורם לממתק להיראות בדיוק כמו אגוז הערמון המקומי ("עין הצבי").
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-ohBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: עין הצבי ואם הנשיאים
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Buckeye State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-ohBlue shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Buckeye State (מדינת הבאקאיי)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">עץ הערמון שהפך לקמפיין פוליטי</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            ה"באקאיי" (Aesculus glabra) הוא עץ ממשפחת הערמונים הגדל בשפע באוהיו. הילידים בני שבט השוני קראו לו "Hetuck", שפירושו "עין הצבי" (Buck-Eye), משום שהאגוז החום והחלק שלו בעל כתם בהיר במרכזו מזכיר במדויק את העין המבריקה של צבי. 
+                            הפנומנולוגיה של הכינוי הפכה ללאומית בשנת **1840**, במהלך קמפיין הבחירות לנשיאות של הגנרל **ויליאם הנרי הריסון** (שחי באוהיו). יריביו לעגו לו שהוא "אדם פשוט שישמח לשבת בבקתת עץ ולשתות סיידר במקום לנהל מדינה". הריסון לקח את העלבון והפך אותו למותג: הקמפיין שלו נקרא קמפיין "בקתת העץ והסיידר", ותומכיו גילפו בקתות מעץ הבאקאיי, ענדו את האגוזים כשרשראות וצעדו ברחובות. אוהיו קשרה את זהותה לעץ הכפרי הזה, וכיום אזרח אוהיו פשוט מכונה "Buckeye", וזו קבוצת הפוטבול האייקונית של אוניברסיטת המדינה.
+                        </p>
+                    </div>
+
+                    <!-- Mother of Presidents -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-ohRed shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">Mother of Presidents (אם הנשיאים)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">היריבות ההיסטורית מול וירג'יניה</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            בדומה לווירג'יניה שזכתה לאותו כינוי בדיוק, אוהיו תובעת בגאווה את התואר בזכות העובדה ש**שבעה (ויש הטוענים שמונה)** מנשיאי ארצות הברית נולדו בה או נבחרו מתוכה (ביניהם יוליסס ס. גרנט, ראת'רפורד ב. הייז, ג'יימס גרפילד, ויליאם מקינלי ווורן הרדינג). בעוד וירג'יניה ייצרה את האבות המייסדים האריסטוקרטים של המאה ה-18, אוהיו – כמדינת חלוצים אסטרטגית שחיברה את מזרח ומערב, צפון ודרום – הפכה למעצמה פוליטית שייצרה את המנהיגות האמריקאית של המחצית השנייה של המאה ה-19 (לאחר מלחמת האזרחים).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-ohBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: הדגל היחיד שאינו מלבני
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל אוהיו (זנב סנונית) באמצעות CSS Clip-Path -->
+                <div class="w-full max-w-2xl aspect-[2/1] relative flex items-center justify-center group mb-8 filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)]">
+                    
+                    <!-- השכבה המרכזית הקצוצה בצורת Burgee -->
+                    <div class="absolute inset-0 bg-white border-[4px] border-slate-800 transform transition-transform duration-700 group-hover:scale-105 z-10" style="clip-path: polygon(0 0, 100% 0, 80% 50%, 100% 100%, 0 100%);">
+                        <!-- רקע כחול משולש (קנטון) -->
+                        <div class="absolute left-0 top-0 bottom-0 w-[55%] bg-[#002868]" style="clip-path: polygon(0 0, 100% 50%, 0 100%);"></div>
+                        
+                        <!-- 5 פסים אדומים ולבנים (3 אדומים, 2 לבנים) -->
+                        <div class="absolute left-[20%] right-0 top-0 h-1/5 bg-[#BF0A30]"></div>
+                        <div class="absolute left-[25%] right-0 top-[20%] h-1/5 bg-white"></div>
+                        <div class="absolute left-[30%] right-0 top-[40%] h-1/5 bg-[#BF0A30]"></div>
+                        <div class="absolute left-[25%] right-0 top-[60%] h-1/5 bg-white"></div>
+                        <div class="absolute left-[20%] right-0 top-[80%] h-1/5 bg-[#BF0A30]"></div>
+
+                        <!-- ה"באקאיי" (עיגול O אדום עם מרכז לבן) -->
+                        <div class="absolute left-[10%] top-1/2 transform -translate-y-1/2 w-16 h-16 rounded-full bg-white flex items-center justify-center border-[4px] border-[#BF0A30] z-20"></div>
+
+                        <!-- ייצוג כוכבים (17 כוכבים מפוזרים סביב ה-O) -->
+                        <div class="absolute left-[2%] top-[20%] text-white text-sm z-20 drop-shadow-md">★ ★ ★</div>
+                        <div class="absolute left-[2%] bottom-[20%] text-white text-sm z-20 drop-shadow-md">★ ★ ★</div>
+                        <div class="absolute left-[20%] top-[45%] text-white text-sm z-20 drop-shadow-md">★ ★ ★</div>
+                    </div>
+                </div>
+                <p class="mt-8 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    הדגלנון מזנב הסנונית (Burgee) <br><span class="text-xl font-medium text-slate-500">(עוצב על ידי ג'ון אייזנמן, 1901)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-ohRed shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-ohRed decoration-4">נסיבות היצירה (1901) והמבנה הגיאומטרי:</h3>
+                    <p class="text-xl leading-loose">
+                        דגל אוהיו הוא **הדגל המדינתי היחיד בארצות הברית שאינו בעל צורה מלבנית**. הוא מעוצב כדגלון בעל שסע (זנב סנונית) המכונה בהרלדיקה ימית **"Burgee"**. הדגל עוצב בשנת 1901 על ידי האדריכל ג'ון אייזנמן עבור בניין מדינת אוהיו בתערוכה הפאן-אמריקאית בניו יורק (התערוכה שבה נרצח הנשיא המקינלי, יליד אוהיו). אייזנמן שאב השראה מדגלי חיל הפרשים האמריקאי, שנטו להיות בצורת זנב-סנונית משום שצורה זו מתנפנפת באופן יציב ומרשים יותר בעת רכיבה מהירה או רוח עזה. העיצוב כה שבה את לב המחוקקים שהוא אומץ רשמית במאי 1902.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-ohBlue shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-ohBlue">המשולש הכחול ו-17 הכוכבים:</h4>
+                        <p class="leading-loose text-lg">בצד התורן ישנו משולש כחול המייצג את עמקי המדינה והגבעות שלה. בתוכו מפוזרים **17 כוכבים לבנים**. המספר אינו מקרי: 13 כוכבים מפוזרים בצד שמאל מייצגים את 13 המושבות המקוריות (כאקט של נאמנות לאיחוד), ו-4 כוכבים נוספים המקובצים בקצה המשולש מייצגים את העובדה שאוהיו הייתה המדינה ה-17 שהצטרפה לרפובליקה (13+4=17).</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-ohRed shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-ohRed">ה"באקאיי" והנהר (הפסים):</h4>
+                        <p class="leading-loose text-lg">חמשת הפסים (שלושה אדומים ושניים לבנים) מתכנסים במקביל למשולש. המעצב אייזנמן הסביר שהפסים מייצגים את נהר האוהיו ואת מערכת הדרכים המדינתית. בתוך המשולש יושב עיגול אדום עם מרכז לבן המסמל כפליים: גם את האות 'O' (כאות הראשונה של Ohio), וגם חתך רוחב של אגוז הערמון – ה**באקאיי** (Buckeye), סמלה ההיסטורי והפוליטי של המדינה.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Ohio History Connection (Ohio Historical Society):</p>
+                    <p>"The Seneca Roots of 'Ohi:yo'". מחקר לשוני המוכיח את ההתפתחות האטימולוגית מהשפה האירוקוית אל התרגום הצרפתי (הנהר היפה) ועד לקיבוע השם בטריטוריה הצפון-מערבית.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Dayton Aviation Heritage National Historical Park (NPS):</p>
+                    <p>"The Wright Brothers: From Bicycles to Airplanes". תיעוד ביוגרפי הנדסי של אורוויל ווילבור רייט, וההוכחה כי הטיסה הממונעת הראשונה הייתה תוצר של מחקר אמפירי שבוצע כל כולו בדייטון, אוהיו.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Library of Congress (LOC) - Presidential Campaigns:</p>
+                    <p>"William Henry Harrison and the Log Cabin Campaign of 1840". ניתוח סוציולוגי המסביר כיצד עץ הבאקאיי (Buckeye) הפך מעלבון לכפריים לסמל לאומי ולקמפיין השיווק הפוליטי המודרני הראשון בארה"ב.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Journal of American Food Culture:</p>
+                    <p>"Cincinnati Chili: Macedonian Roots in the Midwest". מחקר גסטרונומי המתעד את המצאת הצ'ילי מרובה התבלינים ב-1922 במסעדת Empress Chili ושילובו עם ה"ספגטי".</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"John Eisenmann and the Ohio Burgee". ניתוח הנדסי וצמיוטי של דגל הזנב-סנונית היחיד בארה"ב, וההצדקה ההיסטורית לעיצוב הלא-מלבני (בהשראת חיל הפרשים).</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-ohBlue rounded-full shadow-[0_0_15px_rgba(0,40,104,0.6)]"></div>
+                <div class="w-6 h-6 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.6)]"></div>
+                <div class="w-6 h-6 bg-ohRed rounded-full shadow-[0_0_15px_rgba(191,10,48,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
