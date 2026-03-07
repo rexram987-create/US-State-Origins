@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ניו המפשייר - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        nhBlue: '#002868',      /* NH Flag Blue */
+                        nhGold: '#FFC425',      /* NH Stars and Ship Gold */
+                        nhGranite: '#838383'    /* Granite State Grey */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-nhGold font-black text-2xl mb-5 underline italic decoration-nhGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-nhGranite relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">ניו המפשייר</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">New Hampshire - The Granite State</p>
+                <div class="h-2 w-56 bg-nhGranite mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(131,131,131,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">21 ביוני, 1788</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-9 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות של מחוז אנגלי
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    כמו רוב מדינות ניו אינגלנד, שמה של ניו המפשייר מהווה העתקה ישירה של גיאוגרפיה אנגלית, כדרך לבסס בעלות ונוסטלגיה מולדתית בעולם החדש והפראי. השם מורכב מיסודות אנגלו-סקסוניים עתיקים.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Hamtun -->
+                    <div class="etymology-box border-nhGranite">
+                        <p class="text-nhGranite font-black text-5xl mb-6 italic tracking-tighter">Hamtun</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> אנגלית עתיקה.</p>
+                            <p><strong>משמעות מילולית:</strong> המילה <em>Ham</em> משמעותה "בית" או "כפר" (Home/Hamlet), והמילה <em>Tun</em> משמעותה "אחוזה מגודרת" או "עיירה" (Town). השילוב "האמטון" היה שמה המקורי של העיר האנגלית המפורסמת סאות'המפטון (Southampton).</p>
+                        </div>
+                    </div>
+
+                    <!-- Scīr -->
+                    <div class="etymology-box border-nhBlue">
+                        <p class="text-nhBlue font-black text-5xl mb-6 italic tracking-tighter">Scīr (Shire)</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> אנגלית עתיקה.</p>
+                            <p><strong>משמעות מילולית:</strong> מחוז או אזור מנהלי (כמו בשר הטבעות - "הפלך").</p>
+                            <p><strong>הסינתזה והקיבוע (New Hampshire):</strong> השם **המפשייר (Hampshire)** פירושו "המחוז של העיר האמטון". בשנת 1629, סרן (קפטן) **ג'ון מייסון**, ימאי ומושל באנגליה, קיבל זיכיון אדמה עצום באמריקה (יחד עם סר פרדיננדו גורג'ס). מייסון נולד וגדל במחוז המפשייר שבדרום אנגליה. מתוך גאווה מקומית, הוא החליט לקרוא לטריטוריה הפראית שלו **New Hampshire** (המפשייר החדשה). באופן אירוני, למרות השקעותיו העצומות במושבה, מייסון מת באנגליה בטרם הספיק לדרוך אי פעם באדמת "המפשייר החדשה" שלו.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-nhBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: המצביא הקיצוני והנשיא הטרגי
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- ג'ון סטרק -->
+                <div class="personality-card border-r-8 border-nhBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-nhBlue decoration-4 underline-offset-8">הוגה החירות הקיצונית: ג'ון סטרק (John Stark)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1728–1822. <strong>מעמד:</strong> גנרל במלחמת העצמאות ומחבר המוטו המדינתי.</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-nhGold">ילדות ושבי אינדיאני:</h4>
+                            <p class="leading-loose">סטרק נולד בניו המפשייר למשפחת מהגרים סקוטים-אירים. בצעירותו, בעת מסע ציד, הוא נחטף על ידי אינדיאנים משבט האבנאקי (Abenaki). בניגוד לאסירים אחרים שסבלו והתנגדו, סטרק הפגין אומץ ותקף את שוביו במהלך "ריצת השעשוע" שלהם. האבנאקי כה התרשמו מגבורתו עד שאימצו אותו כבן לשבט. הוא למד מהם את סודות ההישרדות ביערות והלוחמה הזעירה, וחזר למשפחתו רק לאחר ששולם עבורו כופר.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-nhGold">אידיאולוגיה והישגים - "אנשי הגרניט":</h4>
+                            <p class="leading-loose">כגנרל במלחמת העצמאות, סטרק נודע בעקשנותו חסרת הפשרות (בדומה לסלעי הגרניט של מדינתו). בקרב בנינגטון (1777), מול הכוח הבריטי-הסיאני, אסף את חייליו (שהורכבו מחוואים מקומיים) ואמר את המשפט המפורסם: "יש שם את האויב שלכם. הם יהיו שלנו עד הלילה, או שמולי סטרק (אשתו) תישן אלמנה!". הוא הוביל לניצחון אדיר שמנע מהבריטים לנתק את ניו אינגלנד משאר המושבות.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-nhGold">כתיבת המוטו הלאומי (1809):</h4>
+                            <p class="leading-loose">בשנת 1809, כשהיה בן 81 וחולני, הוזמן סטרק לכנס וותיקי קרב בנינגטון. מכיוון שלא יכול היה להגיע, הוא שלח מכתב קצר שהכיל משפט ברכה אחד לחבריו לנשק. המשפט הזה פירט את האידיאולוגיה המוחלטת שלו ושל מדינתו: <span class="highlight-text">"Live free or die: Death is not the worst of evils."</span> (חיה חופשי או מות: המוות אינו הגרוע שברעים). המשפט הזה הפך למוטו הרשמי של ניו המפשייר ב-1945.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- פרנקלין פירס -->
+                <div class="personality-card border-r-8 border-nhGranite shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-nhGranite decoration-4 underline-offset-8">הנשיא הטרגי והפלגני: פרנקלין פירס (Franklin Pierce)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1804–1869. <strong>מעמד:</strong> הנשיא ה-14 של ארה"ב (היחיד מניו המפשייר).</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">רקע וטרגדיה אישית בלתי נתפסת:</h4>
+                            <p class="leading-loose">פירס נולד בהילסבורו, ניו המפשייר, למשפחת אצולה פוליטית. הוא היה צעיר, נאה וכריזמטי, אך חייו רצופים יגון נורא. אשתו, ג'יין, סבלה מדיכאון עמוק. הם שכלו שניים מילדיהם בינקותם. הטרגדיה המוחלטת אירעה שבועות ספורים לאחר שנבחר לנשיאות (ב-1853): בעת נסיעה ברכבת, הקרון שלהם ירד מהפסים, ובנם היחיד שנותר (בנג'מין, בן 11) נמחץ למוות לנגד עיניהם. אשתו האמינה שזה עונש מאלוהים על שאיפותיו הפוליטיות, ופירס נכנס לבית הלבן כאדם שבור, מדוכא, ואלכוהוליסט כבד.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - "איש הבצק" (Doughface):</h4>
+                            <p class="leading-loose">מבחינה פוליטית, פירס היה "Doughface" – פוליטיקאי מצפון ארה"ב בעל אהדה לאינטרסים של מדינות הדרום (ולמוסד העבדות). האידיאולוגיה שלו הייתה שעל מנת לשמור על חוקת ארה"ב ועל שלמות האיחוד, חובה לפייס את הדרום ולשמור על סטטוס קוו חוקי שאינו פוגע בזכויותיהם להחזיק עבדים, על אף מוצאו מניו אינגלנד מתנגדת-העבדות.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - חוק קנזס-נברסקה וקריסת המוניטין:</h4>
+                            <p class="leading-loose">כנשיא חלש, הוא נכנע ללחציו של סטיבן דאגלס (מאילינוי) וחתם על **"חוק קנזס-נברסקה" (1854)**, אשר ביטל פשרות קודמות ואפשר למתיישבים חדשים בטריטוריות להצביע בעד עבדות. חוק זה הצית את שפיכות הדמים של "קנזס המדממת" והאיץ את הדרך למלחמת האזרחים. פירס הפך כה לא-פופולרי שאפילו מפלגתו שלו סירבה להעמיד אותו לבחירה מחדש, והוא חזר לניו המפשייר לחיות בבידוד כפוליטיקאי מנודה.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: כלב המזחלות הטהור ואוכל של שורדים
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-nhBlue">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-nhBlue">כלב המדינה: כלב הצ'ינוק (The Chinook)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">גזע נדיר שפותח בבלעדיות בניו המפשייר (אומץ ב-2009)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        ניו המפשייר היא אחת המדינות הבודדות שיש להן גזע כלבים רשמי שהוא יצירה בלעדית של תושביה. בשנת 1917, חוקר וסופר בשם **ארתור טרדוול וולדן** (Arthur Treadwell Walden) מחוות וונלנקט בניו המפשייר, פיתח גזע חדש של כלבי מזחלות.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        וולדן רצה ליצור כלב מזחלות שיהיה לו את הכוח העצום והסיבולת של כלבי מסטיף וסנט ברנרד, יחד עם המהירות ועמידות הקור של כלבי האסקי מצפון קנדה. מתוך ההרבעות הללו נולד גור בשם **"צ'ינוק"** (Chinook - "רוח חמימה" בשפות ילידיות). צ'ינוק הפך לאגדה, ואף הוביל את משלחת הקוטב הדרומי של האדמירל ריצ'רד בירד ב-1929.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        הגזע (בעל הפרווה הצהובה-דבשית החמה) כמעט נכחד לחלוטין בשנות ה-80, אך ניצל תודות למאמץ קהילתי. ב-2009, ילדי חטיבת ביניים במדינה קידמו חוק שהפך את הצ'ינוק לכלב הרשמי, כסמל לאופי הקשוח, לחורפים הארוכים, ולעבודת הצוות של תושבי צפון ניו המפשייר.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-nhGranite">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-nhGranite">המנה הלאומית: "ארוחה מבושלת" ניו-אינגלנדית וסופגניות סיידר</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">תזונה יאנקית חסכנית לשרוד את השלג</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של ניו המפשייר אינה ראוותנית. היא מבוססת על הישרדות "יאנקית" (Yankee) פשוטה, תוצרת מקומית אוגרת-חום, והשפעות של הגירה צרפתית-קנדית.
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-nhBlue">הארוחה המבושלת של ניו אינגלנד (New England Boiled Dinner):</span> זוהי ארוחת החורף האולטימטיבית של חוואי ניו המפשייר. כדי לנצל בשר משומר למשך החורף הארוך, היו מרתיחים בסיר אחד גדול נתח של **קורנד-ביף (Corned beef)** יחד עם כל ירקות השורש שעמדו לרשותם במרתף הקור: כרוב, תפוחי אדמה, גזרים ולפת. זו מנה עתירת חלבון ואנרגיה שמסמלת את החסכנות של הימים ההם. שיירי הארוחה נחתכו וטוגנו בבוקר למחרת כדי ליצור "Red Flannel Hash" (מטוגן יחד עם סלק שנתן לו צבע אדום כחולצות החוטבים).</li>
+                        <li><span class="text-white font-bold underline decoration-nhGold">סופגניות סיידר תפוחים (Apple Cider Donuts):</span> בסתיו, מדינת ניו המפשייר הופכת למעצמת מטעים. הסופגניות הללו עשויות מבצק עוגה (לא שמרים) שלתוכו מוספים רסק תפוחים חמוץ וסיידר מתובל בקינמון ומוסקט. הן מטוגנות ומגולגלות בסוכר וקינמון, ומהוות פריט חובה בכל יריד סתיו במדינה.</li>
+                        <li><span class="text-white font-bold underline decoration-slate-400">פוטין (Poutine):</span> עקב הקרבה לקנדה (וקוויבק בפרט) וההגירה המסיבית של פועלי טקסטיל צרפתים-קנדים לערי המפעל של ניו המפשייר כמו מנצ'סטר, הפוטין (צ'יפס עם גושי גבינה טרייה ורוטב בשר חם) הפך למנת פאבים מקומית שכיחה.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-nhGranite text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Granite State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-nhGranite shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-slate-300">The Granite State (מדינת הגרניט)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">גיאולוגיה כמעצבת פסיכולוגיה לאומית</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי הרשמי של ניו המפשייר מתאר עובדה פיזית: המדינה עשירה במחצבות אדירות של אבן גרניט קשה (אבן ששימשה לבניית ספריית הקונגרס בוושינגטון). אולם, מבחינה פנומנולוגית, הגרניט מתאר את האופי האנושי של ה"יאנקי" מניו המפשייר: **קשה, מחוספס, בלתי ניתן לעיצוב, עקשן ויציב**. סמלה הבלתי מעורער של המדינה היה ה"Old Man of the Mountain" – תצורת סלע גרניט טבעית על הר שיצרה במדויק פרופיל פנים של זקן זועף. למרות שהסלע קרס באופן טרגי ב-2003, הוא נותר סמל המדינה, עדות לקישור המוחלט שבין סלע לאדם בזהות המקומית.
+                        </p>
+                    </div>
+
+                    <!-- Live Free or Die -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-nhBlue shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">Live Free or Die</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">המוטו שהפך לדת אזרחית</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            זהו המוטו של ג'ון סטרק, אך הוא מתפקד ככינוי השני והאמיתי של המדינה (ומוטבע על כל לוחית רישוי). הפנומנולוגיה שלו מתבטאת בליברטריאניזם מעשי קיצוני (Libertarianism): ניו המפשייר היא המדינה היחידה בארה"ב **שאין לה לא מס הכנסה מדינתי ולא מס קנייה (Sales tax)**. זו המדינה היחידה בארה"ב ש**אינה מחייבת מבוגרים לחגור חגורת בטיחות ברכב** על פי חוק, ואינה מחייבת חבישת קסדה לרוכבי אופנוע. הפילוסופיה היא שהממשלה לא תגיד לאזרח כיצד לשמור על חייו – תנו לו לחיות חופשי, או לשאת בתוצאות (המוות).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-nhBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: הספינה המהפכנית ותשעת הכוכבים
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל ניו המפשייר -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#002868] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col items-center justify-center group p-4">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10 pointer-events-none z-0"></div>
+                    
+                    <div class="relative transform transition-transform duration-700 group-hover:scale-105 z-10 flex flex-col items-center">
+                        
+                        <!-- Seal Simulation -->
+                        <div class="relative w-56 h-56 rounded-full border-[4px] border-[#FFC425] bg-white flex flex-col items-center justify-center shadow-lg p-2">
+                            
+                            <!-- Sun and Sky -->
+                            <div class="absolute top-0 left-0 w-full h-1/2 bg-blue-100 rounded-t-full overflow-hidden" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);">
+                                <div class="absolute bottom-0 left-8 w-16 h-16 bg-[#FFC425] rounded-full"></div> <!-- Rising Sun -->
+                            </div>
+
+                            <!-- Ship (USS Raleigh) and Water -->
+                            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-blue-500 rounded-b-full overflow-hidden flex flex-col items-center justify-start pt-2">
+                                <span class="text-3xl drop-shadow-md z-20">⛵</span> <!-- Ship representation -->
+                                <!-- Granite Rock holding it up -->
+                                <div class="w-2/3 h-6 bg-slate-400 mt-1 border-t border-slate-500 rounded-t-md z-10"></div>
+                            </div>
+                            
+                            <!-- Laurel Wreath & 9 Stars border simulation -->
+                            <div class="absolute inset-1 border-[2px] border-dashed border-[#228B22] rounded-full opacity-70"></div>
+                            
+                            <!-- Text ring -->
+                            <div class="absolute top-1 text-[#002868] text-[6px] font-black uppercase tracking-widest text-center w-full px-4">
+                                Seal of the State of New Hampshire
+                            </div>
+                            <div class="absolute bottom-2 text-[#002868] text-[8px] font-black uppercase tracking-widest">
+                                1776
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    סמל המספנה הלאומית על שדה כחול <br><span class="text-xl font-medium text-slate-500">(הדגל אומץ ב-1909, עודכן ב-1931)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-nhBlue shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-nhBlue decoration-4">נסיבות היצירה ומסורת המיליציה:</h3>
+                    <p class="text-xl leading-loose">
+                        דגל ניו המפשייר עוקב אחר העיצוב המוכר של "סדין כחול" שמרני (Seal on a blue bedsheet). הוא אומץ ב-1909 על ידי בית המחוקקים פשוט כדרך לאחד את צבעי רגימנטים המיליציה של המדינה תחת דגל אחד. העדכון האחרון בוצע ב-1931, אז תוקנו הפרטים בחותם המדינה (למשל, הורדת דמויות אנושיות שהיו בחותמות ישנים יותר, והתמקדות אך ורק בספינה). רקע הדגל מייצג את צבעי המדים של הצבא הקונטיננטלי, נאמנות לאיחוד.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-nhGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-nhGold">פריגטת החירות (USS Raleigh):</h4>
+                        <p class="leading-loose text-lg">במרכז החותם מתוארת במדויק ספינת ה-**USS Raleigh**. ספינה זו נבנתה במספנות העיר פורטסמות' (Portsmouth), ניו המפשייר בשנת 1776, והייתה אחת מ-13 ספינות המלחמה הראשונות שהוזמנו אי פעם על ידי הקונגרס הקונטיננטלי כדי לבנות את צי ארצות הברית (האבא של ה-US Navy). היא מסמלת את תרומתה הכלכלית והפיזית של ניו המפשייר – כיצרנית ספינות ומסחר ימי – למלחמת העצמאות, כשהיא נחהעל ערימת אבני **גרניט** קשוחות.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">זר הדפנה ו-9 הכוכבים:</h4>
+                        <p class="leading-loose text-lg">את החותם מקיף זר עלי דפנה (Laurel wreath) המסמל ניצחון צבאי עתיק וגאווה, אשר שלוב בתוכו **תשעה כוכבים** (Stars) זהובים/לבנים. תשעת הכוכבים הללו הם עובדה מתמטית ומשפטית קריטית: כאשר ארצות הברית גיבשה את החוקה שלה, נדרש אישור (אשרור) של לפחות 9 מדינות מתוך ה-13 כדי שהחוקה תיכנס לתוקף. ב-21 ביוני 1788, **ניו המפשייר הייתה המדינה התשיעית** שאשררה את החוקה, ובכך למעשה נתנה את האישור הסופי שיצר חוקית את ארצות הברית של אמריקה.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">New Hampshire Historical Society:</p>
+                    <p>"The English Roots of New Hampshire: Captain John Mason". תיעוד הענקת הזיכיון בשנת 1629 וחיקוי המולדת האנגלית על ידי פוליטיקאי שלעולם לא זכה לראות את האדמה שקרא על שמו.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Library of Congress (LOC) - Revolutionary War Archives:</p>
+                    <p>"General John Stark and the Letter of 1809". ניתוח מכתבו של סטרק שבו נטבע הביטוי "Live Free or Die", וכיצד הוא מתמצת את האידיאולוגיה הליברטריאנית של המדינה.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">The Pierce Manse (Concord, NH):</p>
+                    <p>"Franklin Pierce: The Tragedy and the Presidency". ביוגרפיה היסטורית על תאונת הרכבת שריסקה את הנשיא ה-14, והחלטתו הפלגנית לחתום על חוק קנזס-נברסקה מתוך מדיניות ה-'Doughface'.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">American Kennel Club (AKC) Historical Records:</p>
+                    <p>"The Chinook: New Hampshire's Own Sled Dog". ההיסטוריה הבוטנית-ביולוגית של משפחת וולדן שפיתחה את הגזע ב-1917, והחלטת המדינה ב-2009 לשמרו מסכנת הכחדה.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"The State Seal of New Hampshire and the USS Raleigh". מחקר היסטורי והרלדי של בניית צי ארה"ב, ותפקידה הקריטי של ניו המפשייר כמדינה התשיעית המאשררת את החוקה האמריקאית.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-nhBlue rounded-full shadow-[0_0_15px_rgba(0,40,104,0.6)]"></div>
+                <div class="w-6 h-6 bg-nhGranite rounded-full shadow-[0_0_15px_rgba(131,131,131,0.6)]"></div>
+                <div class="w-6 h-6 bg-nhGold rounded-full shadow-[0_0_15px_rgba(255,196,37,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
