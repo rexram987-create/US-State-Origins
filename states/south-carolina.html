@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>קרוליינה הדרומית - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        scIndigo: '#00205B',  /* SC Flag Indigo */
+                        scWhite: '#FFFFFF',   /* SC Flag White */
+                        scPalmetto: '#1b4d3e' /* Palmetto Green */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-scWhite font-black text-2xl mb-5 underline italic decoration-slate-500/50 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-scIndigo relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">קרוליינה הדרומית</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">South Carolina - The Palmetto State</p>
+                <div class="h-2 w-56 bg-scPalmetto mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(27,77,62,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">23 במאי, 1788</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-8 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות מלכותית ואדמת האדם החופשי
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    בדומה ללואיזיאנה שנקראה על שם מלך צרפת, ובדומה לג'ורג'יה, השם "קרוליינה" הוא הנצחה פוליטית טהורה למלוכה האירופאית. זהו שם המחבר באופן ישיר את חופי דרום-מזרח אמריקה אל הכתר הבריטי, תוך שימוש בשפת הדיפלומטיה של התקופה: הלטינית.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Carolus -->
+                    <div class="etymology-box border-scIndigo">
+                        <p class="text-scIndigo font-black text-5xl mb-6 italic tracking-tighter">Carolus</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> לטינית (מקור קדום יותר: גרמאנית עתיקה - *Karlaz*).</p>
+                            <p><strong>משמעות מילולית:</strong> הגרסה הלטינית לשם האנגלי Charles (צ'ארלס/קרל). המשמעות הגרמאנית המקורית של המילה היא "אדם חופשי" (Freeman) או "גבר".</p>
+                            <p><strong>ניתוח היסטורי:</strong> השם הוענק במקור בשנת 1629 על ידי סר רוברט הית', שקיבל זיכיון מהמלך **צ'ארלס הראשון**. מאוחר יותר, בשנת 1663, בנו, המלך **צ'ארלס השני** (שהושב לכסאו לאחר מלחמת האזרחים האנגלית), אישרר את הזיכיון לשמונה אצילים (ה"לורדים הבעלים") וקיבע את השם כאות לנאמנותם לאביו שהוצא להורג, ולו עצמו.</p>
+                        </div>
+                    </div>
+
+                    <!-- -ina -->
+                    <div class="etymology-box border-scPalmetto">
+                        <p class="text-scPalmetto font-black text-5xl mb-6 italic tracking-tighter">-ina</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> סיומת לטינית קלאסית לשיוך בעלות או מיקום.</p>
+                            <p><strong>הסינתזה המלאה (Carolina):</strong> המשמעות המשפטית המדויקת היא <strong class="text-white">"ארצו של צ'ארלס"</strong>. עד שנת 1712, קרוליינה נוהלה כמושבה ענקית אחת. אולם, בשל הבדלים כלכליים וגיאוגרפיים עצומים (הצפון נשען על חקלאות טבק וחוות קטנות, והדרום – שבמרכזו העיר העשירה צ'ארלסטון – נשען על אחוזות אורז ענקיות מבוססות עבדים), המושבה פוצלה באופן רשמי לקרוליינה הצפונית ולקרוליינה הדרומית (South Carolina).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-scIndigo text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: שועל הביצות ומגן העבדות
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- פרנסיס מריון -->
+                <div class="personality-card border-r-8 border-scPalmetto shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-scPalmetto decoration-4 underline-offset-8">ממציא הגרילה: גנרל פרנסיס מריון (Francis Marion)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1732–1795. <strong>תואר היסטורי:</strong> "שועל הביצות" (The Swamp Fox).</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-scPalmetto">ילדות בסבך (Berkeley County):</h4>
+                            <p class="leading-loose">מריון נולד למשפחת חקלאים ממוצא הוגנוטי (פרוטסטנטים צרפתים). הוא נולד פג, חולני וקטן מידות (קומתו נותרה נמוכה כל חייו). הוא גדל סביב נהר הקופר והביצות הסבוכות של החוף הדרומי, שם למד לנווט בין עצי הברוש הענקיים והתנינים. בצעירותו כמעט טבע בים כשספינתו טבעה, מה שגרם לו לשנוא את הים ולחזור ליבשה לתמיד.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-scPalmetto">אידיאולוגיה - לוחמה א-סימטרית:</h4>
+                            <p class="leading-loose">במהלך מלחמת העצמאות האמריקאית, כשהצבא הבריטי (בראשות לורד קורנווליס) כבש את צ'ארלסטון וריסק את הצבא היבשתי האמריקאי בדרום, רוב המנהיגים נכנעו. האידיאולוגיה של מריון הייתה רדיקלית: **לוחמה א-סימטרית מוחלטת**. הוא סירב להילחם בקווי פנים פתוחים מול הבריטים. הוא הרכיב מיליציה של חוואים וציידים שלא קיבלו שכר, שלא היו להם מדים, ושהביאו את כלי הנשק שלהם מהבית.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-scPalmetto">הישגים מכוננים - הולדת ה"שועל" (1780-1781):</h4>
+                            <p class="leading-loose">מריון יישם טקטיקות פגע-וברח (Hit-and-run). הוא ואנשיו היו תוקפים יחידות אספקה בריטיות באישון לילה, משחררים שבויים אמריקאים, ומיד נסוגים עמוק אל תוך הביצות הבלתי-עבירות של האי סנואו (Snow's Island). לאחר מרדף נואש ומתיש אחריו בתוך הביצות, קולונל טרלטון הבריטי קילל: "לעזאזל עם השועל הזקן הזה, אפילו השטן בכבודו ובעצמו לא יצליח לתפוס אותו!". כינוי זה, "שועל הביצות", הפך לאגדה, ופעולותיו שימרו את רוח המרד בדרום עד לניצחון הסופי.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ג'ון ק. קלהון -->
+                <div class="personality-card border-r-8 border-scIndigo shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-scIndigo decoration-4 underline-offset-8">האדריכל והוגה הפילוג: ג'ון ק. קלהון (John C. Calhoun)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1782–1850. <strong>מעמד:</strong> סגן נשיא ארה"ב, סנאטור, והתיאורטיקן של הדרום.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-scWhite">רקע ומוח אנליטי נוקשה:</h4>
+                            <p class="leading-loose">קלהון נולד בחבל הארץ האחורי (Backcountry) של קרוליינה הדרומית למשפחת מהגרים סקוטים-אירים עשירה. הוא למד באוניברסיטת ייל ונודע כבעל מוח אנליטי עצום, קר וחף מרגשנות פוליטית. הוא מעולם לא חייך בנאומיו, וכונה "האיש העשוי מברזל יצוק".</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-scWhite">אידיאולוגיה קוטבית - ביטול חוקים ועבדות כ"טוב חיובי":</h4>
+                            <p class="leading-loose">האידיאולוגיה של קלהון חרצה את גורלה של ארצות הברית והובילה ישירות למלחמת האזרחים. הוא הגה את **"דוקטרינת הביטול" (Nullification)** – התיאוריה שלפיה כל מדינה באיחוד מחזיקה בזכות ריבונית לבטל ולא לאכוף חוק פדרלי של וושינגטון אם הוא פוגע בה. <br>
+                            בנוסף, בעוד רוב מנהיגי הדרום עד אז הגנו על העבדות כ"רע הכרחי" (Necessary Evil) מסיבות כלכליות, קלהון ביצע מהפך אידיאולוגי מצמרר בנאום לסנאט ב-1837: הוא הגדיר את העבדות כ**"טוב חיובי" (Positive Good)**, בטענה שהיא המסגרת הסוציולוגית היציבה והמוסרית ביותר עבור שני הגזעים, המשחררת את האליטה הלבנה להתעסק בתרבות ובפוליטיקה.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-scWhite">הישגים מכוננים ומורשת (1850):</h4>
+                            <p class="leading-loose">אף שקלהון מת עשור לפני פרוץ מלחמת האזרחים (מילותיו האחרונות היו "הדרום, הדרום העני"), כתביו, נאומיו ומשנתו הקיצונית הפכו ל"מגילת העצמאות" של הקונפדרציה. קרוליינה הדרומית אימצה את תורתו בשלמותה, ובדצמבר 1860 הייתה למדינה הראשונה שפרשה מן האיחוד, תוך שימוש מדויק בטיעוניו המשפטיים.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: הדקל חסין הכדורים והאורז המוזהב
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- העץ הלאומי -->
+                <div class="culture-highlight border-scPalmetto">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-scPalmetto">העץ והסמל המדינתי: דקל סָבָּל (Sabal Palmetto / Cabbage Palmetto)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">סמל בוטני של הגנה לאומית</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        ה-Sabal Palmetto, המעטר את דגל המדינה ואת סמליה, אינו נבחר בגלל יופיו או צילו, אלא בגלל תפקידו הצבאי האגדי במלחמת העצמאות האמריקאית, אירוע שקיבע אותו בפנומנולוגיה של קרוליינה הדרומית.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        ביוני **1776**, הצי הבריטי העוצמתי תקף את צ'ארלסטון. המגינים האמריקאים, בפיקודו של קולונל וויליאם מולטרי, התבצרו באי סאליבן (Sullivan's Island) במבצר שבנייתו טרם הושלמה (פורט מולטרי). עקב חוסר באבן, המבצר נבנה משתי שכבות של גזעי עץ פלמטו מקומיים, שביניהן נדחס חול.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        כאשר אוניות המלחמה הבריטיות הפציצו את המבצר, התרחש פלא פיזיקלי. עץ הפלמטו אינו קשיח ופריך כמו אלון; הוא עשוי מסיבים ספוגיים וגמישים (Spongy wood). במקום שהפגזים הבריטיים ירסקו את חומות המבצר וייצרו רסיסי עץ קטלניים, גזעי הפלמטו פשוט ספגו ו**"בלעו" את כדורי התותח** ללא פגע (אחד הקצינים הבריטים דיווח שהכדורים "שקעו בעץ כאילו היה בוץ"). הודות לחסינות הבוטנית הזו, הבריטים הובסו ונסוגו, והדקל הפך לסמל הבלתי מעורער להגנה ולעמידות של המדינה.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-scIndigo">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-scIndigo">המנה הלאומית: פראגמור סטו (Frogmore Stew) ושרימפס עם גריטס</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מורשת הגולה-גיצ'י (Gullah Geechee) והאורז המוזהב</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של חוף קרוליינה הדרומית (The Lowcountry) היא ייחודית בארה"ב, שכן היא פרי יצירתם הישיר של ה**גולה-גיצ'י** – צאצאי עבדים שהובאו ממערב אפריקה ואוכלסו באיי החוף. עקב הבידוד באיים, הם שימרו שפה אפריקאית ואת טכניקות הבישול והחקלאות שלהם.
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-scPalmetto">האורז של קרוליינה (Carolina Gold):</span> במאה ה-18, האפריקאים הם אלו שלימדו את הלבנים כיצד לגדל אורז בביצות. "אורז הזהב" הפך לגידול היצוא העשיר ביותר של המדינה (לפני הכותנה). מנות כמו **"רד רייס" (Red Rice)** – אורז המבושל עם עגבניות ובייקון – הן הבסיס לארוחת הלאוקאנטרי.</li>
+                        <li><span class="text-white font-bold underline decoration-scIndigo">פראגמור סטו (Frogmore Stew / Lowcountry Boil):</span> למרות שמו (Frogmore הוא שם של עיירת דייגים קטנה באי סנט הלנה), המנה אינה מכילה צפרדעים ואינה נזיד (Stew). זוהי חגיגה קהילתית שבה מרתיחים בסיר ענק אחד: **שרימפס טריים, קלחי תירס מתוק, תפוחי אדמה אדומים, ונקניקיות מעושנות חריפות**, הכל מתובל בהמון תבלין Old Bay חריף. המרכיבים מסוננים, נשפכים על שולחן מכוסה בעיתונים, ונאכלים בידיים.</li>
+                        <li><span class="text-white font-bold underline decoration-[#FFCBA4]">ברביקיו על בסיס חרדל (Carolina Mustard BBQ):</span> קרוליינה הדרומית היא המדינה היחידה בארה"ב שרוטב הברביקיו ה"רשמי" שלה (באזור המרכז, ה-Midlands) אינו מבוסס עגבניות או חומץ, אלא על **חרדל צהוב** – מורשת של מהגרים גרמנים שהתיישבו באזור והוסיפו את החרדל האהוב עליהם לבשר החזיר הנצלה.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-scIndigo text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Palmetto State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-scPalmetto shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-green-400">The Palmetto State (מדינת הפלמטו)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">עץ כמגן צבאי ולאומי</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי, שמופיע כמעט על כל סמל רשמי (ולוחיות רישוי) במדינה, הוא כאמור מחווה להגנה המופלאה של פורט מולטרי ב-1776. אך מעבר לאירוע ההיסטורי, הפלמטו מסמל את עמידתה של קרוליינה הדרומית בפני איומים חיצוניים ("פגזי תותח"). העובדה שעץ מתכופף אך אינו נשבר, וסופג מהלומות מבלי להתנפץ, משקפת במדויק את הפנומנולוגיה והאתוס הדרומי העקשן של המדינה במהלך משברים לאומיים (כולל משבר הביטול ומלחמת האזרחים).
+                        </p>
+                    </div>
+
+                    <!-- The Sandlapper State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-scIndigo shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Sandlapper State</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מעלבון לאימוץ זהות כפרית</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            כינוי היסטורי שורשי ומרתק אנתרופולוגית. "Sandlappers" (מלקקי-חול) היה במקור מונח גנאי מתנשא שהשתמשה בו האליטה העשירה של אזור החוף (צ'ארלסטון) כדי לתאר את החקלאים העניים שחיו באזור מישור החוף הפנימי (Sandhills) של המדינה. באותן תקופות עוני, חלק מהילדים שסבלו ממחסור בוויטמינים ומתזונה לקויה פיתחו נטייה ללעוס או לאכול את האדמה החולית (תופעה רפואית הנקראת פאגוֹפגיה או "אכילת עפר"). עם הזמן, כפי שקרה עם ה"הוז'ר" באינדיאנה, איבדה המילה את משמעותה הרפואית והפוגענית, והפכה לכינוי של גאווה עממית לחקלאים הקשוחים של פנים הארץ ולתושבי המדינה כולה.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-scIndigo text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: סהר, שריון, ועץ העצמאות
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל קרוליינה הדרומית -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#00205B] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex items-center justify-center group p-10">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10 pointer-events-none z-0"></div>
+                    
+                    <!-- הסהר (Gorget) בפינה השמאלית העליונה -->
+                    <div class="absolute top-8 left-10 w-20 h-20 bg-transparent border-[12px] border-transparent border-t-white border-l-white rounded-full transform -rotate-45 drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-transform duration-700 group-hover:rotate-0"></div>
+                    
+                    <!-- עץ הפלמטו במרכז -->
+                    <div class="relative z-10 flex flex-col items-center transform transition-transform duration-700 group-hover:scale-110">
+                        <div class="text-white text-9xl drop-shadow-2xl">🌴</div> <!-- ייצוג ויזואלי עץ דקל -->
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    הסהר ועץ הפלמטו <br><span class="text-xl font-medium text-slate-500">(הדגל הנוכחי הושלם ואומץ בשנת 1861)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-scIndigo shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-scIndigo decoration-4">נסיבות היצירה ומלחמת האזרחים:</h3>
+                    <p class="text-xl leading-loose">
+                        דגל קרוליינה הדרומית (הנחשב לאחד משלושת הדגלים האהובים והמזוהים ביותר בארה"ב, לצד טקסס וקולורדו) נוצר בשני שלבים היסטוריים מובהקים של מרד נגד אימפריה. 
+                        השלב הראשון התרחש ב-**1775** (המהפכה האמריקאית): קולונל וויליאם מולטרי התבקש לעצב דגל לכוחותיו. הוא לקח את ה**כחול האינדיגו (Indigo)** העמוק ממדי החיילים שלו, והוסיף בפינה השמאלית העליונה "סהר" לבן, שהועתק מהסמל הכסוף שהחיילים חבשו על כובעיהם. הדגל הזה (דגל מולטרי) הוביל את הניצחון על הבריטים.
+                        השלב השני התרחש ב-**1861**: כאשר קרוליינה הדרומית הייתה המדינה הראשונה שפרשה מארצות הברית והכריזה על עצמה כ"רפובליקה עצמאית". כדי ליצור דגל לאומי חדש, המחוקקים לקחו את דגל מולטרי המקורי, והוסיפו למרכזו את **עץ הפלמטו הלבן**, סמל לניצחון ולעמידה איתנה.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-scWhite shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">הוויכוח הווקסילולוגי הגדול: ירח או שריון?</h4>
+                        <p class="leading-loose text-lg">הצורה בפינה השמאלית העליונה נראית כמו סהר ירח (Crescent moon), וכך הציבור תופס אותה. אולם, היסטוריונים צבאיים ווקסילולוגים טוענים בתוקף שמדובר ב**גורג'ט (Gorget)** – חתיכת שריון מתכת כסופה דמוית סהר שהייתה נהוגה להיתלות סביב הצוואר של קצינים בקו החזית כדי להגן על הגרון. חייליו של מולטרי ענדו סמל דמוי גורג'ט כסוף על כובעיהם, ועליו חקקו את המילה "Liberty" (חירות). מולטרי עצמו כתב ביומניו "crescent", מה שמשאיר את השאלה הפנומנולוגית פתוחה: האם סמל המדינה הוא גרם שמיים, או פריט שריון צבאי קטלני?</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-scPalmetto shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-scPalmetto">עץ הפלמטו וכחול האינדיגו:</h4>
+                        <p class="leading-loose text-lg">צבע ה**אינדיגו (כחול-סגול כהה)** אינו רק צבע המדים. במאה ה-18, צמח האינדיגו (שממנו הפיקו צבען טבעי לצביעת טקסטיל יוקרתי) היה עמוד התווך הכלכלי השני בחשיבותו במדינה אחרי האורז. זהו "צבע הכסף" של המדינה. עץ הפלמטו (Palmetto) המרכזי מצויר לעיתים כשהוא רומס ומשתרש על גזע עץ אלון שבור. עץ האלון השבור מסמל את צי האוניות של בריטניה (שנבנו מאלון) שהובס על ידי גמישות הפלמטו.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">South Carolina Historical Society:</p>
+                    <p>"The Etymology of Carolina and the Lord Proprietors". ניתוח ההקשר המלוכני של המונח הלטיני 'Carolus' והפיצול בין הצפון העני לדרום האריסטוקרטי ב-1712.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Library of Congress (LOC) - The Nullification Crisis:</p>
+                    <p>"John C. Calhoun and the 'Positive Good' Speech of 1837". מחקר היסטורי על האדריכלות האינטלקטואלית של קלהון שהכשירה את הקרקע הפילוסופית והחוקתית לפרישת הדרום ומלחמת האזרחים.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Gullah Geechee Cultural Heritage Corridor Commission:</p>
+                    <p>"The Origins of Carolina Gold Rice and Frogmore Stew". אנתרופולוגיה קולינרית המתעדת את התרומה העצומה והבלעדית של העבדים האפריקאים ומורשתם (הגולה-גיצ'י) לגסטרונומיה של ה-Lowcountry.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">National Park Service (Fort Moultrie):</p>
+                    <p>"The Battle of Sullivan's Island and the Palmetto Wood". מסמכים הנדסיים וצבאיים מהמאה ה-18 המסבירים מדוע עץ הפלמטו הספוגי לא נשבר תחת פגזי התותחים הבריטיים.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"The South Carolina Flag: Crescent Moon or Gorget?". הדיון האקדמי-הרלדי סביב הצורה בפינת הדגל (דגל מולטרי 1775), הוספת הפלמטו עם פרוץ הפרישה ב-1861, והשימוש באינדיגו.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-scIndigo rounded-full shadow-[0_0_15px_rgba(0,32,91,0.6)]"></div>
+                <div class="w-6 h-6 bg-scWhite rounded-full shadow-[0_0_15px_rgba(255,255,255,0.6)]"></div>
+                <div class="w-6 h-6 bg-scPalmetto rounded-full shadow-[0_0_15px_rgba(27,77,62,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
