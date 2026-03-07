@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>איידהו - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        idBlue: '#00205B',  /* Idaho Flag Blue */
+                        idGold: '#F2A900',  /* State Seal Gold */
+                        idGem: '#9b111e'    /* Star Garnet Red */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-idGold font-black text-2xl mb-5 underline italic decoration-idGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-idGem relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">איידהו</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Idaho - The Gem State</p>
+                <div class="h-2 w-56 bg-idGem mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(155,17,30,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">3 ביולי, 1890</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-43 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: התרמית הלשונית הגדולה של אמריקה
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    איידהו מחזיקה באחת האנומליות האטימולוגיות המדהימות בעולם: שמה אינו נגזר משום שפה, שבט או אירוע היסטורי, אלא מהווה המצאה שקרית מוחלטת שנוצרה על ידי לוביסט תמהוני, והפכה בטעות לחוק.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Ee-Dah-How -->
+                    <div class="etymology-box border-idGem">
+                        <p class="text-idGem font-black text-5xl mb-6 italic tracking-tighter">E-Dah-Hoe</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור נטען (השקר):</strong> השפה השושונית (Shoshone) או האפאצ'ית.</p>
+                            <p><strong>משמעות נטענת:</strong> "פנינת ההרים" (Gem of the Mountains) או "השמש יורדת מההרים".</p>
+                            <p><strong>התרמית (1860):</strong> כאשר הקונגרס האמריקאי חיפש שם לטריטוריה החדשה שקמה באזור קולורדו של ימינו, לוביסט ואיש כרייה אקסצנטרי בשם **ג'ורג' מ. ווילינג** (George M. Willing) הציע את השם "איידהו". הוא טען בתוקף שזוהי מילה אינדיאנית עתיקה שמשמעותה "פנינת ההרים". הסנאט התלהב מהצליל הפיוטי וכמעט ואישר את השם.</p>
+                        </div>
+                    </div>
+
+                    <!-- The Revelation -->
+                    <div class="etymology-box border-idGold">
+                        <p class="text-idGold font-black text-5xl mb-6 italic tracking-tighter">The Hoax Revealed</p>
+                        <div class="space-y-4">
+                            <p><strong>חשיפת השקר:</strong> רגע לפני שהחוק עבר, סנאטור שהיה חוקר שפות ילידיות גילה שאין שום מילה כזו בשום ניב אינדיאני. ווילינג נאלץ להודות שהוא פשוט המציא את המילה "Ee-Dah-Hoe" מאפס כי היא נשמעה לו טוב. הקונגרס הזועם מחק את השם והעניק לטריטוריה במקום זאת את השם "קולורדו".</p>
+                            <p><strong>קיבוע השם:</strong> למרות החשיפה, המילה המומצאת "איידהו" קסמה לציבור הרחב. ספינות קיטור ומכרות זהב בצפון-מערב (באזור מדינת וושינגטון של היום) החלו לקרוא לעצמם "איידהו". בשנת 1863, כאשר הקונגרס נאלץ לפצל את טריטוריית וושינגטון, השם "איידהו" כבר היה כה שגור באזור, עד שהקונגרס נכנע וקרא לטריטוריה החדשה Idaho, אף על פי שכולם ידעו שזהו שם חסר כל משמעות לשונית.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-idBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: הממציא ואדריכלית החותם
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- פילו פרנסוורת' -->
+                <div class="personality-card border-r-8 border-idBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-idBlue decoration-4 underline-offset-8">ההוגה ששינה את האנושות: פילו פרנסוורת' (Philo Farnsworth)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1906–1971. <strong>מעמד:</strong> "אבי הטלוויזיה האלקטרונית".</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-idGold">ילדות של השראה חקלאית (Rigby, Idaho):</h4>
+                            <p class="leading-loose">פרנסוורת' נולד בבקתת עץ ביוטה, אך משפחתו המורמונית הענייה עברה לחוות תפוחי אדמה בעיירה הקטנה ריגבי (Rigby) שבאיידהו. כילד חווה צעיר, הוא הוקסם ממגזיני מדע פופולרי שקרא בעליית הגג. ההארה (Epiphany) הגדולה ביותר בתולדות התקשורת התרחשה בשדה תפוחי אדמה באיידהו: כשהיה בן 14, פילו רכב על סוס וחרש את האדמה. כשהביט לאחור על התלמים המקבילים והישרים שחרש הלוך ושוב, הוא הבין שזו הדרך שבה יש להעביר תמונה חזותית – על ידי סריקתה בשורות מקבילות באמצעות קרן אלקטרונים. (כך נולד הרעיון לשפופרת הקרן הקתודית - CRT).</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-idGold">אידיאולוגיה - שקיפות מדעית מול תאגידים:</h4>
+                            <p class="leading-loose">האידיאולוגיה של פרנסוורת' הייתה חקלאית ותמימה: הוא האמין שהמצאת הטלוויזיה נועדה לחנך את העולם ולהביא לשלום על ידי חשיפת תרבויות זו לזו. הוא סירב להיכנע לתאגיד הענק RCA שניסה לגנוב את הפטנט שלו בכוח. הוא נאבק בהם בבתי משפט במשך שנים עד שהוכר כממציא הבלעדי של המערכת האלקטרונית לחלוטין (ללא חלקים מכניים).</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-idGold">הישגים מכוננים:</h4>
+                            <p class="leading-loose">ב-1927, בהיותו בן 21 בלבד, הציג פרנסוורת' את שידור הטלוויזיה האלקטרוני הראשון בהיסטוריה. באופן אירוני, הוא אסר על ילדיו לצפות בטלוויזיה בשנותיו המאוחרות, באומרו שאין שם שום דבר בעל ערך. למרות שמת באלמוניות יחסית, איידהו מוקירה אותו כגיבור הלאומי שלה, ופסלו מוצב כאחד משני הנציגים של איידהו בבניין הקפיטול בוושינגטון הבירה.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- אמה אדוארדס גרין -->
+                <div class="personality-card border-r-8 border-idGem shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-idGem decoration-4 underline-offset-8">הבונה והמעצבת: אמה אדוארדס גרין (Emma Edwards Green)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1856–1942. <strong>מעמד:</strong> מעצבת חותם המדינה (1891).</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-idGold">רקע ומוסכמות חברתיות:</h4>
+                            <p class="leading-loose">אמה אדוארדס הגיעה לבירת איידהו, בויסי (Boise), ב-1890 ממדינת ניו יורק, כדי לפתוח בית ספר לאמנות (היא הייתה אמנית מוכשרת שלמדה בפריז ובניו יורק). באותה תקופה, עבודות תכנון ממשלתיות, ובמיוחד הרלדיקה (עיצוב סמלי שלטון), נחשבו לתחום גברי בלעדי.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-idGold">הישגים מכוננים - חותם המדינה היחיד שעוצב ע"י אישה:</h4>
+                            <p class="leading-loose">לקראת הפיכתה של איידהו למדינה, הכריז המושל על תחרות לאומית לעיצוב חותם המדינה הרשמי, עם פרס של 100 דולר. העיצוב של אמה ניצח פה אחד. היא הפכה ל**אישה הראשונה והיחידה בתולדות ארצות הברית** שעיצבה חותם של מדינה (Great Seal). <br>
+                            אמה הציבה במכוון **אישה וגבר (כורה מינרלים) בגובה שווה לחלוטין** במרכז הסמל. האישה מייצגת את החירות, השוויון והצדק. אמה עשתה זאת כדי להעביר מסר למחוקקים, שכן איידהו הייתה אחת המדינות הראשונות בארה"ב שהעניקה זכות הצבעה מלאה לנשים (ב-1896). החותם שלה משמש עד היום במרכז דגלה של איידהו.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: סוס הפרא וגידול האדמה
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-idGold">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-idGold">בעל החיים המדינתי: סוס האפלוסה (Appaloosa)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">סוס המדינה הרשמי - מורשת ילידית טהורה (אומץ ב-1975)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        האפלוסה הוא אחד מגזעי הסוסים המזוהים ביותר בארצות הברית, והוא תוצר ישיר של עבודת ההשבחה והרבייה של שבט ה**נז פרס** (Nez Perce / Nimiipuu) שחי באזור הנהרות של צפון איידהו (נהר הפאלוז - Palouse River, ממנו נגזר השם אפלוסה).
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        בני שבט הנז פרס נודעו כנוקדי סוסים אגדיים. הם החלו לברור בקפידה סוסים (שהגיעו במקור מהספרדים) בעלי "פרוות נמר" או דפוסי כתמים (Leopard complex), משום שהכתמים סיפקו הסוואה מצוינת בנוף הפתוח ובעיקר, הסוסים הללו התגלו כבעלי סיבולת ריאה אדירה ואינטליגנציה גבוהה. הסוסים המנומרים הללו איפשרו לשבט לצוד ביזונים ביעילות ולהתחמק מרודפיהם.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        במהלך "מלחמת הנז פרס" (1877), ניסה הצבא האמריקאי להשמיד את עדרי האפלוסה כדי לשבור את רוחם של הילידים. הגזע כמעט ונכחד לחלוטין, אך ניצל על ידי חוואים מאיידהו במאה ה-20 שהקימו את מועדון האפלוסה. ב-1975, איידהו אימצה את הסוס כדי לחלוק כבוד למורשת ההישרדות של השבט ולתרומתו לספר האמריקאי.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-idGem">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-idGem">הגידול והמנה התרבותית: תפוח האדמה של איידהו (Russet Burbank)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">זהות פחמימתית העולה על כל דמיון</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        האנומליה הכלכלית של איידהו היא הזיהוי המוחלט והעולמי של מדינה שלמה עם ירק אחד ויחיד: **תפוח האדמה**. המילה "Idaho" הפכה כמעט למילה נרדפת לפקעת.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        הטופוגרפיה של דרום איידהו (מישור נהר הסנייק - Snake River Plain) מושלמת לגידול תפוחי אדמה: האדמה שם היא תוצר של אפר געשי (Volcanic ash) עשיר במינרלים וקליל, מה שמאפשר לתפוחי האדמה לגדול ללא התנגדות ולקבל צורה אליפטית מושלמת. הימים החמים והלילות הקפואים של האגן הגבוה יוצרים תפוחי אדמה עם אחוז גבוה מאוד של עמילן. 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        הזן השליט הוא ה-**Russet Burbank**, שהובא לאזור בשנות ה-1870. בשל רמת העמילן הגבוהה שלו וקליפתו הקשיחה, הוא מתפורר באפייה (הופך לאוורירי) ומצוין לטיגון (סופג פחות שמן). כמעט כל טוגני ה"פרנץ' פרייז" של רשתות המזון המהיר הגדולות בארה"ב עשויים מתפוחי אדמה של איידהו. המדינה כה גאה בירק, עד שהיא מפעילה "מוזיאון תפוח האדמה" ומגישה מנות אייקוניות כמו "תפוח אדמה אפוי ענק" (Jumbo Baked Potato) וגלידת תפוחי אדמה כסמל סטטוס קולינרי.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-idBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-idGem shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic">The Gem State (מדינת הפנינה / מדינת היהלום)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">עושר גיאולוגי שמצדיק תרמית היסטורית</p>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        הכינוי "מדינת הפנינה" (או האבן היקרה) קשור ישירות לתרמית של ג'ורג' ווילינג מ-1860, שטען כי המילה "איידהו" משמעותה "פנינת ההרים". אולם, המציאות הגיאולוגית של איידהו הצדיקה את הכינוי המומצא בדרכים שווילינג עצמו לא חלם עליהן. 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-lg mt-6">
+                        איידהו היא אחת הריכוזים הגיאולוגיים המורכבים והעשירים ביותר בעולם. היא מפיקה **72 סוגים שונים של אבנים יקרות וחצי יקרות**, נתון שאף מדינה אחרת בארה"ב לא מתקרבת אליו. האנומליה המרהיבה ביותר היא ה**גארנט הכוכבי (Star Garnet)** – אבן חן נדירה ביותר, שכאשר מלטשים אותה נכון, נראה בתוכה בבירור כוכב זוהר בעל 4 או 6 קצוות. המקומות היחידים בעולם כולו שבהם ניתן למצוא סטאר-גארנט באיכות גבוהה הם אזור מצומצם בהודו/סרי לנקה, והיערות של פאנהנדל, איידהו. בזכות אבנים נדירות אלו, איידהו הפכה ל"פנינה" אמיתית הרבה מעבר לשם המומצא.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-idBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: ניתוח סמיוטי של שוויון וגבולות
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל איידהו ב-CSS -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#00205B] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col items-center justify-center group p-4 border-yellow-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10 pointer-events-none z-0"></div>
+                    
+                    <div class="relative transform transition-transform duration-700 group-hover:scale-105 z-10 flex flex-col items-center">
+                        
+                        <!-- STATE OF IDAHO Text -->
+                        <div class="text-[#F2A900] font-black text-2xl tracking-[0.3em] uppercase mb-4 drop-shadow-md">
+                            STATE OF IDAHO
+                        </div>
+
+                        <!-- Seal Simulation -->
+                        <div class="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center shadow-lg relative p-2 border-4 border-[#F2A900]">
+                            <!-- Inner Border representing the star motif -->
+                            <div class="absolute inset-1 border-[2px] border-dashed border-[#00205B] rounded-full opacity-50"></div>
+                            
+                            <!-- Esto Perpetua Scroll -->
+                            <div class="absolute top-4 bg-[#F2A900] text-[#00205B] text-[8px] font-black px-3 py-1 rounded shadow-sm border border-[#00205B] uppercase tracking-widest">
+                                Esto Perpetua
+                            </div>
+                            
+                            <!-- Supporters: Miner & Woman -->
+                            <div class="flex justify-between w-full px-6 mt-4 z-10">
+                                <span class="text-2xl" title="Miner">⛏️👷‍♂️</span>
+                                <span class="text-2xl" title="Justice/Equality">⚖️👩‍⚖️</span>
+                            </div>
+
+                            <!-- Shield / Center items (Elk, Cornucopia, Tree) -->
+                            <div class="flex flex-col items-center mt-2">
+                                <span class="text-xs">🦌</span> <!-- Elk -->
+                                <span class="text-xs">🌲 🌽</span> <!-- Forest and Agriculture -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    חותם השוויון על שדה כחול <br><span class="text-xl font-medium text-slate-500">(החותם מ-1891, הדגל אומץ ב-1907)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-idBlue shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-idBlue decoration-4">נסיבות היצירה ומסגרת הזהב:</h3>
+                    <p class="text-xl leading-loose">
+                        דגל איידהו אומץ בשנת 1907 כחלק מהתארגנות המדינה למלחמות ולגאוות יחידות מקומיות. הוא שייך לקטגוריית "סדין כחול עם חותם" (Seal on a blue bedsheet), אולם החוק המדינתי של איידהו דורש מאפיין שרבים שוכחים: הדגל הרשמי חייב להיות מוקף ב**פרנזים (גדילים) של זהב** בשלושה מצדדיו (קצה עליון, תחתון ורחוק מהתורן). החותם במרכז, כאמור, עוצב ב-1891 על ידי אמה אדוארדס גרין, והוא הייחוד האמיתי של הדגל.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">הכורה והאישה - פמיניזם מוצהר:</h4>
+                        <p class="leading-loose text-lg">במרכז החותם ניצבות שתי דמויות המייצגות את עמודי התווך של החברה. משמאל, **כורה** עם מכוש, המסמל את תעשיית הפחם והפנינים שהקימה את המדינה. מימין, **אישה** (הנקראת לעתים "צדק" או "חירות") המחזיקה במאזניים מורמים וחנית שמוטלת מטה. גודלן השווה של הדמויות נועד כאמור להנציח את שוויון הזכויות (זכות ההצבעה) שניתן לנשים באיידהו, מהפכה היסטורית בתקופה שבה עוצב הסמל.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-idGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-idGold">המוטו: Esto Perpetua והאייל הקנדי:</h4>
+                        <p class="leading-loose text-lg">בראש החותם מופיע המוטו הלטיני **"Esto Perpetua"**, שמשמעותו: "מי ייתן וזה יהיה נצחי" או "שתתקיים לנצח". זהו המוטו של הרפובליקה של ונציה העתיקה, שאומץ כדי להביע תקווה לשרידותה של המדינה. במגן הפנימי, מופיע ראש של **אייל קנדי** (Elk/Wapiti), המסמל את חוקי הגנת הטבע (ה-Game laws) המחמירים שאיידהו העבירה כבר מראשיתה כדי להגן על חיות הבר מפני הכחדה.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Idaho State Historical Society:</p>
+                    <p>"The Etymology of Idaho and the Willing Hoax". תיעוד אקדמי החושף את השקר של הלוביסט ג'ורג' ווילינג, ואת חשיפת התרמית על ידי הקונגרס ב-1860.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">University of Utah J. Willard Marriott Library Archives:</p>
+                    <p>"Philo T. Farnsworth: The Father of Television". יומנים ושרטוטים המעידים כיצד תלמי המחרשה בחווה באיידהו היוו את ההשראה לשפופרת הקרן הקתודית (CRT).</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Nez Perce National Historical Park (NPS):</p>
+                    <p>"The Appaloosa Horse: Legacy of the Nimiipuu". מחקר אנתרופולוגי-זואולוגי על השבחת סוסי הפרא המנומרים על ידי השבט, והחלטת המדינה לאמצם כסמל ההישרדות.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Idaho Potato Commission Archives:</p>
+                    <p>"The Russet Burbank and the Volcanic Soils of the Snake River". נתונים אגרונומיים המסבירים מדוע האפר הגעשי במדינה מייצר את תפוחי האדמה העמילניים והאידיאליים ביותר לטיגון.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"Emma Edwards Green and the Idaho State Seal". הביוגרפיה של האישה היחידה שעיצבה חותם מדינה אמריקאי, והסימבוליקה הפמיניסטית והחקלאית שהטמיעה במרכז הדגל.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-idBlue rounded-full shadow-[0_0_15px_rgba(0,32,91,0.6)]"></div>
+                <div class="w-6 h-6 bg-idGold rounded-full shadow-[0_0_15px_rgba(242,169,0,0.6)]"></div>
+                <div class="w-6 h-6 bg-idGem rounded-full shadow-[0_0_15px_rgba(155,17,30,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
