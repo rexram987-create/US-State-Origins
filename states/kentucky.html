@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>קנטקי - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        kyBlue: '#00205B',    /* Kentucky Navy Blue */
+                        kyGold: '#C5A900',    /* Goldenrod / Bourbon Gold */
+                        bluegrass: '#1E4D2B'  /* Bluegrass Green/Blue */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-kyGold font-black text-2xl mb-5 underline italic decoration-kyGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-kyBlue relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">קנטקי</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Kentucky - The Bluegrass State</p>
+                <div class="h-2 w-56 bg-kyGold mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(197,169,0,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">1 ביוני, 1792</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-15 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות של אדמת המרעה
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    לפני הגעת האמריקאים, אזור קנטקי לא היה מיושב בקביעות על ידי אף שבט בודד, אלא שימש כ"אזור ציד משותף" (שבו נלחמו רבות) עבור שבטי הצ'רוקי מהדרום והשוני מהצפון. לכן, מקור השם נתון בדיון אקדמי, אך רוב הבלשנים מסכימים שמקורו בשפות האירוקויות (Iroquoian).
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Ken-tah-ten -->
+                    <div class="etymology-box border-kyBlue">
+                        <p class="text-kyBlue font-black text-5xl mb-6 italic tracking-tighter">Ken-tah-ten / Kenta'kë</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפות משפחת האירוקוי (סנקה, וויאנדוט).</p>
+                            <p><strong>משמעות מילולית וגיאוגרפית:</strong> המשמעות האקדמית המדויקת ביותר היא <strong class="text-white">"ארץ האחו" (Meadowland)</strong> או "מישור פתוח". האזור המרכזי של קנטקי היה מכוסה בעשב עשיר, שפיתה אליו עדרי ביזונים ואיילים, מה שהפך אותו למוקד ציד אדיר.</p>
+                        </div>
+                    </div>
+
+                    <!-- המיתוס השגוי -->
+                    <div class="etymology-box border-kyGold">
+                        <p class="text-kyGold font-black text-5xl mb-6 italic tracking-tighter">Land of Tomorrow?</p>
+                        <div class="space-y-4">
+                            <p><strong>התרמית הרומנטית:</strong> במשך עשרות שנים (ואפילו כיום בטקסטים מיושנים), פוליטיקאים טענו שמשמעות המילה בשפת הוויאנדוט היא "ארץ המחר" (Land of Tomorrow) כרמז לאופטימיות של החלוצים. הבלשנות המודרנית הוכיחה שזהו תרגום רומנטי מאוחר חסר בסיס; המילה מתארת באופן פשוט ופיזי את שדות העשב (Meadows) ולא תפיסת זמן פילוסופית. כשהאנגלים והסיירים חצו את האפלצ'ים, הם אימצו את השם כ-**Kentucke** ולאחר מכן **Kentucky**.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-kyBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: חלוץ היערות והמושל הלוחם
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- דניאל בון -->
+                <div class="personality-card border-r-8 border-bluegrass shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-bluegrass decoration-4 underline-offset-8">ההוגה ופורץ הדרך האגדי: דניאל בון (Daniel Boone)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1734–1820. <strong>מעמד:</strong> מגלה ארצות, צייד וגיבור לאומי של ה"ספר" (Frontier).</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-kyGold">ילדות ורקע פראי:</h4>
+                            <p class="leading-loose">דניאל בון נולד בפנסילבניה למשפחה קווייקרית אדוקה (שסירבה לשאת נשק). עם זאת, כשהיה צעיר, משפחתו נודתה מהקהילה, והם היגרו לצפון קרוליינה. בון בילה את נעוריו ביערות, שם למד את אמנות הציד, הגישוש וההישרדות מחבריו בשבטי הלנאפה (Delaware). הוא מעולם לא רכש השכלה פורמלית של ממש, והכתיב שלו היה גרוע, אך הוא "קרא את היער" טוב יותר מכל אדם לבן אחר ביבשת.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-kyGold">אידיאולוגיה - קריאת המערב:</h4>
+                            <p class="leading-loose">האידיאולוגיה של בון הייתה אנטי-ממסדית ומבוססת על תנועה מתמדת. הוא טען שברגע שהוא יכול לראות את עשן הארובה של שכנו – סימן שהאזור צפוף מדי ועליו לנוע מערבה. הוא חלם לחצות את מחסום הרי האפלצ'ים הבלתי-עביר ולמצוא את "קנטקי" – ארץ הציד השופעת שעליה סיפרו הילידים.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-kyGold">הישגים מכוננים - חציבת נתיב השממה (1775):</h4>
+                            <p class="leading-loose">ב-1775, עבור חברת קרקעות יזמית (Transylvania Company), בון הוביל צוות של חוטבי עצים לחצוב נתיב דרך מעבר קמברלנד (Cumberland Gap) לתוך מרכז קנטקי. הנתיב הזה, שנקרא **"דרך השממה" (The Wilderness Road)**, הפך לעורק הראשי שדרכו מאות אלפי מתיישבים חצו אל המערב התיכון. הוא ייסד את המבצר "בונסבורו" (Boonesborough), נלחם מלחמות עקובות מדם כנגד שבט השוני (שאף חטפו את בתו ואימצו אותו עצמו לזמן קצר כשבוי), והפך את ההתיישבות בקנטקי לעובדה קיימת. בון סבל מחובות וממשפטים על בעלות אדמה בגלל חוסר יכולתו להתמודד עם עורכי דין אליטיסטים, וסיים את חייו במיזורי, אך נותר האייקון הגדול ביותר של פריצת הגבולות באמריקה.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- אייזק שלבי -->
+                <div class="personality-card border-r-8 border-kyBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-kyBlue decoration-4 underline-offset-8">הבונה והמושל הראשון: אייזק שלבי (Isaac Shelby)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1750–1826. <strong>מעמד:</strong> המושל הראשון והחמישי של קנטקי.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות ורקע קרבי (Kings Mountain):</h4>
+                            <p class="leading-loose">שלבי נולד במרילנד והתחנך כמודד קרקעות. הוא רכש מוניטין לאומי במהלך מלחמת העצמאות האמריקאית, כשהיה אחד ממפקדי מיליציות ה"הרים" (Overmountain Men) יחד עם ג'ון סבייר מטנסי, שהשמידו את הכוח הבריטי בקרב קינגס מאונטיין ב-1780. המוניטין שלו כטקטיקן קשוח העניק לו כבוד עצום בקרב המתיישבים.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - ריבונות ועצמאות פוליטית:</h4>
+                            <p class="leading-loose">עד 1792, קנטקי הייתה למעשה מחוז של מדינת וירג'יניה, אשר גבתה מיסים אך לא סיפקה כל הגנה צבאית מהתקפות אינדיאנים. האידיאולוגיה של שלבי הייתה עצמאות של קנטקי. הוא ארגן כנסים פוליטיים וטען שחוסר היכולת של וירג'יניה להגן עליהם מפר את האמנה החברתית, ודרש הכרה כמדינה נפרדת בתוך האיחוד.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - ייצוב המדינה החדשה (1792):</h4>
+                            <p class="leading-loose">עם קבלתה של קנטקי לאיחוד ב-1792 כמדינה ה-15, נבחר שלבי פה אחד למושל הראשון. הוא היה המנהל האדמיניסטרטיבי שקבע כיצד המדינה תתפקד: הוא הבטיח אספקת נשק למיליציות כדי לאבטח את הגבולות, ארגן את מערכת המשפט המקומית, ופעל לשמירה על חופש השיט בנהר המיסיסיפי מול הספרדים (דבר שהיה קריטי לסחר החקלאי). כשהיה בן 63, חזר מפרישה כדי להוביל אישית את חיילי קנטקי לניצחון בקרב תיימס (מלחמת 1812), מה שמעיד על המיליטריזם העמוק של המדינה.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: אדמת הגיר, סוסי המרוץ והוויסקי
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-kyGold">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-kyGold">החיה הלאומית: סוס ת'ורוברד (Thoroughbred Horse)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">סוס המדינה הרשמי (אומץ ב-1996)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        ה-Thoroughbred (סוס גזעי טהור המיועד למרוצים) הוא המרכז של כלכלת היוקרה, הספורט והזהות של קנטקי. אזור ה"בלוגראס" (Bluegrass) במרכז קנטקי נחשב לבירת גידול סוסי המרוץ של העולם. 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        מדוע דווקא בקנטקי? התשובה טמונה ב**גיאולוגיה**. אדמת האזור שוכנת על שכבה מסיבית של אבן גיר (Limestone). המים הזורמים דרך אבן הגיר מסננים החוצה ברזל ועשירים באופן טבעי ב**סידן (Calcium)**. כאשר הסוסים שותים את המים וניזונים מהעשב הצומח על האדמה הזו, הסידן מחזק את עצמותיהם והופך אותן לצפופות וחסונות במיוחד, מה שמונע שברים תחת לחץ עצום במהלך מרוצי דהירה. 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        אתוס הסוס מגיע לשיאו מדי חודש מאי בעיר לואיוויל (Louisville) במהלך ה**קנטקי דרבי (Kentucky Derby)** ב"צ'רצ'יל דאונס" – אירוע הספורט הרציף העתיק ביותר בארה"ב, המכונה "שתי הדקות הגדולות ביותר בספורט", שבו אריסטוקרטיה, כובעי ענק וכוסות מנטה מצטלבים בטקס תרבותי עמוק.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-kyBlue">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-kyBlue">הקולינריה הלאומית: ברבון, כריך הט-בראון ועוף מטוגן</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">אלכוהול משובח ומטבח דרומי כבד</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של קנטקי היא חלון למסורת הדרומית, עם השפעה ישירה מאותה אדמת גיר שמגדלת את סוסיה:
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-kyGold">ברבון קנטקי (Kentucky Bourbon):</span> המשקה הלאומי הלא-רשמי של אמריקה חייב לפי חוק להיות מיוצר מ-51% תירס לפחות ולהתיישן בחביות עץ אלון (Oak) חדשות וחרוכות. מקורו במחוז ברבון בקנטקי במאה ה-18 (מתיישבים סקוטים ואירים הפכו תירס לוויסקי כדי שיהיה קל לשנעו ולמכור אותו בניו אורלינס). שוב, המים המסוננים דרך אבן הגיר, שהם נטולי ברזל לחלוטין, מעניקים לברבון של קנטקי את טעמו החלק והייחודי שאי אפשר לשכפל בשום מקום אחר. 95% מהברבון בעולם מיוצר בקנטקי.</li>
+                        <li><span class="text-white font-bold underline decoration-kyBlue">כריך הט-בראון (The Hot Brown):</span> זוהי המנה האייקונית המקומית, שהומצאה ב-1926 במלון בראון (Brown Hotel) בלואיוויל על ידי השף פרד שמידט. זוהי ארוחת לילה מאוחרת (שנועדה להשביע את המבלים ששתו ברבון): כריך פתוח עשוי לחם טקסס-טוסט, עליו מונחים חזה הודו צלוי, פרוסות בייקון פריכות ועגבניות, הכל טובע ב**רוטב מורניי (Mornay sauce - רוטב גבינה וקרם)** ומוכנס לתנור עד שהגבינה מבעבעת ומשחימה. זוהי מנה כבדה, מנחמת ועשירה בקלוריות המסמלת את "הכנסת האורחים של קנטקי".</li>
+                        <li><span class="text-white font-bold underline decoration-[#A90533]">KFC (קנטקי פרייד צ'יקן):</span> בלתי אפשרי לדבר על קנטקי בלי להזכיר את היזם האגדי, איש העסקים (שלא היה קצין צבא כלל, "קולונל" הוא תואר כבוד של המדינה), הרלנד סנדרס, שהקים עמדת מזון בתחנת דלק בקורבין, קנטקי בתקופת השפל הגדול, ופיתח מתכון סודי של 11 תבלינים ששינה את תעשיית המזון המהיר הגלובלית.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-kyBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Bluegrass State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-bluegrass shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-green-400">The Bluegrass State (מדינת העשב הכחול)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">תופעה בוטנית שהפכה למותג תרבותי</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי של קנטקי נובע ממין ספציפי של עשב מרעה (Poa pratensis) הגדל בשפע במרכז המדינה. האירוניה האנומלית היא ש**העשב אינו כחול כלל, הוא ירוק לחלוטין**. אולם, באביב מפיק העשב פרחים/ניצנים זעירים שנושאים גוון סגלגל-כחול. כשהרוח נושבת מעל שדות רחבי ידיים של העשב הזה, נוצרת אשליה אופטית של ים בגוון כחלחל-כסוף. 
+                        </p>
+                        <p class="text-slate-300 leading-loose text-lg mt-4">
+                            "הבלוגראס" הפך למותג של המדינה: הוא המונח המתאר את האזור הגיאוגרפי והכלכלי העשיר ביותר, הוא מקור הגאווה החקלאית, והוא גם השם של סגנון המוזיקה הייחודי (Bluegrass Music) שפותח במאה ה-20 (על ידי ביל מונרו), המתאפיין בנגינת בנג'ו ווירטואוזית ושורשים סקוטיים-אירים עמוקים של אנשי האפלצ'ים.
+                        </p>
+                    </div>
+
+                    <!-- The Dark and Bloody Ground -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-kyGold shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Dark and Bloody Ground</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">הכינוי ההיסטורי והמצמרר</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            כינוי זה (האדמה האפלה והמדממת) הוא מיתוס מפורסם מימי ההתיישבות הראשונה. האגדה מספרת שצ'יף משבט הצ'רוקי (Dragging Canoe) אמר לדניאל בון ב-1775, לאחר שנאלץ לחתום על מכירת אדמות קנטקי: <span class="italic text-white">"קניתם ארץ יפהפייה, אך יעמוד בפניכם ענן כבד; התיישבותכם תהיה אדמה אפלה ומדממת."</span> התיאור היה מדויק, שכן קנטקי לא הייתה מיושבת כפרים אינדיאנים אלא היוותה שדה קטל שבו שבטים שונים, ולאחר מכן אירופאים וילידים, נלחמו באכזריות איש ברעהו על זכויות הציד ב"ארץ האחו".
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-kyBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: ניתוח סמיוטי - חיבוק של אחדות כפרית ומדינית
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל קנטקי (Navy Blue with Seal) -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#00205B] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col items-center justify-center group p-4">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10 pointer-events-none z-0"></div>
+                    
+                    <div class="relative transform transition-transform duration-700 group-hover:scale-105 z-10 flex flex-col items-center w-full">
+                        
+                        <!-- Word COMMONWEALTH OF KENTUCKY -->
+                        <div class="text-white font-black text-2xl tracking-[0.2em] uppercase mb-4 drop-shadow-md text-center w-full" style="clip-path: ellipse(50% 50% at 50% 50%);">
+                            <svg viewBox="0 0 400 100" class="w-80 mx-auto">
+                                <path id="curve" fill="transparent" d="M 50 100 Q 200 -20 350 100" />
+                                <text width="400" font-size="28" font-family="sans-serif" font-weight="bold" fill="white" letter-spacing="2">
+                                    <textPath href="#curve" startOffset="50%" text-anchor="middle">COMMONWEALTH OF KENTUCKY</textPath>
+                                </text>
+                            </svg>
+                        </div>
+
+                        <!-- Seal Simulation -->
+                        <div class="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center shadow-lg relative p-2 border-2 border-slate-300">
+                            
+                            <!-- Two men hugging/handshake -->
+                            <div class="flex items-end justify-center w-full h-full pb-6 z-10 text-5xl">
+                                <!-- Frontiersman (buckskin) -->
+                                <span class="-mr-2 z-20">🪶</span> 
+                                <!-- Handshake interaction -->
+                                <span class="mx-2 z-10 text-3xl mb-2">🤝</span>
+                                <!-- Statesman (tailcoat) -->
+                                <span class="-ml-2 z-20">🎩</span>
+                            </div>
+                            
+                            <!-- Goldenrod Wreath simulation -->
+                            <div class="absolute inset-2 border-b-[8px] border-dotted border-[#C5A900] rounded-full opacity-80" style="clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);"></div>
+                            
+                            <!-- Motto on Seal -->
+                            <div class="absolute inset-x-2 bottom-[35%] flex justify-center flex-col text-center">
+                                <span class="text-[#00205B] text-[7px] font-black uppercase tracking-widest leading-tight mt-6">United We Stand</span>
+                                <span class="text-[#00205B] text-[7px] font-black uppercase tracking-widest leading-tight">Divided We Fall</span>
+                            </div>
+                        </div>
+
+                        <!-- Goldenrod sprigs below (Simulated) -->
+                        <div class="text-[#C5A900] text-3xl mt-4 drop-shadow-md">🌿 🌾 🌿</div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    סמל החלוץ והמדינאי על שדה צי קלאסי <br><span class="text-xl font-medium text-slate-500">(הדגל אומץ ב-1918)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-kyBlue shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-kyBlue decoration-4">נסיבות היצירה ומסורת המיליציה:</h3>
+                    <p class="text-xl leading-loose">
+                        דגל קנטקי (שאומץ ב-1918) משתייך למסורת הווקסילולוגית של "סדין כחול" (Blue Bedsheet), שהייתה נפוצה מאוד בארה"ב. רקע הכחול-צי (Navy Blue) נבחר במכוון כדי להתאים לצבע המדים ולדגלי הרגימנטים של מיליציית קנטקי שלחמו במלחמות ארצות הברית במאה ה-19 (כולל מלחמת 1812 ומלחמת האזרחים). הלב החזותי של הדגל הוא חותם המדינה (State Seal), שעוצב במקור ב-1792 לאחר כניסת קנטקי לאיחוד.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">החלוץ והמדינאי - סינתזה חברתית:</h4>
+                        <p class="leading-loose text-lg">במרכז החותם הלבן נראים שני גברים מתחבקים (או לוחצים ידיים בחוזקה). הגבר השמאלי לבוש בבגדי עור צבי ונושא כובע פרווה – זהו ה**חלוץ** (Frontiersman), המייצג את רוח הספר, הציידים ואנשי ההרים כדוגמת דניאל בון. הגבר הימני לבוש בחליפת זנבות (Tailcoat) מהמאה ה-18 – זהו ה**מדינאי** (Statesman), המייצג את עורכי הדין, הפוליטיקאים ואנשי הערים. החיבוק שלהם מצהיר שהמדינה הצעירה יכולה לשגשג רק באמצעות כבוד ואחדות בין אנשי השטח הפראיים לאנשי החוק והאדמיניסטרציה.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-kyGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-kyGold">המוטו ופרח מטה-הזהב:</h4>
+                        <p class="leading-loose text-lg">סביבם מופיע המוטו המפורסם: **"United We Stand, Divided We Fall"** (מאוחדים נעמוד, מפוצלים ניפול). מקורו של המשפט הוא בשיר שנכתב ב-1768 על ידי ג'ון דיקינסון ("שיר החירות") ערב המהפכה האמריקאית, ואימץ אותו מושל קנטקי הראשון, אייזק שלבי, כסמל לכך שקנטקי (כמדינה גבולית) חייבת להישאר מאוחדת עם שאר ארה"ב כדי לשרוד. החותם כולו נח על חצי-זר של פרח ה**גולדנרוד (Goldenrod - מטה-הזהב)**, פרח הבר הרשמי של המדינה, המסמל את טבעה השופע של ארץ האחו.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Kentucky Historical Society (KHS):</p>
+                    <p>"The Etymology of Kentucky: Meadowland or Dark Ground". מחקר השוואתי המנפץ את המיתוס הרומנטי של "ארץ המחר" ומבסס את המקור האירוקוי של המילה (Kenta'kë) כתיאור הידרו-גיאוגרפי.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Filson Historical Society:</p>
+                    <p>"Daniel Boone and the Wilderness Road". ארכיון המתעד את מסעות הציד ב-1775, הקרבות על עמק הצ'רוקי, ופריצת החומה הטופוגרפית של האפלצ'ים למערב.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">University of Kentucky Equine Programs:</p>
+                    <p>"The Geological Impact of Limestone on Thoroughbred Bone Density". מאמר מדעי באגרונומיה המסביר את התופעה הביולוגית של אדמת הבלוגראס והצלחת סוסי המרוץ של המדינה.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Southern Foodways Alliance:</p>
+                    <p>"The Invention of the Hot Brown at the Brown Hotel". סקירה קולינרית של המצאת המנה בשנת 1926 כמענה לחיי הלילה וצריכת הברבון של לואיוויל (Louisville).</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"The Kentucky State Seal and Flag". ניתוח הרלדי של עיצוב 1792: הסינתזה החברתית של החלוץ (Frontiersman) עם פוליטיקאי החוף המזרחי (Statesman), ומקור המוטו.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-kyBlue rounded-full shadow-[0_0_15px_rgba(0,32,91,0.6)]"></div>
+                <div class="w-6 h-6 bg-kyGold rounded-full shadow-[0_0_15px_rgba(197,169,0,0.6)]"></div>
+                <div class="w-6 h-6 bg-bluegrass rounded-full shadow-[0_0_15px_rgba(30,77,43,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
