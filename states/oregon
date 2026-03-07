@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>אורגון - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        orBlue: '#002244',      /* Oregon Flag Navy Blue */
+                        orGold: '#FFB612',      /* Oregon Flag Gold */
+                        marionberry: '#4b0055'  /* Marionberry Purple */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-orGold font-black text-2xl mb-5 underline italic decoration-orGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-orGold relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">אורגון</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Oregon - The Beaver State</p>
+                <div class="h-2 w-56 bg-orGold mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(255,182,18,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">14 בפברואר, 1859</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-33 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: התעלומה הגדולה וטעות המיפוי
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    מקור השם "אורגון" נחשב לאחת מתעלומות האטימולוגיה הגדולות ביותר בארצות הברית. אף מסמך אינו מכריע את הסוגיה באופן מוחלט, והמחקר האקדמי מתפצל בין שלוש תיאוריות מולקולריות מרתקות (צרפתית, ספרדית, וטעות קרטוגרפית הקשורה דווקא לוויסקונסין).
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Ouragan / Orejon -->
+                    <div class="etymology-box border-orBlue">
+                        <p class="text-orBlue font-black text-5xl mb-6 italic tracking-tighter">Ouragan / Orejón</p>
+                        <div class="space-y-4">
+                            <p><strong>התיאוריה הצרפתית:</strong> נגזרת מהמילה *Ouragan* (הוריקן/סערה). סוחרים צרפתים-קנדים כינו את נהר הקולומביה (שזורם דרך קניון צר ואלים) "נהר הסערות".</p>
+                            <p><strong>התיאוריה הספרדית:</strong> נגזרת מהמילה *Orejón* (אוזן גדולה). חוקרים ספרדים במאה ה-16 נתקלו בשבטים אינדיאנים שנהגו להרחיב את תנוכי אוזניהם עם תכשיטים כבדים, וכינו את האזור "ארץ בעלי האוזניים הגדולות". כמו כן, הוצע הקשר לצמח ה"אורגנו" שגדל פרא באזור (Artemisia tridentata).</p>
+                        </div>
+                    </div>
+
+                    <!-- Ouaricon-sint -->
+                    <div class="etymology-box border-orGold">
+                        <p class="text-orGold font-black text-5xl mb-6 italic tracking-tighter">Ouaricon-sint</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור:</strong> טעות כתיב במפה צרפתית מ-1715.</p>
+                            <p><strong>ניתוח מחקרי (התיאוריה המקובלת ביותר כיום):</strong> כפי שראינו במחקר על וויסקונסין (Meskousing/Ouisconsin), נהר הוויסקונסין היה עורק מרכזי. במפה צרפתית עתיקה משנת 1715, שרטט צרפתי טעה בהעתקת השם *Ouisiconsink*. הוא חילק את המילה לשתי שורות, כשהחלק התחתון הועתק בטעות כ-**Ouaricon-sint**. קצין בריטי בשם רוברט רוג'רס ראה את המפה המשובשת הזו ב-1765, והסיק ש-"Ouaricon" (שהוא ביטא כ-Ouragon ולבסוף **Oregon**) הוא שמו של "נהר המערב" המיתולוגי שזורם לאוקיינוס השקט. הטעות הגיאוגרפית הזו הפכה למיתוס, והשם נדד אלפי קילומטרים מערבה עד שהודבק לאזור האוקיינוס השקט הצפון-מערבי.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-orBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: הבוגד הבריטי וקדוש המעונים
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- ד"ר ג'ון מקלופלין -->
+                <div class="personality-card border-r-8 border-orGold shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-orGold decoration-4 underline-offset-8">המושיע במדי האויב: ד"ר ג'ון מקלופלין (Dr. John McLoughlin)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1784–1857. <strong>תואר רשמי:</strong> "אבי אורגון" (Father of Oregon).</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-orGold">רקע ומונופול כלכלי:</h4>
+                            <p class="leading-loose">מקלופלין היה רופא ויזם קנדי-צרפתי (ממוצא סקוטי ואירי). במשך עשורים, אורגון לא הייתה תחת שלטון מדיני, אלא תחת שלטון תאגידי: **חברת מפרץ הדסון** (Hudson's Bay Company) הבריטית. מקלופלין מונה למנהל הראשי (Chief Factor) של החברה באזור הקולומביה, והקים את מבצר ונקובר (Fort Vancouver). הוא שלט באזור ביד רמה, והיה בעל הבית דה-פקטו של מאות אלפי קילומטרים רבועים של מסחר בפרוות.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-orGold">אידיאולוגיה - הומניזם על פני אימפריאליזם:</h4>
+                            <p class="leading-loose">ההוראות שקיבל מקלופלין מלונדון היו ברורות: להרחיק את האמריקאים מהטריטוריה בכל מחיר, כדי להבטיח שהאזור יעבור לשליטה בריטית. אולם, כאשר החלו להגיע ראשוני המתיישבים האמריקאים מ"נתיב אורגון" בשנות ה-40 של המאה ה-19, הם היו מורעבים, חולים ונואשים לאחר מסע של 3,000 ק"מ. מקלופלין, בניגוד מוחלט להנחיות הגיאופוליטיות של מעסיקיו, החליט שאינו יכול לתת לבני אדם לגווע ברעב ביער. הוא סיפק לאמריקאים זרעים, ציוד חקלאי ואשראי.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-orGold">ההשלכות והכרת התודה:</h4>
+                            <p class="leading-loose">הפעולה ההומניטרית שלו למעשה ביססה את ההתיישבות האמריקאית והכריעה את הכף לטובת צירוף אורגון לארצות הברית במקום לקנדה (בריטניה). חברת מפרץ הדסון זעמה על "בגידתו", אילצה אותו להתפטר, והוא חי את שנותיו האחרונות בעיר אורגון סיטי. בשנת 1957, ממשלת אורגון העניקה לו רשמית את התואר "אבי אורגון" כהוקרה על כך שבחר בחיים על פני אינטרסים אימפריאליים.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- מרקוס ויטמן -->
+                <div class="personality-card border-r-8 border-orBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-orBlue decoration-4 underline-offset-8">פורץ הדרך וקדוש המעונים: ד"ר מרקוס ויטמן (Marcus Whitman)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1802–1847. <strong>מעמד:</strong> מיסיונר ופותח "נתיב אורגון".</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-orGold">רקע ואידיאולוגיה דתית:</h4>
+                            <p class="leading-loose">ויטמן היה רופא ומיסיונר נוצרי מניו יורק. האידיאולוגיה שלו הייתה "התנצרות המערב". ב-1836, יחד עם אשתו נרסיסה (האישה הלבנה הראשונה שחצתה את הרי הרוקי), הם הקימו מיסיון בטריטוריית ואיילאטפו (Waiilatpu), בקרב שבט הקאיוס (Cayuse) באורגון. ויטמן האמין שהדרך להציל את הילידים אינה רק בהטפה, אלא בלימוד חקלאות אמריקאית.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-orGold">הבנייה - פתיחת נתיב העגלות (1843):</h4>
+                            <p class="leading-loose">ב-1842 ויטמן רכב חזרה מזרחה כדי לשכנע את המועצה המיסיונרית שלא לסגור את המיסיון שלו. בדרכו חזרה לאורגון ב-1843, הוא הוביל את ה"הגירה הגדולה" (The Great Emigration) – שיירת העגלות ההמונית הראשונה שכללה כ-1,000 מתיישבים. הוא הוכיח שניתן לחצות את הרי הרוקי עם עגלות, מה שפתח את הסכר לנהירה האמריקאית האדירה על מה שייקרא **נתיב אורגון**.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-orGold">טבח ויטמן (1847):</h4>
+                            <p class="leading-loose">ההגירה ההמונית שוויטמן יזם הביאה עמה מגפת חצבת שהכתה אנושות בשבט הקאיוס. בעוד ילדי הלבנים החלימו לרוב, ילדי הילידים מתו בהמוניהם עקב חוסר חסינות. שבט הקאיוס, שהאמין (על פי מסורתו) כי רופא (שאמאן) שאינו מסוגל לרפא את מטופליו עשוי להיות מכשף המרעיל אותם בכוונה, תקף את המיסיון ב-1847. מרקוס ונרסיסה ויטמן נרצחו, אירוע שהצית את "מלחמת הקאיוס" וזרז את הקונגרס האמריקאי להפוך את אורגון רשמית לטריטוריה פדרלית מוגנת.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: מהנדסי הטבע והחקלאות במעבדה
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-orGold">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-orGold">בעל החיים המדינתי: הבונה האמריקאי (American Beaver)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">סמל העבודה, הכלכלה ועיצוב הטבע (אומץ ב-1969)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הבונה האמריקאי (*Castor canadensis*) אינו רק חיית המדינה של אורגון (ומככב על גב דגלה), אלא ה"אדריכל" הכלכלי שהביא להקמתה. במשך המאות ה-18 וה-19, הדרישה העולמית לפרוות בונה (ששימשו לייצור כובעים אטומים למים באירופה) הייתה הסיבה המרכזית להגעת אירופאים ואמריקאים לטריטוריה.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        מבחינה פנומנולוגית, הבונה מייצג את אידיאל ה"מהנדס" והחריצות: הוא אחד מבעלי החיים היחידים בטבע (מלבד האדם) שמשנה באופן מובהק את סביבתו כדי להתאים לצרכיו, על ידי כריתת עצים ובניית סכרים ענקיים שיוצרים אגמים ומערכות אקולוגיות שלמות. "החריצות של הבונה" הפכה לסמל לעבודה הקשה של מתיישבי המערב. כיום, אוניברסיטת אורגון סטייט (OSU) מתהדרת ב"ביברס" כקבוצת הספורט שלה, והחיה מוגנת כסמל אקולוגי לחשיבות ניהול המים באזור.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-marionberry">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-[#4b0055]">המנה הלאומית והפרי: פאי מריונברי (Marionberry Pie) וסרטן דנג'נס</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">חקלאות מדעית והון ימי</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הגסטרונומיה של אורגון מושתתת על היותה מעצמה של תוצרת טרייה וחדשנות חקלאית.
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-[#4b0055]">פאי מריונברי (Marionberry Pie):</span> המריונברי הוא אינו פרי יער רגיל שצמח בטבע; הוא יצירת מופת גנטית. ב-1956, ג'ורג' וולדו מאוניברסיטת אורגון סטייט הצליב זנים של פטל שחור (Chehalem x Olallieberry) במעבדות במחוז מריון (Marion County). התוצאה הייתה פרי חסון במיוחד, בעל טעם אדמתי, מורכב ופירותי שמכונה כיום "הקברנה של פירות היער". אורגון מייצרת כמעט את כל צריכת המריונברי בעולם (עשרות מיליוני קילוגרמים בשנה). פאי המריונברי (שהפך ב-2017 לפאי הרשמי של המדינה) מייצג את הנישואים בין מסורת האפייה האמריקאית למדע החקלאות של המערב.</li>
+                        <li><span class="text-white font-bold underline decoration-orBlue">סרטן הדנג'נס (Dungeness Crab):</span> הוכרז רשמית כסרטן המדינה ב-2009 (בעקבות יוזמה של ילדי כיתה ד'). הסרטן (Metacarcinus magister), שנלכד במים העמוקים והקרים של האוקיינוס השקט מול חופי אורגון, הוא מקור החלבון הימי היוקרתי והמתוק ביותר במדינה, ומסמל את תעשיית הדיג הקשוחה של ערי החוף.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-orBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Beaver State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-orGold shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Beaver State (מדינת הבונה)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">עיגון היסטורי לתקופת המסחר</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי הזה מהדהד למאות ה-18 וה-19. בניגוד למדינות המערב שקמו על בסיס חיפוש "מתכות נוצצות" (זהב וכסף), אורגון קמה על בסיס פרווה. "מדינת הבונה" היא תזכורת פנומנולוגית למאבק האימפריאלי העצום בין ארצות הברית, בריטניה, רוסיה וספרד על השליטה בצפון-מערב היבשת – מאבק שהונע כולו על ידי הדרישה לפרוותו של מכרסם ימי אחד.
+                        </p>
+                    </div>
+
+                    <!-- Pacific Wonderland -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-orBlue shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">Pacific Wonderland (פלא פסיפי)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">לידתה של האג'נדה הסביבתית</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי "פלא פסיפי" (Pacific Wonderland) הופיע על לוחיות הרישוי של אורגון בשנת 1959 לחגיגות שנת ה-100 למדינה, ומייצג מהפך אדיר בתודעה המקומית. מאתוס של "כריתת עצים וניצול הטבע" בראשית ימיה, אורגון הפכה במאה ה-20 לחלוצה לאומית של **איכות הסביבה**. היא הייתה המדינה הראשונה שהעבירה את "חוק הבקבוקים" (Bottle Bill, 1971) למיחזור, והראשונה שהעבירה חוק (1967) המכריז על **כל** חופי הים של המדינה כשטח ציבורי הפתוח לכולם, תוך איסור מוחלט על גידורם על ידי עשירים ומלונות פאר. הכינוי חוגג את הפלא הטבעי ואת החוקים שנועדו לשמרו לדורות.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-orGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: האנומליה של הדגל הדו-צדדי היחיד בארה"ב
+            </h2>
+            
+            <div class="flex flex-col md:flex-row items-center justify-center gap-10 mb-16">
+                
+                <!-- Front Side (Seal) -->
+                <div class="flex flex-col items-center w-full max-w-sm">
+                    <div class="w-full aspect-[3/2] bg-[#002244] rounded-3xl overflow-hidden shadow-2xl border-[4px] border-slate-700 relative flex flex-col items-center justify-center p-4">
+                        <div class="text-[#FFB612] font-black text-2xl tracking-[0.2em] uppercase mt-2 drop-shadow-md">STATE OF OREGON</div>
+                        <!-- Seal Simulation -->
+                        <div class="w-32 h-32 rounded-full border-2 border-[#FFB612] flex flex-col items-center justify-center relative mt-2 bg-[#002244]">
+                            <!-- 33 Stars border -->
+                            <div class="absolute inset-1 border-[3px] border-dotted border-[#FFB612] rounded-full opacity-60"></div>
+                            <!-- Wagon and mountains -->
+                            <div class="text-[#FFB612] text-xl">⛰️ 🐎</div>
+                            <div class="text-[#FFB612] text-xs font-bold tracking-widest mt-1">THE UNION</div>
+                            <div class="text-[#FFB612] text-xl">🌊 🚢</div>
+                        </div>
+                        <div class="text-[#FFB612] font-black text-3xl tracking-[0.2em] mt-2 drop-shadow-md">1859</div>
+                    </div>
+                    <p class="mt-6 text-slate-400 font-black text-lg bg-slate-900 px-6 py-2 rounded-full border border-slate-700 shadow-xl text-center">
+                        החזית: היסטוריה ואומה (Obverse)
+                    </p>
+                </div>
+
+                <!-- Back Side (Beaver) -->
+                <div class="flex flex-col items-center w-full max-w-sm">
+                    <div class="w-full aspect-[3/2] bg-[#002244] rounded-3xl overflow-hidden shadow-2xl border-[4px] border-slate-700 relative flex flex-col items-center justify-center p-4 group">
+                        <!-- Beaver simulation facing towards flagpole (left usually, but depends on wind) -->
+                        <div class="text-[#FFB612] text-8xl drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)] transform transition-transform duration-500 group-hover:scale-110">🦫</div>
+                    </div>
+                    <p class="mt-6 text-orGold font-black text-lg bg-slate-900 px-6 py-2 rounded-full border border-slate-700 shadow-xl text-center">
+                        הגב: הבונה המוזהב (Reverse)
+                    </p>
+                </div>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-orGold shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-orGold decoration-4">דגל דו-צדדי (Two-Sided Flag):</h3>
+                    <p class="text-xl leading-loose">
+                        דגל אורגון (שאומץ ב-1925) הוא **הדגל היחיד בכל 50 מדינות ארה"ב בעל עיצוב שונה לחלוטין בכל צד**. בעבר למדינות כמו מסצ'וסטס היו דגלים דו-צדדיים, אך כולם ביטלו זאת עקב עלויות הייצור הגבוהות (שכן צריך להדפיס שתי שכבות שונות ולתפור אותן יחד כדי שהצד השני לא ייראה הפוך). אורגון סירבה לוותר על המסורת שלה. הדגל בצבעי המדינה (כחול וזהב) מציג חלוקה בין הממשלתי/לאומי לבין המקומי/תרבותי.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-orBlue shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-orBlue">החזית: מגן המדינה ו-33 הכוכבים</h4>
+                        <p class="leading-loose text-lg">צד החזית נושא את המילים "State of Oregon", את שנת הקבלה (1859), ואת מגן חותם המדינה מוקף ב-33 כוכבים (המסמלים את מעמדה כמדינה ה-33). בתוך המגן מתוארת ההיסטוריה הגיאופוליטית: עגלה עם שוורים (נתיב אורגון) וים עם שתי ספינות. ספינה אחת (בריטית) עוזבת את המפרץ, וספינת סוחר שנייה (אמריקאית) מגיעה – סמל גרפי מובהק לניצחון ההתיישבות האמריקאית על חברת הפרוות הבריטית. המילה "THE UNION" במרכז מדגישה את הנאמנות לארה"ב.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-orGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-orGold">הגב: הבונה המוזהב (The Beaver)</h4>
+                        <p class="leading-loose text-lg">בעוד צד החזית עמוס בפרטים משפטיים ושלטוניים, הצד האחורי של הדגל הוא אסתטי, נקי ואייקוני לחלוטין. הוא מציג אך ורק דמות מוזהבת של הבונה האמריקאי, חיית המדינה שיושבת על ענף. העיצוב הייחודי הזה הופך את דגל אורגון לאחד הפריטים הווקסילולוגיים המבוקשים והמורכבים ביותר לייצור ולחקירה באמריקה.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">The Oregon Historical Quarterly:</p>
+                    <p>"The Etymology of Oregon: The Myth of the River of the West". מחקר אקדמי המנתח את טעות הקרטוגרף הצרפתי ששיבשה את השם מ"וויסקונסין" ל"אואריגון" ואת התקבעותה כנהר קולומביה.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Hudson's Bay Company Archives (HBCA):</p>
+                    <p>"Dr. John McLoughlin: The Man Who Lost an Empire but Saved a Settlement". מסמכים המתעדים את סירובו של מקלופלין ליישם מדיניות של הרעבת מתיישבים אמריקאים למען האינטרס הבריטי בפורט ונקובר.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">National Park Service (Whitman Mission National Historic Site):</p>
+                    <p>"The Whitman Massacre of 1847". תיעוד התנגשות התרבויות בין המיסיונר והרופא מרקוס ויטמן לבין שבט הקאיוס בעקבות מגפת החצבת שהובאה עם שיירות העגלות.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Oregon State University (OSU) Agricultural Extension:</p>
+                    <p>"The Creation of the Marionberry". ההיסטוריה הבוטנית של פיתוח תת-המין של פטל השחור במעבדות המדינה ב-1956, שהפך לסמל הגסטרונומי המתוק של אורגון.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"The Anomaly of the Two-Sided State Flag". סקירת החוק המדינתי משנת 1925 המחייב את הדפסת סמל הבונה על הצד האחורי, והסבר על הסימבוליקה הגיאופוליטית שבחזית הדגל.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-orBlue rounded-full shadow-[0_0_15px_rgba(0,34,68,0.6)]"></div>
+                <div class="w-6 h-6 bg-orGold rounded-full shadow-[0_0_15px_rgba(255,182,18,0.6)]"></div>
+                <div class="w-6 h-6 bg-marionberry rounded-full shadow-[0_0_15px_rgba(75,0,85,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
