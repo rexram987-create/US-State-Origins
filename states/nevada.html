@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>נבאדה - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        nvBlue: '#002664',    /* Nevada Flag Blue */
+                        nvSilver: '#C0C0C0',  /* Silver Star */
+                        nvSage: '#8C9D70',    /* Sagebrush Green */
+                        nvGold: '#F2A900'     /* Battle Born Scroll */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-nvSilver font-black text-2xl mb-5 underline italic decoration-nvSilver/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-nvSilver relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">נבאדה</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Nevada - The Silver State</p>
+                <div class="h-2 w-56 bg-nvBlue mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(0,38,100,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">31 באוקטובר, 1864</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-36 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: אירוניית השלג של המדבר
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    האטימולוגיה של נבאדה מכילה את אחת האירוניות הגיאוגרפיות והאקלימיות החריפות ביותר בארצות הברית. המדינה היבשה והצחיחה ביותר באיחוד, שמרבית שטחה מורכב ממדבריות האגן הגדול ומדבר מוהאבי, נקראת על שם תופעת טבע שהיא כמעט ואינה חווה בעמקיה: שלג.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Nieve -->
+                    <div class="etymology-box border-nvSilver">
+                        <p class="text-nvSilver font-black text-5xl mb-6 italic tracking-tighter">Nieve / Nevado</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> ספרדית (מקור לטיני: *Nix / Nivis*).</p>
+                            <p><strong>משמעות מילולית:</strong> "שלג" (Nieve), והתואר "מכוסה שלג" או "מושלג" (Nevada).</p>
+                            <p><strong>ניתוח מחקרי של האירוניה:</strong> השם לא ניתן לאזורי המדבר של המדינה, אלא ל**רכס הרי הסיירה נבאדה** (Sierra Nevada - "רכס ההרים המושלג") המהווה את הגבול המערבי של המדינה מול קליפורניה. מגלי ארצות ספרדים שראו את הפסגות העצומות הלבנות ממרחק העניקו להן את השם הזה.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/60 p-10 rounded-[2rem] border-r-8 border-nvBlue shadow-xl mt-10">
+                    <h3 class="font-black text-white mb-6 text-2xl italic underline decoration-nvBlue underline-offset-8">מחלוקת השם ב-1864:</h3>
+                    <div class="space-y-6 text-slate-300 leading-loose">
+                        <p>כאשר טריטוריית מערב יוטה הופרדה כדי ליצור את נבאדה, התחולל מאבק על השם. חלק מהתושבים דרשו לקרוא למדינה "Washoe" על שם שבט הוואשו המקומי, ואחרים הציעו "Esmeralda" (ברקת). עם זאת, השם **Nevada** נבחר רשמית בהשראת רכס ההרים המספק מים ומחצב לאזור (למרות שרוב הרכס עצמו נמצא בכלל בתוך קליפורניה!).</p>
+                        <p>עד היום, תושבי המדינה מנהלים מאבק פונטי עיקש מול שאר תושבי ארה"ב: ההגייה המקומית המדויקת והנכונה היא עם 'a' קצרה ושטוחה (Ne-VAD-uh) ולא הגייה ספרדית עם 'a' רחבה (Ne-VAH-dah). פוליטיקאים שקוראים למדינה בגרסה הספרדית בעת עצרת בחירות נוטים לאבד מצביעים מידית.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-nvBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: צבא המתים של החורף ומנסח החוקה
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- ג'ורג' דונר -->
+                <div class="personality-card border-r-8 border-white shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-slate-400 decoration-4 underline-offset-8">קורבנות הספר: ג'ורג' דונר ו"חבורת דונר" (The Donner Party)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות האירוע:</strong> חורף 1846–1847. <strong>מעמד:</strong> האסון המכונן של ההגירה מערבה.</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-nvSilver">הרקע - המעבר דרך נבאדה:</h4>
+                            <p class="leading-loose">אף שג'ורג' דונר וחבורתו היו בדרכם לקליפורניה, הטרגדיה שלהם נטועה עמוק בגיאוגרפיה של צפון נבאדה. "חבורת דונר" הייתה שיירת עגלות של 87 חלוצים שניסו קיצור דרך חדש ולא מוכר שנקרא "Hasting's Cutoff". קיצור הדרך אילץ אותם לחצות את מדבריות המלח העצומים והבוגדניים של יוטה ונבאדה (אזור עמק הרובּי), מה שעיכב אותם בשבועות קריטיים, התיש את סוסיהם והרס את עגלותיהם.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-nvSilver">החורף בסיירה נבאדה (מעבר דונר):</h4>
+                            <p class="leading-loose">כאשר הגיעו סוף סוף למרגלות הרי הסיירה נבאדה באוקטובר, ירדו שלגים מוקדמים של למעלה ממטר ביום אחד, וחסמו את המעבר לחלוטין. הם נלכדו באוהלים ובקתות מאולתרות בקיפאון מוחלט וללא מזון. במהלך החורף האכזרי ההוא, כאשר חיות המשא מתו ונאכלו, ולאחר שאכלו את עורות המוקסינים וחיות המחמד שלהם, נאלצו חברי השיירה שנותרו בחיים לפנות לקניבליזם ולאכול את גופות חבריהם שמתו כדי לא לגווע.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-nvSilver">ההשפעה על ההיסטוריה של נבאדה:</h4>
+                            <p class="leading-loose">רק 48 מתוך 87 שרדו. סיפורה של חבורת דונר הטיל אימה על כל מי ששקל לחצות את יבשת אמריקה. האירוע סימן את האזור של צפון נבאדה וההרים כ"מקום קטלני", ודרבן את הממשל הפדרלי למצוא פתרונות מהירים ותעשייתיים למעבר בטוח – מה שהוביל בסופו של דבר להאצת סלילת **מסילת הרכבת הטרנס-יבשתית** דרך נבאדה, אשר הביאה למדינה את הפיתוח והשגשוג הראשוני שלה.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ויליאם מ. סטיוארט -->
+                <div class="personality-card border-r-8 border-nvGold shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-nvGold decoration-4 underline-offset-8">אדריכל הכסף והמדינה: ויליאם מ. סטיוארט (William M. Stewart)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1827–1909. <strong>מעמד:</strong> "אבי חוק הכרייה האמריקאי" והסנאטור הראשון מנבאדה.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">רקע של בהלה לזהב וכסף:</h4>
+                            <p class="leading-loose">סטיוארט עזב את לימודיו באוניברסיטת ייל כדי להצטרף לבהלה לזהב בקליפורניה, אך מצא את ייעודו האמיתי לא עם מכוש ביד, אלא כעורך דין. בשנת 1859, עם גילוי **הקומסטוק לוד** (Comstock Lode) – מרבץ הכסף העצום ביותר באמריקה (שהתגלה מתחת לעיר וירג'יניה סיטי בנבאדה) – סטיוארט עבר לשם והפך לעורך הדין המייצג של חברות הכרייה הענקיות במאבקים המשפטיים על זכויות במעמקי האדמה.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - ריבונות תעשייתית וכסף:</h4>
+                            <p class="leading-loose">האידיאולוגיה שלו התבססה על כלכלה מערבית חזקה. הוא ניסח את חוק הכרייה הפדרלי של 1866, אשר קבע את העיקרון המשפטי ש"כורה שמגלה עורק מינרלים, רשאי לעקוב אחריו אל תוך האדמה גם אם הוא חורג משטח האדמה שברשותו". חוק זה הפך את נבאדה למעצמת כרייה בינלאומית.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - הולדת מדינה באמצעות מברק:</h4>
+                            <p class="leading-loose">ב-1864, בשיא מלחמת האזרחים, הנשיא אברהם לינקולן היה זקוק נואשות לשני דברים: עושר (הכסף של הקומסטוק למימון צבא האיחוד) ועוד קולות אלקטורליים במערב כדי להבטיח את העברת התיקון ה-13 (ביטול העבדות). סטיוארט ניצח על הוועידה החוקתית של נבאדה. כדי להספיק לאשר את המדינה לפני הבחירות, סטיוארט ואנשיו **שלחו את כל החוקה של נבאדה (17,000 מילים) בטלגרף לוושינגטון**. זה היה המברק הארוך והיקר ביותר שנשלח עד לאותה עת (עלה כ-4,300 דולר במונחי 1864). לינקולן אישר את החוקה כיומיים לפני הבחירות, ונבאדה נולדה כ"מדינת הקרב" (Battle Born).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: חיית המדבר ובופה הקזינו
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-nvSage">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-nvSage">בעל החיים הלאומי: כבש גדול-קרניים מדברי (Desert Bighorn Sheep)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">חיית המדינה הרשמית (אומץ ב-1973)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        חיית המדינה של נבאדה, כבש הרים מדברי (*Ovis canadensis nelsoni*), נבחרה בהצבעה של תלמידי בתי הספר במדינה ב-1973. בניגוד לחיות בר מפורסמות יותר, הכבש המדברי מסמל את התכונה המרכזית הנדרשת כדי לשרוד בנבאדה מחוץ לעיר לאס וגאס: **הסתגלות קיצונית לחוסר מים**.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        כבש זה פיתח פיזיולוגיה שמאפשרת לו לטפס על סלעים תלולים במדבר המוהאבי ולהתקיים על צמחייה יבשה דלה (כמו צמח ה-Sagebrush). יותר מכך, הוא מסוגל לשרוד שבועות ארוכים בחום של 45 מעלות ללא מים, ולאחר מכן לשתות כמויות עצומות של מים בבת אחת כדי להתאושש. הוא סמל לפנומנולוגיה של הישרדות שקטה, קשוחה ועיקשת בהרים הצחיחים של האגן הגדול.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-nvGold">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-nvGold">התרומה הקולינרית והמנה הלאומית: בופה 'אכול כפי יכולתך' והאוכל הבאסקי</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">שתי תרבויות: רועי הצאן המבודדים וההמצאה של לאס וגאס</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של נבאדה היא דואופול המייצג את ההיסטוריה הכפרית וההיסטוריה המודרנית שלה:
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-nvSage">ארוחות משפחתיות באסקיות (Basque Dining):</span> בדומה למסורת בויומינג, בסוף המאה ה-19, אלפי רועי צאן מחבל הבאסקים בספרד הגיעו לצפון נבאדה (אזור ווינמאקה ואלְקו). כיוון שבילו חודשים לבד בהרים עם הכבשים, כשהגיעו לעיירות, הם אכלו בפנסיונים (Boardinghouses) ארוחות עצומות משותפות סביב שולחנות ארוכים. ארוחה באסקית כוללת קערות ענק של מרק, סלט, שעועית, צ'וריסו, לחם מתוק (Sheepherder's bread) ומנות בשריות כבדות. המשקה המזוהה איתם הוא ה**פיקון פאנץ' (Picon Punch)** – קוקטייל אגדי וחריף מבוסס ליקר עשבים מריר.</li>
+                        <li><span class="text-white font-bold underline decoration-nvSilver">בופה הקזינו "אכול כפי יכולתך" (The All-You-Can-Eat Casino Buffet):</span> זוהי התרומה התרבותית-קולינרית הגדולה והמפורסמת ביותר של נבאדה לעולם. הבופה הומצא בשנת 1946 על ידי **הרב מקדונלד** במועדון "El Rancho Vegas". הרעיון היה אסטרטגיה עסקית מבריקה: להשאיר את המהמרים בתוך הקזינו בשעות הקטנות של הלילה באמצעות הצעת כמויות עצומות של מזון דשן (נקניקים, סלטים, פשטידות) במחיר מצחיק של דולר אחד ("The Buckaroo Buffet"). העיקרון הפסיכולוגי של שפע בלתי מוגבל השתלב בצורה מושלמת עם אתוס ההימורים, והבופה הפך לסמל הסטטוס של לאס וגאס ורינו.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-nvBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Silver State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-nvSilver shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-slate-300">The Silver State (מדינת הכסף)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">לידתה הכלכלית של המדינה</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי הרשמי של נבאדה נובע מגילוי ה"קומסטוק לוד" (Comstock Lode) ב-1859 – מצבור הכסף הגדול ביותר בהיסטוריה האמריקאית. גילוי זה הוביל לבהלה של כורים, לייסוד העיר וירג'יניה סיטי (Virginia City), ולמעשה סיפק את ההון והאוכלוסייה שהצדיקו את הפיכתה של נבאדה לטריטוריה ואז למדינה. עד היום, תעשיית הכרייה בנבאדה (לא רק כסף אלא גם זהב וליתיום) היא מנוע כלכלי אדיר, וצבע הכסף (Silver) הוא הצבע השולט בדגל ובזהות המדינה.
+                        </p>
+                    </div>
+
+                    <!-- The Battle Born State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-nvBlue shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Battle Born State (מדינת ילידת הקרב)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">אתוס של נאמנות ומלחמת אזרחים</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            כינוי דרמטי זה מעוגן על דגל המדינה באופן בולט. נבאדה, יחד עם מערב וירג'יניה, הן המדינות היחידות שנוסדו ישירות מתוך התפרצות מלחמת האזרחים האמריקאית ולצרכיה (הקרב של 1864). "נולדה בקרב" מבטא את הגאווה של המדינה בכך שקיומה איפשר לנשיא לינקולן להבטיח את הניצחון הפוליטי על הדרום ולבטל את העבדות, תוך שהיא שולחת את עתודות הכסף שלה (שנחצבו במכרות) למימון צבא האיחוד השקוע בחובות.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-nvBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: כוכב הכסף וסמל הקרב בקנטון
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל נבאדה (1991 refinement) -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#002664] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/30 pointer-events-none z-20"></div>
+                    
+                    <!-- הסמל הממוקם בקנטון (פינה שמאלית עליונה) -->
+                    <div class="absolute top-4 left-6 md:top-8 md:left-10 flex flex-col items-center transform transition-transform duration-700 group-hover:scale-110 z-10">
+                        
+                        <!-- סרט BATTLE BORN מוזהב -->
+                        <div class="bg-[#F2A900] px-4 py-1 rounded-sm shadow-md mb-2 border border-slate-800 relative z-20 w-[120%] text-center">
+                            <span class="text-[#002664] font-black text-[10px] md:text-xs uppercase tracking-wider block">Battle Born</span>
+                        </div>
+                        
+                        <!-- כוכב הכסף וזר המרווה (Sagebrush) -->
+                        <div class="relative w-24 h-24 md:w-32 md:h-32 flex items-center justify-center">
+                            <!-- זר המרווה מיוצג על ידי ענפים מקושתים עשויים CSS -->
+                            <div class="absolute inset-0 border-b-[6px] border-l-[6px] border-r-[6px] border-[#8C9D70] rounded-b-full opacity-90 shadow-inner"></div>
+                            
+                            <div class="flex flex-col items-center z-10 pt-2">
+                                <span class="text-white text-5xl md:text-6xl drop-shadow-[0_2px_5px_rgba(255,255,255,0.8)]">★</span>
+                                <span class="text-white font-black text-xs md:text-sm tracking-[0.3em] uppercase mt-1">Nevada</span>
+                            </div>
+                            
+                            <!-- פרחי המרווה (נקודות צהובות/ירוקות) -->
+                            <div class="absolute bottom-2 left-2 text-[#F2A900] text-xs">✾</div>
+                            <div class="absolute bottom-2 right-2 text-[#F2A900] text-xs">✾</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    סמל הכסף בקנטון <br><span class="text-xl font-medium text-slate-500">(עוצב על ידי לואיס שלפורד, 1926. עודכן ב-1991)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-nvSilver shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-nvSilver decoration-4">נסיבות היצירה (1926) ועיצוב לא מרכזי:</h3>
+                    <p class="text-xl leading-loose">
+                        לנבאדה היו דגלים קודמים וצבעוניים מאוד (שכללו 36 כוכבים במרכז). אולם בשנת 1926, הוחלט לערוך תחרות כדי ליצור דגל פשוט וייצוגי יותר. הזוכה היה פקיד ממשלתי בשם **לואיס שלפורד** (Louis Shellford). 
+                        ההחלטה העיצובית המעניינת והחריגה ביותר של שלפורד (אשר נשמרה עד היום) הייתה לא למקם את הסמל במרכז השדה הכחול כפי שנהוג ב-90% מדגלי המדינות, אלא ב**קנטון** (הפינה השמאלית העליונה, הקרובה לתורן). הסיבה לכך היא פרקטית ווקסילולוגית: כשהדגל מתנפנף או נופל ללא רוח, החלק הקרוב לתורן תמיד נראה לעין בבירור. ב-1991 בוצע העדכון האחרון שבו המילה "Nevada" נרשמה מתחת לכוכב במקום סביבו.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-nvGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-nvGold">כוכב הכסף והסרט:</h4>
+                        <p class="leading-loose text-lg">מרכז הסמל הוא **כוכב לבן מחומש**. למרות שהוא צבוע לבן על הבד, החוק המדינתי מתייחס אליו מפורשות כ"כוכב כסף" (Silver Star), המייצג את גאוותה של נבאדה כמדינת הכסף ואת העושר שאפשר את הקמתה. מעליו, סרט צהוב-זהוב קורא בגאון **"Battle Born"** (ילידת קרב) – תזכורת חקוקה לכך שהמדינה קמה מתוך להבות מלחמת האזרחים האמריקאית.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-nvSage shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-nvSage">זר פרחי המרווה (Sagebrush):</h4>
+                        <p class="leading-loose text-lg">שני ענפים היוצרים חצי-זר חובקים את הכוכב והמילה נבאדה מלמטה. אלו הם ענפי **המרווה המדברית** (Sagebrush - Artemisia tridentata) – פרח המדינה הרשמי. צמח עקשן זה בעל הגוון הירוק-אפרפר צומח בכל רחבי המדבריות של נבאדה. הוא מסמל הישרדות, יובש, ואת נופיה האייקוניים והפתוחים של המדינה הארצית והחספוסת.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Nevada Historical Society (NHS):</p>
+                    <p>"The Etymology of Nevada: Snow in the Desert". תיעוד ההחלטה מ-1864 לקרוא למדינה על שם רכס הסיירה נבאדה (למרות שהרכס שוכן ברובו בקליפורניה) ודחיית השמות המקומיים Washoe ו-Esmeralda.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">The Donner Summit Historical Society:</p>
+                    <p>"The Tragedy of the Donner Party". ארכיון המתעד את המעבר דרך המדבריות הקשוחים של צפון נבאדה, אשר עיכבו את השיירה והובילו ללכידתה בשלגי ההרים בחורף של 1846.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Library of Congress (LOC) - Civil War Telegrams:</p>
+                    <p>"William Stewart, the Comstock Lode, and Statehood". מסמכים המתארים את הקשר ההדוק בין אישור החוקה בטלגרף של 4,300$ לבין הצורך של אברהם לינקולן בכסף ובקולות מנבאדה לקראת ביטול העבדות.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">University of Nevada, Las Vegas (UNLV) Special Collections:</p>
+                    <p>"The Invention of the All-You-Can-Eat Buffet". ההיסטוריה הכלכלית-קולינרית של הרב מקדונלד וה"באקארו בופה" ב-El Rancho Vegas שנועד למקסם שעות הימורים בקזינו ב-1946.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"Louis Shellford and the Evolution of the Nevada Flag". הניתוח ההרלדי המסביר את ההחלטה למקם את סמל ה'Battle Born' בקנטון במקום במרכז הדגל, לטובת זיהוי בעת נפילת הבד בתורן.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-nvBlue rounded-full shadow-[0_0_15px_rgba(0,38,100,0.6)]"></div>
+                <div class="w-6 h-6 bg-nvSilver rounded-full shadow-[0_0_15px_rgba(192,192,192,0.6)]"></div>
+                <div class="w-6 h-6 bg-nvSage rounded-full shadow-[0_0_15px_rgba(140,157,112,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
