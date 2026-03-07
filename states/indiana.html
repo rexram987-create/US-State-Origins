@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>אינדיאנה - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        inBlue: '#000F5D', /* Indiana Flag Blue */
+                        inGold: '#D59F0F', /* Indiana Flag Gold */
+                        inCorn: '#FCD116'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-inGold font-black text-2xl mb-5 underline italic decoration-inGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-inBlue relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">אינדיאנה</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Indiana - The Hoosier State</p>
+                <div class="h-2 w-56 bg-inGold mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(213,159,15,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">11 בדצמבר, 1816</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-19 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: האירוניה הטרגית של השם
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    השם "אינדיאנה" הוא אולי השם בעל האירוניה ההיסטורית הצורבת ביותר בארצות הברית. הוא אינו מבוסס על מילה ילידית מקורית, אלא על טעות הניווט המפורסמת של כריסטופר קולומבוס משנת 1492, בשילוב עם תחיקה אמריקאית אכזרית.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Indian -->
+                    <div class="etymology-box border-inBlue">
+                        <p class="text-inBlue font-black text-5xl mb-6 italic tracking-tighter">Indian</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> המילה הספרדית *Indio*, שמקורה במילה הלטינית/יוונית *Indos* (המתייחסת לנהר האינדוס שבהודו).</p>
+                            <p><strong>ניתוח היסטורי:</strong> קולומבוס סבר שהגיע לאיי הודו המזרחית (אסיה), ולכן כינה את תושבי היבשת המקומיים "אינדיאנים" (Indians). כינוי שגוי זה השתרש לחלוטין בשפות האירופאיות כשם קיבוצי לכל עמי צפון ודרום אמריקה.</p>
+                        </div>
+                    </div>
+
+                    <!-- -ana -->
+                    <div class="etymology-box border-inGold">
+                        <p class="text-inGold font-black text-5xl mb-6 italic tracking-tighter">-ana</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> סיומת לטינית עתיקה המשמשת ליצירת שמות תואר או שיוך גיאוגרפי.</p>
+                            <p><strong>משמעות מילולית:</strong> "ארץ של..." או "מקום השייך ל...".</p>
+                            <p><strong>הסינתזה המלאה (Indiana):</strong> התרגום המילולי הוא <span class="text-white font-bold underline decoration-inGold">"ארץ האינדיאנים"</span>. השם ניתן לראשונה בשנת 1768 לחברת סחר (חברת הקרקעות אינדיאנה), ולאחר מכן בשנת 1800 הוענק על ידי הקונגרס האמריקאי לטריטוריה הענקית שפוצלה מהטריטוריה הצפון-מערבית. האירוניה האכזרית היא שהשם "ארץ האינדיאנים" אומץ וקובע בדיוק בתקופה שבה הממשל האמריקאי החל במערכה הצבאית המאסיבית לגירושם, חיסולם, ועקירתם של שבטי השוני, המיאמי והדלאוור מאותה "ארץ" בדיוק, כדי לפנות מקום למתיישבים לבנים.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-inBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: הכובש ומאבק הדמים מול טקומסה
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- ג'ורג' רוג'רס קלארק -->
+                <div class="personality-card border-r-8 border-inBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-inBlue decoration-4 underline-offset-8">הכובש וההוגה האסטרטגי: ג'ורג' רוג'רס קלארק (George Rogers Clark)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1752–1818. <strong>תואר היסטורי:</strong> כובש הטריטוריה הצפון-מערבית במלחמת העצמאות.</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-inGold">ילדות ורקע בספר (Frontier):</h4>
+                            <p class="leading-loose">קלארק נולד בווירג'יניה, לא הרחק מאחוזתו של ג'ורג' וושינגטון. בניגוד לאחיו הצעיר וילאם קלארק (ממשלחת לואיס וקלארק המפורסמת), ג'ורג' היה איש צבא קשוח שהתחנך כמוריד-קרקעות ומודד (Surveyor). הוא גדל בעולם של התנגשויות אלימות על גבולות, והפך למומחה בהישרדות בטבע ובטקטיקות לוחמה זעירה.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-inGold">אידיאולוגיה - העורף האמריקאי כמרכז כובד:</h4>
+                            <p class="leading-loose">האידיאולוגיה של קלארק במהלך מלחמת העצמאות הייתה מהפכנית גיאופוליטית: הוא טען שהבריטים לא יובסו רק בבוסטון ובניו יורק, אלא יש לעקור את שליטתם במימי המערב (אגן אוהיו והמיסיסיפי). הוא האמין ששליטה בטריטוריה שממערב לאפלצ'ים היא המפתח לקיומה של אימפריה אמריקאית עצמאית, ולשם כך היה מוכן להילחם מלחמת חורמה בבריטים ובבני בריתם האינדיאנים.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-inGold">הישגים מכוננים - לכידת פורט סאקוויל (1779):</h4>
+                            <p class="leading-loose">בפברואר 1779, קלארק הוביל כוח קטן של כמאה חיילי מיליציה רעבים וקופאים למסע התאבדות של למעלה מ-300 קילומטרים דרך ביצות ואדמות מוצפות בחורף. הם הגיעו לעיירה **וינסנס (Vincennes)** שבאינדיאנה, והפתיעו את חיל המצב הבריטי (בפיקוד המושל הנרי המילטון) במבצר סאקוויל. באמצעות לוחמה פסיכולוגית ורעש רב שהסווה את מספרם הזעום, קלארק אילץ את הבריטים להיכנע. ניצחון מזהיר זה אבטח את כל השטח שהפך מאוחר יותר לאינדיאנה ואילינוי בידי ארצות הברית החדשה.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ויליאם הנרי הריסון -->
+                <div class="personality-card border-r-8 border-inGold shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-inGold decoration-4 underline-offset-8">המושל, הנשיא ועוקר השבטים: ויליאם הנרי הריסון (William Henry Harrison)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1773–1841. <strong>מעמד:</strong> המושל הראשון של טריטוריית אינדיאנה והנשיא ה-9 של ארה"ב.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-inBlue">רקע אריסטוקרטי ומסלול צבאי:</h4>
+                            <p class="leading-loose">הריסון נולד לאחת ממשפחות האצולה העשירות והוותיקות בווירג'יניה (אביו חתם על הכרזת העצמאות). למרות שניסה ללמוד רפואה בפנסילבניה, חוסר משאבים לאחר מות אביו אילץ אותו להתגייס לצבא. הוא הוצב בטריטוריה הצפון-מערבית, לחם נגד הילידים בקרב "העצים הגדועים", ובשנת 1800 מונה על ידי הנשיא ג'ון אדמס כמושל הראשון של "טריטוריית אינדיאנה".</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-inBlue">אידיאולוגיה קולוניאלית - חוזים וגירוש מוסדר:</h4>
+                            <p class="leading-loose">האידיאולוגיה של הריסון כמושל תאמה במדויק את המדיניות של תומאס ג'פרסון (Manifest Destiny מוקדם). המטרה הייתה להשיג חזקה על אדמות האינדיאנים באמצעות "חוזים" משפטיים מפוקפקים. הריסון ניצל חולשות מנהיגותיות, חובות ומחלות של השבטים כדי לאלץ אותם לחתום על ויתור של מיליוני אקרים של אדמה יקרה, כדי להפוך את אינדיאנה לחקלאית ולבנה.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-inBlue">ההישג המכונן - קרב טיפקאנו (Battle of Tippecanoe, 1811):</h4>
+                            <p class="leading-loose">מדיניות הדחיקה של הריסון הובילה להתקוממות ילידית אדירה בהנהגת הצ'יף המבריק **טקומסה** (Tecumseh) משבט השוני, ואחיו "הנביא". הם הקימו קונפדרציה אינדיאנית רב-שבטית בניסיון נואש לעצור את האמריקאים. בנובמבר 1811, כשטקומסה לא היה נוכח, הריסון צעד עם צבאו אל "עיר הנביא" (Prophetstown) סמוך לנהר הטיפקאנו באינדיאנה. הקרב שהתחולל הסתיים בניצחונו של הריסון ושריפת העיר כליל. ניצחון זה ריסק את ההתנגדות המאורגנת האחרונה של הילידים באגן אוהיו, פתח את אינדיאנה להפיכתה למדינה ב-1816, והפך את הריסון לגיבור לאומי (מה שהוביל אותו בסופו של דבר לנשיאות עם הסיסמה "Tippecanoe and Tyler Too").</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: ציפור שיר ומלחמת השניצלים
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-inBlue">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-inBlue">ציפור המדינה: הקרדינל הצפוני (Northern Cardinal)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">חיית המדינה הרשמית (אומץ ב-1933)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        לאינדיאנה אין יונק מדינתי רשמי, והסמל החי המובהק ביותר שלה בחוק הוא ה**קרדינל הצפוני** (Cardinalis cardinalis). זוהי ציפור השיר האייקונית של המערב התיכון והדרום האמריקאי, הידועה בנוצותיה האדומות העזות והבוהקות של הזכר (הנקבה היא חומה-אדמדמה) ובבלורית (Crest) שעל ראשה.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        באינדיאנה, בחירת הקרדינל כסמל מייצגת את האתוס החקלאי והחורפי של המדינה. הקרדינלים הם ציפורים יציבות – בניגוד לציפורים אחרות שנודדות דרומה (כמו הדנאית באילינוי), הקרדינל נשאר באינדיאנה גם לאורך החורפים האכזריים והמושלגים ביותר של המערב התיכון. הופעתו של כתם אדום בוהק בתוך שממת שלג לבנה הפכה לסמל לעקשנות, לתקווה ולהישרדות החקלאי (ה"הוז'ר") בעונות הקשות.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-inGold">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-inGold">המנה הלאומית: פאי קרם-סוכר (Hoosier Pie) ופילה חזיר מטוגן</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מאכלי הישרדות שהפכו לאגדות גסטרונומיות</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של אינדיאנה מושתתת על פשטות חקלאית וחוסר יומרה, והיא מתגאה בשני סמלים המייצגים את פועלי האדמה של האומה.
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-inGold">פאי קרם-סוכר (Sugar Cream Pie / Hoosier Pie):</span> בשנת 2009, הוכרז פאי זה רשמית כפאי המדינתי. זוהי "פשטידת ייאוש" קלאסית (Desperation pie) מתקופת מתיישבי הקווייקרים (Shakers וה-Amish). מאחר ולעיתים קרובות בחורף לא היו תפוחים, פירות יער או פקאנים טריים, הנשים המציאו קינוח מחומרי הגלם הזולים ביותר שתמיד היו במזווה החווה: סוכר, שמנת, חמאה וקמח. הכל עורבב לעיסה חלקה ונאפה עד שהתקשה לכדי קרם מתוק ועשיר, ללא פירות כלל. הפאי מסמל את החסכנות (Thriftiness) ויכולת האלתור של תושבי אינדיאנה.</li>
+                        <li><span class="text-white font-bold underline decoration-inBlue">ה"מלחמה" על פילה החזיר המטוגן (Breaded Pork Tenderloin):</span> כפי שראינו בתיק של מדינת איווה (Iowa), היא טוענת לבעלות על ה-BPT (כריך שניצל חזיר עצום). אולם, ההיסטוריה והאקדמיה נוטות להעניק את זכות הראשונים ל**אינדיאנה**. התיעוד הכתוב הראשון להגשת הכריך הזה, שבו בשר החזיר דפוק דק מאוד, מטוגן וגולש מחוץ ללחמנייה, שייך למסעדת **Nick's Kitchen** בעיירה הנטינגטון, אינדיאנה, בשנת 1908. המנה מהווה עד היום את ה"גביע הקדוש" של הפאבים באינדיאנה ואת סמל תעשיית החזירים המקומית.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-inBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: התעלומה והזהות האבודה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Hoosier State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-inBlue shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Hoosier State (מדינת ההוּזְ'ר)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">התעלומה האטימולוגית הגדולה של אמריקה</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            בעוד תושב אוהיו הוא "באקאיי" ותושב טקסס הוא טקסני, תושב אינדיאנה נקרא פשוט **Hoosier**. זהו הכינוי המקומי החזק והנפוץ ביותר בארצות הברית שאינו מבוסס על גיאוגרפיה, ועד היום <strong class="text-white">איש אינו יודע בוודאות מאין הוא בא</strong>. <br>
+                            ישנן עשרות תיאוריות פנומנולוגיות:
+                            1. **תיאוריית "מי שם?":** כשמתיישב היה דופק על דלת בקתה ביער, היו עונים לו במבטא דרומי כבד "Who's yere?" (מי כאן/שם?), שנשמע כמו "Hoosier".
+                            2. **הבריון:** המונח הסלאנגי העתיק "Husher", שתיאר אדם חזק המסוגל "להשתיק" אנשים בקטטת ברים כפרית.
+                            3. **קבלן חופר תעלות:** קבלן בשם סמואל הוזייר (Samuel Hoosier) שהעדיף לשכור פועלים מאינדיאנה לעבודות כפיים קשות, ולכן הם כונו "האנשים של הוזייר".<br>
+                            לא משנה מהו המקור האמיתי, המילה "הוז'ר" הפכה למותג המסמל פשטות, עבודה קשה, גאווה כפרית, וחוסר יומרה אליטיסטית (תכונות שזוקקו בסרט הקולנוע המפורסם על קבוצת הכדורסל, "Hoosiers").
+                        </p>
+                    </div>
+
+                    <!-- Crossroads of America -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-inGold shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-inGold">Crossroads of America</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">צומת הדרכים האמריקאית</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            המוטו הרשמי של המדינה (אומץ ב-1937). הוא מתאר עובדה גיאוגרפית ולוגיסטית: אינדיאנה, ובירתה אינדיאנפוליס, מהווה את צומת התחבורה הקריטי ביותר במערב התיכון. מספר חסר תקדים של כבישים בין-מדינתיים (Interstates) חוצים דרכה מזרח-מערב וצפון-דרום. משמעות נוספת פנומנולוגית: אינדיאנה היא המקום שבו הצפון התעשייתי (אזור אגמי מישיגן) פוגש את הדרום החקלאי ואת מורשת העבדות והחוות (השוכנת בחלקה הדרומי של המדינה), מה שהופך אותה ל"מיקרוקוסמוס" של אמריקה כולה. במדינה זו גם התפתחה תרבות מוטורית מפוארת שהולידה את מרוץ המכוניות המפורסם בעולם: ה**אינדי 500 (Indy 500)**.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-inBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: לפיד החירות ו-19 הכוכבים
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל אינדיאנה ב-CSS -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#000F5D] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col items-center justify-center p-4 group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/20 pointer-events-none z-20"></div>
+                    
+                    <div class="relative transform transition-transform duration-700 group-hover:scale-105 z-10 flex flex-col items-center">
+                        
+                        <!-- Golden Torch and Rays -->
+                        <div class="relative flex flex-col items-center">
+                            <!-- Rays of light -->
+                            <div class="absolute w-[180%] h-[180%] top-[-40%] flex justify-center">
+                                <div class="w-1 h-full bg-[#D59F0F] rotate-45 transform origin-bottom opacity-70"></div>
+                                <div class="w-1 h-full bg-[#D59F0F] -rotate-45 transform origin-bottom opacity-70"></div>
+                                <div class="w-1 h-full bg-[#D59F0F] rotate-[20deg] transform origin-bottom opacity-70"></div>
+                                <div class="w-1 h-full bg-[#D59F0F] -rotate-[20deg] transform origin-bottom opacity-70"></div>
+                                <div class="w-1 h-full bg-[#D59F0F] rotate-[65deg] transform origin-bottom opacity-70"></div>
+                                <div class="w-1 h-full bg-[#D59F0F] -rotate-[65deg] transform origin-bottom opacity-70"></div>
+                            </div>
+                            
+                            <!-- The Torch -->
+                            <div class="text-[#D59F0F] text-7xl z-10 drop-shadow-[0_0_15px_rgba(213,159,15,0.8)]">🗽</div> <!-- Liberty torch visual -->
+                            
+                            <!-- The word INDIANA -->
+                            <div class="text-[#D59F0F] font-black text-xl tracking-[0.4em] uppercase mt-2 z-10 drop-shadow-md">
+                                INDIANA
+                            </div>
+                        </div>
+
+                        <!-- Outer and Inner Stars (Simulation) -->
+                        <div class="absolute w-64 h-64 border border-transparent rounded-full flex items-center justify-center">
+                            <!-- Represents the 13 outer stars -->
+                            <div class="absolute top-0 text-[#D59F0F] text-xs">★</div>
+                            <div class="absolute bottom-0 text-[#D59F0F] text-xs">★</div>
+                            <div class="absolute left-0 text-[#D59F0F] text-xs">★</div>
+                            <div class="absolute right-0 text-[#D59F0F] text-xs">★</div>
+                        </div>
+                        
+                        <!-- 19th Star -->
+                        <div class="absolute -top-12 text-[#D59F0F] text-3xl drop-shadow-md">★</div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    לפיד הנאורות המוזהב <br><span class="text-xl font-medium text-slate-500">(עוצב על ידי פול האדלי, 1917)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-inBlue shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-inBlue decoration-4">נסיבות היצירה - תחרות המאה (1916):</h3>
+                    <p class="text-xl leading-loose">
+                        לקראת חגיגות שנת ה-100 להיווסדות המדינה (Centennial) בשנת 1916, הבחינו פוליטיקאים שאין להם דגל רשמי להניף בחגיגות. האסיפה הכללית של אינדיאנה הציעה פרס יוקרתי של 100 דולר לעיצוב הזוכה. מי שהגיש את העיצוב המנצח היה אמן ומורה מאינדיאנפוליס בשם **פול האדלי** (Paul Hadley). העיצוב שלו התקבל בזכות המסר הברור, הפשטות והאלגנטיות שלו. הדגל אומץ רשמית בחוק במאי 1917. בשנת 1955, הוחלט בחוק למרכז את הכוכבים במדויק ולתקן את גווני הכחול (הכחול מוגדר במפורש כ-Dark Blue).
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-inGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-inGold">לפיד החירות והנאורות:</h4>
+                        <p class="leading-loose text-lg">במרכז הדגל הכחול עומד לפיד זהב שבוער באור יקרות. הלפיד אינו קשור למלחמה, אלא מסמל, על פי חוק המדינה וכוונת המעצב, את החירות האמריקאית (Liberty) ואת ה**נאורות** (Enlightenment). קרני האור קורנות ממנו לכל עבר ומפזרות את ההשכלה, המסחר והחופש ברחבי המערב התיכון החשוך לשעבר.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">מתמטיקה של 19 כוכבים:</h4>
+                        <p class="leading-loose text-lg">הדגל מהווה שיעור בהיסטוריה האמריקאית באמצעות מיקום כוכבים. ישנם בסך הכל **19 כוכבים מזהב**:
+                        1. המעגל החיצוני מונה **13 כוכבים** (המייצגים את 13 המושבות המקוריות).
+                        2. חצי המעגל הפנימי מונה **5 כוכבים** (המייצגים את 5 המדינות הבאות שהצטרפו לאיחוד).
+                        3. ממש מעל הלפיד, ניצב בגאווה **הכוכב הגדול ביותר – הכוכב ה-19**, המייצג את כניסתה של אינדיאנה עצמה אל האיחוד.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Indiana Historical Bureau (IHB):</p>
+                    <p>"The Word 'Hoosier' and Its Origins". מסמך אקדמי המרכז את כל התיאוריות הפילולוגיות (מהבריון 'Husher' ועד לשאלה 'Who's Here') הנוגעות לכינוי המדינה.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Indiana State Museum and Historic Sites:</p>
+                    <p>"William Henry Harrison, Tecumseh, and the Battle of Tippecanoe". מחקר המתעד את המאבק הגיאופוליטי באגן אוהיו, כריתת החוזים והשמדת 'עיר הנביא' שהובילו לייסוד אינדיאנה.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Indiana Foodways Alliance:</p>
+                    <p>"The History of the Hoosier Pork Tenderloin Sandwich". תיעוד קולינרי מ-1908 המגבה את טענתה של אינדיאנה לבעלות (על פני איווה) על המצאת כריך פילה החזיר במסעדת Nick's Kitchen.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">George Rogers Clark National Historical Park (NPS):</p>
+                    <p>"The Capture of Fort Sackville (1779)". ביוגרפיה היסטורית על חזון הכיבוש המערבי של קלארק ואומץ הלב של המיליציות במסע החורף לוינסנס.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"Paul Hadley and the 1916 Centennial Flag Design". סקירת משמעות ההשכלה בלפיד החירות והסידור המתמטי של 19 הכוכבים.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-inBlue rounded-full shadow-[0_0_15px_rgba(0,15,93,0.6)]"></div>
+                <div class="w-6 h-6 bg-inGold rounded-full shadow-[0_0_15px_rgba(213,159,15,0.6)]"></div>
+                <div class="w-6 h-6 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
