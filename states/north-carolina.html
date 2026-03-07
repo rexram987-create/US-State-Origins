@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>קרוליינה הצפונית - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        ncBlue: '#002868',    /* NC Flag Blue */
+                        ncRed: '#BF0A30',     /* NC Flag Red */
+                        tarHeel: '#4B9CD3'    /* Carolina Blue (Tar Heel) */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-tarHeel font-black text-2xl mb-5 underline italic decoration-tarHeel/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-tarHeel relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">קרוליינה הצפונית</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">North Carolina - The Tar Heel State</p>
+                <div class="h-2 w-56 bg-tarHeel mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(75,156,211,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">21 בנובמבר, 1789</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-12 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות מלכותית ואדמת האדם החופשי
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    האטימולוגיה של קרוליינה הצפונית זהה לחלוטין לאחותה הדרומית, שכן במשך עשורים ארוכים הן היו ישות קולוניאלית אחת ענקית. השם נגזר ישירות מלטינית כביטוי של נאמנות לכתר האנגלי, אך הפיצול בין הצפון לדרום (1712) משקף פערים סוציולוגיים עמוקים.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Carolus -->
+                    <div class="etymology-box border-ncBlue">
+                        <p class="text-ncBlue font-black text-5xl mb-6 italic tracking-tighter">Carolus</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> לטינית (מקור קדום יותר: גרמאנית עתיקה - *Karlaz*).</p>
+                            <p><strong>משמעות מילולית:</strong> התרגום הלטיני לשם האנגלי Charles (צ'ארלס/קרל). המשמעות הגרמאנית המקורית היא "אדם חופשי" (Freeman).</p>
+                            <p><strong>היסטוריה:</strong> השם ניתן במקור בשנת 1629 כמחווה למלך צ'ארלס הראשון, ואושרר ב-1663 על ידי בנו צ'ארלס השני כאות תודה ל"לורדים הבעלים" (Lords Proprietors) שתמכו בהשבתו לכס המלוכה באנגליה.</p>
+                        </div>
+                    </div>
+
+                    <!-- הפיצול הצפוני -->
+                    <div class="etymology-box border-tarHeel">
+                        <p class="text-tarHeel font-black text-5xl mb-6 italic tracking-tighter">North (הפיצול)</p>
+                        <div class="space-y-4">
+                            <p><strong>הסינתזה המלאה (North Carolina):</strong> "חלקה הצפוני של ארץ צ'ארלס". </p>
+                            <p><strong>ניתוח מחקרי של הפיצול (1712):</strong> הפער בין הצפון לדרום לא היה רק גיאוגרפי. קרוליינה הדרומית התפתחה כחברת אליטות אריסטוקרטית (סביב נמל צ'ארלסטון העמוק), המבוססת על מטעי אורז עצומים ועבדות מסיבית. לעומתה, **קרוליינה הצפונית** הייתה חבל ארץ מחוספס, מנותק וקשה לגישה (בשל שרטונות ה-Outer Banks המסוכנים שמנעו כניסת אוניות גדולות). התיישבו בה חוואים עצמאיים עניים יותר, מגדלי טבק, סקוטיים-אירים פליטים ופורעי חוק. הניתוק הפיזי והכלכלי הוביל להפרדה רשמית של המושבות ב-1712, ויצר לצפון זהות "צווארון כחול" (Blue-collar) מובהקת לעומת הדרום האליטיסטי.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-tarHeel text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: צייר האשליות ומלך הפיראטים
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- ג'ון וייט -->
+                <div class="personality-card border-r-8 border-ncBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-ncBlue decoration-4 underline-offset-8">ההוגה, הצייר והמושל הטרגי: ג'ון וייט (John White)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1540(בערך)–1593. <strong>מעמד:</strong> מושל "המושבה האבודה" רואנוק (Roanoke).</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-tarHeel">ילדות ורקע - האמן של העולם החדש:</h4>
+                            <p class="leading-loose">ג'ון וייט לא היה איש צבא, אלא צייר ומאייר אנגלי מוכשר. הוא נשלח לחופי קרוליינה הצפונית (אז נקראה וירג'יניה) בשנת 1585 כדי לתעד את החיים בעולם החדש. ציורי המים שלו – המתארים את כפרי הילידים (שבט הסקוטאן), מנהגיהם, לבושם וטכניקות הדיג שלהם – היו הדימויים המדויקים היחידים שאירופה ראתה מילידי אמריקה במשך עשרות שנים, והיוו את מסע יחסי הציבור הראשון לאמריקה.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-tarHeel">אידיאולוגיה - התיישבות אזרחית קבועה:</h4>
+                            <p class="leading-loose">בשנת 1587 מונה וייט למושל המושבה האנגלית הראשונה בצפון אמריקה – באי רואנוק (כיום בקרוליינה הצפונית). האידיאולוגיה של המשלחת לא הייתה בסיס צבאי, אלא **קהילה יצרנית**: היא כללה נשים וילדים (שם נולדה נכדתו, **וירג'יניה דייר**, הילדה האנגלית הראשונה באמריקה). הוא האמין שניתן לקיים את המושבה באמצעות סחר שליו וחקלאות מול הילידים.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-tarHeel">הטרגדיה המכוננת - המושבה האבודה (1590):</h4>
+                            <p class="leading-loose">עקב מחסור חמור באספקה, וייט נאלץ להפליג חזרה לאנגליה. מלחמת אנגליה-ספרד (הארמדה הספרדית) מנעה ממנו לחזור במשך שלוש שנים ארוכות. כאשר נחת לבסוף ברואנוק ב-1590 ביום הולדתה של נכדתו, הוא מצא את המושבה נטושה לחלוטין. 115 האנשים נעלמו כאילו נבלעו באדמה. הרמז היחיד היה המילה המסתורית <span class="highlight-text">"CROATOAN"</span> חקוקה על עץ. התעלומה מעולם לא נפתרה באופן רשמי, והיא העניקה לחוף קרוליינה הצפונית הילה של מסתורין וסכנה.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- אדוארד טיץ' (שחור הזקן) -->
+                <div class="personality-card border-r-8 border-ncRed shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-ncRed decoration-4 underline-offset-8">ברון הים ומלך הפיראטים: אדוארד טיץ' "שחור הזקן" (Blackbeard)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1680(בערך)–1718. <strong>מעמד:</strong> הפיראט המפורסם בהיסטוריה, שפעל מול חופי המדינה.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-ncRed">רקע והאוטונומיה של ה-Outer Banks:</h4>
+                            <p class="leading-loose">קרוליינה הצפונית התאפיינה בשרשרת איים מסוכנת (The Outer Banks) עם מפרצונים רדודים וסוערים, שכונתה "בית הקברות של האוקיינוס האטלנטי". גיאוגרפיה זו הייתה אידיאלית לפיראטים שהסתתרו מספינות מלחמה גדולות. אדוארד טיץ', ימאי אנגלי שהפך לפיראט קטלני, קבע את בסיס האם המרכזי שלו באי **אוקרקוק (Ocracoke)** שבקרוליינה הצפונית. שם, בחסות העלמת העין (ואף השיתוף פעולה) של מושל קרוליינה הצפונית המושחת צ'ארלס אידן, טיץ' ניהל למעשה ישות ימית אוטונומית.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-ncRed">אידיאולוגיה - לוחמה פסיכולוגית (Terror Theater):</h4>
+                            <p class="leading-loose">"שחור הזקן" כמעט ולא הרג שבויים אם נכנעו מיד. האידיאולוגיה שלו הייתה "טרור תיאטרלי". לפני פשיטה על ספינה, הוא היה קולע פתילים בוערים מעשנים לתוך זקנו העצום, חוגר חגורות עם שישה אקדחים טעונים, ומופיע מתוך ענן העשן כשד מהגיהנום. הפחד הפסיכולוגי הזה שיתק צוותים שלמים וגרם להם להיכנע ללא ירייה אחת.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-ncRed">הקרב האחרון באוקרקוק (1718):</h4>
+                            <p class="leading-loose">שחור הזקן הטיל מצור ימי על נמל צ'ארלסטון, מה שגרם למושל קרוליינה הדרומית לפנות למושל וירג'יניה, ששלח את לוטננט מיינרד לחסל אותו. בקרב עקוב מדם במפרץ אוקרקוק בקרוליינה הצפונית, שחור הזקן נורה ונדקר מעל 20 פעם בטרם נפל. ראשו נכרת ונתלה על חרטום ספינתו של מיינרד. מותו סימן את תחילת סוף "תור הזהב של הפיראטיות" באמריקה, והפך לחלק בלתי נפרד מהזהות של חופי קרוליינה הצפונית.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: כלב הדובים ומלחמת הברביקיו
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-ncBlue">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-ncBlue">כלב המדינה: פלוט האונד (Plott Hound)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">כלב המדינה הרשמי - גאווה הררית של המהגרים (אומץ ב-1989)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        ה"פלוט האונד" הוא ייחודי לחלוטין: זהו אחד מכלבי הציד (Coonhounds) הבודדים בעולם שלא נוצר מתערובת של כלבי ציד אנגליים, אלא פותח בבידוד מוחלט בהרי האפלצ'ים של **מערב קרוליינה הצפונית**.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        בשנת 1750, היגר לאזור צעיר גרמני בשם **יוהנס פלוט** (Johannes Plott), והביא עמו חמישה כלבי האנובר ציידי-חזירי-בר גרמניים (Hanoverian Schweisshund). כשהתיישב בהרי הסמוקי (Smoky Mountains), פלוט גילה שהדוב השחור האמריקאי הוא הטורף והמטרד המרכזי לחקלאות ולבקר. משפחת פלוט בודדה את הגזע והרביעה את הכלבים הללו במשך דורות (במשך למעלה מ-200 שנה!) במיוחד עבור מטרה אחת: **ציד דובים שחורים וחזירי בר**.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        הכלב שנוצר הוא מחוספס, עקשן, נאמן ללא גבול לבעליו, ואמיץ מספיק כדי להעמיד דוב שוקל 200 ק"ג בפינה מבלי להירתע. ב-1989, המדינה אימצה אותו רשמית כסמל לעקשנות ההררית, למסורת ההגירה הגרמנית, ולמיומנויות ההישרדות של חקלאי ההרים של קרוליינה הצפונית.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-ncRed">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-ncRed">המנה הלאומית (דת מקומית): הברביקיו של מזרח קרוליינה</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">המקור הטהור ביותר של הברביקיו האמריקאי</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        בקרוליינה הצפונית, ברביקיו אינו סתם שיטת בישול; זוהי דת המפלגת את המדינה לשני אזורים תרבותיים, כאשר המסורת של **המזרח (Eastern NC BBQ)** נחשבת לאבן השואבת ההיסטורית של המטבח הדרומי כולו.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        הכלל הראשון והיחיד של ברביקיו בקרוליינה הצפונית: **זה תמיד חזיר (Pork)**, מעולם לא בקר. המסורת המזרחית מבוססת על שיטת עבדי המטעים האפריקאים: צליית **חזיר שלם (Whole Hog)** במשך חצי יממה מעל בור גחלי עץ היקורי או אלון. לאחר הצלייה, הבשר נקצץ כולו יחד (חלקים רכים ושמנים, עם חתיכות של עור פריך שנקרא Cracklin').
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        הסממן הפנומנולוגי הטהור ביותר של מזרח קרוליינה הצפונית הוא **הרוטב**: הוא אינו מכיל טיפת קטשופ או עגבניות. זהו רוטב פשוט, דליל וחריף המורכב אך ורק מ**חומץ סיידר תפוחים, פלפל חריף אדום גרוס, מלח ופלפל**. החומץ חותך את השומניות הכבדה של החזיר השלם. המנה מוגשת מסורתית עם סלט כרוב (Coleslaw) שמונח ישירות בתוך לחמניית הברביקיו, ולצידה "Hushpuppies" (כדורי קמח תירס מטוגנים). במערב המדינה (אזור לקסינגטון), משתמשים רק בכתף החזיר ומוסיפים מעט קטשופ לרוטב – סטייה שמזרח המדינה מתייחס אליה ככפירה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-tarHeel text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: עקבי זפת וכנפיים ברוח
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Tar Heel State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-ncBlue shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Tar Heel State (מדינת עקבי הזפת)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מיתוג של עקשנות ואלימות צבאית</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי הרשמי של המדינה (והכינוי האייקוני של אוניברסיטת קרוליינה הצפונית - UNC), שואב את מקורו מההיסטוריה הכלכלית. במשך מאות שנים, היערות של מישור החוף יצרו תעשייה אדירה של **"ציוד ימי" (Naval Stores)** – תמציות של עץ אורן (זפת, זפת שחורה, ושרף) שהיו קריטיות לאיטום ספינות הצי הבריטי (כדי למנוע ריקבון העץ באוקיינוס). עובדי המדינה נהגו לעבוד יחפים בבורות הזפת, ועקביהם תמיד היו שחורים ודביקים מ**זפת (Tar)**.
+                        </p>
+                        <p class="text-slate-300 leading-loose text-lg mt-4">
+                            הכינוי הפך לפנומנולוגיה של חוסן במהלך **מלחמת האזרחים**. באחד הקרבות הקשים, פלוגה מווירג'יניה נסוגה ונטשה את האגף, בעוד החיילים מקרוליינה הצפונית סירבו לסגת ולחמו עד הסוף. כשנשאלו כיצד החזיקו מעמד, ענו החיילים בציניות: <span class="italic text-white">"מרחנו זפת על העקבים שלנו כדי להידבק לאדמה"</span>. כשהגנרל רוברט א. לי שמע זאת, הוא אמר: <span class="font-bold text-white">"God bless the Tar Heel boys!"</span>, והכינוי הפך לאות גבורה וכבוד לאומי של חוסר נסיגה מול איומים.
+                        </p>
+                    </div>
+
+                    <!-- First in Flight -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-tarHeel shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-tarHeel">First in Flight (ראשונים בטיסה)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">ניכוס הישג אוניברסלי לתנאי שטח מקומיים</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי המופיע על לוחיות הרישוי מתגאה באירוע ששינה את האנושות: הטיסה הממונעת הראשונה בהיסטוריה של **האחים רייט ב-17 בדצמבר 1903**. למרות שהאחים רייט היו מאוהיו (שמכנה את עצמה כזכור "מקום הולדתה של התעופה"), קרוליינה הצפונית מנכסת לעצמה את ההישג בזכות ה**אקולוגיה שלה**. האחים רייט בחרו בעיירת החוף המבודדת **קיטי הוק (Kitty Hawk)** ב-Outer Banks במיוחד בגלל שני דברים שרק היא יכלה להציע: רוחות קבועות וחזקות מהאוקיינוס שסיפקו עילוי, ודיונות חול רכות שהגנו עליהם מפני התרסקויות קטלניות בזמן הניסויים. הטיסה לא הייתה מתרחשת ללא המאפיינים הפיזיקליים של המדינה.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-ncBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: הדגל של המורדים הראשונים בעולם
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל קרוליינה הצפונית ב-CSS -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-white rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex group p-4">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-black/20 pointer-events-none z-20"></div>
+                    
+                    <!-- Vertical Blue Stripe -->
+                    <div class="w-1/3 h-full bg-[#002868] relative flex flex-col items-center justify-center z-10 transition-all duration-700 group-hover:w-[40%]">
+                        <!-- Top Date (May 20, 1775) -->
+                        <div class="text-[#FFC82E] text-[10px] font-black tracking-widest mb-4 border-b-2 border-[#FFC82E] pb-1 w-3/4 text-center">
+                            MAY 20th 1775
+                        </div>
+                        
+                        <!-- Initials and Star -->
+                        <div class="flex items-center gap-2 text-white text-5xl font-black tracking-wider drop-shadow-md">
+                            N <span class="text-4xl">⭐</span> C
+                        </div>
+
+                        <!-- Bottom Date (April 12, 1776) -->
+                        <div class="text-[#FFC82E] text-[10px] font-black tracking-widest mt-4 border-t-2 border-[#FFC82E] pt-1 w-3/4 text-center">
+                            APRIL 12th 1776
+                        </div>
+                    </div>
+
+                    <!-- Horizontal Red and White Stripes -->
+                    <div class="w-2/3 h-full flex flex-col">
+                        <div class="w-full h-1/2 bg-[#BF0A30]"></div>
+                        <div class="w-full h-1/2 bg-white"></div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    דגל התאריכים המורדים <br><span class="text-xl font-medium text-slate-500">(העיצוב המקורי של ג'ונסטון ג'ונס, אומץ ב-1885)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-ncRed shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-ncRed decoration-4">נסיבות היצירה - התנתקות ממורשת הדרום (1885):</h3>
+                    <p class="text-xl leading-loose">
+                        דגל הפרישה המקורי של קרוליינה הצפונית מתקופת מלחמת האזרחים (1861) היה דומה לעיצוב הנוכחי, אך הכיל תאריכים שהנציחו את פרישתה מארצות הברית. בשנת 1885, גנרל לשעבר ופוליטיקאי בשם **ג'ונסטון ג'ונס** (Johnstone Jones) הציע לעצב דגל חדש שיעזור למדינה למחוק את סטיגמת המורדים של מלחמת האזרחים, ולקשור את המדינה בחזרה לגיבורי המהפכה האמריקאית (1776). הוא יצר דגל שעיצובו הושפע עמוקות מדגל טקסס, אך השתמש בצבעי ארה"ב הלאומיים (אדום, לבן, כחול) בסידור של פס אנכי אחד ושני פסים אופקיים.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-ncBlue shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-ncBlue">תאריך העליונות (20 במאי 1775):</h4>
+                        <p class="leading-loose text-lg">במרכז הפס הכחול האנכי, מעל ראשי התיבות NC, חקוק התאריך ה-20 במאי 1775 בסרטים מוזהבים. תאריך זה מייצג את ה**"הצהרת העצמאות של מקלנבורג"** (Mecklenburg Declaration). קרוליינה הצפונית טוענת בגאווה אדירה שתושבי מחוז מקלנבורג הכריזו על עצמאות מוחלטת מאנגליה <strong class="text-white">יותר משנה שלמה לפני הכרזת העצמאות המפורסמת של ה-4 ביולי 1776 בפילדלפיה!</strong> (אף שרוב ההיסטוריונים המודרניים מחוץ למדינה מפקפקים באותנטיות של המסמך, קרוליינה הצפונית חקקה אותו על דגלה לנצח).</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-tarHeel shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-tarHeel">תאריך ההחלטה (12 באפריל 1776):</h4>
+                        <p class="leading-loose text-lg">התאריך התחתון מציין את **"החלטות הליפקס"** (Halifax Resolves). ביום זה, המועצה של קרוליינה הצפונית הייתה המושבה הראשונה שנתנה הוראה רשמית לנציגיה בקונגרס הקונטיננטלי להצביע בעד עצמאות מהכתר הבריטי יחד עם מושבות אחרות. צירוף שני התאריכים בדגל מצהיר וקסילולוגית את האתוס של המדינה: "אנחנו היינו הראשונים למרוד, ואנחנו היינו הראשונים לייסד את האומה – אל תלמדו אותנו מהי פטריוטיות".</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North Carolina Department of Natural and Cultural Resources:</p>
+                    <p>"The Etymology of Carolina and the 1712 Divide". תיעוד התהליך הכלכלי-גיאוגרפי שהוביל להתפצלותה של קרוליינה לחלקים צפוניים (מעמד פועלים וחקלאות קטנה) ודרומיים.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Roanoke Island Historical Association:</p>
+                    <p>"John White and the Lost Colony of 1587". ניתוח יומניו של המושל וייט, ציוריו האנתרופולוגיים, ותעלומת 'CROATOAN' שהותירה את אמריקה המומה.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Southern Foodways Alliance:</p>
+                    <p>"The Great Carolina Barbecue Divide". מחקר אנתרופולוגי-קולינרי הממפה את מסורת צליית חזיר השלם בחומץ במזרח קרוליינה הצפונית, כמקור הטהור של הברביקיו במאה ה-18.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Wright Brothers National Memorial (NPS):</p>
+                    <p>"First in Flight: The Environment of Kitty Hawk". מחקר אווירודינמי המסביר מדוע הדיונות והרוחות של חופי קרוליינה הצפונית היו ההכרח הפיזיקלי להצלחת טיסתם של הרייטס ב-1903.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"The North Carolina State Flag and the Mecklenburg Myth". דיון היסטוריוגרפי סביב חקיקת התאריכים של שנת 1775 על דגל מודרני מ-1885 כטקטיקה למחיקת טראומת מלחמת האזרחים.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-ncBlue rounded-full shadow-[0_0_15px_rgba(0,40,104,0.6)]"></div>
+                <div class="w-6 h-6 bg-tarHeel rounded-full shadow-[0_0_15px_rgba(75,156,211,0.6)]"></div>
+                <div class="w-6 h-6 bg-ncRed rounded-full shadow-[0_0_15px_rgba(191,10,48,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
