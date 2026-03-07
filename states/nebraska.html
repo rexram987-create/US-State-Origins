@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>נברסקה - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        nebBlue: '#002244',   /* Nebraska Flag Blue */
+                        nebRed: '#E51837',    /* Cornhusker Red */
+                        nebGold: '#F2A900',   /* Seal Gold / Wheat */
+                        nebGreen: '#228B22'   /* Arbor Day Green */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-nebGold font-black text-2xl mb-5 underline italic decoration-nebGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-nebRed relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">נברסקה</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Nebraska - The Cornhusker State</p>
+                <div class="h-2 w-56 bg-nebGold mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(242,169,0,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">1 במרץ, 1867</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-37 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות של מים שטוחים
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    שמה של נברסקה הוא אבחנה הידרולוגית מדויקת של עמי המישורים, המתארת את העורק הראשי שחוצה את המדינה. בניגוד לנהרות עמוקים במזרח, נהרות המישורים הגדולים מאופיינים ברדידות יוצאת דופן.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Ñí -->
+                    <div class="etymology-box border-nebBlue">
+                        <p class="text-nebBlue font-black text-5xl mb-6 italic tracking-tighter">Ñí / Ní</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפות האוטו (Otoe) ואומהה-פונקה (Omaha-Ponca), ממשפחת שפות הסיו.</p>
+                            <p><strong>משמעות מילולית:</strong> "מים" (Water) או "נהר".</p>
+                        </div>
+                    </div>
+
+                    <!-- Brásge -->
+                    <div class="etymology-box border-nebGold">
+                        <p class="text-nebGold font-black text-5xl mb-6 italic tracking-tighter">Brásge / Btháska</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפות האוטו ואומהה-פונקה.</p>
+                            <p><strong>משמעות מילולית:</strong> "שטוח", "רדוד" או "רחב".</p>
+                            <p><strong>הסינתזה והקיבוע:</strong> הצירוף <span class="text-white font-bold underline decoration-nebGold">"Ñí Brásge" (נה-בראסקה)</span> מתורגם ל**"מים שטוחים"** (Flat Water). השבטים תיארו בכך את נהר הפלאט (Platte River) – נהר כה רדוד ורחב, עד שהמתיישבים האמריקאים נהגו להתלוצץ עליו שהוא "ברוחב של מייל ובעומק של אינץ', סמיך מכדי לשתות אותו ודליל מכדי לחרוש אותו". הצרפתים תרגמו את השם האינדיאני מילולית לצרפתית וקראו לנהר "Rivière Platte" (הנהר השטוח). אולם, כשהוקמה הטריטוריה ב-1854, הפוליטיקאים האמריקאים העדיפו את הצליל המקורי, השבטי, וקיבעו את השם האנגלי: **Nebraska**.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-nebRed text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: נוטע העצים ואלוף העם
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- ג'יי סטרלינג מורטון -->
+                <div class="personality-card border-r-8 border-nebGreen shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-nebGreen decoration-4 underline-offset-8">ההוגה הסביבתי: ג'וליוס סטרלינג מורטון (J. Sterling Morton)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1832–1902. <strong>מעמד:</strong> שר החקלאות של ארה"ב ומייסד "יום העץ" (Arbor Day).</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-nebGreen">רקע - הגירה לערבה החשופה:</h4>
+                            <p class="leading-loose">מורטון נולד בניו יורק וגדל במישיגן באזורים מיוערים ושופעי עצים. בשנת 1854, לאחר חתונתו, עבר עם אשתו לטריטוריית נברסקה הטרייה והתיישב בנברסקה סיטי. ההלם הגיאוגרפי שלו היה מוחלט: נברסקה הייתה אזור של ערבת דשא נטולת עצים לחלוטין. ללא עצים, רוחות הפרא סחפו את האדמה (סחיפת קרקע), לא היה צל קריר בקיץ, ולא היה עץ לבערה ולבניית בתים בחורף.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-nebGreen">אידיאולוגיה - עיצוב אקולוגי (Geo-engineering):</h4>
+                            <p class="leading-loose">האידיאולוגיה של מורטון, ששימש כעורך העיתון הראשון של נברסקה, הייתה התערבות אקולוגית יזומה. הוא האמין שבני אדם יכולים לשנות את האקלים והחקלאות של המישורים באמצעות נטיעה המונית. הוא דגל בנטיעת חגורות מחסה (Windbreaks) ובוסתנים כדי לשמר לחות באדמה ולמתן את פגעי מזג האוויר עבור החקלאים.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-nebGreen">הישגים מכוננים - חג יום העץ (1872):</h4>
+                            <p class="leading-loose">כמזכיר טריטוריית נברסקה, מורטון הציע למועצת החקלאות לקבוע יום חג מיוחד שיוקדש אך ורק לנטיעת עצים. ב-10 באפריל 1872 צוין **יום העץ (Arbor Day)** הראשון בנברסקה. ההצלחה הייתה בלתי נתפסת: ביום אחד נשתלו ברחבי נברסקה החשופה כמיליון עצים! החזון שלו התפשט במהירות לכל מדינות ארה"ב, ואף הפך לחג בינלאומי. מורטון הוכיח שניתן "לברוא מחדש" את הטבע במערב.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ויליאם ג'נינגס ברייאן -->
+                <div class="personality-card border-r-8 border-nebGold shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-nebGold decoration-4 underline-offset-8">קולו של החקלאי: ויליאם ג'נינגס ברייאן (William Jennings Bryan)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1860–1925. <strong>תואר היסטורי:</strong> "The Great Commoner" (הפשוט הגדול).</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-nebGold">רקע ומוקד הכוח בנברסקה:</h4>
+                            <p class="leading-loose">ברייאן לא נולד בנברסקה, אך עבר אליה (לעיר לינקולן) ב-1887 כדי לפתוח משרד עורכי דין, ובהמשך ייצג אותה בקונגרס. הוא היה נואם אדיר, ששאב את כוחו מהמצוקות האמיתיות של חקלאי נברסקה والמישורים הגדולים. החקלאים הללו סבלו מחובות עצומים לבנקים במזרח ולחברות הרכבת המונופוליסטיות.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-nebGold">אידיאולוגיה - פופוליזם והכסף החופשי:</h4>
+                            <p class="leading-loose">ברייאן הפך לגיבור של התנועה הפופוליסטית והמפלגה הדמוקרטית. האידיאולוגיה הכלכלית העיקרית שלו הייתה **Bimetallism (דו-מתכתיות) / כסף חופשי**. באותה תקופה, הדולר גובה אך ורק על ידי זהב (תקן הזהב), מה שגרם לדפלציה והכביד את נטל החובות על החקלאים בנברסקה. ברייאן דרש שהממשלה תטבע גם מטבעות כסף (Silver), מה שייצור אינפלציה קלה ויאפשר לחקלאים לשלם את חובותיהם לבנקאים העשירים מוול סטריט.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-nebGold">הישגים מכוננים - צלב הזהב (1896):</h4>
+                            <p class="leading-loose">ב-1896, בוועידה הדמוקרטית בשיקגו, נשא ברייאן (אז בן 36 בלבד) את אחד הנאומים המפורסמים בתולדות ארצות הברית - **נאום צלב הזהב** (Cross of Gold). הוא סיים את נאומו באזהרה נגד קפיטליזם של הון עתק: <span class="highlight-text">"לא תצלבו את האנושות על צלב של זהב!"</span>. הנאום הקנה לו את המועמדות לנשיאות ארה"ב (הוא התמודד שלוש פעמים והפסיד). ברייאן גיבש את נברסקה כמרכז של התנגדות אגררית וזכויות מעמד הפועלים מול האליטות של החוף המזרחי.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: ציוץ בערבה וכריך של מהגרים
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- ציפור המדינה -->
+                <div class="culture-highlight border-nebGold">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-nebGold">ציפור המדינה: העפרוני המערבי (Western Meadowlark)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">סמל אופטימי של פתיחות גיאוגרפית (אומץ ב-1929)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        העפרוני המערבי (Sturnella neglecta), בעל החזה הצהוב הבוהק עם צורת האות 'V' השחורה, נבחר כציפור הלאומית של נברסקה לאחר הצבעה גורפת בקרב ילדי בתי הספר והמועדונים של המדינה. ציפור זו, החיה ובונה את הקינים שלה ישירות על פני הקרקע בתוך עשב הערבה (ולא על עצים, מה שמתאים למדינה שטוחה זו), היא סמל לאקולוגיה המדויקת של המישורים הגדולים.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        אך יותר מכך, העפרוני המערבי נבחר בשל הפנומנולוגיה של **שירתו**. בעבור החלוצים ובודדי החוות שחיו בערבות נברסקה הרחבות, השקט היה לעיתים מחריש אוזניים ומדכא. שירתו המלודית, החזקה והשמחה של העפרוני הייתה סימן לבוא האביב והעניקה נחמה פסיכולוגית למשפחות החקלאים המבודדות. 
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-nebRed">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-nebRed">המנה הלאומית: הראנזה (Runza) וכריך הראובן (Reuben Sandwich)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">יצירות קולינריות המגדירות את המערב התיכון</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של נברסקה מתבססת על תעשיית הבקר ועל המהגרים המזרח-אירופאים, והיא מתגאה בשתי המצאות אדירות שכבשו את ארצות הברית:
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-nebGreen">הראנזה (Runza):</span> מאפה זה הוא הגרסה הייחודית של נברסקה ל"בירוק" של קנזס. זוהי לחמניית שמרים ארוכה (בצורת מלבן) הממולאת בתערובת מתובלת היטב של בקר טחון, כרוב ובצל. המסורת הובאה על ידי ה"גרמנים מרוסיה" שהתיישבו בנברסקה. בשנת 1949, אישה בשם שרה "סאלי" אוורט החלה למכור את המאפים המשפחתיים שלה תחת השם המסחרי "Runza". כיום, רשת המסעדות "Runza" היא אימפריית מזון מהיר בנברסקה, והמאפה נחשב למזון הלאומי הבלתי מעורער של המדינה ופריט חובה במשחקי הפוטבול המקומיים.</li>
+                        <li><span class="text-white font-bold underline decoration-nebRed">כריך הראובן (The Reuben):</span> אף שישנה מחלוקת קלה עם ניו יורק, רוב ההיסטוריונים הקולינריים מסכימים כי הכריך המפורסם הומצא ב**אומהה (Omaha)**, נברסקה, בשנות ה-20 של המאה ה-20. קבוצת סוחרים יהודים נהגה להיפגש לשחק פוקר במלון בלקסטון (Blackstone Hotel). אחד השחקנים, מכולתן בשם **ראובן קולקופסקי** (Reuben Kulakofsky), יצר כריך לעצמו שכלל קורנד-ביף (Corned beef), כרוב כבוש (Sauerkraut), גבינה שוויצרית ורוטב רוסי, הכל צלוי בין שתי פרוסות לחם שיפון (Rye). בנו של בעל המלון כל כך התלהב, שהכניס את הכריך לתפריט המלון תחת השם "ראובן", ומשם הכריך פרש כנפיים והפך לתופעה גלובלית.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-nebBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Cornhusker State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-nebRed shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-nebRed">The Cornhusker State (מדינת קולפי התירס)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">עבודה פיזית וספורט קולג'ים</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי הרשמי של נברסקה משנת 1945. "קילוף תירס" (Cornhusking) הייתה העבודה החקלאית המפרכת והידנית של קטיף וקילוף קלחי תירס לפני המצאת מכונות הקטיף המודרניות. הכינוי אומץ במקור על ידי קבוצת הפוטבול של אוניברסיטת נברסקה כדי להחליף כינויים ישנים פחות מחמיאים (כמו "Bugeaters" - אוכלי החרקים). הפנומנולוגיה של הכינוי מחברת את המדינה לאתוס של עבודת כפיים חקלאית (תירס הוא גידול הדגל של המדינה) ולגאווה ספורטיבית אדירה (ה"קורנהאסקרס" הם דת ספורטיבית בנברסקה, והאצטדיון בלינקולן הופך בימי משחק ל"עיר השלישית בגודלה במדינה").
+                        </p>
+                    </div>
+
+                    <!-- The Tree Planter's State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-nebGreen shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Tree Planter's State (מדינת נוטעי העצים)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">כינוי היסטורי של תיקון אקולוגי</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            זה היה הכינוי הרשמי של המדינה בין השנים 1895 ל-1945. הכינוי חולק כבוד לחזונו של ג'יי סטרלינג מורטון ולייסוד "יום העץ". בעוד שאר המדינות מתהדרות בגיאוגרפיה הטבעית שלהן (הרים, קניונים, כסף), נברסקה בחרה במשך חצי מאה להתהדר ב<strong class="text-white">מעשה האקטיבי של תיקון הטבע</strong> – נטיעת יערות במקום בו האדמה הייתה ערומה. למרות שהוחלף לטובת ה"קורנהאסקֶרס", הכינוי נשאר רשום בספרי ההיסטוריה כתעודה לשינוי אקולוגי חסר תקדים.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-nebBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: חותם על סדין כחול ותעשיית המערב
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל נברסקה ב-CSS -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#002244] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex items-center justify-center group p-4">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-black/20 pointer-events-none z-0"></div>
+                    
+                    <!-- מרכז הדגל - חותם המדינה (בצבעי זהב וכסף) -->
+                    <div class="w-56 h-56 rounded-full border-4 border-[#F2A900] bg-[#002244] flex flex-col items-center justify-center relative shadow-2xl transform transition-transform duration-700 group-hover:scale-110 z-10">
+                        
+                        <!-- כיתוב טבעתי -->
+                        <div class="absolute inset-2 border-[2px] border-dashed border-[#F2A900] rounded-full opacity-60"></div>
+                        <div class="absolute top-2 text-[#F2A900] text-[7px] font-black uppercase tracking-wider">Great Seal of the State of Nebraska</div>
+                        <div class="absolute bottom-2 text-[#F2A900] text-[8px] font-black tracking-widest">March 1st 1867</div>
+
+                        <!-- אלמנטים גרפיים של החותם -->
+                        <div class="flex flex-col items-center mt-2 z-10 text-center">
+                            <!-- סרט מוטו -->
+                            <div class="bg-[#F2A900] px-2 py-0.5 rounded border border-[#002244] mb-2 shadow-sm">
+                                <span class="text-[#002244] text-[6px] font-black uppercase block">Equality Before The Law</span>
+                            </div>
+                            
+                            <!-- הרים, נהר, ספינה ורכבת -->
+                            <div class="text-[12px] leading-tight mb-1 text-slate-300">
+                                ⛰️ 🚂 <br> 🌊 🚢
+                            </div>
+                            
+                            <!-- נפח, חיטה, בקתה -->
+                            <div class="flex gap-2 text-xl justify-center items-end text-[#F2A900]">
+                                <span>⚒️</span>
+                                <span>🌾</span>
+                                <span>🏠</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    חותם ההתפשטות על רקע כחול <br><span class="text-xl font-medium text-slate-500">(הדגל אומץ רשמית ב-1925)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-nebBlue shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-nebBlue decoration-4">העיצוב, המבקרים, וההצדקה:</h3>
+                    <p class="text-xl leading-loose">
+                        דגל נברסקה, שאומץ ב-1925 לאחר הצעת חוק של ג'יי. לויד מקמאסטר, הוא הדוגמה המובהקת ביותר בארה"ב לעיצוב ה"סדין הכחול" (Seal on a bedsheet) – חותם מדינה מסובך המונח על רקע של כחול לאומי. אגודות ווקסילולוגיות ברחבי אמריקה מבקרות את הדגל הזה בחריפות (באחד הסקרים הוא דורג כאחד הגרועים במדינה בגלל חוסר יכולת לזהות את הפרטים ממרחק). 
+                        אולם, תושבי נברסקה וההיסטוריונים המקומיים מגנים עליו. הם טוענים שהדגל אינו מיועד להיות פוסטר פרסומי, אלא ספר היסטוריה ויזואלי. החותם שעיצב אייזק ויילס בשנת 1867 (שנת הפיכתה למדינה) מכיל בתוכו את כל המהות של ההתפשטות האמריקאית למערב.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-nebGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-nebGold">הקומיקס של התעשייה: הנפח והרכבת:</h4>
+                        <p class="leading-loose text-lg">החותם מורכב מפרטים המייצגים קידמה אנושית בתוך טבע פראי. בחזית מופיע **נפח** העובד על סדן (מייצג את התעשייה והמכניקה), בקתה (התיישבות), וערמות חיטה (חקלאות). ברקע רואים **ספינת קיטור** השטה על נהר המיזורי (מסחר ימי), ו**רכבת קיטור** הדוהרת לעבר הרי הרוקי (מסילת הרכבת הטרנס-יבשתית שעברה דרך נברסקה ופתחה את המערב).</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">המוטו: שוויון בפני החוק:</h4>
+                        <p class="leading-loose text-lg">מעל כולם מתנוסס המוטו **"Equality Before the Law"**. מוטו זה נבחר ב-1867 מיד לאחר תום מלחמת האזרחים, ומקפל בתוכו משמעות פוליטית עמוקה: הקונגרס סירב לקבל את נברסקה לאיחוד עד שלא תתקן את חוקתה ותאפשר לגברים שחורים להצביע. נברסקה הסכימה, חוקקה את זכות ההצבעה לפני התיקון ה-15 לחוקה האמריקאית, והציבה את המוטו בראש הסמל שלה כדי להוכיח את מוסריותה לעולם.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Nebraska State Historical Society:</p>
+                    <p>"The Etymology of the Platte River and Nebraska". מחקר אנתרופולוגי-בלשני המתעד את מילות שפות האוטו (Ñí Brásge) ואת האדפטציה הצרפתית ל"נהר השטוח" לאור הגיאוגרפיה של המישורים.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Arbor Day Foundation Historical Archives:</p>
+                    <p>"J. Sterling Morton and the Invention of Arbor Day". תיעוד התערבותו האקולוגית של מורטון בערבה החשופה, ונטיעת המיליון ב-10 באפריל 1872.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Library of Congress (LOC) - The Populist Movement:</p>
+                    <p>"William Jennings Bryan and the Cross of Gold Speech". ניתוח היסטורי פוליטי של בחירות 1896, הדרישה לטביעת מטבעות כסף, והפיכת נברסקה לבירת ההתנגדות האגררית.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Omaha History Society / Culinary Records:</p>
+                    <p>"The Invention of the Reuben Sandwich". עדויות היסטוריות המבססות את מלון בלקסטון וראובן קולקופסקי כממציאי הכריך בשנות ה-20 של המאה העשרים.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"Nebraska's State Flag and Seal". דיון וקסילולוגי על ביקורת דגל ה"סדין הכחול" למול העושר ההיסטורי והמוטו האבולישניסטי ("שוויון בפני החוק") החקוקים בתוכו.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-nebBlue rounded-full shadow-[0_0_15px_rgba(0,34,68,0.6)]"></div>
+                <div class="w-6 h-6 bg-nebRed rounded-full shadow-[0_0_15px_rgba(229,24,55,0.6)]"></div>
+                <div class="w-6 h-6 bg-nebGold rounded-full shadow-[0_0_15px_rgba(242,169,0,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
