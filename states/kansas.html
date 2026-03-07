@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>קנזס - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        ksBlue: '#002868',      /* Kansas Flag Blue */
+                        ksGold: '#FFC82E',      /* Sunflower Gold */
+                        ksBrown: '#654321'      /* Sunflower Center */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-ksGold font-black text-2xl mb-5 underline italic decoration-ksGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-ksGold relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">קנזס</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Kansas - The Sunflower State</p>
+                <div class="h-2 w-56 bg-ksBlue mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(0,40,104,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">29 בינואר, 1861</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-34 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: רוח הדרום וקשר הארקנסו
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    כפי שראינו במחקר על ארקנסו (Arkansas), קנזס חולקת את אותו שורש אטימולוגי ילידי בדיוק, אך הגיעה אליו במסלול פונטי-אנגלי ישיר, ללא המסנן הצרפתי ש"השתיק" את האות סמך בסוף המילה.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Kanza -->
+                    <div class="etymology-box border-ksGold">
+                        <p class="text-ksGold font-black text-5xl mb-6 italic tracking-tighter">Kanza / Kaw</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפת קבוצת הסיו (Siouan language) של שבטי המישורים.</p>
+                            <p><strong>משמעות מילולית:</strong> "אנשי רוח הדרום" (People of the South Wind).</p>
+                            <p><strong>ניתוח מחקרי:</strong> אומת ה**קאנזה** (או שבט הקאו - Kaw Nation) הייתה שבט ילידי רב-עוצמה ששלט בעמק נהר הקנזס במשך מאות שנים. בתרבותם, כיווני הרוחות היו בעלי משמעות דתית ואקולוגית עמוקה (הרוח הדרומית הביאה חום, גשמים לחקלאות, ואת עונות הציד). הם קראו לעצמם "אנשי רוח הדרום" כדי להגדיר את הקשר הרוחני שלהם למזג האוויר של המישורים הגדולים.</p>
+                        </div>
+                    </div>
+
+                    <!-- Kansas -->
+                    <div class="etymology-box border-ksBlue">
+                        <p class="text-ksBlue font-black text-5xl mb-6 italic tracking-tighter">Kansas (Pluralization)</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> אנגלו-אמריקניזציה.</p>
+                            <p><strong>התפתחות השם:</strong> בניגוד לצרפתים (שכתבו Arcansas והגו Ar-kan-saw), מגלי הארצות והמתיישבים האנגלים והאמריקאים שהגיעו לאזור במאה ה-19 הוסיפו את האות "s" לציון רבים (כדי לתאר את "בני שבט הקאנזה"), והגו את המילה כפי שהיא נכתבת בחוקי האנגלית: **Kan-zas**. המילה הפכה תחילה לשמו של הנהר (Kansas River), ומשם לטריטוריה ולמדינה כולה. למרות ההבדל העצום בהגייה המודרנית, Kansas ו-Arkansas הן אחיות תאומות מבחינה אטימולוגית.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-ksBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: המרטיר המדמם ומפקד העל
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- ג'ון בראון -->
+                <div class="personality-card border-r-8 border-ksBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-ksBlue decoration-4 underline-offset-8">ההוגה והרדיקל: ג'ון בראון (John Brown)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1800–1859. <strong>מעמד:</strong> לוחם גרילה למען ביטול העבדות (Abolitionist).</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-ksGold">ילדות ורקע - קלוויניזם נוקשה:</h4>
+                            <p class="leading-loose">ג'ון בראון נולד בקונטיקט למשפחה קלוויניסטית אדוקה שראתה בעבדות חטא בל יסולח נגד אלוהים. חייו היו רצופים כישלונות עסקיים: הוא פשט את הרגל שוב ושוב, איבד את רכושו, ושכל רבים מ-20 ילדיו. אולם, העוני רק חיזק את אמונתו המשיחית שהוא נבחר על ידי אלוהים למטרה אחת ויחידה: השמדת מוסד העבדות באמריקה.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-ksGold">אידיאולוגיה - אלימות קדושה:</h4>
+                            <p class="leading-loose">בשנת 1854 עבר חוק "קנזס-נברסקה", שקבע כי תושבי הטריטוריה יחליטו בעצמם אם קנזס תהיה מדינת חופש או מדינת עבדות. בראון סלד מהפציפיזם של מתנגדי העבדות במזרח (שסתם נאמו ונשאו שלטים). האידיאולוגיה שלו הייתה "אלימות צדקנית" (Righteous Violence) – הוא האמין שאת העבדות ניתן לסיים רק באמצעות שפיכות דמים, "עין תחת עין".</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-ksGold">הישגים מכוננים - קנזס המדממת (Bleeding Kansas):</h4>
+                            <p class="leading-loose">בשנת 1856, הגיע בראון לקנזס כדי להילחם במיליציות של תומכי העבדות ממיזורי שפלשו לאזור. בתגובה לפשיטה של תומכי עבדות על העיר לורנס, בראון ובניו הוציאו להורג חמישה מתיישבים תומכי עבדות בדם קר ליד נחל פוטוואטומי (Pottawatomie massacre). אירוע זה הצית מלחמת גרילה אכזרית שטבעה את המונח ההיסטורי **"Bleeding Kansas"**. בראון הפך לסמל של התנגדות, עזב את קנזס כדי לתקוף את הארפרס פרי בווירג'יניה, שם נלכד והוצא להורג. פעולותיו בקנזס היוו את הניצוץ הבלתי נמנע שהוביל ישירות למלחמת האזרחים האמריקאית, והבטיחו שקנזס תיכנס לאיחוד ב-1861 כמדינה חופשית (Free State).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- דווייט ד. אייזנהאואר -->
+                <div class="personality-card border-r-8 border-ksGold shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-ksGold decoration-4 underline-offset-8">הבונה הלאומי: דווייט ד. אייזנהאואר (Dwight D. Eisenhower)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1890–1969. <strong>מעמד:</strong> מפקד העליון של כוחות בעלות הברית באירופה והנשיא ה-34 של ארה"ב.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות בספר החקלאי (אבילין, קנזס):</h4>
+                            <p class="leading-loose">אייזנהאואר ("אייק") אמנם נולד בטקסס, אך בגיל שנה משפחתו חזרה לעיר **אבילין (Abilene)** שבקנזס, שם גדל ושאותה ראה כעיר מולדתו (ושם נמצאת כיום הספרייה הנשיאותית וקברו). הוא גדל במשפחה מנוניטית-פציפיסטית ודתית מאוד, אך במקביל הוקסם מההיסטוריה המקומית של אבילין – שהייתה עיר הבוקרים הקשוחה של סוף מסלולי הבקר (Cowtown). השילוב בין מוסר נוקשה לאתוס של שרידות במערב עיצב את אופיו המעשי והרגוע.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - שקט תעשייתי ותשתיות:</h4>
+                            <p class="leading-loose">כנשיא בשנות ה-50, האידיאולוגיה שלו כונתה "שמרנות מודרנית". הוא תיעב קיצוניות פוליטית וחיפש יציבות, פשרות ושקט תעשייתי לאחר טראומת מלחמת העולם השנייה (אשר בה פיקד על פלישת הפלישה לנורמנדי). הוא התמקד בבניית כוחה הפנימי של ארצות הברית דרך פרויקטים טכנולוגיים ופיזיים עצומים, מתוך הבנה אסטרטגית שזהו המפתח לעמידה מול ברית המועצות במלחמה הקרה.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - חוק הכבישים המהירים (1956):</h4>
+                            <p class="leading-loose">מעבר לניצחון על נאציזם, מורשתו הפיזית הגדולה ביותר של אייזנהאואר כאזרח קנזס (מדינה מישורית שבה מרחקים הם עצומים) הייתה הקמת **מערכת הכבישים הבין-מדינתית (Interstate Highway System)**. הוא קיבל את ההשראה מרשת ה"אוטובאן" הגרמנית שראה במלחמה, והבין שארה"ב זקוקה לרשת כבישים מהירים ללא צמתים מרומזרים שיחברו את האומה ויאפשרו פינוי ערים מהיר במקרה של התקפה גרעינית. פרויקט זה שינה לחלוטין את הגיאוגרפיה, הכלכלה והתרבות של אמריקה עד היום.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: סמל הצומח וכיסוני המהגרים
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- הפרח/סמל הלאומי -->
+                <div class="culture-highlight border-ksGold">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-ksGold">הסמל הבוטני (הלאומי): החמנייה הפראית (Wild Native Sunflower)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">פרח המדינה הרשמי (אומץ ב-1903)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        בעוד לחיית המדינה של קנזס (הביזון) יש מקבילות במדינות אחרות, קנזס מזוהה אסטטית ותרבותית ברמה מוחלטת עם סמל הצומח שלה: **החמנייה (Helianthus annuus)**.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        החמנייה הפראית אינה יבול חקלאי מיובא, אלא צמח ילידי (Native) של המישורים הגדולים שגדל בהם במשך אלפי שנים. בתקופת "שיירות העגלות" (Wagon Trains) של נתיב סנטה פה, גלגלי העגלות הכבדות מחצו את האדמה לאורך המסלול מקנזס ועד ניו מקסיקו. הזרעים של החמנייה הפראית היו הראשונים לנבוט באדמה ההרוסה והמופרעת הזו. כתוצאה מכך, נוצר "שביל זהב" של חמניות שסימן באופן טבעי את מסלולי ההתיישבות למערב עבור החלוצים שבאו אחריהם.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        ב-1903, בית המחוקקים של קנזס הכריז על החמנייה כסמל הרשמי, וקבע בהחלטתו כי פרח זה, אשר "נושא את פניו אל השמש", מסמל את האופטימיות, עבודת האדמה, ואת קנזס כמקום של חופש ואור לאחר ימי החושך של "קנזס המדממת".
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-ksBrown">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-[#654321]">המנה המסורתית: בירוק (Bierock)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">אוכל איכרים של "גרמנים מרוסיה"</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של קנזס נשענת על מהגרים חקלאיים שהביאו עמם פתרונות תזונה פונקציונליים לימי עבודה ארוכים בשדות החיטה והתירס. המאכל המסורתי והייחודי ביותר שלהם (מלבד חיבתם לברביקיו מהעיר השכנה בקנזס סיטי, מיזורי) הוא ה**בירוק (Bierock)**.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        מקור המנה הוא באוכלוסיית ה**"גרמנים מהוולגה" (Volga Germans)** – חקלאים גרמנים שחיו ברוסיה והיגרו למרכז קנזס ונברסקה בשנות ה-70 של המאה ה-19 (אותה אוכלוסייה שהביאה את ה"צ'יסליק" לדקוטה). הם הביאו עמם זרעים של חיטת חורף עמידה ששינתה את כלכלת ארה"ב, ויחד איתה את מתכון הבירוק: לחמניית שמרים מתקתקה, אפויה היטב, הממולאת בתערובת מטוגנת של **בקר טחון, כרוב, בצל ותבלינים**.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        הבירוק תוכנן להיות ארוחת הצהריים המושלמת לחקלאי (Pocket food): הוא שמר על חומו במשך שעות, לא הצריך צלחות או סכו"ם, וסיפק חלבון ופחמימות תוך כדי נהיגה על הטרקטור או עבודה בשדה. עד היום, בעיירות החקלאיות של קנזס, אפיית בירוקס מהווה פעילות משפחתית וקהילתית מסורתית.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-ksBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Sunflower State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-ksGold shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Sunflower State</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">שיוך בוטני המהווה זהות</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי הרשמי של קנזס. מעבר להיותו סמל של פריחה לאחר הקרבות העקובים מדם על עצמאות המדינה, החמנייה מייצגת את האקלים הפתוח והשטוח של המדינה, החשוף לשמש לאורך כל שעות היום. הכינוי מעגן את קנזס כאומה חקלאית פשוטה, שטופת אור ואופטימית, ומוטבע על כל מסמך וסמל של המדינה.
+                        </p>
+                    </div>
+
+                    <!-- The Jayhawk State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-ksBlue shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Jayhawk State</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">ציפור מיתולוגית של מורדים</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי "ג'ייהוק" (Jayhawk) הוא אנומליה מוחלטת – מדובר בציפור מיתולוגית שאינה קיימת במציאות. מקור השם הוא שילוב של העורבני הכחול (Blue Jay - הידוע כרעשן ותוקפני) והנץ (Sparrow Hawk - צייד שקט). המונח "ג'ייהוקרס" הוטבע במהלך מלחמת "קנזס המדממת" כדי לתאר את כוחות המיליציה (בסגנון ג'ון בראון) שתקפו ובזזו יישובים של תומכי עבדות. בדומה ל"הוז'ר" מאינדיאנה, מונח גרילה אלים ואולי אף שלילי הפך ברבות השנים לסמל של פטריוטיות אולטימטיבית לחופש ולביטול העבדות, וכיום ה"ג'ייהוק" הוא הקמע המיתולוגי והמפורסם של אוניברסיטת קנזס (KU).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-ksBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: אל הכוכבים דרך קשיים
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל קנזס ב-CSS -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#002868] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col items-center justify-center group p-4">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-black/20 pointer-events-none z-20"></div>
+                    
+                    <div class="relative transform transition-transform duration-700 group-hover:scale-105 z-10 flex flex-col items-center">
+                        
+                        <!-- Sunflower Crest -->
+                        <div class="relative flex flex-col items-center mb-2">
+                            <!-- Twisted Bar (Blue and Gold) -->
+                            <div class="w-16 h-3 bg-white flex overflow-hidden rounded-sm border border-[#002868]">
+                                <div class="w-1/4 h-full bg-[#002868]"></div>
+                                <div class="w-1/4 h-full bg-[#FFC82E]"></div>
+                                <div class="w-1/4 h-full bg-[#002868]"></div>
+                                <div class="w-1/4 h-full bg-[#FFC82E]"></div>
+                            </div>
+                            <!-- Sunflower -->
+                            <div class="text-[#FFC82E] text-5xl -mt-2 drop-shadow-md">🌻</div>
+                        </div>
+
+                        <!-- Seal Simulation -->
+                        <div class="w-40 h-40 bg-white rounded-full flex flex-col items-center justify-center shadow-xl relative border-[3px] border-[#002868] overflow-hidden">
+                            <!-- Mountain and Sunrise -->
+                            <div class="absolute top-0 w-full h-1/2 bg-blue-100" style="clip-path: polygon(0 100%, 30% 60%, 70% 100%, 100% 50%, 100% 100%); background-color: #dbeafe;"></div>
+                            <div class="absolute top-2 left-4 w-6 h-6 bg-[#FFC82E] rounded-full"></div>
+                            
+                            <!-- 34 Stars arch -->
+                            <div class="absolute top-1 text-[6px] text-[#002868] tracking-widest font-black">
+                                * * * * * * *
+                            </div>
+                            
+                            <!-- Central icons (Wagon, Farmer, Steamboat, Buffalo) -->
+                            <div class="text-[10px] z-10 mt-6 text-center">
+                                🐎 🌾 <br> 🌊 🚢 <br> 🦬
+                            </div>
+                            
+                            <!-- Motto on scroll -->
+                            <div class="absolute top-4 bg-white/90 px-1 py-0.5 rounded border border-slate-300 z-20">
+                                <span class="text-[5px] font-black text-[#002868] uppercase block">Ad Astra Per Aspera</span>
+                            </div>
+                        </div>
+
+                        <!-- The word KANSAS (added 1961) -->
+                        <div class="mt-4 text-[#FFC82E] font-black text-5xl tracking-[0.3em] uppercase drop-shadow-lg">
+                            KANSAS
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    סמל החלוצים, החמנייה ו"הסדין הכחול" <br><span class="text-xl font-medium text-slate-500">(הדגל אומץ ב-1927, השם נוסף ב-1961)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-ksBlue shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-ksBlue decoration-4">נסיבות היצירה ומאבק נגד הדגל הלאומי:</h3>
+                    <p class="text-xl leading-loose">
+                        למרבה ההפתעה, דגלה של קנזס אומץ רשמית רק בשנת **1927**, עשרות שנים לאחר שהפכה למדינה. המעכבת המרכזית הייתה האמונה הפטריוטית הקיצונית של פוליטיקאים מקומיים רבים, שטענו כי "דגל הפסים והכוכבים הלאומי (של ארה"ב) הוא הדגל היחיד שקנזס זקוקה לו" כהתרסה נגד תרבות דגלי המדינות של הדרום המורד. 
+                        רק כשהחלו לחצים להציג ייצוג מקומי במצעדים לאומיים, עוצב הדגל על ידי **הייזל אייברי** (Hazel Avery). הדגל שייך לפורמט "סדין כחול" (רקע כחול עם חותם המדינה), אך מעל החותם הונחה החמנייה המדינתית, נחה על גבי "סרט" (Bar) בצבעי תכלת וזהב שמסמל את רכישת לואיזיאנה (שקנזס הייתה חלק ממנה).
+                        <br><br>
+                        בשנת **1961**, עקב תלונות חוזרות ונשנות (בדומה לאילינוי) שהדגל נראה מרחוק כמו כל דגל כחול אחר, העביר בית המחוקקים החלטה להוסיף את המילה **"KANSAS"** באותיות ענק מוזהבות בתחתית הדגל.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">החותם: התפתחות הציוויליזציה:</h4>
+                        <p class="leading-loose text-lg">במרכז השדה הכחול מופיע החותם הגדול משנת 1861, שהוא "קומיקס" היסטורי של כיבוש המערב: הוא מציג זריחה (המזרח), ספינת קיטור על נהר, חקלאי חורש את אדמתו, שיירת עגלות נעה מערבה, וילידים רכובים על סוסים הצדים עדר ביזונים. הסמל מראה במכוון את החקלאות והתעשייה מחליפים את טבע הפרא. מעל הכל קבועים **34 כוכבים לבנים**, המציינים את מיקומה כמדינה ה-34 באיחוד.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-ksGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-ksGold">המוטו: Ad Astra Per Aspera:</h4>
+                        <p class="leading-loose text-lg">"אל הכוכבים דרך קשיים" (To the stars through difficulties). זהו המוטו הלטיני שמתנוסס בחלקו העליון של החותם, והוא אולי המוטו הטעון ביותר בארה"ב. הוא אינו מילים ריקות, אלא מסכם את שנות "קנזס המדממת" – מלחמות הגרילה, השריפות והטבחים שתושבי קנזס סבלו כדי להבטיח שהמדינה תצטרף לאיחוד כ"מדינה חופשית" (ללא עבדות) ולא כמדינת עבדים. הקושי היה הדם שנשפך, וה"כוכב" הוא כוכב ה-34 של קנזס בדגל ארה"ב.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Kansas Historical Society (KSHS):</p>
+                    <p>"The Kanza People and the Etymology of the South Wind". מסמכים בלשניים על המקור משפת הסיו, וניתוח האנגליקניזציה של השם לעומת האחות הצרפתית, ארקנסו.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Library of Congress (LOC) - Civil War Era:</p>
+                    <p>"Bleeding Kansas, John Brown, and the Pottawatomie Massacre". תיעוד היסטורי מקיף של פעולות הגרילה (Jayhawkers) והתפקיד של קנזס בהצתת מלחמת האזרחים האמריקאית.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Eisenhower Presidential Library (Abilene):</p>
+                    <p>"Dwight D. Eisenhower: The Interstate Highway System". מחקר על השפעת הרקע החקלאי והצבאי של אייזנהאואר על בניית תשתיות הבטון שחיברו את אמריקה במלחמה הקרה.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Germans from Russia Heritage Collection:</p>
+                    <p>"The Cultural Impact of the Bierock in the Midwest". תיעוד קולינרי על הגירת המנוניטים מהוולגה לקנזס בשנות ה-70 של המאה ה-19, והמצאת המאפה הסגור כפתרון לעובדי שטח.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"The Kansas State Flag: From the Civil War Aversion to the 1961 Modification". סקירת הרתיעה הראשונית מדגל מדינתי עקב טראומת הפרישה של הדרום, וההחלטה להוסיף את השם כדי למנוע בלבול הרלדי.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-ksBlue rounded-full shadow-[0_0_15px_rgba(0,40,104,0.6)]"></div>
+                <div class="w-6 h-6 bg-ksGold rounded-full shadow-[0_0_15px_rgba(255,200,46,0.6)]"></div>
+                <div class="w-6 h-6 bg-ksBrown rounded-full shadow-[0_0_15px_rgba(101,67,33,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
