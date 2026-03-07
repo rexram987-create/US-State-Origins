@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ניו ג'רזי - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        njBuff: '#F0DC82',    /* NJ Flag Buff/Yellow */
+                        njBlue: '#002868',    /* Jersey Blue */
+                        njGreen: '#228B22'    /* Garden State Green */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-njBuff font-black text-2xl mb-5 underline italic decoration-njBuff/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-njBuff relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">ניו ג'רזי</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">New Jersey - The Garden State</p>
+                <div class="h-2 w-56 bg-njBuff mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(240,220,130,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">18 בדצמבר, 1787</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-3 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות של אי נאמן
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    בניגוד למדינות רבות בעלות שמות ילידיים, ניו ג'רזי חולקת אטימולוגיה קולוניאלית אנגלית טהורה, המשמשת כמחווה של הוקרת תודה פוליטית מהמלוכה הבריטית.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Jersey -->
+                    <div class="etymology-box border-njBuff">
+                        <p class="text-njBuff font-black text-5xl mb-6 italic tracking-tighter">Jersey (ג'רזי)</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור גיאוגרפי:</strong> האי ג'רזי (Bailiwick of Jersey), האי הגדול ביותר מבין איי התעלה (Channel Islands) השוכן בתעלת למאנש, בין אנגליה לצרפת.</p>
+                            <p><strong>אטימולוגיה עתיקה של האי:</strong> המקור הלשוני של השם "ג'רזי" נובע ככל הנראה מהשפה הנורדית העתיקה. הסיומת <em>-ey</em> משמעותה "אי" בנורדית עתיקה (כמו באי גרנזי או באנגלסי). החלק הראשון <em>Jers-</em> עשוי לנבוע משם נורדי של אדם בשם "Geirr" או מהמילה הנורדית "jarl" (חנית). כלומר, "האי של גייר" או "אי החנית".</p>
+                        </div>
+                    </div>
+
+                    <!-- New Jersey -->
+                    <div class="etymology-box border-njBlue">
+                        <p class="text-njBlue font-black text-5xl mb-6 italic tracking-tighter">New Jersey</p>
+                        <div class="space-y-4">
+                            <p><strong>ניתוח היסטורי:</strong> בשנת 1664, לאחר שהאנגלים כבשו את אזור "הולנד החדשה" (New Netherland) מידי ההולנדים, העניק דוכס יורק (לימים המלך ג'יימס השני) את השטח שבין נהר ההדסון לנהר הדלאוור לשני אצילים אנגלים: לורד ג'ון ברקלי ו**סר ג'ורג' קרטרט**. </p>
+                            <p>קרטרט היה יליד האי ג'רזי, ובמהלך מלחמת האזרחים האנגלית (שהסתיימה בעריפת ראשו של צ'ארלס הראשון), הוא הגן בחירוף נפש על האי ג'רזי מפני כוחות הפרלמנט, והעניק מקלט בטוח לצ'ארלס השני (הבן והיורש הגולה). כאות תודה על נאמנותו המוחלטת, הוחלט לקרוא למושבה החדשה באמריקה **"ניו ג'רזי"** (ג'רזי החדשה) על שם האי שהציל את המלוכה.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-njBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: חציית הדלאוור וקוסם ההמצאות
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- ג'ורג' וושינגטון (הקרב על טרנטון) -->
+                <div class="personality-card border-r-8 border-njBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-njBlue decoration-4 underline-offset-8">הגנרל והמפנה ההיסטורי: ג'ורג' וושינגטון בטרנטון (George Washington)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות האירוע:</strong> דצמבר 1776 (הקרב המכונן של ניו ג'רזי).</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-njBuff">רקע - הצבא הגווע:</h4>
+                            <p class="leading-loose">למרות שג'ורג' וושינגטון אינו יליד ניו ג'רזי, המדינה הייתה זירת הקרבות המרכזית במלחמת העצמאות ("צומת הדרכים של המהפכה"). בדצמבר 1776, הצבא הקונטיננטלי של וושינגטון היה מרוסק. הם נדחקו מניו יורק, נסוגו דרך ניו ג'רזי, והיו ערוכים מעבר לנהר הדלאוור (בפנסילבניה). החיילים היו רעבים, ללא נעליים, והמורל היה כה נמוך שרבים תכננו לערוק עם תום תקופת השירות שלהם ב-31 בדצמבר. המהפכה הייתה על סף קריסה מוחלטת.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-njBuff">אידיאולוגיה - הימור מחושב וא-סימטרי:</h4>
+                            <p class="leading-loose">האידיאולוגיה האסטרטגית של וושינגטון באותו רגע הייתה שרק ניצחון התקפי, גם אם בלתי אפשרי לכאורה, יוכל להציל את רוח הלחימה. הוא החליט על מבצע כמעט מתאבד: לחצות חזרה את נהר הדלאוור הקפוא אל תוך **ניו ג'רזי** באמצע סופת שלגים, ולתקוף במפתיע את חיל המצב ההסיאני (שכירי חרב גרמנים שלחמו עבור הבריטים) שחנה בעיר טרנטון (Trenton), בבוקר חג המולד.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-njBuff">הישגים מכוננים - חציית הדלאוור (Crossing the Delaware):</h4>
+                            <p class="leading-loose">בליל ה-25 בדצמבר, תחת סופת שלג וברד עזה, חצה הצבא את הנהר עמוס גושי הקרח. הם צעדו 14 קילומטרים לטרנטון, והפתיעו לחלוטין את ההסיאנים. הקרב נמשך פחות משעה, והסתיים בניצחון אמריקאי מוחץ. ניצחון זה בטרנטון, ניו ג'רזי, שינה לחלוטין את מהלך מלחמת העצמאות, החזיר את התקווה למורדים, וקיבע את מעמדה של ניו ג'רזי כעמוד התווך של החירות האמריקאית.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- תומאס אדיסון -->
+                <div class="personality-card border-r-8 border-njBuff shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-njBuff decoration-4 underline-offset-8">הקוסם ממנלו פארק: תומאס אלווה אדיסון (Thomas Alva Edison)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1847–1931. <strong>מעמד:</strong> הממציא הפורה ביותר בהיסטוריה האמריקאית (1,093 פטנטים).</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות של לקות שמיעה וסקרנות עצומה:</h4>
+                            <p class="leading-loose">אדיסון נולד באוהיו וגדל במישיגן, אך את האימפריה שלו הקים בניו ג'רזי. הוא סבל מלקות שמיעה קשה מגיל צעיר, מה שלטענתו עזר לו להתרכז ללא הסחות דעת. הוא סולק מבית הספר לאחר חודשים ספורים בלבד כי מורו חשב שהוא "איטי", ואמו חינכה אותו בבית. כנער עבד כמוכר עיתונים ברכבות, ושם הקים מעבדת כימיה קטנה בקרון מטען (שעלתה באש פעם אחת).</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - המצאה תעשייתית:</h4>
+                            <p class="leading-loose">עד לאדיסון, המצאות היו עניין של גאונים בודדים שעבדו במוסכים או מרתפים. האידיאולוגיה של אדיסון הייתה **"מפעל המצאות" (Invention Factory)**. הוא ייסד את מעבדת המחקר התעשייתית הראשונה בעולם ב**מנלו פארק (Menlo Park), ניו ג'רזי** ב-1876. הוא האמין בעבודת צוות, ניסוי וטעייה סיזיפיים ("גאונות היא 1% השראה ו-99% זיעה"), וייצור המוני של פתרונות מסחריים.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים בניו ג'רזי:</h4>
+                            <p class="leading-loose">במעבדותיו בניו ג'רזי, אדיסון פיתח את ההמצאות שעיצבו את המאה ה-20. ב-1877 המציא את ה**פונוגרף** (המכשיר הראשון שהקליט והשמיע קול), מה שהקנה לו את הכינוי "הקוסם ממנלו פארק". ב-1879 הוא שכלל את נורת הליבון החשמלית המסחרית הראשונה, ובנה בניו ג'רזי את המערכת הראשונה לייצור והפצת חשמל לבתים. הוא הפך את ניו ג'רזי למעצמה טכנולוגית ותעשייתית עולמית.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: הסוס העתיק ומלחמת הבשר
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-njBuff">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-njBuff">החיה המדינתית: הסוס (The Horse) והדינוזאור הלאומי</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">חיית המדינה הרשמית (אומץ ב-1977)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הבחירה בסוס (Equus caballus) כחיית המדינה של ניו ג'רזי עלולה להיראות פשוטה או גנרית (גם על דגל המדינה מופיע ראש סוס), אך היא מייצגת ענף חקלאי וספורטיבי אדיר במדינה. ניו ג'רזי ידועה בחוות סוסים רבות, וה-U.S. Equestrian Team נמצא בה.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        אולם, האנומליה הזואולוגית המעניינת ביותר של ניו ג'רזי קשורה בכלל לפרה-היסטוריה: **הדינוזאור המדינתי**. בשנת 1858 התגלה בהדונפילד, ניו ג'רזי, שלד כמעט שלם של דינוזאור – ה**הדרוזאורוס פולקי** (Hadrosaurus foulkii). זה היה שלד הדינוזאור הראשון בעולם שהורכב והוצג לציבור באופן מלא (ב-1868), והוא זה שהוכיח מדעית לראשונה שדינוזאורים רבים (כמו הטירנוזאורוס שהתגלה מאוחר יותר) הלכו על שתי רגליים אחוריות ולא זחלו על ארבע כמו לטאות. גילוי זה הפך את ניו ג'רזי לערש הפלאונטולוגיה המודרנית.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-njBlue">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-njBlue">המנה הלאומית: כריך ה-Pork Roll / Taylor Ham וארוחות הדיינר</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">"מלחמת האזרחים" של הקולינריה המקומית</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של ניו ג'רזי סובבת סביב תרבות ה**דיינרים (Diners)** – המדינה מכונה "בירת הדיינרים של העולם", עם למעלה מ-600 דיינרים הפעילים 24/7 (בזכות מיקומה כציר תחבורה בין ניו יורק ופילדלפיה וייצור קרונות הדיינר המקוריים במדינה).
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        אך המאכל שמגדיר את ניו ג'רזי יותר מכל דבר אחר הוא כריך ארוחת הבוקר המקומי. המרכיב המרכזי הוא סוג של בשר חזיר מעובד, קצוץ דק, מתובל ומעושן קלות, שמגיע בגליל (Roll) ונחתך לפרוסות שמטוגנות על הפלאנצ'ה. פרוסות הבשר (שנחתכות בצורת "פקמן" כדי שלא יתקפלו בטיגון) מוגשות בלחמניית קייזר יחד עם ביצה עין וגבינה צהובה מותכת.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        <strong class="text-njBuff">הפילוג התרבותי (The Great Divide):</strong> הבשר הזה יוצר את הוויכוח האמוציונלי ביותר במדינה. ג'ון טיילור המציא את הבשר ב-1856 (בעיר טרנטון) וקרא לו "Taylor's Prepared Ham". בתחילת המאה ה-20 חוק מזון חדש מנע ממנו לקרוא למוצר "Ham" (שכן לא היה עשוי מנתח שוק טהור), והשם שונה ל-"Pork Roll". <br>
+                        כיום: צפון ניו ג'רזי מסרב להכיר בשינוי וקורא לכריך אך ורק **"Taylor Ham"**, בעוד דרום ומרכז ניו ג'רזי מתעקשים על השם החוקי והכללי **"Pork Roll"**. להזמין את הכריך בשם הלא נכון בחלק הלא נכון של המדינה נחשב לעבירה תרבותית.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-njBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Garden State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-njGreen shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-green-400">The Garden State (מדינת הגנים)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">אירוניה תעשייתית או אמת חקלאית?</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            כינוי זה (המוטבע על כל לוחית רישוי במדינה) נראה לרבים כאנומליה אירונית וצינית. עבור מי שנוסע דרך ניו ג'רזי על כביש האגרה המרכזי (NJ Turnpike), הנוף מורכב ממפעלי פטרוכימיה, בתי זיקוק, מזבלות ופקקי ענק מסביב לניו יורק. איך זו "מדינת הגנים"? 
+                        </p>
+                        <p class="text-slate-300 leading-loose text-lg mt-4">
+                            התשובה נמצאת בחלקים הפחות מתויירים (הדרום והמרכז). היסטורית, במאה ה-19, ניו ג'רזי הייתה "גינת הירק" העצומה שהזינה את אוכלוסיות הענק של שתי הערים השכנות: ניו יורק ופילדלפיה. אדמתה פורייה להפליא. גם כיום, ניו ג'רזי היא יצרנית אדירה בקנה מידה לאומי של **עגבניות, חמוציות, אוכמניות, אפרסקים ותירס מתוק**. הכינוי הוצע רשמית ב-1876 על ידי איש החוק אברהם בראונינג כעדות לחקלאות העשירה המסתתרת תחת מעטה התיעוש.
+                        </p>
+                    </div>
+
+                    <!-- The Crossroads of the Revolution -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-njBuff shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Crossroads of the Revolution</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">צומת הדרכים של המהפכה</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            בעוד מסצ'וסטס ווירג'יניה מקבלות לעיתים את התהילה הגיאופוליטית על מלחמת העצמאות, ניו ג'רזי הייתה למעשה שדה הקרב העיקרי של המלחמה. יותר קרבות (גדולים כקטנים) התרחשו על אדמת ניו ג'רזי (כ-296 במספר) מאשר בכל מדינה אחרת. היא הייתה נתיב המעבר הקריטי, והצבא הקונטיננטלי של וושינגטון העביר בה יותר חורפים (כמו במוריסטאון) מאשר בפנסילבניה. הכינוי מנציח את המחיר והסבל הגיאוגרפי ששילמה המדינה למען הולדת ארצות הברית.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-njBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: מדיו של ג'ורג' וושינגטון וסמלי השפע
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל ניו ג'רזי ב-CSS -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#F0DC82] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col items-center justify-center group p-4">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-black/10 pointer-events-none z-0"></div>
+                    
+                    <div class="relative transform transition-transform duration-700 group-hover:scale-105 z-10 flex flex-col items-center">
+                        
+                        <!-- Seal Elements Simulation -->
+                        <div class="relative flex flex-col items-center">
+                            <!-- Horse Head Crest -->
+                            <div class="text-[#002868] text-5xl z-20 drop-shadow-md mb-2">🐴</div>
+                            <!-- Helmet underneath horse head -->
+                            <div class="w-8 h-6 bg-slate-400 rounded-t-lg -mt-3 mb-1 border-2 border-[#002868] z-10"></div>
+                            
+                            <!-- Shield (Three Ploughs) -->
+                            <div class="w-20 h-24 bg-white flex flex-col items-center justify-center border-[3px] border-[#002868] shadow-sm z-30" style="clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);">
+                                <span class="text-[#002868] text-lg">🚜</span>
+                                <span class="text-[#002868] text-lg">🚜</span>
+                                <span class="text-[#002868] text-lg">🚜</span>
+                            </div>
+                            
+                            <!-- Supporters (Liberty and Ceres) -->
+                            <div class="absolute top-[40%] -left-12 text-3xl">🗽</div> <!-- Liberty (represented by statue) -->
+                            <div class="absolute top-[40%] -right-12 text-3xl">🌾</div> <!-- Ceres/Agriculture -->
+
+                            <!-- Ribbon with Motto -->
+                            <div class="mt-4 bg-[#002868] px-3 py-1 rounded shadow-sm border border-slate-300 z-40 text-center w-64">
+                                <span class="text-[#F0DC82] font-black uppercase text-[10px] tracking-widest">Liberty and Prosperity</span>
+                                <span class="text-[#F0DC82] font-black text-[8px] tracking-widest block mt-1">1776</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    מגן המחרשות על רקע העור <br><span class="text-xl font-medium text-slate-500">(אומץ ב-1896, צבע הרקע מבוסס על בחירת וושינגטון)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-njBuff shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-njBuff decoration-4">צבע הרקע המיוחד (Buff):</h3>
+                    <p class="text-xl leading-loose">
+                        דגל ניו ג'רזי (אומץ ב-1896) נבדל מיד משאר דגלי ה"סדין הכחול" בארה"ב בזכות צבע הרקע שלו: גוון חום-צהבהב חיוור הנקרא **"Buff"** (צבע של עור לא צבוע). 
+                        ההיסטוריה של הצבע הזה היא צבאית וישירה לג'ורג' וושינגטון: בשנת 1779, וושינגטון הורה שכל רגימנט בצבא הקונטיננטלי יישא דגל בצבעי המדים של אותה מדינה. וושינגטון עצמו קבע כידיד שניו ג'רזי תלבש מדים בצבע "כחול (Jersey Blue) עם חיפוי של Buff". אלו היו הצבעים שלבשו וושינגטון ואנשיו. כאשר ניו ג'רזי אימצה את דגלה, היא בחרה להשתמש ברקע ה"Buff" ההיסטורי והכחול בסמל, כעדות חיה לפקודתו המקורית של הגנרל.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-njBlue shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-njBlue">המגן ושלוש המחרשות:</h4>
+                        <p class="leading-loose text-lg">במרכז החותם (שעוצב במקור על ידי פייר יוג'ין דו סימיטייר ב-1777) יושב מגן ובו מצוירות **שלוש מחרשות חקלאיות**. אלו מסמלות את ההיסטוריה החקלאית האדירה של "מדינת הגנים" ואת האדמה הפורייה שלה. מעל המגן מונחת קסדת אביר עצומה הפונה קדימה, המסמלת את הריבונות העצמאית של ניו ג'רזי, ומעליה ניצב ראש של **סוס** – כאמור, חיית המדינה וסמל לכוח, עבודה ומהירות.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">האחיות החופשיות והמוטו:</h4>
+                        <p class="leading-loose text-lg">לצדי המגן ניצבות שתי דמויות אלגוריות. משמאל ניצבת **"חירות" (Liberty)**, המחזיקה מטה ובו "כובע פריגי" (Phrygian cap) המסמל שחרור מעבדות. מימין ניצבת **"קרס" (Ceres)**, אלת החקלאות והשפע הרומית, המחזיקה בידה קרן שפע (Cornucopia) עמוסה בפירות הדר וירקות המדינה. מתחתן מתנוסס המוטו הפשוט והישיר: **"Liberty and Prosperity"** (חירות ושגשוג), ולצידו השנה 1776, שנת העצמאות.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">New Jersey State Archives:</p>
+                    <p>"The Etymology of New Jersey: Carteret and the Isle of Jersey". מסמכים המתעדים את החלוקה הגיאופוליטית מ-1664 והוקרת התודה למגן האי ג'רזי מתקופת מלחמת האזרחים האנגלית.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Washington Crossing Historic Park (NPS):</p>
+                    <p>"The Ten Crucial Days: Washington's Crossing and the Battle of Trenton". תיעוד צבאי של האסטרטגיה והקרב מדצמבר 1776 שהציל את המהפכה האמריקאית מקריסה.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Thomas Edison National Historical Park:</p>
+                    <p>"Menlo Park: The Invention of the Research Laboratory". ארכיון המתעד את פילוסופיית ההמצאה התעשייתית של אדיסון בניו ג'רזי, ופיתוח הפונוגרף ונורת הליבון.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Rutgers University Agricultural Extension:</p>
+                    <p>"The Garden State: Agriculture amidst Industry". נתונים אגרונומיים המצדיקים את הכינוי ההיסטורי ואת מלחמת התרבות הקולינרית בין ה-Pork Roll של הדרום ל-Taylor Ham של הצפון.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"The New Jersey State Flag and the 'Buff' Color". היסטוריוגרפיה של החלטת העיצוב להנציח את פקודת המדים והצבעים המדויקת של ג'ורג' וושינגטון מ-1779 ברקע הדגל.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-njBuff rounded-full shadow-[0_0_15px_rgba(240,220,130,0.6)]"></div>
+                <div class="w-6 h-6 bg-njBlue rounded-full shadow-[0_0_15px_rgba(0,40,104,0.6)]"></div>
+                <div class="w-6 h-6 bg-njGreen rounded-full shadow-[0_0_15px_rgba(34,139,34,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
