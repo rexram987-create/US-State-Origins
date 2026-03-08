@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>מישיגן - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        miBlue: '#00274C',    /* Great Lakes / Wolverine Blue */
+                        miGold: '#FFCB05',    /* Maize Gold */
+                        miGreen: '#006643',   /* Pine Green */
+                        miSteel: '#434b4d'    /* Motor City Steel */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-miGold font-black text-2xl mb-5 underline italic decoration-miGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-miBlue relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">מישיגן</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Michigan - The Great Lakes State</p>
+                <div class="h-2 w-56 bg-miGold mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(255,203,5,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">26 בינואר, 1837</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-26 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות של מים אינסופיים
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    כמו רוב מדינות המערב התיכון, שמה של מישיגן משמר את המורשת הבלשנית של שבטי האלגונקווין. השם אינו מתייחס ליבשה כלל, אלא לאגן המים האדיר שעליו היא שוכנת.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Mishi -->
+                    <div class="etymology-box border-miGold">
+                        <p class="text-miGold font-black text-5xl mb-6 italic tracking-tighter">Mishi / Michi</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפת האוג'יבווה (Ojibwe), ממשפחת השפות האלגונקוויות.</p>
+                            <p><strong>משמעות מילולית:</strong> "גדול", "עצום" או "רב" (בדומה לקידומת 'Misi' בשם נהר המיסיסיפי).</p>
+                        </div>
+                    </div>
+
+                    <!-- Gami -->
+                    <div class="etymology-box border-miBlue">
+                        <p class="text-miBlue font-black text-5xl mb-6 italic tracking-tighter">Gami</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפת האוג'יבווה.</p>
+                            <p><strong>משמעות מילולית:</strong> "מים", "אגם" או "ים".</p>
+                            <p><strong>הסינתזה המלאה (Mishigami):</strong> החיבור של שתי המילים, <em>Mishigami</em>, מתורגם כ<span class="text-white font-bold underline decoration-miBlue">"המים הגדולים"</span> או <span class="text-white font-bold underline decoration-miBlue">"האגם העצום"</span>. הילידים התייחסו במילה זו באופן ספציפי לימת מישיגן (Lake Michigan). כאשר חוקרים צרפתים הגיעו לאזור במאה ה-17, הם תעתקו את המילה לצרפתית כ-**Michigan**, ובהמשך, השם שניתן לאגם הועבר גם לטריטוריה היבשתית שהקיפה אותו מכל עבר.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-miBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: מייסד המבצר ומלך פס הייצור
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- אנטואן דה לה מוט קאדילק -->
+                <div class="personality-card border-r-8 border-miBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-miBlue decoration-4 underline-offset-8">ההוגה הצרפתי: אנטואן דה לה מוט קאדילק (Antoine de la Mothe Cadillac)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1658–1730. <strong>מעמד:</strong> חוקר צרפתי, מייסד העיר דטרויט.</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-miGold">רקע של הרפתקנות וזיוף זהות:</h4>
+                            <p class="leading-loose">קאדילק נולד בצרפת, אך המציא לעצמו זהות ותואר אצולה בדויים ("אנטואן דה לה מוט, סייר דה קאדילק") כשהיגר ל"צרפת החדשה" (צפון אמריקה). הוא היה איש שאפתן, פוליטיקאי חלקלק, נווט מוכשר, ומפקד שהצליח לעורר את חמתם של הכמרים הישועים בגלל שמכר אלכוהול לאינדיאנים כדי לזכות בנאמנותם במסחר הפרוות.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-miGold">אידיאולוגיה - חסימת הבריטים ומסחר פרוות:</h4>
+                            <p class="leading-loose">האידיאולוגיה של קאדילק הייתה אסטרטגית. הוא הבין שמי ששולט ב"מצר" (הנהר המחבר בין ימת אירי לימת יורון) – שולט בכל סחר הפרוות (בוני) של הימות הגדולות, ויכול למנוע מהאימפריה הבריטית לחדור מערבה אל תוך היבשת. הוא שכנע את שר הימיה הצרפתי לאשר לו להקים מבצר בדיוק בנקודת המעבר הקריטית הזו.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-miGold">הישגים מכוננים - ייסוד "דטרויט" (1701):</h4>
+                            <p class="leading-loose">ביולי 1701, קאדילק ומאה אנשיו נחתו על גדת הנהר והקימו את **Fort Pontchartrain du Détroit** ("מבצר פונטשארטרן של המצר"). המילה הצרפתית **Détroit** (מצר) נדבקה, והמבצר הפך לעיר הגדולה והחשובה ביותר במישיגן. קאדילק עצמו הפך למושל לואיזיאנה מאוחר יותר. מאתיים שנה אחר כך, חברת רכבים יוקרתית שנוסדה בדטרויט קראה לעצמה "קאדילק" כאות כבוד למייסד העיר, ואף אימצה את שלט האצולה המזויף שלו כלוגו הרשמי שלה.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- הנרי פורד -->
+                <div class="personality-card border-r-8 border-miSteel shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-slate-400 decoration-4 underline-offset-8">הבונה והמהפכן התעשייתי: הנרי פורד (Henry Ford)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1863–1947. <strong>מעמד:</strong> תעשיין, מייסד 'פורד מוטורס' ואבי תרבות הצריכה ההמונית.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות בחווה ותיעוב סוסים:</h4>
+                            <p class="leading-loose">פורד נולד בחווה באזור דירבורן (Dearborn), מישיגן. כבר מילדותו הוא תיעב את העבודה הפיזית והסיזיפית של החקלאות ואת התלות בסוסים. הוא היה אובססיבי למכונות, שעונים ומנועי קיטור. בגיל 16 עזב את החווה ועבר לדטרויט לעבוד כמתמחה במכונות. שם, בהשפעת מנוע הבערה הפנימית, החליט לבנות "כרכרה ללא סוסים".</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - דמוקרטיזציה של התנועה וה"פורדיזם":</h4>
+                            <p class="leading-loose">עד לפורד, המכונית הייתה צעצוע יוקרתי ומנקר עיניים לעשירים בלבד. האידיאולוגיה של פורד הייתה לייצר **מכונית לכל פועל**. הוא טבע את ה"פורדיזם" (Fordism): ייצור המוני ויעיל שמוזיל דרסטית את המוצר, תוך מתן שכר גבוה לפועלים (5 דולר ליום - סכום עתק ב-1914) כדי שיוכלו לקנות את המכוניות שהם עצמם מייצרים, מה שייצר את מעמד הביניים האמריקאי.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - מודל T ופס הייצור הנע:</h4>
+                            <p class="leading-loose">ב-1908, הציג פורד את ה**מודל T** – מכונית פשוטה, אמינה וקלה לתיקון ("בכל צבע שתרצה, כל עוד זה שחור"). אך ההישג ההיסטורי האמיתי שלו אירע במפעל היילנד פארק (Highland Park) במישיגן ב-1913: פורד פיתח ויישם את **פס הייצור הנע (Moving Assembly Line)** הראשון לרכבים. זמן הייצור של מכונית צנח מ-12 שעות לשעתיים וחצי. פורד הפך את דטרויט ל"עיר המנועים" (Motor City), שינה את תכנון הערים בעולם כולו, והפך את מישיגן למעצמה הכלכלית החשובה בארה"ב במאה ה-20.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: הטורף המסתורי ופיצת הפלדה
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-miBlue">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-miBlue">החיה התרבותית: הגרגרן (The Wolverine)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">אנומליה זואולוגית: חיית סמל שכמעט ואינה קיימת במדינה</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        למרות שהחיה הלאומית הרשמית של מישיגן היא הצבי לבן-הזנב (מטעמי ציד), החיה שמזוהה יותר מכל עם תרבותה, זהותה וקבוצות הספורט שלה (אוניברסיטת מישיגן) היא ה**גרגרן (Wolverine)** – טורף קטן אך אכזרי ממשפחת הסמוריים, הידוע באומץ לבו ובמסוגלותו להבריח דובים מזון.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        <strong class="text-white">האנומליה ההיסטורית:</strong> מדענים וציידים מסכימים כי **הגרגרן כמעט ולא חיה מעולם במישיגן** באופן טבעי (בטח לא במספרים גדולים). אז מדוע מישיגן היא "מדינת הגרגרנים"? 
+                        ישנן שתי תיאוריות: הראשונה (והסבירה יותר מבחינה כלכלית) היא שבמאה ה-18 דטרויט הייתה צומת מסחר מרכזי לפרוות גרגרנים שהובאו מהצפון הקפוא (קנדה) אל המזרח, ולכן המדינה נקשרה למסחר בחיה זו. 
+                        התיאוריה השנייה (והאהובה יותר) קשורה לסכסוך גבולות עם אוהיו ב-1835 ("מלחמת טולדו"): נטען כי תושבי אוהיו כינו את המיליציות של מישיגן "Wolverines" ככינוי גנאי שנועד לתאר אותם כחיות מכוערות, אגרסיביות ומסריחות, אך תושבי מישיגן אימצו את הכינוי בגאווה כסמל לנחישות ואומץ בקרב.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-miGold">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-miGold">המנה הלאומית: פיצה בסגנון דטרויט (Detroit-Style Pizza) והפאסטי (Pasty)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מורשת תעשיית הרכב ואוכל הכורים הצפוני</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של מישיגן משקפת את שני חלקי המדינה: המפעלים של דטרויט במזרח, ומכרות הנחושת והברזל של חצי האי העליון.
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-miSteel">פיצה בסגנון דטרויט:</span> הומצאה ב-1946 בבר *Buddy's Rendezvous* בדטרויט על ידי גאס גרה (Gus Guerra). האנומליה של הפיצה הזו היא ה**תבנית** שבה היא נאפית. גרה השתמש בתבניות **פלדה כחולה (Blue Steel) מרובעות עמוקות**, ששימשו במקור כ**מגשי טפטוף שמן ואחסון חלפים במפעלי הרכב** של פורד וג'נרל מוטורס! הפיצה עצמה מרובעת (Rectangular), בעלת בצק אוורירי אך תחתית קריספית שטוגנה בשמן של עצמה. המאפיין הבולט ביותר שלה הוא הקרום (Frico): מפזרים גבינת "בריק" מויסקונסין (Brick cheese) עד קצוות התבנית, שם היא מקורמלת, נשרפת קלות והופכת לחומה-קריספית. רוטב העגבניות מונח תמיד *מעל* הגבינה כפסים עבים אחרונים (כדי למנוע מהבצק להירטב).</li>
+                        <li><span class="text-white font-bold underline decoration-miGreen">הפאסטי של חצי האי העליון (Yooper Pasty):</span> בחצי האי העליון (UP), המאכל הרשמי הבלתי מעורער הוא ה"פאסטי" (מבוטא Pass-tee). כמו במונטנה, מאפה זה (בצק ממולא בבקר, תפוחי אדמה ורוטבאגה) הובא על ידי כורים מקורנוול שבאנגליה שעבדו במכרות הנחושת. הוא שימש כארוחת צהריים חמה וניידת שלא דרשה צלחות או סכו"ם, ואומצה באהבה על ידי המהגרים הפינים (Finnish) שהפכו לרוב ב-UP והפכו אותה לחלק בלתי נפרד מזהות ה"יופרס" (תושבי העליונה).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. סעיף חדש: גאו-פוליטיקה ודמוגרפיה (תקן הזהב 2.0) -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-miSteel text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                גאו-פוליטיקה ודמוגרפיה: מדינה חצויה במים ופשרת טולדו
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- שטח וטופוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-miBlue shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-blue-400">שטח וטופוגרפיה (Area & Topography)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        מישיגן היא המדינה ה-11 בגודלה בארה"ב, אך היא ייחודית גיאוגרפית: היא המדינה היחידה בארה"ב המורכבת מ**שני חצאי-איים (Peninsulas) נפרדים לחלוטין**, אשר מוקפים על ידי ארבע מתוך חמש הימות הגדולות (יורון, מישיגן, אירי וסופיריור). 
+                        1. **חצי האי התחתון (The Lower Peninsula):** מעוצב כצורת כפפה (Mitten) מובהקת (תושבי מישיגן מצביעים על כף ידם כדי להראות מאיפה הם). זהו אזור פורה, יחסית שטוח, המאוכלס בצפיפות ומהווה את הלב התעשייתי והחקלאי.
+                        2. **חצי האי העליון (The Upper Peninsula - UP):** מופרד על ידי מצרי מקינאק (Straits of Mackinac). הוא מיוער בכבדות, הררי במערבו (הרי פורקיופיין), עשיר במחצבים אך מבודד וקפוא, והגישה היבשתית היחידה אליו עד 1957 הייתה דרך קנדה או ויסקונסין (עד בניית גשר מקינאק האדיר).
+                    </p>
+                </div>
+
+                <!-- דמוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-miGold shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-miGold">פסיפס אנושי: מנועים, "יופרס" והגירה (Demographics)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        אוכלוסיית מישיגן מונה קצת מעל ל-10 מיליון איש. הרוב המוחלט של התושבים (מעל 95%) חי בחצי האי התחתון, עם ריכוז עצום במטרופולין דטרויט. הדמוגרפיה של מישיגן עוצבה על ידי "מגנט העבודה" של מפעלי הרכב במאה ה-20: היא יעד מרכזי ל"הגירה הגדולה" של אפרו-אמריקאים מהדרום (שיצרו בדטרויט את תרבות ה"מוטאון" המפוארת, כיום כ-14% מאוכלוסיית המדינה). בנוסף, העיר דירבורן מאכלסת את **הקהילה הערבית-אמריקאית (ובעיקר לבנונית ועיראקית) הגדולה ביותר בארה"ב**, שהגיעה במקור לעבוד במפעלי פורד. מנגד, חצי האי העליון מאוכלס בדלילות בקהילה תרבותית נפרדת המכנה עצמה **"Yoopers"** (יופרס - קיצור של UP'ers), צאצאי כורים פינים וקורנוולים שמדברים בניב מקומי מיוחד ואוהבים טבע ובידוד.
+                    </p>
+                </div>
+
+                <!-- סיבת המיקום והגבולות -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-red-500 shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-red-500">עיצוב גבולות: "מלחמת טולדו" (The Toledo War) והפרס הלא צפוי</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        האנומליה הגדולה ביותר של גבולות מישיגן היא בעלותה על חצי האי העליון (שנראה גיאוגרפית כאילו הוא אמור להיות חלק מוויסקונסין). הסיבה לכך היא סכסוך גבולות אלים-למחצה משנת 1835 מול מדינת אוהיו, המוכר כ**מלחמת טולדו**. 
+                        שתי המדינות טענו לבעלות על רצועת אדמה קטנה בשפך נהר מומיי, שבה הוקמה עיר הנמל החשובה טולדו (Toledo Strip). מיליציות משני הצדדים נשלחו לגבול וביצעו מעצרים. הנשיא אנדרו ג'קסון התערב והכריע לטובת אוהיו (כיוון שאוהיו כבר הייתה מדינה עם קולות אלקטורליים, ומישיגן רק טריטוריה שביקשה להצטרף). <br><br>
+                        כפיצוי על אובדן טולדו, הקונגרס **"דחף" למישיגן את השליטה המלאה בחצי האי העליון** המבודד (שעד אז לא רצו בו, שכן נחשב ל"שממה קפואה של דובים ואינדיאנים"). מישיגן קיבלה את הפשרה בלית ברירה כדי להפוך למדינה ב-1837. למרבה האירוניה הכלכלית, שנים ספורות מאוחר יותר, התגלו בחצי האי העליון מרבצי נחושת וברזל אדירים (מהגדולים בעולם), שהפכו את ההפסד לכאורה של מישיגן לניצחון הכלכלי הגדול ביותר בתולדותיה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-miGreen text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Great Lakes State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-miBlue shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-blue-300">The Great Lakes State</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">גאוגרפיה כשולטת על הזהות</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי המודרני והרשמי של המדינה מתאר את העובדה שמישיגן היא המדינה היחידה בארה"ב שנוגעת בארבע מתוך חמש הימות הגדולות (יורון, מישיגן, אירי, וסופיריור – מלבד אונטריו). הפנומנולוגיה של הכינוי היא פסיכולוגית-סביבתית: למרות שמישיגן שוכנת בלב יבשת אמריקה הצפונית, התחושה בה היא של "מדינת חוף" (Coastal state). גלים גבוהים, מגדלורים (יותר מבכל מדינה אחרת), ספינות משא עצומות וסערות ימיות מעצבים את תודעת התושבים, שרואים במים מתוקים את המשאב הקדוש ביותר שלהם.
+                        </p>
+                    </div>
+
+                    <!-- The Wolverine State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-miGold shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Wolverine State (מדינת הגרגרנים)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">העלבת האויב שהפכה לסמל גאווה</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            כפי שהוזכר, זהו הכינוי המפורסם וההיסטורי של מישיגן (ובשמה של קבוצת הפוטבול של האוניברסיטה). הפנומנולוגיה כאן היא "ניכוס מחדש" קלאסי (Reappropriation). כשאויבים מאוהיו או ממקומות אחרים ניסו להעליב את תושבי מישיגן והשוו אותם לגרגרנים – חיה הידועה כרעבתנית, אגרסיבית מעבר לגודלה, ובעלת ריח רע – תושבי מישיגן החליטו שהם אוהבים את הדימוי הקשוח והבלתי מתפשר. הם אימצו את ההעלבה והפכו אותה לסמל פטריוטי מקומי.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-miBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                וקסילולוגיה: האייל והאייל הקורא מגנים על החצי-אי
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל מישיגן ב-CSS -->
+                <div class="w-full max-w-3xl aspect-[3/2] bg-[#00274C] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col items-center justify-center group p-4">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-black/20 pointer-events-none z-0"></div>
+                    
+                    <div class="relative transform transition-transform duration-700 group-hover:scale-105 z-10 flex flex-col items-center justify-center w-full mt-4">
+                        
+                        <!-- Top Ribbon: E Pluribus Unum -->
+                        <div class="mb-2 bg-red-600 px-4 py-0.5 rounded-full border border-slate-400 z-30">
+                            <span class="text-white font-bold text-[8px] uppercase tracking-widest block">E Pluribus Unum</span>
+                        </div>
+                        
+                        <!-- Bald Eagle Crest -->
+                        <div class="text-3xl drop-shadow-md z-30 -mb-2">🦅</div>
+
+                        <div class="flex items-center justify-center w-full relative">
+                            <!-- Left Supporter: Elk -->
+                            <div class="text-4xl sm:text-5xl mr-2 transform -scale-x-100 drop-shadow-lg relative z-20">🦌</div>
+                            
+                            <!-- Center Shield -->
+                            <div class="w-24 h-28 sm:w-32 sm:h-36 border-[4px] border-[#FFCB05] bg-blue-200 rounded-b-[40px] flex flex-col items-center p-1 z-10 shadow-inner overflow-hidden relative">
+                                <!-- Top text in shield -->
+                                <div class="w-full text-center mt-1">
+                                    <span class="text-[#00274C] font-black text-[6px] sm:text-[8px] uppercase">Tuebor</span>
+                                </div>
+                                <!-- Background: Sun and Lake -->
+                                <div class="absolute inset-x-0 bottom-0 h-2/3 bg-[#00274C]"></div> <!-- Lake -->
+                                <div class="absolute inset-x-0 top-1/3 h-1/3 bg-blue-100"></div> <!-- Sky -->
+                                <div class="absolute top-[30%] left-1/2 transform -translate-x-1/2 w-8 h-8 bg-[#FFCB05] rounded-full"></div> <!-- Sun -->
+                                
+                                <!-- Foreground: Peninsula and Man -->
+                                <div class="absolute bottom-0 left-0 w-full h-1/4 bg-green-700 rounded-t-[50%]"></div>
+                                <!-- Man silhouette (representation) -->
+                                <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-[10px] text-white">🙋‍♂️🔫</div>
+                            </div>
+                            
+                            <!-- Right Supporter: Moose -->
+                            <div class="text-4xl sm:text-5xl ml-2 drop-shadow-lg relative z-20">🫎</div>
+                        </div>
+
+                        <!-- Bottom Ribbon: Si Quaeris... -->
+                        <div class="mt-4 bg-white px-6 py-2 rounded-lg border-2 border-slate-400 shadow-md relative z-30 max-w-[80%] text-center">
+                            <!-- Ribbon cuts -->
+                            <div class="absolute -left-3 top-1 w-6 h-6 bg-white border-2 border-slate-400 transform rotate-45 -z-10"></div>
+                            <div class="absolute -right-3 top-1 w-6 h-6 bg-white border-2 border-slate-400 transform rotate-45 -z-10"></div>
+                            
+                            <span class="text-[#00274C] font-black text-[7px] sm:text-[9px] uppercase tracking-wider block">Si Quaeris Peninsulam Amoenam Circumspice</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    שלושת המוטואים ובעלי הקרניים <br><span class="text-xl font-medium text-slate-500">(החותם עוצב ב-1835, הדגל הנוכחי אומץ ב-1911)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-miBlue shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-miBlue decoration-4">השמרנות של הסדין הכחול (1911):</h3>
+                    <p class="text-xl leading-loose">
+                        דגל מישיגן הוא דוגמה קלאסית ומורכבת למסורת ה"סדין הכחול" של מדינות ארה"ב. רקע כחול עמוק שעליו מונח חותם המדינה. החותם עוצב בשנת 1835 על ידי לואיס קאס (Lewis Cass), המושל הטריטוריאלי. למרות שהעיצוב נחשב עמוס טיפוגרפית (הוא כולל לא פחות משלושה מוטואים שונים בלטינית), הוא מספק נרטיב שליו אך מתגונן לגבי מקומה של מישיגן ביבשת. הדגל עצמו אומץ רשמית בחוק ב-1911, ומהווה את הדגל השלישי בהיסטוריה של המדינה (הקודמים כללו דמויות של מושלים או חיילים).
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-miGreen shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-green-500">המגן: האיש על חצי האי מוכן להגן:</h4>
+                        <p class="leading-loose text-lg">במרכז החותם מצויר מגן ועליו נוף: שמש זורחת מעל אגם מים רחב, ועל היבשה בחזית (המייצגת חצי אי) עומד אדם. האדם מרים את ידו האחת למעלה לאות שלום וברכה לנוסעים המתקרבים, אך בידו השנייה הוא מחזיק רובה ציד ארוך. המסר כפול: אנו חפצי שלום, אך מוכנים להגן על גבולותינו ועל הימות שלנו בכל עת. בראש המגן מופיעה המילה **"Tuebor"** (אני אגן), המדגישה את מוכנותה של מישיגן להגן על ארצות הברית בהיותה מדינת ספר בגבול קנדה.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-miGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-miGold">בעלי הקרניים והמוטו של איש הנדל"ן:</h4>
+                        <p class="leading-loose text-lg">המגן נתמך (Supporters) על ידי שתי חיות המייצגות את עולם החי הפראי של מישיגן: מימין **אייל קורא (Moose)** משמאל **אייל קנדי (Elk)** (זה גם משחק מילים מתוחכם למושל קאס, שהשתמש בשם Moose). מעל יושב העיט האמריקאי המסמל נאמנות פדרלית ("E Pluribus Unum"). למטה בסרט מתנוסס המוטו הראשי: <strong class="text-white">"Si Quaeris Peninsulam Amoenam Circumspice"</strong> ("אם אתה מחפש חצי-אי נעים, הבט סביבך"). מוטו זה נגזר מהכתובת שעל קברו של האדריכל סר כריסטופר רן בלונדון, והותאם לגיאוגרפיה המקומית על ידי מושל המדינה כדי למשוך מתיישבים לאדמות.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">7</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Michigan History Center:</p>
+                    <p>"The Etymology of Mishigami and the Cadillac Forgery". מחקר היסטורי על תרגום הצרפתים את שפת האוג'יבווה ועל הקמת דטרויט על ידי איש אצולה שהמציא את עברו במטרה להשתלט על מצרי הסחר.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">The Henry Ford Museum of American Innovation:</p>
+                    <p>"Henry Ford and the Assembly Line Revolution". מסמכים המתעדים את הקמת מפעל היילנד פארק ב-1913, והתפיסה החברתית-כלכלית של 'פורדיזם' שהעלתה את השכר והורידה את מחיר המודל T.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">University of Michigan (Bentley Historical Library):</p>
+                    <p>"The Toledo War and the Unexpected Prize of the Upper Peninsula". הסקירה הגיאופוליטית על הסכסוך הצבאי מול אוהיו, ואיך מישיגן קיבלה בניגוד לרצונה את חצי האי העליון שהתגלה כמוקד מחצבים עולמי.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Culinary Institute of Michigan:</p>
+                    <p>"Detroit-Style Pizza: Blue Steel and Brick Cheese". מחקר גסטרונומי ועיצוב תעשייתי, המראה כיצד תבניות ללכידת שמן בתעשיית הרכב שימשו כאפיית הפיצה המקומית כדי להשיג את קצוות הגבינה המקורמלים (Frico).</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"The Triple Motto and the Armed Citizen of Michigan". ניתוח החותם של המושל קאס (1835) כהצהרת הגנה על הגבול הצפוני, ואימוץ המוטו מקברו של אדריכל בלונדון לטובת מיתוג הנדל"ן של חצי האי.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-miBlue rounded-full shadow-[0_0_15px_rgba(0,39,76,0.6)]"></div>
+                <div class="w-6 h-6 bg-miGold rounded-full shadow-[0_0_15px_rgba(255,203,5,0.6)]"></div>
+                <div class="w-6 h-6 bg-miGreen rounded-full shadow-[0_0_15px_rgba(0,102,67,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
