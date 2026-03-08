@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>קולורדו - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        coBlue: '#002868',    /* Colorado Flag Blue */
+                        coRed: '#BF0A30',     /* Colorado Flag Red */
+                        coGold: '#FFD700',    /* Colorado Flag Gold */
+                        coMountain: '#4A5D23' /* Rocky Mountain Green */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-coGold font-black text-2xl mb-5 underline italic decoration-coGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-coRed relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">קולורדו</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Colorado - The Centennial State</p>
+                <div class="h-2 w-56 bg-coGold mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(255,215,0,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">1 באוגוסט, 1876</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-38 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות של בוץ אדום וספרדית
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    שמה של קולורדו מתאר באופן מילולי ומדויק את המאפיין הגיאולוגי הבולט ביותר של הנהר האדיר שנובע מהריה ומעצב את כל דרום-מערב ארצות הברית.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Color -->
+                    <div class="etymology-box border-coRed">
+                        <p class="text-coRed font-black text-5xl mb-6 italic tracking-tighter">Color / Colorado</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> השפה הספרדית (מקור לטיני - *Color* / *Coloratus*).</p>
+                            <p><strong>משמעות מילולית:</strong> "צבוע באדום", "אדמדם" או "סמוק" (Ruddy).</p>
+                            <p><strong>ניתוח גיאולוגי-היסטורי:</strong> במאה ה-16, חוקרים ספרדים גילו נהר עצום הזורם לדרום-מערב. הם הבחינו שהמים לא היו שקופים, אלא עכורים ועמוסים בכמויות אדירות של סחף טבעי (Silt) ואדמת חמר מפסגות ההרים ומקניוני אבן החול האדומה. המים נראו כאילו הם מדממים או צבועים באדום חלודה. לכן הם קראו לו **"Rio Colorado"** (הנהר האדום/הצבוע). כשהקונגרס האמריקאי הקים את הטריטוריה החדשה ב-1861 מתוך הרי הרוקי, הוא החליט לקרוא לה על שם הנהר האגדי שנובע מתוכה.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-coBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: הסייר השבוי ואדריכל הטריטוריה
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- זבולון פייק -->
+                <div class="personality-card border-r-8 border-coRed shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-coRed decoration-4 underline-offset-8">ההוגה, הסייר והשבוי: זבולון פייק (Zebulon Pike)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1779–1813. <strong>מעמד:</strong> קצין וחוקר המערב הדרומי (Pike Expedition).</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-coGold">ילדות בספר ומשמעת צבאית:</h4>
+                            <p class="leading-loose">פייק נולד בניו ג'רזי וגדל בפנסילבניה, בנו של קצין בצבא היבשתי של ג'ורג' וושינגטון. הוא גדל לתוך חיי המחנה הצבאי, התגייס בגיל 15, והפך לקצין בעל משמעת ברזל. בעוד שלואיס וקלארק נשלחו לחקור את צפון רכישת לואיזיאנה, פייק נשלח על ידי הגנרל המושחת ג'יימס וילקינסון לחקור את דרום הרכישה – אזור לא ממופה שגבל באימפריה הספרדית (קולורדו וניו מקסיקו של ימינו).</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-coGold">אידיאולוגיה - הרחבת האימפריה (Manifest Destiny):</h4>
+                            <p class="leading-loose">האידיאולוגיה של פייק הייתה צבאית ומרחיבה: הוא האמין שארצות הברית חייבת למפות את ההרים העצומים במערב כדי לבסס שליטה אסטרטגית, למצוא את מקורות נהר הארקנסו והרד-ריבר, ולקרוא תיגר על המונופול של ספרד במסחר של סנטה פה.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-coGold">הישגים מכוננים - הפסגה והשבי (1806):</h4>
+                            <p class="leading-loose">בנובמבר 1806, משלחתו של פייק הגיעה למישורי קולורדו וזיהתה פסגת הר אדירה, מתנשאת מעל העננים. פייק וצוותו ניסו לטפס עליה בשלג עמוק ללא ציוד מתאים, נכשלו, ופייק הכריז ש"שום אדם לעולם לא יוכל להעפיל לפסגה זו". ההר נקרא על שמו: **פייק'ס פיק (Pikes Peak)**. בהמשך המסע, משלחתו תעתה ונכנסה בטעות לשטח ספרדי בקולורדו/ניו מקסיקו. הם נעצרו על ידי חיילים ספרדים והובלו כשבויים למקסיקו. למרות השבי, יומניו של פייק הוברחו החוצה וסיפקו לאמריקה את התיאור המדויק הראשון של הרי הרוקי העצומים של קולורדו.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ויליאם גילפין -->
+                <div class="personality-card border-r-8 border-coBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-coBlue decoration-4 underline-offset-8">הבונה הגיאופוליטי: ויליאם גילפין (William Gilpin)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1822–1894. <strong>מעמד:</strong> המושל הראשון של טריטוריית קולורדו.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">רקע של אליטה ומסעות אינדיאנים:</h4>
+                            <p class="leading-loose">גילפין נולד בפנסילבניה למשפחה קווייקרית אינטלקטואלית עשירה. הוא חונך באנגליה ולמד באוניברסיטת פנסילבניה. בניגוד לחינוכו השליו, הוא נמשך לקריירה צבאית ולחם במלחמת ארה"ב-מקסיקו. הוא ליווה את ג'ון פרמונט למערב והתאהב בטופוגרפיה של הרי הרוקי.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - דנוור כבירת העולם:</h4>
+                            <p class="leading-loose">האידיאולוגיה של גילפין הייתה מגלומנית באופן מרהיב. הוא היה תיאורטיקן גיאופוליטי שהגה את חזון "הרכבת הקוסמופוליטית". הוא חזה (ופרסם ספרים על כך) שהעיר **דנוור (Denver)**, היושבת למרגלות הרי הרוקי, ממוקמת ב"ציר האיזון הגיאוגרפי" של העולם. הוא טען שדנוור עתידה להפוך למרכז המסחר של כדור הארץ, שיחבר בין אירופה (דרך האוקיינוס האטלנטי) לאסיה (דרך השקט).</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - הצלת הטריטוריה (1861):</h4>
+                            <p class="leading-loose">לינקולן מינה אותו למושל הראשון של טריטוריית קולורדו (שנוסדה מתוך מחנות הכורים של "הבהלה לזהב" ב-1859). הישגו הגדול ביותר היה ש**שמר את קולורדו באיחוד** במהלך מלחמת האזרחים. כשכוחות הדרום (קונפדרציה) מטקסס פלשו לניו מקסיקו בדרכם לכבוש את מכרות הזהב של קולורדו, גילפין, על דעת עצמו וללא אישור מוושינגטון, הדפיס שטרי חוב צבאיים (Drafts), גייס במהירות את "הרגימנט הראשון של קולורדו", והם ירדו דרומה והביסו את הקונפדרציה בקרב מעבר גלורייטה ב-1862 ("גטיסברג של המערב"). פעולתו הפזיזה-אך-גאונית הצילה את זהב המערב מידי הדרום.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: כבש ההרים ואשכי הפר של הבוקרים
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-coMountain">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-coMountain">בעל החיים הלאומי: כבש גדול-קרניים של הרי הרוקי (Rocky Mountain Bighorn Sheep)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מלך הפסגות התלולות (אומץ ב-1961)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הכבש גדול-הקרניים של הרי הרוקי (*Ovis canadensis canadensis*) נבחר ליונק המדינה של קולורדו כיוון שהוא מגלם את המהות הטופוגרפית שלה: קיום בשחקים (High altitude).
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        בעל חיים חסון זה, שהזכרים שלו נושאים קרניים ספירליות עצומות היכולות לשקול לבדן כ-14 קילוגרמים (משקל זהה לשלד שלם של הכבש), מותאם פיזיולוגית לחיים קיצוניים. פרסותיו פועלות כ"נעלי טיפוס סלעים" (רפידה פנימית רכה הנאחזת בסלע ושוליים נוקשים), מה שמאפשר לו לזנק על פני צוקים כמעט אנכיים ברוקי'ס, שם אף טורף אינו יכול לעקוב אחריו. בחירת הכבש על ידי בית המחוקקים נועדה לסמל את הנוף האלפיני הפראי של קולורדו ואת רוח החופש הבלתי ניתנת לאילוף שלה.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-coRed">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-coRed">המנה הלאומית: צ'ילי ירוק של פואבלו וצדפות הרי הרוקי</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">יריבות קולינרית והומור חוואים</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הגסטרונומיה של קולורדו מורכבת מחיבור בין המורשת ההיספאנית של הדרום לבין תרבות הבוקרים האנגלו-אמריקאית.
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-coGold">צ'ילי ירוק בסגנון קולורדו (Colorado Green Chili):</span> קולורדו מנהלת מלחמה פתוחה ועזה מול ניו מקסיקו על זהותו של הצ'ילי הירוק (המבוסס על פלפל **פואבלו דה סול** של קולורדו במקום האטץ' של ניו מקסיקו). בניגוד לצ'ילי של ניו מקסיקו שהוא דליל יותר ומשמש כרוטב נקי, הגרסה של קולורדו היא **סמיכה מאוד** (לעיתים מוסמכת בקמח או עמילן) ומלאה ב**קוביות בשר חזיר**. הצ'ילי משמש כמצע ה"חונק" (Smothering) בוריטוס ומאכל מקומי הנקרא **"Slopper"** – המבורגר פתוח שטובע לחלוטין בתוך קערת צ'ילי ירוק חריף.</li>
+                        <li><span class="text-white font-bold underline decoration-slate-400">צדפות הרי הרוקי (Rocky Mountain Oysters):</span> למרות השם האלגנטי והימי, קולורדו היא מדינה ללא מוצא לים, והמנה אינה מכילה פירות ים. אלו הם למעשה **אשכים של שוורים צעירים** (Bull testicles). המנה נולדה מתוך מסורת הבוקרים והחוואים של המערב התיכון: כאשר עגלים סורסו (כדי לשלוט באופיים ולהשביח את הבשר), הבוקרים לא בזבזו את הפסולת האורגנית. האשכים נוקו, נפרסו, צופו בקמח או פירורי לחם, וטוגנו בשמן עמוק. כיום זוהי מנת פאבים ופסטיבלים פופולרית מאוד, המוגשת כמתאבן לצד רוטב קוקטייל, ומשמשת כ"מבחן אומץ" לתיירים.</li>
+                        <li><span class="text-white font-bold underline decoration-coBlue">הפיצה של הרי קולורדו (Colorado Mountain Pie):</span> הומצאה ב"Beau Jo's" באיידהו ספרינגס. זוהי פיצה בעלת בצק שוליים עבה ועצום, הנאפה בצורת קלחת שנועדה להכיל כמות הררית של תוספות. השוליים העבים נאכלים בסוף הארוחה כקינוח – לאחר שטובלים אותם ב**דבש טהור**.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. סעיף חדש: גאו-פוליטיקה ודמוגרפיה (תקן הזהב 2.0) -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-coGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                גאו-פוליטיקה ודמוגרפיה: מדינת המלבן הגבוהה ביותר
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- שטח וטופוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-coMountain shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-green-500">שטח וטופוגרפיה (Area & Topography)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        קולורדו היא המדינה ה-8 בגודלה בארה"ב, והיא מחזיקה בתואר הטופוגרפי המרשים ביותר: **המדינה בעלת הגובה הממוצע הגבוה ביותר בארצות הברית** (כ-2,070 מטרים מעל פני הים). אף נקודה בקולורדו אינה נמוכה מ-1,000 מטרים (המקום הנמוך ביותר הוא נהר האריקרי במזרח, בגובה 1,011 מ'). המדינה חצויה לשניים: חלקה המזרחי (כ-40%) הוא מישור גבוה (High Plains) פתוח לחקלאות ולסופות טורנדו, בעוד חלקה המערבי נשלט לחלוטין על ידי רכסי הרי הרוקי העצומים (ובהם 58 פסגות מעל 14,000 רגל המכונות "Fourteeners"). קו פרשת המים של אמריקה (Continental Divide) עובר לאורך פסגותיה, וקובע איזה נהר יזרום לאוקיינוס השקט ואיזה לאטלנטי.
+                    </p>
+                </div>
+
+                <!-- דמוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-coRed shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-coRed">פסיפס אנושי ומשיכת מוחות (Demographics)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        בקולורדו חיים כ-5.8 מיליון תושבים, כאשר רובם המוחלט מרוכז ברצועה עירונית צפופה הנקראת **מסדרון פרונט ריינג' (Front Range Urban Corridor)** למרגלות ההרים (הכולל את דנוור, קולורדו ספרינגס ופורט קולינס). קולורדו הפכה בעשורים האחרונים למגנט עבור צעירים אקדמאיים, אנשי הייטק, ואוהבי טבע ("Outdoorsy") הקליפורנים שעברו מזרחה. היא מתהדרת באחת האוכלוסיות המשכילות והבריאות (מבחינת אחוזי השמנה ונמרצות) בארה"ב. דמוגרפית, היא אוכלוסייה לבנה בעיקרה (כ-65%), אך עם נוכחות היספאנית היסטורית וחזקה מאוד (כ-22%), במיוחד בחלקה הדרומי הגובל בניו מקסיקו.
+                    </p>
+                </div>
+
+                <!-- סיבת המיקום והגבולות -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-coBlue shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-coBlue">עיצוב גבולות: המלבן שאינו מלבן</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        קולורדו (יחד עם ויומינג ויוטה) היא אחת משלוש מדינות שגבולותיהן מסורטטים אך ורק על ידי קווי רוחב ואורך, ללא כל התחשבות בנהרות, רכסי הרים או תנאים טבעיים (קווים ישרים). הממשל הפדרלי שרטט את גבולותיה מ-37° עד 41° צפון, ומ-102° עד 109° מערב. הסיבה ל"חיתוך המרובע" המלאכותי הזה נבעה מ"הבהלה לזהב של פייק'ס פיק" ב-1859. מחנות הכורים התפזרו על פני שטח שהיה מחולק משפטית בין 4 טריטוריות שונות (נברסקה, קנזס, יוטה וניו מקסיקו). כדי ליצור סדר ולאכוף חוק על הכורים, הקונגרס פשוט "חתך" ריבוע נקי ממפת המערב ויצר את טריטוריית קולורדו ב-1861. <br><br>
+                        <strong class="text-white">אנומליה גיאוגרפית:</strong> בעוד במפות קולורדו נראית כמלבן מושלם, גבולותיה מורכבים למעשה מ-697 צלעות (היא פוליגון מורכב). הסיבה לכך היא שהמודדים במאה ה-19, שעבדו עם טכנולוגיה פרימיטיבית בתנאי הרים ושלג קשים, סטו מהקווים הישרים התיאורטיים. על פי החוק האמריקאי, סמני הגבול הפיזיים שהוצבו באדמה הם הקובעים, ולא קווי האורך והרוחב המופשטים.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-coRed text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Centennial State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-coGold shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Centennial State (מדינת שנת המאה)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">שיוך כרונולוגי המייצר פטריוטיות</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי הרשמי של קולורדו לא מתייחס לטבע או לתעשייה, אלא לטיימינג הסטורי נדיר ומושלם. הנשיא יוליסס ס. גרנט (Ulysses S. Grant) חתם על ההכרזה שקיבלה את קולורדו כמדינה ה-38 לאיחוד ב-**1 באוגוסט 1876** – בדיוק 28 ימים לאחר שארצות הברית חגגה ברעש גדול את חגיגות המאה (Centennial) להכרזת העצמאות שלה (4 ביולי 1776). קולורדו ניכסה לעצמה מיד את תואר "הילדה של שנת המאה", מה שהעניק למדינה המערבית המרוחקת, שרק יצאה מעידן הבהלה לזהב הפראית, לגיטימציה של פטריוטיות אולטימטיבית וחיבור עמוק לשורשי המהפכה האמריקאית שבמזרח.
+                        </p>
+                    </div>
+
+                    <!-- Colorful Colorado -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-coBlue shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-blue-400">Colorful Colorado (קולורדו הצבעונית)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">תרגום כפול וקמפיין נוף</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            כינוי זה מתנוסס על שלטי קבלת הפנים בכבישים המהירים הנכנסים למדינה, ושימש שנים על לוחיות הרישוי. מעבר לכך שזהו משחק מילים מילולי של השם הספרדי (Colorado = בעל צבע), הכינוי מתאר את הפנומנולוגיה הוויזואלית הקיצונית של המדינה: **שמיים כחולים** מבריקים (עם 300 ימי שמש בשנה), **פסגות מושלגות לבנות**, **אדמת חמר וסלעים אדומים** עזים (כמו "פארק גן האלים" בדנוור), ו**יערות ירוקים-כהים** של עצי אורן ואשוח. כל צבעי דגל המדינה נגזרו ישירות מהכינוי הפנומנולוגי הזה של הנוף.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-coBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                וקסילולוגיה: דגל האות האייקוני ונוף הצבעים
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל קולורדו (Horizontal Stripes & Red C) -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-white rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col group">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-black/5 via-transparent to-white/10 pointer-events-none z-20"></div>
+                    
+                    <!-- Horizontal Stripes (Blue, White, Blue) -->
+                    <div class="w-full h-1/3 bg-[#002868]"></div>
+                    <div class="w-full h-1/3 bg-white relative flex items-center justify-center">
+                        
+                        <!-- The Red 'C' and Golden Disk -->
+                        <div class="absolute left-1/3 transform -translate-x-1/2 w-48 h-48 md:w-56 md:h-56 z-10 transition-transform duration-700 group-hover:scale-110 group-hover:rotate-12">
+                            <!-- Red 'C' shaped ring -->
+                            <div class="absolute inset-0 border-[36px] md:border-[44px] border-[#BF0A30] rounded-full" style="clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%, 100% 85%, 50% 85%, 50% 15%, 100% 15%);"></div>
+                            
+                            <!-- Golden Disk in the center -->
+                            <div class="absolute inset-[36px] md:inset-[44px] bg-[#FFD700] rounded-full shadow-inner"></div>
+                        </div>
+
+                    </div>
+                    <div class="w-full h-1/3 bg-[#002868]"></div>
+                    
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    שמיים, שלג ושמש הבוקר בתוך ה-C <br><span class="text-xl font-medium text-slate-500">(עוצב על ידי אנדרו קרלייל ג'ונסון, 1911)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-coRed shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-coRed decoration-4">נסיבות היצירה ומאבק העיצוב (1911):</h3>
+                    <p class="text-xl leading-loose">
+                        דגל קולורדו נחשב לאחד משלושת הדגלים המוצלחים, המזוהים והאסתטיים ביותר בארצות הברית (יחד עם טקסס וניו מקסיקו). הוא אומץ ב-1911 בעקבות יוזמה של ארגון בנות המהפכה האמריקאית (DAR). את הדגל עיצב **אנדרו קרלייל ג'ונסון** (Andrew Carlisle Johnson). ג'ונסון בחר במודע לנטוש את מסורת ה"סדין הכחול עם חותם המדינה" המקובלת באותה תקופה, וליצור לוגו גרפי ברור, קליט ומודרני המבוסס על טיפוגרפיה (האות C) ובלוקים גיאומטריים של צבע, מה שהקדים את תורת המיתוג המודרני (Vexillography) בעשרות שנים. הוא תוקן ב-1964 כדי להגדיר שקוטר האות C ועיגול הזהב חייבים להיות באותו גודל של הפס הלבן האמצעי.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-coBlue shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-blue-400">פסי הכחול והלבן - השמיים וההרים:</h4>
+                        <p class="leading-loose text-lg">שני הפסים האופקיים הכחולים מתארים את **השמיים הכחולים והצלולים** המפורסמים של קולורדו (Clear blue skies). הפס הלבן המפריד ביניהם מסמל את ה**שלג** הטהור המעטר את פסגות הרי הרוקי (Snow-capped mountains) ואת תעשיית כריית הכסף (White metal) ההיסטורית של המדינה.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-coGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-coGold">האות האדומה ודיסקית הזהב:</h4>
+                        <p class="leading-loose text-lg">האות **C** הגדולה (ולא שלמה) מסמלת שלוש מילים שונות: **C**olorado (השם), **C**entennial (שנת המאה להקמתה), ו-**C**olumbine (הקולומביין, פרח המדינה). צבעה האדום המובהק מסמל את האדמה והסלעים האדומים של האזור (Color rojo). הדיסקית במרכז האות היא בצבע צהוב-זהב טהור, ומסמלת את **שפע השמש הבהירה** של המדינה, וכן את הזהב – המחצב שהביא ללידת המדינה במהלך הבהלה לזהב.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">7</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">History Colorado:</p>
+                    <p>"The Etymology of Colorado: The Red River of the Spanish Explorers". תיעוד המסעות הספרדיים במאה ה-16 וההחלטה של הקונגרס לאמץ את השם 'Colorado' ב-1861 עבור הטריטוריה המלבנית.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Pikes Peak Library District (PPLD):</p>
+                    <p>"Zebulon Pike's Expeditions and the Naming of the Peak". ניתוח יומני המסע של פייק ב-1806, עלייתו ההרואית בשלג העמוק, ונפילתו בשבי האימפריה הספרדית.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">University of Denver Archives:</p>
+                    <p>"William Gilpin and the Geopolitics of the West". ביוגרפיה היסטורית המפרטת את חזונו המגלומני של המושל הראשון להפוך את דנוור לבירת העולם, ואת הצלת מכרות הזהב במלחמת האזרחים.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Colorado Agronomy and Culinary Institute:</p>
+                    <p>"Pueblo Green Chili vs. New Mexico Hatch, and the Origins of Rocky Mountain Oysters". מחקר קולינרי הממפה את הטיגון העמוק של אשכי השור כצורך של בוקרים שלא לבזבז מזון לאחר סירוס עגלים, ואת צמיחות הרוטב הסמיך.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"Andrew Carlisle Johnson and the Modernist Colorado Flag". ההיסטוריוגרפיה של הדגל, הפירוש המשולש של האות 'C', והתיקון של 1964 למרכוז הפרופורציות הגיאומטריות.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-coBlue rounded-full shadow-[0_0_15px_rgba(0,40,104,0.6)]"></div>
+                <div class="w-6 h-6 bg-coGold rounded-full shadow-[0_0_15px_rgba(255,215,0,0.6)]"></div>
+                <div class="w-6 h-6 bg-coRed rounded-full shadow-[0_0_15px_rgba(191,10,48,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
