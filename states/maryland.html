@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>מרילנד - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        mdRed: '#CE1126',    /* Crossland Red */
+                        mdGold: '#F2A900',   /* Calvert Gold */
+                        mdBlack: '#000000',  /* Calvert Black */
+                        mdWhite: '#FFFFFF'   /* Crossland White */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-mdGold font-black text-2xl mb-5 underline italic decoration-mdGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-mdRed relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">מרילנד</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Maryland - The Old Line State</p>
+                <div class="h-2 w-56 bg-mdGold mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(242,169,0,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">28 באפריל, 1788</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-7 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות של מלכה קתולית ומקלט
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    שמה של מרילנד הוא פנומנולוגיה דתית ומלוכנית מובהקת. זוהי אחת המדינות היחידות באמריקה (לצד וירג'יניה והקרוליינות) שנקראה ישירות על שם דמות נשית של מלוכה אירופאית, אך עם טוויסט דתי קריטי ששינה את ההיסטוריה של המושבות.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Mary -->
+                    <div class="etymology-box border-mdRed">
+                        <p class="text-mdRed font-black text-5xl mb-6 italic tracking-tighter">Mary (Maria)</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור היסטורי:</strong> המלכה <strong>הנרייטה מריה מצרפת</strong> (Queen Henrietta Maria), אשתו של צ'ארלס הראשון, מלך אנגליה.</p>
+                            <p><strong>המשמעות הנסתרת (קתוליות):</strong> בעוד שבאנגליה הפרוטסטנטית שלטה האנגליקניות, המלכה הנרייטה מריה הייתה צרפתייה ו<strong>קתולית אדוקה</strong>. כאשר הלורד ג'ורג' קלברט (שהמיר את דתו לקתוליות) ביקש זיכיון להקים מושבה באמריקה, הוא רצה לייצר מקלט בטוח לקתולים נרדפים. המלך צ'ארלס הסכים להעניק את הזיכיון, והציע לקרוא לארץ על שם אשתו כסמל להגנה דתית.</p>
+                        </div>
+                    </div>
+
+                    <!-- Land -->
+                    <div class="etymology-box border-mdGold">
+                        <p class="text-mdGold font-black text-5xl mb-6 italic tracking-tighter">Land</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> אנגלית עתיקה (Land/Lõnd).</p>
+                            <p><strong>הסינתזה המלאה (Maryland):</strong> משמעות השם היא <span class="text-white font-bold underline decoration-mdGold">"הארץ של מרי"</span> (Terra Mariae בלטינית). השם נבחר רשמית ב-1632. השם קסם למייסדים גם משום ש"מרי" התקשר כמובן למרים הבתולה (Virgin Mary), דמות מרכזית באמונה הקתולית שאפיינה את המושבה בראשיתה, בניגוד מוחלט למושבות הפוריטניות של ניו אינגלנד.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-mdRed text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: אדריכל הסובלנות ומשורר ההמנון
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- ג'ורג' קלברט וססיל קלברט (משפחת בולטימור) -->
+                <div class="personality-card border-r-8 border-mdBlack shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-slate-400 decoration-4 underline-offset-8">ההוגה והמקלט: ג'ורג' וססיל קלברט (The Barons Baltimore)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים (ג'ורג'):</strong> 1579–1632. <strong>מעמד:</strong> ברון בולטימור הראשון, אדריכל החזון של מרילנד.</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-mdGold">רקע של כוח ומחירו:</h4>
+                            <p class="leading-loose">ג'ורג' קלברט היה חבר פרלמנט ושר בכיר (מזכיר המדינה) תחת המלך ג'יימס הראשון באנגליה. אולם, ב-1625 הוא עשה צעד פוליטי כמעט התאבדותי באותם ימים: הוא הכריז בפומבי על המרת דתו לקתוליות. עקב כך, נאלץ להתפטר מכל תפקידיו הממשלתיים, אך המלך העניק לו תואר אצולה - ברון בולטימור הראשון (על שם אחוזה באירלנד).</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-mdGold">אידיאולוגיה - סובלנות דתית מעשית:</h4>
+                            <p class="leading-loose">כקתולי שחווה על בשרו השתקה חוקית, האידיאולוגיה של קלברט הייתה למצוא טריטוריה שבה נוצרים מכל הזרמים (קתולים ופרוטסטנטים כאחד) יוכלו לחיות יחד בהרמוניה ובחופש דת וללא רדיפות שלטוניות. זה היה חזון רדיקלי בעולם שבו מלכים כפו דת מדינה אחת.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-mdGold">הישגים מכוננים - חוק הסובלנות של מרילנד:</h4>
+                            <p class="leading-loose">ג'ורג' מת לפני שהזיכיון למרילנד הושלם, אך בנו **ססיל קלברט** (Cecil Calvert, לורד בולטימור השני) המשיך את דרכו וייסד את המושבה ב-1634. הישגה הגדול ביותר של משפחת קלברט היה חקיקת **"חוק הסובלנות של מרילנד" (1649)** (Toleration Act), שהיה החוק הראשון באמריקה (ואחד הראשונים בעולם המערבי) שהבטיח חופש דת נוצרי בחקיקה רשמית, והניח את התשתית החוקתית לתיקון הראשון לחוקת ארה"ב בעתיד.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- פרנסיס סקוט קי והלחן האנגלי -->
+                <div class="personality-card border-r-8 border-mdRed shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-mdRed decoration-4 underline-offset-8">מנסח הלאומיות: פרנסיס סקוט קי (Francis Scott Key) והמנון ארה"ב</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים (פרנסיס סקוט קי):</strong> 1779–1843. <strong>מעמד:</strong> עורך דין ומשורר ההמנון הלאומי האמריקאי.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות ורקע מרילנדי עמוק:</h4>
+                            <p class="leading-loose">קי נולד באחוזת המטעים "טרה רובה" שבמחוז קרול, מרילנד, למשפחה אריסטוקרטית ותיקה. הוא היה עורך דין מצליח בוושינגטון הבירה ובבולטימור, ואדם דתי מאוד. למרות שהתנגד תחילה ליציאה למלחמת 1812 נגד הבריטים (כפי שעשו פדרליסטים רבים), הוא שירת זמן קצר בארטילריה הקלה.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">האירוע המכונן במפרץ צ'ספיק (ספטמבר 1814):</h4>
+                            <p class="leading-loose">זמן קצר לאחר שהבריטים שרפו את וושינגטון D.C, הם תקפו את נמל בולטימור במרילנד. קי נשלח לספינה בריטית במפרץ כדי לשאת ולתת על שחרורו של חבר שבוי. הבריטים הסכימו, אך סירבו לאפשר להם לחזור לחוף מכיוון שהמתקפה על **מבצר מקנרי (Fort McHenry)** עמדה להתחיל. כך מצא עצמו קי מוחזק במפרץ תחת גשם שוטף, צופה בהפגזה ארטילרית אכזרית שנמשכה 25 שעות רצופות.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-mdRed">יצירת ההמנון והלחן הבריטי:</h4>
+                            <p class="leading-loose">בבוקר ה-14 בספטמבר, כשהעשן התפזר סוף סוף, קי הציץ בעד משקפתו והבחין בפנומנולוגיה שעיצבה את אמריקה: דגל הפסים והכוכבים הענק של המבצר עדיין התנופף בגאון (ולא הוחלף לדגל כניעה). מלא בהשראה, הוא כתב על גב מכתב פואמה בשם "הגנת פורט מקנרי", שנפתחה בשורה: *"O say can you see, by the dawn's early light"*. <br><br>
+                            השיר פורסם בבולטימור, והותאם למנגינה של שיר מועדוני-ג'נטלמנים אנגלי פופולרי (מעין שיר שיכורים מעודן) בשם <strong>"To Anacreon in Heaven"</strong>. הלחן המפורסם הזה נכתב על ידי המלחין האנגלי <strong>ג'ון סטאפורד סמית' (John Stafford Smith, 1750–1836)</strong>. באופן אירוני מדהים, שיר ההלל לניצחון על הבריטים הושר ללחן בריטי מובהק. השילוב בין מילותיו של קי ללחן של סמית' תפס תאוצה עצומה, ובשנת 1931 הפך בחוק קונגרס ל<strong>המנון הלאומי הרשמי של ארצות הברית (The Star-Spangled Banner)</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: הסרטן הכחול והתבלין הקדוש
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-blue-400">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-blue-500">בעל החיים הלאומי (סרטן): הסרטן הכחול (Blue Crab)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">אוצר המפרץ ואייקון הישרדות (אומץ ב-1989)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        אם יש בעל חיים אחד שמגדיר את מרילנד בצורה מוחלטת, זהו הסרטן הכחול של מפרץ צ'ספיק (Chesapeake Bay). שמו המדעי, *Callinectes sapidus*, מתורגם מלטינית ויוונית כ"שחיין יפהפה שטעמו ערב לחיך".
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        צבעיו הטבעיים של הסרטן – רגליים קדמיות כחולות בוהקות (שבחלק מהנקבות צבועות באדום בקצותיהן) יחד עם שריון זית/חום – הופכים אותו ליצור מרהיב, אך כלכלת מרילנד אוהבת אותו יותר כשהוא מבושל. תעשיית דיג הסרטנים (Crabbing) היא מסורת של דורות, שבה ה"Watermen" (אנשי המים) יוצאים בסירות עץ קטנות (Deadrise boats) לאסוף מלכודות. הסרטן הכחול הוא אייקון תרבותי המופיע על כל דבר במרילנד, מחולצות ועד שלטי רחוב. 
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-mdRed">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-mdRed">המנה הלאומית: קראב קייקס ותבלין Old Bay</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">דת קולינרית של סעודות עיתונים</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של מרילנד אינה רק אוכל, היא אירוע קהילתי טקסי שסובב סביב השלל של מפרץ צ'ספיק.
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-mdGold">עוגות סרטנים (Maryland Crab Cakes):</span> הקראב קייק האמיתי של מרילנד הוא פריט יוקרה טהור. בניגוד לחיקויים במדינות אחרות שדוחסים את התערובת בהרבה לחם, הגרסה המקומית (המכונה "Lump" או "Jumbo Lump") מתבססת כמעט אך ורק על גושים גדולים של בשר סרטן כחול מתוק וטרי, המאוגדים בעדינות עם מעט מיונז, ביצה, חרדל וללא חומרי מילוי מיותרים. העוגה לרוב נצלית בתנור (Broiled) או מטוגנת קלות בחמאה עד להזהבה פריכה.</li>
+                        <li><span class="text-white font-bold underline decoration-mdRed">פסטיבל אידוי הסרטנים ותבלין ה-Old Bay:</span> המוסד החברתי המפורסם ביותר בקיץ של מרילנד הוא ה-**Crab Feast**. שולחנות הפיקניק מכוסים בשכבות של עיתונים ישנים (או נייר חום עבה). במרכז נשפכת ערימה עצומה של סרטנים שלמים שאודו (Steamed, לא בושלו במים!) בחומץ תפוחים ובכמויות אדירות של **תבלין Old Bay** (תערובת חריפה-מלוחה המכילה סלרי, חרדל, פפריקה ותבלינים אחרים שהומצאה בבולטימור ב-1939 על ידי פליט יהודי מגרמניה בשם גוסטב ברון). הסועדים חמושים בפטישי עץ קטנים (Mallets) ומפצחים את השריון שעות ארוכות יחד עם בירה קרה.</li>
+                        <li><span class="text-white font-bold underline decoration-slate-400">עוגת האי סמית' (Smith Island Cake):</span> הקינוח הרשמי. עוגה המורכבת משכבות רבות (בין 8 ל-15) של עוגת ספוג צהובה ודקיקה, שביניהן מפריד ציפוי פאדג' שוקולד. היא הומצאה על ידי נשות הדייגים באי סמית' המבודד במפרץ, כדי שתישמר לאורך זמן כשהגברים יצאו לדוג.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. סעיף חדש: גאו-פוליטיקה ודמוגרפיה (תקן הזהב 2.0) -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-mdGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                גאו-פוליטיקה ודמוגרפיה: אמריקה במיניאטורה ותרומת הבירה
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- שטח וטופוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-blue-500 shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-blue-400">שטח וטופוגרפיה (America in Miniature)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        מרילנד היא אחת המדינות הקטנות בארה"ב (מדורגת 42), אך הגיאוגרפיה שלה מגוונת להפליא, מה שהקנה לה את הכינוי "אמריקה במיניאטורה". במערב הרחוק היא חותכת דרך הרי האפלצ'ים המיוערים; במזרח היא נושקת לאוקיינוס האטלנטי עם חופים חוליים (Ocean City). אך המאפיין הטופוגרפי הדומיננטי ביותר, שקורע את המדינה לשניים, הוא **מפרץ צ'ספיק (Chesapeake Bay)** – שפך הנהר (אסטואר) הגדול ביותר בארצות הברית. המפרץ המלוח-למחצה הזה מספק למדינה קו חוף פנימי עצום והוא מנוע החיים הכלכלי, האקולוגי והתרבותי שלה.
+                    </p>
+                </div>
+
+                <!-- דמוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-mdBlack shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-slate-300">פסיפס אנושי ועושר פדרלי (Demographics)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        במרילנד חיים כ-6.1 מיליון תושבים, והיא מהמדינות הצפופות בארה"ב. היא מתהדרת באנומליה חיובית מרתקת: מרילנד מחזיקה ב**הכנסה החציונית למשק בית הגבוהה ביותר בארצות הברית**. העושר הזה נובע מהצפיפות של סוכנויות פדרליות, קבלני ביטחון, ומוסדות מחקר (כמו ה-NIH וה-FDA) השוכנים בה, במיוחד במחוזות מונטגומרי ופרינס ג'ורג' הגובלים בוושינגטון הבירה. דמוגרפית, זוהי מדינה מגוונת מאוד: כ-30% מאוכלוסייתה הם אפרו-אמריקאים (אחד השיעורים הגבוהים במדינה שמחוץ לדרום העמוק), והיא קולטת הגירה בינלאומית מסיבית סביב מסדרון בולטימור-וושינגטון.
+                    </p>
+                </div>
+
+                <!-- סיבת המיקום והגבולות -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-mdRed shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-mdRed">עיצוב גבולות: המייסון-דיקסון, נהר הפוטומק והתרומה הלאומית</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        גבולות מרילנד הם תוצר של הסכמים וסכסוכים דרמטיים. גבולה הצפוני והמזרחי עם פנסילבניה ודלאוור הוא ה**קו של מייסון-דיקסון (Mason-Dixon Line)** המפורסם, ששורטט ב-1763 כדי לפתור סכסוך אדמות עם משפחת פן (והפך לגבול הסמלי בין מדינות החופש והעבדות). גבולה הדרומי והמערבי עוקב באופן מלא אחר פיתוליו הארוכים של **נהר הפוטומק (Potomac River)**, המפריד בינה לבין וירג'יניה ומערב וירג'יניה. 
+                        ההקרבה הגיאופוליטית הגדולה ביותר שלה אירעה ב-1790: כדי לאפשר את הקמת בירתה החדשה של ארצות הברית במרכז המדינה, מרילנד (יחד עם וירג'יניה) **תרמה שטח אדמה ריבוני מתוך גבולותיה** לטובת השלטון הפדרלי. כשוירג'יניה לקחה את חלקה בחזרה ב-1846, נותר מחוז קולומביה (וושינגטון D.C.) כולו על אדמה שהייתה במקור של מרילנד, מה שהופך את המדינה לעוטפת הבלעדית של בירת אמריקה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-mdGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Old Line State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-mdBlack shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Old Line State (מדינת הקו הישן)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">פטריוטיות כהוקרה אישית מג'ורג' וושינגטון</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי הרשמי של מרילנד נובע מאירוע הירואי ומדמם במלחמת העצמאות. בקרב לונג איילנד (1776), הצבא הקונטיננטלי עמד בפני השמדה מול הבריטים. רגימנט קטן של כ-400 חיילים ממרילנד (The Maryland Line) נותר מאחור וערך סדרת התקפות התאבדות חזיתיות מול הצבא הבריטי העצום כדי לעכב אותו. מעשה הגבורה הזה אפשר לג'ורג' וושינגטון ולשאר הצבא לחצות את האיסט ריבר ולהינצל. כשהוא צופה בהם נופלים מול האויב, וושינגטון בכה ואמר על פי המסורת: "אלוהים אדירים, איזה חיילים אמיצים עלי לאבד היום". הוא העניק להם את הכינוי "The Old Line" כמחווה של כבוד נצחי לעמידתם.
+                        </p>
+                    </div>
+
+                    <!-- The Free State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-mdRed shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-red-400">The Free State (המדינה החופשית)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">חופש דת, ביטול עבדות והתנגדות ליובש</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            זהו כינוי רב-שכבתי. במקור, הוא ציין את היותה מדינה דרומית (Slave state) שבחרה לא להצטרף לקונפדרציה וביטלה מרצונה את העבדות בחוקתה ב-1864 ("מדינה חופשית"). אולם, הפנומנולוגיה האמיתית של הכינוי התקבעה בשנת 1919 (תקופת יובש האלכוהול - Prohibition). מרילנד הייתה המדינה היחידה בארה"ב שסירבה בתוקף לחוקק חוקי אכיפה מדינתיים כדי לאכוף את איסור מכירת האלכוהול הפדרלי (חוק וולסטד). עורכי דין בבולטימור טענו שזהו עניין של זכויות המדינה וחופש אזרחי. התקשורת החלה לכנות אותה בהערצה "המדינה החופשית" על מרדנותה נגד המוסרנות הפדרלית.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-mdRed text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                וקסילולוגיה: המופת של ההרלדיקה האנגלית באמריקה
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל מרילנד ב-CSS -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-white rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative grid grid-cols-2 grid-rows-2 group">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-black/20 pointer-events-none z-20"></div>
+                    
+                    <!-- Top Left: Calvert (Black & Gold stripes with diagonal counterchange) -->
+                    <div class="relative w-full h-full overflow-hidden bg-[#F2A900]">
+                        <!-- Vertical stripes -->
+                        <div class="absolute inset-y-0 left-[16.6%] w-[16.6%] bg-black"></div>
+                        <div class="absolute inset-y-0 left-[50%] w-[16.6%] bg-black"></div>
+                        <div class="absolute inset-y-0 left-[83.3%] w-[16.6%] bg-black"></div>
+                        <!-- Diagonal band counterchanging colors -->
+                        <div class="absolute inset-0 bg-[#F2A900] transform -skew-x-[25deg] scale-150 origin-top-right translate-x-[40%]" style="mix-blend-mode: difference;"></div>
+                    </div>
+
+                    <!-- Top Right: Crossland (Red & White quadrants with crossbottony) -->
+                    <div class="relative w-full h-full flex bg-[#FFFFFF] border-l border-b border-slate-400">
+                        <div class="w-1/2 h-full bg-[#FFFFFF]"></div>
+                        <div class="w-1/2 h-full bg-[#CE1126]"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <!-- Approximate Crossbottony (Trefoil cross) -->
+                            <div class="relative w-12 h-12 flex items-center justify-center transform group-hover:scale-110 transition-transform">
+                                <div class="absolute w-2 h-[120%] bg-[#CE1126] left-0 top-[-10%]"></div>
+                                <div class="absolute w-2 h-[120%] bg-[#FFFFFF] right-0 top-[-10%]"></div>
+                                <div class="absolute w-[120%] h-2 bg-[#CE1126] bottom-0 left-[-10%]"></div>
+                                <div class="absolute w-[120%] h-2 bg-[#FFFFFF] top-0 left-[-10%]"></div>
+                                <!-- Center cross detail to mimic trefoil -->
+                                <div class="absolute w-6 h-6 bg-transparent border-4 border-[#CE1126] rounded-full top-[-30%] left-[-30%]"></div>
+                                <div class="absolute w-6 h-6 bg-transparent border-4 border-[#FFFFFF] rounded-full bottom-[-30%] right-[-30%]"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Left: Crossland (Red & White quadrants with crossbottony) -->
+                    <div class="relative w-full h-full flex bg-[#CE1126] border-r border-t border-slate-400">
+                        <div class="w-1/2 h-full bg-[#CE1126]"></div>
+                        <div class="w-1/2 h-full bg-[#FFFFFF]"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="relative w-12 h-12 flex items-center justify-center transform group-hover:scale-110 transition-transform">
+                                <div class="absolute w-2 h-[120%] bg-[#FFFFFF] left-0 top-[-10%]"></div>
+                                <div class="absolute w-2 h-[120%] bg-[#CE1126] right-0 top-[-10%]"></div>
+                                <div class="absolute w-[120%] h-2 bg-[#FFFFFF] bottom-0 left-[-10%]"></div>
+                                <div class="absolute w-[120%] h-2 bg-[#CE1126] top-0 left-[-10%]"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Right: Calvert (Black & Gold stripes with diagonal counterchange) -->
+                    <div class="relative w-full h-full overflow-hidden bg-[#000000]">
+                        <!-- Vertical stripes -->
+                        <div class="absolute inset-y-0 left-[16.6%] w-[16.6%] bg-[#F2A900]"></div>
+                        <div class="absolute inset-y-0 left-[50%] w-[16.6%] bg-[#F2A900]"></div>
+                        <div class="absolute inset-y-0 left-[83.3%] w-[16.6%] bg-[#F2A900]"></div>
+                        <!-- Diagonal band counterchanging colors -->
+                        <div class="absolute inset-0 bg-[#000000] transform -skew-x-[25deg] scale-150 origin-top-right translate-x-[40%]" style="mix-blend-mode: difference;"></div>
+                    </div>
+
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    איחוד שלטי האצולה (קלברט וקרוסלנד) <br><span class="text-xl font-medium text-slate-500">(הדגל אומץ רשמית ב-1904)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-mdGold shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-mdGold decoration-4">אנומליה וקסילולוגית של הרלדיקה טהורה:</h3>
+                    <p class="text-xl leading-loose">
+                        דגל מרילנד (אומץ ב-1904) נחשב על ידי מעצבים ברחבי העולם לאחד הדגלים הנועזים, הססגוניים והמוצלחים ביותר שקיימים. זוהי פנומנולוגיה הרלדית: מרילנד היא המדינה היחידה בארצות הברית שהדגל שלה מבוסס **לחלוטין על שלטי אצולה (Coats of Arms) אנגליים מסורתיים** (ללא סמלים רפובליקניים כמו נשרים, כוכבים או מחרשות). הדגל מכיל את סמלי המשפחה של הלורד בולטימור (ג'ורג' קלברט, מייסד המדינה), המחולקים לארבעה רבעים (Quartered).
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-mdBlack shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-mdGold">משפחת קלברט (שחור וזהב):</h4>
+                        <p class="leading-loose text-lg">ברבעים הראשון (שמאל למעלה) והרביעי (ימין למטה), מופיע עיצוב פסיכדלי למראה של שישה פסים אנכיים בצבעי **שחור וזהב (צהוב)**, הנחתכים על ידי פס אלכסוני שהופך את הצבעים (Counterchanged). זהו שלט האצולה של משפחת קלברט מצד אביו של ג'ורג' קלברט. במהלך מלחמת האזרחים האמריקאית, חיילי מרילנד שנשארו נאמנים לאיחוד (הצפון) השתמשו בצבעי השחור-זהב כסמלם.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-mdRed shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-mdWhite">משפחת קרוסלנד (אדום ולבן):</h4>
+                        <p class="leading-loose text-lg">ברבעים השני והשלישי מופיע צלב בצורת תלתן (Crossland / Cross bottony) על רקע המחולק לרבעים בצבעי **אדום ולבן**. זהו שלט האצולה של משפחת קרוסלנד, משפחתה של אמו של ג'ורג' קלברט. באופן דרמטי, חיילים ממרילנד שבחרו להילחם למען הדרום (הקונפדרציה), אימצו את "צלב הקרוסלנד" כדגלם. לאחר המלחמה, כדי לפייס בין אזרחי המדינה שנלחמו זה בזה, עוצב הדגל הנוכחי כ**סמל לאיחוד ופיוס** המשלב את סמלי הצפון (קלברט) והדרום (קרוסלנד) על בד אחד.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">7</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Maryland State Archives:</p>
+                    <p>"The Etymology of Terra Mariae and the Charter of 1632". מסמכים המוכיחים את החלטתו של המלך צ'ארלס הראשון לקרוא למושבת המקלט הקתולית על שם אשתו כהתרסה כנגד הפוריטנים.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Fort McHenry National Monument and Historic Shrine (NPS):</p>
+                    <p>"Francis Scott Key, John Stafford Smith and the Star-Spangled Banner". יומני הקרב של ספטמבר 1814, בהם מתואר כיצד המשורר השבוי ניסח את ההמנון בעקבות תצפית אופטית על דגל תחת אש, והחיבור המפתיע ללחן מועדונים אנגלי עתיק.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Chesapeake Bay Foundation:</p>
+                    <p>"The Blue Crab: Ecology and Economy of the Bay". מחקר אקולוגי המציג את תפקיד הסרטן הכחול (Callinectes sapidus) כמנוע של תרבות "אנשי המים" ומסורת הפסטיבלים במרילנד.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">National Archives - Creation of Washington D.C.:</p>
+                    <p>"The Residence Act of 1790 and the Land Cession". המחקר הגיאופוליטי המפרט את התרומה של מרילנד בהעברת קרקעות ריבוניות ליצירת הבירה הניטרלית לאורך נהר הפוטומק.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"The Heraldic Unification of Maryland". הניתוח ההיסטורי של הדגל האמריקאי היחיד המבוסס על אצולה אנגלית, וכיצד שילוב סמלי משפחות קלברט וקרוסלנד שימש ככלי לפיוס פוסט-מלחמת האזרחים.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-mdBlack rounded-full shadow-[0_0_15px_rgba(0,0,0,0.6)]"></div>
+                <div class="w-6 h-6 bg-mdGold rounded-full shadow-[0_0_15px_rgba(242,169,0,0.6)]"></div>
+                <div class="w-6 h-6 bg-mdRed rounded-full shadow-[0_0_15px_rgba(206,17,38,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
