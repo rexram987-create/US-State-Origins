@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>מערב וירג'יניה - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        wvBlue: '#002868',    /* West Virginia Flag Blue */
+                        wvGold: '#F2A900',    /* Flag Gold / Mountaineer Gold */
+                        wvCoal: '#2C3539',    /* Coal Black */
+                        wvRhododendron: '#FFC0CB' /* State Flower Pink */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-wvGold font-black text-2xl mb-5 underline italic decoration-wvGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-wvGold relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">מערב וירג'יניה</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">West Virginia - The Mountain State</p>
+                <div class="h-2 w-56 bg-wvBlue mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(0,40,104,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">20 ביוני, 1863</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-35 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות של פילוג מארץ הבתולה
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    השם של מערב וירג'יניה טומן בחובו את אחד הקרעים הפוליטיים והחברתיים העמוקים ביותר בהיסטוריה של ארצות הברית. השם הוא חיבור של כיוון גיאוגרפי עם שם של אימפריה עתיקה, המעיד על פרישה היסטורית (Secession).
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Virginia -->
+                    <div class="etymology-box border-wvGold">
+                        <p class="text-wvGold font-black text-5xl mb-6 italic tracking-tighter">Virginia</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור היסטורי:</strong> על שמה של **אליזבת הראשונה**, מלכת אנגליה (מבית טיודור).</p>
+                            <p><strong>משמעות מילולית:</strong> אליזבת כונתה "המלכה הבתולה" (The Virgin Queen) מכיוון שמעולם לא נישאה. כאשר וולטר ראלי הקים את המושבה האנגלית הראשונה באמריקה ב-1584, הוא קרא לה "וירג'יניה" (ארץ הבתולה) כדי להנציח את טוהר המלכה ואת העובדה שהארץ (בעיני האנגלים) "בתולית" וטרם נכבשה על ידי מעצמות אחרות.</p>
+                        </div>
+                    </div>
+
+                    <!-- West (הפילוג) -->
+                    <div class="etymology-box border-wvBlue">
+                        <p class="text-wvBlue font-black text-5xl mb-6 italic tracking-tighter">West (הפילוג של 1861)</p>
+                        <div class="space-y-4">
+                            <p><strong>האירוע המכונן:</strong> עד שנת 1861, מערב וירג'יניה כלל לא הייתה קיימת; היא הייתה חלקה המערבי וההררי של מדינת וירג'יניה הענקית. באפריל 1861, כאשר וירג'יניה (העשירה במטעים ובעבדים) החליטה לפרוש מארה"ב ולהצטרף לקונפדרציה של הדרום, תושבי המחוזות המערביים (The Trans-Allegheny region) התנגדו בתוקף. הם היו כורי פחם וחוואים קטנים בהרים, כמעט ללא עבדים, והם הרגישו שהממשל במזרח וירג'יניה מעשק אותם במיסים ולא משקיע בהם תשתיות. </p>
+                            <p><strong>הסינתזה המלאה (West Virginia):</strong> המחוזות המערביים קיימו כינוס (Wheeling Conventions), ביטלו את סמכותה של וירג'יניה עליהם, ו"פרשו מהפורשים". הם ביקשו מהנשיא לינקולן להכיר בהם כמדינה עצמאית הנאמנה לאיחוד. בתחילה הציעו לקרוא למדינה החדשה "Kanawha" (על שם נהר מרכזי), אך בסוף הוחלט לדבוק בשם ההיסטורי עם הקידומת המבדילה: **West Virginia**. ב-1863 לינקולן אישר זאת, והמדינה נולדה מתוך המלחמה.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-wvBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: אדריכל הפיצול וגיבור הפועלים
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- ארתור א. בורמן -->
+                <div class="personality-card border-r-8 border-wvGold shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-wvGold decoration-4 underline-offset-8">ההוגה ואדריכל הפילוג: ארתור אי. בורמן (Arthur I. Boreman)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1823–1896. <strong>מעמד:</strong> המושל הראשון של מדינת מערב וירג'יניה.</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-wvGold">רקע של נאמנות לחוקה:</h4>
+                            <p class="leading-loose">בורמן נולד בפנסילבניה אך גדל בווירג'יניה. הוא הפך לעורך דין מצליח ולשופט. כשהחל משבר הפרישה של הדרום (Secession crisis), הוא שימש כנציג בבית הנבחרים של וירג'יניה. הוא סלד ממלחמה, אך אמונתו בקדושתה ובשלמותה של חוקת ארצות הברית הייתה מוחלטת והוא סירב להצביע בעד עזיבת האיחוד.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-wvGold">אידיאולוגיה - מדינה מתוך מדינה (Statehood):</h4>
+                            <p class="leading-loose">כאשר וירג'יניה פרשה, בורמן הפך לנשיא "ועידת ווילינג השנייה". האידיאולוגיה שלו הייתה מהפכנית משפטית: הוא טען שמכיוון שממשלת וירג'יניה (בריצ'מונד) מרדה בחוקה, היא איבדה את הלגיטימיות שלה. לכן, הועידה בווילינג (במערב) היא "הממשל הלגיטימי המשוחזר של וירג'יניה כולה". בטריק המשפטי הזה, הממשל "המשוחזר" נתן אישור פוליטי לעצמו להפריד את המחוזות המערביים למדינה חדשה (שכן החוקה דורשת אישור ממדינה כדי לחלק אותה).</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-wvGold">הישגים מכוננים - ייצוב המדינה (1863):</h4>
+                            <p class="leading-loose">בורמן נבחר למושל הראשון של המדינה ב-1863 (תחת תמיכתו של אברהם לינקולן). המשימה שלו הייתה כמעט בלתי אפשרית: הוא נאלץ להקים בתי משפט, בתי ספר, ומיליציות כדי להגן על המדינה החדשה, בזמן שכוחות גרילה (Bushwhackers) של הקונפדרציה פשטו על ההרים בניסיון להשמיד את "המדינה הבוגדת". בורמן ייצב את המדינה והבטיח את קיומה כחלק בלתי נפרד מארצות הברית.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- סיד האטפילד -->
+                <div class="personality-card border-r-8 border-wvCoal shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-slate-500 decoration-4 underline-offset-8">המורד וגיבור מעמד הפועלים: מפקד המשטרה סיד האטפילד (Sid Hatfield)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1891–1921. <strong>מעמד:</strong> שריף העיירה מייטואן (Matewan) וסמל זכויות כורי הפחם.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות בהרים ומלחמות משפחתיות:</h4>
+                            <p class="leading-loose">האטפילד נולד בקנטאקי ועבר למערב וירג'יניה. הוא היה קרוב משפחה של משפחת האטפילד המפורסמת (מתוך סכסוך הדמים ההיסטורי "האטפילד ומק'קוי"). כנער צעיר, הוא עבד במכרות הפחם האפלים והמסוכנים של האפלצ'ים. הוא חווה על בשרו את האכזריות של אלילי הפחם (Coal Barons), שהעבידו פועלים בתנאי עבדות מודרנית, שילמו להם ב"כסף חברה" (Scrip, תקף רק בחנויות המכרה), וסירבו לאפשר להם להתאגד לאיגוד מקצועי.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - התנגדות חמושה לתאגידים:</h4>
+                            <p class="leading-loose">סיד, שנודע כאקדוחן זריז וחייכן עם שיני זהב, נבחר למפקד משטרת מייטואן. האידיאולוגיה שלו הייתה ברורה: חוק העירייה קודם לחוקי התאגידים. כאשר חברות הפחם שכרו שכירי חרב ובלשים חמושים מסוכנות "בולדווין-פלץ" כדי לפנות באלימות כורים ששבתו מבתיהם, האטפילד סירב לאפשר זאת.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - הקרב על מייטואן והרצח:</h4>
+                            <p class="leading-loose">במאי 1920, סוכני בולדווין-פלץ הגיעו למייטואן כדי לפנות שובתים. האטפילד, מלווה בראש העיר ובכורים, התעמת איתם בתחנת הרכבת. התפתח קרב יריות עקוב מדם ("Matewan Massacre") שבו נהרגו שבעה בלשים, שני כורים וראש העיר. סיד שרד והפך לגיבור לאומי של הפועלים. באוגוסט 1921, סיד נרצח במארב של בלשי חברות הפחם על מדרגות בית המשפט. רציחתו הציתה את **קרב בלייר מאונטיין** (Battle of Blair Mountain) – התקוממות הפועלים החמושה הגדולה ביותר בתולדות ארצות הברית, שבה 10,000 כורים נלחמו בצבא ארה"ב למען זכויותיהם (Unionization) בהרי מערב וירג'יניה.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: הדוב החורפי ולחם הכורים
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-slate-800">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-slate-500">בעל החיים הלאומי: הדוב השחור האמריקאי (American Black Bear)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">סמל הבדידות וההרים (אומץ ב-1973)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הטבע של מערב וירג'יניה נשלט על ידי "מדינת ההרים" (The Mountain State), ויערותיה מכסים קרוב ל-80% משטחה. הדוב השחור האמריקאי (*Ursus americanus*) הוא היונק הגדול והאיקוני ביותר המשוטט ביערות הרי האפלצ'ים.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        בניגוד לדוב הגריזלי האגרסיבי של המערב, הדוב השחור הוא לרוב ביישן, שקט וניזון מגרגרים, אגוזים ודבש (אם כי הוא מסוגל לתקוף בעת איום על גוריו). בשנת 1954 בוצע "סקר" בקרב תלמידי המדינה והמורים, שבו נבחר הדוב לחיית המדינה, אולם הבחירה עוגנה בחוק רק ב-1973. הדוב מסמל את תרבות הטבע הפראי של תושבי המדינה (Mountaineers) - אנשים שמעריכים עצמאות מוחלטת, יכולת הישרדות חורפית (כמו שנת החורף של הדוב), וריחוק מערי ענק.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-wvGold">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-wvGold">המנה הלאומית: פפרוני רול (Pepperoni Roll) ונקניקיית סלו (Slaw Dog)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">המזון הנייד שהאכיל את הכורים במעמקי ההר</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של מערב וירג'יניה לא נולדה במסעדות פאר, אלא מתוך הצורך היומיומי של פועלי המכרות לאוכל נייד, שלא מתקלקל במעמקי האדמה ושאינו מצריך קירור.
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-red-500">הפפרוני רול (The Pepperoni Roll):</span> זהו המאכל הלא-רשמי (העממי) המפורסם ביותר של המדינה. הומצא בשנת 1927 על ידי מאפיית *Country Club Bakery* בעיר פיירמונט (Fairmont). המאפייה הוקמה על ידי ג'וזפה ארג'ירו, כורה פחם איטלקי לשעבר. הוא הבחין שחבריו הכורים יורדים לפיר עם כיכר לחם ביד אחת ומקל פפרוני ביד השנייה. כדי להקל עליהם, הוא פשוט אפה **מקלות של פפרוני פיקנטי (עם שומן) בתוך בצק של לחמניית שמרים רכה**. במהלך האפייה, שומן הפפרוני המתובל נמס ונספג אל תוך הבצק (מה ששומר על הלחמנייה לחה וטעימה ללא מקרר). זוהי חטיפת אנרגיה מושלמת שאוכלים ביד אחת בסביבה מלוכלכת (אליה התווספו עם השנים פלפלים חריפים או גבינת פרובולון).</li>
+                        <li><span class="text-white font-bold underline decoration-[#8B4513]">נקניקיית סלו של וירג'יניה (West Virginia Slaw Dog):</span> במערב וירג'יניה, נקניקייה אינה נחשבת לשלמה ללא שילוב קטלני של שלושה מרכיבים (The Trinity): קודם כל **רוטב צ'ילי בשרי עשיר וסמיך**, מעליו **סלט כרוב לבן קצוץ דק ומתוק (Coleslaw)**, ומעל הכול רצועות של חרדל צהוב וכבצל קצוץ. ניגוד הטעמים בין הצ'ילי החם והחריף לבין הקולסלאו הקר, הפריך והמתקתק הוא סמל לתרבות הדיינרים של האפלצ'ים.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. סעיף חדש: גאו-פוליטיקה ודמוגרפיה (תקן הזהב 2.0) -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-wvCoal text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                גאו-פוליטיקה ודמוגרפיה: מדינת ההרים וארץ ה"הילבילי"
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- שטח וטופוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-green-700 shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-green-500">שטח וטופוגרפיה (Area & Topography)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        מערב וירג'יניה (המדינה ה-41 בגודלה) היא **המדינה היחידה בארצות הברית שכל כולה, 100% משטחה, נמצא בתוך רכס הרי האפלצ'ים**. זו הסיבה לכינויה: "מדינת ההרים" (The Mountain State). הטופוגרפיה שלה היא למעשה רמה מבותרת עמוקות (Dissected plateau) – אין בה כמעט אדמה שטוחה, אלא שרשרת אינסופית של הרים חדים, יערות עבותים, ועמקי נהרות עמוקים כגון ערוץ ניו ריבר גורג' (New River Gorge - אחד הנהרות העתיקים בעולם, הזורם בניגוד לכיוון צפון). התבליט הקשוח הזה הקשה מאוד על סלילת כבישים או פיתוח חקלאות רחבת היקף (כמו מטעי הדרום), והפך אותה למבודדת, עשירה ביערות ומכילה את עורקי הפחם העשירים באמריקה (Bituminous coal).
+                    </p>
+                </div>
+
+                <!-- דמוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-slate-500 shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-slate-300">פסיפס אנושי: גאווה וירידה באוכלוסייה (Demographics)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        עם אוכלוסייה של כ-1.7 מיליון תושבים, מערב וירג'יניה מתמודדת עם משבר דמוגרפי: היא אחת המדינות היחידות בארה"ב שמספר התושבים בה יורד בהתמדה בעשורים האחרונים (עקב נטישת צעירים לקולג'ים במדינות אחרות, וקריסת תעשיית הפחם המסורתית). היא מתאפיינת בשיעור הלבנים הגבוה ביותר בארה"ב (מעל 93%), רבים מהם צאצאי הגירה סקוטית-אירית עתיקה שהתיישבה בהרים (הגירה שיצרה את תרבות המוזיקה של הבלוגראס). התושבים מכונים בסלנג אמריקאי, לעיתים בזלזול, "הילביליז" (Hillbillies), אך המקומיים הפכו את המונח לגאווה גדולה ("Mountaineers"), המסמלת עצמאות, קשר עמוק לאדמה, כבוד לעבודת כפיים, והישרדות בתנאים נוקשים (וכפי ששר ג'ון דנבר: "Take Me Home, Country Roads").
+                    </p>
+                </div>
+
+                <!-- סיבת המיקום והגבולות -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-wvGold shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-wvGold">עיצוב גבולות: המחבת הכפולה והנהר</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        צורתה של מערב וירג'יניה היא מהמשונות והאסימטריות ביותר על המפה, ונובעת מהפילוג ב-1861. היא המדינה היחידה בעלת **שתי "ידיות מחבת" (Panhandles)**: 
+                        1. ה"ידית הצפונית" (Northern Panhandle) היא רצועה צרה ומוזרה שנדחקת בין נהר האוהיו לפנסילבניה, שהושארה בידיה כדי לשמור על עורק תחבורה חיוני לצפון.
+                        2. ה"ידית המזרחית" נדחקת לכיוון וושינגטון הבירה. <br>
+                        גבולה המערבי והמרכזי נקבע על ידי פיתוליו הארוכים והמשתנים של נהר האוהיו (Ohio River), המפריד בינה לבין אוהיו. גבולה המזרחי (המפריד בינה לבין מדינת-האם וירג'יניה) עוקב אחר רכסי ההרים הגבוהים ביותר באפלצ'ים (רכס הבלו רידג'), שכן ההרים האלו היוו את קו השבר הפיזי, התרבותי והכלכלי שהוביל לפרידת הכורים מהחוואים.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-wvBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-wvGold shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic">The Mountain State (מדינת ההרים)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">הטופוגרפיה היא הזהות הלאומית</p>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        הכינוי הרשמי של מערב וירג'יניה, המופיע על כל שלט ולוחית רישוי במדינה, נובע ישירות מהעובדה הטופוגרפית (שהיא היחידה השוכנת במלואה בתוך הרי האפלצ'ים). אולם הפנומנולוגיה עמוקה יותר: ההרים הם אלו שחצצו ויצרו את ההפרדה התרבותית והפוליטית בינה לבין וירג'יניה. ההרים הם אלו שאצרו בתוכם את הפחם השחור שהפך ל"זהב" של המדינה במאה ה-19 וה-20, והם אלו שעיצבו את אופיים הקשוח והמבודד של אנשיה ("המאונטנירס" - אנשי ההרים), המוכנים להילחם על זכויותיהם (כמו בקרב בלייר מאונטיין) ללא התערבות כוחות חיצוניים. ההרים הם המגן, הכלכלה והכלא של המדינה גם יחד.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-wvGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                וקסילולוגיה: החקלאי, הכורה וכובע החירות האדום
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל מערב וירג'יניה ב-CSS -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-white rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[12px] border-[#002868] relative flex flex-col items-center justify-center group p-4 ring-4 ring-[#F2A900] ring-inset">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-black/5 via-transparent to-black/10 pointer-events-none z-0"></div>
+                    
+                    <div class="relative transform transition-transform duration-700 group-hover:scale-105 z-10 flex flex-col items-center justify-center w-full mt-4">
+                        
+                        <!-- Top Banner -->
+                        <div class="mb-4 bg-transparent px-4">
+                            <span class="text-[#BF0A30] font-black text-xl md:text-2xl uppercase tracking-widest block font-serif">State of West Virginia</span>
+                        </div>
+
+                        <!-- Coat of Arms Simulation -->
+                        <div class="relative w-48 h-48 md:w-56 md:h-56 bg-white rounded-full flex flex-col items-center justify-center shadow-md border-2 border-slate-300">
+                            <!-- Rhododendron Wreath simulation -->
+                            <div class="absolute inset-[-10px] border-[16px] border-dotted border-[#FFC0CB] rounded-full opacity-60"></div>
+                            <div class="absolute inset-[-10px] border-[8px] border-dashed border-green-700 rounded-full opacity-60"></div>
+                            
+                            <!-- The Rock with the Date -->
+                            <div class="w-20 h-16 bg-slate-300 rounded-t-lg flex items-center justify-center border border-slate-400 z-10 absolute bottom-[35%]">
+                                <span class="text-[10px] font-black text-[#002868] text-center leading-tight">JUNE<br>20<br>1863</span>
+                            </div>
+
+                            <!-- The Farmer and The Miner (Supporters) -->
+                            <div class="w-full flex justify-between px-6 absolute top-[40%] z-20">
+                                <!-- Farmer with Ax/Plow -->
+                                <span class="text-3xl">🧑🏼‍🌾</span>
+                                <!-- Miner with Pickax -->
+                                <span class="text-3xl">👷🏽‍♂️</span>
+                            </div>
+                            
+                            <!-- Crossed Rifles and Liberty Cap -->
+                            <div class="absolute bottom-[20%] flex flex-col items-center z-30">
+                                <!-- Red Phrygian Cap -->
+                                <div class="w-4 h-4 bg-[#BF0A30] rounded-tl-full rounded-br-full transform rotate-45 mb-[-2px] z-40"></div>
+                                <!-- Crossed Rifles -->
+                                <span class="text-xl">⚔️</span> <!-- Representing crossed weapons -->
+                            </div>
+                            
+                            <!-- Bottom Ribbon: Montani Semper Liberi -->
+                            <div class="absolute -bottom-6 bg-[#F2A900] px-4 py-1 rounded-sm shadow-sm border-y border-[#002868] z-50">
+                                <span class="text-[#002868] font-black text-[7px] uppercase tracking-widest block text-center">Montani Semper Liberi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    ברית הפועלים מוקפת בפרחי הרודודנדרון <br><span class="text-xl font-medium text-slate-500">(החותם מ-1863, הדגל אומץ סופית ב-1929)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-wvBlue shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-wvBlue decoration-4">נסיבות היצירה ומסגרת הכחול-זהב:</h3>
+                    <p class="text-xl leading-loose">
+                        דגל מערב וירג'יניה הוא מהדגלים הייחודיים ביותר מבחינת התבנית שלו: הוא אינו סדין כחול, אלא **דגל לבן (White field) שמוקף מכל ארבעת עבריו במסגרת כחולה-כהה (Blue border)**, עם פרנזים מזהב לטקסים רשמיים. הדגל אומץ רשמית במתכונתו הנוכחית ב-1929. בדומה למדינות אחרות, הוא הועתק מדגל שהכינו נשות ווילינג עבור גדוד חיל הרגלים של מערב וירג'יניה שלחם במלחמת ארה"ב-ספרד, כדי לייצג את כבוד המדינה. המגן במרכז, המעוצב על ידי ג'וזף ר.ל. דיסינגר ב-1863 (שנת הקמת המדינה), מוקף בזר צפוף של **פרחי הרודודנדרון (Rhododendron)** הגדולים, הפרח הלאומי של המדינה הגדל פרא בהרי האפלצ'ים.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-wvGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-wvGold">האיחוד של החקלאי והכורה:</h4>
+                        <p class="leading-loose text-lg">במרכז החותם ניצב סלע גרניט גדול שעליו חקוק תאריך היווסדה של המדינה (20 ביוני, 1863). משמאל לסלע עומד **חקלאי (Farmer)** עם גרזן ומחרשה המייצגים חקלאות, ומימין עומד **כורה (Miner)** המחזיק מכוש וגוש פחם, המייצג את תעשיית החציבה. בניגוד לאלים ואבירים, דגל זה מקדש אך ורק את מעמד הפועלים ("הצווארון הכחול"). שתי הדמויות עומדות יחד בסינרגיה, מגינות על הסלע שעליו נכתבה חוקת המדינה.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-red-500 shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-red-500">הרובים הצלובים, כובע החירות והמוטו הלטיני:</h4>
+                        <p class="leading-loose text-lg">בקדמת הסלע מונחים בהצלבה שני **רובי ציד (Rifles)**, המסמלים את חשיבות הנשק האישי לשמירה על חירות בעולם ההררי והפראי. על הצטלבות הרובים מונח ה**כובע הפריגי האדום (Phrygian Cap)** (כובע החירות), המסמל חופש מעריצות (ולמעשה, שחרור מהעריצות של וירג'יניה והקונפדרציה). למטה מתנוסס המוטו הלטיני הלוחמני המפורסם: **"Montani Semper Liberi"** ("אנשי ההרים תמיד חופשיים") – הצהרה ברורה שאנשי מערב וירג'יניה לעולם לא ייכנעו לדיכוי, פנימי או חיצוני.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">7</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">West Virginia Archives and History:</p>
+                    <p>"The Wheeling Conventions and the Secession from Virginia". תיעוד התרגיל המשפטי שבו תושבי המערב הקימו ממשלה "גולה" כדי להפריד את עצמם בצורה חוקית כביכול ממדינת האם שפרשה לקונפדרציה, על מנת להישאר נאמנים לאיחוד (1861-1863).</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Mine Wars Museum (Matewan, WV):</p>
+                    <p>"Sid Hatfield and the Battle of Blair Mountain". ארכיון המתעד את קרב היריות המפורסם בין מפקד המשטרה לבלשים השכירים של חברות הפחם (1920), ואת התקוממות הפועלים החמושה הגדולה ביותר בארה"ב למען התאגדות.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">West Virginia Division of Natural Resources (DNR):</p>
+                    <p>"The American Black Bear: Symbol of the Mountains". מחקר אקולוגי המפרט את התאוששות אוכלוסיית הדובים בהרי האפלצ'ים ואת הבחירה הסמלית בה על ידי ילדי המדינה בשנות ה-50 כהוקרה לחיים המבודדים.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Appalachian Foodways Society:</p>
+                    <p>"The Italian Origins of the Pepperoni Roll". מחקר סוציולוגי וגסטרונומי על המאפייה של ג'וזפה ארג'ירו (1927) בפיירמונט, שיצרה מזון מנחם וללא צורך בקירור כדי לשרוד את ימי העבודה בתוך מנהרות הפחם העמוקות.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"Dissinger's Seal: The Farmer, the Miner, and the Rhododendron Wreath". הניתוח ההרלדי של הדגל הכולל את המסגרת הכחולה הנדירה, והמוטו (Montani Semper Liberi) המציב את פועלי הכפיים ושומרי ההרים כאדוני החירות מול הדיכוי ממזרח.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-wvBlue rounded-full shadow-[0_0_15px_rgba(0,40,104,0.6)]"></div>
+                <div class="w-6 h-6 bg-wvGold rounded-full shadow-[0_0_15px_rgba(242,169,0,0.6)]"></div>
+                <div class="w-6 h-6 bg-wvCoal rounded-full shadow-[0_0_15px_rgba(44,53,57,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
