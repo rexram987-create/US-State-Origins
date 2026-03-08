@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>וושינגטון - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        waGreen: '#00843D', /* Washington Flag Green */
+                        waGold: '#F2A900',  /* Seal Gold */
+                        waBlue: '#002244',  /* Pacific/Rainier Blue */
+                        waApple: '#C92A39'  /* Washington Apple Red */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-waGold font-black text-2xl mb-5 underline italic decoration-waGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-waGreen relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">וושינגטון</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Washington - The Evergreen State</p>
+                <div class="h-2 w-56 bg-waGold mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(242,169,0,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">11 בנובמבר, 1889</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-42 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות של טעות קומית בוושינגטון
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    אטימולוגיית השם "וושינגטון" ידועה לכל: הוקרה לנשיא הראשון של ארצות הברית, ג'ורג' וושינגטון. זוהי המדינה היחידה מבין 50 המדינות שקרויה על שמו של נשיא אמריקאי (ופוליטיקאי אמריקאי בכלל). אולם, האנומליה המחקרית אינה טמונה במקור השם, אלא ב**סיבה הצינית והאירונית שבגללה הוא נבחר**.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Columbia -->
+                    <div class="etymology-box border-waBlue">
+                        <p class="text-waBlue font-black text-5xl mb-6 italic tracking-tighter">Columbia</p>
+                        <div class="space-y-4">
+                            <p><strong>השם המקורי המיועד:</strong> בשנת 1853, תושבי החלק הצפוני של טריטוריית אורגון דרשו מהקונגרס להתפצל ולהקים טריטוריה עצמאית משלהם. הם הגישו עתירה חתומה בבקשה לקרוא לטריטוריה החדשה **"טריטוריית קולומביה" (Territory of Columbia)**, על שם נהר הקולומביה האדיר שחוצה את האזור (שבתורו נקרא על שם ספינתו של קפטן רוברט גריי, "קולומביה רדיוויוה", שנקראה על שם קולומבוס).</p>
+                        </div>
+                    </div>
+
+                    <!-- Washington -->
+                    <div class="etymology-box border-waGreen">
+                        <p class="text-waGreen font-black text-5xl mb-6 italic tracking-tighter">Washington</p>
+                        <div class="space-y-4">
+                            <p><strong>ההתערבות והפרדוקס בקונגרס (1853):</strong> כשהצעת החוק הגיעה לקונגרס בוושינגטון הבירה, קם חבר הקונגרס מקנטקי, **ריצ'רד סטאנטון** (Richard H. Stanton), והתנגד נחרצות לשם קולומביה. טענתו הייתה: <span class="italic text-white">"קריאת הטריטוריה החדשה 'קולומביה' תיצור בלבול עצום עם 'מחוז קולומביה' (District of Columbia - מחוז הבירה של ארה"ב)."</span> כדי לפתור את הבעיה, הציע סטאנטון לשנות את השם לכבוד "אבי האומה".</p>
+                            <p><strong>התוצאה:</strong> הקונגרס אישר את השינוי. למרבה האבסורד ההיסטורי, הניסיון "למנוע בלבול" יצר את הבלבול הגיאוגרפי והתקשורתי הגדול ביותר בתולדות ארצות הברית – כיום נאלצים אמריקאים בעולם כולו להבהיר תמיד האם הם מתכוונים ל"Washington State" (המדינה בחוף המערבי) או ל-"Washington D.C." (הבירה בחוף המזרחי).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-waBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: מגלה הנהר ואדריכל הטריטוריה
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- רוברט גריי -->
+                <div class="personality-card border-r-8 border-waBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-waBlue decoration-4 underline-offset-8">ההוגה הימי: קפטן רוברט גריי (Captain Robert Gray)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1755–1806. <strong>מעמד:</strong> מגלה שפך נהר הקולומביה והאמריקאי הראשון שהקיף את העולם.</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-waGold">רקע של סחר גלובלי:</h4>
+                            <p class="leading-loose">גריי נולד ברוד איילנד והפך לרב-חובל של ספינת סוחר מטעם משקיעים מבוסטון. בניגוד למגלי ארצות אירופאים שחיפשו טריטוריות, המניע של גריי היה מסחרי גרידא: הוא היה חלק מ"סחר הפרוות הימי" העצום. תוכניתו הייתה לשוט לחופי האוקיינוס השקט הצפון-מערבי (וושינגטון/אורגון של ימינו), לסחור עם הילידים בפרוות לוטרות ים (Sea otters), לשוט לסין למכור אותן בעבור משי ותה, ולחזור לבוסטון.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-waGold">הגילוי ששינה אימפריה (1792):</h4>
+                            <p class="leading-loose">במשך מאות שנים, חוקרים ספרדים ובריטים (כמו ג'ורג' ונקובר) חיפשו את "נהר המערב" האגדי, אך נכשלו בזיהוי שפך הנהר האדיר אל האוקיינוס, שהוסתר על ידי שרטונות חול קטלניים. במאי 1792, גריי, על סיפון ספינתו **"Columbia Rediviva"**, הצליח לנווט במיומנות דרך הגלים המסוכנים ולחדור אל תוך הנהר הענק. הוא קרא לנהר על שם ספינתו. פעולה מסחרית זו העניקה לארצות הברית הצעירה את תביעת הבעלות (Claim) החזקה והמבוססת ביותר שלה באזור צפון-מערב האוקיינוס השקט, מול תביעות האימפריה הבריטית.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- אייזק סטיבנס -->
+                <div class="personality-card border-r-8 border-waGreen shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-waGreen decoration-4 underline-offset-8">הבונה הדורסני: אייזק סטיבנס (Isaac Stevens)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1814–1862. <strong>מעמד:</strong> המושל הראשון של טריטוריית וושינגטון.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות ורקע צבאי:</h4>
+                            <p class="leading-loose">סטיבנס נולד במסצ'וסטס והיה בוגר מצטיין של האקדמיה הצבאית ווסט פוינט, שם התחנך כקצין הנדסה. הוא היה אדם נמוך קומה, קפדן, עקשן בצורה קיצונית, ובעל אמביציה פוליטית אדירה שניסה להוכיח את גבריותו בספר הפראי. הנשיא פרנקלין פירס מינה אותו ב-1853 למושל הראשון של טריטוריית וושינגטון החדשה, וכן לאחראי על ענייני האינדיאנים באזור.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה קולוניאלית - מחיקה מהירה ורכבות:</h4>
+                            <p class="leading-loose">האידיאולוגיה של סטיבנס התבססה על חזון של מסילת רכבת טרנס-יבשתית צפונית שתחבר את האוקיינוס השקט לאומה. כדי לעשות זאת, הוא האמין שיש לפנות באגרסיביות ובמהירות את כל השבטים הילידיים מהאדמות. הוא לא האמין בדיפלומטיה איטית, אלא בכפייה. המנטרה שלו כלפי האינדיאנים הייתה: "התיישבו בשמורות או שתושמדו".</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - משבר החוזים ומלחמת יאקימה:</h4>
+                            <p class="leading-loose">בין 1854 ל-1855, סטיבנס כינס את מנהיגי שבטי צפון המערב וערך מסע בזק שבו כפה עליהם חתימה על עשרה חוזים אכזריים (הידועים כ"הסכמי סטיבנס", כגון הסכם מדיסין קריק). השבטים (כמו היאקימה והניסקוואלי) ויתרו על עשרות מיליוני אקרים של אדמה בתמורה לשמורות קטנות (אך זכו לשמור על זכויות דיג הסלמון שלהם, זכות בעלת משמעות משפטית אדירה עד היום). הכפייה הובילה להתקוממות אינדיאנית כוללת ("מלחמת יאקימה"), שאותה דיכא סטיבנס באמצעות הכרזת משטר צבאי שנוי במחלוקת – צעד שהוביל לקריאות להדחתו. למרות אכזריותו, הוא עיצב את הגבולות הקרקעיים שאיפשרו לוושינגטון להתפתח כמדינה. הוא נהרג מאוחר יותר בקרב צ'נטילי במלחמת האזרחים כגנרל של צבא הצפון.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: שליטי הים, התפוחים וקפה האספרסו
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי (ימי) -->
+                <div class="culture-highlight border-waBlue">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-waBlue">היונק הימי הרשמי: הקטלן / אורקה (Orca / Killer Whale)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">שליט האוקיינוס ורוח האבות הילידית (אומץ ב-2005)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        בעוד החיה היבשתית היא המרמיטה האולימפית, הסמל האייקוני, האקולוגי והתרבותי ביותר של חופי וושינגטון הוא ה**אורקה (Orcinus orca)**. 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        ימי הפיוג'ט סאונד (Puget Sound) בוושינגטון הם ביתם של אוכלוסיית הלווייתנים "התושבים הדרומיים" (Southern Resident orcas). עבור האומות הילידיות של חופי האוקיינוס השקט (כמו שבטי הלומִי - Lummi והסאליש), האורקה אינה חיה אלא "אדם של הים" וסמל להגנה. שבט הלומי קורא להם *Qwe 'lhol mechen*, שפירושו "אנשי הים שלנו", והם מאמינים שהאורקות הן גלגול נשמות של צ'יפים שמתו ושבים לשמור על בני עמם.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        אימוץ האורקה כסמל המדינה בשנת 2005 (במסע שיזמו ילדי בית ספר במדינה) נועד לעורר מודעות ציבורית דחופה לסכנת ההכחדה של הקהילה המקומית הזו, אשר סובלת מרעב בעקבות ירידה באוכלוסיית סלמון הצ'ינוק ומהרעשת ספינות מסחר המפריעה לתקשורת הסונאר שלהם.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-waApple">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-waApple">התוצרת והקולינריה: תפוח וושינגטון, סלמון ותרבות הקפה של סיאטל</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מעצמה חקלאית ותרבות הדור השלישי</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של וושינגטון מפוצלת גיאוגרפית בדיוק כמו המדינה עצמה: הים במערב והחקלאות במזרח.
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-waApple">תפוח וושינגטון (Washington Apple):</span> הפרי הרשמי (1989). ממזרח להרי הקסקייד, אקלים האגן הצחיח-למחצה (ימים חמים ולילות קרירים) יחד עם השקיה מנהר הקולומביה, יצרו את הסביבה המושלמת בעולם לגידול תפוחים פריכים. וושינגטון מייצרת כ-60% מכלל התפוחים הנאכלים בארצות הברית כולה (במיוחד מזן "רד דלישס" ו"גאלה"). התפוחים הם עמוד השדרה של כלכלת המזרח הכפרי של המדינה.</li>
+                        <li><span class="text-white font-bold underline decoration-[#ff7f50]">סלמון סוקאיי מעושן (Sockeye Salmon):</span> כמו באלסקה, הסלמון הוא מנוע החיים באוקיינוס השקט. בוושינגטון, מסורת "צליית עץ הארז" הילידית (הצמדת פילה הסלמון על גבי לוח עץ ארז ספוג במים וצלייתו מעל אש גלויה) הפכה לשיטת הכנה קולינרית לאומית המעניקה לדג עישון מתקתק. שימור אתרי השרצת הסלמון נחשב לעניין פוליטי ודתי עבור שבטי המדינה עד היום.</li>
+                        <li><span class="text-white font-bold underline decoration-[#6F4E37]">מהפכת קפה האספרסו (Seattle Coffee Culture):</span> וושינגטון הולידה שינוי קולינרי עולמי. בשנות ה-70 וה-80, בעיר סיאטל, קמה תנועת חלוצי ה"גל השני" של הקפה (בראשם חברת Starbucks שנוסדה ב-1971 בשוק 파ייק פלייס). מזג האוויר האפור, הגשום והקריר של סיאטל יצר צורך פסיכולוגי במקומות התכנסות חמימים. סיאטל חשפה את האמריקאים, ששתו עד אז רק קפה פילטר חלש, לקלייה כהה, מכונות אספרסו ולמונח "לאטה". כיום, בתי קפה ותאי "דרייב-ת'רו" לקפה פזורים בכל פינת רחוב במדינה והם חלק מה-DNA של החוף המערבי.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. סעיף חדש: גאו-פוליטיקה ודמוגרפיה (תקן הזהב 2.0) -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-waGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                גאו-פוליטיקה ודמוגרפיה: מדינה חצויה ופשרת קו הרוחב
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- שטח וטופוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-waGreen shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-green-400">שטח וטופוגרפיה: (Area & Topography)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        מדינת וושינגטון מחולקת בצורה אכזרית וברורה לשני עולמות על ידי חומת **הרי הקסקייד (Cascade Range)** – שרשרת הרי געש פעילים ואדירים (המוכר בהם הוא הר ריינייר, 4,392 מ'). הצד המערבי (ממערב לקסקיידס) מוגדר על ידי גשם בלתי פוסק, אקלים ממוזג ימי וצמחייה טרופית (הכולל את יער הגשם הממוזג Hoh בחצי האי אולימפיק). לעומת זאת, רכס ההרים חוסם את ענני הגשם מלהגיע מזרחה, מה שיוצר "צל גשם" ומשאיר את השליש המזרחי של המדינה כרמה חקלאית יבשה למחצה, חמה בקיץ וקרה בטירוף בחורף (Columbia Basin).
+                    </p>
+                </div>
+
+                <!-- דמוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-waBlue shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-blue-300">פסיפס אנושי והפיצול הפוליטי (Demographics)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        בוושינגטון מתגוררים קרוב ל-7.8 מיליון איש. הפיצול הטופוגרפי יוצר פיצול דמוגרפי ופוליטי עמוק. כ-60% מתושבי המדינה מרוכזים סביב עורק מים אחד במערב: מטרופולין **סיאטל-טקומה (Puget Sound)**. זהו אזור הייטק ליברלי מאוד, משכיל, ירוק-סביבתי (כחול פוליטית) המהווה את ביתן של חברות כמו מיקרוסופט ואמזון. יש בו את אחד הריכוזים הגדולים בארה"ב של יוצאי אסיה (מעל 10%). לעומת זאת, צד המזרח (כמו ספוקיין ויאקימה) הוא חקלאי, שמרני (אדום פוליטית), ומאוכלס בשיעור גבוה של קהילות היספאניות העובדות בענף החקלאות. שני החצאים נאבקים ללא הרף על חלוקת המשאבים ותקציבי המדינה.
+                    </p>
+                </div>
+
+                <!-- סיבת המיקום והגבולות -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-waGold shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-waGold">עיצוב גבולות: קו הרוחב 49 ופשרת אורגון</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        הגבול הצפוני של וושינגטון (עם קנדה / קולומביה הבריטית) הוא תוצאה של סכסוך בינלאומי הידוע כ"ארץ אורגון". בשנות ה-40 של המאה ה-19, הנשיא ג'יימס ק. פולק נבחר על בסיס הסיסמה התוקפנית **"Fifty-Four Forty or Fight!"** – דרישה להרחיב את גבול ארה"ב עד לקו רוחב 54°40' בצפון (עמוק לתוך קנדה) או לצאת למלחמה נגד הבריטים. בסופו של דבר, מכיוון שארה"ב נכנסה למלחמה נגד מקסיקו בדרום, פולק התפשר עם בריטניה. ב**אמנת אורגון של 1846**, הוסכם כי הגבול יסומן בקפידה על **קו הרוחב 49** (תוך עיקול קל דרומה כדי להשאיר את האי ונקובר בשלמותו בידי הבריטים). הגבול הדרומי שלה מסורטט בחלקו הגדול באופן טבעי על ידי זרימתו של נהר הקולומביה הענק.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-waGreen text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-waGreen shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic">The Evergreen State (מדינת עד-ירוק)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">נוף, חורף ותיירות</p>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        הכינוי הידוע והרשמי (המופיע על לוחיות הרישוי המאופיינות בהר ריינייר), הוצע לראשונה ב-1890 על ידי עיתונאי ואיש נדל"ן מסיאטל בשם סי.טי. קונובר (C.T. Conover). הפנומנולוגיה של הכינוי מתייחסת לעובדה המדהימה שעקב האקלים הרטוב והייחודי של החוף המערבי של המדינה, היערות (הבנויים בעיקר מחטניים ועצי אשוח עצומים כגון אשוח דאגלס) **אינם משירים את מחטיהם ולא מאבדים את צבעם בחורף**. בעוד מדינות החוף המזרחי הופכות לאפורות, חומות ומושלגות, מדינת וושינגטון נותרת חיה, נושמת ו"ירוקה-לעד" לאורך כל חודשי השנה. הכינוי חיזק את כלכלת העץ שלה בעבר, ואת האתוס האקולוגי-שמרני המודרני שלה כיום.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-waGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                וקסילולוגיה: הנשיא על רקע ירוק ובקבוק הדיו
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל וושינגטון ב-CSS -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#00843D] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex items-center justify-center group p-4 border-yellow-500">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10 pointer-events-none z-0"></div>
+                    
+                    <div class="relative transform transition-transform duration-700 group-hover:scale-105 z-10 flex flex-col items-center justify-center">
+                        
+                        <!-- State Seal of Washington -->
+                        <div class="w-48 h-48 sm:w-64 sm:h-64 rounded-full border-[8px] border-[#F2A900] bg-white flex flex-col items-center justify-center shadow-2xl relative">
+                            
+                            <!-- Inner Gold Ring text simulation -->
+                            <div class="absolute inset-1 border-[4px] border-double border-[#F2A900] rounded-full opacity-60"></div>
+                            <div class="absolute top-2 w-[80%] text-center text-[#F2A900] text-[7px] font-black uppercase tracking-widest">The Seal of the State of Washington</div>
+                            <div class="absolute bottom-4 text-[#F2A900] text-sm font-black tracking-widest">1889</div>
+                            
+                            <!-- Portrait of George Washington -->
+                            <div class="w-24 h-24 sm:w-32 sm:h-32 bg-[#C0C0C0] rounded-full flex items-center justify-center border-4 border-slate-400 overflow-hidden shadow-inner z-10">
+                                <!-- Visual representation of a portrait -->
+                                <span class="text-4xl sm:text-6xl drop-shadow-md">👤</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    דיוקן הנשיא על שדה ירוק <br><span class="text-xl font-medium text-slate-500">(החותם עוצב ב-1889, הדגל אומץ ב-1923)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-waGreen shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-waGreen decoration-4">שתי אנומליות עיצוביות (1923):</h3>
+                    <p class="text-xl leading-loose">
+                        דגל וושינגטון הוא הדגל החריג ביותר מבחינה חזותית מבין כלל מדינות ארה"ב, בזכות שני חוקי ברזל: 
+                        1. זהו **הדגל היחיד בארצות הברית שהרקע שלו הוא ירוק** (Dark green). הצבע נבחר במכוון כדי להבדיל את המדינה מ"הסדינים הכחולים" הסטנדרטיים, וכדי לייצג את הכינוי "מדינת עד-ירוק" ואת יערות המחט של חצי האי האולימפי.
+                        2. זהו **הדגל היחיד שמכיל דיוקן פנים של אדם אמיתי (היסטורי)** – ג'ורג' וושינגטון. הדגל אומץ רשמית רק בשנת 1923 בעקבות יוזמה של אגודת בנות המהפכה האמריקאית (DAR).
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-waGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-waGold">החותם: בקבוק הדיו ומטבע הכסף (1889):</h4>
+                        <p class="leading-loose text-lg">הסיפור של החותם במרכז הדגל הוא גאונות מאולתרת. כשהמדינה הוקמה ב-1889, נדרש חותם רשמי ליצירת מסמכים ממשלתיים תוך ימים. הצורף **צ'ארלס טלקוט** (Charles Talcott) התבקש לעצב אותו. הוא הניח **צנצנת דיו** על פיסת נייר ושרטט סביבה מעגל. לאחר מכן הניח **מטבע חצי-דולר כסוף** בתוך המעגל ושרטט מעגל פנימי קטן יותר. ברווח בין שני המעגלים הוא כתב את שם המדינה. במרכז, במקום לעצב נוף מסובך, הוא פשוט הדביק **בול דואר שעליו הודפס דיוקנו של ג'ורג' וושינגטון**. זה היה עיצוב זול, מהיר וגאוני שהפך לחותם הרשמי.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">הנחיות חוקיות מחמירות (גילברט סטיוארט):</h4>
+                        <p class="leading-loose text-lg">בשנת 1967 נערך תיקון לחוק המדינתי. מאחר וציירים שונים ציירו פרצופים שונים ומשונים של הנשיא על הדגל, החוק קובע כעת במפורש: הדיוקן על דגל וושינגטון חייב להיות העתק מדויק של הציור ההיסטורי והמפורסם שצייר האמן **גילברט סטיוארט** (Gilbert Stuart) – אותו ציור שמופיע גם על שטר הדולר האמריקאי, כדי להבטיח כבוד ואחידות לפנים של אבי האומה.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">7</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Washington State Historical Society:</p>
+                    <p>"The Naming of Washington Territory: A Congressional Miscalculation". ההיסטוריה הצינית מאחורי דחיית השם 'קולומביה' כדי למנוע בלבול עם D.C, אשר יצרה את אחד האבסורדים הגיאוגרפיים הגדולים בארה"ב.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Center for the Study of the Pacific Northwest (UW):</p>
+                    <p>"Isaac Stevens and the Medicine Creek Treaty". ניתוח פוליטי על מדיניות הגירוש האגרסיבית של המושל הראשון והקמת רשת מסילות הברזל דרך האדמות הילידיות.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">National Oceanic and Atmospheric Administration (NOAA):</p>
+                    <p>"The Southern Resident Orcas of Puget Sound". מחקר אקולוגי ותרבותי המחבר בין מצבם העגום של הלווייתנים (סמל המדינה מ-2005) לבין הירידה בכמות הסלמון והשפעת הרעש הימי.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">HistoryLink.org (Seattle Coffee History):</p>
+                    <p>"The Evolution of the Espresso Culture in the Pacific Northwest". מחקר אנתרופולוגי-גסטרונומי על הקשר בין האקלים הרטוב של סיאטל להתפתחות הגל השני של הקפה ותאגיד סטארבקס.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"Charles Talcott's Ink Bottle: The Genesis of the Washington State Seal". הפולקלור העיצובי של הדגל הירוק היחיד בארה"ב, והוראת החוק המחייבת שימוש בדיוקן של גילברט סטיוארט.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-waGreen rounded-full shadow-[0_0_15px_rgba(0,132,61,0.6)]"></div>
+                <div class="w-6 h-6 bg-waGold rounded-full shadow-[0_0_15px_rgba(242,169,0,0.6)]"></div>
+                <div class="w-6 h-6 bg-waBlue rounded-full shadow-[0_0_15px_rgba(0,34,68,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
