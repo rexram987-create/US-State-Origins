@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>מונטנה - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        mtBlue: '#002664',    /* Montana Flag Blue */
+                        mtGold: '#FFD100',    /* Oro (Gold) and text */
+                        mtCopper: '#B87333',  /* Copper King color */
+                        mtSilver: '#C0C0C0'   /* Plata (Silver) */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-mtGold font-black text-2xl mb-5 underline italic decoration-mtGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-mtGold relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">מונטנה</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Montana - The Treasure State</p>
+                <div class="h-2 w-56 bg-mtCopper mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(184,115,51,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">8 בנובמבר, 1889</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-41 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: האירוניה הספרדית בגבול הקנדי
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    השם "מונטנה" מייצג אנומליה גיאופוליטית וטופוגרפית כאחד. זוהי מדינה אמריקאית צפונית הגובלת בקנדה, אך היא נושאת שם טהור מהשפה הספרדית. יתרה מזאת, השם מתאר מאפיין גיאוגרפי שמכסה רק שליש מהמדינה.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Montaña -->
+                    <div class="etymology-box border-mtGold">
+                        <p class="text-mtGold font-black text-5xl mb-6 italic tracking-tighter">Montaña</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> ספרדית (מהמילה הלטינית הקלאסית *Montanea*).</p>
+                            <p><strong>משמעות מילולית:</strong> "הר" או "אזור הררי".</p>
+                            <p><strong>ניתוח מחקרי:</strong> חוקרים וספרדים קדומים השתמשו במונח "Montaña del Norte" (ההרים של הצפון) כדי לתאר את רכסי הרי הרוקי העצומים שראו באופק הצפוני. כאשר חבר הקונגרס מאוהיו, **ג'יימס אשלי** (James Ashley – אותו איש שגנב את השם 'ויומינג' מהחוף המזרחי), היה אחראי על חקיקת הטריטוריה החדשה ב-1864, הוא חיפש שם שישקף את הגיאוגרפיה הדרמטית של האזור המערבי שלה.</p>
+                        </div>
+                    </div>
+
+                    <!-- ההתנגדות והאירוניה -->
+                    <div class="etymology-box border-mtCopper">
+                        <p class="text-mtCopper font-black text-5xl mb-6 italic tracking-tighter">האירוניה הגיאוגרפית</p>
+                        <div class="space-y-4">
+                            <p><strong>הוויכוח בקונגרס:</strong> בחירת השם "מונטנה" נתקלה בהתנגדות חריפה. נציגים בקונגרס טענו שאין זה הגיוני לתת שם ספרדי לטריטוריה כה צפונית, ושעדיף להשתמש בשם אינדיאני אותנטי (כמו "Shoshone"). אשלי התעקש, והשם התקבל.</p>
+                            <p><strong>האנומליה הפיזית:</strong> חוסר הדיוק הגדול של השם מתגלה כשמביטים במפה: בעוד השליש המערבי של מונטנה נשלט על ידי הרי הרוקי העצומים (Mountainous), **כשני שלישים ממזרח המדינה הם למעשה מישורים שטוחים וערבות דשא** (Great Plains). השם "מונטנה" מתעלם לחלוטין מרוב שטחה של המדינה לטובת מיתוג ההרים המרשימים שבמערבה.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-mtBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: שר הנחושת והפציפיסטית פורצת הדרך
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- מרקוס דיילי (שר הנחושת) -->
+                <div class="personality-card border-r-8 border-mtCopper shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-mtCopper decoration-4 underline-offset-8">הבונה והשליט התאגידי: מרקוס דיילי (Marcus Daly)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1841–1900. <strong>תואר:</strong> אחד מ"שרי הנחושת" (The Copper Kings) של ביוט (Butte).</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-mtGold">ילדות - מאירלנד למכרות:</h4>
+                            <p class="leading-loose">דיילי נולד באירלנד ונמלט מהרעב הגדול לארצות הברית בהיותו בן 15. הוא החל ככורה פשוט, מחוספס ונטול השכלה בקליפורניה ובנבאדה, ולמד את הגיאולוגיה של המכרות דרך יבלות ידיו וחוש טבעי נדיר לסלעים. ב-1876 הגיע לטריטוריית מונטנה כמנהל מכרה כסף קטן.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-mtGold">אידיאולוגיה - קפיטליזם של אוליגרכיה תעשייתית:</h4>
+                            <p class="leading-loose">האידיאולוגיה של דיילי הייתה השתלטות טוטאלית על משאבים. כשקנה את מכרה ה"אנקונדה" (Anaconda), הוא חיפש כסף (Silver), אך גילה מתחתיו עורק מפלצתי ובלתי נגמר של **נחושת טהורה**. בעידן שבו תומאס אדיסון החל לחשמל את אמריקה (ויצר ביקוש אדיר לחוטי נחושת), דיילי הבין שהנחושת היא הכסף החדש. הוא שאף ליצור מונופול סגור (Trust) שישלוט לא רק בכרייה, אלא גם בעיתונות, בפוליטיקה ובכוח העבודה המקומי.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-mtGold">הישגים מכוננים - חברת אנקונדה והרחובות העשירים:</h4>
+                            <p class="leading-loose">דיילי הקים את "חברת כריית הנחושת אנקונדה" (Anaconda Copper Mining Company), שהפכה בשיאה לתאגיד העשיר בעולם. הוא הפך את העיר ביוט (Butte), מונטנה, ל**"גבעה העשירה ביותר על פני כדור הארץ"**. דיילי וחבריו (וויליאם קלארק ופ. אוגוסטוס היינץ) היו מעורבים במאבקי שוחד אכזריים שקנו את בית המחוקקים של מונטנה ועיצבו את גבולות המחוזות והחוקים שלה, תוך כדי יצירת מעצמה תעשייתית בלב הישימון המערבי.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ג'נט רנקין -->
+                <div class="personality-card border-r-8 border-mtBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-mtBlue decoration-4 underline-offset-8">ההוגה והמורדת המוסרית: ג'נט רנקין (Jeannette Rankin)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1880–1973. <strong>מעמד:</strong> האישה הראשונה שנבחרה לקונגרס האמריקאי (פעמיים).</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות בנוף של חלוצים:</h4>
+                            <p class="leading-loose">רנקין נולדה בחווה סמוך למיזולה, מונטנה. כבתם של חלוצים במערב, היא חוותה סביבה שבה נשים עבדו כתף אל כתף עם גברים בתנאים קשים. החוויות הללו נטעו בה את האמונה ששוויון מגדרי הוא זכות טבעית הנובעת משותפות במאמץ ההישרדות, ולא חסד שלטוני. היא למדה ביולוגיה באוניברסיטת מונטנה, ולאחר מכן עברה לעבודה סוציאלית.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - פציפיזם קיצוני וזכות בחירה:</h4>
+                            <p class="leading-loose">רנקין הייתה ממובילות התנועה הסופרג'יסטית בארה"ב, והובילה את המאבק שהעניק לנשות מונטנה את זכות ההצבעה כבר ב-1914 (הרבה לפני התיקון ה-19 הארצי). האידיאולוגיה העליונה שלה הייתה **פציפיזם מוחלט**. היא האמינה, באופן נחרץ ובלתי מתפשר, שמלחמה היא כישלון מוסרי של דיפלומטיה שגברית, ושנשים (אמהות) הן אלה שמשלמות את המחיר היקר מכל.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים וה"לא" ההיסטורי הכפול (1916, 1941):</h4>
+                            <p class="leading-loose">ב-**1916** עשתה רנקין היסטוריה כשהייתה ל**אישה הראשונה שנבחרה לקונגרס האמריקאי מטעם מונטנה**. הפנומנולוגיה היא מדהימה: היא חוקקה חוקים לאומיים עוד לפני שלנשים בשאר המדינה מותר היה בכלל להצביע! <br>
+                            היא הצביעה נגד כניסת ארה"ב למלחמת העולם הראשונה, מה שחיסל לה זמנית את הקריירה. בשנת **1940** היא נבחרה שוב לקונגרס. יום לאחר המתקפה על פרל הארבור, היא הייתה **חברת הקונגרס היחידה** שהצביעה "לא" להכרזת מלחמה על יפן (כשהיא מוקפת בהמון זועם, היא הכריזה: "כאישה איני יכולה לצאת למלחמה, ואני מסרבת לשלוח אחרים"). הצבעתה המצפונית חיסלה את הקריירה הפוליטית שלה סופית, אך קיבעה אותה כגיבורה אולטימטיבית של עצמאות מחשבתית בארץ השמיים הגדולים.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: אדוני ההרים ומזון הכורים התת-קרקעי
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-mtGold">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-mtGold">בעל החיים המדינתי: דוב גריזלי (Grizzly Bear)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">חיית המדינה הרשמית (אומץ ב-1982)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        בעוד קליפורניה מחזיקה בדוב הגריזלי על דגלה כסמל לחיה שנכחדה בשטחה כליל, עבור מונטנה הגריזלי (Ursus arctos horribilis) הוא מציאות חיה, פועמת ומסוכנת. במונטנה נמצאת **האוכלוסייה הגדולה ביותר של דובי גריזלי** ב-48 המדינות התחתונות של ארה"ב (במיוחד סביב פארק ילוסטון והפארק הלאומי גליישר).
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        ב-1982, עשרות אלפי תלמידי בתי ספר במונטנה הצביעו לבחור את הגריזלי כחיית המדינה, כשהוא מביס בקלות את האייל (Elk). הדוב מסמל עבור תושבי מונטנה את ההכרה בכך שבאזורים מסוימים של המדינה, האדם אינו נמצא בראש שרשרת המזון. הגריזלי מייצג את הטבע הקדמוני שדורש כבוד, מרחב (Wilderness), ואפס סובלנות לטעויות אנוש. קבוצת הספורט של אוניברסיטת מונטנה נקראת ה"גריזליס" בחיבה וגאווה.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-mtCopper">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-mtCopper">המנה והפרי התרבותי: קורניש פאסטי (Cornish Pasty) והאקלברי (Huckleberry)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">טכנולוגיית אפייה אנגלית ופרי יער פראי המסרב לאילוף</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של מונטנה היא שילוב בין היסטוריית הכרייה האפלה של העיר ביוט לבין תנובות היערות שעל מורדות הרי הרוקי.
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-mtCopper">קורניש פאסטי (The Cornish Pasty):</span> כאשר התגלתה הנחושת במונטנה, שרי הנחושת הביאו אלפי כורים מיומנים מקורנוול (Cornwall) שבאנגליה. יחד איתם הגיעה ארוחת הצהריים הגאונית שלהם. הפאסטי הוא למעשה "ארוחה בכיס": בצק עבה, חסון בצורת חצי סהר, הממולא בבשר בקר, תפוחי אדמה, בצל ולפת. הפנומנולוגיה של המאפה טמונה ב**צורתו ובקצותיו המסולסלים הקשים (Crimp)**. הכורים, שידיהם היו מכוסות ברעלים וארסן ממעמקי המכרה, היו מחזיקים את המאפה בקצוות הבצק העבים, אוכלים את הפנים הנקי, וזורקים את השוליים המורעלים. כיום, העיר ביוט היא בירת הפאסטי של צפון אמריקה.</li>
+                        <li><span class="text-white font-bold underline decoration-[#4b0082]">אוּכְמָנִית הַבָּר / האקלברי (Huckleberry):</span> הפרי המזוהה ביותר עם מונטנה (למרות היותו אהוב גם באיידהו). ההאקלברי הוא קרוב משפחה כהה ועסיסי יותר של האוכמנית הרגילה (Blueberry), בעל טעם חמוץ-מתוק עוצמתי. האנומליה של ההאקלברי היא ה**סרבנות המוחלטת שלו לתרבות (Domestication)**: כל הניסיונות לגדל אותו מסחרית בחוות נכשלו. הפרי גדל אך ורק פרא על מורדות הרים גבוהים, ויש ללקט אותו ידנית בעבודת נמלים בקיץ הקצר (תוך כדי תחרות מול דובי גריזלי שגם הם אוהבים את הפרי). תושבי מונטנה מכניסים אותו לתוך פאי, גלידות, ריבות, ואפילו לרטבי בשר.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. סעיף חדש: גאו-פוליטיקה ודמוגרפיה (תקן הזהב 2.0) -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-mtGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                גאו-פוליטיקה ודמוגרפיה: אימפריית הריק הצפונית
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- שטח וטופוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-mtBlue shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-blue-400">שטח וטופוגרפיה (Area & Topography)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        מונטנה היא ה"ענק השקט" של אמריקה – המדינה ה-4 בגודלה בארה"ב בשטחה. היא נקרעת לשתי ישויות טופוגרפיות שונות לחלוטין: השליש המערבי הוא סבך של שרשראות רכסי הרים אדירים מתוך הרי הרוקי (עם מאות נהרות ועמקים נסתרים), כאשר "קו פרשת המים" העולמי חוצה אותו. שני השלישים המזרחיים הם רמה מישורית פתוחה של ערבות דשא ("Great Plains"), מנוקדת בתצורות סלע מוזרות כמו הבאדלנדס (Badlands) של המזרח שבהם התגלו מאובני טי-רקס. מונטנה גובלת בצפון עם קנדה לאורך קו הרוחב 49 המהווה את אחד הגבולות המדיניים הישרים והארוכים בעולם.
+                    </p>
+                </div>
+
+                <!-- דמוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-mtGold shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-mtGold">דלילות ופסיפס אנושי (Demographics)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        למרות גודלה העצום, מונטנה היא אחת המדינות הדלילות ביותר דמוגרפית (מדורגת 48 בצפיפות), עם אוכלוסייה שרק לאחרונה חצתה את קו ה-1.1 מיליון תושבים. המשמעות הפנומנולוגית: בממוצע, יש במונטנה יותר פרות (ויותר איילים) מבני אדם. כ-88% מהאוכלוסייה מוגדרים כלבנים (רבים ממוצא גרמני, אירי ונורווגי). המיעוט המשמעותי וההיסטורי ביותר (כ-6.5%) הוא **ילידים אמריקאים** (Native Americans), החיים ב-7 שמורות אינדיאניות ענקיות (Reservations), כדוגמת שמורת אומת הקרו (Crow) והבלאקפיט (Blackfeet), השומרות על אוטונומיה שיפוטית ותרבותית משמעותית.
+                    </p>
+                </div>
+
+                <!-- סיבת המיקום והגבולות -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-mtCopper shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-mtCopper">עיצוב גבולות: פרשת המים והזהב</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        גבולותיה של מונטנה הם תוצר של גיאולוגיה ובהלה למחצבים. במקור, כל השטח ממזרח להרים היה שייך לרכישת לואיזיאנה וממערב לארץ אורגון. כשהתגלה זהב באלדר גולץ' (Alder Gulch) ובבאנאק בשנות ה-1860, אלפי כורים הציפו את האזור ההררי. ממשל אברהם לינקולן הקים את הטריטוריה ב-1864 כדי להבטיח שהזהב יזרום לקופת ה"איחוד" במלחמת האזרחים ולא למורדים.<br>
+                        הגבול המערבי עם איידהו הוא מופת לטופוגרפיה: בעוד שציפו שיסומן כקו ישר (כמו גבולות מערביים רבים), הגבול מתעקל בצורה משוגעת לאורך פסגות **רכס ביטררוט (Bitterroot Mountains)** וקו פרשת המים של היבשת (Continental Divide), שכן ההרים היו כה בלתי עבירים, שהם הציבו את החומה הטבעית והלוגית היחידה להפריד בין תושבי שני האזורים.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-mtBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Treasure State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-mtGold shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Treasure State (מדינת האוצר)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">הצהרה של עושר תת-קרקעי</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי הרשמי של המדינה מתייחס באופן ישיר להילה הכלכלית העצומה שהקים אותה: חציבה. החל מגילוי הזהב של הבאנאק והכסף, וכלה במכרות הנחושת המפלצתיים של ביוט (שהפיקו שליש מתצרוכת הנחושת של ארה"ב בשיאה) ומרבצי הפחם והספיר (Sapphires) של ימינו. מונטנה היא "אוצר" במובן הפיזי ביותר – מקום שבו האדמה מתגמלת את מי שחופר בה מספיק עמוק.
+                        </p>
+                    </div>
+
+                    <!-- Big Sky Country -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-mtBlue shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-blue-300">Big Sky Country (ארץ השמיים הגדולים)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">פנומנולוגיה של אופק אינסופי</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            בעוד "האוצר" מתייחס למה שמתחת לאדמה, הכינוי המפורסם יותר בעולם מתייחס למה שמעליה. המונח אומץ בשנות ה-60 של המאה ה-20 (בעקבות ספר של א.ב. גאת'רי ומסע קידום תיירות). הפנומנולוגיה כאן היא אופטית-פסיכולוגית: במישורים המזרחיים של מונטנה, היעדרם של הרים, יערות סבוכים או זיהום אור מאפשר לקו האופק להתרחק עד לקצה הראייה. התוצאה היא אשליה אופטית שבה השמיים נראים פיזית "גדולים", רחבים וקרובים יותר מאשר בכל מקום אחר בעולם, מה שמייצר תחושה של חופש מוחלט ובדידות רוגעת.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-mtGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                וקסילולוגיה: המוטו הספרדי במדינה הצפונית
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל מונטנה ב-CSS -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#002664] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col items-center justify-center p-4 group">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10 pointer-events-none z-0"></div>
+                    
+                    <div class="relative transform transition-transform duration-700 group-hover:scale-105 z-10 flex flex-col items-center w-full">
+                        
+                        <!-- Word MONTANA in Helvetica (Added in 1981) -->
+                        <div class="text-[#FFD100] font-black text-4xl sm:text-5xl tracking-widest uppercase mb-4 drop-shadow-md" style="font-family: 'Helvetica', Arial, sans-serif;">
+                            MONTANA
+                        </div>
+
+                        <!-- Seal Simulation -->
+                        <div class="w-48 h-48 bg-blue-200 rounded-full flex flex-col items-center justify-center shadow-lg relative p-2 border-[4px] border-[#FFD100] overflow-hidden">
+                            <!-- Background: Mountains and Sun -->
+                            <div class="absolute top-0 w-full h-2/3 bg-blue-300" style="clip-path: polygon(0 100%, 20% 40%, 50% 70%, 80% 30%, 100% 100%);"></div>
+                            <div class="absolute top-4 left-1/2 w-10 h-10 bg-yellow-400 rounded-full opacity-80"></div>
+                            
+                            <!-- Foreground: The Great Falls, Plow, Pick and Shovel -->
+                            <div class="absolute bottom-0 w-full h-1/3 bg-blue-500 border-t-2 border-white/50"></div> <!-- Waterfall -->
+                            
+                            <!-- Mining and Farming Tools -->
+                            <div class="absolute bottom-8 flex gap-4 text-xl drop-shadow-md">
+                                <span>🚜</span> <!-- Plow -->
+                                <span>⛏️</span> <!-- Pick/Shovel -->
+                            </div>
+                            
+                            <!-- Ribbon with Spanish Motto -->
+                            <div class="absolute bottom-1 bg-white/90 px-2 py-0.5 rounded border border-slate-300 z-40 text-center w-[90%]">
+                                <span class="text-[8px] font-black text-slate-800 uppercase tracking-widest block leading-tight">Oro y Plata</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    הרי השמיים והכלים <br><span class="text-xl font-medium text-slate-500">(הדגל אומץ ב-1905, המילה "מונטנה" נוספה ב-1981)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-mtBlue shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-mtBlue decoration-4">היסטוריה צבאית ושיפוץ מסחרי:</h3>
+                    <p class="text-xl leading-loose">
+                        דגלה של מונטנה נולד כהעתק ישיר של נס הרגימנט של כוחות חיל הרגלים של מונטנה (First Montana Infantry) שלחמו במלחמת ארצות הברית–ספרד (1898). החיילים חזרו מן המלחמה בפיליפינים כשהם נושאים דגל כחול עם חותם המדינה רקומה במרכז. ב-1905 אימץ בית המחוקקים את הדגל. אולם, בדומה למדינות סדין-כחול אחרות, התלוננו האזרחים שלא ניתן לזהות את הדגל ממרחק. לכן, בשנת 1981 הוחלט על הוספת המילה "MONTANA" בראש הדגל. הדרישה החוקית הייחודית של המדינה הייתה שהמילה תיכתב בגופן הפונקציונלי והנקי **"הלווטיקה" (Helvetica)** (ב-1985 שונה הגופן בחוק למעט עבה יותר כדי שיהיה קריא, אך נותר סנס-סריף).
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">המגן: מפלי המיזורי והמחרשה:</h4>
+                        <p class="leading-loose text-lg">במרכז החותם מופיע נוף טבעי ותעשייתי. ברקע ניצבים הרי הרוקי (מייצגים את מערב המדינה) והמפלים הגדולים של נהר המיזורי (The Great Falls). בחזית, מונחים בסינרגיה **מחרשה חקלאית, מכוש ואת חפירה**. כלים אלו מסמלים את הנישואים הכלכליים בין החקלאות של המישורים העצומים במזרח לבין תעשיית הכרייה שהוקמה על ידי שרי הנחושת במערב ההררי.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-mtGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-mtGold">המוטו הספרדי (היחיד בארה"ב):</h4>
+                        <p class="leading-loose text-lg">התחתית הסמל מופיע סרט ועליו מוטו שהוא אנומליה מוחלטת: **"Oro y Plata"**. מונטנה היא המדינה היחידה בארצות הברית שהמוטו שלה הוא בשפה הספרדית (משמעותו: "זהב וכסף"). הסיבה לבחירת הספרדית במדינה שממוקמת על הגבול עם קנדה היא הוקרה לתרבות הכרייה הספרדית והמקסיקנית שממנה הגיעו טכניקות הכרייה המוקדמות, ולמונח "מונטנה" עצמו שהוא ספרדי.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">7</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Montana Historical Society (MHS):</p>
+                    <p>"The Spanish Etymology of Montana and the Congressional Debates of 1864". תיעוד התנגדות הסנאט להענקת שם ספרדי למדינה צפונית כל כך, והתעלמות השם מהעובדה שמרבית המדינה שטוחה.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Butte-Silver Bow Archives:</p>
+                    <p>"Marcus Daly, the Anaconda Company, and the Copper Kings". ארכיון המתעד את האוליגרכיה של שרי הנחושת, השתלטותם על כלכלת המדינה, והבאת מהגרים מאנגליה שאפו את ה'קורניש פאסטי' עבור הכורים.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Library of Congress (LOC) - Women's Suffrage:</p>
+                    <p>"Jeannette Rankin: The First Woman in Congress". ביוגרפיה היסטורית המפרטת את הצבעותיה הפציפיסטיות נגד שתי מלחמות העולם ואת בחירתה לקונגרס לפני התיקון ה-19.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">University of Montana (Wildlife Biology Program):</p>
+                    <p>"The Grizzly Bear in the Big Sky". מחקר אקולוגי המסביר את הדו-קיום המסוכן וההכרחי בין האדם לטורף העל שהפך לסמל המדינה הבלתי מעורער ב-1982.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"Helvetica in the Wind: The 1981 Typography Addition to the Montana Flag". הסבר על החלטת החוק המדינתי לחייב שימוש בגופן 'הלווטיקה' השוויצרי על מנת לתקן את חוסר הזיהוי של הדגל הצבאי הישן.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-mtBlue rounded-full shadow-[0_0_15px_rgba(0,38,100,0.6)]"></div>
+                <div class="w-6 h-6 bg-mtGold rounded-full shadow-[0_0_15px_rgba(255,209,0,0.6)]"></div>
+                <div class="w-6 h-6 bg-mtCopper rounded-full shadow-[0_0_15px_rgba(184,115,51,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
