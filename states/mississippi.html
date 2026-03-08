@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>מיסיסיפי - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        msBlue: '#002D65',    /* New Flag Old Glory Blue */
+                        msRed: '#BF0A30',     /* New Flag Old Glory Red */
+                        msGold: '#FFC425',    /* New Flag Gold */
+                        mudBrown: '#4A3018'   /* Mississippi Mud Pie */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-msGold font-black text-2xl mb-5 underline italic decoration-msGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-msBlue relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">מיסיסיפי</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Mississippi - The Magnolia State</p>
+                <div class="h-2 w-56 bg-msGold mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(255,196,37,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">10 בדצמבר, 1817</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-20 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות של מים גנובים מהצפון
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    שמה של המדינה הדרומית מיסיסיפי טומן בחובו אנומליה גיאוגרפית: מקור השם אינו בשפות השבטים של הדרום העמוק (כמו הצ'וקטו או הצ'יקאסו), אלא נלקח בהשאלה משבטים צפוניים שחיו במרחק של אלפי קילומטרים משם, באזור הימות הגדולות (מינסוטה/ויסקונסין).
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Misi -->
+                    <div class="etymology-box border-msBlue">
+                        <p class="text-msBlue font-black text-5xl mb-6 italic tracking-tighter">Misi / Mess</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפת האוג'יבווה (Ojibwe), ממשפחת השפות האלגונקוויות שבצפון.</p>
+                            <p><strong>משמעות מילולית:</strong> "גדול", "עצום" או "רחב".</p>
+                        </div>
+                    </div>
+
+                    <!-- Ziibi -->
+                    <div class="etymology-box border-msGold">
+                        <p class="text-msGold font-black text-5xl mb-6 italic tracking-tighter">Ziibi / Sipi</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שפת האוג'יבווה.</p>
+                            <p><strong>משמעות מילולית:</strong> "נהר".</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/60 p-10 rounded-[2rem] border-r-8 border-msRed shadow-xl mt-10">
+                    <h3 class="font-black text-white mb-6 text-2xl italic underline decoration-msRed underline-offset-8">הסינתזה ותעלול המיפוי הצרפתי:</h3>
+                    <div class="space-y-6 text-slate-300 leading-loose">
+                        <p>השילוב הילידי **Misi-ziibi** פירושו הפשוט הוא <span class="text-white font-bold underline decoration-msGold">"הנהר הגדול"</span> (The Great River). החוקרים הצרפתים ז'אק מארקט ולואי ז'ולייה, שגילו את מקורות הנהר בצפון (מינסוטה) בשנת 1673, שמעו את השם מהשבטים האלגונקוויים שם, ותעתקו אותו לצרפתית כ-**Messipi** או **Missisipi**.</p>
+                        <p>כאשר הצרפתים (ובהמשך הבריטים והאמריקאים) מיפו את הנהר לכל אורכו עד למפרץ מקסיקו, הם פשוט "גררו" את השם הצפוני הזה לאורך כל המפה דרומה, תוך התעלמות מוחלטת מהשמות שהשבטים הדרומיים (הצ'וקטו) נתנו לנהר באזורם. כשהוקמה טריטוריית מיסיסיפי בשנת 1798 (שהפכה למדינה ב-1817), היא ירשה את שמו של הנהר שמגדיר את גבולה המערבי, ואת איות ה-SS וה-PP המוכפל שהפך למטבע לשון בבתי ספר לאיות בארה"ב (M-I-crooked letter-crooked letter-I...).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-msBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: החוקר הקנדי ואדריכל הקונפדרציה
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- פייר לה מואן ד'איברוויל -->
+                <div class="personality-card border-r-8 border-msBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-msBlue decoration-4 underline-offset-8">המייסד הצרפתי-קנדי: פייר לה מואן ד'איברוויל (Pierre Le Moyne d'Iberville)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1661–1706. <strong>מעמד:</strong> מקים ההתיישבות האירופאית הראשונה במיסיסיפי.</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-msGold">ילדות ורקע של מלחמות שלג:</h4>
+                            <p class="leading-loose">ד'איברוויל נולד במונטריאול ("צרפת החדשה" / קנדה). הוא היה חייל קשוח, נווט גאון, וגיבור המלחמות של צרפת נגד הבריטים על השליטה במפרץ ההדסון בצפון הקפוא. המלך לואי ה-14, שחיפש להבטיח את שליטתו בדרום היבשת מול הספרדים, בחר בד'איברוויל להוביל משלחת למפרץ מקסיקו כדי למצוא את שפך המיסיסיפי שאבד (לאחר שלה סאל נרצח).</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-msGold">אידיאולוגיה - סגירת היבשת לאנגלים:</h4>
+                            <p class="leading-loose">האידיאולוגיה הגיאופוליטית שלו הייתה ברורה: "סגר יבשתי" על המושבות האנגליות. הוא האמין שאם צרפת תתקע טריז צבאי חזק בשפך המיסיסיפי, היא תשלוט בסחר היבשתי מול הילידים, ותחסום לנצח את התפשטות הבריטים מערבה. הוא ראה במושבה מיזם צבאי-מסחרי יותר מאשר פרויקט התיישבות חקלאי.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-msGold">הישגים מכוננים - ייסוד פורט מורפה (1699):</h4>
+                            <p class="leading-loose">באפריל 1699, ד'איברוויל נחת בחוף של מה שכיום היא מדינת מיסיסיפי (בקרבת Ocean Springs). שם הוא בנה את **Fort Maurepas**, נקודת ההתיישבות האירופאית הקבועה הראשונה בעמק המיסיסיפי התחתון. למרות שהמושבה סבלה ממגפות קדחת צהובה, מעשהו קיבע את נוכחות התרבות הצרפתית-קריאולית באזור הדרום, לפני שהמרכז נדד מאוחר יותר לניו אורלינס. ד'איברוויל מת מקדחת בהוואנה מספר שנים לאחר מכן.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ג'פרסון דייוויס -->
+                <div class="personality-card border-r-8 border-msRed shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-msRed decoration-4 underline-offset-8">אדריכל השבר הלאומי: ג'פרסון דייוויס (Jefferson Davis)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1808–1889. <strong>מעמד:</strong> סנאטור מטעם מיסיסיפי ונשיא קונפדרציית המדינות של אמריקה.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות ועלייה לאצולת המטעים:</h4>
+                            <p class="leading-loose">דייוויס נולד בקנטקי (לא רחוק ממקום הולדתו של אברהם לינקולן), אך משפחתו עברה למיסיסיפי. הוא התחנך בווסט פוינט ולחם במלחמת ארה"ב-מקסיקו. אחיו הבכור, ג'וזף, הפך אותו לבעל מטעים עשיר כשהעניק לו את אחוזת "ברירפילד" (Brierfield) על גדות המיסיסיפי, שעובדה על ידי עשרות עבדים אפריקאים. דייוויס נכנס לפוליטיקה כנציג מובהק של אצולת הכותנה הדרומית.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - זכויות המדינות (States' Rights) והגנת העבדות:</h4>
+                            <p class="leading-loose">דייוויס היה איש עקרונות נוקשה וקר. האידיאולוגיה שלו התבססה על פרשנות קפדנית של החוקה, שלפיה "האיחוד" הוא חוזה וולונטרי שכל מדינה יכולה לבטל. הוא ראה במוסד העבדות לא רק מנוע כלכלי של מיסיסיפי, אלא זכות חוקתית ומוסרית שיש להגן עליה מפני התערבות של הקונגרס. בינואר 1861, לאחר בחירת לינקולן, דייוויס נשא את נאום הפרידה המפורסם שלו בסנאט והכריז על פרישת מיסיסיפי מהאיחוד.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">נשיאות הקונפדרציה והטראומה ההיסטורית:</h4>
+                            <p class="leading-loose">דייוויס נבחר לנשיאה היחיד של הקונפדרציה. הוא ניהל את מלחמת האזרחים מול הצפון עד להתרסקותה המוחלטת של אומתו. בסיום המלחמה נעצר ונכלא לשנתיים באשמת בגידה. מורשתו הגדירה את מיסיסיפי כמדינה "הדרומית והמורדת ביותר", והטילה עליה צל כלכלי, גזעי וחברתי שהמדינה נאבקת בו עד עצם היום הזה.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: שפמנוני ענק והבוץ של המיסיסיפי
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-msBlue">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-msBlue">דג המדינה והמנוע הכלכלי: שפמנון הערוצים (Channel Catfish)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">אוכל הישרדות שהפך לתעשייה עולמית (אומץ ב-1974)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        בעוד פרח ועץ המדינה הרשמיים הם ה**מגנוליה** היפהפייה, בעל החיים שמגדיר את כלכלתה של מיסיסיפי יותר מכל הוא **שפמנון הערוצים** (*Ictalurus punctatus*). 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        השפמנון, דג קרקעית בעל שפמים (בינים חושניים), היה מזון בסיסי וחיוני לאוכלוסייה הכפרית (שחורה ולבנה כאחד) בדרום העני, משום שניתן היה לדוג אותו בקלות בנהרות העכורים ובבאיו (Bayou). הפנומנולוגיה האמיתית התרחשה בשנות ה-60 וה-70 של המאה ה-20: חקלאים באזור הדלתא של מיסיסיפי (המשופע באדמה אטומה שלא סופגת מים) הבינו שרווחיות הכותנה בירידה. הם הציפו את שדות הכותנה שלהם במים מתוקים והפכו אותם לברכות ענק ל**גידול שפמנונים בחקלאות מים** (Aquaculture).
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        כיום, מיסיסיפי מייצרת למעלה מ-60% מכלל השפמנונים המגודלים בארצות הברית. השפמנון המטוגן (Deep-fried catfish) המוגש עם "האש-פאפיז" (כדורי קמח תירס מטוגנים) נחשב לסמל קולינרי עליון של "אוכל נשמה" (Soul Food) דרומי ואומץ בחיבוק חם על ידי המדינה.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית / קינוח -->
+                <div class="culture-highlight border-mudBrown">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-[#4A3018]">הקינוח הלאומי: פאי הבוץ של מיסיסיפי (Mississippi Mud Pie)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">שחיתות שוקולדית המבוססת על מטאפורה גיאולוגית</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        זהו אחד הקינוחים האמריקאים המפורסמים והאהובים בעולם, ושמו הוא מטאפורה חזותית מבריקה למאפיין הטבעי הבולט ביותר של המדינה.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        נהר המיסיסיפי, כשהוא חוצה את הדלתא של מיסיסיפי (אזור ההצפות העצום בצפון-מערב המדינה), מותיר אחריו משקעים עצומים של בוץ שחור-חום כהה, סמיך ופורה מאוד. הקינוח – שהומצא כנראה בשנות ה-70 של המאה ה-20 בדרום ארה"ב – נועד לדמות חזותית את "הבוץ" (Mud) המפורסם הזה. 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        **אנטומיה של בוץ מתוק:** הפאי בנוי משכבות דחוסות. בסיס של עוגיות שוקולד כתושות, שכבה של עוגת שוקולד פאדג' או פודינג שוקולד סמיך, ומעליהם קצפת או מרשמלו רך (המדמה את הקצף שעל גלי הנהר). זהו קינוח שנולד מתוך מסורת האפייה הביתית המנחמת (Comfort baking) של הדרום, והפך לסימן היכר גסטרונומי של הכנסת אורחים עתירת סוכר.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. סעיף חדש: גאו-פוליטיקה ודמוגרפיה (תקן הזהב 2.0) -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-msGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                גאו-פוליטיקה ודמוגרפיה: דלתא של עושר ועוני
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- שטח וטופוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-msBlue shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-blue-400">שטח וטופוגרפיה (Area & Topography)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        מיסיסיפי, המדינה ה-32 בגודלה, היא ישות גיאוגרפית שטוחה וסבוכה, הנשלטת על ידי מערכות מים ויערות אורנים כבדים (מעל 60% משטחה מיוער). המאפיין הטופוגרפי המכונן ביותר שלה הוא ה**דלתא של מיסיסיפי** (Mississippi Delta) – אזור בצפון-מערב המדינה (לא שפך הנהר במפרץ, אלא מישור ההצפה שבין נהר היאזו לנהר המיסיסיפי). אזור זה ניחן באחת האדמות הפוריות ביותר על פני כדור הארץ, אשר יצרה את כלכלת המטעים האדירה של המאה ה-19, אך במקביל סבל לאורך ההיסטוריה משיטפונות הרסניים (כמו השיטפון הגדול של 1927). קו החוף הדרומי שלה במפרץ מקסיקו הוא קצר (רק 71 ק"מ), אך משמש מרכז הימורים (בילוקסי) ובסיסים צבאיים.
+                    </p>
+                </div>
+
+                <!-- דמוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-msRed shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-msRed">פסיפס אנושי ומולדת הבלוז (Demographics)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        הדמוגרפיה של מיסיסיפי (כ-2.9 מיליון תושבים) היא הייחודית ביותר מכל מדינות ארה"ב. מיסיסיפי מחזיקה ב**שיעור האוכלוסייה האפרו-אמריקאית הגבוה ביותר בארצות הברית (קרוב ל-38%)**. נתון זה הוא פועל יוצא ישיר של כלכלת מטעי הכותנה של לפני מלחמת האזרחים. רוב האוכלוסייה השחורה מרוכזת באזור ה"דלתא" ובבירה ג'קסון. כתוצאה ממציאות של שעבוד, דיכוי ("חוקי ג'ים קרואו") ועוני מחפיר לאחר המלחמה (שיטת ה-Sharecropping), צמחה מאזור הדלתא התרומה התרבותית הגדולה ביותר של מיסיסיפי לעולם: **מוזיקת הבלוז (Delta Blues)**. מתוך ייאוש עמוק ועבודת כפיים, מוזיקאים (כמו רוברט ג'ונסון שניגן "בצומת הדרכים") יצרו את זרע הפורענות ממנו נבט הרוק-נ'-רול האמריקאי כולו.
+                    </p>
+                </div>
+
+                <!-- סיבת המיקום והגבולות -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-msGold shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-msGold">עיצוב גבולות: ירושת הטריטוריות ומחלוקות הקווים</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        גבולותיה של מיסיסיפי מוגדרים על ידי גבול טבעי אחד וקווים פוליטיים מסורטטים. הגבול המערבי משורטט במלואו על ידי הנתיב המתפתל של **נהר המיסיסיפי**, המהווה גבול דינמי שמשנה את צורתו לאחר שיטפונות, מה שיוצר סכסוכי אדמה קטנים (ומובלעות) עם לואיזיאנה וארקנסו השכנות. הגבול הדרומי, בקו רוחב 31 צפון, היה במשך שנים הגבול הבינלאומי (הנפיץ) בין ארה"ב לבין "מערב פלורידה" הספרדית, בטרם סופח החוף לארה"ב ב-1810. הקו המזרחי הישר המפריד בינה לבין אלבמה הוא תוצר של שנת 1817, אז החליט הקונגרס לפצל את "טריטוריית מיסיסיפי" הענקית לשתיים, לקראת כניסת מיסיסיפי כמדינה לאיחוד.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-msBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Magnolia State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-msGold shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Magnolia State (מדינת המגנוליה)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">נוסטלגיה ורומנטיזציה של ה"דרום הישן"</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            עץ המגנוליה (Magnolia grandiflora) נבחר על ידי תלמידי בתי הספר בשנת 1900 כפרח המדינה, ומשמש ככינויה הרשמי של מיסיסיפי. הפנומנולוגיה סביב המגנוליה מורכבת: הפרח הגדול, הלבן, בעל הריח החזק והמתוק מסמל עבור הדרום (ובמיוחד מיסיסיפי) את "עידן הנטע" (Antebellum South) – עולם אריסטוקרטי, איטי ומלא הוד שלפני מלחמת האזרחים. במאה ה-20, המגנוליה הפכה לסמל מנחם של כבוד דרומי, טוהר ויציבות, אל מול המציאות הכלכלית הקשה והטראומה של הפסד במלחמה ובתקופת השיקום.
+                        </p>
+                    </div>
+
+                    <!-- The Hospitality State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-msRed shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-red-400">The Hospitality State (מדינת הכנסת האורחים)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מיתוג בניסיון למחוק טראומה תדמיתית</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            כינוי זה אומץ באופן נרחב בשנות ה-50 וה-60 של המאה ה-20, ומהווה ניסיון קלאסי של **מיתוג נגד (Counter-branding)**. באותן שנים, מיסיסיפי הייתה מוקד אלימות קשה של התנגדות לתנועה לזכויות האזרח ולשילוב גזעי. תדמיתה הלאומית בארה"ב הייתה בשפל חסר תקדים. כדי למשוך תיירים ותעשייה בחזרה, פוליטיקאים ואנשי עסקים קידמו את המונח "מדינת הכנסת האורחים", הנשען על מיתוס "Southern Hospitality" (נימוס דרומי קיצוני, תה מתוק ויחס אישי), במטרה לשדר פנים רכות ומסבירות פנים, המסתירות את הקונפליקטים הפנימיים.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-msRed text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                וקסילולוגיה: מהפכת המגנוליה החדשה (2020)
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל מיסיסיפי החדש (New Magnolia) ב-CSS -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#002D65] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex group">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-black/10 via-transparent to-white/10 pointer-events-none z-0"></div>
+                    
+                    <!-- 3 Vertical Panels (Red, Blue, Red) with Gold stripes -->
+                    <div class="w-1/4 h-full bg-[#BF0A30]"></div>
+                    <div class="w-[3%] h-full bg-[#FFC425]"></div>
+                    
+                    <!-- Center Blue Panel with Magnolia -->
+                    <div class="flex-grow h-full bg-[#002D65] relative flex flex-col items-center justify-center pt-2">
+                        <!-- 21 Stars (Circular representation) -->
+                        <div class="absolute w-44 h-44 rounded-full border-[2px] border-dashed border-white/60 animate-spin-slow z-10" style="animation-duration: 60s;"></div>
+                        <!-- Golden star at the top (Representing Native Americans) -->
+                        <div class="absolute top-10 text-[#FFC425] text-2xl z-20 drop-shadow-md">★</div>
+                        
+                        <!-- Magnolia Blossom -->
+                        <div class="text-white text-7xl z-20 drop-shadow-lg transform transition-transform duration-700 group-hover:scale-110 mb-2">
+                            🌺 <!-- Represents the Magnolia -->
+                        </div>
+                        
+                        <!-- In God We Trust -->
+                        <div class="absolute bottom-10 text-white font-black text-[9px] tracking-widest uppercase z-20">
+                            IN GOD WE TRUST
+                        </div>
+                    </div>
+                    
+                    <div class="w-[3%] h-full bg-[#FFC425]"></div>
+                    <div class="w-1/4 h-full bg-[#BF0A30]"></div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    דגל "המגנוליה החדשה" <br><span class="text-xl font-medium text-slate-500">(עוצב על ידי רוקי ווהן ב-2020)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-msBlue shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-msBlue decoration-4">מלחמת התרבות וביטול סמל הקונפדרציה:</h3>
+                    <p class="text-xl leading-loose">
+                        עד שנת 2020, מיסיסיפי הייתה **המדינה היחידה בארצות הברית שהדגל הרשמי שלה הכיל את "צלב הקרב" (Battle Cross) המפורסם של הקונפדרציה** (בפינה השמאלית העליונה). הדגל הישן (מאז 1894) היה סמל שנוי במחלוקת עזה: עבור חלק הוא ייצג מורשת והיסטוריה, ועבור רבים (ובמיוחד אוכלוסיית השחורים העצומה במדינה) הוא ייצג עבדות, עליונות לבנה וגזענות. <br>
+                        לאחר עשורים של ניסיונות כושלים להחלפתו, בשנת 2020 – בשיא מחאות תנועת Black Lives Matter ולחץ כלכלי חסר תקדים מארגוני ספורט ותאגידים – החליט בית המחוקקים של מיסיסיפי בצעד דרמטי **לבטל את הדגל הישן לאלתר**. נקבעה תחרות פומבית לעיצוב דגל חדש ("In God We Trust Flag Commission"), שבה נאסר מפורשות להשתמש בסמלי הקונפדרציה. העיצוב הזוכה, של האמן המקומי **רוקי ווהן** (Rocky Vaughan), אושר במשאל עם ונכנס לתוקף בינואר 2021.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-msRed shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-msRed">המגנוליה והצבעים (אדום, כחול, זהב):</h4>
+                        <p class="leading-loose text-lg">במרכז ניצב פרח ה**מגנוליה**, סמל לתקווה, טוהר וללידה מחדש של המדינה. הפסים ה**אדומים** בצדדים מייצגים את אומץ הלב ושפיכות הדמים ההיסטורית של כל תושבי המדינה. הפס ה**כחול הכהה** במרכז מעיד על צבע הדגל האמריקאי הלאומי. שורות ה**זהב** הדקות נועדו לציין את העושר התרבותי של מיסיסיפי – בעיקר בספרות, במוזיקה ובאמנות.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-msGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-msGold">21 הכוכבים והמוטו הדתי:</h4>
+                        <p class="leading-loose text-lg">סביב הפרח מסודרים 20 כוכבים לבנים, המייצגים את כניסת מיסיסיפי לאיחוד כ**מדינה ה-20**. בראשם, מופרד וגדול יותר, ניצב **כוכב זהב בן חמישה קודקודים המורכב מיהלומים** – זהו סמל שנועד במפורש לכבד את השבטים הילידיים (כדוגמת הצ'וקטו) שחיו באדמה זו לפני בוא האירופאים. מתחת למגנוליה כתוב המוטו <strong class="text-white">"In God We Trust"</strong> – דרישה פוליטית חקוקה בחוק כתנאי הכרחי לפשרה שאיפשרה את החלפת הדגל הישן והשמרני.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">7</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Mississippi Department of Archives and History (MDAH):</p>
+                    <p>"The Etymology of Mississippi: An Algonquian Import". התיעוד הבלשני המסביר כיצד הצרפתים ייבאו את השם 'Misi-ziibi' (הנהר הגדול) של שבט האוג'יבווה מהימות הגדולות עד לדרום הרחוק.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">The Papers of Jefferson Davis (Rice University):</p>
+                    <p>"Jefferson Davis and the Confederacy". ביוגרפיה היסטורית המנתחת את האידיאולוגיה של זכויות המדינות, הקמת הקונפדרציה, והשפעת דייוויס על הטראומה של מיסיסיפי.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Mississippi Blues Trail Commission:</p>
+                    <p>"The Delta Blues: From Hardship to Global Culture". מחקר סוציולוגי-מוזיקלי על צמיחת הבלוז מתוך עבודת הכפיים, העוני והמטעים של הדלתא במיסיסיפי.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Southern Foodways Alliance:</p>
+                    <p>"The Catfish Capital of the World and Mississippi Mud". תיעוד קולינרי אגרונומי של הסבת שדות הכותנה לבריכות שפמנונים כפתרון כלכלי בשנות ה-60.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA) & MDAH:</p>
+                    <p>"The Commission to Redesign the Mississippi State Flag". הפרוטוקולים של שנת 2020 המתעדים את ביטול דגל הקונפדרציה מ-1894 והנמקת הבחירה בסמלי המגנוליה, הכוכב הילידי והמוטו הדתי על ידי רוקי ווהן.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-msRed rounded-full shadow-[0_0_15px_rgba(191,10,48,0.6)]"></div>
+                <div class="w-6 h-6 bg-msGold rounded-full shadow-[0_0_15px_rgba(255,196,37,0.6)]"></div>
+                <div class="w-6 h-6 bg-msBlue rounded-full shadow-[0_0_15px_rgba(0,45,101,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
