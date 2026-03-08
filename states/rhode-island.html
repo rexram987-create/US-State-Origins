@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>רוד איילנד - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        riGold: '#F2A900',  /* Anchor Gold */
+                        riBlue: '#002D62',  /* Ribbon Blue */
+                        riWhite: '#F8FAFC'  /* Flag Background */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-riGold font-black text-2xl mb-5 underline italic decoration-riGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-riGold relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">רוד איילנד</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Rhode Island - The Ocean State</p>
+                <div class="h-2 w-56 bg-riBlue mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(0,45,98,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">29 במאי, 1790</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-13 (האחרונה מ-13 המקוריות)</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: האי היווני, החימר האדום וביטול המטעים
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    אטימולוגיית השם "רוד איילנד" נקרעת בין שתי תיאוריות תגלית אירופאיות. אולם האנומליה הגדולה ביותר שלה קשורה לשינוי שמה הרשמי במאה ה-21 עקב טראומת העבדות – המדינה היחידה בארה"ב ששינתה את שמה החוקתי לאחרונה.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Isola di Rodi -->
+                    <div class="etymology-box border-riBlue">
+                        <p class="text-riBlue font-black text-5xl mb-6 italic tracking-tighter">Isola di Rodi</p>
+                        <div class="space-y-4">
+                            <p><strong>התיאוריה האיטלקית (1524):</strong> הנווט האיטלקי ג'ובאני דה וראצאנו, שחקר את החוף המזרחי, נתקל באי (כנראה בלוק איילנד). הוא כתב ביומנו שהאי מזכיר לו בגודלו ובצורתו את "האי רודוס" (Island of Rhodes) שבים התיכון. כשהמתיישבים האנגלים (רוג'ר ויליאמס) הגיעו לאזור ב-1636, הם קראו ביומניו של וראצאנו והחליטו לאמץ את השם "Rhode Island" לאי המרכזי במפרץ (Aquidneck Island).</p>
+                        </div>
+                    </div>
+
+                    <!-- Roodt Eylandt -->
+                    <div class="etymology-box border-red-500">
+                        <p class="text-red-500 font-black text-5xl mb-6 italic tracking-tighter">Roodt Eylandt</p>
+                        <div class="space-y-4">
+                            <p><strong>התיאוריה ההולנדית (1625):</strong> חוקר הארצות ההולנדי אדריאן בלוק הפליג למפרץ נראגנסט והבחין באדמת החימר האדומה (Red clay) שהייתה באחד האיים לאורך החוף. הוא סימן אותו במפותיו כ-*Een rodlich Eylande* או *Roodt Eylandt* – שפירושו בהולנדית "האי האדום". מאוחר יותר, כשהאנגלים הגיעו, השם "Roodt" התאנגלז פונטית ל-"Rhode".</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/60 p-10 rounded-[2rem] border-r-8 border-riGold shadow-xl mt-10">
+                    <h3 class="font-black text-white mb-6 text-2xl italic underline decoration-riGold underline-offset-8">מחיקת "השם הארוך ביותר" (2020):</h3>
+                    <div class="space-y-6 text-slate-300 leading-loose">
+                        <p>עד שנת 2020, שמה הרשמי של המדינה לא היה רק רוד איילנד, אלא: <br>
+                        <strong class="text-white">State of Rhode Island and Providence Plantations</strong>. </p>
+                        <p>השם ההיסטורי שיקף את איחוד שתי המושבות: העיר "פרובידנס" (השגחה אלוהית) שהוקמה ביבשת, והאי "רוד" במפרץ. המילה "Plantations" (מטעים) שימשה במאה ה-17 במובן של "התיישבות" (Settlement). אולם, בעקבות מחאות Black Lives Matter בשנת 2020, התגברה הטענה שהמילה "Plantations" מעוררת אסוציאציה ישירה ומכאיבה למטעי העבדות של הדרום. במשאל עם שנערך בנובמבר 2020, הצביעו תושבי המדינה להסיר רשמית את חצי השם השני מהחוקה, והשאירו את השם הקצר: **"State of Rhode Island"**.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-riBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: אבי החופש הדתי והמורדת הפמיניסטית
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- רוג'ר ויליאמס -->
+                <div class="personality-card border-r-8 border-riGold shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-riGold decoration-4 underline-offset-8">ההוגה ואבי ההפרדה: רוג'ר ויליאמס (Roger Williams)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1603–1683. <strong>מעמד:</strong> מייסד המושבה, תיאולוג, וראשון למפרידי הדת מהמדינה באמריקה.</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">רקע וגירוש ממסצ'וסטס:</h4>
+                            <p class="leading-loose">ויליאמס היה כומר פוריטני משכיל (למד בקיימברידג') שהיגר למושבת מפרץ מסצ'וסטס. אולם, דעותיו היו רדיקליות מדי אפילו עבור הפוריטנים. הוא טען נגד סמכות המלך לקחת אדמות מהאינדיאנים ללא תשלום, וקבע שמערכת משפט אזרחית אינה יכולה לכפות חוקים דתיים על איש (כמו חובת תפילה). בית המשפט התיאוקרטי של בוסטון הרשיע אותו בהפצת "דעות חדשות ומסוכנות" וגירש אותו לסופה הקפואה של חורף 1636, כשהוא נידון למוות בטבע.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - הפרדת כנסייה ומדינה:</h4>
+                            <p class="leading-loose">ויליאמס ניצל הודות לשבט הנראגנסט (Narragansett) הילידי שהעניק לו מחסה. האידיאולוגיה שלו היא האבן השואבת של חוקת ארה"ב המודרנית: הוא טבע את המונח **"חומת הפרדה" (Wall of Separation)** בין הגן (הכנסייה) לבין השממה (המדינה). הוא האמין שכפייה דתית רק מייצרת צבועים, ושחופש המצפון הוא הזכות הטבעית העליונה של האדם.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - ייסוד פרובידנס:</h4>
+                            <p class="leading-loose">ויליאמס קנה (לא כבש) אדמה משבט הנראגנסט, והקים עליה ב-1636 את העיר **פרובידנס** (Providence). הוא קבע שזו תהיה עיר מקלט לכל נרדף דתי באשר הוא – קווייקרים, בפטיסטים, ולימים גם היהודים הראשונים באמריקה (שהקימו את בית הכנסת "טורו" בניופורט, רוד איילנד). הוא הפך את רוד איילנד למקום הסובלני והחופשי ביותר ביבשת.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- אן האצ'ינסון -->
+                <div class="personality-card border-r-8 border-riBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-riBlue decoration-4 underline-offset-8">המורדת והמייסדת: אן האצ'ינסון (Anne Hutchinson)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1591–1643. <strong>מעמד:</strong> הוגת דעות, אחות-מיילדת, וממייסדות פורטסמות'.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">רקע ומשבר האנטינומיאניות:</h4>
+                            <p class="leading-loose">האצ'ינסון הייתה אישה משכילה וכריזמטית להפליא במסצ'וסטס, אם ל-15 ילדים ומיילדת קהילתית. היא החלה לערוך מפגשים תיאולוגיים בביתה שבהם ביקרה בחריפות את כומרי המושבה. היא טענה ל"אור פנימי" ולהתגלות אישית (אמונה שישועה באה מחסד אלוהי בלבד ולא ממעשים דתיים), דבר שהרגיז את ההנהגה הפטריארכלית של ג'ון וינתרופ (משבר האנטינומיאניות).</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">המשפט והגירוש (1638):</h4>
+                            <p class="leading-loose">בשנת 1638 הועמדה האצ'ינסון למשפט בעוון כפירה והתנהגות שלא הולמת אישה. היא הגנה על עצמה בבית המשפט בצורה מבריקה וציטטה פסוקים שהביכו את השופטים, אך לבסוף הורשעה, הוכרזה כ"אישה שאינה ראויה לחברה שלנו", וגורשה. היא ועוקביה נדדו דרומה אל המקלט של רוג'ר ויליאמס ברוד איילנד.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים:</h4>
+                            <p class="leading-loose">יחד עם תומכיה, האצ'ינסון רכשה אדמות והקימה את העיירה **פורטסמות'** (Portsmouth) על האי רוד איילנד. היא נחשבת לאחת הדמויות הפמיניסטיות הראשונות והחשובות בהיסטוריה האמריקאית, אישה שעמדה בגבורה מול פטריארכיה דתית. (בהמשך עברה לניו יורק, שם נהרגה באופן טרגי במתקפה אינדיאנית במלחמת קיפט).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: תרנגולת של זהב וסירופ קפה
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- ציפור המדינה -->
+                <div class="culture-highlight border-[#8B0000]">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-[#8B0000]">ציפור המדינה: תרנגולת רוד איילנד אדומה (Rhode Island Red)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">ציפור המדינה הרשמית (אומץ ב-1954)</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הבחירה של רוד איילנד בציפור אינה בחירה בחיק הטבע הפראי, אלא הוקרה לאימפריה החקלאית והמדעית שהוקמה בשטחה. ה"רוד איילנד אדומה" היא זן תרנגולות שפותח בשנות ה-1850 בעיירה ליטל קומפטון (Little Compton) שברוד איילנד.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        חקלאים מקומיים הכליאו תרנגולות אסיאתיות מזרחיות (כמו מלאיות חומות עמוקות שנישאו על ספינות סוחר מסין) עם תרנגולות איטלקיות ואנגליות (לגהורן). המטרה הייתה ליצור ציפור "דו-תכליתית" עליונה: גם מטילה מצטיינת של ביצים חומות גדולות, וגם בעלת בשר איכותי במיוחד. 
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        התוצאה הייתה תרנגולת יפהפייה בעלת נוצות בגוון מהגוני-אדום כהה, עמידה למחלות ולקור הניו-אינגלנדי. התרנגולת הזו שינתה את תעשיית הלול העולמית (והיא הבסיס לרוב התרנגולות התעשייתיות כיום). אנדרטה מיוחדת הוקמה לכבודה בליטל קומפטון, והיא נבחרה לציפור המדינה בזכות חשיבותה הכלכלית הפנומנלית למשקים המשפחתיים.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-riGold">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-riGold">המשקה והמנה: חלב-קפה (Coffee Milk) וה"סטאפיז" (Stuffies)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">שגעון איטלקי ומסורת ים ילידית</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של המדינה הקטנה באמריקה מובחנת ועמוקה, ושומרת על מאכלים שכמעט ולא קיימים מחוץ לגבולותיה:
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-[#6F4E37]">חלב-קפה (Coffee Milk):</span> המשקה הרשמי של המדינה (מאז 1993). בדומה לחלב-שוקו שבו מוסיפים סירופ שוקולד לחלב, ברוד איילנד מוסיפים **סירופ קפה מרוכז ומתוק במיוחד**. מקור המשקה הוא ככל הנראה בשנות ה-30 של המאה ה-20, באוכלוסיית המהגרים האיטלקים הענקית של פרובידנס, שרצו לאפשר לילדיהם לשתות "משקה מריר-מתוק" בדומה לאספרסו הממותק של המבוגרים. התרבות הזו הולידה את תעשיית סירופי הקפה המקומית (מותגים כמו Autocrat שולטים בשוק המקומי בבלעדיות).</li>
+                        <li><span class="text-white font-bold underline decoration-riBlue">סטאפיז (Stuffies / Stuffed Quahogs):</span> ה"קוואהוג" (Quahog - מבטאים: Ko-hog) היא צדפה קשיחה וגדולה במיוחד, שמקורה במילה אלגונקווית עתיקה. בני הנראגנסט השתמשו בקונכיותיה הסגולות-לבנות ליצירת ה"וומפום" (Wampum), מטבע הסחר האינדיאני. ברוד איילנד מבשלים את הצדפה הענקית, טוחנים את בשרה, ומערבבים עם פירורי לחם (לרוב מלחמניות פורטוגזיות מתוקות), סלרי, בצל, ופיסות נקניקיית לינגוויסה חריפה (Linguica, בהשפעת ההגירה הפורטוגזית). התערובת נאפית בתוך חצי קונכייה ומוגשת עם פלח לימון.</li>
+                        <li><span class="text-white font-bold underline decoration-slate-400">מרק צדפות שקוף (Rhode Island Clam Chowder):</span> בניגוד לצ'אודר הלבן והסמיך של בוסטון המבוסס על שמנת, ובניגוד לצ'אודר האדום של מנהטן המבוסס על עגבניות – הצ'אודר של רוד איילנד הוא **שקוף לחלוטין**. הוא מבוסס על ציר צדפות טהור, מיץ תפוחי אדמה ומעט בצל, ומהווה עדות לטעם "נקי" של יורדי ים שרצו לטעום את הים עצמו ללא מיסוך חלבי.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. סעיף חדש: גאו-פוליטיקה ודמוגרפיה (תקן הזהב 2.0) -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-riGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                גאו-פוליטיקה ודמוגרפיה: הישרדות הגמד ואימפריית המפרץ
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- שטח וטופוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-riBlue shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-blue-400">שטח וטופוגרפיה: (Area & Topography)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        רוד איילנד היא **המדינה הקטנה ביותר בארצות הברית** (בסך הכל כ-77 ק"מ אורך וכ-60 ק"מ רוחב). כל שטחה יכול להיכנס בקלות אל תוך הפארק הלאומי ילוסטון לבדו! אולם, הגיאוגרפיה שלה מוגדרת על ידי המים המפלגים אותה. **מפרץ נראגנסט (Narragansett Bay)** העצום קורע את המדינה לשניים, חודר עמוק ליבשה ומכיל מעל ל-30 איים. בזכות השבירה הגיאולוגית הזו של קו החוף, לרוד איילנד הזעירה יש קו חוף עצום ביחס לגודלה, הנמתח לאורך של כ-640 קילומטרים – מה שמסביר את התבססותה ההיסטורית על סחר ימי, מספנות (ואף סחר עבדים והברחות פיראטים במאה ה-18).
+                    </p>
+                </div>
+
+                <!-- דמוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-slate-400 shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-slate-300">פסיפס אנושי וההגמוניה הקתולית (Demographics)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        עם אוכלוסייה של קצת מעל למיליון איש, רוד איילנד היא המדינה השנייה הצפופה ביותר בארה"ב (אחרי ניו ג'רזי). האנומליה הדמוגרפית והדתית שלה מרתקת: למרות שנוסדה כמקלט של פוריטנים ובפטיסטים אנגלים, ההגירה המסיבית של פועלים למפעלי הטקסטיל שלה (כדוגמת סלייטר מיל) בסוף המאה ה-19 הפכה אותה ל**מדינה הקתולית ביותר בארצות הברית** באחוזים (מעל 40%). יש בה ריכוזים אדירים ודומיננטיים מאוד של פזורה איטלקית (בפרובידנס), אירית, ופזורה פורטוגזית עצומה (בעיקר מאיי האיים האזוריים) שהשפיעה עמוקות על שפת הרחוב והמטבח (נקניקיות לינגוויסה). 
+                    </p>
+                </div>
+
+                <!-- סיבת המיקום והגבולות -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-riGold shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-riGold">עיצוב גבולות: אמנת ההצלה המלכותית (1663)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        הישרדותה של רוד איילנד כמדינה נפרדת היא נס פוליטי. לאורך המאה ה-17, המושבות החזקות, העשירות והאגרסיביות שסבבו אותה (מסצ'וסטס מצפון ומזרח, וקונטיקט ממערב) ניסו פעם אחר פעם לספח את רוד איילנד ולמחוק אותה מהמפה, בטענה שזהו "ביב שופכין של כופרים, קווייקרים ופושעים". <br>
+                        כדי להציל את מושבתו, הפליג ד"ר ג'ון קלארק ללונדון והשיג מהמלך צ'ארלס השני את **אמנת רוד איילנד של 1663** (Royal Charter). האמנה הזו שרטטה את גבולות המדינה באופן סופי, אך חשוב מכך – זה היה מסמך רשמי של מלך אנגליה שהעניק חוקתית **חופש דת מוחלט** לאזרחיו בעולם החדש. גבולותיה הזעירים של רוד איילנד הובטחו בזכות חתימתו של המלך, שאפשרה למדינה הקטנה ביותר לשרוד את "הבריונות" של שכנותיה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-riBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Ocean State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-riBlue shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Ocean State (מדינת האוקיינוס)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מיתוג מחודש לגאוגרפיה במקום תעשייה</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי הרשמי של רוד איילנד (אשר מתנוסס על לוחיות הרישוי המפורסמות שלה המאוירות בגלי ים) אומץ רק בשנת 1972 כקמפיין תיירותי. למרות שיש לה קו חוף עם האוקיינוס האטלנטי, הפנומנולוגיה האמיתית מאחורי השם מתייחסת ל**מפרץ נראגנסט** (Narragansett Bay). הכינוי נועד לעודד תיירות ימית ולהזכיר שכל תושב במדינה זעירה זו נמצא במרחק נסיעה של לא יותר מ-30 דקות מהים. ה"אוקיינוס" מסמל גם את מורשת בניית היאכטות וספינות המפרש בעיר ניופורט (Newport), שהייתה בירת השיט העולמית (ותחרות ה-America's Cup) במשך עשרות שנים.
+                        </p>
+                    </div>
+
+                    <!-- Little Rhody -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-riGold shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-riGold">Little Rhody (רודי הקטנה)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">גאוות ה"אנדרדוג" הדמוגרפי</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            כינוי עממי והיסטורי המעיד על חוסר רגשי נחיתות מול המדינות הענקיות של אמריקה (כמו טקסס ואלסקה). תושבי רוד איילנד מתגאים ב"קטנות" שלהם, אשר יצרה תרבות קהילתית אינטימית ודחוסה (שבה "כולם מכירים את כולם"). מעבר לזה, הכינוי מתקשר לאנומליה היסטורית: דווקא "רודי הקטנה" הייתה **המושבה הראשונה באמריקה (במאי 1776, חודשיים לפני כולם) שהכריזה רשמית על ניתוק מוחלט מהכתר הבריטי**. הכוח המהפכני העצום של "רודי הקטנה" הוכיח שגודל אינו קובע את מידת הפטריוטיות או העצמאות.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-riGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                וקסילולוגיה: עוגן התקווה של הים והתנ"ך
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל רוד איילנד ב-CSS (Square/Classic aspect ratio approximation) -->
+                <div class="w-full max-w-lg aspect-[3/4] sm:aspect-square bg-[#F8FAFC] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex items-center justify-center group p-4 border-yellow-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-white/10 pointer-events-none z-0"></div>
+                    
+                    <!-- Fringes approximation (Yellow borders on 3 sides) -->
+                    <div class="absolute inset-x-0 top-0 h-4 bg-yellow-400/80"></div>
+                    <div class="absolute inset-y-0 right-0 w-4 bg-yellow-400/80"></div>
+                    <div class="absolute inset-x-0 bottom-0 h-4 bg-yellow-400/80"></div>
+                    
+                    <div class="relative transform transition-transform duration-700 group-hover:scale-105 z-10 flex flex-col items-center">
+                        
+                        <!-- 13 Golden Stars forming a circle -->
+                        <div class="absolute inset-0 border-[4px] border-dashed border-[#F2A900] rounded-full scale-150 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                        <div class="relative w-48 h-48 sm:w-64 sm:h-64 flex flex-col items-center justify-center">
+                            <!-- Visual representation of stars circle -->
+                            <div class="absolute top-0 text-[#F2A900] text-2xl">★</div>
+                            <div class="absolute bottom-0 text-[#F2A900] text-2xl">★</div>
+                            <div class="absolute left-0 text-[#F2A900] text-2xl">★</div>
+                            <div class="absolute right-0 text-[#F2A900] text-2xl">★</div>
+                            <!-- Diagonal stars -->
+                            <div class="absolute top-6 left-6 text-[#F2A900] text-xl">★</div>
+                            <div class="absolute top-6 right-6 text-[#F2A900] text-xl">★</div>
+                            <div class="absolute bottom-6 left-6 text-[#F2A900] text-xl">★</div>
+                            <div class="absolute bottom-6 right-6 text-[#F2A900] text-xl">★</div>
+                            
+                            <!-- Golden Anchor -->
+                            <div class="text-[#F2A900] text-7xl sm:text-9xl drop-shadow-md z-20 transform group-hover:rotate-12 transition-transform duration-500">⚓</div>
+                        </div>
+
+                        <!-- Blue Ribbon with HOPE -->
+                        <div class="mt-4 bg-[#002D62] px-6 py-2 rounded-full shadow-lg border-y-2 border-[#F2A900] relative z-30">
+                            <!-- Ribbon cuts -->
+                            <div class="absolute -left-3 top-2 w-5 h-6 bg-[#002D62] border-y-2 border-[#F2A900] rounded-l-full transform -rotate-12"></div>
+                            <div class="absolute -right-3 top-2 w-5 h-6 bg-[#002D62] border-y-2 border-[#F2A900] rounded-r-full transform rotate-12"></div>
+                            
+                            <span class="text-[#F2A900] font-black text-xl sm:text-2xl uppercase tracking-[0.3em] drop-shadow-sm">HOPE</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    עוגן התקווה מזהב על רקע לבן <br><span class="text-xl font-medium text-slate-500">(הדגל הנוכחי אומץ ב-1897)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-riWhite shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-slate-400 decoration-4">נסיבות היצירה ומורשת אלטרנטיבית:</h3>
+                    <p class="text-xl leading-loose">
+                        דגל רוד איילנד (שאומץ רשמית במתכונתו הלבנה ב-1897) הוא משב רוח רענן ונדיר בווקסילולוגיה האמריקאית: זהו אחד הדגלים המדינתיים הבודדים שצבע הרקע שלהם הוא **לבן נקי** (ולא סדין כחול). יתרה מכך, חוק המדינה דורש שהדגל יהיה כמעט ריבועי ביחס הממדים שלו (29 על 33 אינץ'), ומחייב שבטקסים רשמיים הוא יהיה מוקף בשלושה צדדים ב**פרנזים (גדילים) מזהב**. העיצוב הלבן נבחר כדי לבלוט בים (כשספינות רואות אותו) וכדי לחזור לנס ההיסטורי של רגימנטים שייצגו את המדינה במלחמת העצמאות.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-riGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-riGold">העוגן והפסוק המקראי:</h4>
+                        <p class="leading-loose text-lg">במרכז הדגל נמצא **עוגן מוזהב**. במבט ראשון, העוגן מסמל את הגיאוגרפיה הימית, נמלי מפרץ נראגנסט ותעשיית הספנות של המדינה. אך המשמעות הפנומנולוגית וההיסטורית עמוקה בהרבה: המתיישבים הראשונים (הנרדפים הדתיים בראשות רוג'ר ויליאמס) שאבו השראה מהברית החדשה, **האיגרת אל העברים (פרק ו', פסוק 19): <span class="italic">"אֲשֶׁר לָנוּ כְּעֹגֶן לַנֶּפֶשׁ נָכוֹן וְחָזָק"</span>** (We have this hope as an anchor for the soul). העוגן מסמל את אמונתם הבלתי מעורערת באל ששמר עליהם כשהקימו את פרובידנס (ההשגחה העליונה).</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-riBlue shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-riBlue">13 הכוכבים והתקווה הכחולה:</h4>
+                        <p class="leading-loose text-lg">מעגל של **13 כוכבים מוזהבים** מקיף את העוגן. הם מייצגים את 13 המושבות המקוריות, וספציפית את רוד איילנד, שהייתה **המדינה ה-13 והאחרונה לאשרר את החוקה האמריקאית** (משום שסירבה לאשר אותה עד שלא הובטחה לה מגילת הזכויות - Bill of Rights המגנה על חופש הפרט). מתחת לעוגן מונח סרט בצבע כחול-ים, שעליו רקומה באותיות זהב מילה אחת, עוצמתית וקצרה: **"HOPE" (תקווה)**. המוטו הקצר ביותר בארה"ב, וההשלמה למשפט מהתנ"ך ("תקווה כעוגן לנפש").</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">7</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Rhode Island Historical Society:</p>
+                    <p>"The Etymology of Rhode Island and the Name Change of 2020". הדיון האקדמי-פוליטי סביב הסרת המילה 'Plantations' במאה ה-21 למרות המשמעות ההתיישבותית המקורית שלה ב-1636.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">John Carter Brown Library (Brown University):</p>
+                    <p>"Roger Williams and the Wall of Separation". עיון בכתביו של ויליאמס, ייסוד פרובידנס כעיר מקלט דתית, וביסוס רעיון הפרדת הדת והמדינה שעליו הושתתה החוקה האמריקאית.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">New England Journal of History:</p>
+                    <p>"Anne Hutchinson: Antinomianism and Exile". מחקר אודות המורדת הפמיניסטית-תיאולוגית שהעזה לקרוא תיגר על התיאוקרטיה בבוסטון והקימה את ההתיישבות בפורטסמות'.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Culinary History of Rhode Island:</p>
+                    <p>"Coffee Milk, Quahogs, and the Working Class". תיעוד התפתחות תעשיית סירופי הקפה (Autocrat) של המהגרים האיטלקים כהשתקפות של חיי הפועלים בפרובידנס במאה ה-20.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"The White Field and Golden Anchor of Rhode Island". ניתוח ההרלדיקה הדתית (איגרת לעברים) שמאחורי עוגן התקווה, ומשמעות הפרופורציה הכמעט מרובעת של הדגל המדינתי.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-riBlue rounded-full shadow-[0_0_15px_rgba(0,45,98,0.6)]"></div>
+                <div class="w-6 h-6 bg-riGold rounded-full shadow-[0_0_15px_rgba(242,169,0,0.6)]"></div>
+                <div class="w-6 h-6 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
