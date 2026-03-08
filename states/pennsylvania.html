@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>פנסילבניה - מחקר אקדמי מורחב ואולטימטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',
+                        paBlue: '#002D62',  /* Penn Blue */
+                        paGold: '#F2A900',  /* Penn Gold */
+                        paQuaker: '#4A4A4A' /* Quaker Gray */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            line-height: 1.85;
+        }
+        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
+        p, li, span, div, blockquote { font-size: 1.125rem; } 
+        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
+        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
+        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
+        .sub-header { @apply text-paGold font-black text-2xl mb-5 underline italic decoration-paGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+
+    <!-- ניווט עליון -->
+    <nav class="w-full max-w-4xl mb-10">
+        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            חזרה לאטלס המדינות
+        </a>
+    </nav>
+
+    <!-- כותרת מחקר אקדמי -->
+    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-paBlue relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">פנסילבניה</h1>
+                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Pennsylvania - The Keystone State</p>
+                <div class="h-2 w-56 bg-paGold mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(242,169,0,0.5)]"></div>
+            </div>
+            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
+                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
+                <p class="text-5xl font-black text-white">12 בדצמבר, 1787</p>
+                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-2 באיחוד</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-4xl space-y-20">
+        
+        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: מולקולריות של צניעות ואגו מלכותי
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
+                    השם פנסילבניה הוא תוצר של התנגשות בין צניעות דתית לבין כוח מלוכני. המייסד הראשי, ויליאם פן, ניסה בכל כוחו למנוע מהמושבה להיקרא על שמו מתוך אמונה דתית בוטה, אך המלך האנגלי כפה זאת עליו מסיבות היסטוריות ופוליטיות.
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Penn -->
+                    <div class="etymology-box border-paBlue">
+                        <p class="text-paBlue font-black text-5xl mb-6 italic tracking-tighter">Penn</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> שם משפחה וולשי-אנגלי (במקור מהמילה הוולשית *Pen*, שפירושה "ראש" או "פסגה").</p>
+                            <p><strong>ניתוח היסטורי:</strong> השם מתייחס ל**אדמירל סר ויליאם פן** (האב), ולא למייסד עצמו (ויליאם פן הבן). האדמירל היה גיבור צי אנגלי שהלווה סכום כסף עצום (16,000 ליש"ט) למלך צ'ארלס השני. כדי להחזיר את החוב העצום, המלך העניק לבנו של האדמירל זיכיון אדמה מפלצתי באמריקה, והתעקש לקרוא לו על שם האב.</p>
+                        </div>
+                    </div>
+
+                    <!-- Sylvania -->
+                    <div class="etymology-box border-paGold">
+                        <p class="text-paGold font-black text-5xl mb-6 italic tracking-tighter">Sylvania</p>
+                        <div class="space-y-4">
+                            <p><strong>מקור פילולוגי:</strong> לטינית קלאסית (Sylvania, נגזרת מ-*Silva*).</p>
+                            <p><strong>משמעות מילולית:</strong> "יערות" או "ארץ מיוערת".</p>
+                            <p><strong>הסינתזה והעימות:</strong> השילוב המלא הוא <span class="text-white font-bold underline decoration-paGold">"היערות של פן"</span>. כאשר המלך צ'ארלס השני הודיע לוויליאם פן (הבן) על השם, פן נחרד. כחבר בכת ה"קווייקרים" (הדוגלת בצניעות ושיוויון קיצוני), קריאת ארץ שלמה על שמו נחשבה לגאווה וחטא של "אגו בשר ודם". הוא הציע לקרוא לארץ "ניו ווילס" או פשוט "סילבניה", ואפילו הציע שוחד לפקידי המלך כדי שימחקו את המילה "Penn" מהמסמכים – אך המלך סירב, והשם נחקק בזיכיון של 1681 לנצח.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-paBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
+                כרוניקה של ריבונות: האוטופיסט ואיש הרנסנס
+            </h2>
+            
+            <div class="space-y-16">
+                <!-- ויליאם פן -->
+                <div class="personality-card border-r-8 border-paQuaker shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-slate-400 decoration-4 underline-offset-8">ההוגה והאוטופיסט: ויליאם פן (William Penn)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1644–1718. <strong>מעמד:</strong> מייסד ו"הבעלים" (Proprietor) של פנסילבניה.</p>
+                        
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-paGold">ילדות של מרד באריסטוקרטיה:</h4>
+                            <p class="leading-loose">פן נולד בלונדון לאצולה ימית עשירה. אביו, האדמירל, ייעד לו עתיד בחצר המלכות. אולם, במהלך לימודיו באוקספורד, פן הושפע ממטיפים רדיקלים והצטרף ל**אגודת הידידים (קווייקרים)**. הקווייקרים סירבו להישבע אמונים למלך, סירבו להסיר את כובעיהם בפני אצילים (בטענה שכולם שווים בפני האל), והיו פסיפיסטים מוחלטים (סירבו לשאת נשק). פן נעצר, הושלך למצודת לונדון, וגורש מביתו על ידי אביו הזועם, אך מעולם לא נטש את אמונתו.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-paGold">אידיאולוגיה - הניסוי הקדוש (The Holy Experiment):</h4>
+                            <p class="leading-loose">האידיאולוגיה של פן הייתה ייסוד "אוטופיה דמוקרטית". כשהקים את פנסילבניה, הוא קרא לה "הניסוי הקדוש". חוקת המושבה שלו (Frame of Government) הבטיחה חופש דת מוחלט לכל אדם המאמין באל אחד (דבר נדיר במושבות הפוריטניות האלימות כמו מסצ'וסטס), משפט הוגן על ידי חבר מושבעים, וחינוך חובה. הוא שבר את הסטטוס קוו של זמנו בכך ש**סירב לגזול אדמות מהילידים**, אלא התעקש לרכוש אותן באופן הוגן ולחתום על "ברית שלום הגדולה" (עם צ'יף טאמאננד משבט הלנאפה) – ההסכם היחיד באמריקה שלא הופר במשך 70 שנה.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- בנג'מין פרנקלין -->
+                <div class="personality-card border-r-8 border-paBlue shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-paBlue decoration-4 underline-offset-8">הבונה ואדריכל האומה: בנג'מין פרנקלין (Benjamin Franklin)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1706–1790. <strong>מעמד:</strong> איש אשכולות, ממציא והאב המייסד המרכזי של מדינת פנסילבניה.</p>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">ילדות - הבריחה מבוסטון לפילדלפיה:</h4>
+                            <p class="leading-loose">פרנקלין נולד בבוסטון למשפחה מרובת ילדים, אך בגיל 17 ברח משולייתו אצל אחיו האכזר, והגיע לפילדלפיה (בירת פנסילבניה) כשהוא חסר פרוטה, רטוב ורעב. פילדלפיה, בזכות החופש שהעניק לה פן, הייתה העיר הצומחת והמתקדמת ביותר באמריקה. פרנקלין פתח בה בית דפוס והפך לאיש העשיר והמשפיע ביותר בעיר באמצעות עיתונו "פנסילבניה גאזט" וה"אלמנך של פוּר ריצ'רד".</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">אידיאולוגיה - רציונליזם ומוסדות אזרחיים:</h4>
+                            <p class="leading-loose">פרנקלין ייצג את תנועת ההשכלה (הנאורות) האמריקאית. האידיאולוגיה שלו התבססה על "תועלתנות חברתית". הוא הפך את פילדלפיה לבירת התבונה של אמריקה: הוא ייסד את הספרייה הציבורית הראשונה, את חברת מכבי האש הראשונה, את בית החולים הראשון, ואת "אוניברסיטת פנסילבניה" (UPenn) – שהתמקדה במדעים ומסחר ולא רק בתיאולוגיה וכמורה.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - לידת אמריקה:</h4>
+                            <p class="leading-loose">בזכות התשתיות שהניח פרנקלין, פילדלפיה הפכה לזירה הטבעית לאירוח הקונגרס הקונטיננטלי. פרנקלין היה האדם היחיד בהיסטוריה שחתם על ארבעת המסמכים המכוננים של ארצות הברית: הכרזת העצמאות, ברית ההגנה עם צרפת, חוזה פריז שסיים את מלחמת העצמאות, וחוקת ארצות הברית. הוא ביסס את פנסילבניה כרחם החוקתי של ארצות הברית.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: כלבי ציד ופאי של אמיש
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- בעל החיים הלאומי -->
+                <div class="culture-highlight border-paQuaker">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-slate-400">כלב המדינה: דני ענק (Great Dane) וציפור השכווי</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מורשת אריסטוקרטית בלב היערות</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        בעוד רוב המדינות בוחרות בחיית בר כסמל הראשי שלהן (לפנסילבניה יש את "שכווי הצווארון" - Ruffed Grouse, שאומץ ב-1931), אחד הסמלים התרבותיים המובהקים ביותר שנקבעו על ידי בית המחוקקים הוא **כלב המדינה: הדני הענק (Great Dane)**, שאומץ בשנת 1965.
+                    </p>
+                    <p class="text-slate-300 leading-loose text-xl mt-6">
+                        מדוע מדינה שנוסדה על ידי קווייקרים צנועים אימצה את גזע הכלבים הענק, האריסטוקרטי והמלכותי הזה? הפנומנולוגיה טמונה במייסד עצמו. כשוויליאם פן הגיע מאנגליה אל "הניסוי הקדוש" שלו בפנסילבניה, הוא הביא עמו בספינה לפחות כלב דני ענק אחד. הכלבים הענקיים והחזקים הללו שימשו את פן ואת המתיישבים הראשונים לצורך ציד חיות פרא גדולות (כמו חזירי בר ודובים) ביערות העבותים של "סילבניה", וסיפקו שמירה אמינה על האחוזות הראשונות שנבנו במזרח. ציור היסטורי מפורסם בבירת המדינה, האריסבורג, מציג את ויליאם פן עומד בגאון לצד הדני הענק שלו.
+                    </p>
+                </div>
+
+                <!-- המנה הלאומית -->
+                <div class="culture-highlight border-paGold">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-paGold">המנה הלאומית: פילי צ'יזסטייק ופאי שופליי (Shoofly Pie)</h3>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">שני קצוות הקולינריה: מטבח רחוב מהגרים ומסורת "האמיש"</p>
+                    <p class="text-slate-300 leading-loose text-xl">
+                        הקולינריה של פנסילבניה חצויה בין הכרך הסואן לבין הכפר הבדלני:
+                    </p>
+                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
+                        <li><span class="text-white font-bold underline decoration-paBlue">פילי צ'יזסטייק (Philly Cheesesteak):</span> ההמצאה הקולינרית המפורסמת ביותר של המדינה, שנוצרה מתוך אלתור של מעמד הפועלים. בשנת 1930, בפילדלפיה, מוכר נקניקיות בשם **פט אוליביירי** (Pat Olivieri) מאס באכילת נקניקיות לארוחת צהריים. הוא חתך נתחי בקר (Ribeye) דקים מאוד, זרק אותם על הפלאנצ'ה החמה יחד עם המון בצל, והכניס אותם לתוך לחמניית "הוגי" (Hoagie) איטלקית פריכה. נהג מונית שהריח את הבשר דרש לטעום, וייעץ לפט להפסיק למכור נקניקיות ולעבור לבקר. בהמשך נוספה ה**גבינה** (לרוב פרובולון, או באופן מסורתי גבינת צ'יז-וויז נוזלית - Cheez Whiz), ויצרה את הכריך המושחת שהפך לסמלה העולמי של העיר (המסעדות Pat's ו-Geno's מתחרות עליו עד היום ברחוב 9).</li>
+                        <li><span class="text-white font-bold underline decoration-paQuaker">פאי שופליי (Shoofly Pie):</span> קינוח היסטורי שמייצג את קהילות ה**"פנסילבניה דאטש"** (Pennsylvania Dutch – מהגרים גרמנים אנבפטיסטים, ובהם קהילות האמיש במחוז לנקסטר). זהו פאי שנוצר מחוסר כל: ללא חלב וללא פירות טריים בחורף. הוא עשוי ממעטפת בצק פריכה, מילוי נוזלי מתוק להחריד המבוסס כולו על **מולסה כהה** (דבשה), ומעל הכל פירורי בצק (Streusel). שמו של הפאי מגיע, על פי הפולקלור, מהעובדה שהמולסה הדביקה והמתוקה משכה אליה המוני זבובים, והאופות נאלצו לנפנף ולצעוק עליהם "Shoo, fly!" ("עוף מפה, זבוב!").</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. סעיף חדש: גאו-פוליטיקה ודמוגרפיה (תקן הזהב 2.0) -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-paGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                גאו-פוליטיקה ודמוגרפיה: אימפריית הפלדה וקווים היסטוריים
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- שטח וטופוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-paBlue shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-blue-400">שטח וטופוגרפיה (Area & Topography)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        פנסילבניה ממוקמת באזור ה"מיד-אטלנטיק", אך היא הייחודית ביותר בחוף המזרחי: היא לא נוגעת באוקיינוס האטלנטי ישירות (גישתה לים נעשית דרך נהר הדלאוור), אך יש לה גישה למערכת הימות הגדולות דרך ימת אירי בפינה הצפון-מערבית שלה. הטופוגרפיה המרכזית שלה נשלטת לחלוטין על ידי **הרי האפלצ'ים** החוצים אותה באלכסון. הרים אלו היוו במשך מאה שנה חומה פיזית אדירה שמנעה ממתיישבי החוף להתפשט מערבה, אך הם טמנו בחובם את האוצר האמיתי של פנסילבניה: מאגרים מפלצתיים של **פחם אבן (Anthracite)**, שהפכו את המדינה למנוע התעשייתי החם ביותר בעולם בסוף המאה ה-19.
+                    </p>
+                </div>
+
+                <!-- דמוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-paQuaker shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-slate-400">פסיפס אנושי (Demographics & "Pennsyltucky")</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        עם כ-13 מיליון תושבים, פנסילבניה היא המדינה ה-5 המאוכלסת בארה"ב. דמוגרפית, היא מוגדרת על ידי קוטביות גיאוגרפית מפורסמת שהוגדרה בציניות על ידי האסטרטג הפוליטי ג'יימס קארוויל: <strong class="text-white">"פילדלפיה במזרח, פיטסבורג במערב, ואלבמה באמצע"</strong>. <br>
+                        שתי הערים המרכזיות בקצוות הן כור היתוך אורבני, עם קהילות היסטוריות של אירים, איטלקים ואוכלוסייה אפרו-אמריקאית עצומה (שהגיעה מהדרום ב"הגירה הגדולה"). לעומתן, מרכז המדינה העצום (מכונה בסלנג "Pennsyltucky") מאוכלס בקהילות כפריות שמרניות, חוואים, ומיעוטים דתיים בדלניים כגון האמיש והמנוניטים שמקורם בהגירה הגרמנית המקורית, אשר משמרים עד היום שפה וארכיטקטורה בני מאות שנים.
+                    </p>
+                </div>
+
+                <!-- סיבת המיקום והגבולות -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-paGold shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-paGold">עיצוב גבולות: קו מייסון-דיקסון (Mason-Dixon Line)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        הגבול הדרומי של פנסילבניה אינו סתם קו במפה – הוא **הגבול התרבותי וההיסטורי המפורסם ביותר בארצות הברית**. לאורך כמעט 80 שנה (החל מ-1681), התנהל סכסוך אדמות עקוב מדם בין משפחת פן (בעלי פנסילבניה) לבין משפחת קלברט (הבעלים של מרילנד מדרום). כדי לפתור את הסכסוך, נשכרו שני מודדים בריטים גאונים, **צ'ארלס מייסון וג'רמיה דיקסון**, שבין השנים 1763 ל-1767 שרטטו בדייקנות מתמטית את הגבול הישר המפריד בין שתי המושבות. <br><br>
+                        למרבה האירוניה, כמה עשורים מאוחר יותר ב-1780, פנסילבניה (בהשפעת הקווייקרים) חוקקה חוק לביטול הדרגתי של העבדות. כתוצאה מכך, "קו מייסון-דיקסון" הפך לגבול הרשמי, המשפטי והפסיכולוגי בין **הצפון החופשי לדרום התומך בעבדות**. חציית קו זה עבור עבד נמלט משמעותה הייתה חירות, והוא חרוט בתודעה הלאומית כאזור השבר של אמריקה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-paBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+            </h2>
+            
+            <div class="space-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- The Keystone State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-paGold shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Keystone State (מדינת אבן הראשה)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">ארכיטקטורה שהפכה לפוליטיקה</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            הכינוי הרשמי של פנסילבניה, המוטבע על לוחיות הרישוי, סמלי הממשל ושלטי התנועה שלה (כצורה של קשת אבן), נגזר ממונח באדריכלות עתיקה. אבן הראשה (Keystone) היא האבן המרכזית בראש הקשת, הנועלת את כל שאר האבנים במקומן; בלעדיה, הקשת קורסת. 
+                            הפנומנולוגיה של הכינוי מתייחסת למיקומה הקריטי של פנסילבניה בייסוד האומה: היא הייתה המדינה המרכזית (גיאוגרפית) מתוך 13 המושבות, החזיקה בכלכלה החזקה ביותר, והייתה המרכז הפוליטי (בקונגרס הקונטיננטלי) שחיבר והחזיק את המדינות הצפוניות התעשייתיות יחד עם המדינות הדרומיות החקלאיות כדי שלא יקרסו במהלך מלחמת העצמאות.
+                        </p>
+                    </div>
+
+                    <!-- The Quaker State -->
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-paQuaker shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-slate-400">The Quaker State (מדינת הקווייקרים)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">הד דתי לאידיאליזם מוסרי</p>
+                        <p class="text-slate-300 leading-loose text-lg">
+                            למרות שכיום הקווייקרים מהווים אחוז זעיר מאוכלוסיית המדינה, הפנומנולוגיה של "האור הפנימי" (Inner Light) הקווייקרי עדיין שולטת בזהותה. המדינה נוסדה כמעוז של חופש דת, כבוד לילידים וסירוב לאלימות צבאית. אתוס זה תרם לכך שפנסילבניה הייתה חלוצה לאומית בחינוך ציבורי, בהקמת בתי חולים, ובאופן היסטורי – המוקד הראשון באמריקה (אחרי ורמונט) שניסח והעביר חקיקה לביטול העבדות, כמצוות המצפון הקווייקרי.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-paBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                וקסילולוגיה: ניתוח סמיוטי של סוסי הפועלים
+            </h2>
+            
+            <div class="flex flex-col items-center mb-16">
+                <!-- ייצוג ויזואלי של דגל פנסילבניה ב-CSS -->
+                <div class="w-full max-w-2xl aspect-[3/2] bg-[#002D62] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col items-center justify-center group p-4">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-black/20 pointer-events-none z-0"></div>
+                    
+                    <div class="relative transform transition-transform duration-700 group-hover:scale-105 z-10 flex flex-col items-center w-full mt-4">
+                        
+                        <!-- Coat of Arms Simulation -->
+                        <div class="flex items-center justify-center w-full">
+                            <!-- Left Supporter: Black Draft Horse -->
+                            <div class="text-slate-800 text-5xl mr-2 transform -scale-x-100 drop-shadow-md">🐎</div>
+                            
+                            <!-- Center Shield -->
+                            <div class="w-24 h-32 border-[3px] border-[#F2A900] bg-white rounded-b-[40px] flex flex-col items-center justify-between p-1 z-20 shadow-xl relative">
+                                <!-- Eagle Crest -->
+                                <div class="absolute -top-8 text-3xl">🦅</div>
+                                
+                                <!-- Top section: Ship -->
+                                <div class="w-full h-1/3 bg-blue-100 flex items-center justify-center border-b-[2px] border-slate-400">
+                                    <span class="text-xs">⛵</span>
+                                </div>
+                                <!-- Middle section: Plow -->
+                                <div class="w-full h-1/3 bg-[#F2A900]/20 flex items-center justify-center border-b-[2px] border-slate-400">
+                                    <span class="text-xs">🚜</span> <!-- Plow approx -->
+                                </div>
+                                <!-- Bottom section: Wheat -->
+                                <div class="w-full h-1/3 bg-green-100 flex items-center justify-center rounded-b-[38px]">
+                                    <span class="text-xs">🌾 🌾 🌾</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Supporter: Black Draft Horse -->
+                            <div class="text-slate-800 text-5xl ml-2 drop-shadow-md">🐎</div>
+                        </div>
+
+                        <!-- Cornstalk and Olive Branch below shield -->
+                        <div class="flex gap-4 text-xl mt-1 z-10">
+                            <span>🌿</span> <span>🌽</span>
+                        </div>
+
+                        <!-- Ribbon with Motto -->
+                        <div class="mt-2 bg-[#F2A900] px-4 py-1 rounded shadow-md border-y-2 border-red-600 relative z-20">
+                            <!-- Ribbon folds simulation -->
+                            <div class="absolute -left-2 top-1 w-4 h-4 bg-[#F2A900] rounded-l-full border-y-2 border-red-600"></div>
+                            <div class="absolute -right-2 top-1 w-4 h-4 bg-[#F2A900] rounded-r-full border-y-2 border-red-600"></div>
+                            
+                            <span class="text-[#002D62] font-black text-[9px] uppercase tracking-widest block text-center">Virtue, Liberty and Independence</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
+                    סמל החומר החקלאי על כחול קולוניאלי <br><span class="text-xl font-medium text-slate-500">(החותם מ-1778, אימוץ הדגל ב-1907)</span>
+                </p>
+            </div>
+
+            <div class="space-y-14 text-slate-300">
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-paBlue shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-paBlue decoration-4">נסיבות היצירה ומסורת הכחול:</h3>
+                    <p class="text-xl leading-loose">
+                        דגל פנסילבניה (שאושר רשמית ב-1907) בנוי על רקע של כחול-כהה (Blue field) שעליו מונח חותם המדינה מ-1778. הצבע הכחול נועד להתאים לצבע המדים של חיילי פנסילבניה בצבא הקונטיננטלי, ומדגיש את תפקידה של פנסילבניה כנקודת העוגן בהקמת הרפובליקה. בעוד שאר המדינות המוקדמות (כמו וירג'יניה או קונטיקט) השתמשו בדמויות אנושיות, מיתולוגיות או מוטיבים דתיים, החותם של פנסילבניה מתמקד אך ורק בעבודה חומרית, במסחר, ובחקלאות כערובה לחירות.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-paGold shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-paGold">המגן ותומכיו: סוסי העבודה השחורים</h4>
+                        <p class="leading-loose text-lg">במרכז ניצב מגן המחולק לשלושה חלקים (ספינה, מחרשה ושלוש אלומות חיטה), המייצג את עמודי התווך של כלכלת המדינה: סחר ימי (נהר הדלאוור), פיתוח חקלאי ויבולים. הפנומנולוגיה האמיתית נמצאת ב"תומכים" (Supporters) של המגן. במקום אריות, חדי-קרן או אלים יוונים, מגן פנסילבניה נתמך על ידי **שני סוסי עבודה שחורים מפלצתיים (Draft horses)**, רתומים ומוכנים למשיכה. סוסים אלו מסמלים את הגישה ה"פרוטסטנטית-גרמנית" לעבודה שחורה – כוח פיזי אדיר, נטול אגו ויוהרה, המקיים את המשק האמריקאי.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">העיט והמוטו הלאומי:</h4>
+                        <p class="leading-loose text-lg">בראש המגן עומד העיטם הקירח, המסמל את הריבונות הלאומית ואת הנאמנות לאיחוד שאותו פנסילבניה עזרה ליצור. מתחת לסוסים ולמגן מונחים גבעול תירס אינדיאני וענף זית, המשקפים תקווה לשלום ושגשוג אגררי. סרט אדום מסכם את הכל במוטו: **"Virtue, Liberty and Independence"** (סגולה/מידה טובה, חירות, ועצמאות) – אידיאלים שנרקמו במרתפי פילדלפיה על ידי האבות המייסדים.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">7</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">The Pennsylvania Historical and Museum Commission (PHMC):</p>
+                    <p>"William Penn and the Naming of Pennsylvania". הארכיון המציג את תסכולו של פן הצעיר מהחלטת המלך צ'ארלס השני לקרוא למושבת הקווייקרים על שמו של האדמירל סר ויליאם פן מטעמי חוב כספי.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">National Park Service (Independence National Historical Park):</p>
+                    <p>"Benjamin Franklin: The First American". סקירת מורשתו של פרנקלין בבניית המוסדות האזרחיים הראשונים באמריקה בתוך פילדלפיה, וחתימתו על ארבעת מסמכי העצמאות.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Library of Congress (LOC) - Geography and Map Division:</p>
+                    <p>"The Mason-Dixon Line: Anatomy of a Border". מחקר גיאופוליטי החושף כיצד סכסוך אדמות בין משפחות פן וקלברט שורטט מתמטית והפך בטעות לגבול המוסרי והמדמם ביותר במלחמת האזרחים.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Journal of Pennsylvania Dutch Culture:</p>
+                    <p>"The Origins of Shoofly Pie and Working-Class Cuisine". אנתרופולוגיה קולינרית המתארת את המצאת הפאי מבוסס המולסה כאוכל חורף של האמיש מול התפרצות כריך ה'צ'יזסטייק' ברחובות דרום פילדלפיה.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"The Pennsylvania Coat of Arms and the Draft Horses". ניתוח ההחלטה הרלדית מ-1778 להשתמש בסוסי עבודה שחורים כתומכי המגן, המייצגים את אתוס הצווארון הכחול של המדינה בניגוד לאריות המלוכה.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- פוטר אתר ממותג -->
+    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-8">
+                <div class="w-6 h-6 bg-paBlue rounded-full shadow-[0_0_15px_rgba(0,45,98,0.6)]"></div>
+                <div class="w-6 h-6 bg-paGold rounded-full shadow-[0_0_15px_rgba(242,169,0,0.6)]"></div>
+                <div class="w-6 h-6 bg-paQuaker rounded-full shadow-[0_0_15px_rgba(74,74,74,0.6)]"></div>
+            </div>
+            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
+                US State Origins - Ultimate Academic Archive
+            </p>
+            <p class="text-slate-400 text-4xl font-black">
+                האתר נוצר על ידי ג'מיני ורם | 2026
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
