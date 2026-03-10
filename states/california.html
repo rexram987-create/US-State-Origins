@@ -11,13 +11,18 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#0f172a',
-                        cardBg: '#1e293b',
-                        accent: '#38bdf8',
-                        caBlue: '#003262',    /* California Pacific Blue */
-                        caGold: '#B78727',    /* California Gold */
-                        caRed: '#C92A39',     /* Bear Flag Red */
-                        caBear: '#5C4033'     /* Grizzly Brown */
+                        appBg: '#050B14',      /* Deep Space Navy */
+                        cardBg: '#0B172A',     /* Elevated Card Navy */
+                        cardBorder: '#1E293B', /* Card Border */
+                        accentBlue: '#38BDF8', /* Neon Blue Accent */
+                        caBlue: '#003262',     /* Berkeley Blue */
+                        caGold: '#B78727',     /* California Gold */
+                        caRed: '#C9082A',      /* Bear Flag Red */
+                        textMain: '#E2E8F0',   /* Soft White Text */
+                        textMuted: '#94A3B8'   /* Slate Gray Text */
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
                     }
                 }
             }
@@ -25,350 +30,381 @@
     </script>
     <style>
         body { 
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             -webkit-tap-highlight-color: transparent;
+            background-color: #050B14;
+            color: #E2E8F0;
             line-height: 1.85;
         }
-        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
-        p, li, span, div, blockquote { font-size: 1.125rem; } 
-        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
-        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
-        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
-        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
-        .sub-header { @apply text-caGold font-black text-2xl mb-5 underline italic decoration-caGold/40 underline-offset-8; }
-        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+        p, li, span, div, blockquote { font-size: 1.125rem; } /* 18px קבוע לקריאה נוחה ב-S25 Ultra */
+        
+        /* Scrollbar מותאם לאפליקציה */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050B14; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        
+        .glass-panel {
+            background: rgba(11, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(30, 41, 59, 0.8);
+        }
+        
+        .stat-badge {
+            background: linear-gradient(145deg, #112240 0%, #0B172A 100%);
+            border: 1px solid #1E293B;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .sub-header { @apply text-accentBlue font-black text-xl mb-3 underline italic decoration-accentBlue/40 underline-offset-8 mt-6; }
+
+        /* אנימציית הופעה לחלון הצף */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-animate {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
     </style>
 </head>
-<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+<body class="antialiased min-h-screen flex flex-col items-center pb-20">
 
-    <!-- ניווט עליון -->
-    <nav class="w-full max-w-4xl mb-10">
-        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+    <!-- ניווט עילי -->
+    <nav class="w-full max-w-4xl p-6 sticky top-0 z-40 glass-panel border-b-0 rounded-b-3xl mb-6 shadow-lg flex justify-between items-center">
+        <a href="../index.html" class="inline-flex items-center text-accentBlue hover:text-white transition-colors font-bold text-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
             חזרה לאטלס המדינות
         </a>
+        <span class="text-xs font-black tracking-widest text-textMuted uppercase bg-cardBorder px-3 py-1 rounded-full">CA</span>
     </nav>
 
-    <!-- כותרת מחקר אקדמי -->
-    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-caGold relative overflow-hidden">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
-            <div>
-                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">קליפורניה</h1>
-                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">California - The Golden State</p>
-                <div class="h-2 w-56 bg-caRed mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(201,42,57,0.5)]"></div>
-            </div>
-            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
-                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
-                <p class="text-5xl font-black text-white">9 בספטמבר, 1850</p>
-                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-31 באיחוד</p>
-            </div>
-        </div>
-    </header>
-
-    <main class="w-full max-w-4xl space-y-20">
+    <main class="w-full max-w-4xl px-4 space-y-10">
         
-        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
-                אטימולוגיה: מולקולריות של פנטזיה ומלכה מיתולוגית
-            </h2>
+        <!-- Hero Section -->
+        <header class="w-full rounded-[3rem] overflow-hidden shadow-2xl relative bg-gradient-to-b from-[#1a2b4c] to-cardBg border border-cardBorder pt-12 pb-10">
+            <!-- רקע גרפי מופשט -->
+            <div class="absolute top-0 left-0 w-full h-72 bg-caGold opacity-10 blur-[100px] rounded-full mix-blend-screen pointer-events-none"></div>
             
-            <div class="space-y-10">
-                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
-                    השם "קליפורניה" חריג בנוף האמריקאי, שכן הוא אינו נגזר משם של מלך אירופאי או ממילה ילידית. מקורו הוא באשליה ספרותית עתיקה – שמה של מדינה זו נולד מתוך ספר פנטזיה שהיה פופולרי בספרד של המאה ה-16.
-                </p>
-
-                <div class="space-y-8">
-                    <!-- Calafia -->
-                    <div class="etymology-box border-caGold">
-                        <p class="text-caGold font-black text-5xl mb-6 italic tracking-tighter">Calafia</p>
-                        <div class="space-y-4">
-                            <p><strong>מקור פילולוגי:</strong> רומן האבירים הספרדי "Las sergas de Esplandián" (מעללי אספלנדיאן) שנכתב על ידי גרסי רודריגס דה מונטאלבו סביב שנת 1510.</p>
-                            <p><strong>משמעות מילולית:</strong> בספר מתוארת **קלאפיה**, מלכה שחורה ואדירה השולטת על אי מיתולוגי המאוכלס אך ורק בנשים לוחמות (אמזונות). האי הזה היה שופע בזהב טהור ונקרא ברומן "קליפורניה" (ייתכן ונגזר מהמילה הערבית "ח'ליף" / Caliph).</p>
-                        </div>
-                    </div>
-
-                    <!-- California -->
-                    <div class="etymology-box border-caBlue">
-                        <p class="text-caBlue font-black text-5xl mb-6 italic tracking-tighter">California</p>
-                        <div class="space-y-4">
-                            <p><strong>ניתוח היסטורי:</strong> כאשר מגלי ארצות ספרדים בפיקודו של הרנאן קורטס הגיעו לחצי האי "באחה קליפורניה" (במקסיקו של ימינו) בשנת 1533, הם סברו בטעות שמדובר באי מבודד. בהשפעת הרומן הפופולרי שקראו (שהיה מעין "מדע בדיוני" של אותה תקופה), הם קראו לאזור הפראי על שם אי האמזונות הבדיוני, מתוך תקוות שווא למצוא בו נשים לוחמות והרי זהב. מאוחר יותר, השם התרחב גם ל"אלטה קליפורניה" (קליפורניה העליונה), שהפכה למדינה האמריקאית המוכרת לנו כיום. האירוניה היא שב-1848, הפנטזיה של קורטס התגשמה – האזור אכן התגלה כמלא בזהב טהור.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-caBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
-                כרוניקה של ריבונות: המורד הפזיז ואיל הרכבות
-            </h2>
-            
-            <div class="space-y-16">
-                <!-- ג'ון ס. פרמונט -->
-                <div class="personality-card border-r-8 border-caRed shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-caRed decoration-4 underline-offset-8">ההוגה והמורד: ג'ון ס. פרמונט (John C. Frémont)</h3>
-                    <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1813–1890. <strong>מעמד:</strong> חוקר "מוצא הנתיבים", גנרל, והמועמד הרפובליקני הראשון לנשיאות.</p>
+            <div class="px-6 md:px-12 relative z-10 flex flex-col items-center text-center">
+                
+                <!-- דגל המדינה הראשי (קליק להגדלה) -->
+                <div onclick="openFlagModal()" class="cursor-pointer group relative mb-10">
+                    <div class="w-48 sm:w-56 aspect-[3/2] bg-white rounded-3xl overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-4 border-slate-300 relative transform transition-transform duration-500 group-hover:scale-105 group-active:scale-95">
                         
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-caGold">רקע - פורץ הדרך האמריקאי:</h4>
-                            <p class="leading-loose">פרמונט נולד בג'ורג'יה כבן לא-חוקי (מחוץ לנישואין), מה שגרם לו לדחף עצום להוכיח את עצמו. הוא הפך לקצין חיל ההנדסה הטופוגרפי ולסייר הראשי של אמריקה. משלחותיו למערב הרי הרוקי (בליווי המדריך האגדי קיט קרסון) מופו במדויק ופורסמו בדוחות רבי-מכר שכתבה אשתו, ג'סי בנטון. הדוחות הללו הציתו את דמיונם של המוני אמריקאים להגר לקליפורניה.</p>
-                        </div>
+                        <!-- California Flag Representation via SVG -->
+                        <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full bg-white">
+                            <!-- Red Stripe -->
+                            <rect y="165" width="300" height="35" fill="#C9082A"/>
+                            <!-- Red Star -->
+                            <polygon points="40,30 45,45 60,45 48,55 52,70 40,60 28,70 32,55 20,45 35,45" fill="#C9082A"/>
+                            <!-- Green Grass -->
+                            <rect x="70" y="130" width="160" height="5" fill="#228B22"/>
+                            <!-- Bear Representation -->
+                            <text x="150" y="125" font-size="55" text-anchor="middle" dominant-baseline="bottom">🐻</text>
+                            <!-- Text -->
+                            <text x="150" y="152" font-family="sans-serif" font-weight="900" font-size="16" fill="#333333" text-anchor="middle" letter-spacing="1">CALIFORNIA REPUBLIC</text>
+                        </svg>
 
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-caGold">אידיאולוגיה - ייעוד גלוי (Manifest Destiny) ואנטי-עבדות:</h4>
-                            <p class="leading-loose">האידיאולוגיה של פרמונט הייתה כיבוש המערב בכל מחיר עבור אמריקה "החופשית". הוא תיעב את העבדות וראה בקליפורניה הזדמנות לבסס רפובליקה חופשית על חופי האוקיינוס השקט, נקייה מהשפעת הדרום. הוא פעל לעיתים קרובות על דעת עצמו ללא פקודות ישירות מוושינגטון.</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-caGold">הישגים מכוננים - מרד דגל הדוב (1846):</h4>
-                            <p class="leading-loose">ביוני 1846, כאשר קליפורניה עדיין הייתה מחוז מקסיקני, פרמונט עודד ותמך בקבוצה של מתיישבים אמריקאים בסונומה לפתוח במרד חמוש נגד הממשל המקסיקני. הם הניפו דגל מאולתר (שעליו צויר דוב גריזלי) והכריזו על הקמתה של **"רפובליקת קליפורניה"** העצמאית (Bear Flag Revolt). הרפובליקה התקיימה בקושי חודש עד שהצי האמריקאי הגיע וכבש את השטח רשמית במלחמת ארה"ב-מקסיקו, אך פעולתו של פרמונט זירזה את הניתוק ממקסיקו והקנתה למדינה את זהותה הסמלית עד היום.</p>
+                        <!-- אייקון זכוכית מגדלת מרחף -->
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
                         </div>
                     </div>
                 </div>
 
-                <!-- לילנד סטנפורד -->
-                <div class="personality-card border-r-8 border-caGold shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-caGold decoration-4 underline-offset-8">הבונה הכלכלי: לילנד סטנפורד (Leland Stanford)</h3>
-                    <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1824–1893. <strong>מעמד:</strong> איל הון (Robber Baron), מושל המדינה ומייסד האוניברסיטה.</p>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">רקע של בהלה לזהב ומסחר:</h4>
-                            <p class="leading-loose">סטנפורד, יליד ניו יורק, היגר לקליפורניה במהלך הבהלה לזהב (1852). הוא לא כרה זהב בעצמו, אלא הפך לסוחר עשיר שמכר ציוד לכורים. הוא הפך לאחד מ"ארבעת הגדולים" (The Big Four) – קבוצת אנשי עסקים מסקרמנטו שהשתלטו על הפוליטיקה והכלכלה של קליפורניה.</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">אידיאולוגיה - מונופול תחבורתי ואריסטוקרטיה מערבית:</h4>
-                            <p class="leading-loose">האידיאולוגיה של סטנפורד הייתה מגלומניה יזמית קפיטליסטית. כמושל קליפורניה (1862), הוא שמר על המדינה בתוך האיחוד במהלך מלחמת האזרחים, אך מטרתו העיקרית הייתה לחבר את קליפורניה המבודדת לשאר היבשת באמצעות מסילת ברזל. הוא האמין שמי שישלוט במסילה, ישלוט בכלכלת המדינה ללא עוררין.</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">הישגים מכוננים - מסילת הברזל והאוניברסיטה:</h4>
-                            <p class="leading-loose">כנשיא חברת "סנטרל פסיפיק", סטנפורד ניצח על בניית החלק המערבי של **מסילת הרכבת הטרנס-יבשתית** (שנחצבה בהרי הסיירה נבאדה בעיקר על ידי פועלים סינים שנוצלו קשות). ב-1869, הוא נעל את "יתד הזהב" (Golden Spike) שחיבר את המסילות והפך את אמריקה לאומה רציפה אחת. אולם, הטרגדיה האישית שלו שינתה את כיוון מורשתו: ב-1884, בנו היחיד מת מטיפוס בגיל 15. באבלו העמוק אמר לאשתו "ילדי קליפורניה יהיו ילדינו", והם השתמשו בהונם העצום כדי להקים את **אוניברסיטת סטנפורד** – מנוע החדשנות שממנו יצמח לימים עמק הסיליקון.</p>
-                        </div>
+                <p class="text-caGold font-black tracking-[0.4em] uppercase text-sm mb-4">The Golden State</p>
+                <h1 class="text-6xl md:text-8xl font-black text-white mb-4 tracking-tight">קליפורניה</h1>
+                <p class="text-2xl text-textMuted font-light italic mb-12">California</p>
+                
+                <!-- Quick Stats Badges -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mt-4">
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">הצטרפות</span>
+                        <span class="text-alaWhite font-black text-2xl">1850</span>
+                        <span class="text-[11px] text-caRed font-black mt-2 bg-caRed/10 px-3 py-1 rounded-full">מדינה 31</span>
                     </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">שטח (דירוג)</span>
+                        <span class="text-alaWhite font-black text-2xl">מקום 3</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">423,967 קמ"ר</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">אוכלוסייה</span>
+                        <span class="text-alaWhite font-black text-2xl">39.5M</span>
+                        <span class="text-[11px] text-caGold font-black mt-2">אומדן 2023 (מקום 1)</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">עיר בירה</span>
+                        <span class="text-alaWhite font-black text-2xl text-center">סקרמנטו</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">Sacramento</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 1. אטימולוגיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-caGold shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-caGold text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">1</span>
+                אטימולוגיה: מולקולריות של רומן פנטזיה ספרדי
+            </h2>
+            <div class="space-y-8">
+                <p class="text-textMuted font-medium italic border-r-4 border-caGold pr-6 text-xl leading-loose">
+                    בניגוד לרוב מדינות ארה"ב שנקראו על שם מלכים, שבטים או מאפיינים גיאוגרפיים, קליפורניה היא המדינה היחידה ששמה לקוח ישירות מתוך ספר פנטזיה ומדע בדיוני מהמאה ה-16!
+                </p>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder shadow-inner">
+                    <p class="text-accentBlue font-black text-4xl mb-4 tracking-wider">Calafia</p>
+                    <p class="mb-4 text-lg"><strong>מקור פילולוגי:</strong> רומן הרפתקאות ספרדי משנת 1510 בשם <em>Las sergas de Esplandián</em> (עלילות אספלנדיאן), מאת הסופר גארסי רודריגס דה מונטאלבו.</p>
+                    <p class="text-lg leading-loose"><strong>משמעות וניתוח מלא:</strong> בספר מתואר אי מיתולוגי וגן-עדני הנמצא "מימין לאיי הודו", המאוכלס אך ורק על ידי נשים לוחמות (אמזונות) שחורות-עור, שחיות בעולם שבו המתכת היחידה הקיימת היא <strong class="text-caGold">זהב טהור</strong>. למלכה האדירה של האי קראו <strong>"קאלאפיה" (Calafia)</strong>, ולאי עצמו קראו <strong>"קליפורניה" (California)</strong>. <br><br>
+                    כאשר חוקרי הארצות הספרדים (כגון הרנאן קורטס) הגיעו לחצי האי באחה קליפורניה בשנות ה-1530, הם סברו בתחילה שמדובר באי ולא בחצי אי. מכיוון שהכירו היטב את הרומן הפופולרי, הם החליטו להעניק ל"אי" החדש את שם ארץ הזהב האגדית מהספר. באופן אירוני ונבואי להחריד, השם שנבחר בגלל אגדה על זהב, הפך למציאות כ-300 שנה מאוחר יותר עם תחילת הבהלה לזהב.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
-                פנתיאון תרבותי: הדוב שנעלם ולחם המחמצת
+        <!-- 2. גאו-פוליטיקה ודמוגרפיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-accentBlue shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-accentBlue text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">2</span>
+                גאו-פוליטיקה ודמוגרפיה
+            </h2>
+            <div class="space-y-8">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-accentBlue">אימפריית החוף וקצוות הטופוגרפיה (Area & Topography)</h3>
+                    <p class="leading-loose text-lg text-textMuted">
+                        קליפורניה היא המדינה ה-3 בגודלה בארה"ב, והיא מדינת-לאום דה-פקטו. הגיאוגרפיה שלה שוברת שיאים: היא מכילה את **הנקודה הגבוהה ביותר בארה"ב הרציפה** (הר ויטני - 4,421 מטרים בהרי הסיירה נבדה), ובמרחק של כ-135 קילומטרים בלבד משם, היא מכילה את **הנקודה הנמוכה והחמה ביותר באמריקה הצפונית** (עמק המוות - Death Valley, 86 מטרים מתחת לפני הים). במרכזה שוכן "העמק המרכזי" (Central Valley) הענק – אסם התבואה ומוקד החקלאות שמזין את אמריקה כולה, המוקף ברכסי הרים השומרים על אקלים ים-תיכוני אידיאלי לאורך קו החוף העצום של האוקיינוס השקט.
+                    </p>
+                </div>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-caRed">פסיפס אנושי: ענקית רב-תרבותית (Demographics)</h3>
+                    <p class="leading-loose text-lg text-textMuted">
+                        עם קרוב ל-40 מיליון תושבים, קליפורניה היא **המדינה המאוכלסת ביותר בארצות הברית**. אם הייתה מדינה עצמאית, כלכלתה הייתה החמישית בגודלה בעולם! דמוגרפית, זוהי מדינת "רוב-מיעוט" (Majority-minority) – אין בה קבוצה אתנית אחת שמהווה רוב מוחלט (מעל 50%). הקבוצה האתנית הגדולה ביותר כיום היא **היספאנים ולטינים** (כ-39%), המהווים כוח פוליטי ותרבותי עצום (המשקף את העבר הספרדי-מקסיקני של המדינה). בנוסף, היא מרכז עולמי של טכנולוגיה (עמק הסיליקון) ובידור (הוליווד), המושך הגירה מסיבית של מוחות מכל רחבי אסיה והעולם.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. כרוניקה של ריבונות -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-white shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-white text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">3</span>
+                כרוניקה של ריבונות: הזהב והמרד
             </h2>
             
-            <div class="space-y-14">
-                <!-- בעל החיים הלאומי -->
-                <div class="culture-highlight border-caBear">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-[#5C4033]">בעל החיים הלאומי: דוב הגריזלי הקליפורני (California Grizzly Bear)</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">סמל העוצמה שהאדם השמיד (אומץ ב-1953)</p>
-                    <p class="text-slate-300 leading-loose text-xl">
-                        האנומליה הטרגית ביותר בסמלי המדינות בארה"ב: חיית המדינה של קליפורניה, המופיעה במרכז הדגל שלה ובחותמה הרשמי, **נכחדה לחלוטין מהעולם**.
+            <div class="space-y-12">
+                <!-- ג'יימס מרשל וג'ון סאטר -->
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-caGold"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">מגלה האוצר: ג'יימס וו. מרשל (James W. Marshall)</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">האירוע: גילוי הזהב בטחנת סאטר, ינואר 1848.</p>
+                    
+                    <h4 class="sub-header text-caGold decoration-caGold/40">רקע: התיישבות שקטה תחת שלטון מקסיקני</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        עד אמצע המאה ה-19, אלטה קליפורניה (Alta California) הייתה מחוז מרוחק, שקט ומאוכלס בדלילות של מקסיקו. הכלכלה נשענה על חוות בקר ענקיות (Ranchos). יזם שווייצרי בשם ג'ון סאטר קיבל אישור להקים אימפריה חקלאית בעמק סקרמנטו. הוא שכר את ג'יימס מרשל, נגר ובונה טחנות מניו ג'רזי, כדי להקים טחנת מים מונעת (נסרה) על נהר האמריקן (American River) בקולומה.
                     </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        דוב הגריזלי הקליפורני (*Ursus arctos californicus*) היה תת-מין ענק, קשוח ואגרסיבי ששקל מעל 500 ק"ג, ושלט בשרשרת המזון של העמקים. הילידים העריצו וחששו ממנו, אך עם הגעת "הבהלה לזהב", הכורים והחוואים האמריקאים ראו בו איום תחרותי על עדרי הבקר שלהם. יתרה מכך, בסן פרנסיסקו התפתחה תרבות אכזרית של מופעי קרבות שבהם שיסו דובים בפרים להנאת הקהל הווייטנאמי (תרבות שטבעה בוול-סטריט את המונחים לשוק יורד "שוק דובי" ושוק עולה "שוק שורי"). 
+
+                    <h4 class="sub-header text-caGold decoration-caGold/40">אידיאולוגיה: בניין ותעשייה</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        סאטר ומרשל כלל לא חיפשו זהב. האידיאולוגיה שלהם הייתה חקלאית-תעשייתית: הם רצו לספק קורות עץ לפיתוח העיר סן פרנסיסקו. כשהם מצאו את הזהב, הם ניסו לשמור על כך בסוד מחשש שהדבר יהרוס את הפעילות החקלאית המאורגנת שלהם (מה שאכן קרה).
                     </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        כתוצאה מציד חסר רחמים והרעלות, דוב הגריזלי האחרון בקליפורניה נצפה (ונורה) בשנת 1924 באזור פרזנו. כיום, הדוב מייצג בפנומנולוגיה המקומית את כוחו האדיר של הטבע הקליפורני, אך גם משמש כתזכורת כואבת למחיר האקולוגי של הפיתוח והתיעוש האנושי.
+
+                    <h4 class="sub-header text-caGold decoration-caGold/40">הישגים מכוננים: הבהלה לזהב (1849) והקמת המדינה</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        ב-24 בינואר 1848, תוך כדי בדיקת תעלת המים של הטחנה, זיהה מרשל פתיתים נוצצים. הוא בדק אותם והכריז: "בנים, אני מאמין שמצאתי מכרה זהב!". הסוד דלף, והוביל לאירוע ההגירה ההמוני הגדול ביותר בתולדות ארצות הברית – **הבהלה לזהב של קליפורניה (The Gold Rush)**. מאות אלפי אנשים (שכונו "ה-49'ers", על שם שנת 1849) נהרו מכל העולם לחפש את מזלם. אוכלוסיית קליפורניה זינקה בין לילה, וכבר בשנת 1850 (ללא שלב ביניים של טריטוריה), היא התקבלה ישירות לאיחוד כמדינה חופשית.
                     </p>
                 </div>
 
-                <!-- המנה הלאומית -->
-                <div class="culture-highlight border-caGold">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-caGold">הקולינריה הלאומית: לחם מחמצת של סן פרנסיסקו ובוריטו מישן</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מהבהלה לזהב ועד למטבח המקסיקני-אמריקאי</p>
-                    <p class="text-slate-300 leading-loose text-xl">
-                        הקולינריה של קליפורניה היא המגוונת ביותר בארה"ב, אך נשענת על שני סמלים עירוניים שמגדירים את זהותה:
+                <!-- ויליאם ב. אייד -->
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-caRed"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">אדריכל הרפובליקה: ויליאם ב. איד (William B. Ide)</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">מעמד: הנשיא הראשון (והיחיד) של "רפובליקת קליפורניה" (1846).</p>
+                    
+                    <h4 class="sub-header text-caRed decoration-caRed/40">רקע: מתח בין מתיישבים אמריקאים לשלטון מקסיקו</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        אייד היה נגר ומורה שעבר לקליפורניה מאוהיו עם משפחתו. באותה עת (1846), מתיישבים אמריקאים החלו לזרום לקליפורניה (שהייתה תחת שלטון מקסיקני). ממשלת מקסיקו החלה לאיים בגירוש המתיישבים האמריקאים חסרי האזרחות המקסיקנית מחוץ למחוז, מה שיצר בהלה ופחד לאובדן אדמותיהם.
                     </p>
-                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
-                        <li><span class="text-white font-bold underline decoration-[#d2b48c]">לחם מחמצת של סן פרנסיסקו (SF Sourdough):</span> במהלך הבהלה לזהב (1849), הכורים חיו בתנאי שטח קשים ללא שמרים טריים. הם הסתמכו על מחמצת שאור (בצק מותסס) שאותה "האכילו" ושמרו בחיים בתוך שקיקיהם. המאפיות בסן פרנסיסקו (כמו מאפיית בודִין - Boudin מ-1849) גילו שהלחם בעיר מקבל חמיצות חזקה במיוחד. מדענים גילו מאוחר יותר שהדבר נובע מבקטריה ייחודית לאוויר ולערפל של סן פרנסיסקו, שזכתה לשם המדעי *Lactobacillus sanfranciscensis*. המחמצת היא סמל ההישרדות של הכורים.</li>
-                        <li><span class="text-white font-bold underline decoration-caRed">בוריטו בסגנון מישן (Mission Burrito):</span> הומצא בשנות ה-60 ברובע הלטיני (Mission District) של סן פרנסיסקו. בניגוד לבוריטו מקסיקני מסורתי (שהוא קטן ומכיל רק בשר), גרסת קליפורניה היא ארוחה מפלצתית ועצומת ממדים. מכניסים לתוך טורטייה רחבה מאוד אורז, שעועית, בשר (קרניטס או אסאדה), גוואקמולה, סלסה, ושמנת חמוצה. הסממן הפנומנולוגי של המנה הוא עטיפתה ההדוקה ב**נייר כסף (Silver foil)**, המאפשר לפועלי העיר לאכול אותה תוך כדי הליכה מבלי שהיא תתפרק. זהו הנישואים המושלמים בין מזון מהיר לתרבות היספאנית.</li>
+
+                    <h4 class="sub-header text-caRed decoration-caRed/40">אידיאולוגיה: עצמאות ברוח טקסס</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        בהשראת מלחמת העצמאות של טקסס (שקרתה עשור קודם לכן), אייד והמתיישבים האמינו שלכל קהילה יש זכות להתקומם נגד שלטון רודני שמאיים עליה. למרות שלא היו מאורגנים כצבא מסודר, הם החליטו לפעול מהר לפני שהצבא המקסיקני יגרש אותם.
+                    </p>
+
+                    <h4 class="sub-header text-caRed decoration-caRed/40">הישגים מכוננים: מרד דגל הדוב (Bear Flag Revolt)</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        ביוני 1846, הנהיג אייד חבורה של כ-30 מתיישבים שפשטה על הכפר סונומה (Sonoma) ולקחה בשבי את המפקד המקסיקני המקומי, מריאנו ואלחו (ללא שפיכות דמים). הם הכריזו על עצמאותה של **"רפובליקת קליפורניה"**, ואייד נבחר לנשיאה. הם יצרו דגל מאולתר מבד כותנה עם ציור של דוב גריזלי (שממנו נולד דגל המדינה הנוכחי). הרפובליקה העצמאית שרדה **25 ימים בלבד** – מיד לאחר מכן הגיע צבא ארה"ב (סרן ג'ון פרימונט) כדי לכבוש את קליפורניה רשמית במסגרת מלחמת ארה"ב-מקסיקו, והמתיישבים החליפו את דגל הדוב בדגל הכוכבים והפסים האמריקאי.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. פנתיאון תרבותי -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-[#228B22] shadow-2xl"> 
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-[#228B22] text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">4</span>
+                פנתיאון תרבותי: הדוב שנעלם ולחם הכורים
+            </h2>
+            
+            <div class="space-y-12">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-[#B87333] mb-2 underline italic decoration-[#B87333]/40">חיית המדינה: דוב גריזלי קליפורני (California Grizzly Bear)</h3>
+                    <p class="text-lg text-textMuted mb-6 font-bold uppercase tracking-widest">טראומה אקולוגית על הדגל (אומץ ב-1953)</p>
+                    <p class="leading-loose text-lg text-textMain">
+                        הסמל האולטימטיבי והמפורסם ביותר של קליפורניה הוא גם הטרגדיה האקולוגית הגדולה ביותר שלה. דוב הגריזלי הקליפורני (Ursus arctos californicus) היה תת-מין ענק, זהוב-חום, ועוצמתי במיוחד של הגריזלי, ששלט בכיפה ברחבי העמקים וההרים של המדינה.
+                        <br><br>
+                        כאשר פרצה "הבהלה לזהב" ב-1849, מאות אלפי בני אדם הציפו את שטחי המחיה של הדוב. הדובים שניסו להגן על הטריטוריה שלהם או לטרוף בקר, הפכו למטרה לחיסול ממוקד. הציידים ראו בהריגת הגריזלי סמל לגבורה ולשליטת האדם בטבע. התוצאה הייתה הכחדה מהירה ומוחלטת: **הגריזלי הקליפורני האחרון נורה למוות בשנת 1922** (במחוז טולארי). האנומליה המצמררת היא שקליפורניה מתהדרת בדגל וחיה רשמית שכבר אינם קיימים במציאות הפיזית שלה, והדוב נותר כרוח רפאים היסטורית המזכירה את המחיר האכזרי של ההתפשטות המערבית.
+                    </p>
+                </div>
+
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-alaWhite mb-2 underline italic decoration-slate-400">המנה הלאומית: לחם מחמצת (Sourdough) ומישן בוריטו</h3>
+                    <p class="text-lg text-textMuted mb-6 font-bold uppercase tracking-widest">ביולוגיה מיקרוסקופית ופיוז'ן מקסיקני ענק</p>
+                    <p class="leading-loose text-lg text-textMain">
+                        הקולינריה של קליפורניה היא מהמובילות והחדשניות בעולם, ומבוססת על היסטוריית ההגירה והחקלאות שלה:
+                    </p>
+                    <ul class="list-disc list-inside space-y-6 mt-6 text-textMain text-lg leading-loose">
+                        <li><span class="text-white font-bold underline decoration-caGold">לחם המחמצת של סן פרנסיסקו (San Francisco Sourdough):</span> מאכל היסטורי שנולד כורח המציאות. במהלך הבהלה לזהב (1849), כורים שנדדו למרחקים ארוכים לא יכלו להשיג שמרים מסחריים טריים. במקום זאת, הם נשאו איתם "סטרטר" (מחמצת) – עיסה של קמח ומים שלכדה שמרי-בר מהאוויר. האנומליה היא ביולוגית: המיקרו-אקלים והערפל של מפרץ סן פרנסיסקו מטפחים זן ספציפי של חיידק (שזכה לשם המדעי <em>Lactobacillus sanfranciscensis</em>), המעניק ללחם המקומי חמיצות עוקצנית ומרקם פריך שאי אפשר לשכפל בשום מקום אחר בעולם באופן זהה לחלוטין.</li>
+                        <li><span class="text-white font-bold underline decoration-caRed">הבוריטו של רובע מישן (Mission Burrito):</span> הומצא בשנות ה-60 ברובע הלטיני (Mission District) של סן פרנסיסקו, והגדיר מחדש את הטקס-מקס. בניגוד לבוריטו המקסיקני המסורתי (שהוא דק ומכיל מעט מרכיבים), ה"מישן בוריטו" הוא מפלצת קולינרית. הוא ענק, עטוף ברדיד אלומיניום כדי לשמור על החום והצורה, ונדחס בכמויות אדירות של אורז (סממן אמריקאי מובהק), שעועית שלמה, בשר (קרניטס או קרנה אסאדה), סלסה, גואקמולה ושמנת חמוצה. הוא יצר את הקטגוריה של האוכל ה"מהיר-מקז'ואל" (Fast-casual) והיווה את ההשראה לרשתות ענק כמו צ'יפוטלה.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- 6. סעיף חדש: גאו-פוליטיקה ודמוגרפיה (תקן הזהב 2.0) -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-caGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
-                גאו-פוליטיקה ודמוגרפיה: האימפריה של האוקיינוס השקט
+        <!-- 5. אנומליות תרבותיות וכינויים -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-textMuted shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-cardBorder text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">5</span>
+                כינויי המדינה: ניתוח פנומנולוגי
             </h2>
-            
-            <div class="space-y-14">
-                <!-- שטח וטופוגרפיה -->
-                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-caBlue shadow-xl">
-                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-caBlue">שטח וטופוגרפיה (Area & Topography)</h3>
-                    <p class="text-slate-300 leading-loose text-lg">
-                        קליפורניה היא המדינה ה-3 בגודלה בארה"ב. הגיוון הטופוגרפי שלה הוא מהקיצוניים בעולם. בתחומה נמצאת הפסגה הגבוהה ביותר ב-48 המדינות התחתונות (**הר ויטני**, 4,421 מטר) והנקודה הנמוכה והחמה ביותר בצפון אמריקה (**עמק המוות - Death Valley**, 86 מטרים מתחת לפני הים). המרחק הפיזי בין שתי הנקודות הללו הוא 136 קילומטרים בלבד! במרכז המדינה שוכן "העמק המרכזי" (Central Valley), קערה חקלאית עצומה ושטוחה המייצרת כשליש מהירקות ומשני שלישים מהפירות והאגוזים בארצות הברית כולה.
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-caGold mb-4 underline italic decoration-caGold/40">The Golden State (מדינת הזהב)</h3>
+                    <p class="text-lg leading-loose text-textMuted">
+                        זהו הכינוי הרשמי, הידוע והאוניברסלי ביותר של קליפורניה. הפנומנולוגיה שלו מושלמת כיוון שהיא מתחברת לכמה רבדים במקביל. ראשית והיסטורית, לגילוי הזהב ב-1848 שהצית את ה-Gold Rush. שנית, לחקלאות: שדות החיטה, שיבולת השועל והפרגים הקליפורניים (Eschscholzia californica - פרח המדינה) שצובעים את הגבעות בזהב בקיץ. ושלישית, לצבע השקיעה הדרמטית מעל האוקיינוס השקט והאקלים השמשי שמשך אליו את תעשיית הקולנוע להוליווד.
                     </p>
                 </div>
-
-                <!-- דמוגרפיה -->
-                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-caRed shadow-xl">
-                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-caRed">פסיפס אנושי (Demographics)</h3>
-                    <p class="text-slate-300 leading-loose text-lg">
-                        קליפורניה היא המדינה המאוכלסת ביותר בארה"ב, עם כ-39 מיליון תושבים. היא מהווה **מדינת רוב-מיעוט** (Majority-Minority state), שבה אין לאף קבוצה אתנית יחידה רוב מוחלט של 50%. הקבוצה האתנית הגדולה ביותר במדינה היא האוכלוסייה ההיספאנית/לטינית, המהווה כ-40% מהתושבים (חזרה מעגלית לשורשיה כטריטוריה מקסיקנית). בנוסף, היא מכילה את האוכלוסייה האסייתית-אמריקאית הגדולה והמשפיעה ביותר בארה"ב, שהתפתחה מבוני מסילות הברזל הסינים וממתיישבי החוף המערבי. דמוגרפיה זו הפכה את המדינה למנוע התרבותי, הטכנולוגי (עמק הסיליקון) והקולנועי (הוליווד) העוצמתי בעולם.
-                    </p>
-                </div>
-
-                <!-- סיבת המיקום והגבולות -->
-                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-caGold shadow-xl">
-                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-caGold">עיצוב גבולות: בלימת העבדות וירושת הבהלה לזהב</h3>
-                    <p class="text-slate-300 leading-loose text-lg">
-                        הגבולות הליניאריים המשונים של מזרח קליפורניה (החותכים באלכסון דרך המדבריות של נהר הקולורדו והסיירה נבאדה) עוצבו על ידי הבהלה לזהב של 1848. האמריקאים היו נחושים להכליל בתוך המדינה החדשה את כל שדות הזהב, יחד עם השליטה המוחלטת על הנמלים האסטרטגיים של סן פרנסיסקו וסן דייגו, תוך עקיפת האזורים המדבריים שנשלטו על ידי המורמונים ביוטה.<br><br>
-                        פוליטית, כניסתה לאיחוד לוותה במשבר לאומי: ב"פשרת 1850", קליפורניה אושרה להיכנס כ**מדינה חופשית (Free State)**, ללא עבדות. אולם, היא הייתה כה ארוכה מבחינה גיאוגרפית, שגבולותיה חצו גם מצפון וגם מדרום לקו פשרת מיזורי (קו רוחב 36°30′ שנועד להפריד בין מדינות עבדים למדינות חופש). העובדה שקליפורניה חסמה כליל את קו החוף האוקיינוס השקט מפני התפשטות מוסד העבדות, הייתה אחת המכות הגיאופוליטיות הקשות ביותר שספג הדרום, והאיצה את התפרקות האומה.
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-caRed mb-4 underline italic decoration-caRed/40">The Bear Republic</h3>
+                    <p class="text-lg leading-loose text-textMuted">
+                        "רפובליקת הדוב". כינוי פוליטי והיסטורי המתייחס לאירוע "מרד דגל הדוב" מ-1846 (כפי שפורט בסעיף הריבונות). למרות שהרפובליקה העצמאית של קליפורניה החזיקה מעמד פחות מחודש ימים לפני שסופחה לארצות הברית, הדימוי של ה"רפובליקה" נשאר טבוע עמוק באתוס העצמאי, החופשי (ולעיתים הבדלני) של אזרחי המדינה. הכינוי (והדוב) מופיעים על כל דגל שמונף במדינה.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- 7. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-caRed text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">7</span>
-                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+        <!-- 6. וקסילולוגיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-caRed shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-caRed text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">6</span>
+                וקסילולוגיה: הרפובליקה של הדוב שנעלם
             </h2>
             
-            <div class="space-y-14">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <!-- The Golden State -->
-                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-caGold shadow-2xl">
-                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Golden State (מדינת הזהב)</h3>
-                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">עיצוב גורל באמצעות מתכת וטבע</p>
-                        <p class="text-slate-300 leading-loose text-lg">
-                            הכינוי הרשמי של קליפורניה מקפל בתוכו פנומנולוגיה משולשת. ראשית, היסטורית וכלכלית: גילוי הזהב בטחנת סאטר (Sutter's Mill) ב-1848 אשר משך אליה תוך חודשים ספורים מאות אלפי מהגרים (ה-Forty-Niners) ושינה את ההיסטוריה האמריקאית. שנית, בוטנית: שדות הבר של קליפורניה מתכסים באביב במרבדים של **פרג קליפורניה (California Poppy)** שהוא בצבע כתום-זהוב מבהיק (פרח המדינה). שלישית, אקלימית-פסיכולוגית: זהו הדימוי של ה"חלום הקליפורני", של השמש הנצחית והשקיעות המוזהבות מעל האוקיינוס השקט, המבטיחות התחלה חדשה ועושר אינסופי.
-                        </p>
-                    </div>
-
-                    <!-- Bear Flag Republic -->
-                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-caBlue shadow-2xl">
-                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-caBlue">Bear Flag Republic</h3>
-                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">נוסטלגיה למרד חולף</p>
-                        <p class="text-slate-300 leading-loose text-lg">
-                            כינוי היסטורי זה מתייחס לרפובליקה העצמאית שהוכרזה במהלך "מרד דגל הדוב" ב-1846 (בהנחיית ג'ון ס. פרמונט). אף שהרפובליקה הזו לא הייתה ישות מדינית מאורגנת, לא הוכרה על ידי איש, וחדלה מלהתקיים תוך פחות מ-25 ימים, היא נותרה חרוטה בדי-אן-איי התרבותי של קליפורניה. היא מסמלת את החוצפה, העצמאות הפוליטית ואת האמונה שקליפורניה מסוגלת לעמוד ברשות עצמה כמעצמה נפרדת (אמונה שצצה מדי פעם ביוזמות תיאורטיות כמו ה"קלקסיט").
-                        </p>
-                    </div>
+            <div class="flex flex-col items-center mb-10 mt-6">
+                <!-- דגל קליפורניה ב-CSS להמחשה פנימית (קליק להגדלה נמצא למעלה) -->
+                <div class="w-full max-w-lg aspect-[3/2] bg-white rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-300 relative">
+                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full bg-white">
+                        <rect y="165" width="300" height="35" fill="#C9082A"/>
+                        <polygon points="40,30 45,45 60,45 48,55 52,70 40,60 28,70 32,55 20,45 35,45" fill="#C9082A"/>
+                        <rect x="70" y="130" width="160" height="5" fill="#228B22"/>
+                        <text x="150" y="125" font-size="55" text-anchor="middle" dominant-baseline="bottom">🐻</text>
+                        <text x="150" y="152" font-family="sans-serif" font-weight="900" font-size="16" fill="#333333" text-anchor="middle" letter-spacing="1">CALIFORNIA REPUBLIC</text>
+                    </svg>
                 </div>
+                <p class="mt-6 text-sm font-bold text-textMuted tracking-widest uppercase bg-cardBorder px-4 py-2 rounded-full">אומץ רשמית בחוק בשנת 1911</p>
             </div>
-        </section>
 
-        <!-- 8. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-caBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">8</span>
-                וקסילולוגיה: דוב הרפובליקה והכוכב האדום
-            </h2>
-            
-            <div class="flex flex-col items-center mb-16">
-                <!-- ייצוג ויזואלי של דגל קליפורניה ב-CSS -->
-                <div class="w-full max-w-2xl aspect-[3/2] bg-white rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col items-center justify-end group">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-black/5 via-transparent to-black/10 pointer-events-none z-0"></div>
-                    
-                    <!-- הסרט האדום בתחתית -->
-                    <div class="absolute bottom-0 w-full h-1/6 bg-[#C92A39] z-10"></div>
-
-                    <div class="relative w-full h-full flex flex-col items-center justify-center z-20 pb-8 transform transition-transform duration-700 group-hover:scale-105">
-                        
-                        <!-- הכוכב האדום בקנטון -->
-                        <div class="absolute top-6 left-8 text-[#C92A39] text-5xl md:text-6xl drop-shadow-sm">★</div>
-                        
-                        <!-- דוב הגריזלי (ייצוג ויזואלי) -->
-                        <div class="text-[#5C4033] text-8xl md:text-[8rem] drop-shadow-md -ml-8 mt-2 z-20">🐻</div>
-                        
-                        <!-- חלקת הדשא הירוקה מתחת לדוב -->
-                        <div class="w-48 h-3 bg-green-600 rounded-full mt-1 z-10 opacity-90 shadow-sm blur-[1px]"></div>
-                        
-                        <!-- המילים CALIFORNIA REPUBLIC -->
-                        <div class="mt-4 text-[#5C4033] font-black text-2xl md:text-3xl tracking-[0.2em] uppercase drop-shadow-sm">
-                            California Republic
-                        </div>
-                    </div>
-                </div>
-                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
-                    דוב הרפובליקה על שדה לבן <br><span class="text-xl font-medium text-slate-500">(העיצוב המקורי של טוד, 1846. אומץ ב-1911)</span>
+            <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-caRed decoration-4">מבד כותנה מוכתם לאייקון עולמי:</h3>
+                <p class="leading-loose text-lg text-textMain mb-6">
+                    דגל קליפורניה (The Bear Flag) הוא ללא ספק אחד הדגלים המוכרים והאייקוניים ביותר בעולם, והוא נמכר על חולצות ומוצרים בכל קצוות תבל. מקורו הוא לחלוטין "יצירת שטח" מרדנית. הדגל המקורי צויר בחיפזון בחודש יוני 1846, במהלך "מרד דגל הדוב" בעיר סונומה. הצייר היה **ויליאם ל. טוד** (אחיינה של מרי טוד לינקולן, אשת הנשיא). הוא נטל פיסת בד כותנה גולמי, צייר עליה את המרכיבים במיץ פטל ובצבעים מאולתרים, ואזרחים מקסיקנים שלעגו לציור טענו שהדוב נראה יותר כמו חזיר. הדגל המקורי הזה נשרף לחלוטין ברעידת האדמה והשריפה הגדולה של סן פרנסיסקו ב-1906, אך העיצוב שרד ואומץ רשמית ב-1911.
                 </p>
-            </div>
-
-            <div class="space-y-14 text-slate-300">
-                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-caRed shadow-xl">
-                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-caRed decoration-4">נסיבות היצירה ומורשת מלחמת האזרחים:</h3>
-                    <p class="text-xl leading-loose">
-                        דגל קליפורניה (The Bear Flag) נחשב לאחד הדגלים האייקוניים והמזוהים ביותר בעולם. העיצוב המקורי והגס שלו צויר ביוני 1846 במהלך "מרד דגל הדוב" בסונומה, על ידי **ויליאם ל. טוד** (William L. Todd - שהיה, כבדרך אגב, אחיינה של מרי טוד לינקולן, אשת הנשיא). טוד צייר את הדגל על פיסת בד כותנה גולמית (שנתרמה מחצאית של אישה מקומית) בעזרת צבע שעשוי ממיץ אוכמניות אדומות וחלודה. המקסיקנים שלעגו לדגל טענו שהדוב של טוד נראה כמו "חזיר". הדגל המקורי נשרף ברעידת האדמה והשריפה הגדולה של סן פרנסיסקו ב-1906. ב-1911 אומץ הדגל רשמית, וב-1953 הוסדרו הפרופורציות והדוב הותאם למראהו של גריזלי אמיתי ששמו היה "מונרך".
+                <div class="space-y-4">
+                    <p class="leading-loose text-lg text-textMain">
+                        <strong class="text-caRed">הכוכב האדום (The Lone Star):</strong> בפינה השמאלית העליונה ניצב כוכב אדום בודד. זהו חיקוי ישיר והומאז' ל**דגל טקסס ("כוכב הבודד")**. מתיישבי קליפורניה שאבו השראה מהצלחתה של טקסס (שהייתה מחוז מקסיקני) למרוד, להכריז על רפובליקה עצמאית, ולהסתפח לארצות הברית. הכוכב מסמל את העצמאות הפוליטית ואת הרוח הרפובליקנית.
                     </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-caGold shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-caGold">דוב הגריזלי - כוח ועקשנות:</h4>
-                        <p class="leading-loose text-lg">דוב הגריזלי הקליפורני המופיע במרכז הדגל (צועד על חלקת דשא ירוקה מול האויב) היה סמל מושלם עבור המתיישבים המורדים. הדוב נבחר כסמל לעוצמה פראית ובלתי מאולפת. במסורת ההרלדית המקומית, הדוב לא תוקף אלא מגן על הטריטוריה שלו – הוא יילחם עד טיפת דמו האחרונה אם יתגרו בו, בדיוק כפי שהמתיישבים התריסו כנגד השלטון המקסיקני. למרבה הצער, חיה אדירה זו נכחדה על ידי האדם, והיא קיימת היום רק על בד הדגל.</p>
-                    </div>
-                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">הכוכב האדום (Lone Star):</h4>
-                        <p class="leading-loose text-lg">הכוכב האדום הבודד בפינה השמאלית העליונה (בקנטון) אינו מקרי. הוא הועתק במכוון מדגלה של **"רפובליקת טקסס"** (The Lone Star). המורדים בסונומה שאבו השראה מהצלחתה של טקסס למרוד במקסיקו עשור קודם לכן ולהפוך לרפובליקה עצמאית. הכוכב האדום מייצג סולידריות בין המורדים בקליפורניה למורדים בטקסס נגד אותו שלטון מרכזי.</p>
-                    </div>
+                    <p class="leading-loose text-lg text-textMain">
+                        <strong class="text-[#B87333]">דוב הגריזלי המהלך:</strong> במרכז הדגל פוסע דוב גריזלי קליפורני (אשר מבוסס רשמית על ציור משנת 1855 של דוב אמיתי בשם "מונרך", שנלכד והוצג בכלובי סן פרנסיסקו). הדוב מסמל עבור יוצרי הדגל כוח עצום, חוסר פחד, ונחישות להגן על טריטוריה. הופעתו על הדגל היא תזכורת חזותית לחיה המלכותית שנכחדה על ידי אותם אזרחים שבחרו בה לסמלם. מתחתיו נכתב באנגלית בוטה "CALIFORNIA REPUBLIC" – זכר ל-25 הימים שבהם הייתה מדינה ריבונית נפרדת (או כך לפחות הכריזו תושביה).
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- 9. ביבליוגרפיה ומקורות מחקריים -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">9</span>
+        <!-- 7. ביבליוגרפיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-cardBorder shadow-2xl">
+            <h2 class="text-2xl font-black text-textMuted mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-cardBorder text-white w-10 h-10 rounded-lg flex items-center justify-center ml-4 text-lg">7</span>
                 ביבליוגרפיה ומקורות מחקריים
             </h2>
-            
-            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">California Historical Society:</p>
-                    <p>"The Etymology of California: Queen Calafia's Mythical Island". מחקר אקדמי החושף כיצד רומן האבירים הספרדי מהמאה ה-16 גרם לקונקיסטדורים לכנות את המדבר על שם אי פנטזיה של זהב ואמזונות.</p>
+            <div class="space-y-6 text-lg text-textMuted leading-loose">
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">California State Library (Etymology):</strong>
+                    מחקר אודות גארסי רודריגס דה מונטאלבו והרומן Las sergas de Esplandián משנת 1510, שיצר את המיתוס על המלכה האמזונית קאלאפיה ששלטה באי עשוי זהב.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Bancroft Library, UC Berkeley:</p>
-                    <p>"John C. Frémont and the Bear Flag Revolt of 1846". מסמכים המתעדים את המרד הפזיז בסונומה, שהוליד רפובליקה עצמאית בת חודש אחד בלבד ואת דגל המדינה.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Oakland Museum of California:</strong>
+                    תיעוד גילוי הזהב בטחנת סאטר על ידי ג'יימס מרשל ב-1848, האירוע ששינה דמוגרפית את החוף המערבי והוביל לכניסת קליפורניה לאיחוד ב-1850 ללא שלב טריטוריאלי.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Stanford University Archives:</p>
-                    <p>"Leland Stanford: From Robber Baron to University Founder". ביוגרפיה היסטורית המפרטת את שליטתו המונופוליסטית של סטנפורד במסילות הברזל ואת הטרגדיה המשפחתית שהובילה להקמת האוניברסיטה.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">National Park Service (NPS) - Sonoma State Historic Park:</strong>
+                    ההיסטוריה של ויליאם ב. אייד ו"מרד דגל הדוב" ביוני 1846, המהלך הטקטי נגד השלטון המקסיקני שהוליד את המונח "רפובליקת קליפורניה".
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">California Department of Fish and Wildlife:</p>
-                    <p>"The Extinction of the California Grizzly". תיעוד אקולוגי טרגי של הכחדת טורף העל הקליפורני (ב-1924) על ידי כורי זהב ומופעי דמים מול פרים בסן פרנסיסקו.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Boudin Bakery Archives & Gastronomic Studies:</strong>
+                    הקשר הסימביוטי בין כורי הזהב שלא מצאו שמרים לבין התפתחות לחם המחמצת של סן פרנסיסקו באמצעות זן בקטריאלי ייחודי לאקלים המקומי.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
-                    <p>"The Evolution of the Bear Flag: From Todd's 'Pig' to Monarch the Bear". היסטוריוגרפיה של עיצוב הדגל המקורי על ידי אחיינה של מרי טוד לינקולן במיץ אוכמניות וחלודה.</p>
+                <div>
+                    <strong class="text-white block mb-1">North American Vexillological Association (NAVA):</strong>
+                    התיעוד ההיסטורי של ציור הדגל המקורי על ידי ויליאם טוד במיץ פטל, משמעות "הכוכב הבודד" כהומאז' למרד הטקסני, והאירוניה של הנצחת הגריזלי הקליפורני שנכחד.
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- פוטר אתר ממותג -->
-    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
-        <div class="flex flex-col items-center gap-10">
-            <div class="flex gap-8">
-                <div class="w-6 h-6 bg-caBlue rounded-full shadow-[0_0_15px_rgba(0,50,98,0.6)]"></div>
-                <div class="w-6 h-6 bg-caGold rounded-full shadow-[0_0_15px_rgba(183,135,39,0.6)]"></div>
-                <div class="w-6 h-6 bg-caRed rounded-full shadow-[0_0_15px_rgba(201,42,57,0.6)]"></div>
-            </div>
-            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
-                US State Origins - Ultimate Academic Archive
-            </p>
-            <p class="text-slate-400 text-4xl font-black">
-                האתר נוצר על ידי ג'מיני ורם | 2026
-            </p>
+    <!-- מודל (חלון צף) להגדלת הדגל -->
+    <div id="flagModal" class="hidden fixed inset-0 z-[100] bg-appBg/95 backdrop-blur-md flex items-center justify-center p-4 cursor-pointer" onclick="closeFlagModal()">
+        <div class="modal-animate relative w-full max-w-4xl aspect-[3/2] bg-white rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(201,8,42,0.4)] border-8 border-slate-300 cursor-default" onclick="event.stopPropagation()">
+            <!-- כפתור סגירה -->
+            <button onclick="closeFlagModal()" class="absolute top-4 right-4 z-50 bg-black/50 hover:bg-black text-white rounded-full p-3 transition-colors shadow-lg border border-white/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <!-- העתק מדויק של הדגל בגדול מבוסס SVG -->
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full bg-white">
+                <rect y="165" width="300" height="35" fill="#C9082A"/>
+                <polygon points="40,30 45,45 60,45 48,55 52,70 40,60 28,70 32,55 20,45 35,45" fill="#C9082A"/>
+                <rect x="70" y="130" width="160" height="5" fill="#228B22"/>
+                <text x="150" y="125" font-size="55" text-anchor="middle" dominant-baseline="bottom" style="filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.3));">🐻</text>
+                <text x="150" y="152" font-family="sans-serif" font-weight="900" font-size="16" fill="#333333" text-anchor="middle" letter-spacing="1">CALIFORNIA REPUBLIC</text>
+            </svg>
         </div>
-    </footer>
+        <p class="absolute bottom-10 text-textMuted font-bold tracking-widest uppercase bg-cardBg/80 px-6 py-2 rounded-full border border-cardBorder">לחץ מחוץ לדגל כדי לסגור</p>
+    </div>
+
+    <!-- פונקציות JS לחלון הצף -->
+    <script>
+        function openFlagModal() {
+            document.getElementById('flagModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // מניעת גלילה של הרקע
+        }
+        function closeFlagModal() {
+            document.getElementById('flagModal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // החזרת גלילה
+        }
+        // סגירה גם בלחיצה על כפתור Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeFlagModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
+
 
