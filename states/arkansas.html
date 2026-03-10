@@ -11,12 +11,18 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#0f172a',
-                        cardBg: '#1e293b',
-                        accent: '#38bdf8',
-                        arRed: '#EF3340',  /* Arkansas Flag Red */
-                        arBlue: '#00205B', /* Arkansas Flag Blue */
-                        arDiamond: '#F3F4F6'
+                        appBg: '#050B14',      /* Deep Space Navy */
+                        cardBg: '#0B172A',     /* Elevated Card Navy */
+                        cardBorder: '#1E293B', /* Card Border */
+                        accentBlue: '#38BDF8', /* Neon Blue Accent */
+                        arRed: '#EF3E42',      /* Arkansas Flag Red */
+                        arBlue: '#002868',     /* Arkansas Flag Blue */
+                        arDiamond: '#E2E8F0',  /* Diamond White/Silver */
+                        textMain: '#E2E8F0',   /* Soft White Text */
+                        textMuted: '#94A3B8'   /* Slate Gray Text */
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
                     }
                 }
             }
@@ -24,327 +30,409 @@
     </script>
     <style>
         body { 
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             -webkit-tap-highlight-color: transparent;
+            background-color: #050B14;
+            color: #E2E8F0;
             line-height: 1.85;
         }
-        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
-        p, li, span, div, blockquote { font-size: 1.125rem; } 
-        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
-        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
-        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
-        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
-        .sub-header { @apply text-arDiamond font-black text-2xl mb-5 underline italic decoration-arDiamond/40 underline-offset-8; }
-        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+        p, li, span, div, blockquote { font-size: 1.125rem; } /* 18px קבוע לקריאה נוחה ב-S25 Ultra */
+        
+        /* Scrollbar מותאם לאפליקציה */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050B14; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        
+        .glass-panel {
+            background: rgba(11, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(30, 41, 59, 0.8);
+        }
+        
+        .stat-badge {
+            background: linear-gradient(145deg, #112240 0%, #0B172A 100%);
+            border: 1px solid #1E293B;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .sub-header { @apply text-accentBlue font-black text-xl mb-3 underline italic decoration-accentBlue/40 underline-offset-8 mt-6; }
+
+        /* אנימציית הופעה לחלון הצף */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-animate {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
     </style>
 </head>
-<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+<body class="antialiased min-h-screen flex flex-col items-center pb-20">
 
-    <!-- ניווט עליון -->
-    <nav class="w-full max-w-4xl mb-10">
-        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+    <!-- ניווט עילי -->
+    <nav class="w-full max-w-4xl p-6 sticky top-0 z-40 glass-panel border-b-0 rounded-b-3xl mb-6 shadow-lg flex justify-between items-center">
+        <a href="../index.html" class="inline-flex items-center text-accentBlue hover:text-white transition-colors font-bold text-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
             חזרה לאטלס המדינות
         </a>
+        <span class="text-xs font-black tracking-widest text-textMuted uppercase bg-cardBorder px-3 py-1 rounded-full">AR</span>
     </nav>
 
-    <!-- כותרת מחקר אקדמי -->
-    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-arRed relative overflow-hidden">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
-            <div>
-                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">ארקנסו</h1>
-                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Arkansas - The Natural State</p>
-                <div class="h-2 w-56 bg-arBlue mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(0,32,91,0.5)]"></div>
-            </div>
-            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
-                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
-                <p class="text-5xl font-black text-white">15 ביוני, 1836</p>
-                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-25 באיחוד</p>
-            </div>
-        </div>
-    </header>
-
-    <main class="w-full max-w-4xl space-y-20">
+    <main class="w-full max-w-4xl px-4 space-y-10">
         
-        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
-                אטימולוגיה: השבט, הצרפתים והפרדוקס ההגייתי
-            </h2>
+        <!-- Hero Section -->
+        <header class="w-full rounded-[3rem] overflow-hidden shadow-2xl relative bg-gradient-to-b from-[#2B0A0F] to-cardBg border border-cardBorder pt-12 pb-10">
+            <!-- רקע גרפי מופשט -->
+            <div class="absolute top-0 left-0 w-full h-72 bg-arRed opacity-20 blur-[100px] rounded-full mix-blend-screen pointer-events-none"></div>
             
-            <div class="space-y-10">
-                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
-                    אחת השאלות המפורסמות ביותר באמריקה היא: "אם ישנה מדינה בשם קנזס (Kansas), מדוע המדינה שנכתבת Arkansas נהגית כ'ארקנסו' ולא כ'ארקנזס'?". התשובה טמונה בניתוח מולקולרי של מיזוג לשוני בין אקולוגיה אינדיאנית לפונטיקה צרפתית.
-                </p>
-
-                <div class="space-y-8">
-                    <!-- Akansa -->
-                    <div class="etymology-box border-arBlue">
-                        <p class="text-arBlue font-black text-5xl mb-6 italic tracking-tighter">Akansa</p>
-                        <div class="space-y-4">
-                            <p><strong>מקור פילולוגי:</strong> שפת האילינוי (Algonquian).</p>
-                            <p><strong>משמעות מילולית:</strong> "אנשי רוח הדרום" (People of the south wind).</p>
-                            <p><strong>ניתוח מחקרי:</strong> שבט הקוואפו (Quapaw) הילידי אכלס את עמק נהר המיסיסיפי התחתון. שבטי האילינוי הצפוניים להם, שדיברו שפה שונה (אלגונקווין), כינו אותם בשם הגיאוגרפי והאקלימי "אקאנסה" – אלו שחיים במורד הזרם, מהיכן שנושבת הרוח החמה.</p>
-                        </div>
-                    </div>
-
-                    <!-- -s -->
-                    <div class="etymology-box border-arRed">
-                        <p class="text-arRed font-black text-5xl mb-6 italic tracking-tighter">Arcansas</p>
-                        <div class="space-y-4">
-                            <p><strong>מקור פילולוגי:</strong> תעתיק פונטי וסיומת רבות צרפתית.</p>
-                            <p><strong>ניתוח מחקרי:</strong> כאשר חוקרים צרפתים (בראשות מארקט וז'ולייה) הגיעו לאזור ב-1673, הם שמעו את שבטי האילינוי משתמשים במילה "אקאנסה". הצרפתים הוסיפו את האות "r" כדי להתאים למבנה הפונטי שלהם, ואת האות "s" בסוף המילה כסיומת תקנית לרבים בצרפתית, המציינת שבט או קבוצת אנשים (כפי שעשו ב-Illinois). **בחוקי הקריאה בצרפתית, האות 's' בסוף מילה היא שותקת (אילמת).** לכן, הם הגו זאת כ-"ארקנסו".</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-slate-800/60 p-10 rounded-[2rem] border-r-8 border-arDiamond shadow-xl mt-10">
-                    <h3 class="font-black text-white mb-6 text-2xl italic underline decoration-arDiamond underline-offset-8">החוק המדינתי שקיבע את ההגייה (1881):</h3>
-                    <div class="space-y-6 text-slate-300 leading-loose">
-                        <p>לאחר שארה"ב רכשה את האזור (1803), נוצר כאוס אדיר. אנגלו-אמריקאים נטו לקרוא את המילה כפי שהיא נכתבת (Ar-kan-sas), בעוד המקומיים התעקשו על ההגייה הצרפתית-היסטורית (Ar-kan-saw). הקרב הגיע עד כדי כך ששני הסנאטורים של המדינה היו מציגים את עצמם בצורה שונה בוושינגטון.</p>
-                        <p>בשנת 1881, כדי לשים קץ לבלבול ולשמר את המורשת המקומית הייחודית מול ההגמוניה האנגלית, העביר בית המחוקקים של ארקנסו חוק רשמי (Arkansas Code 1-4-105) הקובע כי **ההגייה החוקית היחידה היא עם "a" רחבה בסוף ו-s אילמת**. קנזס (Kansas), לעומת זאת, ירשה את שמה מהאיות האנגלי הישיר של שבט ה"קאנזה", ללא המסנן הצרפתי ש"השתיק" את האות האחרונה.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-arRed text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
-                כרוניקה של ריבונות: "יד הברזל" והגנרל המסרב
-            </h2>
-            
-            <div class="space-y-16">
-                <!-- אנרי דה טונטי -->
-                <div class="personality-card border-r-8 border-arBlue shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-arBlue decoration-4 underline-offset-8">ההוגה המייסד: אנרי דה טונטי (Henri de Tonti)</h3>
-                    <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1649–1704. <strong>תואר היסטורי:</strong> "אבי ארקנסו" (The Father of Arkansas).</p>
+            <div class="px-6 md:px-12 relative z-10 flex flex-col items-center text-center">
+                
+                <!-- דגל המדינה הראשי (קליק להגדלה) -->
+                <div onclick="openFlagModal()" class="cursor-pointer group relative mb-10">
+                    <div class="w-48 sm:w-56 aspect-[3/2] bg-[#EF3E42] rounded-3xl overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-4 border-slate-700 relative transform transition-transform duration-500 group-hover:scale-105 group-active:scale-95">
                         
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">ילדות ופציעה - קפטן 'יד הברזל':</h4>
-                            <p class="leading-loose">דה טונטי נולד באיטליה אך גדל בצרפת, לשם גלתה משפחתו מסיבות פוליטיות. כנער, הצטרף לצי הצרפתי. במהלך קרב אכזרי במלחמת הולנד-צרפת ב-1677, פגע רימון צרפתי בידו הימנית והיא נקטעה. במקום לפרוש, דה טונטי התקין תותב מתכתי (קרס דמוי יד) שאותו כיסה בכפפה. הוא נודע ביכולתו להשתמש ב"יד הברזל" שלו בקרבות אגרופים מול אויבים. כוח הרצון והסיבולת שלו הפכו אותו לשותפו המרכזי והאמין ביותר של מגלה הארצות המפורסם, רנה-רובר קוואלייה (דה לה סאל).</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">אידיאולוגיה - סחר ושלום ילידי:</h4>
-                            <p class="leading-loose">בעוד רוב החוקרים בני דורו חלמו על זהב, טונטי היה פרגמטיסט. הוא הבין שהעושר האמיתי של עמק המיסיסיפי נמצא בסחר הפרוות. האידיאולוגיה שלו דגלה ביצירת בריתות כלכליות וצבאיות איתנות עם שבטי הילידים (ובעיקר הקוואפו) כדי להקים רשת מסחר יציבה, במקום לכבוש ולשעבד אותם בכוח הזרוע.</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">הישגים מכוננים - ייסוד ארקנסו פוסט (1686):</h4>
-                            <p class="leading-loose">בשנת 1686, בלב השממה ומוקף בביצות, הקים דה טונטי את **Arkansas Post** (מוצב ארקנסו) על גדות נהר הארקנסו. זה היה היישוב האירופאי הקבוע הראשון באזור עמק המיסיסיפי התחתון (הקדים את ניו אורלינס בעשרות שנים). היישוב שימש כנקודת סחר מכרעת, מרכז צבאי צרפתי ובהמשך גם כבירתה הראשונה של טריטוריית ארקנסו, מה שהופך את טונטי לאבי ההתיישבות המודרנית במדינה.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ג'יימס מילר -->
-                <div class="personality-card border-r-8 border-arRed shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-arRed decoration-4 underline-offset-8">הבונה והמושל בעל כורחו: ג'יימס מילר (James Miller)</h3>
-                    <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1776–1851. <strong>מעמד:</strong> המושל הטריטוריאלי הראשון (1819-1824).</p>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">רקע וגיבור לאומי:</h4>
-                            <p class="leading-loose">מילר נולד בניו המפשייר והיה לגנרל מהולל במלחמת 1812. הוא נכנס לפנתיאון ההיסטוריה האמריקאית בקרב לנדיס ליין (Lundy's Lane), כאשר מפקדו שאל אותו אם הוא יכול לכבוש סוללת תותחים בריטית מבוצרת תחת אש כבדה. תשובתו הקצרה והמיתולוגית של מילר הייתה: **"I'll try, Sir!"** (אני אנסה, המפקד!), והוא אכן כבש אותה. הפתגם הפך למוטו בצבא האמריקאי.</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">הפרדוקס - המושל שלא רצה למשול:</h4>
-                            <p class="leading-loose">כאשר הנשיא ג'יימס מונרו הקים את טריטוריית ארקנסו ב-1819, הוא מינה את גיבור המלחמה מילר למושל הראשון. אך מילר, איש צפון מתורבת, סלד מהרעיון של ניהול טריטוריית "ספר פראי" רווית יתושים, עבדות ואלימות. הוא לקח את זמנו, התעכב כחצי שנה בדרכים, ועד שהגיע לארקנסו פוסט, המזכיר השאפתן שלו (רוברט קריטנדן) כבר השתלט על הפוליטיקה המקומית והקים משפחת פשע פוליטית שנקראה ה"Family".</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">הישגים למרות הייאוש:</h4>
-                            <p class="leading-loose">למרות שתיעב את הפוליטיקה המקומית ונעדר מהטריטוריה לעיתים קרובות, מילר הצליח להקים את מוסדות החוק הראשונים, ארגן מערכת משפט (כדי למתן את תרבות דו-קרב האקדחים שהייתה נפוצה), ואפילו אישר את העברת בירת הטריטוריה מארקנסו פוסט החולה למרכז גיאוגרפי חדש ויציב יותר – **ליטל רוק (Little Rock)**, בירתה של ארקנסו עד היום. ב-1824 הוא התפטר בייאוש וחזר לצפון.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
-                פנתיאון תרבותי: חיות הפרא וגבינה נוזלית
-            </h2>
-            
-            <div class="space-y-14">
-                <!-- בעל החיים הלאומי (תרבותי) -->
-                <div class="culture-highlight border-arRed">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-arRed">החיה התרבותית המובהקת: הרייזורבאק / חזיר הבר (The Razorback)</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">סמל החוסן והאכזריות של הרי האוזרק</p>
-                    <p class="text-slate-300 leading-loose text-xl">
-                        בעוד החיה המדינתית הרשמית של ארקנסו היא אייל פרדי לבן-זנב (כמו במדינות רבות אחרות), ה**רייזורבאק** – חזיר בר אכזרי שחי ביערות הרי האוזרק (Ozarks) – הוא החיה שמגדירה מבחינה תרבותית, סוציולוגית וספורטיבית את ארקנסו בפני כל אמריקה.
-                    </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        הרייזורבאק הוא למעשה "חזיר מתפרא" (Feral hog) – צאצא של חזירי בית אירופאיים שהובאו לאזור וברחו ליערות במהלך מאות שנים. כדי לשרוד את החורפים הקשים והטורפים במדרונות הסלעיים של ארקנסו, חזירים אלו עברו "אבולוציה לאחור": הם פיתחו מבנה גוף צר ורזה, ניבים ארוכים וחדים, ועמוד שדרה קמור שעליו צומח רכס שערות קשיחות וסומרות (ומכאן השם Razor-back, גב-תער).
-                    </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        חזיר זה הפך לסמל של התושבים הכפריים ההרריים (הילביליז) של ארקנסו: עניים, קשוחים, מסוגלים לשרוד מכלום, ואלימים מאוד אם דוחקים אותם לפינה. בשנת 1909, מאמן קבוצת הפוטבול של אוניברסיטת ארקנסו קרא לשחקניו: "שיחקתם כמו להקה פראית של רייזורבאקס!". מאז ועד היום, אוניברסיטת ארקנסו והמדינה כולה מזוהים לחלוטין עם חיית הבר הזו, כולל קריאת העידוד המפורסמת "Wooo Pig Sooie".
-                    </p>
-                </div>
-
-                <!-- המנה הלאומית -->
-                <div class="culture-highlight border-arDiamond">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-arDiamond">המנה הלאומית: מטבל הגבינה (Cheese Dip)</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">המקדים ההיסטורי של ה"קזאו" המקסיקני</p>
-                    <p class="text-slate-300 leading-loose text-xl">
-                        זה אולי נשמע מוזר לחשוב על מאכל שנשמע כמו מזון מהיר מודרני כמנה היסטורית המגדירה מדינה, אך בארקנסו, **הצ'יז דיפ (מטבל גבינה חם ומומס)** הוא מוסד תרבותי בעל תיעוד היסטורי ברור, המקדים אפילו את מטבל ה"קזאו" (Queso) המפורסם של טקסס.
-                    </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        בארקנסו, הוכח שהמנה הומצאה בשנת **1935** על ידי מסעדן בשם **Blackie Donnely** בעיר ליטל רוק, במסעדה שלו שנקראה "Mexico Chiquito" (מקסיקו הקטנה). בתקופת השפל הגדול, דונלי יצר תערובת של גבינות קשות שהומסו יחד עם תבלינים, פלפלים חריפים ואבקות שום ובצל, ויצר נוזל חלק, סמיך וחם שהוגש עם צ'יפס תירס. 
-                    </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        המנה הקטנה והזולה הזו הפכה לאבן יסוד בכל מפגש, אירוע ספורט (של הרייזורבאקס) ומסעדה בארקנסו. המדינה כה גאה בהמצאתה, שבעיר ליטל רוק מתקיימת מדי שנה "אליפות העולם במטבל גבינה" (World Cheese Dip Championship), ובית המחוקקים של ארקנסו העביר резоלוציה המכירה בארקנסו כ"מולדת ההיסטורית" של מטבל הגבינה.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-arBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
-                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
-            </h2>
-            
-            <div class="space-y-14">
-                <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-arDiamond shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic">The Natural State (המדינה הטבעית)</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מעבר למיתוג תיירותי - הכרה טופוגרפית</p>
-                    <p class="text-slate-300 leading-loose text-lg">
-                        הכינוי הנוכחי והרשמי של ארקנסו (שאומץ ב-1995, והחליף את "ארץ ההזדמנויות") אינו רק סיסמת שיווק, אלא תגובה למציאות כלכלית. במשך שנים, ארקנסו נתפסה כמדינה ענייה, כפרית וחסרת תעשייה כבדה לעומת שכנותיה (כמו טקסס). הכינוי "המדינה הטבעית" הופך את ה"חיסרון" הזה ליתרון פנומנולוגי אדיר: חוסר הפיתוח התעשייתי הותיר את ארקנסו עם טבע בתולי עוצר נשימה.
-                    </p>
-                    <p class="text-slate-300 leading-loose text-lg mt-6">
-                        אריזונה מתגאה ב: **הרי האוזרק (Ozarks)** המסועפים והמיוערים בצפון, מעיינות המים החמים שנובעים מהאדמה (הפארק הלאומי Hot Springs היה שמורת הטבע הפדרלית הראשונה אי פעם, עוד לפני ילוסטון), והתופעה הגיאולוגית הנדירה מכולן: **מכתש היהלומים (Crater of Diamonds)**. זהו המכרה הפעיל היחיד בצפון אמריקה שבו אנשים רגילים יכולים לחפור באדמה ואשכרה למצוא ולשמור יהלומים טבעיים גולמיים.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-arRed text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
-                וקסילולוגיה: ניתוח סמיוטי של היהלום וכוכב המריבה
-            </h2>
-            
-            <div class="flex flex-col items-center mb-16">
-                <!-- ייצוג ויזואלי של דגל ארקנסו ב-CSS -->
-                <div class="w-full max-w-2xl aspect-[3/2] bg-[#EF3340] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex items-center justify-center group p-4">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10 pointer-events-none z-0"></div>
-                    
-                    <!-- Diamond Shape -->
-                    <div class="relative w-[70%] h-[80%] bg-[#00205B] transform transition-transform duration-700 group-hover:scale-105 flex items-center justify-center z-10" style="clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);">
-                        
-                        <!-- Inner White Diamond -->
-                        <div class="w-[85%] h-[85%] bg-white flex flex-col items-center justify-center" style="clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);">
-                            
-                            <!-- Top Star -->
-                            <div class="text-[#00205B] text-2xl drop-shadow-sm mb-1">★</div>
-                            
+                        <!-- Arkansas Flag Representation via SVG -->
+                        <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full">
+                            <!-- Background Red -->
+                            <rect width="300" height="200" fill="#EF3E42"/>
+                            <!-- Blue Diamond Border -->
+                            <polygon points="150,20 280,100 150,180 20,100" fill="#002868"/>
+                            <!-- White Diamond -->
+                            <polygon points="150,35 260,100 150,165 40,100" fill="#FFFFFF"/>
                             <!-- ARKANSAS Text -->
-                            <div class="text-[#00205B] font-black text-3xl sm:text-5xl tracking-widest uppercase my-1">ARKANSAS</div>
-                            
-                            <!-- Bottom 3 Stars -->
-                            <div class="flex gap-2 text-[#00205B] text-2xl drop-shadow-sm mt-1">
-                                <span>★</span>
-                                <span class="-mt-4">★</span>
-                                <span>★</span>
-                            </div>
+                            <text x="150" y="108" font-family="sans-serif" font-weight="900" font-size="28" fill="#002868" text-anchor="middle" letter-spacing="2">ARKANSAS</text>
+                            <!-- 1 Star Above -->
+                            <polygon points="150,55 155,70 170,70 158,80 162,95 150,85 138,95 142,80 130,70 145,70" fill="#002868" transform="scale(0.6) translate(100, 30)"/>
+                            <!-- 3 Stars Below -->
+                            <polygon points="150,55 155,70 170,70 158,80 162,95 150,85 138,95 142,80 130,70 145,70" fill="#002868" transform="scale(0.6) translate(100, 160)"/>
+                            <polygon points="150,55 155,70 170,70 158,80 162,95 150,85 138,95 142,80 130,70 145,70" fill="#002868" transform="scale(0.6) translate(50, 160)"/>
+                            <polygon points="150,55 155,70 170,70 158,80 162,95 150,85 138,95 142,80 130,70 145,70" fill="#002868" transform="scale(0.6) translate(150, 160)"/>
+                            <!-- Abstract dots for the 25 stars in the blue border -->
+                            <circle cx="150" cy="27" r="2" fill="#FFFFFF"/><circle cx="150" cy="173" r="2" fill="#FFFFFF"/>
+                            <circle cx="30" cy="100" r="2" fill="#FFFFFF"/><circle cx="270" cy="100" r="2" fill="#FFFFFF"/>
+                        </svg>
+
+                        <!-- אייקון זכוכית מגדלת מרחף -->
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
                         </div>
-
-                        <!-- 25 Outer Stars Simulation (White dots on the blue border) -->
-                        <div class="absolute inset-0 border-[6px] border-dashed border-white/50" style="clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); opacity: 0.8;"></div>
                     </div>
                 </div>
-                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
-                    היהלום וכוכב הקונפדרציה <br><span class="text-xl font-medium text-slate-500">(עוצב על ידי ווילי קוואנו הוקר, 1924)</span>
-                </p>
+
+                <p class="text-accentBlue font-black tracking-[0.4em] uppercase text-sm mb-4">The Natural State</p>
+                <h1 class="text-6xl md:text-8xl font-black text-white mb-4 tracking-tight">ארקנסו</h1>
+                <p class="text-2xl text-textMuted font-light italic mb-12">Arkansas</p>
+                
+                <!-- Quick Stats Badges -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mt-4">
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">הצטרפות</span>
+                        <span class="text-alaWhite font-black text-2xl">1836</span>
+                        <span class="text-[11px] text-arRed font-black mt-2 bg-arRed/10 px-3 py-1 rounded-full">מדינה 25</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">שטח (דירוג)</span>
+                        <span class="text-alaWhite font-black text-2xl">מקום 29</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">137,732 קמ"ר</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">אוכלוסייה</span>
+                        <span class="text-alaWhite font-black text-2xl">3.06M</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">אומדן 2023</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">עיר בירה</span>
+                        <span class="text-alaWhite font-black text-2xl text-center">ליטל רוק</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">Little Rock</span>
+                    </div>
+                </div>
             </div>
+        </header>
 
-            <div class="space-y-14 text-slate-300">
-                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-arBlue shadow-xl">
-                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-arBlue decoration-4">נסיבות היצירה (1924) והשערורייה של 1923:</h3>
-                    <p class="text-xl leading-loose">
-                        דגל ארקנסו נולד מתוך תחרות שאורגנה על ידי ארגון "בנות המהפכה האמריקאית" (DAR) בשנת 1912, לקראת השקת אוניית קרב חדשה (USS Arkansas). העיצוב הזוכה נוצר על ידי אשת חינוך בשם **ווילי קוואנו הוקר** (Willie Kavanaugh Hocker). 
-                        העיצוב המקורי שלה כלל יהלום ובו **שלושה כוכבים כחולים בלבד** באמצע, כששם המדינה כתוב בלבן. ועדה בראשות שר החוץ של המדינה דרשה להוסיף את המילה "ARKANSAS" בענק באמצע, ולכן הוקר פיצלה את הכוכבים (אחד למעלה, שניים למטה).
-                        <br><br>
-                        הדרמה התרחשה ב-1923: פוליטיקאים שמרנים התלוננו שאין בדגל שום סמל המייצג את ההיסטוריה של ארקנסו כחלק ממדינות הדרום (הקונפדרציה) במלחמת האזרחים. הם העבירו חוק שהוסיף **כוכב כחול רביעי** מעל המילה ARKANSAS, רק כדי לייצג את הקונפדרציה. ההוספה הזו הרסה את הסימטריה המקורית שהוקר תכננה, והפכה את הדגל לאחד היחידים בארה"ב המציין מפורשות הוקרה לקונפדרציה באופן חוקי (בצורה של כוכב מובדל הממוקם מעל שאר הכוכבים).
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">צורת היהלום (Diamond):</h4>
-                        <p class="leading-loose text-lg">ארקנסו היא המדינה היחידה בארה"ב שסמלה המרכזי הוא מעוין/יהלום. צורה זו אינה מקרית: היא מסמלת את הגיאולוגיה המקומית. ארקנסו הייתה המקום הראשון (ובתקופה מסוימת היחיד) בצפון אמריקה שבו נתגלה מכרה יהלומים טבעי. היהלום מייצג את העושר הטמון באדמת ה"מדינה הטבעית".</p>
-                    </div>
-                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-arBlue shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-arBlue">הכוכבים וההיסטוריה המספרית:</h4>
-                        <p class="leading-loose text-lg">
-                            במסגרת הכחולה של היהלום ישנם **25 כוכבים לבנים**, המציינים את היותה המדינה ה-25 שהצטרפה לאיחוד. 
-                            הכוכבים הכחולים בפנים (מלבד זה של הקונפדרציה) מסמלים היסטוריה: שלושת הכוכבים המקוריים מייצגים את שלוש האומות ששלטו בטריטוריה לאורך ההיסטוריה לפני ארה"ב (ספרד, צרפת, וארה"ב עצמה כשרכשה אותה), וכן את העובדה שארקנסו הייתה המדינה השלישית שנוצרה מתוך שטח "רכישת לואיזיאנה".
-                        </p>
-                    </div>
+        <!-- 1. אטימולוגיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-arRed shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-arRed text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">1</span>
+                אטימולוגיה: מולקולריות של הגייה על פי חוק
+            </h2>
+            <div class="space-y-8">
+                <p class="text-textMuted font-medium italic border-r-4 border-arRed pr-6 text-xl leading-loose">
+                    שמה של ארקנסו מציג את אחת האנומליות המשפטיות-בלשניות המפורסמות בארה"ב. למרות שהוא מאוית כמעט זהה למדינת קנזס (Kansas), ההגייה שלו שונה לחלוטין (Ar-kan-saw), ויש חוק מדינה היסטורי שאוסר במפורש להגות אותו אחרת.
+                </p>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder shadow-inner">
+                    <p class="text-accentBlue font-black text-4xl mb-4 tracking-wider">Akansea</p>
+                    <p class="mb-4 text-lg"><strong>מקור פילולוגי:</strong> שילוב של שפת האילנווי (אלגונקווין) והגייה צרפתית.</p>
+                    <p class="text-lg leading-loose"><strong>משמעות וניתוח מלא:</strong> במקור, המילה <em>akakaze</em> הייתה שמו של שבט הקוואפו (Quapaw) בשפת שבטי הסיו (Sioux), ומשמעותה הייתה <strong class="text-white">"אנשי הנהר התחתון"</strong>. שבטים יריבים מצפון קראו להם "Akansea". 
+                    כאשר הגיעו החוקרים הצרפתים (כמו ז'אק מארקט), הם אימצו את השם והוסיפו לו את סיומת הרבים הצרפתית 's' שהיא שתקנית, וכך נכתבה המילה "Arkansas". אולם, במאה ה-19 החל בלבול עצום בקרב דוברי אנגלית – חלק הגו זאת "ארקנזאס" (כמו קנזס) וחלק "ארקנסו" (על פי הצרפתית).
+                    <br><br>
+                    <strong>האנומליה החוקתית (1881):</strong> הוויכוח הגיע לשיאו בסנאט של המדינה, כאשר שני סנאטורים רבו על ההגייה הנכונה. כדי לסיים את הסכסוך, בית המחוקקים העביר בשנת 1881 <strong class="text-arRed">חוק רשמי</strong> הקובע כי האיות הרשמי הוא Arkansas, אך ההגייה החוקית והיחידה המותרת היא "ארקנסו" (AR-kan-saw), כהוקרה למורשת הצרפתית והילידית, וכי הגייתו כ"ארקנזאס" מוגדרת כ"חידוש בלתי מתקבל על הדעת".</p>
                 </div>
             </div>
         </section>
 
-        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+        <!-- 2. גאו-פוליטיקה ודמוגרפיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-accentBlue shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-accentBlue text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">2</span>
+                גאו-פוליטיקה ודמוגרפיה
+            </h2>
+            <div class="space-y-8">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-accentBlue">ההרים, הדלתא ומכרה היהלומים הפתוח (Area & Topography)</h3>
+                    <p class="leading-loose text-lg text-textMuted">
+                        ארקנסו חצויה מבחינה גיאוגרפית ותרבותית באלכסון. חציה הצפון-מערבי הררי ומיוער, נשלט על ידי הרי האוזרק (Ozarks) והרי קוואצ'יטה (Ouachita), אזורים שבהם התפתחה תרבות הררית מחוספסת. חציה הדרום-מזרחי הוא "הדלתא של ארקנסו" – מישור ההצפה השטוח והפורה להפליא של נהר המיסיסיפי (שמגדיר את גבולה המזרחי כולו). באזור זה שלטה בעבר כלכלת המטעים, והוא מקור עשיר לגידולי אורז וכותנה. אנומליה טופוגרפית מדהימה נמצאת בפארק "מכתש היהלומים" (Crater of Diamonds) – זהו המכרה היחיד בעולם שפתוח לציבור, שבו אזרחים יכולים לחפור באדמה ואם הם מוצאים יהלומים (כפי שקורה פעמים רבות), הם רשאים לשמור אותם לעצמם.
+                    </p>
+                </div>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-arRed">פסיפס אנושי: בין כפריות עמוקה לצמיחה קמעונאית (Demographics)</h3>
+                    <p class="leading-loose text-lg text-textMuted">
+                        עם קצת יותר מ-3 מיליון תושבים, ארקנסו היא מדינה דרומית ושמרנית מובהקת, בעלת אופי כפרי מאוד. האוכלוסייה מורכבת מרוב של לבנים (כ-72%), בעיקר באזורי ההרים, ואוכלוסייה אפרו-אמריקאית משמעותית (כ-15%) המרוכזת בעיקר באזור הדלתא ובבירה ליטל רוק. למרות תדמיתה כמדינה ענייה וחקלאית, אזור צפון-מערב ארקנסו (Fayetteville-Bentonville) הוא אחד האזורים הצומחים והעשירים בארה"ב, תודות לריכוז יוצא דופן של תאגידי ענק גלובליים שצמחו מהכפר, ובראשם אימפריית Walmart, Tyson Foods, ו-J.B. Hunt.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. כרוניקה של ריבונות -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-white shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-white text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">3</span>
+                כרוניקה של ריבונות: מהפכן הקמעונאות והנשיא מתקווה
+            </h2>
+            
+            <div class="space-y-12">
+                <!-- סם וולטון -->
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-accentBlue"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">הבונה ומשנה הכלכלה האמריקאית: סם וולטון (Sam Walton)</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">זירת הפעולה: בנטונוויל (Bentonville), ארקנסו, שנות ה-60 ואילך.</p>
+                    
+                    <h4 class="sub-header">רקע: קמעונאי בעיירות שכוחות אל</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        וולטון (1918–1992) נולד באוקלהומה אך עבר לארקנסו כדי לפתוח חנות זכיינות קטנה בעיירה ניופורט. לאחר שאיבד את חוזה השכירות שלו, הוא עבר לעיירה הקטנה בנטונוויל ופתח את "Walton's 5&10". הוא גילה כי חברות הקמעונאות הגדולות באמריקה התעלמו לחלוטין מאזורים כפריים ופתחו סניפים רק בערים גדולות. 
+                    </p>
+
+                    <h4 class="sub-header">אידיאולוגיה: מחירים נמוכים תמיד (Everyday Low Prices)</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        האידיאולוגיה העסקית של וולטון שברה את כללי השוק. הוא האמין שאם ימכור מוצרים ברווח אפסי כמעט (Markup נמוך), אבל בהיקפים מפלצתיים (Volume), הוא ירוויח יותר. יתרה מזאת, הוא החליט לפתוח את חנויות הענק שלו דווקא בפרברים ובעיירות של 5,000 תושבים בלבד בארקנסו ובדרום, בידיעה שחקלאים ייסעו מרחקים ארוכים כדי לקנות בזול.
+                    </p>
+
+                    <h4 class="sub-header">הישגים מכוננים: לידת וולמארט (Walmart)</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        ב-1962 פתח וולטון את חנות ה"וולמארט" הראשונה ברוג'רס, ארקנסו. בעזרת ניהול שרשרת אספקה מהפכני, הוא הפך את החנות הקטנה מארקנסו לתאגיד הקמעונאות הגדול ביותר בעולם ולמעסיק הפרטי הגדול ביותר על פני כדור הארץ. נוכחות המטה של וולמארט בארקנסו הזרימה הון אדיר לצפון-מערב המדינה, הפכה אותה למעצמה לוגיסטית, והגדירה מחדש את תרבות הצריכה הגלובלית.
+                    </p>
+                </div>
+
+                <!-- ביל קלינטון -->
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-arRed"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">הפוליטיקאי וה"דרך השלישית": ביל קלינטון (Bill Clinton)</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">מעמד: מושל ארקנסו והנשיא ה-42 של ארצות הברית.</p>
+                    
+                    <h4 class="sub-header text-arRed decoration-arRed/40">רקע: הילד מ"תקווה"</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        ויליאם ג'פרסון בליית' השלישי (שלימים אימץ את שם המשפחה קלינטון) נולד ב-1946 בעיירה הקטנה בשם **"Hope" (תקווה)** בארקנסו, שלושה חודשים לאחר שאביו נהרג בתאונת דרכים. הוא גדל במשפחה סוערת (אביו החורג היה אלכוהוליסט), אך ניחן בכריזמה פוליטית אינסופית ואינטלקט נדיר שהובילו אותו לאוקספורד ולייל. בגיל 32 בלבד הוא נבחר למושל ארקנסו (המושל הצעיר ביותר בארה"ב דאז).
+                    </p>
+
+                    <h4 class="sub-header text-arRed decoration-arRed/40">אידיאולוגיה: הדמוקרט החדש והדרך השלישית</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        כמושל ממדינה דרומית ושמרנית, קלינטון הבין שהמפלגה הדמוקרטית הליברלית הקלאסית מאבדת את אמריקה. הוא היה מאדריכלי פילוסופיית ה"דמוקרטים החדשים" (New Democrats) וה"דרך השלישית" (Third Way). האידיאולוגיה שלו דגלה בפשרה: תמיכה בסחר חופשי וצמיחה כלכלית (ימין), לצד השקעה בחינוך ורשתות ביטחון חברתי (שמאל). 
+                    </p>
+
+                    <h4 class="sub-header text-arRed decoration-arRed/40">הישגים מכוננים: רפורמות מדינתיות והנשיאות</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        כמושל ארקנסו (במשך למעלה מעשור), הוא העביר רפורמות היסטוריות בחינוך שהעלו את הסטנדרטים במדינה שהייתה בתחתית הדירוג הלאומי. ההצלחה הכלכלית שלו בארקנסו היוותה את מקפצת הקמפיין שלו ב-1992, תחת הסיסמה "אני עדיין מאמין במקום שנקרא תקווה" (I still believe in a place called Hope). כנשיא, הוא הצעיד את ארה"ב לאחת מתקופות השגשוג הכלכלי הארוכות בהיסטוריה, והשאיר חותם בל יימחה של ארקנסו על הפוליטיקה העולמית (כולל המרכז הנשיאותי שלו בליטל רוק).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. פנתיאון תרבותי -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-arDiamond shadow-2xl"> 
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-arDiamond text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">4</span>
+                פנתיאון תרבותי: חזירי הבר ומטבל הגבינה של הדרום
+            </h2>
+            
+            <div class="space-y-12">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-[#8B0000] mb-2 underline italic decoration-[#8B0000]/40">החיה התרבותית (ספורט): רייזורבק (Razorback)</h3>
+                    <p class="text-lg text-textMuted mb-6 font-bold uppercase tracking-widest">החזיר הפראי שהפך לאובססיה (קמע האוניברסיטה)</p>
+                    <p class="leading-loose text-lg text-textMain">
+                        אף שהיונק הרשמי של ארקנסו הוא צבי לבן-זנב הסטנדרטי, החיה שמזוהה יותר מכל דבר אחר עם הזהות, הגאווה והקנאות התרבותית של המדינה היא ה**רייזורבק (חזיר בר / Feral Hog)**. 
+                        <br><br>
+                        "רייזורבק" מתייחס לחזירי בר פראיים שמסתובבים ביערות הדרום, המאופיינים ברכס שיער נוקשה וסמור לאורך גבם (דמוי תער - Razor). בשנת 1909, לאחר שקבוצת הפוטבול של אוניברסיטת ארקנסו ניצחה משחק קשה, המאמן תיאר את השחקנים כ"חבורה של חזירי בר פראיים". השם דבק, והאוניברסיטה הפכה ל"ארקנסו רייזורבקס". מכיוון שלארקנסו אין קבוצות ספורט מקצועניות מרכזיות (כמו NFL או NBA), קבוצת המכללות הפכה לדת של ממש במדינה, וקריאת העידוד האיקונית "Wooo Pig Sooie!" נשמעת בכל פינה בארקנסו.
+                    </p>
+                </div>
+
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-arDiamond mb-2 underline italic decoration-slate-400">המנה הלאומית: צ'יז דיפ (Cheese Dip) ועגבנייה ורודה</h3>
+                    <p class="text-lg text-textMuted mb-6 font-bold uppercase tracking-widest">ההמצאה הקולינרית שהקדימה את טקסס</p>
+                    <p class="leading-loose text-lg text-textMain">
+                        הקולינריה של ארקנסו היא שילוב של אוכל דרומי מסורתי (כמו שפמנון מטוגן) עם המצאה מפתיעה המשויכת באופן מובהק למדינה:
+                    </p>
+                    <ul class="list-disc list-inside space-y-6 mt-6 text-textMain text-lg leading-loose">
+                        <li><span class="text-white font-bold underline decoration-arDiamond">צ'יז דיפ (Cheese Dip):</span> בעוד שטקסס טוענת לבעלות על ה"צ'ילה קון קסו" (Chile con Queso), התיעוד ההיסטורי מצביע על ארקנסו. בשנת 1935, בלק דונלי (Blackie Donelly) פתח מסעדה בשם *Mexico Chiquito* בעיר הספא האט ספרינגס (Hot Springs), ארקנסו. הוא רקח שם תערובת מומסת של גבינה צהובה עם תבלינים מקסיקניים, והגיש אותה עם טורטיות פריכות. המטבל (שבארקנסו נקרא בקנאות רק "Cheese Dip" ולא "קואסו") הפך לאובססיה מדינתית. המדינה אף מארחת את אליפות העולם השנתית בצ'יז דיפ, ויש לה מסלול תיירותי ייעודי (Cheese Dip Trail) העובר בין המסעדות המקומיות.</li>
+                        <li><span class="text-white font-bold underline decoration-[#FFC0CB]">עגבניית סאות' בראדלי הורודה (South Bradley County Pink Tomato):</span> הפרי והירק הרשמי של המדינה. בשנות ה-20 של המאה ה-20, חקלאים במחוז בראדלי חיפשו זן עגבניות שישרוד נסיעה ארוכה ברכבות לשווקים בצפון, מבלי להימעך. הם פיתחו עגבנייה בשרנית מאוד וקשיחה, שצבעה בעת ההבשלה הוא **ורוד עמוק** ולא אדום בוהק. היא נחשבת לאחת העגבניות הטעימות ביותר באמריקה וזוכה לפסטיבל שנתי אדיר בעיר וורן.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. אנומליות תרבותיות וכינויים -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-textMuted shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-cardBorder text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">5</span>
+                כינויי המדינה: ניתוח פנומנולוגי
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-accentBlue mb-4 underline italic decoration-accentBlue/40">The Natural State (המדינה הטבעית)</h3>
+                    <p class="text-lg leading-loose text-textMuted">
+                        הכינוי הרשמי של ארקנסו כיום, שאומץ רשמית על ידי בית המחוקקים בשנת 1995 (והחליף את הכינוי הקודם "ארץ ההזדמנויות"). הפנומנולוגיה שלו נועדה למתג מחדש את המדינה כמוקד של תיירות אקולוגית ויופי פראי. הכינוי חוגג את הפארקים המדינתיים המדהימים שלה (כמו הפארק הלאומי Hot Springs הידוע במעיינותיו התרמיים), שפע חיות הבר, האגמים הנקיים, ומכרה היהלומים הפתוח (שבו הטבע ממש "מעניק" אוצרות לאזרחים). זהו ניסיון מוצלח למשוך חובבי טבע להרים הרחוקים מהערים התעשייתיות.
+                    </p>
+                </div>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-arRed mb-4 underline italic decoration-arRed/40">The Land of Opportunity</h3>
+                    <p class="text-lg leading-loose text-textMuted">
+                        "ארץ ההזדמנויות". זה היה הכינוי הרשמי של ארקנסו משנת 1953 ועד 1995. הכינוי נועד להילחם בתדמית ההיסטורית של המדינה כנחשלת וענייה, ולעודד יזמים ותעשיינים לעבור אליה לאחר מלחמת העולם השנייה (בדומה להצלחה של סם וולטון). למרות שהוחלף רשמית, הוא מופיע עדיין במסמכים היסטוריים ומהווה עדות לשאיפת המדינה לטרנספורמציה כלכלית.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. וקסילולוגיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-arBlue shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-arBlue text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">6</span>
+                וקסילולוגיה: היהלום, הקונפדרציה ו-25 הכוכבים
+            </h2>
+            
+            <div class="flex flex-col items-center mb-10 mt-6">
+                <!-- דגל ארקנסו ב-CSS להמחשה פנימית (קליק להגדלה נמצא למעלה) -->
+                <div class="w-full max-w-lg aspect-[3/2] bg-[#EF3E42] rounded-3xl overflow-hidden shadow-2xl border-[6px] border-slate-700 relative">
+                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full">
+                        <polygon points="150,20 280,100 150,180 20,100" fill="#002868"/>
+                        <polygon points="150,35 260,100 150,165 40,100" fill="#FFFFFF"/>
+                        <text x="150" y="108" font-family="sans-serif" font-weight="900" font-size="28" fill="#002868" text-anchor="middle" letter-spacing="2">ARKANSAS</text>
+                        <!-- Stars representation -->
+                        <circle cx="150" cy="70" r="4" fill="#002868"/>
+                        <circle cx="130" cy="130" r="4" fill="#002868"/>
+                        <circle cx="150" cy="140" r="4" fill="#002868"/>
+                        <circle cx="170" cy="130" r="4" fill="#002868"/>
+                    </svg>
+                </div>
+                <p class="mt-6 text-sm font-bold text-textMuted tracking-widest uppercase bg-cardBorder px-4 py-2 rounded-full">עוצב ב-1912, תוקן ב-1923 ו-1924</p>
+            </div>
+
+            <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-arBlue decoration-4">העיצוב של ווילי הוקר ותוספת הפיוס/המרד:</h3>
+                <p class="leading-loose text-lg text-textMain mb-6">
+                    דגל ארקנסו נבחר ב-1912 מתוך תחרות לאומית שנועדה לייצג את המדינה בהשקת ספינת הקרב *USS Arkansas*. העיצוב הזוכה נוצר על ידי אישה בשם **ווילי קבאנו הוקר (Willie K. Hocker)** מפרק הזמן של "בנות הקונפדרציה". העיצוב המקורי כלל את היהלום ואת הכוכבים בתוכו, אך לא את שם המדינה! ועדה ממשלתית בראשות המזכיר ארל הודג'ס הכריחה להוסיף את המילה "ARKANSAS" למרכז, ובכך יצרו את אחד הדגלים האמריקאים הבודדים (יחד עם מונטנה) שנושא את שם המדינה באותיות ענק.
+                </p>
+                <div class="space-y-4">
+                    <p class="leading-loose text-lg text-textMain">
+                        <strong class="text-arDiamond">היהלום הלבן והגבול הכחול:</strong> צורת המעוין (היהלום) במרכז אינה מקרית. היא מסמלת את האנומליה הגיאולוגית של המדינה – ארקנסו הייתה (באותה עת) המקום היחיד באמריקה הצפונית שבו התגלו וממוקשים יהלומים טבעיים. המסגרת הכחולה שמקיפה את היהלום משובצת ב-**25 כוכבים לבנים**, המסמלים את כניסתה של ארקנסו כ**מדינה ה-25** לאיחוד.
+                    </p>
+                    <p class="leading-loose text-lg text-textMain">
+                        <strong class="text-arRed">ארבעת הכוכבים הפנימיים (הקונפליקט ההיסטורי):</strong> בתוך היהלום הלבן ישנם ארבעה כוכבים כחולים (אחד מעל השם, ושלושה מתחת). במקור היו רק שלושה, שסימלו את שלוש האומות ששלטו בטריטוריה (ספרד, צרפת, וארה"ב), ואת העובדה שארקנסו נרכשה ברכישת לואיזיאנה (1803) - שנת 1803. אולם ב-1923, אגודת המחוקקים לחצה להוסיף כוכב רביעי מעל השם (שמופיע שם עד היום) – מטרתו הרשמית בחוק היא **הנצחת הקונפדרציה של ארצות הברית של אמריקה (CSA)**, אשר שלטה בארקנסו במהלך מלחמת האזרחים, מה שהופך את הדגל לאנדרטה חזותית מורכבת של המרד.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. ביבליוגרפיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-cardBorder shadow-2xl">
+            <h2 class="text-2xl font-black text-textMuted mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-cardBorder text-white w-10 h-10 rounded-lg flex items-center justify-center ml-4 text-lg">7</span>
                 ביבליוגרפיה ומקורות מחקריים
             </h2>
-            
-            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Encyclopedia of Arkansas (Central Arkansas Library System):</p>
-                    <p>"The Etymology and Pronunciation of Arkansas". מחקר הסוקר את חוק הגיית שם המדינה מ-1881 ואת ההשפעה הצרפתית-אלגונקווינית על המילה 'Akansa'.</p>
+            <div class="space-y-6 text-lg text-textMuted leading-loose">
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Arkansas State Archives:</strong>
+                    האטימולוגיה המלאה של המילה Akansea, ופירוט החוק התקדימי משנת 1881 (Title 1, Chapter 4) הקובע איסור פלילי-למחצה על הגיית שם המדינה כ"ארקנזאס".
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Arkansas State Archives:</p>
-                    <p>"Henri de Tonti and the Founding of Arkansas Post". תיעוד של מכתביו ויומניו של הצרפתי קטוע-היד, והאסטרטגיה הכלכלית שלו עם שבט הקוואפו.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">The Encyclopedia of Arkansas:</strong>
+                    ביוגרפיה כלכלית של סם וולטון, הקמת חנות וולמארט הראשונה ברוג'רס (1962), והאסטרטגיה של הצפת הפריפריה הכפרית במחירי רצפה (Volume selling).
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Southern Foodways Alliance:</p>
-                    <p>"The Birth of Cheese Dip in Little Rock". היסטוריה אנתרופולוגית של התזונה בדרום, המתעדת את פועלו של Blackie Donnely ולידת מטבל הגבינה החם המקורי ב-1935.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Clinton Presidential Center (Little Rock):</strong>
+                    עלייתו הפוליטית של ביל קלינטון מהעיירה "הופ", יצירת תנועת "הדמוקרטים החדשים" כפילוסופיית אמצע לקידום מסחר לצד חינוך.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">University of Arkansas Historical Society:</p>
-                    <p>"The Origin of the Razorback Mascot". מחקר על תרבות ההילביליז, חזירי הבר האכזריים באוזרקס, וכיצד אומצו כסמל המרכזי של ההישרדות במדינה.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Southern Food and Beverage Museum:</strong>
+                    ההיסטוריה המתועדת של המצאת מטבל הגבינה החמה (Cheese Dip) במסעדת מקסיקו צ'יקיטו ב-1935, כסמל לאירוח הדרומי בארקנסו.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
-                    <p>"The Arkansas State Flag". פירוט מדוקדק של ההיסטוריה העיצובית של ווילי קוואנו הוקר, והפוליטיקה השנויה במחלוקת של הוספת כוכב הקונפדרציה לדגל.</p>
+                <div>
+                    <strong class="text-white block mb-1">North American Vexillological Association (NAVA):</strong>
+                    ניתוח עיצובה של ווילי הוקר מ-1912, משמעות היהלום כמקור המחצבים הייחודי של המדינה, והוספת הכוכב הרביעי ב-1923 להנצחת הקונפדרציה.
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- פוטר אתר ממותג -->
-    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
-        <div class="flex flex-col items-center gap-10">
-            <div class="flex gap-8">
-                <div class="w-6 h-6 bg-arRed rounded-full shadow-[0_0_15px_rgba(239,51,64,0.6)]"></div>
-                <div class="w-6 h-6 bg-arDiamond rounded-full shadow-[0_0_15px_rgba(243,244,246,0.6)]"></div>
-                <div class="w-6 h-6 bg-arBlue rounded-full shadow-[0_0_15px_rgba(0,32,91,0.6)]"></div>
-            </div>
-            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
-                US State Origins - Ultimate Academic Archive
-            </p>
-            <p class="text-slate-400 text-4xl font-black">
-                האתר נוצר על ידי ג'מיני ורם | 2026
-            </p>
+    <!-- מודל (חלון צף) להגדלת הדגל -->
+    <div id="flagModal" class="hidden fixed inset-0 z-[100] bg-appBg/95 backdrop-blur-md flex items-center justify-center p-4 cursor-pointer" onclick="closeFlagModal()">
+        <div class="modal-animate relative w-full max-w-4xl aspect-[3/2] bg-[#EF3E42] rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(239,62,66,0.4)] border-8 border-cardBorder cursor-default" onclick="event.stopPropagation()">
+            <!-- כפתור סגירה -->
+            <button onclick="closeFlagModal()" class="absolute top-4 right-4 z-50 bg-black/50 hover:bg-black text-white rounded-full p-3 transition-colors shadow-lg border border-white/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <!-- העתק מדויק של הדגל בגדול מבוסס SVG -->
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full">
+                <!-- Background Red -->
+                <rect width="300" height="200" fill="#EF3E42"/>
+                <!-- Blue Diamond Border -->
+                <polygon points="150,20 280,100 150,180 20,100" fill="#002868" style="filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.5));"/>
+                <!-- White Diamond -->
+                <polygon points="150,35 260,100 150,165 40,100" fill="#FFFFFF"/>
+                <!-- ARKANSAS Text -->
+                <text x="150" y="108" font-family="sans-serif" font-weight="900" font-size="28" fill="#002868" text-anchor="middle" letter-spacing="2">ARKANSAS</text>
+                
+                <!-- Center Stars detailed rendering -->
+                <!-- Top Star (Confederacy) -->
+                <path d="M 150 55 L 155 70 L 170 70 L 158 80 L 162 95 L 150 85 L 138 95 L 142 80 L 130 70 L 145 70 Z" fill="#002868" transform="scale(0.6) translate(100, 30)"/>
+                <!-- Bottom 3 Stars (France, Spain, US) -->
+                <path d="M 150 55 L 155 70 L 170 70 L 158 80 L 162 95 L 150 85 L 138 95 L 142 80 L 130 70 L 145 70 Z" fill="#002868" transform="scale(0.6) translate(100, 160)"/>
+                <path d="M 150 55 L 155 70 L 170 70 L 158 80 L 162 95 L 150 85 L 138 95 L 142 80 L 130 70 L 145 70 Z" fill="#002868" transform="scale(0.6) translate(50, 160)"/>
+                <path d="M 150 55 L 155 70 L 170 70 L 158 80 L 162 95 L 150 85 L 138 95 L 142 80 L 130 70 L 145 70 Z" fill="#002868" transform="scale(0.6) translate(150, 160)"/>
+                
+                <!-- 25 Stars Representation in border -->
+                <!-- Note: Using simple dots to represent the complex 25 star pattern to keep code clean and functional, exactly as stylized in the hero section -->
+                <circle cx="150" cy="27" r="2.5" fill="#FFFFFF"/><circle cx="150" cy="173" r="2.5" fill="#FFFFFF"/>
+                <circle cx="28" cy="100" r="2.5" fill="#FFFFFF"/><circle cx="272" cy="100" r="2.5" fill="#FFFFFF"/>
+                <circle cx="89" cy="63" r="2.5" fill="#FFFFFF"/><circle cx="211" cy="137" r="2.5" fill="#FFFFFF"/>
+                <circle cx="211" cy="63" r="2.5" fill="#FFFFFF"/><circle cx="89" cy="137" r="2.5" fill="#FFFFFF"/>
+            </svg>
         </div>
-    </footer>
+        <p class="absolute bottom-10 text-textMuted font-bold tracking-widest uppercase bg-cardBg/80 px-6 py-2 rounded-full border border-cardBorder">לחץ מחוץ לדגל כדי לסגור</p>
+    </div>
+
+    <!-- פונקציות JS לחלון הצף -->
+    <script>
+        function openFlagModal() {
+            document.getElementById('flagModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // מניעת גלילה של הרקע
+        }
+        function closeFlagModal() {
+            document.getElementById('flagModal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // החזרת גלילה
+        }
+        // סגירה גם בלחיצה על כפתור Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeFlagModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
