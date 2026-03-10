@@ -11,12 +11,18 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#0f172a',
-                        cardBg: '#1e293b',
-                        accent: '#38bdf8',
-                        akBlue: '#0F204B', /* Alaska Flag Blue */
-                        akGold: '#FFB612', /* Alaska Flag Gold */
-                        akIce: '#E0F2FE'   /* Ice Blue for text accents */
+                        appBg: '#050B14',      /* Deep Space Navy */
+                        cardBg: '#0B172A',     /* Elevated Card Navy */
+                        cardBorder: '#1E293B', /* Card Border */
+                        accentBlue: '#38BDF8', /* Neon Blue Accent */
+                        akBlue: '#0F204B',     /* Alaska Flag Blue */
+                        akGold: '#FFD700',     /* Alaska Flag Gold */
+                        akIce: '#E0F2FE',      /* Glacier Ice Blue */
+                        textMain: '#E2E8F0',   /* Soft White Text */
+                        textMuted: '#94A3B8'   /* Slate Gray Text */
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
                     }
                 }
             }
@@ -24,314 +30,390 @@
     </script>
     <style>
         body { 
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             -webkit-tap-highlight-color: transparent;
+            background-color: #050B14;
+            color: #E2E8F0;
             line-height: 1.85;
         }
-        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
-        p, li, span, div, blockquote { font-size: 1.125rem; } 
-        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
-        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
-        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
-        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
-        .sub-header { @apply text-akGold font-black text-2xl mb-5 underline italic decoration-akGold/40 underline-offset-8; }
-        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+        p, li, span, div, blockquote { font-size: 1.125rem; } /* 18px קבוע לקריאה נוחה ב-S25 Ultra */
+        
+        /* Scrollbar מותאם לאפליקציה */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050B14; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        
+        .glass-panel {
+            background: rgba(11, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(30, 41, 59, 0.8);
+        }
+        
+        .stat-badge {
+            background: linear-gradient(145deg, #112240 0%, #0B172A 100%);
+            border: 1px solid #1E293B;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .sub-header { @apply text-accentBlue font-black text-xl mb-3 underline italic decoration-accentBlue/40 underline-offset-8 mt-6; }
+
+        /* אנימציית הופעה לחלון הצף */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-animate {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
     </style>
 </head>
-<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+<body class="antialiased min-h-screen flex flex-col items-center pb-20">
 
-    <!-- ניווט עליון -->
-    <nav class="w-full max-w-4xl mb-10">
-        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+    <!-- ניווט עילי -->
+    <nav class="w-full max-w-4xl p-6 sticky top-0 z-40 glass-panel border-b-0 rounded-b-3xl mb-6 shadow-lg flex justify-between items-center">
+        <a href="../index.html" class="inline-flex items-center text-accentBlue hover:text-white transition-colors font-bold text-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
             חזרה לאטלס המדינות
         </a>
+        <span class="text-xs font-black tracking-widest text-textMuted uppercase bg-cardBorder px-3 py-1 rounded-full">AK</span>
     </nav>
 
-    <!-- כותרת מחקר אקדמי -->
-    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-akBlue relative overflow-hidden">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
-            <div>
-                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">אלסקה</h1>
-                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Alaska - The Last Frontier</p>
-                <div class="h-2 w-56 bg-akGold mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(255,182,18,0.5)]"></div>
-            </div>
-            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
-                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
-                <p class="text-5xl font-black text-white">3 בינואר, 1959</p>
-                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-49 באיחוד</p>
-            </div>
-        </div>
-        <!-- אלמנט עיצובי - פתיתי שלג ברקע -->
-        <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 30px 30px;"></div>
-    </header>
-
-    <main class="w-full max-w-4xl space-y-20">
+    <main class="w-full max-w-4xl px-4 space-y-10">
         
-        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
-                אטימולוגיה: מולקולריות פיזיקלית וימית
-            </h2>
+        <!-- Hero Section -->
+        <header class="w-full rounded-[3rem] overflow-hidden shadow-2xl relative bg-gradient-to-b from-[#0F204B] to-cardBg border border-cardBorder pt-12 pb-10">
+            <!-- רקע גרפי מופשט - זוהר של קוטב -->
+            <div class="absolute top-0 left-0 w-full h-72 bg-akIce opacity-10 blur-[100px] rounded-full mix-blend-screen pointer-events-none"></div>
             
-            <div class="space-y-10">
-                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
-                    שמה של אלסקה אינו מתאר אנשים, היסטוריה או אלים, אלא מספק תיאור פיזיקלי-גיאוגרפי עצמתי של מפגש איתני הטבע. השם נגזר משפת ה**אלאוטית** (Aleut), שפתם של הילידים שאכלסו את האיים האלאוטיים – שרשרת האיים הגעשיים המפרידה בין ים ברינג לאוקיינוס השקט. 
-                </p>
-
-                <div class="space-y-8">
-                    <!-- Alaxsxaq -->
-                    <div class="etymology-box border-akBlue">
-                        <p class="text-akBlue font-black text-5xl mb-6 italic tracking-tighter">Alaxsxaq / Alyeska</p>
-                        <div class="space-y-4">
-                            <p><strong>מקור פילולוגי:</strong> השפה האלאוטית (Aleut), ממשפחת השפות האסקימו-אלאוטיות.</p>
-                            <p><strong>חלוקה מורפולוגית:</strong> המילה בנויה מהשורש <span class="text-akIce font-bold">"alaxsxi-x"</span>, המתייחס למסה יבשתית.</p>
-                            <p><strong>המשמעות האמיתית והמדויקת:</strong> בניגוד לתרגום הפשטני והרומנטי ל"הארץ הגדולה" (The Great Land), התרגום האקדמי והמדויק של המילה *Alaxsxaq* הוא <span class="text-white font-bold underline decoration-akBlue">"העצם אליו מכוונת פעולת הים"</span> או "היבשת שהים נשבר עליה".</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-slate-800/60 p-10 rounded-[2rem] border-r-8 border-akIce shadow-xl mt-10">
-                    <h3 class="font-black text-white mb-6 text-2xl italic underline decoration-akIce underline-offset-8">פרספקטיבה ילידית ורוסית:</h3>
-                    <div class="space-y-6 text-slate-300 leading-loose">
-                        <p>עבור בני האלאוט, שחיו על איים קטנים מוקפים בזרמים אלימים, היבשת העצומה ששכנה ממזרח לא הייתה סתם "אדמה", אלא מחסום גיאולוגי מוצק שאליו התנפצו גלי האוקיינוס האדירים. היא הוגדרה ביחס לים, ולא ביחס לעצמה.</p>
-                        <p>כאשר חוקרים וציידי פרוות מ**האימפריה הרוסית** הגיעו לאזור במאה ה-18 (אלו שנקראו "פרומישלניקי"), הם שמעו את הילידים משתמשים במילה זו כדי לתאר את חצי האי (ולאחר מכן את כל היבשת). הרוסים תעתקו את המילה הזרת לפונטיקה קירילית כ-**Аляска (Alyaska)**, וכאשר האמריקאים רכשו את השטח ב-1867, הם אימצו את השם הרוסי-אלאוטי באיות האנגלי: **Alaska**.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-akBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
-                כרוניקה של ריבונות: ממגלי ארצות לקוני אימפריות
-            </h2>
-            
-            <div class="space-y-16">
-                <!-- ויטוס ברינג -->
-                <div class="personality-card border-r-8 border-akIce shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-akIce decoration-4 underline-offset-8">המגלה בשירות הצאר: ויטוס יונסן ברינג (Vitus Bering)</h3>
-                    <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1681–1741. <strong>מעמד:</strong> קצין ים וחוקר. מגלה אלסקה.</p>
+            <div class="px-6 md:px-12 relative z-10 flex flex-col items-center text-center">
+                
+                <!-- דגל המדינה הראשי (קליק להגדלה) -->
+                <div onclick="openFlagModal()" class="cursor-pointer group relative mb-10">
+                    <div class="w-48 sm:w-56 aspect-[3/2] bg-[#0F204B] rounded-3xl overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-4 border-slate-700 relative transform transition-transform duration-500 group-hover:scale-105 group-active:scale-95">
                         
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">ילדות ורקע - מדנמרק לרוסיה:</h4>
-                            <p class="leading-loose">ברינג נולד בעיר הורסנס שבדנמרק. הוא נמשך לים מגיל צעיר, ובעקבות הפיתוח המאסיבי של הצי הרוסי על ידי הצאר פטר הגדול, התגייס ב-1704 לצי הרוסי הקיסרי (שם כונה "איוואן איוואנוביץ'"). הוא נודע כנווט קפדן, ממושמע, וחסר פשרות. פטר הגדול בחר בו אישית להוביל משלחת מחקר אדירה למזרח הרחוק של רוסיה כדי לגלות אם אסיה ואמריקה מחוברות יבשתיות.</p>
+                        <!-- Big Dipper (Ursa Major) -->
+                        <div class="absolute inset-0">
+                            <span class="absolute top-[35%] left-[20%] text-[#FFD700] text-[10px] sm:text-xs">★</span>
+                            <span class="absolute top-[45%] left-[30%] text-[#FFD700] text-[10px] sm:text-xs">★</span>
+                            <span class="absolute top-[52%] left-[45%] text-[#FFD700] text-[10px] sm:text-xs">★</span>
+                            <span class="absolute top-[65%] left-[48%] text-[#FFD700] text-[10px] sm:text-xs">★</span>
+                            <span class="absolute top-[72%] left-[65%] text-[#FFD700] text-[10px] sm:text-xs">★</span>
+                            <span class="absolute top-[58%] left-[75%] text-[#FFD700] text-[10px] sm:text-xs">★</span>
+                            <span class="absolute top-[45%] left-[62%] text-[#FFD700] text-[10px] sm:text-xs">★</span>
                         </div>
+                        <!-- Polaris (North Star) -->
+                        <span class="absolute top-[15%] right-[15%] text-[#FFD700] text-lg sm:text-2xl">★</span>
 
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">אידיאולוגיה - התפשטות האימפריה הרוסית:</h4>
-                            <p class="leading-loose">האידיאולוגיה מאחורי מסעותיו לא הייתה קולוניאלית קלאסית של התיישבות, אלא של מיפוי גיאו-אסטרטגי וחיפוש אחר משאבים (בעיקר פרוות לוטרות ים, שערכן בסין היה כמשקלן בזהב). רוסיה חיפשה להרחיב את ההגמוניה שלה אל מעבר לסיביר ולהפוך למעצמה טרנס-יבשתית על חשבון שטחים "ריקים".</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">המשלחת השנייה והמוות בקצה העולם (1741):</h4>
-                            <p class="leading-loose">במהלך "משלחת קמצ'טקה השנייה" ביולי 1741, ספינתו של ברינג, *סנט פיטר*, הגיעה לחופי דרום-מזרח אלסקה (באזור הר סנט אליאס). תגלית זו פתחה רשמית את אלסקה לפלישה הכלכלית הרוסית. אולם, בדרך חזרה לרוסיה, ספינתו נטרפה בסערה על אי בודד בים הקפוא. ברינג, יחד עם עשרות מאנשי צוותו, מת מצפדינה ומקור על האי הנושא כיום את שמו (האי ברינג), אך התגלית שלו שינתה את מפת העולם לנצח.</p>
+                        <!-- אייקון זכוכית מגדלת מרחף -->
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
                         </div>
                     </div>
                 </div>
 
-                <!-- ויליאם הנרי סיוארד -->
-                <div class="personality-card border-r-8 border-akBlue shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-akBlue decoration-4 underline-offset-8">הקונה בעל החזון: ויליאם הנרי סיוארד (William H. Seward)</h3>
-                    <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1801–1872. <strong>מעמד:</strong> מזכיר המדינה של ארה"ב (תחת לינקולן ואנדרו ג'ונסון).</p>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">ילדות ואופי רדיקלי:</h4>
-                            <p class="leading-loose">סיוארד נולד בניו יורק למשפחת חקלאים בעלת עבדים. למרות רקע זה, הוא הפך בבגרותו (לאחר לימודי משפטים) לאחד המתנגדים החריפים והרדיקליים ביותר לעבדות בארצות הברית, תוך שהוא טוען שישנו "חוק עליון" (Higher Law) מעל לחוקה שאוסר על שיעבוד בני אדם. הוא היה פוליטיקאי מבריק, יריבו של אברהם לינקולן על המועמדות לנשיאות, ולאחר מכן מזכיר המדינה הנאמן והחזק ביותר שלו (סיוארד אף נפצע קשות בליל ההתנקשות בלינקולן).</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">אידיאולוגיה אסטרטגית - הקיסרות הפסיפית:</h4>
-                            <p class="leading-loose">האידיאולוגיה של סיוארד, הרבה לפני דורו, הייתה שמרכז הכובד העולמי העתידי אינו האוקיינוס האטלנטי ואירופה, אלא **האוקיינוס השקט ואסיה**. הוא האמין שארצות הברית חייבת להפוך למעצמה פסיפית כדי להבטיח את עתידה המסחרי. הוא ראה ברכישת אדמות בצפון היבשת גם דרך ל"כתר" את קנדה הבריטית (שאותה האמריקאים עדיין ראו כאיום פוטנציאלי).</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">האיוולת שהפכה להברקה (רכישת אלסקה - 1867):</h4>
-                            <p class="leading-loose">לאחר מלחמת קרים, רוסיה הייתה שקועה בחובות וחששה שבריטניה תכבוש את אלסקה בכוח. הצאר הציע לאמריקאים לקנות את הטריטוריה. סיוארד קפץ על ההזדמנות וניהל משא ומתן לילי וחשאי, שהסתיים ב-30 במרץ 1867: קניית שטח עצום של מעל 1.7 מיליון קמ"ר (גודלה כמעט כרבע משטחה של ארה"ב כולה) תמורת **7.2 מיליון דולר בלבד** (כ-2 סנט לאקר). העיתונות והציבור האמריקאי, שלא הבינו את המהלך, לעגו לו וקראו לרכישה <span class="highlight-text">"Seward's Folly" (האיוולת של סיוארד)</span> או "Seward's Icebox" (קופסת הקרח של סיוארד). רק בסוף המאה ה-19, כשנתגלו מרבצי זהב אדירים (ומאוחר יותר נפט), הבינו האמריקאים שסיוארד חתום על עסקת הנדל"ן הטובה והחשובה ביותר בהיסטוריה המודרנית.</p>
-                        </div>
+                <p class="text-akGold font-black tracking-[0.4em] uppercase text-sm mb-4">The Last Frontier</p>
+                <h1 class="text-6xl md:text-8xl font-black text-white mb-4 tracking-tight">אלסקה</h1>
+                <p class="text-2xl text-textMuted font-light italic mb-12">Alaska</p>
+                
+                <!-- Quick Stats Badges -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mt-4">
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">הצטרפות</span>
+                        <span class="text-alaWhite font-black text-2xl">1959</span>
+                        <span class="text-[11px] text-akIce font-black mt-2 bg-akIce/10 px-3 py-1 rounded-full">מדינה 49</span>
                     </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">שטח (דירוג)</span>
+                        <span class="text-alaWhite font-black text-2xl">מקום 1</span>
+                        <span class="text-[11px] text-akGold font-black mt-2">1.71M קמ"ר</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">אוכלוסייה</span>
+                        <span class="text-alaWhite font-black text-2xl">733K</span>
+                        <span class="text-[11px] text-akGold font-black mt-2">אומדן 2023</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">עיר בירה</span>
+                        <span class="text-alaWhite font-black text-2xl text-center">ג'ונו</span>
+                        <span class="text-[11px] text-akGold font-black mt-2">Juneau</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 1. אטימולוגיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-akGold shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-akGold text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">1</span>
+                אטימולוגיה: מולקולריות של יבשת אדירה
+            </h2>
+            <div class="space-y-8">
+                <p class="text-textMuted font-medium italic border-r-4 border-akGold pr-6 text-xl leading-loose">
+                    שמה של אלסקה אינו מתאר אדם או אירוע היסטורי, אלא מהווה התבוננות אופטית וגיאוגרפית עוצמתית של יורדי ים שחיו על איים מבודדים, והביטו בהשתאות אל עבר חצי אי מפלצתי ממזרח להם.
+                </p>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder shadow-inner">
+                    <p class="text-accentBlue font-black text-4xl mb-4 tracking-wider">Alaxsxaq</p>
+                    <p class="mb-4 text-lg"><strong>מקור פילולוגי:</strong> שפת האלאוט (Aleut / Unangan), השייכת למשפחת השפות האסקימואיות-אלאוטיות.</p>
+                    <p class="text-lg leading-loose"><strong>משמעות וניתוח מלא:</strong> השם מורכב מהשורש האלאוטי <em>Alaxsxiik</em>. התרגום המילולי והאקדמי המדויק של המילה הוא <strong class="text-white">"האובייקט (היבשה) שאליו מכוונת פעולת הים"</strong> או בפשטות: <strong class="text-white">"היבשת" (The Mainland) / "הארץ הגדולה" (Great Land)</strong>. 
+                    בני שבט האלאוט, שחיו על שרשרת האיים האלאוטיים הפרוסים לאורך האוקיינוס השקט, השתמשו במונח זה כדי להבדיל בין האיים הקטנים והגעשיים שבהם חיו, לבין חצי האי האדיר (מדינת אלסקה של ימינו) שניצב מולם והיווה עבורם את גבול העולם והיבשת הבלתי נגמרת. כשהגיעו ציידי הפרוות והחוקרים הרוסים (בראשות ויטוס ברינג) במאה ה-18, הם קלטו את המילה מהילידים, שיבשו אותה לאיות הקירילי Аляска (Alyaska), ולאחר הרכישה האמריקאית ב-1867, היא אויתה באנגלית כ-Alaska.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-akBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
-                פנתיאון תרבותי: עבודה במינוס ארבעים ותזונת קור
+        <!-- 2. גאו-פוליטיקה ודמוגרפיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-akBlue shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-akBlue text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">2</span>
+                גאו-פוליטיקה ודמוגרפיה
             </h2>
-            
-            <div class="space-y-14">
-                <!-- בעל החיים הלאומי -->
-                <div class="culture-highlight border-akGold">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-akGold">החיה הלאומית: כלב המלמוט האלסקני (Alaskan Malamute)</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">כלב המדינה הרשמי - סמל של הישרדות ושותפות (אומץ ב-2010)</p>
-                    <p class="text-slate-300 leading-loose text-xl">
-                        המלמוט האלסקני אינו עוד גזע של כלב; הוא הטכנולוגיה התחבורתית וההישרדותית הראשונה של החורף הארקטי. הגזע פותח במשך אלפי שנים על ידי שבט ה"מאהלמוט" (Mahlemiut) האינואיטי, שחי בצפון-מערב אלסקה. 
-                    </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        בניגוד לכלבי ההאסקי הסיבירי הקטנים יותר שנבנו למהירות, המלמוט הוא סיירת משא (Freighter): כלב גדול, כבד (יכול לשקול 40 ק"ג), בעל פרווה כפולה ושרירים אדירים, שנועד למשוך מזחלות עמוסות בשר לווייתנים וכלבי ים, בטמפרטורות של מינוס 40 מעלות, למרחקים של מאות קילומטרים ללא התעייפות.
-                    </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        האתוס של הכלבים הללו נחקק בפסיכולוגיה הלאומית בינואר **1925, ב"מרוץ הסרום לְנוֹם" (Serum Run)**. התפרצות קטלנית של דיפתריה איימה לחסל את ילדי העיר נום המבודדת בקרח. כשמטוסים לא יכלו להמריא בשל הסופות, 20 נהגי מזחלות (Mushers) ו-150 כלבי מזחלות (כולל הגיבורים המפורסמים באלטו וטוגו, שהיו שילוב של ספיץ והאסקי, אך ייצגו את תרבות כלבי העבודה האלסקניים) העבירו את האנטי-טוקסין במסע ממסר אפי של מעל 1,000 ק"מ בחושך ארקטי. ב-2010, קבוצת תלמידי גן מאלסקה יזמה בהצלחה את הפיכת המלמוט לכלב המדינה הרשמי, כהוקרה לשותף הקדום והחשוב ביותר של האדם ב"ספר האחרון".
+            <div class="space-y-8">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-akBlue">המובלעת הענקית והטופוגרפיה המקפיאה</h3>
+                    <p class="leading-loose text-lg text-textMuted">
+                        אלסקה היא המדינה הגדולה ביותר בארצות הברית בפער בלתי נתפס: היא גדולה יותר מטקסס, קליפורניה ומונטנה *גם יחד*, ומהווה קרוב ל-20% מכלל השטח היבשתי של ארה"ב. מבחינה גאו-פוליטית, היא **מובלעת (Exclave)** אדירה: היא אינה מחוברת פיזית לשאר 48 המדינות (The Lower 48), אלא מופרדת מהן על ידי קנדה. 
+                        הטופוגרפיה שלה היא הקיצונית והפראית ביותר באמריקה: היא מחזיקה בקו החוף הארוך ביותר בארה"ב, מכילה למעלה מ-100,000 קרחונים, עשרות הרי געש פעילים ב"טבעת האש" של האיים האלאוטיים, ואת **הר דנאלי (Denali)** – הפסגה הגבוהה ביותר באמריקה הצפונית (6,190 מטרים).
                     </p>
                 </div>
-
-                <!-- המנה הלאומית -->
-                <div class="culture-highlight border-akIce">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-akIce">המנה הלאומית: סלמון צ'ינוק (King Salmon) ואקוטאק (Eskimo Ice Cream)</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">הדואופול הקולינרי: מנוע הכלכלה ופצצת האנרגיה הילידית</p>
-                    <p class="text-slate-300 leading-loose text-xl">
-                        הגסטרונומיה של אלסקה מחולקת בין מה שהיא משווקת לעולם, לבין מה שאפשר את הישרדות האנשים על אדמתה:
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-akGold">פסיפס אנושי של בידוד וקור</h3>
+                    <p class="leading-loose text-lg text-textMuted">
+                        למרות גודלה העצום, אלסקה מאכלסת רק כ-733 אלף בני אדם, מה שהופך אותה ל**מדינה בעלת צפיפות האוכלוסין הנמוכה ביותר בארה"ב** (פחות מאדם אחד לקילומטר רבוע בממוצע). כמחצית מאוכלוסיית המדינה מרוכזת במטרופולין אחד (אנקורג' - Anchorage). האנומליה הדמוגרפית והחשובה שלה היא שיעור הילידים: אלסקה היא ביתם של **האחוז הגבוה ביותר של ילידים אמריקאים (Alaska Natives)** מבין כל מדינות ארה"ב (כ-15.6%), הכוללים שבטים עתיקים כגון האינופיאט (Inupiat), יופיק (Yupik), טילינגיט (Tlingit), ואלאוט (Aleut). קהילות רבות חיות עד היום ב"כפרים ילידיים" מבודדים, שאינם מחוברים לרשת הכבישים הלאומית וניתן להגיע אליהם רק במטוסים קלים או אופנועי שלג.
                     </p>
-                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
-                        <li><span class="text-white font-bold underline decoration-akGold">סלמון צ'ינוק פראי (Wild King Salmon):</span> אלסקה שומרת בקנאות על תואר מעצמת הסלמון הפראי של העולם (החוק באלסקה אוסר על חוות סלמון ימיות במטרה להגן על הדגה הפראית). סלמון הצ'ינוק הוא הגדול, השומני והיקר ביותר מבין מיני הסלמון. במשך אלפי שנים, דיג הסלמון בנהרות במהלך עונת הנדידה (השרצה) היה הלב הפועם של הכלכלה ושל הטקסים של שבטי הטלינגיט (Tlingit) וההאידה (Haida). הדג מעושן, משומר (Canned) או נאכל טרי, ומהווה את הייצוא התרבותי-קולינרי המוכר ביותר של המדינה.</li>
-                        <li><span class="text-white font-bold underline decoration-akBlue">אקוטאק (Akutaq - גלידה אינואיטית):</span> זהו האוכל ההישרדותי האולטימטיבי, המייצג את ההתאמה הביולוגית לקור. אקוטאק (שמשמעותו בשפת היופיק "לערבב יחד") אינו כולל חלב או סוכר במקורו. זוהי קציפה (Whip) עשירה בקלוריות שנוצרה מ**שומן (Tallow) של אייל קורא (Caribou), שומן כלבי ים או לווייתן**, שעורבב בעבודת כפיים עם שמן ימי ומים עד לקבלת מרקם קרמי ואוורירי, לתוכו קופלו פירות יער שנקטפו בקיץ בטונדרה (כמו Salmonberries או אוכמניות בר). התערובת הזו סיפקה לאינואיטים פצצת אנרגיה חיונית להישרדות במסעות ציד חורפיים ארוכים.</li>
-                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-akBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
-                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+        <!-- 3. כרוניקה של ריבונות -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-white shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-white text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">3</span>
+                כרוניקה של ריבונות: רוכש היבשת ולוחמת הזכויות
             </h2>
             
-            <div class="space-y-14">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <!-- The Last Frontier -->
-                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-akGold shadow-2xl">
-                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Last Frontier (הספר האחרון)</h3>
-                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מיתולוגיה של חלוציות בלתי נגמרת</p>
-                        <p class="text-slate-300 leading-loose text-lg">
-                            המונח "Frontier" (ספר/גבול) הוא המושג המכונן של ההיסטוריה האמריקאית – המקום שבו הציוויליזציה פוגשת את הפרא (על פי התיאוריה של פרדריק ג'קסון טרנר). ב-1890 הכריזה ארה"ב שקו הספר במערב היבשת נסגר. אולם, אלסקה נותרה יוצאת מן הכלל: קולוסוס של טבע פראי, ללא כבישים מרכזיים, שבו האדם נמדד לפי כוח ההישרדות שלו ולא לפי תאריו האקדמיים. הכינוי "הספר האחרון" מהווה הבטחה רומנטית וכלכלית כאחד לאמריקאים: אלסקה היא המקום האחרון על פני כדור הארץ שבו אדם עדיין יכול לברוח מהציוויליזציה, להקים בקתה מעץ במו ידיו, או למצוא זהב (כפי שקרה בבהלה לזהב בקלונדייק ב-1896).
-                        </p>
-                    </div>
-
-                    <!-- Land of the Midnight Sun -->
-                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-akIce shadow-2xl">
-                        <h3 class="text-3xl font-black text-white mb-8 underline italic">Land of the Midnight Sun (ארץ שמש החצות)</h3>
-                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">אנומליה אסטרונומית ופיזיולוגית</p>
-                        <p class="text-slate-300 leading-loose text-lg">
-                            זהו כינוי המעגן את אלסקה במיקומה האסטרונומי הקיצוני (חלקים נרחבים ממנה נמצאים צפונית לחוג הארקטי). בקיץ (במיוחד סביב יום ההיפוך ביוני), השמש אינה שוקעת כלל באזורים הצפוניים כמו העיר אוקיאגוויק (Utiqiagvik, לשעבר בארו), אלא נעה במעגלים מעל האופק, ויוצרת 24 שעות רצופות של אור יום. תופעה זו יוצרת דחיפות (Urgency) פסיכולוגית וחקלאית אדירה: התושבים עובדים, דגים ובונים כמעט ללא שינה ("מאניה של הקיץ") כדי לנצל כל רגע פריון לפני שמגיע החורף, שבו אותם אזורים בדיוק חווים חודשים של חשיכה מוחלטת כמעט ללא אור שמש.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-akBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
-                וקסילולוגיה: העיצוב הגאוני של הנער היתום
-            </h2>
-            
-            <div class="flex flex-col items-center mb-16">
-                <!-- ייצוג ויזואלי של דגל אלסקה -->
-                <div class="w-full max-w-2xl aspect-[3/2] bg-[#0F204B] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex items-center justify-center p-10 group">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10 pointer-events-none z-0"></div>
+            <div class="space-y-12">
+                <!-- ויליאם ה. סיוארד -->
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-akGold"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">ההוגה והאסטרטג: ויליאם ה. סיוארד (William H. Seward)</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">תפקיד: שר החוץ של ארצות הברית תחת לינקולן ואנדרו ג'ונסון.</p>
                     
-                    <div class="relative w-full h-full transform transition-transform duration-700 group-hover:scale-105 z-10">
-                        <!-- Big Dipper (Ursa Major) Representation -->
-                        <!-- Handle -->
-                        <div class="absolute top-[30%] left-[10%] text-[#FFB612] text-2xl sm:text-4xl drop-shadow-[0_0_8px_rgba(255,182,18,0.8)]">★</div>
-                        <div class="absolute top-[40%] left-[22%] text-[#FFB612] text-2xl sm:text-4xl drop-shadow-[0_0_8px_rgba(255,182,18,0.8)]">★</div>
-                        <div class="absolute top-[45%] left-[36%] text-[#FFB612] text-2xl sm:text-4xl drop-shadow-[0_0_8px_rgba(255,182,18,0.8)]">★</div>
-                        
-                        <!-- Bowl -->
-                        <div class="absolute top-[55%] left-[45%] text-[#FFB612] text-2xl sm:text-4xl drop-shadow-[0_0_8px_rgba(255,182,18,0.8)]">★</div>
-                        <div class="absolute top-[70%] left-[55%] text-[#FFB612] text-2xl sm:text-4xl drop-shadow-[0_0_8px_rgba(255,182,18,0.8)]">★</div>
-                        <div class="absolute top-[60%] left-[68%] text-[#FFB612] text-2xl sm:text-4xl drop-shadow-[0_0_8px_rgba(255,182,18,0.8)]">★</div>
-                        <div class="absolute top-[45%] left-[60%] text-[#FFB612] text-2xl sm:text-4xl drop-shadow-[0_0_8px_rgba(255,182,18,0.8)]">★</div>
+                    <h4 class="sub-header text-akGold decoration-akGold/40">רקע: מלחמה פנימית ודיפלומטיה חובקת עולם</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        סיוארד נולד בניו יורק, למד משפטים והפך לאחד הפוליטיקאים המבריקים באמריקה של המאה ה-19. הוא היה מתנגד חריף לעבדות (Abolitionist), כיהן כמושל ניו יורק וסנאטור, והפסיד לאברהם לינקולן את המועמדות לנשיאות. לינקולן מינה אותו לשר החוץ. סיוארד שרד ניסיון התנקשות באותו לילה שבו נרצח לינקולן (1865), והמשיך לשרת בממשלו של אנדרו ג'ונסון, תוך שהוא נושא את עיניו להתרחבות גלובלית של ארה"ב באוקיינוס השקט כדי להתחרות באימפריה הבריטית.
+                    </p>
 
-                        <!-- North Star (Polaris) -->
-                        <div class="absolute top-[15%] right-[10%] text-[#FFB612] text-4xl sm:text-6xl drop-shadow-[0_0_15px_rgba(255,182,18,1)] animate-pulse">★</div>
-                    </div>
-                </div>
-                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
-                    דגל אלסקה <br><span class="text-xl font-medium text-slate-500">(עוצב על ידי בני בנסון, 1927)</span>
-                </p>
-            </div>
+                    <h4 class="sub-header text-akGold decoration-akGold/40">אידיאולוגיה: אמפריאליזם מערבי ללא דם</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        האידיאולוגיה של סיוארד הייתה "התרחבות בדרכי שלום" (Manifest Destiny מסחרי). כאשר האימפריה הרוסית, שהייתה מסובכת בחובות כבדים אחרי מלחמת קרים וחששה שהבריטים (ששלטו בקנדה) יפלשו ויכבשו את אלסקה בחינם, הציעה למכור את הטריטוריה הקפואה – סיוארד קפץ על ההזדמנות. הוא ראה באלסקה קרש קפיצה אסטרטגי לסחר עם אסיה וחומה גאו-פוליטית נגד אנגליה.
+                    </p>
 
-            <div class="space-y-14 text-slate-300">
-                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-akGold shadow-xl">
-                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-akGold decoration-4">נסיבות היצירה: תחרות ילדי בית הספר (1927):</h3>
-                    <p class="text-xl leading-loose">
-                        דגל אלסקה טומן בחובו את אחד הסיפורים המרגשים והדמוקרטיים ביותר בהיסטוריה האמריקאית. לקראת הניסיון להפוך מטריטוריה למדינה, ארגון ה"לגיון האמריקאי" ערך תחרות לעיצוב דגל המיועדת <strong class="text-white">לילדי בית ספר בלבד</strong> בטריטוריה, כיתות ז' עד י"ב. נשלחו למעלה מ-700 עיצובים. הזוכה פה אחד היה **בני בנסון (Benny Benson)**, נער בן 13, יתום ממוצא מעורב (רוסי-אלאוטי ושוודי), שחי בבית יתומים בעיר סיוורד (Seward). העיצוב המינימליסטי, העוצמתי והשמימי שלו ניצח עיצובים עמוסים של דובים וקרחונים שהגישו שאר הילדים. בית המחוקקים אימץ את הדגל רשמית במאי 1927 (למעלה מ-30 שנה לפני שאלסקה הפכה למדינה).
+                    <h4 class="sub-header text-akGold decoration-akGold/40">הישגים מכוננים: "השטות של סיוארד" (1867)</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        ב-30 במרץ 1867, לאחר משא ומתן לילי רצוף שעות, חתם סיוארד על הסכם עם השגריר הרוסי: ארה"ב קנתה את אלסקה כולה תמורת **7.2 מיליון דולר (פחות מ-2 סנט לאקר!)**. 
+                        באותה עת, העיתונות והקונגרס לעגו לו ללא רחם וכינו את הרכישה **"Seward's Folly" (השטות של סיוארד)** או "ארגז הקרח של סיוארד", בטענה שקנה גוש קרח חסר תועלת. ההיסטוריה הוכיחה אותו כגאון פנומנלי: הרכישה לא רק סילקה את רוסיה מצפון אמריקה לבלי שוב, אלא העניקה לארה"ב עתודות עצומות של זהב (שהתגלה ב-1896 בקלונדייק), נפט (במפרץ פרודו), משאבי דיג, ומיקום אסטרטגי קריטי במהלך המלחמה הקרה.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-akBlue shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-akBlue">הרקע הכחול הכהה:</h4>
-                        <p class="leading-loose text-lg">בהסבר המקורי שכתב בני בנסון בעפרון על העיצוב שהגיש, הוא ציין: <span class="italic text-white">"השדה הכחול הוא עבור שמי אלסקה ופרח הזכרי-לי (Forget-me-not, הפרח הלאומי של אלסקה)"</span>. הכחול מייצג את לילות החורף הבהירים והעמוקים, בניגוד לדגלי הפסים והצבעים החמים של מדינות הדרום.</p>
-                    </div>
-                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-akGold shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-akGold">הדובה הגדולה וכוכב הצפון (זהב):</h4>
-                        <p class="leading-loose text-lg">קבוצת שמונת הכוכבים בצבע זהב נושאת משמעות כפולה עמוקה. בנסון כתב: <span class="italic text-white">"כוכב הצפון מיועד לעתידה של מדינת אלסקה, המדינה הצפונית ביותר באיחוד."</span> שבעת כוכבי "העגלה הגדולה" (חלק מקבוצת הדובה הגדולה) מסמלים חוזק ואת העובדה שאלסקה נשענת על ציד וטבע (דובים). בחירת הצבע **הזהוב** נועדה לסמל את העושר והמשאבים (הבהלה לזהב) שהביאו לפיתוח המדינה.</p>
-                    </div>
+                <!-- אליזבת פראטרוביץ' -->
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-accentBlue"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">המורדת האזרחית: אליזבת פראטרוביץ' (Elizabeth Peratrovich)</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">מעמד: פעילת זכויות אזרח מטעם ילידי אלסקה (טילינגיט).</p>
+                    
+                    <h4 class="sub-header text-accentBlue decoration-accentBlue/40">רקע: גזענות ממוסדת בארץ הקרח</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        אליזבת נולדה ב-1911 למשפחה משבט הטילינגיט (Tlingit) בדרום-מזרח אלסקה. בעת שחיה כאישה בוגרת בטריטוריית אלסקה, היא ובני עמה חוו הפרדה גזעית בוטה המזכירה את חוקי הדרום של ארה"ב כלפי שחורים. על חנויות, מסעדות ובתי מלון באלסקה נתלו שלטים כמו: "אין כניסה לכלבים ולאינדיאנים" (No Dogs, No Natives). פראטרוביץ', שהייתה אישה משכילה וכריזמטית, החליטה יחד עם בעלה רוי להקים את "אחוות הילידים של אלסקה" ולהילחם בממסד הלבן.
+                    </p>
+
+                    <h4 class="sub-header text-accentBlue decoration-accentBlue/40">אידיאולוגיה: שוויון טבעי והרס תורת הגזע</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        האידיאולוגיה שלה הייתה זעקה לשוויון אנושי בסיסי לפני החוק. היא סירבה לקבל את טענת הסנאטורים הלבנים שהילידים "רק יצאו מהפראיות" ולכן אינם ראויים להשתלב בחברה. היא טענה בלהט כי האפליה מנוגדת לרוח החוקה האמריקאית ולאתוס החופש המערבי.
+                    </p>
+
+                    <h4 class="sub-header text-accentBlue decoration-accentBlue/40">הישגים מכוננים: חוק האנטי-אפליה (1945)</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        בשנת 1945, פראטרוביץ' העידה בפני הסנאט הטריטוריאלי של אלסקה לטובת חוק האוסר על אפליה נגד ילידים. כשאחד הסנאטורים התנגד ושאל מי בכלל רוצה להתערבב עם ילידים, היא נעמדה ונשאה נאום ספונטני ומרגש שהשתיק את האולם: <span class="italic">"לא הייתי מצפה שאנשים שהגיעו לאמריקה לפני 5,000 שנה יצטרכו להתחנן לזכויות מאנשים שהגיעו לכאן רק אתמול... קשה ללמד על חוקת אמריקה לילדים שלי כשאני נאלצת להסביר להם למה אנחנו לא יכולים להיכנס לתיאטרון."</span>
+                        הנאום שלה שכנע את הסנאט הציניקן, ו**"חוק האנטי-אפליה של אלסקה"** עבר ברוב קולות. זהו רגע מכונן ופנומנלי: אלסקה, בעזרתה של ילידת המקום, חוקקה את החוק הראשון בארצות הברית האוסר על אפליה במקומות ציבוריים – קרוב ל-20 שנה לפני "חוק זכויות האזרח" הפדרלי ב-1964! כיום, יום הולדתה (16 בפברואר) נחגג באלסקה כחג רשמי (Elizabeth Peratrovich Day).
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-akBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+        <!-- 4. פנתיאון תרבותי -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-[#F59E0B] shadow-2xl"> 
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-[#F59E0B] text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">4</span>
+                פנתיאון תרבותי: כלבי המזחלות וגלידת האסקימואים
+            </h2>
+            
+            <div class="space-y-12">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-[#F59E0B] mb-2 underline italic decoration-[#F59E0B]/40">כלב המדינה: אלסקן מלמוט (Alaskan Malamute)</h3>
+                    <p class="text-lg text-textMuted mb-6 font-bold uppercase tracking-widest">משאית ההובלה של החוג הארקטי (אומץ ב-2010)</p>
+                    <p class="leading-loose text-lg text-textMain">
+                        בעוד שיש לאלסקה מספר סמלי טבע (האייל הקורא, סלמון הצ'ינוק ועץ האשוח), הסמל שמחבר בצורה העמוקה ביותר בין הישרדות האדם לטבע הקיצוני הוא כלב ה**אלסקן מלמוט**.
+                        <br><br>
+                        גזע כלבים עתיק זה פותח לפני אלפי שנים על ידי שבט המהלמיות (Mahlemiut) האינואיטי בצפון-מערב אלסקה. בניגוד ל"האסקי הסיבירי" המהיר (שנועד למרוצים ספרינטים), המלמוט הוא כלב מסת שריר ענק (מגיע עד 40 ק"ג ויותר), חזה רחב ופרווה כפולה וסמיכה במיוחד. המטרה שלו מעולם לא הייתה מהירות, אלא **כוח וסיבולת** לגרור משאות כבדים מאוד (מזון, עצים לחימום, ואנשים) למרחקים ארוכים, בקור מקפיא של מינוס עשרות מעלות, לאורך תקופות קשות בחוג הארקטי. המלמוט איפשר לאדם הלבן לחקור את אלסקה בתקופת הבהלה לזהב (Klondike Gold Rush), והוא זכה למעמדו ככלב המדינה בזכות קמפיין של תלמידי בית ספר ממעון אמיצים.
+                    </p>
+                </div>
+
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-akIce mb-2 underline italic decoration-slate-400">המנה הלאומית: אקוטאק (Akutaq - Eskimo Ice Cream)</h3>
+                    <p class="text-lg text-textMuted mb-6 font-bold uppercase tracking-widest">תזונת הישרדות קדומה במסווה של קינוח</p>
+                    <p class="leading-loose text-lg text-textMain">
+                        הקולינריה המודרנית של אלסקה נשענת בכבדות על פירות ים פראיים (כדוגמת **סלמון הקינג** שמוכן לרוב בעישון מסורתי, או סרטני המלך הענקיים - King Crab). אולם, המאכל המרתק והאותנטי ביותר במדינה הוא ה**אקוטאק**.
+                        <br><br>
+                        האקוטאק (המכונה על ידי זרים "גלידה אסקימואית") היא פנומנולוגיה גסטרונומית של הישרדות ארקטית: היא אינה מכילה טיפת חלב או קרח! המילה אקוטאק פירושה "דברים מעורבבים יחד" בשפת היופיק. באופן מסורתי, היא מורכבת מ**שומן של חיות צפון** (כגון שומן של כלב ים, אייל צפון מוקצף או שמן לווייתנים), שאליו מתווסף **שלג טרי או מים קרים** כדי לאוורר ולהקציף את התערובת. לתוך מסת השומן המוקצפת מקפלים עשבי בר מקומיים ובעיקר **פירות יער ארקטיים עזי טעם** (אוכמניות ענן, קרנברי או פטל בר), ולעיתים אף פיסות קטנות של דג או בשר מיובש. <br>
+                        המנה עתירת-הקלוריות הזו נוצרה כדי לספק אנרגיה עצומה לציידים שיצאו לשבועות בקור המקפיא, וכיום מוגשת כחטיף קהילתי מסורתי (כאשר כיום משתמשים לעיתים בקיצור דרך מודרני של שומן צמחי - Crisco וסוכר).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. אנומליות תרבותיות וכינויים -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-textMuted shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-cardBorder text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">5</span>
+                כינויי המדינה: ניתוח פנומנולוגי
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-akIce mb-4 underline italic decoration-akIce/40">The Last Frontier (הסְפָר האחרון)</h3>
+                    <p class="text-lg leading-loose text-textMuted">
+                        זהו הכינוי הרשמי של אלסקה (המופיע על לוחיות הרישוי יחד עם ציור של דוב או קרחון). הפנומנולוגיה שלו מסכמת את התפיסה האמריקאית: לאחר שהגבול המערבי (המערב הפרוע) נכבש, יושב וסורטט לחלוטין בסוף המאה ה-19, אלסקה נותרה חתיכת הקרקע האדירה והפראית היחידה שעדיין לא אולפה על ידי האדם המודרני. "הספר האחרון" מעורר דימויים של טבע קשוח, שטחים בלתי ממופים, והזדמנות (הרפתקה) אחרונה לאנשים שמחפשים חיים הרחק מהציוויליזציה והבירוקרטיה.
+                    </p>
+                </div>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-akGold mb-4 underline italic decoration-akGold/40">Seward's Folly (השטות של סיוארד)</h3>
+                    <p class="text-lg leading-loose text-textMuted">
+                        כפי שפורט בסעיף הריבונות, זהו כינוי היסטורי ולעגני שהוענק לעסקה שבה רכש שר החוץ סיוארד את אלסקה מרוסיה ב-1867. הקוריוז הפנומנולוגי הוא שתושבי אלסקה כיום **ניכסו את הכינוי לעצמם** בגאווה (Reappropriation), ומשתמשים בו כדי להזכיר עד כמה הממשל המרכזי בוושינגטון D.C טעה בזמנו לגבי שוויה העצום, ואת העובדה שאלסקה ה"קפואה והטיפשית" הפכה ליהלום בכתר הכלכלי והאסטרטגי של ארצות הברית.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. וקסילולוגיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-akBlue shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-akBlue text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">6</span>
+                וקסילולוגיה: הילד היתום והעגלה הגדולה
+            </h2>
+            
+            <div class="flex flex-col items-center mb-10 mt-6">
+                <!-- דגל אלסקה ב-CSS להמחשה פנימית -->
+                <div class="w-full max-w-lg aspect-[3/2] bg-[#0F204B] rounded-3xl overflow-hidden shadow-2xl border-[6px] border-slate-700 relative">
+                    <!-- Big Dipper (Ursa Major) -->
+                    <div class="absolute inset-0">
+                        <span class="absolute top-[35%] left-[20%] text-[#FFD700] text-lg sm:text-xl">★</span>
+                        <span class="absolute top-[45%] left-[30%] text-[#FFD700] text-lg sm:text-xl">★</span>
+                        <span class="absolute top-[52%] left-[45%] text-[#FFD700] text-lg sm:text-xl">★</span>
+                        <span class="absolute top-[65%] left-[48%] text-[#FFD700] text-lg sm:text-xl">★</span>
+                        <span class="absolute top-[72%] left-[65%] text-[#FFD700] text-lg sm:text-xl">★</span>
+                        <span class="absolute top-[58%] left-[75%] text-[#FFD700] text-lg sm:text-xl">★</span>
+                        <span class="absolute top-[45%] left-[62%] text-[#FFD700] text-lg sm:text-xl">★</span>
+                    </div>
+                    <!-- Polaris (North Star) -->
+                    <span class="absolute top-[15%] right-[15%] text-[#FFD700] text-3xl sm:text-4xl">★</span>
+                </div>
+                <p class="mt-6 text-sm font-bold text-textMuted tracking-widest uppercase bg-cardBorder px-4 py-2 rounded-full">אומץ רשמית בחוק בשנת 1927 (בהיותה טריטוריה)</p>
+            </div>
+
+            <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                <h3 class="text-2xl font-black text-akGold mb-4 underline italic decoration-akBlue decoration-4">הנער בן ה-13 שניצח את העיצובים הרשמיים:</h3>
+                <p class="leading-loose text-lg text-textMain mb-6">
+                    הדגל של אלסקה הוא לא רק אחד מהיפים והמינימליסטיים ביותר בארה"ב, אלא מחזיק בסיפור היצירה המרגש ביותר. בשנת 1927, מחלקת הלגיון האמריקאי החליטה לערוך תחרות לבחירת דגל לטריטוריה הצעירה. התחרות הייתה פתוחה לכל ילדי בתי הספר באלסקה מכיתות ז' עד י"ב. 
+                    מי שזכה בתחרות, מתוך למעלה מ-700 הצעות, היה נער יתום בן 13 בלבד בשם **בני בנסון (Benny Benson)**, יליד משבט האלאוט, שהתגורר בבית יתומים בעיר סיוורד (Seward). עיצובו הגאוני בפשטותו נבחר, והוא זכה במלגת לימודים בסך 1,000 דולר ושעון מזהב (לימים, ב-1959 כשהפכה למדינה, הוחלט להשאיר את העיצוב של בנסון כדגל הרשמי).
+                </p>
+                <p class="leading-loose text-lg text-textMain">
+                    **פנומנולוגיה של סמלים:**
+                    בני בנסון, בכתב ידו, צירף פתק מסביר לעיצוב. הדגל כולל רקע בצבע **כחול עמוק**, שעליו ציין בנסון: <span class="italic">"הרקע הכחול מיועד לשמי אלסקה ולפרח הלאומי-המקומי שלה (פרח זכרי המכונה 'Forget-me-not')"</span>. 
+                    על הרקע הכחול סידר בנסון שבעה כוכבי זהב בצורת **העגלה הגדולה (Ursa Major / Big Dipper)**, והוסיף: <span class="italic">"העגלה הגדולה היא עבור הדוב (Ursa) - סמל של כוח טבעי."</span> 
+                    בפינה הימנית העליונה, מופרד וגדול יותר, הוא הציב את הכוכב השמיני מזהב – **כוכב הצפון (Polaris)**. בנסון הסביר: <span class="italic">"כוכב הצפון מייצג את מדינת אלסקה העתידית, המדינה הצפונית ביותר באיחוד."</span> זהו דגל טהור של שמי קוטב אסטרונומיים, ללא חותמות, נשקים או מוטואים לטיניים מסובכים.
+                </p>
+            </div>
+        </section>
+
+        <!-- 7. ביבליוגרפיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-cardBorder shadow-2xl">
+            <h2 class="text-2xl font-black text-textMuted mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-cardBorder text-white w-10 h-10 rounded-lg flex items-center justify-center ml-4 text-lg">7</span>
                 ביבליוגרפיה ומקורות מחקריים
             </h2>
-            
-            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Alaska Native Language Center (University of Alaska Fairbanks):</p>
-                    <p>"Aleut Dictionary and the Origins of Alyeska". מחקר פילולוגי המאשש כי המילה מתארת את פעולת הים על היבשה ולא "ארץ גדולה" באופן גנרי.</p>
+            <div class="space-y-6 text-lg text-textMuted leading-loose">
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Alaska Native Language Center (UAF):</strong>
+                    האטימולוגיה של המילה Alaxsxaq מהשפה האלאוטית, והמושג הפנומנולוגי של "האובייקט אליו מכוון הים" כפי שנתפס על ידי שוכני האיים.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">The Alaska State Museum / State Archives:</p>
-                    <p>"The Story of Benny Benson and the Alaska Flag". סריקות המסמך המקורי שצייר הילד בני בנסון בתחרות בשנת 1927, כולל הנימוקים שכתב בכתב ידו לעיצוב הדגל.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Office of the Historian - U.S. Department of State:</strong>
+                    ההיסטוריה הדיפלומטית של רכישת אלסקה (1867), הנימוקים הגאו-פוליטיים של השר ויליאם סיוארד מול האימפריה הרוסית, והלגלוג הפוליטי ("Seward's Folly").
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">U.S. Department of State - Office of the Historian:</p>
-                    <p>"Purchase of Alaska, 1867". תיעוד המגעים החשאיים של מזכיר המדינה ויליאם סיוארד והתגובה הציבורית ל"איוולת של סיוארד".</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Alaska State Archives - Civil Rights:</strong>
+                    קורות חייה של אליזבת פראטרוביץ' (משבט הטילינגיט), נאומה המפורסם בסנאט בשנת 1945, וחקיקת חוק האנטי-אפליה הראשון באמריקה (שני עשורים לפני החוק הפדרלי).
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Journal of Arctic Anthropology:</p>
-                    <p>"Akutaq: Subsistence and Survival Foods of the Yup'ik". ניתוח תזונתי ואנתרופולוגי של גלידת שומן בעלי החיים והתרומה שלה למסעות ציד בחורף הארקטי.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Journal of Arctic Ethnology & Gastronomy:</strong>
+                    תפקידו של הכלב מסוג אלסקן מלמוט ככלי תחבורה הישרדותי של שבט המהלמיות, וחקירת המנה האסקמואית (Akutaq) כמזון עתיר אנרגיה מציל חיים המבוסס שומן ופירות יער קפואים.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Iditarod Historic Trail Alliance:</p>
-                    <p>"The 1925 Serum Run to Nome". ההיסטוריה של כלבי המלמוט וההאסקי כצינור החיים של אלסקה, אשר הובילה להכרת המלמוט ככלב המדינה ב-2010.</p>
+                <div>
+                    <strong class="text-white block mb-1">North American Vexillological Association (NAVA):</strong>
+                    הסיפור ההיסטורי על תחרות הלגיון האמריקאי (1927), הילד היתום בני בנסון, והסמליות האסטרונומית של העגלה הגדולה וכוכב הצפון.
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- פוטר אתר ממותג -->
-    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
-        <div class="flex flex-col items-center gap-10">
-            <div class="flex gap-8">
-                <div class="w-6 h-6 bg-akBlue rounded-full shadow-[0_0_15px_rgba(15,32,75,0.6)]"></div>
-                <div class="w-6 h-6 bg-akGold rounded-full shadow-[0_0_15px_rgba(255,182,18,0.6)]"></div>
-                <div class="w-6 h-6 bg-akIce rounded-full shadow-[0_0_15px_rgba(224,242,254,0.6)]"></div>
+    <!-- מודל (חלון צף) להגדלת הדגל -->
+    <div id="flagModal" class="hidden fixed inset-0 z-[100] bg-appBg/95 backdrop-blur-md flex items-center justify-center p-4 cursor-pointer" onclick="closeFlagModal()">
+        <div class="modal-animate relative w-full max-w-4xl aspect-[3/2] bg-[#0F204B] rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(255,215,0,0.2)] border-8 border-cardBorder cursor-default" onclick="event.stopPropagation()">
+            <!-- כפתור סגירה -->
+            <button onclick="closeFlagModal()" class="absolute top-4 right-4 z-50 bg-black/50 hover:bg-black text-white rounded-full p-3 transition-colors shadow-lg border border-white/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <!-- העתק מדויק של הדגל בגדול -->
+            <div class="absolute inset-0">
+                <!-- Big Dipper -->
+                <span class="absolute top-[35%] left-[20%] text-[#FFD700] text-3xl sm:text-5xl">★</span>
+                <span class="absolute top-[45%] left-[30%] text-[#FFD700] text-3xl sm:text-5xl">★</span>
+                <span class="absolute top-[52%] left-[45%] text-[#FFD700] text-3xl sm:text-5xl">★</span>
+                <span class="absolute top-[65%] left-[48%] text-[#FFD700] text-3xl sm:text-5xl">★</span>
+                <span class="absolute top-[72%] left-[65%] text-[#FFD700] text-3xl sm:text-5xl">★</span>
+                <span class="absolute top-[58%] left-[75%] text-[#FFD700] text-3xl sm:text-5xl">★</span>
+                <span class="absolute top-[45%] left-[62%] text-[#FFD700] text-3xl sm:text-5xl">★</span>
+                
+                <!-- Polaris -->
+                <span class="absolute top-[15%] right-[15%] text-[#FFD700] text-6xl sm:text-8xl drop-shadow-[0_0_15px_rgba(255,215,0,0.8)]">★</span>
             </div>
-            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
-                US State Origins - Ultimate Academic Archive
-            </p>
-            <p class="text-slate-400 text-4xl font-black">
-                האתר נוצר על ידי ג'מיני ורם | 2026
-            </p>
         </div>
-    </footer>
+        <p class="absolute bottom-10 text-textMuted font-bold tracking-widest uppercase bg-cardBg/80 px-6 py-2 rounded-full border border-cardBorder">לחץ מחוץ לדגל כדי לסגור</p>
+    </div>
+
+    <!-- פונקציות JS לחלון הצף -->
+    <script>
+        function openFlagModal() {
+            document.getElementById('flagModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // מניעת גלילה של הרקע
+        }
+        function closeFlagModal() {
+            document.getElementById('flagModal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // החזרת גלילה
+        }
+        // סגירה גם בלחיצה על כפתור Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeFlagModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
