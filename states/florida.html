@@ -11,13 +11,18 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#0f172a',
-                        cardBg: '#1e293b',
-                        accent: '#38bdf8',
-                        flRed: '#C8102E',     /* Florida Cross Red */
-                        flGold: '#FFC425',    /* Sunshine / Seal Gold */
-                        flOrange: '#FF7F50',  /* Citrus Orange */
-                        flGreen: '#228B22'    /* Everglades / Palm Green */
+                        appBg: '#050B14',      /* Deep Space Navy */
+                        cardBg: '#0B172A',     /* Elevated Card Navy */
+                        cardBorder: '#1E293B', /* Card Border */
+                        accentBlue: '#38BDF8', /* Neon Blue Accent */
+                        flRed: '#C9082A',      /* Florida Cross Red */
+                        flGold: '#F3C300',     /* Seal Gold */
+                        flOrange: '#FFA500',   /* Citrus Orange */
+                        textMain: '#E2E8F0',   /* Soft White Text */
+                        textMuted: '#94A3B8'   /* Slate Gray Text */
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
                     }
                 }
             }
@@ -25,363 +30,425 @@
     </script>
     <style>
         body { 
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             -webkit-tap-highlight-color: transparent;
+            background-color: #050B14;
+            color: #E2E8F0;
             line-height: 1.85;
         }
-        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
-        p, li, span, div, blockquote { font-size: 1.125rem; } 
-        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
-        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
-        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
-        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
-        .sub-header { @apply text-flGold font-black text-2xl mb-5 underline italic decoration-flGold/40 underline-offset-8; }
-        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+        p, li, span, div, blockquote { font-size: 1.125rem; } /* 18px קבוע לקריאה נוחה ב-S25 Ultra */
+        
+        /* Scrollbar מותאם לאפליקציה */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050B14; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        
+        .glass-panel {
+            background: rgba(11, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(30, 41, 59, 0.8);
+        }
+        
+        .stat-badge {
+            background: linear-gradient(145deg, #112240 0%, #0B172A 100%);
+            border: 1px solid #1E293B;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .sub-header { @apply text-accentBlue font-black text-xl mb-3 underline italic decoration-accentBlue/40 underline-offset-8 mt-6; }
+
+        /* אנימציית הופעה לחלון הצף */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-animate {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
     </style>
 </head>
-<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+<body class="antialiased min-h-screen flex flex-col items-center pb-20">
 
-    <!-- ניווט עליון -->
-    <nav class="w-full max-w-4xl mb-10">
-        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+    <!-- ניווט עילי -->
+    <nav class="w-full max-w-4xl p-6 sticky top-0 z-40 glass-panel border-b-0 rounded-b-3xl mb-6 shadow-lg flex justify-between items-center">
+        <a href="../index.html" class="inline-flex items-center text-accentBlue hover:text-white transition-colors font-bold text-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
             חזרה לאטלס המדינות
         </a>
+        <span class="text-xs font-black tracking-widest text-textMuted uppercase bg-cardBorder px-3 py-1 rounded-full">FL</span>
     </nav>
 
-    <!-- כותרת מחקר אקדמי -->
-    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-flOrange relative overflow-hidden">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
-            <div>
-                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">פלורידה</h1>
-                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Florida - The Sunshine State</p>
-                <div class="h-2 w-56 bg-flGold mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(255,196,37,0.5)]"></div>
-            </div>
-            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
-                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
-                <p class="text-5xl font-black text-white">3 במרץ, 1845</p>
-                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-27 באיחוד</p>
-            </div>
-        </div>
-    </header>
-
-    <main class="w-full max-w-4xl space-y-20">
+    <main class="w-full max-w-4xl px-4 space-y-10">
         
-        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
-                אטימולוגיה: מולקולריות של חג דתי ובוטניקה
-            </h2>
+        <!-- Hero Section -->
+        <header class="w-full rounded-[3rem] overflow-hidden shadow-2xl relative bg-gradient-to-b from-[#2a110a] to-cardBg border border-cardBorder pt-12 pb-10">
+            <!-- רקע גרפי מופשט -->
+            <div class="absolute top-0 left-0 w-full h-72 bg-flOrange opacity-20 blur-[100px] rounded-full mix-blend-screen pointer-events-none"></div>
             
-            <div class="space-y-10">
-                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
-                    שמה של פלורידה הוא השם האירופאי העתיק ביותר ששרד בארצות הברית ברציפות מאז שנת 1513. הוא אינו מנציח מלך או שבט, אלא מתעד צירוף מקרים של תאריך בלוח השנה הקתולי יחד עם מראה עיניים בוטני ביום הגילוי.
-                </p>
+            <div class="px-6 md:px-12 relative z-10 flex flex-col items-center text-center">
+                
+                <!-- דגל המדינה הראשי (קליק להגדלה) -->
+                <div onclick="openFlagModal()" class="cursor-pointer group relative mb-10">
+                    <div class="w-48 sm:w-56 aspect-[3/2] bg-white rounded-3xl overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-4 border-slate-300 relative transform transition-transform duration-500 group-hover:scale-105 group-active:scale-95">
+                        
+                        <!-- Florida Flag Representation via SVG -->
+                        <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full bg-white">
+                            <!-- Red Saltire (Cross) -->
+                            <polygon points="0,0 20,0 300,180 300,200 280,200 0,20" fill="#C9082A"/>
+                            <polygon points="300,0 280,0 0,180 0,200 20,200 300,20" fill="#C9082A"/>
+                            
+                            <!-- Simplified Seal in the center -->
+                            <circle cx="150" cy="100" r="45" fill="#F3C300"/>
+                            <circle cx="150" cy="100" r="38" fill="#FFFFFF"/>
+                            <!-- Abstract elements of seal -->
+                            <path d="M 120 120 Q 150 140 180 120 Z" fill="#2E8B57"/> <!-- Land/Grass -->
+                            <circle cx="150" cy="90" r="15" fill="#FFD700"/> <!-- Sun -->
+                            <rect x="112" y="105" width="76" height="15" fill="#1E90FF"/> <!-- Water -->
+                            <!-- Palm Tree abstract -->
+                            <rect x="165" y="80" width="3" height="40" fill="#8B4513"/>
+                            <circle cx="166" cy="80" r="8" fill="#228B22"/>
+                            <!-- Steamboat abstract -->
+                            <rect x="125" y="100" width="20" height="8" fill="#555555"/>
+                            <rect x="132" y="92" width="4" height="8" fill="#333333"/>
+                        </svg>
 
-                <div class="space-y-8">
-                    <!-- Pascua -->
-                    <div class="etymology-box border-flGold">
-                        <p class="text-flGold font-black text-5xl mb-6 italic tracking-tighter">Pascua</p>
-                        <div class="space-y-4">
-                            <p><strong>מקור פילולוגי:</strong> ספרדית (מקור לטיני-עברי קדום: 'פסח').</p>
-                            <p><strong>משמעות מילולית:</strong> חג, ובהקשר הנוצרי - חג הפסחא (Easter).</p>
-                        </div>
-                    </div>
-
-                    <!-- Florida -->
-                    <div class="etymology-box border-flOrange">
-                        <p class="text-flOrange font-black text-5xl mb-6 italic tracking-tighter">Florida</p>
-                        <div class="space-y-4">
-                            <p><strong>מקור פילולוגי:</strong> ספרדית (מקור לטיני: *Floridus*).</p>
-                            <p><strong>משמעות מילולית:</strong> "מלאת פרחים", "פורחת", או "פרחונית".</p>
+                        <!-- אייקון זכוכית מגדלת מרחף -->
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800/60 p-10 rounded-[2rem] border-r-8 border-flGreen shadow-xl mt-10">
-                    <h3 class="font-black text-white mb-6 text-2xl italic underline decoration-flGreen underline-offset-8">הסינתזה וההכרזה (1513):</h3>
-                    <div class="space-y-6 text-slate-300 leading-loose">
-                        <p>השילוב המלא <span class="text-white font-bold underline decoration-flOrange">"La Pascua Florida"</span> מתורגם ל<strong class="text-white">"חג הפסחא הפרחוני"</strong> (פסטיבל הפרחים בספרד שנחגג בעונת הפסחא).</p>
-                        <p>ב-2 באפריל 1513, במהלך עונת "פסקואה פלורידה", זיהה חוקר הארצות הספרדי **חואן פונסה דה ליאון** (Juan Ponce de León) יבשה חדשה. כאשר ירד אל החוף (באזור סיינט אוגוסטין של ימינו), הוא נדהם מעושר הצמחייה הטרופית והפרחים שכיסו את האדמה לאחר החורף. כדי לציין גם את מראה העיניים המרהיב וגם את החג הקדוש שבו נתגלתה האדמה, הוא העניק לטריטוריה את השם "לה פלורידה" (La Florida). השם הפונטי קוצר עם השנים לפלורידה, והוא נשאר יציב דרך שלטון ספרדי, בריטי, ושוב ספרדי, עד לסיפוח האמריקאי.</p>
+                <p class="text-flOrange font-black tracking-[0.4em] uppercase text-sm mb-4">The Sunshine State</p>
+                <h1 class="text-6xl md:text-8xl font-black text-white mb-4 tracking-tight">פלורידה</h1>
+                <p class="text-2xl text-textMuted font-light italic mb-12">Florida</p>
+                
+                <!-- Quick Stats Badges -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mt-4">
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">הצטרפות</span>
+                        <span class="text-alaWhite font-black text-2xl">1845</span>
+                        <span class="text-[11px] text-flRed font-black mt-2 bg-flRed/10 px-3 py-1 rounded-full">מדינה 27</span>
                     </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">שטח (דירוג)</span>
+                        <span class="text-alaWhite font-black text-2xl">מקום 22</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">170,312 קמ"ר</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">אוכלוסייה</span>
+                        <span class="text-alaWhite font-black text-2xl">22.6M</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">אומדן 2023 (מקום 3)</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">עיר בירה</span>
+                        <span class="text-alaWhite font-black text-2xl text-center">טלהאסי</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">Tallahassee</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 1. אטימולוגיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-flOrange shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-flOrange text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">1</span>
+                אטימולוגיה: מולקולריות של חג הפרחים
+            </h2>
+            <div class="space-y-8">
+                <p class="text-textMuted font-medium italic border-r-4 border-flOrange pr-6 text-xl leading-loose">
+                    שמה של פלורידה הוא העתיק ביותר מבין שמות המדינות האירופאיים בארה"ב. הוא אינו נובע משם של מלך או אציל, אלא מעיתוי לוח השנה הנוצרי שבו התגלתה היבשת על ידי הספרדים.
+                </p>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder shadow-inner">
+                    <p class="text-accentBlue font-black text-4xl mb-4 tracking-wider">La Florida</p>
+                    <p class="mb-4 text-lg"><strong>מקור פילולוגי:</strong> השפה הספרדית (Pascua Florida).</p>
+                    <p class="text-lg leading-loose"><strong>משמעות וניתוח מלא:</strong> המילה <em>Florida</em> בספרדית מתורגמת כ<strong class="text-white">"פרחונית" או "מכוסה בפרחים"</strong>. 
+                    באפריל שנת 1513, הקונקיסטאדור הספרדי חואן פונסה דה ליאון נחת בחופי חצי האי (כנראה באזור סיינט אוגוסטין של ימינו). הנחיתה התרחשה במהלך חופשת הפסחא. בספרדית, חג הפסחא מכונה לעיתים קרובות <strong>"Pascua Florida" (חג הפרחים)</strong>, מכיוון שהוא חל באביב כשהצמחייה מלבלבת. דה ליאון הבחין בצמחייה העבותה, המוריקה והטרופית של האזור שבו נחת, וכהוקרה לחג ולנוף העניק לאדמה החדשה את השם "לה פלורידה" (ארץ הפרחים).</p>
                 </div>
             </div>
         </section>
 
-        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-flRed text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
-                כרוניקה של ריבונות: הקונקיסטאדור ואיל הרכבות
+        <!-- 2. גאו-פוליטיקה ודמוגרפיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-accentBlue shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-accentBlue text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">2</span>
+                גאו-פוליטיקה ודמוגרפיה
+            </h2>
+            <div class="space-y-8">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-accentBlue">הפנינסולה והאדמה השטוחה ביותר (Area & Topography)</h3>
+                    <p class="leading-loose text-lg text-textMuted">
+                        פלורידה היא חצי-אי (Peninsula) עצום הנשלח דרומה, המפריד בין האוקיינוס האטלנטי למפרץ מקסיקו. כתוצאה מכך, היא מחזיקה בקו החוף הארוך ביותר בארה"ב מבין המדינות הרציפות. הטופוגרפיה שלה היא אנומליה קיצונית לעומת שאר ארה"ב: פלורידה היא **המדינה השטוחה ביותר בארצות הברית**. הנקודה הגבוהה ביותר בה (Britton Hill) מתנשאת לגובה מגוחך של 105 מטרים בלבד מעל פני הים. חלקה הדרומי נשלט על ידי ה**אוורגליידס (Everglades)**, מערכת אקולוגית ייחודית של ביצות ו"נהר של עשב" שהוא עצום בגודלו ומסנן את מימי המדינה. עקב גובהה הנמוך, היא המדינה הפגיעה ביותר לעליית פני הים ולהוריקנים קטלניים.
+                    </p>
+                </div>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-flRed">פסיפס אנושי: ציפורי השלג וההגירה הלטינית (Demographics)</h3>
+                    <p class="leading-loose text-lg text-textMuted">
+                        עם כ-22.6 מיליון תושבים, פלורידה היא המדינה השלישית המאוכלסת ביותר בארה"ב. הדמוגרפיה שלה עוצבה על ידי שני כוחות גיאופוליטיים מרכזיים: הראשונה היא הגירה מאסיבית של אמריקאים מבוגרים מהצפון הקר (המכונים "Snowbirds" – ציפורי שלג) שבאים לבלות בה את הפנסיה בזכות מזג האוויר והיעדר מס ההכנסה המדינתי. השנייה היא הגירה לטינית עוצמתית, במיוחד קובנית (בעקבות עליית קסטרו), שהפכה את דרום פלורידה (ואת מיאמי בפרט) לאחד המטרופולינים הלטיניים, הדו-לשוניים והכלכליים החזקים ביותר ביבשת אמריקה (כ-27% מאוכלוסיית המדינה היא היספאנית).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. כרוניקה של ריבונות -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-white shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-white text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">3</span>
+                כרוניקה של ריבונות: מגלה הארצות ואדריכל האימפריה
             </h2>
             
-            <div class="space-y-16">
+            <div class="space-y-12">
                 <!-- חואן פונסה דה ליאון -->
-                <div class="personality-card border-r-8 border-flOrange shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-flOrange decoration-4 underline-offset-8">ההוגה והמגלה (מיתוס מול מציאות): חואן פונסה דה ליאון (Juan Ponce de León)</h3>
-                    <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1474–1521. <strong>מעמד:</strong> מגלה פלורידה והמושל הראשון של פוארטו ריקו.</p>
-                        
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-flGold">רקע ואכזריות צבאית:</h4>
-                            <p class="leading-loose">פונסה דה ליאון נולד בספרד והחל את דרכו כנושא כליו של אביר. הוא השתתף במלחמות הדת נגד המורים בגרנדה, ולאחר מכן הפליג לעולם החדש (כנראה במסעו השני של קולומבוס). הוא דיכא באכזריות מרידות של ילידים (טאינו) בפוארטו ריקו תוך שימוש בכלבי תקיפה, והתעשר מאוד משיעבודם במכרות זהב. הוא היה קונקיסטאדור אופייני לתקופתו: רודף כוח, תהילה וזהב.</p>
-                        </div>
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-flOrange"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">ההוגה והכובש: חואן פונסה דה ליאון (Juan Ponce de León)</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">מעמד: קונקיסטאדור ספרדי, והאירופאי הראשון שהגיע ותיעד את פלורידה (1513).</p>
+                    
+                    <h4 class="sub-header text-flOrange decoration-flOrange/40">רקע: ממשלחת קולומבוס למושל בורטו ריקו</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        פונסה דה ליאון נולד בספרד (1474), והיה אציל ולוחם שהשתתף במלחמת שחרור ספרד מהמוסלמים. הוא הצטרף למסעו השני של כריסטופר קולומבוס אל "העולם החדש" ב-1493. הוא התבלט כדיכוי מרידות ילידים, צבר עושר עצום, ומונה למושל הראשון של פוארטו ריקו.
+                    </p>
 
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-flGold">האידיאולוגיה - מיתוס מעיין הנעורים לעומת מסחר:</h4>
-                            <p class="leading-loose">המיתוס המפורסם ביותר הוא שדה ליאון גילה את פלורידה בזמן שחיפש את "מעיין הנעורים" (Fountain of Youth) האגדי שיכול לרפא ולהצעיר את הרוחץ בו. היסטוריונים מודרניים טוענים כי **זהו מיתוס שהומצא לאחר מותו** על ידי כותבים ספרדים כדי להגחיך אותו. האידיאולוגיה האמיתית והפרגמטית שלו במסע ל"בימיני" (פלורידה) הייתה פשוטה: הוא חיפש שטחים חדשים לממלכה הספרדית שיהיו עשירים בזהב וילידים שאפשר לשעבד, מכיוון שהאיים הקריביים כבר החלו להתרוקן ממשאבים ומאדם.</p>
-                        </div>
+                    <h4 class="sub-header text-flOrange decoration-flOrange/40">אידיאולוגיה: זהב, הרחבת האימפריה ומעיין הנעורים</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        האידיאולוגיה של דה ליאון הייתה טיפוסית לקונקיסטאדור: התרחבות טריטוריאלית, חיפוש אחר מתכות יקרות ושעבוד כוח אדם ילידי לטובת כתר ספרד. המיתוס ההיסטורי המפורסם ביותר (אשר היסטוריונים רבים מפקפקים בו כיום) גורס כי מטרת מסעו לפלורידה הייתה חיפוש אחר "מעיין הנעורים" האגדי, שממיו מרפאים זקנה, אך במציאות, המניע העיקרי היה פוליטי וכלכלי – השתלטות על איים ואדמות חדשות.
+                    </p>
 
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-flGold">הישגים מכוננים - גילוי זרם הגולף (1513):</h4>
-                            <p class="leading-loose">מעבר להענקת השם לפלורידה, תגליתו ההיסטורית החשובה ביותר של דה ליאון לא הייתה אדמה, אלא **זרם הגולף (Gulf Stream)**. הוא זיהה זרם מים תת-ימי עצום שדחף את ספינותיו בכוח רב למרות הרוח. גילוי זה הפך לנתיב ה"אוטובאן" הימי של הצי הספרדי בדרכו חזרה ממקסיקו והקריביים לאירופה, ועיצב את המסחר העולמי. פונסה דה ליאון נהרג ב-1521 על ידי חץ מורעל של שבט הקלוסה (Calusa) בפלורידה בעת שניסה להקים בה מושבת קבע.</p>
-                        </div>
-                    </div>
+                    <h4 class="sub-header text-flOrange decoration-flOrange/40">הישגים מכוננים: נחיתה והשקת הנוכחות הספרדית</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        בשנת 1513, משלחתו נחתה בחופי פלורידה ודרשה אותה רשמית למען מלך ספרד. תביעתו זו סללה את הדרך להקמת "סיינט אוגוסטין" (St. Augustine) ב-1565 – היישוב האירופאי הרצוף הוותיק ביותר באמריקה הצפונית. פונסה דה ליאון עצמו מצא את מותו במסע שני לפלורידה (1521), לאחר שנפצע קשה מחץ רעיל שירו לעברו ילידים משבט הקלוסה (Calusa) שהגנו על אדמתם.
+                    </p>
                 </div>
 
                 <!-- הנרי פלאגלר -->
-                <div class="personality-card border-r-8 border-flBlue shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-flBlue decoration-4 underline-offset-8">האדריכל והבונה המודרני: הנרי פלאגלר (Henry Flagler)</h3>
-                    <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1830–1913. <strong>תואר:</strong> "אבי מיאמי ופאלם ביץ'". שנות פיתוח: 1885-1912.</p>
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-accentBlue"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">הבונה שייבש את הביצה: הנרי פלאגלר (Henry Flagler)</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">מעמד: טייקון רכבות ומלונאות, המייסד המודרני של כלכלת פלורידה.</p>
+                    
+                    <h4 class="sub-header text-accentBlue decoration-accentBlue/40">רקע: השותף השקט של רוקפלר</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        הנרי פלאגלר (1830–1913) היה תעשיין צפוני ושותפו הקרוב של ג'ון ד. רוקפלר בהקמת חברת "סטנדרט אויל" (Standard Oil) – מונופול הנפט הגדול באמריקה. בגיל 50, כשהוא מולטי-מיליונר, פלאגלר נסע לפלורידה עם אשתו הראשונה החולה במטרה למצוא מזג אוויר חם שיקל עליה. הוא מצא מדינה נחשלת, בלתי מפותחת, ללא מלונות ראויים ותחבורה סבירה, והחליט לשנות את זה.
+                    </p>
 
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">רקע של הון עצום (Standard Oil):</h4>
-                            <p class="leading-loose">פלאגלר נולד בניו יורק למשפחת כמורה ענייה, עזב את בית הספר בגיל 14 ועבד בחנויות. הפריצה הגדולה שלו קרתה כשחבר ל**ג'ון ד. רוקפלר** והיה שותף-מייסד בתאגיד הנפט העצום Standard Oil. פלאגלר היה המוח המשפטי והאסטרטגי מאחורי חוזי השינוע הדרקוניים של החברה. כשהיה בשנות ה-50 לחייו, עשיר כקורח, אשתו הראשונה חלתה, והרופאים המליצו על האקלים החם של פלורידה כדי להקל עליה.</p>
-                        </div>
+                    <h4 class="sub-header text-accentBlue decoration-accentBlue/40">אידיאולוגיה: בניית הריביירה האמריקאית</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        האידיאולוגיה של פלאגלר הייתה שילוב של קפיטליזם דורסני ויזמות כבירה. הוא האמין שניתן להפוך את פלורידה הבוצית והנידחת ל"ריביירה של החוף המזרחי" – גן עדן חורפי עבור אצולת הכסף של ניו יורק. הוא ידע שהמפתח טמון אך ורק בתשתיות (רכבות) שיובילו לתיירות.
+                    </p>
 
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">אידיאולוגיה - הנדסת החורף האמריקאי (Capitalism Over Nature):</h4>
-                            <p class="leading-loose">באותה עת (שנות ה-80 של המאה ה-19), פלורידה הייתה חור נידח, מוכה יתושים, מלריה וביצות. האידיאולוגיה של פלאגלר הייתה "קפיטליזם של כוח הזרוע". הוא האמין שניתן לכופף את הטבע באמצעות תשתיות והון, ולהפוך את החוף המזרחי הפראי של פלורידה ל**ריביירה האמריקאית** – גן עדן חורפי לעשירי הצפון.</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">הישגים מכוננים - רכבת החוף המזרחי של פלורידה (FEC):</h4>
-                            <p class="leading-loose">פלאגלר השקיע את כל הונו הפרטי בהקמת מסילת הרכבת **Florida East Coast Railway**. לאורך התקדמות המסילה דרומה, הוא בנה שרשרת של מלונות פאר (כמו הפונסה דה ליאון). ב-1896 המסילה הגיעה לאזור ביצתי קטן; פלאגלר סייע בהקמת עיר סביבה – זוהי **מיאמי** (העיר הגדולה היחידה בארה"ב שנוסדה על ידי אישה - ג'וליה טאטל, ששכנעה את פלאגלר להגיע). פרויקט השיא המגלומני שלו היה "רכבת הים" ב-1912 – מסילה שנסללה ישירות על פני הים עד לקי ווסט (Key West). פלאגלר הוא האיש שברא במו ידיו את כלכלת התיירות וההדרים של פלורידה המודרנית.</p>
-                        </div>
-                    </div>
+                    <h4 class="sub-header text-accentBlue decoration-accentBlue/40">הישגים מכוננים: רכבת החוף המזרחי והדרך לקי ווסט</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        פלאגלר רכש ותכנן את "מסילת הרכבת של החוף המזרחי של פלורידה" (Florida East Coast Railway). הוא סלל את המסילה דרומה לאורך החוף, ובכל תחנה מרכזית בנה מלונות פאר עצומים. בכך, הוא למעשה **המציא ופיתח את ערי פלורידה המודרניות**: הוא הפך את פאלם ביץ' למגרש משחקים לעשירים, ואף "המציא" את מיאמי כשהביא את הרכבת עד אליה. הפרויקט המגלומני והגדול ביותר שלו היה סלילת הרכבת היישר לתוך האוקיינוס – **המסילה מעבר לים (Overseas Railroad)** עד לקי ווסט (Key West). הפרויקט, שנחשב לפלא הנדסי עולמי, עלה בחייהם של מאות פועלים ומומן כולו מכיסו הפרטי, והוא שהפך את פלורידה מביצה נידחת לאימפריית תיירות מודרנית.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
-                פנתיאון תרבותי: שליטי הביצות וכור ההיתוך
+        <!-- 4. פנתיאון תרבותי -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-[#D2B48C] shadow-2xl"> 
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-[#D2B48C] text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">4</span>
+                פנתיאון תרבותי: חתול הביצות והפאי שהומצא ללא מקרר
             </h2>
             
-            <div class="space-y-14">
-                <!-- בעל החיים הלאומי -->
-                <div class="culture-highlight border-flGreen">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-flGreen">חיות המדינה: הפנתר של פלורידה והאליגטור האמריקאי</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">שליטי האוורגליידס וסמלי השימור</p>
-                    <p class="text-slate-300 leading-loose text-xl">
-                        הטבע של פלורידה הוא טרופי ופראי, ומוגדר על ידי "נהר העשב" (האוורגליידס). המדינה פיצלה את סמליה כדי לייצג שני קצוות של המערכת האקולוגית שלה.
-                    </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        **חיית המדינה (1982) - פנתר פלורידה (Florida Panther):** נבחר בהצבעת תלמידי בית ספר. בניגוד לשמו, זה אינו פנתר או יגואר שחור, אלא תת-מין ייחודי של **פומה** (Cougar / Puma concolor coryi). חיה מתבודדת זו, בעלת הזנב העקום האופייני, נדחקה לסף הכחדה על ידי פיתוח הנדל"ן הבלתי פוסק של פלורידה (בשנות ה-90 נותרו כ-20 פרטים בלבד!). היא אומצה כסמל לאומי כדי לעורר זעקה ציבורית ותוכניות שימור (כיום יש כ-200 פרטים). הפנתר מייצג את הטבע הנאבק על חייו מול בולדוזרים של נדל"ן.
-                    </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        **זוחל המדינה (1987) - האליגטור האמריקאי (American Alligator):** אם הפנתר הוא סמל לקושי, האליגטור הוא סמל לנוכחות בלתי מעורערת ולחזרה מהכחדה. האליגטור שורץ בכל אגם, תעלה וביצה בפלורידה, והוא הטורף העליון של המדינה מאז עידן הדינוזאורים. הוא מסמל את הפראות המסוכנת של הביצות (The Swamps) ומהווה גם קמע ספורטיבי אימתני (Florida Gators).
+            <div class="space-y-12">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-[#D2B48C] mb-2 underline italic decoration-[#D2B48C]/40">חיית המדינה: פנתר פלורידה (Florida Panther)</h3>
+                    <p class="text-lg text-textMuted mb-6 font-bold uppercase tracking-widest">רוח הרפאים של האוורגליידס (אומץ ב-1982)</p>
+                    <p class="leading-loose text-lg text-textMain">
+                        בעוד שהתנין האמריקאי (Alligator) הוא הזוחל הלאומי והחיה המזוהה ביותר עם פלורידה, תלמידי בתי הספר של המדינה בחרו ב-1982 בחיה נדירה ואצילית הרבה יותר לייצג אותם: **פנתר פלורידה**.
+                        <br><br>
+                        הפנתר הוא תת-מין ייחודי של פומת ההרים (Puma concolor coryi), שהסתגל במיוחד לחיים בביצות הטרופיות של דרום פלורידה (אזור האוורגליידס). הוא קטן יותר מקרוביו המערביים ובעל צבע אדמדם-חום. הבחירה בו היא סמל למאבק אקולוגי נואש: פנתר פלורידה הוא מבעלי החיים הנמצאים ב**סכנת ההכחדה החמורה ביותר באמריקה**. בשנות ה-90 נותרו רק כ-20-30 פרטים בטבע עקב פיתוח מואץ ודריסה בכבישים. בעזרת תוכנית שימור חסרת תקדים (שכללה הבאת פומות מטקסס להרחבת המאגר הגנטי), אוכלוסייתו התאוששה לכ-200 פרטים. הוא מסמל את הטבע הפראי המקורי של המדינה שלפני עידן הבטון והכבישים.
                     </p>
                 </div>
 
-                <!-- המנה הלאומית -->
-                <div class="culture-highlight border-flOrange">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-[#FFCBA4]">הקולינריה הלאומית: פאי ליים (Key Lime Pie) וסנדוויץ' קובני</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">הגירת האיים וימאות ללא מקררים</p>
-                    <p class="text-slate-300 leading-loose text-xl">
-                        הקולינריה של פלורידה אינה שייכת ל"דרום העמוק" (Deep South) הקלאסי, אלא היא תערובת קריבית-לטינית-אמריקאית.
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-[#9ACD32] mb-2 underline italic decoration-slate-400">המנה הלאומית: פאי ליים וסנדוויץ' קובני</h3>
+                    <p class="text-lg text-textMuted mb-6 font-bold uppercase tracking-widest">כורח של מלחים ויריבות תרבותית</p>
+                    <p class="leading-loose text-lg text-textMain">
+                        הקולינריה של פלורידה היא שילוב אקזוטי של פירות טרופיים, השפעות מהקריביים, וצורך הישרדותי מהעבר:
                     </p>
-                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
-                        <li><span class="text-white font-bold underline decoration-flGreen">פאי ליים קיז (Key Lime Pie):</span> הפאי המדינתי הרשמי נולד מאילוץ היסטורי. ב**קי ווסט (Key West)** של סוף המאה ה-19 לא היו פרות ולא היה חשמלקירור, ולכן חלב טרי לא היה בנמצא. מלחים ודייגי ספוגים המציאו קינוח המבוסס על **חלב מרוכז וממותק** (בפחיות שימורים) שעורבב עם חלמוני ביצים ועם המיץ החמוץ במיוחד של ה"קי ליים" (ליים קטן וצהבהב הגדל באיים). הריאקציה הכימית בין החומצה של הליים לחלבונים בחלב המרוכז גרמה לתערובת להתקרש ולהתייצב מעצמה ללא אפייה (למרות שהיום אופים אותה מטעמי בטיחות). הפאי החמוץ-מתוק המוגש עם קצפת הוא תמצית אקלים הקיץ של פלורידה.</li>
-                        <li><span class="text-white font-bold underline decoration-flRed">הסנדוויץ' הקובני (Cuban Sandwich - Cubano):</span> למרות שמיאמי טוענת לבעלות עליו, המחקר ההיסטורי מצביע על העיר **טמפה (Tampa)** באזור "איבור סיטי" כמקום הולדתו האמיתי בארה"ב. בסוף המאה ה-19 הגיעו לטמפה אלפי מהגרים מקובה, ספרד ואיטליה כדי לעבוד במפעלי הסיגרים. הסנדוויץ' (שנועד כארוחת פועלים זולה ודשנה) הוא פסיפס של הגירות: לחם קובני פריך, שינקון קלוי (ספרדי), חזיר צלוי (קובני/מרינדה), גבינה שוויצרית, חמוצים (שמיר גרמני), חרדל צהוב, ולעיתים (בטמפה) גם סלמי איטלקי. הכל נדחס ונלחץ בפרס חם (Plancha) עד להתכת הגבינה. </li>
+                    <ul class="list-disc list-inside space-y-6 mt-6 text-textMain text-lg leading-loose">
+                        <li><span class="text-white font-bold underline decoration-[#9ACD32]">קי ליים פאי (Key Lime Pie):</span> הקינוח הרשמי והמפורסם של המדינה. האנומליה הגדולה של הפאי הזה היא שמתכונו המקורי מעולם לא נאפה, ולא הכיל חלב טרי. הוא הומצא באיי ה"קיז" (Florida Keys) בסוף המאה ה-19. באותה תקופה, לפני הגעת הרכבת של פלאגלר, לא הייתה שום דרך להביא חלב פרה טרי או קרח לאיים המבודדים. דייגים וטבחים מקומיים השתמשו ב**חלב מרוכז ממותק בקופסאות שימורים**. כשהם ערבבו את החלב המרוכז והחלמונים יחד עם המיץ החומצי מאוד של ה**ליים המקומי (Key limes – קטנים, צהבהבים וחמצמצים במיוחד)**, התרחשה ריאקציה כימית (Thickening/Curdling) שגרמה לתערובת להתקשות ולהתייצב מעצמה ללא צורך באפייה! זהו קינוח שנולד ממחסור והפך לסמל סטטוס.</li>
+                        <li><span class="text-white font-bold underline decoration-[#D2691E]">הסנדוויץ' הקובני (Cuban Sandwich):</span> מנת הצהריים האייקונית של פלורידה, שעוררה מלחמת תרבות בין הערים ימפא (Tampa) ומיאמי (Miami). מדובר בלחם קובני פריך, הנמשח בחרדל (ולעיתים מיונז) וממולא בשכבות של **בשר חזיר צלוי (Mojo pork), שינקן מסורתי, גבינה שוויצרית ומלפפונים חמוצים**. הכריך נכבש במכבש (Plancha) עד שהגבינה נמסה והלחם הופך לפריך בצורה פסיכופתית. בטמפה (העיר המקורית שבה פועלי סיגרים קובנים המציאו אותו), מוסיפים לו באופן מסורתי גם סלמי (השפעה של מהגרים איטלקים שחיו לצידם), תוספת שבמיאמי נחשבת לכפירה מוחלטת.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- 4. סעיף חדש: גאו-פוליטיקה ודמוגרפיה (תקן הזהב 2.0) -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-flGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
-                גאו-פוליטיקה ודמוגרפיה: חצי האי השוקע ובירת אמריקה הלטינית
+        <!-- 5. אנומליות תרבותיות וכינויים -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-textMuted shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-cardBorder text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">5</span>
+                כינויי המדינה: ניתוח פנומנולוגי
             </h2>
-            
-            <div class="space-y-14">
-                <!-- שטח וטופוגרפיה -->
-                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-flBlue shadow-xl">
-                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-blue-400">שטח וטופוגרפיה (Area & Topography)</h3>
-                    <p class="text-slate-300 leading-loose text-lg">
-                        פלורידה היא חצי אי (Peninsula) עצום הנשלח אל תוך האוקיינוס ומפריד בין מפרץ מקסיקו לאוקיינוס האטלנטי. זוהי המדינה השטוחה ביותר בארצות הברית – הנקודה הגבוהה ביותר בה (Britton Hill) נמצאת רק 105 מטרים מעל פני הים! הבסיס הגיאולוגי שלה עשוי מאבן גיר נקבובית, מה שהופך אותה למועדת לבולענים (Sinkholes) פתאומיים שנוצרים כתוצאה ממערכת מים תת-קרקעית עצומה (אקוויפרים). חלקה הדרומי נשלט על ידי ה**אוורגליידס**, סביבת ביצות מנגרובים שהיא למעשה נהר רחב ורדוד מאוד הזורם באטיות. בשל גובהה האפסי מול פני הים וקרבתה למסלולי הוריקנים, פלורידה נחשבת למדינה הפגיעה ביותר בארה"ב לשינויי אקלים ועליית פני הים.
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-flOrange mb-4 underline italic decoration-flOrange/40">The Sunshine State</h3>
+                    <p class="text-lg leading-loose text-textMuted">
+                        "מדינת השמש". זהו הכינוי הרשמי של המדינה שמוטבע על לוחיות הרישוי. הפנומנולוגיה שלו שיווקית לחלוטין: הכינוי אומץ בשנת 1949 על ידי רשויות המדינה כדי למתג את פלורידה כמקלט תיירותי וכגן עדן חורפי עבור תושבי הצפון הקפואים. השם מבטיח שמש חמימה בכל ימות השנה (למרות האקלים הסובטרופי העמוס בסופות רעמים), והוא מהווה את מנוע הכלכלה החזק ביותר שלה המביא מיליוני תיירים לדיסניוורלד, מיאמי והחופים.
                     </p>
                 </div>
-
-                <!-- דמוגרפיה -->
-                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-flRed shadow-xl">
-                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-flRed">פסיפס אנושי (Demographics)</h3>
-                    <p class="text-slate-300 leading-loose text-lg">
-                        פלורידה היא המדינה השלישית המאוכלסת ביותר בארה"ב (מעל 22 מיליון תושבים), והדמוגרפיה שלה היא ייחודית ושברירית פוליטית. היא מורכבת משתי תנועות הגירה מנוגדות: האחת היא ה**"Snowbirds"** (ציפורי השלג) – גמלאים לבנים ועשירים מניו יורק ומהמערב התיכון שעברו דרומה כדי להתחמק מהקור ולנצל את היעדר מס ההכנסה המדינתי. התנועה השנייה היא **הגירה לטינית והיספאנית מסיווית** (כ-27% מהאוכלוסייה), הכוללת גולים קובנים אנטי-קומוניסטים במיאמי (שהפכה דה-פקטו לבירה הכלכלית של אמריקה הלטינית), גולים מוונצואלה ופורטו-ריקנים באורלנדו. הדמוגרפיה הדרומית הופכת את צפון המדינה לשמרני ו"דרומי" באופיו, בעוד דרום המדינה הוא מטרופולין לטיני-קוסמופוליטי.
-                    </p>
-                </div>
-
-                <!-- סיבת המיקום והגבולות -->
-                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-flGold shadow-xl">
-                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-flGold">עיצוב גבולות: רכש מהספרדים ו"ידית המחבת"</h3>
-                    <p class="text-slate-300 leading-loose text-lg">
-                        צורתה המוכרת של פלורידה עוצבה דרך אימפריות נאבקות. למרות שהייתה תחת שלטון ספרדי במשך כ-300 שנה, ספרד מעולם לא הצליחה ליישב אותה בצפיפות עקב אקלים קשה ותקיפות ילידים (הסמינול - Seminole). לאחר שהאמריקאים בהנהגת הגנרל אנדרו ג'קסון פלשו לפלורידה פעמים רבות באמתלה של דיכוי ילידים שתקפו בגבול ג'ורג'יה (ובריחת עבדים), ספרד נכנעה ללחץ וחתמה על **"הסכם אדמס-אוניס" (1819)**, שבו מכרה את פלורידה לארה"ב תמורת 5 מיליון דולר. <br>
-                        הגבולות הוגדרו אז כחצי האי ו"ידית המחבת" (The Panhandle) המשתרעת מערבה לאורך מפרץ מקסיקו עד אלבמה. לאורך המאה ה-19, פוליטיקאים מאלבמה ניסו שוב ושוב לספח את ידית המחבת (כולל העיר פנסקולה) כדי להרחיב את רצועת החוף שלהם, אך המהלך נכשל, ופלורידה שמרה על צורתה הייחודית של זרוע ארוכה בים.
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-accentBlue mb-4 underline italic decoration-accentBlue/40">The Peninsula State</h3>
+                    <p class="text-lg leading-loose text-textMuted">
+                        "מדינת חצי האי". כינוי גיאוגרפי היסטורי המתייחס לצורתה הייחודית של המדינה, שבולטת לתוך האוקיינוס. צורה זו לא רק מעניקה לה אקלים נוח וחופים עצומים, אלא גם הייתה הסיבה האסטרטגית שמשכה אליה מעצמות שונות (ספרד, צרפת, אנגליה) שניסו לשלוט בנתיבי הסחר בין מפרץ מקסיקו לאוקיינוס האטלנטי.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- 5. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-flOrange text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
-                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+        <!-- 6. וקסילולוגיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-flRed shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-flRed text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">6</span>
+                וקסילולוגיה: הצלב האדום והאישה משבט הסמינול
             </h2>
             
-            <div class="space-y-14">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <!-- The Sunshine State -->
-                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-flGold shadow-2xl">
-                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Sunshine State (מדינת השמש)</h3>
-                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מיתוג תיירותי מול מציאות אלימה</p>
-                        <p class="text-slate-300 leading-loose text-lg">
-                            הכינוי הרשמי של פלורידה, המוטבע על לוחיות הרישוי, הוא אחד ממהלכי המיתוג (Branding) הגיאוגרפיים המוצלחים בהיסטוריה. הוא אומץ ב-1949 כדי למשוך באופן ספציפי פנסיונרים ותיירים מהמדינות הקרות של הצפון (כדוגמת אוהיו וניו יורק). 
-                            אולם, הפנומנולוגיה כאן אירונית למדי: בעוד השמש אכן קופחת, פלורידה מוסתרת לרוב על ידי עננות, והיא **בירת פגיעות הברקים של ארצות הברית** ואחד היעדים המובילים בעולם לסופות הוריקן הרסניות (Hurricane Alley). הכינוי "מדינת השמש" משמש כמעטה פסיכולוגי שמסתיר את פראות מזג האוויר האמיתי שלה לטובת משיכת פארקי שעשועים (דיסניוורלד) וכסף.
-                        </p>
-                    </div>
-
-                    <!-- The Peninsula State -->
-                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-flBlue shadow-2xl">
-                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-blue-400">The Peninsula State (מדינת חצי האי)</h3>
-                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">זהות שמוקפת במים</p>
-                        <p class="text-slate-300 leading-loose text-lg">
-                            כינוי היסטורי וגיאוגרפי מדויק. פלורידה מתגאה בקו החוף הארוך ביותר בארצות הברית הרציפה (Contiguous US), באורך של כ-2,170 קילומטרים. הכינוי מדגיש כי הזהות של פלורידה אינה יבשתית (Landlocked) אלא ימית לחלוטין. אין שום נקודה במדינת פלורידה שנמצאת במרחק של יותר מ-96 קילומטרים ממי ים מלוחים. הגיאוגרפיה הזו חרצה את גורלה כמדינת סחר חוץ, כניסה של מהגרים בסירות, וכר פורה לפיראטים היסטוריים ומבריחי סמים מודרניים.
-                        </p>
-                    </div>
+            <div class="flex flex-col items-center mb-10 mt-6">
+                <!-- דגל פלורידה ב-CSS/SVG להמחשה פנימית (קליק להגדלה למעלה) -->
+                <div class="w-full max-w-lg aspect-[3/2] bg-white rounded-3xl overflow-hidden shadow-2xl border-[6px] border-slate-700 relative">
+                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full bg-white">
+                        <polygon points="0,0 20,0 300,180 300,200 280,200 0,20" fill="#C9082A"/>
+                        <polygon points="300,0 280,0 0,180 0,200 20,200 300,20" fill="#C9082A"/>
+                        <circle cx="150" cy="100" r="45" fill="#F3C300"/>
+                        <circle cx="150" cy="100" r="38" fill="#FFFFFF"/>
+                        <path d="M 120 120 Q 150 140 180 120 Z" fill="#2E8B57"/>
+                        <circle cx="150" cy="90" r="15" fill="#FFD700"/>
+                        <rect x="112" y="105" width="76" height="15" fill="#1E90FF"/>
+                        <rect x="165" y="80" width="3" height="40" fill="#8B4513"/>
+                        <circle cx="166" cy="80" r="8" fill="#228B22"/>
+                        <rect x="125" y="100" width="20" height="8" fill="#555555"/>
+                    </svg>
                 </div>
+                <p class="mt-6 text-sm font-bold text-textMuted tracking-widest uppercase bg-cardBorder px-4 py-2 rounded-full">אומץ ב-1900, שופר ב-1985</p>
             </div>
-        </section>
 
-        <!-- 6. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-flRed text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
-                וקסילולוגיה: צלב בורגונדי והאינדיאנית השגויה
-            </h2>
-            
-            <div class="flex flex-col items-center mb-16">
-                <!-- ייצוג ויזואלי של דגל פלורידה ב-CSS -->
-                <div class="w-full max-w-2xl aspect-[3/2] bg-white rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex items-center justify-center group p-4">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-black/5 via-transparent to-black/20 pointer-events-none z-20"></div>
-                    
-                    <!-- יצירת הצלב האלכסוני האדום (St. Andrew's Cross) -->
-                    <div class="absolute w-[150%] h-[15%] bg-[#C8102E] transform rotate-[33deg] group-hover:scale-105 transition-transform duration-700 z-10 shadow-md"></div>
-                    <div class="absolute w-[150%] h-[15%] bg-[#C8102E] transform -rotate-[33deg] group-hover:scale-105 transition-transform duration-700 z-10 shadow-md"></div>
-
-                    <!-- Seal of Florida Simulation -->
-                    <div class="relative w-40 h-40 bg-white rounded-full border-[4px] border-[#FFC425] flex flex-col items-center justify-center shadow-2xl z-30 overflow-hidden transform transition-transform duration-700 group-hover:scale-110">
-                        <!-- Yellow ring text simulation -->
-                        <div class="absolute inset-0 border-[8px] border-[#FFC425] rounded-full opacity-60"></div>
-                        
-                        <!-- Sun rays -->
-                        <div class="absolute top-0 w-16 h-8 bg-[#FFC425] rounded-t-full opacity-80" style="clip-path: polygon(50% 0%, 100% 100%, 0% 100%);"></div>
-                        
-                        <!-- Steamboat and Water -->
-                        <div class="absolute bottom-1/4 w-full h-1/3 bg-blue-300/40 border-t border-blue-400"></div>
-                        <span class="absolute bottom-[30%] text-xs left-4">🚢</span>
-                        
-                        <!-- Sabal Palm and Native American woman scattering flowers -->
-                        <div class="absolute bottom-2 right-4 text-2xl">🌴</div>
-                        <div class="absolute bottom-2 left-6 text-lg">👩🏾🌸</div>
-                        
-                        <!-- Motto approximation -->
-                        <div class="absolute bottom-1 text-[5px] font-black text-[#C8102E] tracking-widest w-[80%] text-center uppercase bg-white/80">In God We Trust</div>
-                    </div>
-                </div>
-                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
-                    צלב אנדרו והחותם המעודכן <br><span class="text-xl font-medium text-slate-500">(הצלב נוסף ב-1900, החותם תוקן היסטורית ב-1985)</span>
+            <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-flRed decoration-4">מורשת בורגונדי והקונפדרציה, והתיקון של החותם:</h3>
+                <p class="leading-loose text-lg text-textMain mb-6">
+                    דגל פלורידה כולל **צלב אנדרו הקדוש (Saltire) אדום עבה על רקע לבן**, ובמרכזו מונח **חותם המדינה (Great Seal)**. הצלב האדום התווסף לדגל הלבן רק בשנת 1900, לבקשתו של המושל (וקצין הקונפדרציה לשעבר) פרנסיס פלמינג, שטען שהדגל הלבן הישן נראה מרחוק כמו דגל כניעה. 
+                    <br><br>
+                    הפנומנולוגיה של הצלב שנויה במחלוקת זהה לזו של אלבמה: תומכי מורשת הדרום טוענים שהוא מבוסס על **"דגל הקרב של הקונפדרציה"**, ומהווה הנצחה פוליטית. היסטוריונים אחרים מצביעים על כך שהוא חיקוי מובהק של **"צלב בורגונדי"** – הדגל הלאומי של האימפריה הספרדית (שהקים את סיינט אוגוסטין ואת הנוכחות הספרדית המוקדמת בפלורידה).
                 </p>
-            </div>
-
-            <div class="space-y-14 text-slate-300">
-                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-flRed shadow-xl">
-                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-flRed decoration-4">נסיבות היצירה ומניעת כניעה (1900):</h3>
-                    <p class="text-xl leading-loose">
-                        דגלה הראשון של פלורידה (מ-1868) היה שדה לבן לחלוטין ובמרכזו חותם המדינה. אולם, לקראת סוף המאה ה-19, מושל פלורידה פרנסיס פלמינג (Francis P. Fleming) שם לב לבעיה אסתטית מביכה: כאשר הדגל נתלה על תורן ללא רוח מתנפנפת, הוא נפל על עצמו ונראה כמו דגל לבן של כניעה (White flag of surrender/truce). כדי לפתור זאת, בשנת **1900**, יזם פלמינג הוספה של צלב אלכסוני אדום (סאלטייר) על הרקע הלבן.
+                <div class="space-y-4">
+                    <p class="leading-loose text-lg text-textMain">
+                        <strong class="text-flGold">חותם המדינה והתיקון ההיסטורי:</strong> במרכז הדגל מונח חותם מורכב ובו שמש זורחת (סמל ל'מדינת השמש'), ספינת קיטור שטה על נהר, ועץ דקל מקומי מסוג סבל (Sabal palm).
+                        בחזית עומדת אישה ילידית המפזרת פרחים. האנומליה היא שבחותם המקורי צוירה אישה משבטי המישורים הרחוקים (עם נוצות ולבוש לא קשור לפלורידה), והספינה נראתה יותר כטעות ציור. בשנת 1985, המדינה ביצעה תיקון היסטורי רשמי ושינתה את ציור החותם כדי שהאישה תלבש לבוש מסורתי מדויק של **נשות שבט הסמינול (Seminole)** של פלורידה (חצאית רחבה וצבעונית), ועץ הדקל המקסיקני הוחלף בדקל הפלורידיאני האמיתי.
                     </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-flRed shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-flRed">הצלב האדום: קונפדרציה או ספרד?</h4>
-                        <p class="leading-loose text-lg">בדומה לאלבמה, ישנו ויכוח האם הצלב האדום הוא סמל מוסווה ל**דגל הקרב של הקונפדרציה הדרומית** (פלמינג עצמו שירת בצבא הקונפדרציה), או שמא זוהי מחווה היסטורית ל**צלב בורגונדי** (Cross of Burgundy) – דגלה של האימפריה הספרדית שהתנוסס מעל פלורידה ב-300 שנות כיבושה. פוליטיקאים מודרניים מעדיפים להיאחז בתיאוריה הספרדית כדי להימנע מהקונוטציה של עבדות ומלחמת אזרחים.</p>
-                    </div>
-                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-flGold shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-flGold">החותם: תיקון הטעות האנתרופולוגית</h4>
-                        <p class="leading-loose text-lg">במרכז מופיע החותם של פלורידה (הכולל שמש זורחת, עץ פלמטו, וספינת קיטור). הדמות המרכזית היא אישה ילידית מפיצה פרחים. בגרסאות המוקדמות, ציירו בטעות אינדיאנית מהמישורים (Plains Indian) עם קריקטורה של נוצות אינדיאניות, ואפילו הציבו הרים ברקע (בפלורידה אין הרים!). בשנת **1985**, המדינה תיקנה רשמית את הציור כדי שיהיה מדויק היסטורית: האישה כעת מצוירת כבת שבט ה**סמינול** (Seminole) בבגדים מסורתיים מדויקים, וללא הרים ברקע הפיזיקלי של פלורידה השטוחה.</p>
-                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 7. ביבליוגרפיה ומקורות מחקריים -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">7</span>
+        <!-- 7. ביבליוגרפיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-cardBorder shadow-2xl">
+            <h2 class="text-2xl font-black text-textMuted mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-cardBorder text-white w-10 h-10 rounded-lg flex items-center justify-center ml-4 text-lg">7</span>
                 ביבליוגרפיה ומקורות מחקריים
             </h2>
-            
-            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Florida Department of State - State Library and Archives:</p>
-                    <p>"Juan Ponce de Leon and the Naming of Pascua Florida". תיעוד התגלית בשנת 1513, ההוכחה שפונסה דה ליאון לא חיפש את מעיין הנעורים המיתולוגי, וחשיבות גילוי זרם הגולף.</p>
+            <div class="space-y-6 text-lg text-textMuted leading-loose">
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">State Library and Archives of Florida:</strong>
+                    התיעוד ההיסטורי של נחיתת חואן פונסה דה ליאון ב-1513 במהלך חג "פסקואה פלורידה" (חג הפסחא הפרחוני), ומיתוס מעיין הנעורים.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">The Henry Morrison Flagler Museum:</p>
-                    <p>"Henry Flagler: The Inventing of Modern Florida". ביוגרפיה כלכלית של איש ה-Standard Oil שהשקיע את הונו בפיתוח מסילות רכבת ומלונות, וייסד את העיר מיאמי ב-1896.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Henry Morrison Flagler Museum:</strong>
+                    ההיסטוריה הכלכלית של פיתוח פלורידה והחוף המזרחי על ידי איל ההון הנרי פלאגלר, ובניית הרכבת הטראגית והמגלומנית לקי ווסט (Overseas Railroad).
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Florida Fish and Wildlife Conservation Commission:</p>
-                    <p>"The Florida Panther: History of a State Symbol". נתונים אקולוגיים על סכנת ההכחדה של הפומה (Cougar) ואימוצה כחיית המדינה ככלי פוליטי לשימור סביבתי של האוורגליידס.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Florida Fish and Wildlife Conservation Commission:</strong>
+                    המאמצים האקולוגיים להצלת פנתר פלורידה (סמל המדינה מ-1982) מהכחדה וודאית בביצות האוורגליידס.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Southern Foodways Alliance / Ybor City Museum Society:</p>
-                    <p>"The True Origins of the Cuban Sandwich". מחקר גסטרונומי המבסס את יצירת הסנדוויץ' ההיברידי לא במיאמי אלא בקרב פועלי מפעלי הסיגרים של קובה, איטליה וספרד בעיר טמפה.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">The Great Florida Food Studies (Culinary History):</strong>
+                    הריאקציה הכימית שיצרה את הקי ליים פאי ממיץ חומצי וחלב מרוכז בהיעדר חשמל באיים, ומלחמת הכריך הקובני בין מסורת טמפה (עם סלמי) למיאמי.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
-                    <p>"Francis P. Fleming and the 1900 Flag Redesign". ההיסטוריוגרפיה של הוספת הצלב האדום כדי למנוע את דמיון הדגל לדגל כניעה לבן, והתיקון האנתרופולוגי של חותם הסמינול ב-1985.</p>
+                <div>
+                    <strong class="text-white block mb-1">North American Vexillological Association (NAVA):</strong>
+                    הקונפליקט בין מורשת צלב בורגונדי הספרדי לבין דגל צבא הקונפדרציה בעיצוב הדגל ב-1900, והתיקון העיצובי מ-1985 שהחליף את האינדיאנית השגויה באישה משבט הסמינול.
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- פוטר אתר ממותג -->
-    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
-        <div class="flex flex-col items-center gap-10">
-            <div class="flex gap-8">
-                <div class="w-6 h-6 bg-flRed rounded-full shadow-[0_0_15px_rgba(200,16,46,0.6)]"></div>
-                <div class="w-6 h-6 bg-flGold rounded-full shadow-[0_0_15px_rgba(255,196,37,0.6)]"></div>
-                <div class="w-6 h-6 bg-flGreen rounded-full shadow-[0_0_15px_rgba(34,139,34,0.6)]"></div>
-            </div>
-            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
-                US State Origins - Ultimate Academic Archive
-            </p>
-            <p class="text-slate-400 text-4xl font-black">
-                האתר נוצר על ידי ג'מיני ורם | 2026
-            </p>
+    <!-- מודל (חלון צף) להגדלת הדגל -->
+    <div id="flagModal" class="hidden fixed inset-0 z-[100] bg-appBg/95 backdrop-blur-md flex items-center justify-center p-4 cursor-pointer" onclick="closeFlagModal()">
+        <div class="modal-animate relative w-full max-w-4xl aspect-[3/2] bg-white rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(201,8,42,0.4)] border-8 border-slate-700 cursor-default" onclick="event.stopPropagation()">
+            <!-- כפתור סגירה -->
+            <button onclick="closeFlagModal()" class="absolute top-4 right-4 z-50 bg-black/50 hover:bg-black text-white rounded-full p-3 transition-colors shadow-lg border border-white/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <!-- העתק מדויק של הדגל בגדול מבוסס SVG -->
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full bg-white">
+                <!-- Red Cross -->
+                <polygon points="0,0 20,0 300,180 300,200 280,200 0,20" fill="#C9082A"/>
+                <polygon points="300,0 280,0 0,180 0,200 20,200 300,20" fill="#C9082A"/>
+                
+                <!-- Detailed representation of the Seal with drop shadow -->
+                <g style="filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.5));">
+                    <circle cx="150" cy="100" r="45" fill="#F3C300"/>
+                    <circle cx="150" cy="100" r="42" fill="#FFFFFF"/>
+                    <circle cx="150" cy="100" r="41" fill="#F3C300"/>
+                    <circle cx="150" cy="100" r="33" fill="#FFFFFF"/>
+                    
+                    <!-- Text around the seal -->
+                    <!-- Path for text top -->
+                    <path id="textPathTop" d="M 115 100 A 35 35 0 0 1 185 100" fill="none"/>
+                    <!-- Path for text bottom -->
+                    <path id="textPathBot" d="M 183 100 A 33 33 0 0 1 117 100" fill="none"/>
+                    <text font-family="sans-serif" font-weight="bold" font-size="6" fill="#1E293B">
+                        <textPath href="#textPathTop" startOffset="50%" text-anchor="middle">GREAT SEAL OF THE STATE OF FLORIDA</textPath>
+                    </text>
+                    <text font-family="sans-serif" font-weight="bold" font-size="6" fill="#1E293B">
+                        <textPath href="#textPathBot" startOffset="50%" text-anchor="middle">IN GOD WE TRUST</textPath>
+                    </text>
+
+                    <!-- Inner scene -->
+                    <path d="M 120 120 Q 150 140 180 120 Z" fill="#2E8B57"/> <!-- Land -->
+                    <circle cx="150" cy="90" r="14" fill="#FFD700"/> <!-- Sun -->
+                    <rect x="118" y="105" width="64" height="15" fill="#1E90FF"/> <!-- Water -->
+                    <!-- Palm Tree -->
+                    <rect x="165" y="80" width="3" height="40" fill="#8B4513"/>
+                    <circle cx="166" cy="80" r="8" fill="#228B22"/>
+                    <!-- Steamboat -->
+                    <rect x="125" y="100" width="20" height="8" fill="#555555"/>
+                    <rect x="132" y="92" width="4" height="8" fill="#333333"/>
+                    <!-- Native Seminole Woman representation -->
+                    <polygon points="140,110 135,130 145,130" fill="#C9082A"/>
+                    <circle cx="140" cy="105" r="3" fill="#8B4513"/>
+                </g>
+            </svg>
         </div>
-    </footer>
+        <p class="absolute bottom-10 text-textMuted font-bold tracking-widest uppercase bg-cardBg/80 px-6 py-2 rounded-full border border-cardBorder">לחץ מחוץ לדגל כדי לסגור</p>
+    </div>
+
+    <!-- פונקציות JS לחלון הצף -->
+    <script>
+        function openFlagModal() {
+            document.getElementById('flagModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // מניעת גלילה של הרקע
+        }
+        function closeFlagModal() {
+            document.getElementById('flagModal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // החזרת גלילה
+        }
+        // סגירה גם בלחיצה על כפתור Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeFlagModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
+
+
