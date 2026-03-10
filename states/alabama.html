@@ -11,12 +11,17 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#0f172a',
-                        cardBg: '#1e293b',
-                        accent: '#38bdf8',
-                        alaCrimson: '#9E1B32', /* Alabama Crimson */
-                        alaWhite: '#FFFFFF',
-                        alaGold: '#D4AF37'
+                        appBg: '#050B14',      /* Deep Space Navy */
+                        cardBg: '#0B172A',     /* Elevated Card Navy */
+                        cardBorder: '#1E293B', /* Card Border */
+                        accentBlue: '#38BDF8', /* Neon Blue Accent */
+                        alaRed: '#9E1B32',     /* Alabama Crimson */
+                        alaWhite: '#FFFFFF',   /* White */
+                        textMain: '#E2E8F0',   /* Soft White Text */
+                        textMuted: '#94A3B8'   /* Slate Gray Text */
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
                     }
                 }
             }
@@ -24,305 +29,360 @@
     </script>
     <style>
         body { 
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             -webkit-tap-highlight-color: transparent;
+            background-color: #050B14;
+            color: #E2E8F0;
             line-height: 1.85;
         }
-        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
-        p, li, span, div, blockquote { font-size: 1.125rem; } 
-        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
-        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 border-accent shadow-inner mb-8; }
-        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
-        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
-        .sub-header { @apply text-alaGold font-black text-2xl mb-5 underline italic decoration-alaGold/40 underline-offset-8; }
+        p, li, span, div, blockquote { font-size: 1.125rem; } /* 18px קבוע לקריאה נוחה ב-S25 Ultra */
+        
+        /* Scrollbar מותאם לאפליקציה */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050B14; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        
+        .glass-panel {
+            background: rgba(11, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(30, 41, 59, 0.8);
+        }
+        
+        .stat-badge {
+            background: linear-gradient(145deg, #112240 0%, #0B172A 100%);
+            border: 1px solid #1E293B;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .sub-header { @apply text-accentBlue font-black text-xl mb-3 underline italic decoration-accentBlue/40 underline-offset-8 mt-6; }
+
+        /* אנימציית הופעה לחלון הצף */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-animate {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
     </style>
 </head>
-<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+<body class="antialiased min-h-screen flex flex-col items-center pb-20">
 
-    <!-- ניווט עליון -->
-    <nav class="w-full max-w-4xl mb-10">
-        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+    <!-- ניווט עילי -->
+    <nav class="w-full max-w-4xl p-6 sticky top-0 z-40 glass-panel border-b-0 rounded-b-3xl mb-6 shadow-lg flex justify-between items-center">
+        <a href="../index.html" class="inline-flex items-center text-accentBlue hover:text-white transition-colors font-bold text-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
             חזרה לאטלס המדינות
         </a>
+        <span class="text-xs font-black tracking-widest text-textMuted uppercase bg-cardBorder px-3 py-1 rounded-full">AL</span>
     </nav>
 
-    <!-- כותרת מחקר אקדמי -->
-    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-alaCrimson relative overflow-hidden">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
-            <div>
-                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">אלבמה</h1>
-                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Alabama - The Heart of Dixie</p>
-                <div class="h-2 w-56 bg-alaCrimson mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(158,27,50,0.5)]"></div>
-            </div>
-            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
-                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
-                <p class="text-5xl font-black text-white">14 בדצמבר, 1819</p>
-                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-22 באיחוד</p>
-            </div>
-        </div>
-    </header>
-
-    <main class="w-full max-w-4xl space-y-20">
+    <main class="w-full max-w-4xl px-4 space-y-10">
         
-        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
-                אטימולוגיה: מולקולריות שבטית והיסטורית
-            </h2>
+        <!-- Hero Section -->
+        <header class="w-full rounded-[3rem] overflow-hidden shadow-2xl relative bg-gradient-to-b from-[#1e1b4b] to-cardBg border border-cardBorder pt-12 pb-10">
+            <!-- רקע גרפי מופשט -->
+            <div class="absolute top-0 left-0 w-full h-72 bg-alaRed opacity-20 blur-[90px] rounded-full mix-blend-screen pointer-events-none"></div>
             
-            <div class="space-y-10">
-                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
-                    השם "אלבמה" נושא עמו היסטוריה לשונית מרתקת, המהווה עדות חיה לשבטים החקלאיים ששלטו באזור טרם הגעת האירופאים. המחקר האטימולוגי מתחקה אחר מקורות המילה בשפות ממשפחת ה**מוסקוגית** (Muskogean), ובעיקר בניב ה**צ'וקטו** (Choctaw), וחושף תיאור אנתרופולוגי מדויק של אורח חייהם.
+            <div class="px-6 md:px-12 relative z-10 flex flex-col items-center text-center">
+                
+                <!-- דגל המדינה הראשי (קליק להגדלה) -->
+                <div onclick="openFlagModal()" class="cursor-pointer group relative mb-10">
+                    <div class="w-48 sm:w-56 aspect-[3/2] bg-white rounded-3xl overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-4 border-slate-700 relative transform transition-transform duration-500 group-hover:scale-105 group-active:scale-95">
+                        <!-- St. Andrew's Cross (Crimson) -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-[150%] h-[15%] bg-[#9E1B32] transform rotate-[33deg]"></div>
+                            <div class="absolute w-[150%] h-[15%] bg-[#9E1B32] transform -rotate-[33deg]"></div>
+                        </div>
+                        <!-- אייקון זכוכית מגדלת מרחף -->
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-accentBlue font-black tracking-[0.4em] uppercase text-sm mb-4">Heart of Dixie</p>
+                <h1 class="text-6xl md:text-8xl font-black text-white mb-4 tracking-tight">אלבמה</h1>
+                <p class="text-2xl text-textMuted font-light italic mb-12">Alabama</p>
+                
+                <!-- Quick Stats Badges -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mt-4">
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">הצטרפות</span>
+                        <span class="text-alaWhite font-black text-2xl">1819</span>
+                        <span class="text-[11px] text-alaRed font-black mt-2 bg-alaRed/10 px-3 py-1 rounded-full">מדינה 22</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">שטח (דירוג)</span>
+                        <span class="text-alaWhite font-black text-2xl">מקום 30</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">135,765 קמ"ר</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">אוכלוסייה</span>
+                        <span class="text-alaWhite font-black text-2xl">5.1M</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">אומדן 2023</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">עיר בירה</span>
+                        <span class="text-alaWhite font-black text-2xl text-center">מונטגומרי</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">Montgomery</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 1. אטימולוגיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-alaRed shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-alaRed text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">1</span>
+                אטימולוגיה: מלקטי הצמחים
+            </h2>
+            <div class="space-y-8">
+                <p class="text-textMuted font-medium italic border-r-4 border-alaRed pr-6 text-xl leading-loose">
+                    אלבמה שואבת את שמה משבט ילידי עתיק, ומשמרת בשמה את הקשר הקדום שבין האדם לבין תנובת האדמה והנהר בדרום הרחוק של ארצות הברית.
                 </p>
-
-                <div class="space-y-8">
-                    <!-- Alba -->
-                    <div class="etymology-box border-alaCrimson">
-                        <p class="text-alaCrimson font-black text-5xl mb-6 italic tracking-tighter">Alba / Alahba</p>
-                        <div class="space-y-4">
-                            <p><strong>מקור פילולוגי:</strong> שפת הצ'וקטו.</p>
-                            <p><strong>משמעות מילולית:</strong> "צמחייה", "עשבי תיבול" או "סבך קני סוף".</p>
-                            <p><strong>ניתוח מחקרי:</strong> המילה אינה מתארת עץ בודד, אלא מסה ירוקה, סבוכה ופראית המכסה את האדמה. באזור הדרום הלח והפורה של ארצות הברית, הצמחייה הטבעית (במיוחד בקרבת הנהרות) הייתה אדירה והיוותה מכשול משמעותי בפני התיישבות וחקלאות.</p>
-                        </div>
-                    </div>
-
-                    <!-- Amo -->
-                    <div class="etymology-box border-accent">
-                        <p class="text-accent font-black text-5xl mb-6 italic tracking-tighter">Amo / Amon</p>
-                        <div class="space-y-4">
-                            <p><strong>מקור פילולוגי:</strong> שפת הצ'וקטו.</p>
-                            <p><strong>משמעות מילולית:</strong> "לחתוך", "לאסוף", "לברא" או "לקצור".</p>
-                            <p><strong>ניתוח מחקרי:</strong> פועל אקטיבי המעיד על עבודת כפיים ושליטה בטבע. השימוש בפועל זה מלמד על חברה המעבדת את האדמה באופן אקטיבי, ולא רק חיה כציידים-לקטים פסיביים. </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-slate-800/60 p-10 rounded-[2rem] border-r-8 border-alaGold shadow-xl mt-10">
-                    <h3 class="font-black text-white mb-6 text-2xl italic underline decoration-alaGold underline-offset-8">המשמעות המשולבת וכרוניקת התיעוד:</h3>
-                    <div class="space-y-6 text-slate-300 leading-loose">
-                        <p>הצירוף המלא יוצר את המילה **Alabamu** או **Alibamo**, שפירושה המדויק הוא <span class="text-white font-bold underline decoration-alaGold">"קוצרי העשב"</span> או <span class="text-white font-bold underline decoration-alaGold">"אלו המנקים את הצמחייה (לצורך חקלאות)"</span>. השם העיד על ההתמחות של השבט המקומי בבירוא יערות וסבך לשם זריעת תירס ושעועית.</p>
-                        <p>השם תועד לראשונה במפות אירופאיות ב-1540 על ידי הקונקיסטאדור הספרדי **הרננדו דה סוטו**, שנתקל בשבט זה. הצרפתים שבאו בעקבותיו תעתקו את השם ל-"Alibamon", וכשהאנגלים והאמריקאים השתלטו על הטריטוריה, האיות התקבע סופית ל-**Alabama**, והוענק לנהר המרכזי של האזור, וממנו לטריטוריה ולמדינה כולה.</p>
-                    </div>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder shadow-inner">
+                    <p class="text-accentBlue font-black text-4xl mb-4 tracking-wider">Alba-amo</p>
+                    <p class="mb-4 text-lg"><strong>מקור פילולוגי:</strong> שפת הצ'וקטאו (Choctaw), ממשפחת השפות המוסקוגיות של דרום-מזרח ארה"ב.</p>
+                    <p class="text-lg leading-loose"><strong>משמעות וניתוח מלא:</strong> השם מורכב משתי מילים ברורות בשפה הילידית: <br>
+                    1. <em>Alba</em> – צמחים, עשבים או צמחייה.<br>
+                    2. <em>Amo</em> – לאסוף, ללקט או לנקות. <br>
+                    יחד, המשמעות היא <strong class="text-white">"אוספי הצמחים"</strong> או "מנקשי הסבך" (Thicket-clearers). זה היה שמו של שבט ה"אליבאמו" (Alibamu) שחי באזור. בניגוד לשבטים נודדים, הם נודעו בחקלאות מפותחת של איסוף צמחי מרפא ומאכל ביערות העבותים של הדרום. הנהר המרכזי שזרם בשטחם נקרא על שמם על ידי חוקרים צרפתים בראשית המאה ה-18 (Rivière des Alibamons), ובהמשך, הטריטוריה האנגלית כולה ירשה את השם הזה.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
-                כרוניקה של ריבונות: כובשים ובונים
+        <!-- 2. גאו-פוליטיקה ודמוגרפיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-accentBlue shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-accentBlue text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">2</span>
+                גאו-פוליטיקה ודמוגרפיה
             </h2>
-            
-            <div class="space-y-16">
-                <!-- הרננדו דה סוטו -->
-                <div class="personality-card border-r-8 border-alaCrimson shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-alaCrimson decoration-4 underline-offset-8">החוקר והכובש הראשון: הרננדו דה סוטו (Hernando de Soto)</h3>
-                    <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1496–1542.</p>
-                        
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">ילדות ורקע - אכזריות אקסטרמדורה:</h4>
-                            <p class="leading-loose">דה סוטו נולד במחוז אקסטרמדורה (Extremadura) העני והקשוח שבספרד – חבל ארץ שהצמיח את רוב הקונקיסטאדורים המפורסמים (כמו קורטס ופיסארו). הוא נולד למשפחת אצולה זוטרה שירדה מנכסיה, ויצא לעולם החדש בחיפוש אחר עושר ותהילה. הוא צבר את ניסיונו והונו באכזריות רבה כשהשתתף בכיבוש אימפריית האינקה בפרו, שם התמחה בטקטיקות של הלם, רכיבה על סוסים, ולקחת מנהיגים ילידים כבני ערובה.</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">אידיאולוגיה קולוניאלית - משיחיות וזהב:</h4>
-                            <p class="leading-loose">האידיאולוגיה של דה סוטו שילבה קנאות קתולית עיוורת עם רעב בלתי נדלה לזהב. הוא לא חיפש להקים מושבות שלווות או חקלאות, אלא לרוקן את היבשת ממשאביה תוך כפיית התנצרות על השבטים. בשנת 1539 נחת בפלורידה ויצא למסע עמוק אל תוך היבשת (כולל אלבמה של ימינו), במסע שהיה למעשה מסע ביזה ושעבוד.</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">ההתנגשות באלבמה - קרב מאבילה (1540):</h4>
-                            <p class="leading-loose">כשנכנס לשטח אלבמה, נתקל דה סוטו במנהיג האינדיאני העוצמתי **טוסקלוסה** (Tuskaloosa). דה סוטו לקח את טוסקלוסה כבן ערובה, אך המנהיג הילידי הוביל את הספרדים למארב ענק בעיר המבוצרת מאבילה (Mabila). הקרב שהתחולל שם היה אחד הקרבות העקובים מדם בהיסטוריה של צפון אמריקה. הספרדים, עם שריון הפלדה והסוסים שלהם, שרפו את העיר וטבחו באלפי אינדיאנים. למרות שניצח מבחינה טקטית, צבאו של דה סוטו יצא מרוסק מהקרב – הם איבדו ציוד, סוסים ואת רצון הלחימה. דה סוטו עצמו מת מקדחת על גדות המיסיסיפי ב-1542, אך הוא היה האירופאי הראשון שמיפה ותיעד את אזור אלבמה, והכניס אותה לספרי ההיסטוריה המערביים.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ויליאם וויאט ביב -->
-                <div class="personality-card border-r-8 border-alaGold shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-alaGold decoration-4 underline-offset-8">האדריכל והמושל הראשון: ויליאם וויאט ביב (William Wyatt Bibb)</h3>
-                    <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1781–1820. <strong>שנות כהונה:</strong> 1817–1820.</p>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">ילדות ורקע פוליטי (קבוצת ג'ורג'יה):</h4>
-                            <p class="leading-loose">ביב נולד בווירג'יניה וגדל בג'ורג'יה. הוא היה רופא בהכשרתו (בוגר אוניברסיטת פנסילבניה) ופוליטיקאי מבריק. הוא כיהן בסנאט האמריקאי מטעם ג'ורג'יה, אך התפטר בעקבות סערה פוליטית סביב הצבעה שנויה במחלוקת על העלאת שכר לחברי הקונגרס. הנשיא ג'יימס מונרו, שהעריך את כישוריו האדמיניסטרטיביים ואת נאמנותו לחזון הרפובליקני, מינה אותו ב-1817 כמושל טריטוריית אלבמה (שהופרדה זה עתה מטריטוריית מיסיסיפי).</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">אידיאולוגיה - התפשטות אגררית של כותנה:</h4>
-                            <p class="leading-loose">האידיאולוגיה של ביב התבססה על "כלכלת המטעים". הוא הבין שהאדמה השחורה והעשירה של אלבמה (Black Belt) מושלמת לגידול מסחרי של כותנה, שבאותה תקופה הפכה ל"זהב הלבן" של הכלכלה העולמית. ביב דחף ליצירת תשתית ממשלתית ומשפטית שתעודד בעלי מטעים עשירים (ועבדיהם) להגר לאלבמה, תוך דחיקה סופית של השבטים הילידיים מהאזור במטרה לייצר מעצמה חקלאית.</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">בניית המדינה והטרגדיה (1819):</h4>
-                            <p class="leading-loose">תחת הנהגתו של ביב, אלבמה עברה במהירות יוצאת דופן ממעמד של טריטוריה מבודדת למדינה ריבונית (ה-22 במספר) באיחוד בדצמבר 1819. הוא שרטט את גבולות המחוזות, ניהל את כתיבת החוקה, והקים את בירת המדינה הראשונה (וקצרת הימים) בקאהאבה (Cahaba). למרבה הטרגדיה, ביב לא זכה לראות את אלבמה משגשגת; הוא נפל מסוסו, חלה, ומת ביולי 1820 בגיל 38 בלבד, חודשים ספורים לאחר שאלבמה הפכה למדינה רשמית.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
-                פנתיאון תרבותי: סמלי מלחמה וחדשנות קולינרית
-            </h2>
-            
-            <div class="space-y-14">
-                <!-- ציפור המדינה -->
-                <div class="culture-highlight border-alaGold">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-alaGold">ציפור המדינה: הנקר המזהיב (Yellowhammer / Northern Flicker)</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">ציפור המדינה הרשמית - נולדה מתוך אש הקרבות (אומצה ב-1927)</p>
-                    <p class="text-slate-300 leading-loose text-xl">
-                        הבחירה ב**נקר המזהיב (Yellowhammer)** כציפור הלאומית של אלבמה אינה בחירה אורניטולוגית גרידא, אלא סמל היסטורי עמוק הקשור קשר הדוק לזהותה של המדינה במהלך **מלחמת האזרחים האמריקאית**.
-                    </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        על פי הפנומנולוגיה המקומית, הסיפור מתחיל בשנת 1861. קבוצת חיילי פרשים מאזור האנטסוויל (Huntsville) שבצפון אלבמה הגיעה למחנה צבאי בווירג'יניה. בניגוד לרוב חיילי הקונפדרציה שלבשו סחבות, פלוגה זו קיבלה מדים חדשים ומסודרים שנתפרו על ידי נשות העיר. המדים קושטו ב**פיסות בד צהובות ובוהקות** על השרוולים, בצווארונים ובשולי הבגדים. 
-                    </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        כאשר הם רכבו לתוך המחנה, הבד הצהוב הבולט הזכיר לחיילים אחרים את צבעי הכנפיים של הציפור המקומית המוכרת, הנקר המזהיב. אחד החיילים לעג להם וצעק: <span class="italic font-bold text-white">"Yellowhammer, Yellowhammer, flicker, flicker!"</span>. במקום להיעלב, פלוגת אלבמה אימצה את הכינוי בגאווה עצומה. הם לחמו בגבורה תחת שם זה לאורך המלחמה, ולאחריה – כל חיילי אלבמה, ואף אזרחיה, כונו בחיבה "Yellowhammers". הציפור הפכה לסמל של נאמנות מקומית ואומץ דרומי.
+            <div class="space-y-8">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-accentBlue">טופוגרפיה ואדמת "החגורה השחורה" (Area & Topography)</h3>
+                    <p class="leading-loose text-lg text-textMuted">
+                        אלבמה, הממוקמת בלב הדרום העמוק (Deep South), מחולקת מבחינה טופוגרפית לשלושה אזורים ברורים. בצפון, המדינה נוגעת למרגלות הרי האפלצ'ים המיוערים. במרכז נמצאת **"החגורה השחורה" (The Black Belt)** – אזור גיאולוגי ייחודי הנקרא כך במקור בשל האדמה השחורה והעשירה במיוחד שלו, שהייתה אידיאלית לגידול כותנה בקנה מידה עצום. בהמשך, השם הפך למושג דמוגרפי בשל ריכוז העבדים (ומאוחר יותר האוכלוסייה האפרו-אמריקאית) שחיו ועבדו בה. בדרום הקיצוני, לאלבמה יש חלון צר אך אסטרטגי למפרץ מקסיקו דרך מפרץ מובייל (Mobile Bay), עיר הנמל הקריטית שנכבשה במקור על ידי הצרפתים והספרדים לפני שהפכה לאמריקאית.
                     </p>
                 </div>
-
-                <!-- המנה הלאומית -->
-                <div class="culture-highlight border-alaCrimson">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-alaCrimson">המנה הלאומית (האנומלית): רוטב ברביקיו לבן (White BBQ Sauce)</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מרד קולינרי בלב חגורת הברביקיו של הדרום</p>
-                    <p class="text-slate-300 leading-loose text-xl">
-                        בעוד ששאר מדינות הדרום (טקסס, טנסי, קרוליינה) מנהלות קרבות אגדיים על רטבי הברביקיו שלהן (על בסיס עגבניות מתוקות בטנסי, או חרדל וחומץ בקרוליינה), אלבמה יצרה אנומליה קולינרית מוחלטת שהפכה לסימן ההיכר הגסטרונומי שלה בעולם: **רוטב הברביקיו הלבן של צפון אלבמה**.
-                    </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        הרוטב הומצא בשנת **1925** בעיר דיקייטור (Decatur) על ידי בוב גיבסון, הידוע כ-**"Big Bob" Gibson**. גיבסון החל למכור בשר ברביקיו (בעיקר חזיר ועוף) מתוך בור עישון קטן שחפר בחצר האחורית שלו. בניגוד לעישון בקר ארוך (כמו בטקסס), גיבסון התמחה בעופות שלמים מעושנים. 
-                    </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        כדי למנוע מהעוף להתייבש בעשן ולשמור עליו עסיסי, הוא רקח רוטב נוזלי, חריף וקרמי שהבסיס שלו אינו עגבניות – אלא **מיונז**. המיונז עורבב עם חומץ תפוחים, לימון, המון פלפל שחור גרוס וקורטוב של חזרת (Horseradish). לפני ההגשה, העוף החם טובע בשלמותו בתוך אמבט של הרוטב הלבן, החודר לבשר ומעניק לו חמיצות עוקצנית שמאזנת באופן מושלם את כבדות העשן והשומן. כיום, ה"וויט רוטב" מזוהה אך ורק עם אלבמה ומוגש במסעדות ברחבי המדינה.
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-alaRed">פסיפס אנושי (Demographics)</h3>
+                    <p class="leading-loose text-lg text-textMuted">
+                        מתוך כ-5.1 מיליון תושביה, אלבמה מחזיקה באוכלוסייה אפרו-אמריקאית גדולה מאוד המהווה כ-26.8% מתושבי המדינה. הריכוז הדמוגרפי הזה (שורד היסטורי של עידן המטעים) בתוך מדינה שהיא שמרנית-ימנית ודתית מובהקת (חלק מ"חגורת התנ"ך" - Bible Belt), הוא שיצר את הרקע הגאו-פוליטי המתוח והנפיץ שבו נולדה התנועה לזכויות האזרח (Civil Rights Movement) בשנות ה-50 וה-60 בעריה הגדולות מונטגומרי וברמינגהאם.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
-                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+        <!-- 3. כרוניקה של ריבונות -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-white shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-white text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">3</span>
+                כרוניקה של ריבונות: משחררי האדם ומייצרי הטילים
             </h2>
             
-            <div class="space-y-14">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <!-- The Heart of Dixie -->
-                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-alaCrimson shadow-2xl">
-                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Heart of Dixie (הלב של דיקסי)</h3>
-                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">אתוס של מרכזיות וריבונות דרומית</p>
-                        <p class="text-slate-300 leading-loose text-lg">
-                            הכינוי "הלב של דיקסי" הודפס על לוחיות הרישוי של אלבמה במשך עשרות שנים (מאז 1954), והוא הכינוי שמזוהה עמה יותר מכל. "דיקסי" הוא הכינוי ההיסטורי והרומנטי למדינות הדרום בארצות הברית. ההצדקה לכינוי של אלבמה כ"לב" היא כפולה: ראשית, היא ממוקמת גיאוגרפית בדיוק במרכזו של "הדרום העמוק" (Deep South). שנית, וחשוב מכך, היא שימשה כליבה הפוליטי של פרישת הדרום; העיר **מונטגומרי (Montgomery)** שבה הוקמה הקונפדרציה, שימשה כבירתה הראשונה, ושם הושבע ג'פרסון דייוויס לנשיאה.
-                        </p>
-                    </div>
+            <div class="space-y-12">
+                <!-- מרטין לותר קינג ורוזה פארקס -->
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-alaRed"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">ההוגים והמשחררים: מרטין לותר קינג ורוזה פארקס</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">זירת הפעולה: מונטגומרי, שנות ה-50.</p>
+                    
+                    <h4 class="sub-header">רקע: גזענות חוקתית והמרד באוטובוס</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        אלבמה היא זירת הקרב המרכזית והמדממת של עיצוב החברה האמריקאית המודרנית. עד שנות ה-50, המדינה נשלטה על ידי חוקי "ג'ים קרואו" שכפו הפרדה גזעית מוחלטת בבתי ספר, מסעדות ותחבורה ציבורית. ב-1 בדצמבר 1955, **רוזה פארקס**, תופרת אפרו-אמריקאית, סירבה לפנות את כסאה לאדם לבן באוטובוס ציבורי בעיר מונטגומרי (בירת אלבמה). מעצרה הצית את "חרם האוטובוסים של מונטגומרי". את החרם הנהיג כומר צעיר וכריזמטי מקומי בשם **מרטין לותר קינג ג'וניור**.
+                    </p>
 
-                    <!-- The Cotton State -->
-                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-alaWhite shadow-2xl">
-                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Cotton State (מדינת הכותנה)</h3>
-                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">גורל אקולוגי-כלכלי (The Black Belt)</p>
-                        <p class="text-slate-300 leading-loose text-lg">
-                            כינוי זה משקף את העידן שבו הכלכלה, הדמוגרפיה, והמבנה החברתי של המדינה הוכדבו לחלוטין על ידי צמח אחד. מרכז אלבמה נשלט על ידי ה"חגורה השחורה" (Black Belt) – אזור שנקרא כך במקור על שום אדמת החרסית הכהה, הפורייה להפליא שלו, שנוצרה מימות קדומות. אדמה זו הפכה את אלבמה לאחת מיצרניות הכותנה (King Cotton) הגדולות בעולם במאה ה-19, כלכלה שנשענה באופן טרגי ומוחלט על עבודת עבדים שחורים, מה ששינה את המשמעות של השם "החגורה השחורה" לאורך הדורות גם למשמעות דמוגרפית ותרבותית.
-                        </p>
-                    </div>
+                    <h4 class="sub-header">אידיאולוגיה: התנגדות לא אלימה</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        האידיאולוגיה של קינג התבססה על התנגדות לא אלימה (Satyagraha, בהשראת מהטמה גנדי) ואי-ציות אזרחי מול חוקים בלתי מוסריים. הוא האמין שאהבה וסבלנות, גם אל מול אלימות משטרתית וכלבי תקיפה, יעוררו את מצפונו של הציבור האמריקאי כולו ויחשפו את פרצופה המכוער של ההפרדה הדרומית.
+                    </p>
+
+                    <h4 class="sub-header">הישגים מכוננים: שבירת חוקי הדיכוי</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        המאבק העיקש שהחל באלבמה (והגיע לשיאו מאוחר יותר במצעדי הדמים מסלמה למונטגומרי ב-1965 על גשר אדמונד פטוס) הצליח לשבור את הסטטוס קוו. החרם הוביל לפסיקת בית המשפט העליון האוסרת על הפרדה באוטובוסים, והלחץ התקשורתי והמוסרי שיצא מאלבמה הוביל בסופו של דבר להעברת "חוק זכויות האזרח" (1964) ו"חוק זכות ההצבעה" (1965), שהרסו חוקתית את ההפרדה הגזעית בארצות הברית כולה.
+                    </p>
+                </div>
+
+                <!-- ורנר פון בראון -->
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-accentBlue"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">הבונה ומייצר החלל: ורנר פון בראון (Wernher von Braun)</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">זירת הפעולה: האנטסוויל, שנות ה-50 וה-60.</p>
+                    
+                    <h4 class="sub-header text-accentBlue decoration-accentBlue/40">רקע: מבצע פייפרקליפ</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        האנומליה הכלכלית הגדולה של אלבמה היא המעבר החד מכלכלת כותנה נחשלת לטכנולוגיית חלל מתקדמת. לאחר מלחמת העולם השנייה, ממשלת ארה"ב הביאה במסגרת המבצע החשאי "מבצע פייפרקליפ" את **ורנר פון בראון**, המדען ומהנדס הטילים הראשי של גרמניה הנאצית (יוצר טיל ה-V2), יחד עם צוותו, כדי לפתח טילים בליסטיים עבור הצבא האמריקאי בתחילת המלחמה הקרה.
+                    </p>
+
+                    <h4 class="sub-header text-accentBlue decoration-accentBlue/40">אידיאולוגיה: כיבוש הקוסמוס</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        האידיאולוגיה והשאיפה העליונה של פון בראון מעולם לא הייתה נשק, אלא מסע בין-כוכבי. הוא חלם לשגר בני אדם למאדים ולירח. באלבמה הוא מצא את המימון ואת החזון הלאומי (של הנשיא קנדי) שאפשרו לו להפוך את המדע הבליסטי הצבאי למדע של חקר חלל אזרחי.
+                    </p>
+
+                    <h4 class="sub-header text-accentBlue decoration-accentBlue/40">הישגים מכוננים: טיל הסטורן 5 והנחיתה על הירח</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        פון בראון הוצב בעיר האנטסוויל (Huntsville) שבצפון אלבמה. שם הוא ייסד וניהל את "מרכז טיסות החלל מארשל" של נאס"א. הוא תכנן, פיתח ובנה את משגר ה**סטורן 5 (Saturn V)** העצום והמורכב – הטיל העוצמתי ביותר שנבנה אי פעם, אשר שיגר את צוות אפולו 11 וניל ארמסטרונג אל הירח ב-1969. פון בראון הפך את האנטסוויל החקלאית ל"עיר הטילים" (Rocket City), והזריק למדינת אלבמה תעשיית הייטק וביטחון (המועסקת ברובה על ידי מהנדסים) ששינתה את כלכלתה מקצה לקצה.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
-                וקסילולוגיה: ניתוח סמיוטי והיסטורי של דגל המדינה
+        <!-- 4. פנתיאון תרבותי -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-[#F59E0B] shadow-2xl"> 
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-[#F59E0B] text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">4</span>
+                פנתיאון תרבותי: הציפור הצהובה והברביקיו הלבן
             </h2>
             
-            <div class="flex flex-col items-center mb-16">
-                <!-- ייצוג ויזואלי של דגל אלבמה בטכנולוגיית CSS מודרנית -->
-                <div class="w-full max-w-2xl aspect-[3/2] bg-alaWhite rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex items-center justify-center group p-4">
-                    <div class="absolute inset-0 bg-gradient-to-br from-black/5 via-transparent to-black/20 pointer-events-none z-20"></div>
-                    <!-- יצירת הצלב האלכסוני (St. Andrew's Cross) -->
-                    <div class="absolute w-[140%] h-[15%] bg-alaCrimson transform rotate-[33deg] group-hover:scale-105 transition-transform duration-700 z-10 shadow-lg"></div>
-                    <div class="absolute w-[140%] h-[15%] bg-alaCrimson transform -rotate-[33deg] group-hover:scale-105 transition-transform duration-700 z-10 shadow-lg"></div>
+            <div class="space-y-12">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-[#F59E0B] mb-2 underline italic decoration-[#F59E0B]/40">ציפור המדינה: ילואוהאמר (Yellowhammer)</h3>
+                    <p class="text-lg text-textMuted mb-6 font-bold uppercase tracking-widest">סמל צבאי שהפך לזואולוגי (אומץ ב-1927)</p>
+                    <p class="leading-loose text-lg text-textMain">
+                        ה"פליקר הצהוב" (Northern Flicker) הוא זן של נקר קטן שנוצותיו התחתונות בוהקות בצהוב עז. אולם, האנומליה היא הסיבה ההיסטורית שבגללה הוא הפך לסמל הרשמי של אלבמה (ואף לכינוי של המדינה - "מדינת הילואוהאמר").
+                        <br><br>
+                        במהלך מלחמת האזרחים האמריקאית, חברת פרשים צעירים ועשירים מאלבמה הגיעה לשדה הקרב לבושה במדים חדשים ומפוארים. על שרווליהם וצווארוניהם של מדים אלו נתפרו פיסות בד **צהובות בוהקות** (כדי להעיד על השתייכותם לחיל הפרשים). חיילים מפלוגות רגלים אחרות (שלבשו מדים בלויים ואפורים) ראו אותם ולעגו להם בקריאות "Yellowhammers!" (הציפורים בעלות הכנף הצהובה). במקום להיעלב, חיילי אלבמה אימצו את השם בגאווה רבה, גילו אומץ בקרב, ומאז הפכה הציפור לסמל הפטריוטיזם והלחימה של המדינה.
+                    </p>
                 </div>
-                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
-                    צלב סנט אנדרו הקרימזוני <br><span class="text-xl font-medium text-slate-500">(הדגל הרשמי משנת 1895)</span>
+
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-alaWhite mb-2 underline italic decoration-slate-400">המנה הלאומית: רוטב ברביקיו לבן (White BBQ Sauce)</h3>
+                    <p class="text-lg text-textMuted mb-6 font-bold uppercase tracking-widest">המצאה קולינרית ממחוז מורגן (1925)</p>
+                    <p class="leading-loose text-lg text-textMain">
+                        בעוד שאר דרום ארה"ב (קנזס סיטי, קרוליינה, טקסס) מסתמך על רטבי ברביקיו אדומים (על בסיס עגבניות או קטשופ) או צהובים (על בסיס חרדל), אלבמה המציאה פנומנולוגיה גסטרונומית הפוכה לחלוטין: רוטב **לבן לחלוטין**.
+                        <br><br>
+                        הרוטב הומצא ב-1925 על ידי רוברט "ביג בוב" גיבסון (Big Bob Gibson) בעיר דיקייטור (Decatur) שבצפון אלבמה. הבסיס של הרוטב אינו עגבניות, אלא **מיונז**, המעורבב במומחיות עם חומץ תפוחים, הרבה פלפל שחור גרוס, מיץ לימון ולעיתים גם חזרת חריפה. הרוטב נועד במקור למטרה פרקטית: להרטיב ולשמור על עסיסיותן של תרנגולות שלמות שנצלו שעות ארוכות מאוד מעל בור עמוק של עצי היקורי ללאות. הטבילה (Dunking) המלאה של העוף הצלוי ברוטב הלבן לקראת סוף הצלייה יוצרת זיגוג פיקנטי, חמצמץ וקרמי שמונע מהעוף להתייבש, והוא מהווה כיום את טביעת האצבע הייחודית והגאווה של המטבח באלבמה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. אנומליות תרבותיות וכינויים -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-textMuted shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-cardBorder text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">5</span>
+                כינויי המדינה: ניתוח פנומנולוגי
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-alaRed mb-4 underline italic decoration-alaRed/40">Heart of Dixie (לב הדיקסי)</h3>
+                    <p class="text-lg leading-loose text-textMuted">
+                        זהו המונח המפורסם ביותר המוטבע גם על לוחיות הרישוי של המדינה. המילה "דיקסי" היא כינוי נוסטלגי למדינות הדרום הישן של ארצות הברית (אלו שהיוו את הקונפדרציה). אלבמה, בשל מיקומה הגיאוגרפי המרכזי ביותר בלב הדרום, ובשל העובדה ההיסטורית שהעיר מונטגומרי שימשה כ**בירה הראשונה של הקונפדרציה** (בטרם הועברה הבירה לריצ'מונד, וירג'יניה), רואה בעצמה עד היום את הלב הפועם, המקורי והאותנטי ביותר של התרבות הדרומית, המסורתית והשמרנית.
+                    </p>
+                </div>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-accentBlue mb-4 underline italic decoration-accentBlue/40">The Cotton State (מדינת הכותנה)</h3>
+                    <p class="text-lg leading-loose text-textMuted">
+                        כינוי היסטורי וחקלאי המתייחס למנוע הכלכלי (והמנצל) שעליו נבנתה המדינה כולה. האדמה העשירה מאוד באזור ה"חגורה השחורה" אפשרה לאלבמה לקיים גידולי כותנה עצומים שהכניסו הון עתק לבעלי המטעים במאה ה-19 לפני מלחמת האזרחים, והם אלו שקיבעו וביצרו את מוסד העבדות האכזרי בבסיס קיומה של המדינה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. וקסילולוגיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-alaRed shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-alaRed text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">6</span>
+                וקסילולוגיה: צלב הקרב הארגמני
+            </h2>
+            
+            <div class="flex flex-col items-center mb-10 mt-6">
+                <!-- דגל אלבמה ב-CSS להמחשה פנימית (לא קליקבילי כאן) -->
+                <div class="w-full max-w-lg aspect-[3/2] bg-white rounded-3xl overflow-hidden shadow-2xl border-[6px] border-slate-700 relative">
+                    <!-- St. Andrew's Cross (Crimson) -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-[150%] h-[15%] bg-[#9E1B32] transform rotate-[33deg]"></div>
+                        <div class="absolute w-[150%] h-[15%] bg-[#9E1B32] transform -rotate-[33deg]"></div>
+                    </div>
+                </div>
+                <p class="mt-6 text-sm font-bold text-textMuted tracking-widest uppercase bg-cardBorder px-4 py-2 rounded-full">אומץ רשמית בחוק בשנת 1895</p>
+            </div>
+
+            <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-alaRed decoration-4">המינימליזם ומורשת הקונפדרציה:</h3>
+                <p class="leading-loose text-lg text-textMain mb-6">
+                    דגל אלבמה הוא אחד הדגלים הפשוטים, הגרפיים והזכירים ביותר בארצות הברית: **צלב אנדרו הקדוש (Saltire) בצבע ארגמן עמוק (Crimson) מתוח על פני רקע של לבן טהור**. הדגל אומץ בחוק רק בשנת 1895, תקופה שבה מדינות הדרום החלו לחוקק חוקי הפרדה נרחבים (חוקי ג'ים קרואו) ולהתרפק באופן מוסדי על נוסטלגיית ה"מטרה האבודה" (The Lost Cause of the Confederacy).
+                </p>
+                <p class="leading-loose text-lg text-textMain">
+                    הפנומנולוגיה והמקור של הדגל שנויים במחלוקת היסטורית מרתקת: המקור המוצהר של בית המחוקקים היה מתן כבוד למדים ולסמלים ששימשו את יחידות הרגלים של אלבמה במלחמת האזרחים. עם זאת, רוב מוחץ של ההיסטוריונים מסכימים שהעיצוב מבוסס ישירות על **"דגל הקרב המרובע של הקונפדרציה"** (שהכיל צלב סאלטייר כחול על רקע אדום עם כוכבים), רק שהוא הופשט לתצורה מינימליסטית ולבנה כדי להימנע מחיכוך ישיר מדי עם הממשל הפדרלי בוושינגטון. חוקרים אחרים טוענים שהוא שואב השראה מ"צלב בורגונדי" – דגלה של האימפריה הספרדית ששלטה באזור מובייל היסטורית. כך או כך, העיצוב המינימליסטי מציג מסר נוקב, פשוט ובלתי מתנצל של מורשת דרומית, ומאפיין את המדינה עד היום.
                 </p>
             </div>
-
-            <div class="space-y-14 text-slate-300">
-                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-alaCrimson shadow-xl">
-                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-alaCrimson decoration-4">נסיבות היצירה (1895):</h3>
-                    <p class="text-xl leading-loose">
-                        הדגל הנוכחי של אלבמה אומץ על ידי בית המחוקקים של המדינה ב-16 בפברואר 1895. הדגל הוצע על ידי נציג מחוז מונטגומרי, **ג'ון וו. א. סנפורד ג'וניור** (John W. A. Sanford Jr.). אביו של ג'ון פיקד על **רגימנט הרגלים ה-60 של אלבמה** במהלך מלחמת האזרחים, והדגל של הרגימנט ההוא היה צלב אלכסוני (סאלטייר) על רקע מרובע, ללא הכוכבים שעיטרו את דגל הקרב הראשי של הקונפדרציה. העיצוב נועד להוקיר את מורשת החיילים הדרומיים (באמצעות שימוש בצורת צלב המערכה), אך בגרסה מופשטת, פשוטה גיאומטרית ורשמית.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-alaWhite shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-300">צלב סנט אנדרו (St. Andrew's Cross):</h4>
-                        <p class="leading-loose text-lg">צורת הצלב האלכסוני (X) אינה המצאה אמריקאית, אלא סמל הרלדי עתיק יומין – צלב סנט אנדרו. הבחירה בצורה זו היא בחירה פופולרית בווקסילולוגיה סקוטית וספרדית. באלבמה, העיצוב הנקי הזה נתפס גם כמהדהד את **הצלב של בורגונדי** (Cross of Burgundy) – דגלה של האימפריה הספרדית (שהוקם על בסיס גזעי עצים קטועים בצורת X), שהתנוסס מעל דרום אלבמה כשהאזור היה תחת שלטון ספרדי עד תחילת המאה ה-19.</p>
-                    </div>
-                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-alaCrimson shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-alaCrimson">גיאומטריה וצבע (קרימזון):</h4>
-                        <p class="leading-loose text-lg">חוק המדינה משנת 1895 קובע במפורש כי "הדגל הלאומי של מדינת אלבמה יהיה צלב אדום של סנט אנדרו על שדה לבן... ופסי הצלב לא יפחתו משישה אינץ' ברוחבם". היעדרם של סמלים מורכבים (כמו מגנים, בעלי חיים או כוכבים – כפי שהיה נהוג בדגלים אמריקאים אחרים) מייצר מסר של ריבונות החלטית. הצבע האדום-קרימזון העמוק על הרקע הלבן הבוהק יוצר את אחד הדגלים הקלים ביותר לזיהוי מרחוק בארצות הברית.</p>
-                    </div>
-                </div>
-            </div>
         </section>
 
-        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+        <!-- 7. ביבליוגרפיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-cardBorder shadow-2xl">
+            <h2 class="text-2xl font-black text-textMuted mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-cardBorder text-white w-10 h-10 rounded-lg flex items-center justify-center ml-4 text-lg">7</span>
                 ביבליוגרפיה ומקורות מחקריים
             </h2>
-            
-            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Alabama Department of Archives and History (ADAH):</p>
-                    <p>"Alabama Emblems, Symbols and Honors". מסמכי ארכיון מקוריים המאשרים את חקיקת דגל צלב סנט אנדרו ב-1895 ואת סיפור חיילי הקונפדרציה עם מוספי הצהוב שהובילו לכינוי 'Yellowhammer'.</p>
+            <div class="space-y-6 text-lg text-textMuted leading-loose">
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Alabama Department of Archives and History:</strong>
+                    מחקר אודות האטימולוגיה המוסקוגית-צ'וקטאו של השם Alibamu (אוספי הצמחים), והשתקפות החקלאות הילידית.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Encyclopedia of Alabama (Auburn University):</p>
-                    <p>"Etymology of Alabama". מחקרים בלשניים מאת ויליאם א. ריד (William A. Read) על שפות מוסקוגיות, המפרקים את המילה לצמד המילים בצ'וקטו "Alba" (צמחייה) ו-"Amo" (לאסוף/לקצור).</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Civil Rights Memorial Center (Montgomery):</strong>
+                    ניתוח מאבקם הלא-אלים (Satyagraha) של מרטין לותר קינג ורוזה פארקס נגד ההפרדה החוקתית בחרם האוטובוסים שהחל ב-1955.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Southern Foodways Alliance:</p>
-                    <p>"The History of White BBQ Sauce". תיעוד היסטורי וקולינרי על בוב גיבסון בדיקייטור (1925) והמרד הקולינרי שהוביל ליצירת הרוטב הייחודי מבוסס המיונז.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">NASA Marshall Space Flight Center Historical Logs:</strong>
+                    הטרנספורמציה של הכלכלה האלבמית בעקבות הגעתו של ורנר פון בראון במבצע פייפרקליפ, ובניית טיל הסטורן 5 לירח בהאנטסוויל.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Hernando de Soto's Expeditions (Academic Journals):</p>
-                    <p>"The Battle of Mabila and the First Contact". ניתוח היסטורי של מסעו הקטלני של דה סוטו בספרד החדשה, תעודות ראשונות לשם "אליבמו", והתנגשותו עם צ'יף טוסקלוסה.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Southern Foodways Alliance:</strong>
+                    היסטוריית הברביקיו הלבן של משפחת גיבסון בדיקייטור (1925), כאמצעי טכני-קולינרי לשמירת לחות העוף בעישון ארוך.
+                </div>
+                <div>
+                    <strong class="text-white block mb-1">North American Vexillological Association (NAVA):</strong>
+                    הניתוח ההרלדי והפוליטי על ההשפעה הישירה של דגל קרב הקונפדרציה על בחירת צלב הארגמן הלבן ב-1895.
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- פוטר אתר ממותג -->
-    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
-        <div class="flex flex-col items-center gap-10">
-            <div class="flex gap-8">
-                <div class="w-6 h-6 bg-alaCrimson rounded-full shadow-[0_0_15px_rgba(158,27,50,0.6)]"></div>
-                <div class="w-6 h-6 bg-alaWhite rounded-full shadow-[0_0_15px_rgba(255,255,255,0.6)]"></div>
-                <div class="w-6 h-6 bg-alaGold rounded-full shadow-[0_0_15px_rgba(212,175,55,0.6)]"></div>
+    <!-- מודל (חלון צף) להגדלת הדגל - נשאר זהה ומושלם -->
+    <div id="flagModal" class="hidden fixed inset-0 z-[100] bg-appBg/95 backdrop-blur-md flex items-center justify-center p-4 cursor-pointer" onclick="closeFlagModal()">
+        <div class="modal-animate relative w-full max-w-4xl aspect-[3/2] bg-white rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(158,27,50,0.4)] border-8 border-cardBorder cursor-default" onclick="event.stopPropagation()">
+            <!-- כפתור סגירה -->
+            <button onclick="closeFlagModal()" class="absolute top-4 right-4 z-50 bg-black/50 hover:bg-black text-white rounded-full p-3 transition-colors shadow-lg border border-white/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <!-- העתק מדויק של הדגל בגדול -->
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-[150%] h-[15%] bg-[#9E1B32] transform rotate-[33deg]"></div>
+                <div class="absolute w-[150%] h-[15%] bg-[#9E1B32] transform -rotate-[33deg]"></div>
             </div>
-            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
-                US State Origins - Ultimate Academic Archive
-            </p>
-            <p class="text-slate-400 text-4xl font-black">
-                האתר נוצר על ידי ג'מיני ורם | 2026
-            </p>
         </div>
-    </footer>
+        <p class="absolute bottom-10 text-textMuted font-bold tracking-widest uppercase bg-cardBg/80 px-6 py-2 rounded-full border border-cardBorder">לחץ מחוץ לדגל כדי לסגור</p>
+    </div>
+
+    <!-- פונקציות JS לחלון הצף -->
+    <script>
+        function openFlagModal() {
+            document.getElementById('flagModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // מניעת גלילה של הרקע
+        }
+        function closeFlagModal() {
+            document.getElementById('flagModal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // החזרת גלילה
+        }
+        // סגירה גם בלחיצה על כפתור Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeFlagModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
+
+
