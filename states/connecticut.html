@@ -11,12 +11,18 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#0f172a',
-                        cardBg: '#1e293b',
-                        accent: '#38bdf8',
-                        ctBlue: '#00205B', /* Connecticut Flag Blue */
-                        ctGold: '#FFC72C', /* Seal Gold */
-                        ctGreen: '#228B22' /* Grapevines Green */
+                        appBg: '#050B14',      /* Deep Space Navy */
+                        cardBg: '#0B172A',     /* Elevated Card Navy */
+                        cardBorder: '#1E293B', /* Card Border */
+                        accentBlue: '#38BDF8', /* Neon Blue Accent */
+                        ctBlue: '#002868',     /* Flag Blue */
+                        ctGold: '#D4AF37',     /* Shield Gold Border */
+                        ctWhite: '#FFFFFF',    /* Shield White */
+                        textMain: '#E2E8F0',   /* Soft White Text */
+                        textMuted: '#94A3B8'   /* Slate Gray Text */
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
                     }
                 }
             }
@@ -24,360 +30,415 @@
     </script>
     <style>
         body { 
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             -webkit-tap-highlight-color: transparent;
+            background-color: #050B14;
+            color: #E2E8F0;
             line-height: 1.85;
         }
-        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
-        p, li, span, div, blockquote { font-size: 1.125rem; } 
-        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
-        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
-        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
-        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
-        .sub-header { @apply text-ctGold font-black text-2xl mb-5 underline italic decoration-ctGold/40 underline-offset-8; }
-        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+        p, li, span, div, blockquote { font-size: 1.125rem; } /* 18px קבוע לקריאה נוחה ב-S25 Ultra */
+        
+        /* Scrollbar מותאם לאפליקציה */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050B14; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        
+        .glass-panel {
+            background: rgba(11, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(30, 41, 59, 0.8);
+        }
+        
+        .stat-badge {
+            background: linear-gradient(145deg, #112240 0%, #0B172A 100%);
+            border: 1px solid #1E293B;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .sub-header { @apply text-accentBlue font-black text-xl mb-3 underline italic decoration-accentBlue/40 underline-offset-8 mt-6; }
+
+        /* אנימציית הופעה לחלון הצף */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-animate {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
     </style>
 </head>
-<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+<body class="antialiased min-h-screen flex flex-col items-center pb-20">
 
-    <!-- ניווט עליון -->
-    <nav class="w-full max-w-4xl mb-10">
-        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+    <!-- ניווט עילי -->
+    <nav class="w-full max-w-4xl p-6 sticky top-0 z-40 glass-panel border-b-0 rounded-b-3xl mb-6 shadow-lg flex justify-between items-center">
+        <a href="../index.html" class="inline-flex items-center text-accentBlue hover:text-white transition-colors font-bold text-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
             חזרה לאטלס המדינות
         </a>
+        <span class="text-xs font-black tracking-widest text-textMuted uppercase bg-cardBorder px-3 py-1 rounded-full">CT</span>
     </nav>
 
-    <!-- כותרת מחקר אקדמי -->
-    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-ctBlue relative overflow-hidden">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
-            <div>
-                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">קונטיקט</h1>
-                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Connecticut - The Constitution State</p>
-                <div class="h-2 w-56 bg-ctGold mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(255,199,44,0.5)]"></div>
-            </div>
-            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
-                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
-                <p class="text-5xl font-black text-white">9 בינואר, 1788</p>
-                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-5 באיחוד</p>
-            </div>
-        </div>
-    </header>
-
-    <main class="w-full max-w-4xl space-y-20">
+    <main class="w-full max-w-4xl px-4 space-y-10">
         
-        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
-                אטימולוגיה: מולקולריות של גאות ושפל
-            </h2>
+        <!-- Hero Section -->
+        <header class="w-full rounded-[3rem] overflow-hidden shadow-2xl relative bg-gradient-to-b from-[#0f172a] to-cardBg border border-cardBorder pt-12 pb-10">
+            <!-- רקע גרפי מופשט -->
+            <div class="absolute top-0 left-0 w-full h-72 bg-ctBlue opacity-40 blur-[100px] rounded-full mix-blend-screen pointer-events-none"></div>
             
-            <div class="space-y-10">
-                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
-                    כמו מדינות רבות בחוף המזרחי, שמה של קונטיקט משמר את זכרם של הילידים (שבטי האלגונקווין) שאכלסו את עמקי הנהרות. השם אינו מתאר אדם, אלא מהווה אבחנה הידרולוגית מדויקת של הנהר המרכזי שחוצה את המדינה מצפון לדרום.
-                </p>
-
-                <div class="space-y-8">
-                    <!-- Quinnehtukqut -->
-                    <div class="etymology-box border-ctBlue">
-                        <p class="text-ctBlue font-black text-5xl mb-6 italic tracking-tighter">Quinnehtukqut</p>
-                        <div class="space-y-4">
-                            <p><strong>מקור פילולוגי:</strong> שפת המוהיקן (Mohegan-Pequot), שהיא חלק ממשפחת השפות האלגונקוויות.</p>
-                            <p><strong>חלוקה מורפולוגית:</strong> המילה בנויה משלושה חלקים בסיסיים: <br>
-                            1. **Quin** (קווין) - ארוך (Long).<br>
-                            2. **ehtuk** (אהטוק) - נהר גאות ושפל, או נהר המושפע מזרמי האוקיינוס (Tidal river).<br>
-                            3. **qut** (קוט) - סיומת המציינת מקום (at the place of).</p>
-                        </div>
-                    </div>
-
-                    <!-- Connecticut -->
-                    <div class="etymology-box border-ctGold">
-                        <p class="text-ctGold font-black text-5xl mb-6 italic tracking-tighter">Connecticut</p>
-                        <div class="space-y-4">
-                            <p><strong>המשמעות האמיתית:</strong> הפירוש המילולי והאקדמי הוא <span class="text-white font-bold underline decoration-ctGold">"במקום של נהר הגאות הארוך"</span> (Beside the long tidal river).</p>
-                            <p><strong>ניתוח מחקרי:</strong> התיאור הילידי היה מדויק מבחינה אקולוגית. נהר הקונטיקט, הארוך ביותר בניו אינגלנד, זורם אל מצר לונג איילנד. בשפך הנהר, מי האוקיינוס המלוחים דוחפים את המים המתוקים בחזרה במעלה הזרם פעמיים ביום (תופעת הגאות). הילידים הגדירו את האזור על פי דינמיקת המים הזו. כשהמתיישבים האנגלים (הפוריטנים) הגיעו לאזור מבוסטון במאה ה-17, הם אימצו את השם הפונטי, אך הוסיפו את האותיות 'c' ו-'t' השתקניות לאמצע המילה כדי להתאים אותה לחוקי הכתיב האנגליים של התקופה, ויצרו את האיות החריג **Connecticut** (שנהגה כ"קנֵטיקֵט").</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-ctBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
-                כרוניקה של ריבונות: המטיף הדמוקרטי ועץ האלון האגדי
-            </h2>
-            
-            <div class="space-y-16">
-                <!-- תומאס הוקר -->
-                <div class="personality-card border-r-8 border-ctBlue shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-ctBlue decoration-4 underline-offset-8">ההוגה ואבי הדמוקרטיה: תומאס הוקר (Thomas Hooker)</h3>
-                    <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1586–1647. <strong>מעמד:</strong> כומר פוריטני ומייסד מושבת קונטיקט.</p>
+            <div class="px-6 md:px-12 relative z-10 flex flex-col items-center text-center">
+                
+                <!-- דגל המדינה הראשי (קליק להגדלה) -->
+                <div onclick="openFlagModal()" class="cursor-pointer group relative mb-10">
+                    <div class="w-48 sm:w-56 aspect-[3/2] bg-[#002868] rounded-3xl overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-4 border-slate-700 relative transform transition-transform duration-500 group-hover:scale-105 group-active:scale-95">
                         
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-ctGold">ילדות ובריחה מאנגליה:</h4>
-                            <p class="leading-loose">הוקר נולד באנגליה והתחנך באוניברסיטת קיימברידג', שם הפך למטיף פוריטני כריזמטי במיוחד. דרשותיו החריפות נגד השחיתות של הכנסייה האנגליקנית הפכו אותו למטרה לרדיפה על ידי הממסד. כדי להימנע ממאסר, הוא נמלט להולנד ובשנת 1633 חצה את האוקיינוס למושבת מפרץ מסצ'וסטס באמריקה, שם הפך לכומר של קהילת ניוטאון (קיימברידג' של ימינו).</p>
-                        </div>
+                        <!-- Connecticut Flag Representation via SVG -->
+                        <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full">
+                            <!-- Background Blue -->
+                            <rect width="300" height="200" fill="#002868"/>
+                            <!-- Baroque Shield Outline -->
+                            <path d="M 120 30 C 150 20 180 30 180 30 C 185 50 185 90 180 120 C 170 150 150 160 150 160 C 150 160 130 150 120 120 C 115 90 115 50 120 30 Z" fill="#FFFFFF" stroke="#D4AF37" stroke-width="4"/>
+                            <!-- Three Grapevines (Abstract representation using clusters of circles) -->
+                            <!-- Top Left Vine -->
+                            <circle cx="138" cy="65" r="4" fill="#4B0082"/><circle cx="143" cy="65" r="4" fill="#4B0082"/><circle cx="140" cy="70" r="4" fill="#4B0082"/>
+                            <!-- Top Right Vine -->
+                            <circle cx="157" cy="65" r="4" fill="#4B0082"/><circle cx="162" cy="65" r="4" fill="#4B0082"/><circle cx="160" cy="70" r="4" fill="#4B0082"/>
+                            <!-- Bottom Center Vine -->
+                            <circle cx="147" cy="105" r="4" fill="#4B0082"/><circle cx="153" cy="105" r="4" fill="#4B0082"/><circle cx="150" cy="110" r="4" fill="#4B0082"/>
+                            <!-- Leaves -->
+                            <path d="M 140 55 Q 145 50 148 55" stroke="#228B22" stroke-width="2" fill="none"/>
+                            <path d="M 160 55 Q 155 50 152 55" stroke="#228B22" stroke-width="2" fill="none"/>
+                            <path d="M 150 95 Q 155 90 158 95" stroke="#228B22" stroke-width="2" fill="none"/>
+                            <!-- Ribbon below shield -->
+                            <path d="M 110 170 L 190 170 Q 195 175 190 180 L 110 180 Q 105 175 110 170 Z" fill="#FFFFFF"/>
+                            <!-- Abstract text on ribbon -->
+                            <text x="150" y="177" font-family="serif" font-weight="bold" font-size="5" fill="#002868" text-anchor="middle">QUI TRANSTULIT SUSTINET</text>
+                        </svg>
 
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-ctGold">אידיאולוגיה - מרד נגד התיאוקרטיה של מסצ'וסטס:</h4>
-                            <p class="leading-loose">במסצ'וסטס שלט אז ג'ון וינתרופ ביד רמה, תחת אידיאולוגיה תיאוקרטית שקבעה כי **רק חברי כנסייה רשמיים ומוכרים (Freemen) רשאים להצביע** או להשפיע פוליטית. הוקר סלד מכך. האידיאולוגיה שלו הייתה רדיקלית ודמוקרטית לזמנה: הוא קבע כי "הסמכות לבחור שופטים ופקידים שייכת לעם" (The foundation of authority is laid in the free consent of the people), ללא קשר למעמדם הדתי המדויק. בשל חילוקי דעות אלו, הוא נטל את קהילתו ב-1636, חצה את יערות מסצ'וסטס והקים את העיר הרטפורד (Hartford) לאורך נהר הקונטיקט.</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-ctGold">הישגים מכוננים - חוקת העקרונות הבסיסיים (1639):</h4>
-                            <p class="leading-loose">בהשראת דרשותיו של הוקר, ניסחו מתיישבי קונטיקט ב-1639 מסמך היסטורי בשם **Fundamental Orders of Connecticut** (הוראות היסוד). זה נחשב על ידי היסטוריונים רבים ל**חוקה הכתובה הראשונה בעולם המערבי** שיצרה ממשלה המבוססת על זכויות אזרח ולא על סמכות מלכותית או דתית בלעדית. המסמך הזה הוא הסיבה לכך שקונטיקט מכנה עצמה "מדינת החוקה".</p>
+                        <!-- אייקון זכוכית מגדלת מרחף -->
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
                         </div>
                     </div>
                 </div>
 
-                <!-- ג'וזף טרומבול וסוד עץ האלון -->
-                <div class="personality-card border-r-8 border-ctGreen shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-ctGreen decoration-4 underline-offset-8">שומרי האמנה: ג'וזף וודסוורת' ואגדת עץ האלון (The Charter Oak)</h3>
-                    <div class="space-y-8">
-                        <p class="text-xl"><strong>אירוע מכונן:</strong> 31 באוקטובר, 1887 (ליל כל הקדושים).</p>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">הרקע לאירוע - איום המלך:</h4>
-                            <p class="leading-loose">ב-1662, המלך צ'ארלס השני אישר את ממשל העצמי של קונטיקט באמצעות אמנה (Charter) רשמית מנייר קלף. אולם, ב-1687, יורשו של צ'ארלס, המלך ג'יימס השני, החליט לבטל את כל חירויות המושבות בניו אינגלנד ולאחדן לממלכה אחת נשלטת. הוא שלח את נציגו האכזר, סר אדמונד אנדרוס (Edmund Andros), בליווי כוח חמוש, אל הפונדק בהרטפורד כדי להחרים את האמנה המקורית מידי מנהיגי המושבה.</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">הפעולה הפנומנולוגית - החשכת החדר:</h4>
-                            <p class="leading-loose">ראשי קונטיקט (ובהם משפחת טרומבול) נפגשו עם אנדרוס. האמנה הונחה על השולחן בתוך קופסת עץ. לפתע, בעיצומו של הוויכוח הסוער, חלונות הפונדק נפתחו בסערה וכל הנרות בחדר כבו. בחשיכה המוחלטת שנוצרה למשך שניות ספורות, פעל סרן מקומי בשם **ג'וזף וודסוורת'** (Joseph Wadsworth). הוא חטף את מגילת הקלף היקרה מהשולחן, חמק מהפונדק וברח אל היער.</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">סמל העץ שהציל את החירות:</h4>
-                            <p class="leading-loose">וודסוורת' טמן את מגילת האמנה בתוך גזעו החלול של עץ אלון עתיק וענק שניצב על אחוזת משפחת וויליס (Wyllys). האנגלים חיפשו לשווא, אך לא מצאו את האמנה מעולם. קונטיקט לא ויתרה על עצמאותה דה-יורה. עץ האלון הזה, שנודע כ-**"Charter Oak"**, עמד במקומו עד שקרס בסערה ב-1856, אך הפך לסמל הבלתי מעורער של התנגדות וירטואוזית לעריצות בריטית במדינה (הוא מככב על גב מטבע הקוורטר של קונטיקט).</p>
-                        </div>
+                <p class="text-ctGold font-black tracking-[0.4em] uppercase text-sm mb-4">The Constitution State</p>
+                <h1 class="text-6xl md:text-8xl font-black text-white mb-4 tracking-tight">קונטיקט</h1>
+                <p class="text-2xl text-textMuted font-light italic mb-12">Connecticut</p>
+                
+                <!-- Quick Stats Badges -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mt-4">
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">הצטרפות</span>
+                        <span class="text-alaWhite font-black text-2xl">1788</span>
+                        <span class="text-[11px] text-ctGold font-black mt-2 bg-ctGold/10 px-3 py-1 rounded-full">מדינה 5</span>
                     </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">שטח (דירוג)</span>
+                        <span class="text-alaWhite font-black text-2xl">מקום 48</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">14,357 קמ"ר</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">אוכלוסייה</span>
+                        <span class="text-alaWhite font-black text-2xl">3.6M</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">אומדן 2023</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">עיר בירה</span>
+                        <span class="text-alaWhite font-black text-2xl text-center">הרטפורד</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">Hartford</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 1. אטימולוגיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-ctGold shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-ctGold text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">1</span>
+                אטימולוגיה: מולקולריות של נהר הגאות הארוך
+            </h2>
+            <div class="space-y-8">
+                <p class="text-textMuted font-medium italic border-r-4 border-ctGold pr-6 text-xl leading-loose">
+                    שמה של קונטיקט, בדומה למדינות רבות בניו אינגלנד, שומר על זכרם של השבטים הילידיים שישבו לאורך הנהרות, ומעיד על כוחו הפיזי של הנהר המרכזי שעיצב את כלכלת האזור.
+                </p>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder shadow-inner">
+                    <p class="text-accentBlue font-black text-4xl mb-4 tracking-wider">Quinnetukut</p>
+                    <p class="mb-4 text-lg"><strong>מקור פילולוגי:</strong> שפת המוהיקן (Mohegan-Pequot), ממשפחת השפות האלגונקוויות המזרחיות.</p>
+                    <p class="text-lg leading-loose"><strong>משמעות וניתוח מלא:</strong> השם מורכב משלוש מורפמות (יחידות משמעות) ברורות בשפת הילידים: <br>
+                    1. <em>Quinne</em> – ארוך (Long). <br>
+                    2. <em>Tuk</em> – נהר גאות ושפל (Tidal river) או נהר שיש בו גלים חזקים הנובעים מהים. <br>
+                    3. <em>Ut</em> – סיומת המציינת מיקום ("במקום שבו" / "על יד"). <br>
+                    התרגום המילולי הוא <strong class="text-white">"על יד נהר הגאות הארוך"</strong>. בני השבט השתמשו במונח כדי לתאר את נהר קונטיקט האדיר (הנהר הארוך ביותר בניו אינגלנד), שחוצה את המדינה מצפון לדרום ונשפך למצר לונג איילנד. כאשר המתיישבים האנגלים (הפוריטנים) הקימו את המושבות הראשונות לאורך הנהר (הרטפורד, ווינדזור), הם לקחו את המילה הילידית "קווינטוקוט" ואנגלזו אותה לאיות המורכב שבו היא נכתבת כיום: Connecticut (כאשר האות 'c' האמצעית היא שתקנית לחלוטין).</p>
                 </div>
             </div>
         </section>
 
-        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
-                פנתיאון תרבותי: החרק המתפלל והפיצה הלבנה
+        <!-- 2. גאו-פוליטיקה ודמוגרפיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-accentBlue shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-accentBlue text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">2</span>
+                גאו-פוליטיקה ודמוגרפיה
+            </h2>
+            <div class="space-y-8">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-accentBlue">הפיצול הכלכלי של ניו אינגלנד (Area & Topography)</h3>
+                    <p class="leading-loose text-lg text-textMuted">
+                        קונטיקט היא המדינה השלישית הקטנה ביותר בארצות הברית (אחרי רוד איילנד ודלאוור). למרות גודלה, הטופוגרפיה שלה מגוונת למדי: בצפון-מערב שוכנות גבעות נמוכות ומיוערות של רכס ברקשייר (Litchfield Hills), בעוד שמרכז המדינה נחצה על ידי עמק נהר הקונטיקט הפורה. דרומה של המדינה כולל קו חוף משונן הנושק למצר לונג איילנד (Long Island Sound), שהיווה בעבר מנוע לדיג וסחר ימי. הגאו-פוליטיקה שלה מפוצלת: המחוזות הדרום-מערביים (כמו מחוז פיירפילד) קרובים מאוד לעיר ניו יורק, מתפקדים כפרברים שלה, ומכילים כמה מהעיירות העשירות ביותר באמריקה (אזור המכונה "חוף הזהב" - Gold Coast), בעוד שמזרח וצפון המדינה כפריים יותר ומסורתיים לניו אינגלנד.
+                    </p>
+                </div>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-ctGold">פסיפס אנושי: בין עוני לעושר (Demographics)</h3>
+                    <p class="leading-loose text-lg text-textMuted">
+                        עם כ-3.6 מיליון תושבים, קונטיקט היא המדינה הרביעית הצפופה ביותר בארה"ב. דמוגרפית, היא מציגה אנומליה של קיטוב כלכלי עצום. מצד אחד, היא מחזיקה ב**הכנסה לנפש מהגבוהות בארצות הברית** (בזכות בנקאי השקעות ועורכי דין שעובדים בוול סטריט וגרים בה). מצד שני, עריה המרכזיות (כמו הרטפורד, ניו הייבן וברידג'פורט) סובלות מעוני ומפערים סוציו-אקונומיים חריפים (עם ריכוז גבוה של מיעוטים היספאנים ואפרו-אמריקאים), מה שהופך את קונטיקט למיקרוקוסמוס של אי השוויון האמריקאי המודרני.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. כרוניקה של ריבונות -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-white shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-white text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">3</span>
+                כרוניקה של ריבונות: כותב החוקה ואבי התעשייה
             </h2>
             
-            <div class="space-y-14">
-                <!-- בעל החיים הלאומי (חרק) -->
-                <div class="culture-highlight border-ctGreen">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-ctGreen">החרק הלאומי: גמל שלמה אירופאי (European Mantis)</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">אנומליה זואולוגית: הגנה חקלאית אלימה (אומץ ב-1977)</p>
-                    <p class="text-slate-300 leading-loose text-xl">
-                        בעוד מדינות אחרות בחרו בפרפרים יפים או דבורי דבש, קונטיקט בחרה בחיה אכזרית וזרה לחלוטין כחרק הלאומי שלה: **גמל שלמה אירופאי** (Mantis religiosa). יתרה מכך, חיה זו כלל אינה ילידית לאמריקה, אלא הגיעה מאפריקה ואירופה במאה ה-19 יחד עם משלוחי צמחים, והתבססה בניו אינגלנד.
+            <div class="space-y-12">
+                <!-- תומאס הוקר -->
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-ctGold"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">ההוגה ואדריכל הדמוקרטיה: תומאס הוקר (Thomas Hooker)</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">מעמד: כומר פוריטני ומייסד מושבת קונטיקט (1636).</p>
+                    
+                    <h4 class="sub-header text-ctGold decoration-ctGold/40">רקע: גירוש מאנגליה ובריחה מבוסטון</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        תומאס הוקר נולד באנגליה (1586) והפך למטיף פוריטני כריזמטי שביקש לטהר את הכנסייה. עקב הרדיפות הדתיות מצד המלך צ'ארלס הראשון, הוא נמלט להולנד ומשם היגר למושבת מפרץ מסצ'וסטס (בוסטון) ב-1633. עם זאת, הוא הסתכסך במהרה עם הנהגת בוסטון (ג'ון וינתרופ), אותה ראה כנוקשה, אוטוקרטית ואליטיסטית מדי. ב-1636, הוא הוביל קבוצה של כמאה מאמינים במסע רגלי מפרך מערבה דרך היערות, עד שהגיעו לעמק נהר הקונטיקט, שם ייסדו את העיר הרטפורד.
                     </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        מדוע קונטיקט אימצה טורף זר? התשובה טמונה בהערכה העמוקה של חקלאי המדינה לחיה זו כ**"מכונת ההדברה המושלמת של הטבע"**. גמל שלמה זה הוא החרק היחיד שיכול לסובב את ראשו ב-180 מעלות, והוא טורף באכזריות (כולל אכילת בן זוגו לאחר ההזדווגות) כל מזיק חקלאי שנקרה בדרכו – כנימות, זבובים, וזחלים שהרסו את גידולי הטבק והתירס של קונטיקט.
+
+                    <h4 class="sub-header text-ctGold decoration-ctGold/40">אידיאולוגיה: סמכות מהעם ולא מהאל בלבד</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        האידיאולוגיה של הוקר הייתה מהפכנית לזמנו, והקדימה את ג'ון לוק. בדרשה מכוננת שנשא ב-1638, הוא הצהיר כי "בסיס הסמכות טמון בהסכמה החופשית של העם". בניגוד לבוסטון, שבה רק חברי כנסייה יכלו להצביע, הוקר האמין שכל אזרח חופשי (זכר) זכאי להשתתף בבחירת הנהגתו, גם אם אינו חבר רשמי בכנסייה הפוריטנית.
                     </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        האנומליה הפנומנולוגית כאן היא **הסטטוס המשפטי הכוזב (Urban Legend)** שלו: בקונטיקט התפתחה אגדה אורבנית חזקה כל כך (שאף נלמדה בבתי ספר) לפיה ישנו חוק האוסר, תחת קנס גבוה או מאסר, על הריגת גמל שלמה. אף שחוק כזה אינו קיים בספרי החוקים, עצם האמונה בו משקפת את יראת הכבוד של אזרחי המדינה ליכולתו של הטבע לווסת את עצמו, גם באמצעות אלימות.
+
+                    <h4 class="sub-header text-ctGold decoration-ctGold/40">הישגים מכוננים: "פקודות היסוד של קונטיקט" (1639)</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        בהשראת דרשותיו, נציגי שלוש העיירות הראשונות (הרטפורד, ווינדזור וות'רספילד) ניסחו בשנת 1639 את ה**"Fundamental Orders of Connecticut"** (פקודות היסוד של קונטיקט). מסמך זה תיאר כיצד תתנהל הממשלה, קבע זכויות הצבעה, והגביל את כוחם של הפקידים. היסטוריונים רבים מחשיבים את המסמך הזה ל**חוקה הכתובה הראשונה בעולם המערבי** שנוצרה כדי לייסד ממשלה (ולא כאמנה דתית בלבד). בזכות מסמך זה, קונטיקט זכתה לכינויה הרשמי כיום: "מדינת החוקה".
                     </p>
                 </div>
 
-                <!-- המנה הלאומית -->
-                <div class="culture-highlight border-ctBlue">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-ctBlue">המנה הלאומית: פיצת הפחם של ניו הייבן (New Haven "Apizza")</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">חרוכה, לבנה וחסרת שלמות (אומץ רשמית ב-2024)</p>
-                    <p class="text-slate-300 leading-loose text-xl">
-                        הקולינריה של קונטיקט משלבת את הים של ניו אינגלנד (בצורת לובסטר-רול חם מוגש בחמאה צלולה, בניגוד ללובסטר-רול הקר עם מיונז של מיין), אך הזהות המוחלטת שלה היא יצירתה של קהילת המהגרים מדרום איטליה (אזור נאפולי וקמפניה) בעיר ניו הייבן.
+                <!-- אלי ויטני -->
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-accentBlue"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">הבונה ומצית התעשייה: אלי ויטני (Eli Whitney)</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">מעמד: ממציא ותעשיין אמריקאי פורץ דרך.</p>
+                    
+                    <h4 class="sub-header text-accentBlue decoration-accentBlue/40">רקע: הילד המכונאי מניו אינגלנד</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        ויטני נולד במסצ'וסטס אך פעל והקים את מפעליו בקונטיקט. כבר בילדותו גילה גאונות טכנית וייצר מסמרים בבית המלאכה של אביו. לאחר שלמד באוניברסיטת ייל (בקונטיקט), הוא נסע לדרום כדרוש פרנסה. שם נחשף לבעיה הכלכלית הקשה של בעלי המטעים: הפרדת זרעי הכותנה מהסיבים הייתה עבודה ידנית איטית וסיזיפית להחריד.
                     </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        המנה מכונה על ידי המקומיים **"אפּיצה" (Ah-beetz)** – צורת ההגייה בניב הנאפוליטני. בניגוד לפיצה מניו יורק או שיקגו, הפיצה של ניו הייבן (שהומצאה במוסדות כמו *Pepe's* בשנת 1925 ו-*Sally's*) מתאפיינת בשלושה עקרונות ברזל:
+
+                    <h4 class="sub-header text-accentBlue decoration-accentBlue/40">אידיאולוגיה: ייעול ואוטומציה בכל מחיר</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        האידיאולוגיה של ויטני הייתה ממוקדת יעילות מכנית. הוא רצה לבטל את הצורך בעבודה ידנית איטית כדי להגדיל את הפריון. ב-1793 הוא המציא את **"מנפטת הכותנה" (Cotton Gin)**, מכונה פשוטה שבאמצעות מסרקי מתכת הפרידה את הזרעים ביעילות חסרת תקדים (מה שעשה אדם ביום, המכונה עשתה בשעה). האנומליה הטרגית של המצאתו: המכונה הפכה את הכותנה לכה רווחית, עד שהיא **קיבעה והרחיבה בצורה מפלצתית את מוסד העבדות בדרום** (שבדיוק החל לדעוך).
                     </p>
-                    <ul class="list-disc list-inside space-y-4 mt-4 text-slate-300 leading-loose text-xl">
-                        <li><strong class="text-white">בצק חרוך מפחם (Char):</strong> הפיצה נאפית בטמפרטורות קיצוניות בתנורי פחם ענקיים ועתיקים, מה שיוצר קרום דק מאוד, פריך, בעל כתמים שחורים חרוכים שמעניקים לה טעם מריר-מעושן ייחודי.</li>
-                        <li><strong class="text-white">"מוצרלה היא תוספת" (No Mootz):</strong> הפיצה הבסיסית (Plain) בניו הייבן מגיעה רק עם רוטב עגבניות סמיך, שום, ומעט גבינת פקוריו-רומאנו מגורדת לטעם. אם לקוח רוצה גבינת מוצרלה קלאסית, עליו לבקש אותה כתוספת נפרדת (Mootz).</li>
-                        <li><strong class="text-white">הפיצה הלבנה עם צדפות (White Clam Pie):</strong> זוהי מנת הדגל של העיר, שפותחה בשנות ה-60 ב"פפה". פיצה ללא רוטב עגבניות כלל, ועליה מפוזרות צדפות קטנות (Littleneck Clams) טריות שנשלו מלונג איילנד סאונד, המון שום קצוץ, שמן זית, אורגנו וגבינה קשה (ללא מוצרלה). בשנת 2024, מושל קונטיקט הכריז רשמית בחוק על פיצת ניו הייבן כ"מאכל המדינתי" הרשמי.</li>
+
+                    <h4 class="sub-header text-accentBlue decoration-accentBlue/40">הישגים מכוננים: החלפים הזהים (Interchangeable Parts)</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        הישגו הגדול השני של ויטני בקונטיקט קרה בשנת 1798. לאחר שהסתבך משפטית על פטנט המנפטה ולא הרוויח ממנו, הוא קיבל חוזה ממשלתי ענק לייצור 10,000 מוסקטים (רובים) עבור צבא ארה"ב. עד אז, כל רובה יוצר ידנית על ידי נפח-נשק כפריט ייחודי (אם חלק נשבר, היה צריך להתאים לו חלק חדש ספציפית). ויטני פתח מפעל בהאמדן (Hamden), קונטיקט, שבו הציג את הרעיון המהפכני של **חלקים חלופיים זהים (Interchangeable parts)**. הוא ייצר חלקים בסטנדרט אחיד שמורכבים על ידי פועלים פשוטים (ולא אומנים מומחים). צעד זה הניח את התשתית להפיכתה של קונטיקט למעצמת ייצור נשק (למשל חברת קולט) ולמהפכה התעשייתית האמריקאית כולה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. פנתיאון תרבותי -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-[#005f73] shadow-2xl"> 
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-[#005f73] text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">4</span>
+                פנתיאון תרבותי: מלך האוקיינוס ופיצת הפחם
+            </h2>
+            
+            <div class="space-y-12">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-[#87CEEB] mb-2 underline italic decoration-[#87CEEB]/40">חיית המדינה: הראשתן גדול-הראש (Sperm Whale)</h3>
+                    <p class="text-lg text-textMuted mb-6 font-bold uppercase tracking-widest">מפלצת השמן של הרמן מלוויל (אומץ ב-1975)</p>
+                    <p class="leading-loose text-lg text-textMain">
+                        קונטיקט העניקה את הכבוד הלאומי שלה לחיה הגדולה והאימתנית ביותר של הים – **הלווייתן הראשתן** (Sperm Whale), אותו סוג לווייתן שעליו מבוסס הספר הקלאסי "מובי דיק". החיה מאופיינת בראש עצום, ובמוח הגדול ביותר מכל יצור חי על פני כדור הארץ.
+                        <br><br>
+                        הסיבה לבחירה אינה אקולוגית בלבד, אלא בעיקר כלכלית והיסטורית. במהלך המאה ה-19, קונטיקט (ובעיקר ערי החוף ניו לונדון ומיסטיק) הייתה אחת מ**מעצמות ציד הלווייתנים הגדולות בעולם**. הראשתן ניצוד באכזריות משום שראשו האדיר הכיל חומר שמנוני שקוף (Spermaceti) ששימש להכנת הנרות האיכותיים ביותר ושמני סיכה למכונות המהפכה התעשייתית. על ידי הפיכת החיה שניצודה כמעט עד הכחדה לסמל המדינה, קונטיקט חולקת כבוד למורשת הספנות העתיקה שלה ולאנשי הים שעשו בה את הונם.
+                    </p>
+                </div>
+
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-ctWhite mb-2 underline italic decoration-slate-400">המנה הלאומית: פיצת אפיצה (New Haven Apizza) וההמבורגר</h3>
+                    <p class="text-lg text-textMuted mb-6 font-bold uppercase tracking-widest">נאפולי פוגשת את הפחם של ניו הייבן</p>
+                    <p class="leading-loose text-lg text-textMain">
+                        הקולינריה של קונטיקט מתהדרת בשתי המצאות ששינו את הרגלי האכילה של ארה"ב, ואחת מהן אף עוררה "מלחמת פיצות" בינה לבין ניו יורק:
+                    </p>
+                    <ul class="list-disc list-inside space-y-6 mt-6 text-textMain text-lg leading-loose">
+                        <li><span class="text-white font-bold underline decoration-ctGold">ניו הייבן אפיצה (New Haven Apizza):</span> מהגרים מנאפולי שהגיעו לעיר ניו הייבן בתחילת המאה ה-20 (כמו פרנק פפה ב-1925), הביאו את תרבות הפיצה, אך הגו אותה בניב נפוליטני כ-"Ah-beetz". האנומליה של הפיצה הזו היא אופן ההכנה: היא נאפית בתנורי לבנים עצומים המוסקים ב**פחם עץ כבד (Coal-fired)** בטמפרטורה קיצונית. התוצאה היא בצק דקיק, פריך מאוד, ולעיתים קרובות עם **קצוות חרוכים (Charred) ומעט שרופים**, הנחשבים לסימן איכות (ולא לטעות). גרסת הדגל המקורית אינה מכילה כלל מוצרלה, אלא רק רוטב עגבניות וגבינת פקורינו רומנו (Tomatopie), או לחלופין, הפיצה הלבנה המפורסמת עם **צדפות טריות קצוצות ושום (White Clam Pizza)**.</li>
+                        <li><span class="text-white font-bold underline decoration-[#8B4513]">מקום הולדתו של ההמבורגר:</span> למרות ויכוחים רבים בארה"ב, ספריית הקונגרס הכירה רשמית במסעדת **"Louis' Lunch"** (ארוחת הצהריים של לואי) בעיר ניו הייבן כמקום שבו הוגש ההמבורגר הראשון (בשנת 1900). לואי לאסן, מהגר דני, התבקש על ידי לקוח ממהר להכין לו ארוחה שאפשר "לקחת ולרוץ". הוא לקח את שאריות הבשר הקצוץ, צלה אותו אנכית, ושם אותו בין שתי **פרוסות של לחם קלוי (טוסטי)**, ללא קטשופ או חרדל (מסורת שנשמרת במסעדה באדיקות עד עצם היום הזה).</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- 4. סעיף חדש: גאו-פוליטיקה ודמוגרפיה (תקן הזהב 2.0) -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-ctGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
-                גאו-פוליטיקה ודמוגרפיה: ערי המפעל ועושר פרברי
+        <!-- 5. אנומליות תרבותיות וכינויים -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-textMuted shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-cardBorder text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">5</span>
+                כינויי המדינה: ניתוח פנומנולוגי
             </h2>
-            
-            <div class="space-y-14">
-                <!-- שטח וטופוגרפיה -->
-                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-ctBlue shadow-xl">
-                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-ctBlue">שטח וטופוגרפיה (Area & Topography)</h3>
-                    <p class="text-slate-300 leading-loose text-lg">
-                        קונטיקט היא המדינה השלישית הקטנה ביותר בשטחה בארה"ב (אחרי רוד איילנד ודלאוור). הטופוגרפיה שלה מורכבת בעיקר משפלות מיוערות (Coastal lowlands) בדרום לאורך מצר לונג איילנד סאונד (Long Island Sound), וגבעות מתגלגלות וסלעיות בצפון ובמערב (חלק מהרי ברקשייר). המאפיין הבולט ביותר הוא **עמק נהר הקונטיקט**, שחוצה את המדינה לשניים ומספק רצועה של אדמה חקלאית פורייה מאוד במרכז מדינה שהיא רובה סלעית וקשה לעיבוד.
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-ctGold mb-4 underline italic decoration-ctGold/40">The Constitution State (מדינת החוקה)</h3>
+                    <p class="text-lg leading-loose text-textMuted">
+                        הכינוי הרשמי של המדינה, שאושר בחוק רק בשנת 1959. הפנומנולוגיה היא גאווה אינטלקטואלית וחוקתית המבוססת על היסטוריה: היא מכירה בכך ש"פקודות היסוד של קונטיקט" משנת 1639 (שנוצרו על ידי תומאס הוקר ועמיתיו) הן אבן הפינה של הדמוקרטיה האמריקאית המודרנית, והיוו השראה מוחשית לחוקת ארה"ב שנכתבה 150 שנה מאוחר יותר.
                     </p>
                 </div>
-
-                <!-- דמוגרפיה -->
-                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-ctGold shadow-xl">
-                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-ctGold">פסיפס אנושי ואי-שוויון כלכלי (Demographics)</h3>
-                    <p class="text-slate-300 leading-loose text-lg">
-                        עם כ-3.6 מיליון תושבים, קונטיקט היא אחת המדינות הצפופות ביותר בארה"ב. יש בה פער סוציו-אקונומי ודמוגרפי מהחריפים במדינה: מחוז פיירפילד (Fairfield County) בדרום-מערב (הקרוב לניו יורק, אזור ה"זהב") מאוכלס בעובדי וול-סטריט ואנשי פיננסים עשירים מאוד, בעוד ערי התעשייה ההיסטוריות כמו הארטפורד, ניו הייבן, וברדג'פורט נאבקות בעוני, ומאכלסות אוכלוסיות גדולות של היספאנים (כ-17%) ואפרו-אמריקאים (כ-12%). זהו פסיפס בין פרברים פסטורליים עשירים ממוצא אנגלו-סקסי לערי מיל (Mill towns) שקלטו היסטורית מהגרים איטלקים, אירים, ופורטוריקנים.
-                    </p>
-                </div>
-
-                <!-- סיבת המיקום והגבולות -->
-                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-ctGreen shadow-xl">
-                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-ctGreen">עיצוב גבולות: המובלעת בין האימפריות</h3>
-                    <p class="text-slate-300 leading-loose text-lg">
-                        הגבולות הצרים והמסודרים יחסית של קונטיקט הם תוצאה של כיווץ בין שתי אימפריות קולוניאליות וותיקות ממנה. מצפון ומזרח, קונטיקט נדחקה על ידי "מושבת מפרץ מסצ'וסטס" האגרסיבית של ג'ון וינתרופ (שהמתיישבים המקוריים של קונטיקט למעשה ברחו ממנה). ממערב, היא נחסמה על ידי המושבה ההולנדית "ניו נת'רלנד" (שהפכה לניו יורק), שעימה ניהלה סכסוכי גבול אלימים (שהוסדרו בהסכם הרטפורד 1650). הגבול הדרומי, קו החוף, הבטיח לה את המוצא החיוני לסחר ימי עם האיים הקריביים ולפיתוח תעשיית בניית הספינות והנשק שהפכה למומחיותה ("נשקיית האומה").
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-[#D2691E] mb-4 underline italic decoration-[#D2691E]/40">The Nutmeg State (מדינת אגוז המוסקט)</h3>
+                    <p class="text-lg leading-loose text-textMuted">
+                        זהו אחד הכינויים הבלתי-רשמיים המוזרים והאירוניים ביותר בארה"ב. אגוז המוסקט (Nutmeg) לא גדל בקונטיקט מעולם (הוא זקוק לאקלים טרופי). הכינוי מקורו במאה ה-18 וה-19, אז הסוחרים הנודדים של קונטיקט (Yankee Peddlers) נודעו כממולחים וערמומיים במיוחד. האגדה האורבנית מספרת שהם נהגו לגלף חתיכות עץ בצורת אגוזי מוסקט (שהיו תבלין יקר מאוד אז), ולמכור אותם ללקוחות פתאים כ**אגוזי מוסקט מזויפים מעץ (Wooden Nutmegs)**. הכינוי שנועד להיות עלבון על רמאות הפך במרוצת השנים לכינוי חיבה לתושייה העסקית המקומית.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- 5. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-ctBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
-                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+        <!-- 6. וקסילולוגיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-ctBlue shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-ctBlue text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">6</span>
+                וקסילולוגיה: המגן הלבן ושלושת הגפנים
             </h2>
             
-            <div class="space-y-14">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <!-- The Constitution State -->
-                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-ctGold shadow-2xl">
-                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Constitution State</h3>
-                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מונופול על לידת הדמוקרטיה האמריקאית</p>
-                        <p class="text-slate-300 leading-loose text-lg">
-                            הכינוי הרשמי המוטבע על לוחיות הרישוי, אינו מתייחס לחוקת ארה"ב המפורסמת מ-1787 (שנכתבה בפילדלפיה), אלא להוראות היסוד של תומאס הוקר (Fundamental Orders) משנת 1639. הפנומנולוגיה של הכינוי היא הצהרת עליונות אינטלקטואלית על מסצ'וסטס ווירג'יניה: תושבי קונטיקט רואים בעצמם את אדריכלי השיטה הדמוקרטית-ייצוגית האמריקאית, שבה הממשלה שואבת את כוחה מהעם, ולכן העניקו למדינה מעמד של "אבן הראשה" (Keystone) המוסרית של האומה כולה.
-                        </p>
-                    </div>
-
-                    <!-- The Nutmeg State -->
-                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-ctBlue shadow-2xl">
-                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-blue-400">The Nutmeg State (מדינת אגוז המוסקט)</h3>
-                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">אגדה על רמאות וערמומיות יאנקית</p>
-                        <p class="text-slate-300 leading-loose text-lg">
-                            הכינוי ההיסטורי העממי ביותר, שטומן בחובו סיפור שובב של רמאות מסחרית. אגוז המוסקט היה תבלין יקר וקשה להשגה במאה ה-18 וה-19. הרוכלים הנודדים של קונטיקט (Yankee Peddlers), שהיו ידועים בכישרון המכירות והערמומיות שלהם, הואשמו (בבדיחה או במציאות) על ידי לקוחותיהם במדינות הדרום בכך שהם מגלפים חתיכות עץ בצורת אגוזי מוסקט ומוכרים את ה"עץ" כתבלין אמיתי. מאז, הביטוי "אגוז מוסקט של קונטיקט" הפך למילה נרדפת לתרמית מתוחכמת ולחוש עסקי חריף (Yankee Ingenuity). תושבי המדינה אימצו את הכינוי "Nutmegger" בחצי-גאווה על פיקחותם.
-                        </p>
-                    </div>
+            <div class="flex flex-col items-center mb-10 mt-6">
+                <!-- דגל קונטיקט ב-CSS/SVG להמחשה פנימית (קליק להגדלה נמצא למעלה) -->
+                <div class="w-full max-w-lg aspect-[3/2] bg-[#002868] rounded-3xl overflow-hidden shadow-2xl border-[6px] border-slate-700 relative">
+                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full">
+                        <path d="M 120 30 C 150 20 180 30 180 30 C 185 50 185 90 180 120 C 170 150 150 160 150 160 C 150 160 130 150 120 120 C 115 90 115 50 120 30 Z" fill="#FFFFFF" stroke="#D4AF37" stroke-width="4"/>
+                        <circle cx="138" cy="65" r="4" fill="#4B0082"/><circle cx="143" cy="65" r="4" fill="#4B0082"/><circle cx="140" cy="70" r="4" fill="#4B0082"/>
+                        <circle cx="157" cy="65" r="4" fill="#4B0082"/><circle cx="162" cy="65" r="4" fill="#4B0082"/><circle cx="160" cy="70" r="4" fill="#4B0082"/>
+                        <circle cx="147" cy="105" r="4" fill="#4B0082"/><circle cx="153" cy="105" r="4" fill="#4B0082"/><circle cx="150" cy="110" r="4" fill="#4B0082"/>
+                        <path d="M 110 170 L 190 170 Q 195 175 190 180 L 110 180 Q 105 175 110 170 Z" fill="#FFFFFF"/>
+                        <text x="150" y="177" font-family="serif" font-weight="bold" font-size="5" fill="#002868" text-anchor="middle">QUI TRANSTULIT SUSTINET</text>
+                    </svg>
                 </div>
+                <p class="mt-6 text-sm font-bold text-textMuted tracking-widest uppercase bg-cardBorder px-4 py-2 rounded-full">אומץ רשמית בחוק בשנת 1897</p>
             </div>
-        </section>
 
-        <!-- 6. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-ctBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
-                וקסילולוגיה: דגל הגפנים וההבטחה האלוהית
-            </h2>
-            
-            <div class="flex flex-col items-center mb-16">
-                <!-- ייצוג ויזואלי של דגל קונטיקט ב-CSS -->
-                <div class="w-full max-w-2xl aspect-[3/2] bg-[#00205B] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col items-center justify-center group p-4">
-                    <div class="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/20 pointer-events-none z-0"></div>
-                    
-                    <div class="relative transform transition-transform duration-700 group-hover:scale-105 z-10 flex flex-col items-center w-full">
-                        
-                        <!-- Rokoko Shield Simulation -->
-                        <div class="w-48 h-56 bg-white relative flex flex-col items-center justify-center shadow-lg border-[3px] border-[#FFC72C] z-10" style="border-radius: 20px 20px 40% 40% / 10px 10px 60% 60%;">
-                            <!-- Three Grapevines (Represented by icons and positioning) -->
-                            <div class="flex justify-center gap-6 mb-4 mt-4">
-                                <span class="text-3xl text-green-700 drop-shadow-md">🍇</span>
-                                <span class="text-3xl text-green-700 drop-shadow-md">🍇</span>
-                            </div>
-                            <div class="flex justify-center mb-2">
-                                <span class="text-3xl text-green-700 drop-shadow-md">🍇</span>
-                            </div>
-                        </div>
-
-                        <!-- Elaborate Scroll with Motto -->
-                        <div class="mt-4 bg-white/90 px-6 py-2 rounded-full shadow-md border-y-2 border-slate-300 relative z-20">
-                            <!-- Ribbon folds simulation -->
-                            <div class="absolute -left-4 top-2 w-6 h-6 bg-white/90 rounded-l-full border-y-2 border-slate-300"></div>
-                            <div class="absolute -right-4 top-2 w-6 h-6 bg-white/90 rounded-r-full border-y-2 border-slate-300"></div>
-                            
-                            <span class="text-[#00205B] font-black text-sm uppercase tracking-widest block">Qui Transtulit Sustinet</span>
-                        </div>
-                    </div>
-                </div>
-                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
-                    מגן הגפנים הרוקוקו והמוטו הדתי <br><span class="text-xl font-medium text-slate-500">(החותם משנת 1639, הדגל אומץ ב-1897)</span>
+            <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-ctBlue decoration-4">מורשת דתית על סדין כחול:</h3>
+                <p class="leading-loose text-lg text-textMain mb-6">
+                    דגל קונטיקט משתייך למסורת הרחבה והשמרנית של "הסדין הכחול" (Blue bedsheet) – רקע כחול כהה (אזכור למדי צבא הצפון) שבמרכזו מונח סמל היסטורי. הדגל, שאומץ רשמית ב-1897 בהשראת דגלים שנישאו על ידי גדודי צבא קונטיקט במהלך מלחמת האזרחים, מציג במרכזו **מגן בארוק מזהב (Baroque shield)** שרקעו לבן.
                 </p>
-            </div>
-
-            <div class="space-y-14 text-slate-300">
-                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-ctBlue shadow-xl">
-                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-ctBlue decoration-4">נסיבות היצירה ומסורת הפוריטנים:</h3>
-                    <p class="text-xl leading-loose">
-                        דגל קונטיקט נראה במבט ראשון כעוד "סדין כחול" (Seal on a blue bedsheet), אולם החותם שעליו הוא מהעתיקים ומהמרתקים ביותר בארצות הברית, שכן הוא אינו כולל שום סמל צבאי (עיט, חרב) או כלכלי (מחרשה), אלא סמליות דתית-פילוסופית טהורה. העיצוב המקורי של החותם עם שלושת הגפנים הובא למעשה מאנגליה על ידי **קולונל ג'ורג' פנוויק** (George Fenwick) בשנת 1639 עבור מושבת סייברוק (שמאוחר יותר מוזגה עם קונטיקט). הדגל הכחול עצמו, בדומה למדינות אחרות, היה דגלו של רגימנט צבאי במלחמת האזרחים, שאומץ רשמית על ידי האסיפה הכללית בשנת 1897. צורת המגן (Shield) הלבן שעליו נמצאים הגפנים עוצבה מחדש בסגנון הרלדי של **"רוקוקו" (Rococo)** – סגנון אירופאי מעוטר ומפותל, שהוא חריג לעיצובים הגאומטריים של ארה"ב.
+                <div class="space-y-4">
+                    <p class="leading-loose text-lg text-textMain">
+                        <strong class="text-purple-400">שלושת הגפנים:</strong> בתוך המגן מופיעים שלושה שתילי גפנים (Grapevines), שלכל אחד מהם שלושה אשכולות של ענבים סגולים המוקפים בעלים ירוקים. הפנומנולוגיה של הגפנים קשורה לדת ולהיסטוריה: יש הטוענים שהם מייצגים את **שלוש המושבות הראשונות** של קונטיקט (הרטפורד, ווינדזור וות'רספילד). ברמה הדתית העמוקה יותר, הגפן הוא סמל נוצרי מובהק, המעיד על הענף (הפוריטנים) שנעקר מאירופה ונשתל באדמה החדשה כדי לתת פרי.
                     </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-ctGreen shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-ctGreen">שלושת הגפנים (Grapevines):</h4>
-                        <p class="leading-loose text-lg">במרכז המגן ישנם שלושה גפנים נושאי אשכולות ענבים, כל אחד נתמך על ידי עמוד. על פי ההסבר ההיסטורי המסורתי, כל גפן מייצגת את אחת **משלוש המושבות המקוריות** שהתאחדו ליצירת קונטיקט: הרטפורד (הראשית), ווינדזור, ווות'רספילד (או ניו הייבן, לפי פרשנויות אחרות). הענבים מסמלים את הפריון והצמיחה של החברה הפוריטנית באדמה החדשה.</p>
-                    </div>
-                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-ctGold shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-ctGold">המוטו הפסלמי: Qui Transtulit Sustinet:</h4>
-                        <p class="leading-loose text-lg">תחת המגן מופיע סרט מסולסל ועליו המוטו הלטיני: **"הוא אשר העביר אותנו, יקיים אותנו"** (He who transplanted still sustains). זהו פסוק המבוסס על מזמור פ' בתהילים ("גפן ממצרים תסיע"). המוטו משקף את האמונה הקלוויניסטית-פוריטנית העמוקה של המתיישבים הראשונים (כמו תומאס הוקר): אלוהים (הוא) העביר (עקר ונטע מחדש - Transplanted) אותם מאנגליה הרקובה ליבשת החדשה, וכפי ששמר עליהם במסע, כך הוא ימשיך לכלכל ולקיים אותם בערבה האמריקאית.</p>
-                    </div>
+                    <p class="leading-loose text-lg text-textMain">
+                        <strong class="text-ctGold">המוטו הלטיני המנחם:</strong> מתחת למגן מונח סרט מפוצל בצבע לבן ועליו כתוב המוטו הלטיני הרשמי של המדינה: <strong class="text-white">"Qui Transtulit Sustinet"</strong> ("מי שהעביר, יקיים" / "He who transplanted still sustains"). זוהי הצהרת אמונה דתית עמוקה של החלוצים: כפי שאלוהים השגיח עלינו והעביר (עקר) אותנו מעבר לאוקיינוס, כך הוא ימשיך לכלכל ולקיים אותנו בארץ הזו.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- 7. ביבליוגרפיה ומקורות מחקריים -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">7</span>
+        <!-- 7. ביבליוגרפיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-cardBorder shadow-2xl">
+            <h2 class="text-2xl font-black text-textMuted mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-cardBorder text-white w-10 h-10 rounded-lg flex items-center justify-center ml-4 text-lg">7</span>
                 ביבליוגרפיה ומקורות מחקריים
             </h2>
-            
-            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Connecticut State Library (CSL):</p>
-                    <p>"The Etymology of Connecticut and the Fundamental Orders". מחקר אנתרופולוגי על מקורות שפת המוהיקן למושג ה"גאות והשפל" של הנהר, והמשמעות הפוליטית של החוקה הכתובה הראשונה (1639).</p>
+            <div class="space-y-6 text-lg text-textMuted leading-loose">
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Mohegan Tribe Cultural Preservation:</strong>
+                    ניתוח השם Quinnetukut (על יד נהר הגאות הארוך), המעיד על חשיבות הנהר המקשר בין פנים הארץ לים כמקור מחיה.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Museum of Connecticut History:</p>
-                    <p>"The Legend of the Charter Oak". תיעוד ההתרחשות מ-1687 בפונדק בהרטפורד, גבורתו של וודסוורת' בהסתרת האמנה מפני סר אנדרוס, והפיכת עץ האלון לסמל התנגדות ממלכתי.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Connecticut Historical Society:</strong>
+                    חייו של תומאס הוקר כמתנגד לשלטון האבסולוטי, ויצירת "פקודות היסוד של קונטיקט" (1639) כבסיס לחוקה הדמוקרטית הכתובה.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Department of Energy and Environmental Protection (DEEP), Connecticut:</p>
-                    <p>"The European Mantis: Myth and Utility". ההסבר האקולוגי לבחירת גמל השלמה האירופאי כחרק המדינה למרות היותו מין פולש, והפרכת המיתוס החוקי על הקנס בגין הריגתו.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Eli Whitney Museum and Workshop:</strong>
+                    הפרדוקס של אלי ויטני, שהמצאת מנפטת הכותנה שלו קיבעה את העבדות בדרום, בעוד שמפעל "החלקים החלופיים" שהקים בקונטיקט יצר את המהפכה התעשייתית בצפון.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">New Haven Historical Society / Culinary Studies:</p>
-                    <p>"The Apizza Tradition: Coal-fired crust and White Clams". תיעוד אנתרופולוגי-קולינרי של התפתחות הפיצה הנאפוליטנית בניו הייבן על ידי משפחת פפה, ותפקידה המרכזי של "החריכה" בתנור פחם.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">New Haven Historical Culinary Records:</strong>
+                    תחקיר על הגעת הפיצה הנפוליטנית לניו הייבן בתחילת המאה ה-20 (ה-Apizza על פחמים) ועדויות מספריית הקונגרס על המצאת ההמבורגר אצל "לואיס לאנץ'".
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
-                    <p>"The Saybrook Colony Seal and the Rococo Shield". ניתוח ההיסטוריה העיצובית של שלושת הגפנים שהובאו מאנגליה (מייצגות את שלוש המושבות המקוריות), והאמונה התאולוגית שמאחורי המוטו.</p>
+                <div>
+                    <strong class="text-white block mb-1">North American Vexillological Association (NAVA):</strong>
+                    ההיסטוריה של המגן בעל שלושת הגפנים עוד מתקופת המושבה (סמל סיגילום), והמשמעות הדתית (פוריטנית) של המוטו "מי שהעביר, יקיים".
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- פוטר אתר ממותג -->
-    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
-        <div class="flex flex-col items-center gap-10">
-            <div class="flex gap-8">
-                <div class="w-6 h-6 bg-ctBlue rounded-full shadow-[0_0_15px_rgba(0,32,91,0.6)]"></div>
-                <div class="w-6 h-6 bg-ctGold rounded-full shadow-[0_0_15px_rgba(255,199,44,0.6)]"></div>
-                <div class="w-6 h-6 bg-ctGreen rounded-full shadow-[0_0_15px_rgba(34,139,34,0.6)]"></div>
-            </div>
-            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
-                US State Origins - Ultimate Academic Archive
-            </p>
-            <p class="text-slate-400 text-4xl font-black">
-                האתר נוצר על ידי ג'מיני ורם | 2026
-            </p>
+    <!-- מודל (חלון צף) להגדלת הדגל -->
+    <div id="flagModal" class="hidden fixed inset-0 z-[100] bg-appBg/95 backdrop-blur-md flex items-center justify-center p-4 cursor-pointer" onclick="closeFlagModal()">
+        <div class="modal-animate relative w-full max-w-4xl aspect-[3/2] bg-[#002868] rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(212,175,55,0.3)] border-8 border-slate-700 cursor-default" onclick="event.stopPropagation()">
+            <!-- כפתור סגירה -->
+            <button onclick="closeFlagModal()" class="absolute top-4 right-4 z-50 bg-black/50 hover:bg-black text-white rounded-full p-3 transition-colors shadow-lg border border-white/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <!-- העתק מדויק של הדגל בגדול מבוסס SVG -->
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full">
+                <!-- Background Blue -->
+                <rect width="300" height="200" fill="#002868"/>
+                
+                <!-- Group with drop shadow for realism -->
+                <g style="filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.5));">
+                    <!-- Baroque Shield Outline -->
+                    <path d="M 120 30 C 150 20 180 30 180 30 C 185 50 185 90 180 120 C 170 150 150 160 150 160 C 150 160 130 150 120 120 C 115 90 115 50 120 30 Z" fill="#FFFFFF" stroke="#D4AF37" stroke-width="4"/>
+                    
+                    <!-- Three Grapevines (Detailed abstract) -->
+                    <!-- Top Left Vine -->
+                    <circle cx="138" cy="65" r="4.5" fill="#4B0082"/><circle cx="144" cy="65" r="4.5" fill="#4B0082"/><circle cx="141" cy="71" r="4.5" fill="#4B0082"/>
+                    <!-- Top Right Vine -->
+                    <circle cx="156" cy="65" r="4.5" fill="#4B0082"/><circle cx="162" cy="65" r="4.5" fill="#4B0082"/><circle cx="159" cy="71" r="4.5" fill="#4B0082"/>
+                    <!-- Bottom Center Vine -->
+                    <circle cx="147" cy="105" r="4.5" fill="#4B0082"/><circle cx="153" cy="105" r="4.5" fill="#4B0082"/><circle cx="150" cy="111" r="4.5" fill="#4B0082"/>
+                    
+                    <!-- Leaves/Vines connected to grapes -->
+                    <path d="M 141 53 Q 145 45 149 53" stroke="#228B22" stroke-width="2.5" fill="none"/>
+                    <path d="M 159 53 Q 155 45 151 53" stroke="#228B22" stroke-width="2.5" fill="none"/>
+                    <path d="M 150 93 Q 155 85 159 93" stroke="#228B22" stroke-width="2.5" fill="none"/>
+
+                    <!-- Ribbon below shield -->
+                    <path d="M 100 170 L 200 170 Q 205 175 200 180 L 100 180 Q 95 175 100 170 Z" fill="#FFFFFF"/>
+                    <!-- Text on ribbon -->
+                    <text x="150" y="177.5" font-family="serif" font-weight="bold" font-size="5.5" fill="#002868" text-anchor="middle" letter-spacing="0.5">QUI TRANSTULIT SUSTINET</text>
+                </g>
+            </svg>
         </div>
-    </footer>
+        <p class="absolute bottom-10 text-textMuted font-bold tracking-widest uppercase bg-cardBg/80 px-6 py-2 rounded-full border border-cardBorder">לחץ מחוץ לדגל כדי לסגור</p>
+    </div>
+
+    <!-- פונקציות JS לחלון הצף -->
+    <script>
+        function openFlagModal() {
+            document.getElementById('flagModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // מניעת גלילה של הרקע
+        }
+        function closeFlagModal() {
+            document.getElementById('flagModal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // החזרת גלילה
+        }
+        // סגירה גם בלחיצה על כפתור Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeFlagModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
+
+
