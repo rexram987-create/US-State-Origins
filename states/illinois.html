@@ -11,12 +11,19 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#0f172a',
-                        cardBg: '#1e293b',
-                        accent: '#38bdf8',
-                        ilBlue: '#00205B',  /* Illinois Shield Blue */
-                        ilGold: '#D4AF37',  /* Sunrise Gold */
-                        ilRed: '#C8102E'    /* Shield Red */
+                        appBg: '#050B14',      /* Deep Space Navy */
+                        cardBg: '#0B172A',     /* Elevated Card Navy */
+                        cardBorder: '#1E293B', /* Card Border */
+                        accentBlue: '#38BDF8', /* Neon Blue Accent */
+                        ilBlue: '#00205B',     /* Illinois Blue */
+                        ilRed: '#C8102E',      /* Illinois Red */
+                        ilGold: '#FFD700',     /* Sun/Eagle Gold */
+                        ilGreen: '#228B22',    /* Prairie Green */
+                        textMain: '#E2E8F0',   /* Soft White Text */
+                        textMuted: '#94A3B8'   /* Slate Gray Text */
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
                     }
                 }
             }
@@ -24,334 +31,481 @@
     </script>
     <style>
         body { 
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             -webkit-tap-highlight-color: transparent;
+            background-color: #050B14;
+            color: #E2E8F0;
             line-height: 1.85;
         }
-        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
-        p, li, span, div, blockquote { font-size: 1.125rem; } 
-        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
-        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
-        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
-        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
-        .sub-header { @apply text-ilGold font-black text-2xl mb-5 underline italic decoration-ilGold/40 underline-offset-8; }
-        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+        p, li, span, div, blockquote { font-size: 1.125rem; } /* 18px קבוע לקריאה נוחה ב-S25 Ultra */
+        
+        /* Scrollbar מותאם לאפליקציה */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050B14; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        
+        .glass-panel {
+            background: rgba(11, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(30, 41, 59, 0.8);
+        }
+        
+        .stat-badge {
+            background: linear-gradient(145deg, #112240 0%, #0B172A 100%);
+            border: 1px solid #1E293B;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .sub-header { @apply text-accentBlue font-black text-xl mb-3 underline italic decoration-accentBlue/40 underline-offset-8 mt-6; }
+
+        /* אנימציית הופעה לחלון הצף */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-animate {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
     </style>
 </head>
-<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+<body class="antialiased min-h-screen flex flex-col items-center pb-20">
 
-    <!-- ניווט עליון -->
-    <nav class="w-full max-w-4xl mb-10">
-        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+    <!-- ניווט עילי -->
+    <nav class="w-full max-w-4xl p-6 sticky top-0 z-40 glass-panel border-b-0 rounded-b-3xl mb-6 shadow-lg flex justify-between items-center">
+        <a href="../index.html" class="inline-flex items-center text-accentBlue hover:text-white transition-colors font-bold text-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
             חזרה לאטלס המדינות
         </a>
+        <span class="text-xs font-black tracking-widest text-textMuted uppercase bg-cardBorder px-3 py-1 rounded-full">IL</span>
     </nav>
 
-    <!-- כותרת מחקר אקדמי -->
-    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-ilBlue relative overflow-hidden">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
-            <div>
-                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">אילינוי</h1>
-                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Illinois - Land of Lincoln</p>
-                <div class="h-2 w-56 bg-ilGold mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(212,175,55,0.5)]"></div>
-            </div>
-            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
-                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
-                <p class="text-5xl font-black text-white">3 בדצמבר, 1818</p>
-                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-21 באיחוד</p>
-            </div>
-        </div>
-    </header>
-
-    <main class="w-full max-w-4xl space-y-20">
+    <main class="w-full max-w-4xl px-4 space-y-10">
         
-        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
-                אטימולוגיה: מולקולריות צרפתית-אלגונקווית
-            </h2>
+        <!-- Hero Section -->
+        <header class="w-full rounded-[3rem] overflow-hidden shadow-2xl relative bg-gradient-to-b from-[#1a2b4c] to-cardBg border border-cardBorder pt-12 pb-10">
+            <!-- רקע גרפי מופשט -->
+            <div class="absolute top-0 left-0 w-full h-72 bg-ilBlue opacity-30 blur-[100px] rounded-full mix-blend-screen pointer-events-none"></div>
             
-            <div class="space-y-10">
-                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
-                    כמו רוב מדינות המערב התיכון, שמה של אילינוי הוא פסיפס בלשני המורכב ממילה ילידית שעברה טרנספורמציה דרך הפונטיקה של מגלי ארצות ומיסיונרים צרפתים במאה ה-17.
-                </p>
-
-                <div class="space-y-8">
-                    <!-- Ilenweewa -->
-                    <div class="etymology-box border-ilBlue">
-                        <p class="text-ilBlue font-black text-5xl mb-6 italic tracking-tighter">ilenweewa</p>
-                        <div class="space-y-4">
-                            <p><strong>מקור פילולוגי:</strong> שפת קונפדרציית האילינוי (Illiniwek) – קבוצת שבטים אלגונקוויים.</p>
-                            <p><strong>משמעות מילולית:</strong> בעבר הרחוק היה נהוג לחשוב בטעות (בשל תרגום רומנטי מאוחר) שהמשמעות היא "שבט של גברים עליונים". אולם, הבלשנות המודרנית מראה שהפועל *irenwe·wa* או *ilenweewa* פירושו <strong class="text-white">"הוא מדבר בצורה הרגילה/המובנת"</strong>.</p>
-                            <p><strong>ניתוח מחקרי:</strong> אנתרופולוגית, שבטים רבים כינו את עצמם "האנשים שמדברים נכון" או "האנשים האמיתיים", כדי להבדיל את עצמם משבטים זרים ששפתם נשמעה להם כג'יבריש או מלמול (כפי שהיוונים הקדמונים קראו לזרים "ברברים").</p>
-                        </div>
-                    </div>
-
-                    <!-- -ois -->
-                    <div class="etymology-box border-ilRed">
-                        <p class="text-ilRed font-black text-5xl mb-6 italic tracking-tighter">-ois</p>
-                        <div class="space-y-4">
-                            <p><strong>מקור פילולוגי:</strong> סיומת צרפתית.</p>
-                            <p><strong>ניתוח מחקרי:</strong> כאשר חוקרים צרפתים (כמו ז'אק מארקט ולואי ז'ולייה בשנת 1673) פגשו בקונפדרציה, הם שמעו את המילה *Illiniwek* (האנשים המדברים נכון). הצרפתים החליפו את סיומת הרבים הילידית (-wek) בסיומת הרבים/לאום הצרפתית התקנית **-ois** (כמו ב-François או Bourgeois). כך נוצרה המילה הצרפתית **Illinois**. כיוון שבצרפתית האותיות 's' ו-'x' בסוף מילה הן אילמות, השם מבוטא עד היום על ידי אמריקאים כ-"אילינוי" (Illi-noy), ולא אילינויס.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-ilBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
-                כרוניקה של ריבונות: משפטנים, פילוג ואחדות
-            </h2>
-            
-            <div class="space-y-16">
-                <!-- אברהם לינקולן -->
-                <div class="personality-card border-r-8 border-ilGold shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-ilGold decoration-4 underline-offset-8">ההוגה, המאחד וחוטב העצים: אברהם לינקולן (Abraham Lincoln)</h3>
-                    <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1809–1865. <strong>תואר היסטורי:</strong> הנשיא ה-16 של ארצות הברית והמושיע של האיחוד.</p>
+            <div class="px-6 md:px-12 relative z-10 flex flex-col items-center text-center">
+                
+                <!-- דגל המדינה הראשי (קליק להגדלה) -->
+                <div onclick="openFlagModal()" class="cursor-pointer group relative mb-10">
+                    <div class="w-48 sm:w-56 aspect-[3/2] bg-white rounded-3xl overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-4 border-slate-300 relative transform transition-transform duration-500 group-hover:scale-105 group-active:scale-95">
                         
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-ilGold">ילדות של חסך והשכלה עצמית:</h4>
-                            <p class="leading-loose">אף שאילינוי ידועה כ"ארץ של לינקולן", הוא למעשה נולד בבקתת עץ דלה בקנטקי, ועבר לאילינוי רק בשנות העשרים לחייו. ילדותו הייתה רצופת עוני מרוד ועבודה פיזית קשה (כמו חטיבת עצים לעמודי גדר – "The Rail Splitter"). לינקולן לא זכה כמעט להשכלה פורמלית, אך היה אוטודידקט מזהיר שקרא בשקיקה כל ספר שהצליח להשיג לאור האח, ולימד את עצמו את מקצוע עריכת הדין. הוא התיישב בעיר ספרינגפילד (Springfield), משם פתח בקריירה הפוליטית שלו.</p>
-                        </div>
+                        <!-- Illinois Flag Representation via SVG -->
+                        <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full bg-white">
+                            <!-- Eagle Body (Abstract) -->
+                            <path d="M 120 100 Q 150 40 180 100 Q 150 140 120 100 Z" fill="#8B4513"/>
+                            <!-- Eagle Head -->
+                            <circle cx="125" cy="70" r="12" fill="#FFFFFF"/>
+                            <polygon points="113,70 120,65 120,75" fill="#FFD700"/> <!-- Beak -->
+                            <!-- Sun in background -->
+                            <path d="M 180 120 A 40 40 0 0 0 260 120 Z" fill="#FFD700"/>
+                            <!-- Water/Lake Michigan -->
+                            <path d="M 180 120 L 260 120 L 260 140 L 180 140 Z" fill="#1E90FF"/>
+                            <!-- Prairie/Grass -->
+                            <path d="M 40 130 L 260 130 L 260 150 L 40 150 Z" fill="#228B22"/>
+                            <!-- Shield -->
+                            <path d="M 140 90 L 160 90 L 160 115 Q 150 125 140 115 Z" fill="#FFFFFF" stroke="#00205B" stroke-width="2"/>
+                            <!-- Stripes on shield -->
+                            <line x1="144" y1="100" x2="144" y2="115" stroke="#C8102E" stroke-width="2"/>
+                            <line x1="150" y1="100" x2="150" y2="120" stroke="#C8102E" stroke-width="2"/>
+                            <line x1="156" y1="100" x2="156" y2="115" stroke="#C8102E" stroke-width="2"/>
+                            <rect x="140" y="90" width="20" height="10" fill="#00205B"/>
+                            <!-- Banner in beak -->
+                            <path d="M 50 60 Q 115 50 120 70" fill="none" stroke="#C8102E" stroke-width="4"/>
+                            <!-- Text at bottom -->
+                            <text x="150" y="180" font-family="sans-serif" font-weight="bold" font-size="24" fill="#00205B" text-anchor="middle" letter-spacing="2">ILLINOIS</text>
+                        </svg>
 
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-ilGold">אידיאולוגיה - שלמות האיחוד כערך עליון:</h4>
-                            <p class="leading-loose">האידיאולוגיה של לינקולן נשענה על עקרון "האדמה החופשית" (Free Soil) והתנגדות מוסרית עמוקה להתפשטות העבדות. עם זאת, הערך העליון והמקודש ביותר בעיניו היה **שמירת האיחוד האמריקאי**. הוא האמין שדמוקרטיה אינה יכולה להתקיים אם מיעוט (מדינות הדרום) יכול פשוט לפרוש כשהוא מפסיד בבחירות ("בית המפולג בתוך עצמו לא יוכל לעמוד").</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-ilGold">הישגים מכוננים וזהות המדינה:</h4>
-                            <p class="leading-loose">כנשיא מ-1861, לינקולן הוביל את הצפון לניצחון במלחמת האזרחים, הוציא את **הצהרת השחרור** (Emancipation Proclamation) ששמה קץ לעבדות בארה"ב, וסיפק את "נאום גטיסברג" שהגדיר מחדש את מטרת האומה. אף שנרצח ב-1865, דמותו הפכה למיתוס המכונן של אילינוי. ספרינגפילד שומרת עד היום על קברו וביתו, ואילינוי ממתגת את עצמה באופן מוחלט סביב דמותו ומוסריותו.</p>
+                        <!-- אייקון זכוכית מגדלת מרחף -->
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
                         </div>
                     </div>
                 </div>
 
-                <!-- סטיבן א. דאגלס -->
-                <div class="personality-card border-r-8 border-ilBlue shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-ilBlue decoration-4 underline-offset-8">האדריכל הפרגמטי והענק הקטן: סטיבן א. דאגלס (Stephen A. Douglas)</h3>
-                    <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1813–1861. <strong>מעמד:</strong> סנאטור ואבי "הריבונות הפופולרית".</p>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">רקע ואופי של ענק פוליטי:</h4>
-                            <p class="leading-loose">דאגלס נולד בוורמונט אך עבר לאילינוי בצעירותו. למרות קומתו הנמוכה (1.63 מ'), הוא זכה לכינוי "הענק הקטן" (The Little Giant) בזכות כריזמה מטורפת, קול רועם, ויכולת פנומנלית בבניית קואליציות בסנאט. הוא היה יריבו הפוליטי (והרומנטי) הגדול והמר של לינקולן.</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">אידיאולוגיה - הריבונות הפופולרית (Popular Sovereignty):</h4>
-                            <p class="leading-loose">בניגוד ללינקולן, האידיאולוגיה של דאגלס הייתה שזכותם הבלעדית של המתיישבים בכל טריטוריה חדשה **להחליט בעצמם (בהצבעה דמוקרטית מקומית) האם לאשר עבדות או לא**. הוא העביר את "חוק קנזס-נברסקה" (1854) מתוך אמונה שגישה זו תמנע מלחמת אזרחים, אך בפועל היא הובילה לשפיכות דמים נוראית ("קנזס המדממת").</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">עימותי לינקולן-דאגלס (1858):</h4>
-                            <p class="leading-loose">במירוץ לסנאט של אילינוי בשנת 1858, קיימו השניים שבעה עימותים פומביים פתוחים ברחבי המדינה. **עימותי לינקולן-דאגלס** נחשבים עד היום ליסוד של התרבות הפוליטית האמריקאית ולפסגת הדיבייט הדמוקרטי. אף שדאגלס ניצח בבחירות לסנאט, הטיעונים המוסריים של לינקולן הקנו לו פרסום לאומי שהוביל לבחירתו לנשיאות ב-1860. כשהחלה המלחמה, דאגלס הפגין פטריוטיות אדירה כשקרא לתומכיו הדמוקרטים להתאחד מאחורי יריבו לינקולן כדי להגן על האיחוד, אך מת מטיפוס שבועות ספורים לאחר מכן.</p>
-                        </div>
+                <p class="text-accentBlue font-black tracking-[0.4em] uppercase text-sm mb-4">Land of Lincoln</p>
+                <h1 class="text-6xl md:text-8xl font-black text-white mb-4 tracking-tight">אילינוי</h1>
+                <p class="text-2xl text-textMuted font-light italic mb-12">Illinois</p>
+                
+                <!-- Quick Stats Badges -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mt-4">
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">הצטרפות</span>
+                        <span class="text-alaWhite font-black text-2xl">1818</span>
+                        <span class="text-[11px] text-ilRed font-black mt-2 bg-ilRed/10 px-3 py-1 rounded-full">מדינה 21</span>
                     </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">שטח (דירוג)</span>
+                        <span class="text-alaWhite font-black text-2xl">מקום 25</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">149,995 קמ"ר</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">אוכלוסייה</span>
+                        <span class="text-alaWhite font-black text-2xl">12.5M</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">אומדן 2023 (מקום 6)</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">עיר בירה</span>
+                        <span class="text-alaWhite font-black text-2xl text-center">ספרינגפילד</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">Springfield</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 1. אטימולוגיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-ilBlue shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-ilBlue text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">1</span>
+                אטימולוגיה: מולקולריות של "האנשים האמיתיים"
+            </h2>
+            <div class="space-y-8">
+                <p class="text-textMuted font-medium italic border-r-4 border-ilBlue pr-6 text-xl leading-loose">
+                    שמה של אילינוי הוא תוצר של "טלפון שבור" לשוני. הוא התחיל כמילה ילידית גאה של שבט מקומי, עבר דרך פילטרים ושבשים של חוקרים צרפתים, ולבסוף התקבע כאיות אנגלי שבו האות 's' בסוף נותרת אילמת לחלוטין.
+                </p>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder shadow-inner">
+                    <p class="text-accentBlue font-black text-4xl mb-4 tracking-wider">Ilenwe·wa -> Illinois</p>
+                    <p class="mb-4 text-lg"><strong>מקור פילולוגי:</strong> שפת שבט המיאמי-אילינוי (משפחת השפות האלגונקוויות) עם התאמה צרפתית.</p>
+                    <p class="text-lg leading-loose"><strong>משמעות וניתוח מלא:</strong> במקור, קונפדרציה של שבטים ילידיים שחיו באזור קראו לעצמם <em>Inoca</em>. שבטים שכנים דוברי אלגונקווין התייחסו אליהם במילה <em>Irenwe·wa</em> (או בניב אחר <em>Ilenwe·wa</em>). הפירוש המילולי של מילה זו היה <strong class="text-white">"הוא מדבר בדרך הרגילה"</strong> או <strong class="text-white">"האנשים האמיתיים / הגברים הטובים"</strong> (The real men / The original people), כדי להבדיל אותם משבטים זרים ששפתם נשמעה להם מוזרה. <br><br>
+                    כאשר החוקרים הצרפתים הקתולים (בראשות ז'אק מארקט ולואי ז'ולייה) הגיעו לאזור במאה ה-17, הם שמעו את המילה האלגונקווית 'Ileniw', והוסיפו לה את הסיומת הצרפתית לרבים <strong>"-ois"</strong>. כך נוצרה המילה הצרפתית <em>Illinois</em>. כאשר האנגלים/אמריקאים השתלטו על הטריטוריה, הם שמרו על האיות הצרפתי, אך שמרו גם על כלל ההגייה הצרפתי שקובע שה-S בסוף מילה היא אילמת (ולכן הוגים אִילִי-נוֹי, ולא אילי-נויז).</p>
                 </div>
             </div>
         </section>
 
-        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
-                פנתיאון תרבותי: הגירת הפרפרים והפשטידה העמוקה
+        <!-- 2. גאו-פוליטיקה ודמוגרפיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-accentBlue shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-accentBlue text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">2</span>
+                גאו-פוליטיקה ודמוגרפיה
+            </h2>
+            <div class="space-y-8">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-accentBlue">המישורים הגדולים ואגם מישיגן (Area & Topography)</h3>
+                    <p class="leading-loose text-lg text-textMuted">
+                        אילינוי ממוקמת בלב "המערב התיכון" (Midwest) ומהווה גשר גיאופוליטי קריטי בין הימות הגדולות (Great Lakes) בצפון, לבין נהר המיסיסיפי שמהווה את כל גבולה המערבי. הטופוגרפיה שלה היא מישורית ברובה העצום – היא חלק מ"המישורים הגדולים" (The Great Plains), והנוף נשלט על ידי שדות חקלאיים אינסופיים של תירס וסויה (שבזכותם היא זכתה לכינוי "מדינת הערבה" - Prairie State). הקצה הצפון-מזרחי שלה נושק לחופי **אגם מישיגן**, שם הוקמה העיר שיקגו כנקודת מעבר אסטרטגית בין נתיבי המים של הצפון לנהרות הזורמים דרומה אל מפרץ מקסיקו.
+                    </p>
+                </div>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-ilRed">פסיפס אנושי: המדינה המחולקת (Demographics)</h3>
+                    <p class="leading-loose text-lg text-textMuted">
+                        עם כ-12.5 מיליון תושבים, אילינוי היא המדינה השישית המאוכלסת ביותר בארה"ב. דמוגרפית ופוליטית, היא מציגה אנומליה של מדינה חצויה לחלוטין (Chicagoland vs. Downstate). **כ-65% מכלל אוכלוסיית המדינה מתגוררת במטרופולין של שיקגו** (Cook County והפרברים), שהוא אזור אורבני, מגוון מאוד, דמוקרטי, ומהווה את אחד ממנועי הכלכלה החזקים בעולם. שאר המדינה – המכונה "דאונסטייט" (Downstate) – היא כפרית, שמרנית, דלילת אוכלוסין, ודומה יותר באופייה למדינות הדרום והמישורים, מה שיוצר מתיחות פוליטית ותקציבית מתמדת בתוך המדינה עצמה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. כרוניקה של ריבונות -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-white shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-white text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">3</span>
+                כרוניקה של ריבונות: המשחרר, הסוציאליסטית והנשיא השחור
             </h2>
             
-            <div class="space-y-14">
-                <!-- החרק הלאומי -->
-                <div class="culture-highlight border-ilGold">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-ilGold">החרק המדינתי: פרפר דנאית מלכותית (Monarch Butterfly)</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">סמל אקולוגי מהערבה (אומץ ב-1975)</p>
-                    <p class="text-slate-300 leading-loose text-xl">
-                        בעוד החיה המדינתית של אילינוי היא האייל הלבן-זנב (בדומה לאוהיו), הסמל הפנומנולוגי שמייצג באמת את ההיסטוריה האקולוגית שלה הוא **חרק המדינה**: פרפר הדנאית המלכותית (Danaus plexippus). 
+            <div class="space-y-12">
+                <!-- אברהם לינקולן -->
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-ilGold"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">ההוגה והמשחרר הגדול: אברהם לינקולן (Abraham Lincoln)</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">שנות חיים: 1809–1865 | מעמד: עורך דין מאילינוי והנשיא ה-16 של ארצות הברית.</p>
+                    
+                    <!-- אטימולוגיה אישית ומקיפה -->
+                    <div class="bg-appBg rounded-2xl p-6 border border-cardBorder mb-8 shadow-inner">
+                        <h4 class="font-black text-ilGold mb-4 text-xl">אטימולוגיה של השם: מולקולריות של אבות ומים</h4>
+                        <p class="text-textMain leading-loose mb-4 text-sm">שמו של הנשיא הגדול ביותר בתולדות ארה"ב הוא שילוב של מסורת תנ"כית עתיקה עם מוצא קלטי-אנגלי:</p>
+                        <ul class="space-y-3 text-lg text-textMain ml-4">
+                            <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Abraham (אברהם):</strong> שם ממקור עברי מובהק. מורכב מהמילים "אב" + "המון" (גוים). הפירוש הוא "אב להמון עמים". השם ניתן לו על ידי הוריו הבפטיסטים לזכר סבו מצד אביו, אברהם לינקולן (הסב), שנרצח על ידי אינדיאנים בקנטאקי בשנת 1786.</li>
+                            <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Lincoln:</strong> שם משפחה המעיד על מקור גיאוגרפי (Toponymic). העיר לינקולן באנגליה. השם נוצר משילוב המילה הקלטית <em>Lindo</em> (אגם / בריכה) והמילה הלטינית <em>Colonia</em> (מושבה שהקימו הרומאים). יחד המשמעות היא "המושבה שליד האגם".</li>
+                        </ul>
+                    </div>
+
+                    <h4 class="sub-header text-ilGold decoration-ilGold/40">רקע וילדות: חוטב העצים שלמד לבד</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        אמנם לינקולן נולד בבקתת עץ דלה בקנטאקי וגדל באינדיאנה, אך בגיל 21 משפחתו היגרה ל**אילינוי** (לאזור נהר הסאנגמון). הוא כונה "חוטב העצים" (The Rail Splitter) בשל עבודתו הפיזית הקשה בצעירותו. באילינוי הוא לימד את עצמו משפטים (ללא שנות לימוד פורמליות), הפך לעורך דין מצליח בעיר ספרינגפילד (הבירה), ונכנס לפוליטיקה המקומית מטעם המפלגה הוויגית.
                     </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        לפני עידן המחרשות והערים, אילינוי הייתה מכוסה ב"ערבת דשא גבוה" (Tallgrass Prairie). אחד הצמחים הנפוצים ביותר היה האסקלפיאס (Milkweed) – הצמח היחיד שעליו זחלי הדנאית מסוגלים להתקיים (הוא רעיל, מה שמקנה לפרפר את ההגנה שלו מפני טורפים). 
+
+                    <h4 class="sub-header text-ilGold decoration-ilGold/40">אידיאולוגיה: עבודת כפיים חופשית ואיסור התפשטות העבדות</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        האידיאולוגיה של לינקולן התבססה על המושג "עבודה חופשית" (Free Labor) – האמונה שכל אדם זכאי ליהנות מפרי עמלו ולשפר את מעמדו הכלכלי, דבר שהעבדות מונעת מהיסוד. בתחילה (במסע הבחירות שלו ב-1860), מטרתו העיקרית לא הייתה לבטל את העבדות היכן שכבר הייתה קיימת (בדרום), אלא **לעצור את התפשטותה** אל הטריטוריות המערביות החדשות, מתוך אמונה שכך היא תדעך ותיכחד באופן טבעי לאורך זמן.
                     </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        אימוץ הפרפר ב-1975 התבצע הודות לקמפיין של תלמידי כיתות ג' בעיר דקאטור (Decatur), שלמדו על מסע ההגירה האפי של הפרפר השברירי הזה – העף למעלה מ-4,000 קילומטרים מאילינוי אל יערות מקסיקו כדי להעביר את החורף. אילינוי אימצה אותו כסמל של חופש, יופי טבעי של הערבה המקורית שאבדה, ופרויקט חינוכי להחזרת צמחי בר למדינה התעשייתית.
+
+                    <h4 class="sub-header text-ilGold decoration-ilGold/40">הישגים מכוננים: איחוד האומה והצהרת השחרור</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        בחירתו לנשיאות מטעם המפלגה הרפובליקנית הובילה לפרישת מדינות הדרום ולפרוץ **מלחמת האזרחים** (1861). מטרתו העליונה הייתה "שמירה על האיחוד" בכל מחיר. ב-1863, כמהלך טקטי ומוסרי כאחד, פרסם את **"הצהרת השחרור" (Emancipation Proclamation)**, שהפכה את שחרור העבדים למטרת המלחמה. הוא ניצח במלחמה, העביר את התיקון ה-13 לחוקה (האוסר על עבדות לנצח), ונרצח באפריל 1865. אילינוי עדיין מזוהה איתו באופן אבסולוטי ("ארץ של לינקולן").
                     </p>
                 </div>
 
-                <!-- המנה הלאומית -->
-                <div class="culture-highlight border-ilRed">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-ilRed">המנה התרבותית: פיצת "דיפ דיש" של שיקגו (Chicago Deep-Dish) ונקניקיית שיקגו</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">תעשייתיות, פחמימות וכור היתוך מהגרים</p>
-                    <p class="text-slate-300 leading-loose text-xl">
-                        הקולינריה של אילינוי נשלטת כמעט לחלוטין על ידי מטבח הרחוב והפועלים של עיר הרוחות – שיקגו. 
+                <!-- ג'יין אדמס -->
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-accentBlue"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">הבונה ואם העבודה הסוציאלית: ג'יין אדמס (Jane Addams)</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">שנות חיים: 1860–1935 | מעמד: סוציולוגית, פמיניסטית וכלת פרס נובל לשלום (1931).</p>
+                    
+                    <div class="bg-appBg rounded-2xl p-6 border border-cardBorder mb-8 shadow-inner">
+                        <h4 class="font-black text-accentBlue mb-4 text-xl">אטימולוגיה של השם: חסד ואדמה</h4>
+                        <p class="text-textMain leading-loose mb-4 text-sm">שמה של ג'יין אדמס הוא מופת של פשטות שורשית עברית-נוצרית:</p>
+                        <ul class="space-y-3 text-lg text-textMain ml-4">
+                            <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Jane:</strong> הנגזרת האנגלית-נשית לשם "יוחנן" (John / Yehocjanan). המשמעות היא "האל חנן" או "אלוהים הוא רחום/מלא חסד".</li>
+                            <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Addams:</strong> וריאציה של השם "אדם" (Adam), שנגזר מהמילה העברית "אדמה" (האדם הראשון נוצר מעפר האדמה). משמעותו "בן האדם" או "זה שבא מהאדמה".</li>
+                        </ul>
+                    </div>
+
+                    <h4 class="sub-header text-accentBlue decoration-accentBlue/40">רקע וילדות: העושר, הנכות וההתעוררות בלונדון</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        לורה ג'יין אדמס נולדה בסדרוויל (Cedarville), אילינוי, למשפחה עשירה ומקושרת פוליטית (אביה היה חבר של אברהם לינקולן). בילדותה חלתה בשחפת בעמוד השדרה שהותירה אותה עם עקמת ונכות קלה לכל חייה. בעת טיול ללונדון בשנות ה-20 לחייה, היא ביקרה ב"טוינבי הול" (Toynbee Hall) – "בית התיישבות" שבו סטודנטים עשירים חיו בשכונות עוני כדי לסייע וללמד את העניים. הביקור הזה שינה את מסלול חייה.
                     </p>
-                    <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
-                        <li><span class="text-white font-bold underline decoration-ilGold">פיצת דיפ-דיש (Deep-Dish Pizza):</span> בשנת 1943, **אייק סוול וריק ריקארדו**, הבעלים של Pizzeria Uno, החליטו שפיצה לא צריכה להיות רק חטיף דק ועדין מדרום איטליה, אלא **ארוחה כבדה ודשנה** שתוכל להשביע פועלי תעשייה. הם המציאו פיצה הנאפית בתוך מחבת ברזל עמוקה מאוד. הפנומנולוגיה שלה הפוכה לפיצה רגילה (כדי שהגבינה לא תישרף באפייה הארוכה של 40 דקות): למטה בצק עבה וחמאתי, מעליו פרוסות (לא מגורדת!) של גבינת מוצרלה עבה, מעליה שכבה שלמה של בשר (לרוב נקניק פפרוני או בקר טחון), ומעל הכל – מכסה רותח של רוטב עגבניות מתובל. זוהי פשטידת בשר וגבינה שמהווה את שיא האמריקניזציה למטבח האיטלקי.</li>
-                        <li><span class="text-white font-bold underline decoration-ilBlue">נקניקיית שיקגו (Chicago-style Hot Dog):</span> יצירת מופת שנולדה בתקופת השפל הגדול (1929) כ"ארוחה בעשרה סנט". היא משלבת את כל המהגרים של שיקגו בלחמניית פרג אחד: נקניקיית בקר (יהודים/גרמנים), רליש מתוק זרחני (אנגלים), בצל קצוץ, עגבניות, פלפלי ספורט חריפים, פרוסת מלפפון חמוץ במלח, וקורט מלח סלרי. **החוק הקולינרי החמור ביותר באילינוי קובע:** לעולם, בשום פנים ואופן, לא שמים קטשופ על נקניקיית שיקגו.</li>
+
+                    <h4 class="sub-header text-accentBlue decoration-accentBlue/40">אידיאולוגיה: פרגמטיזם ופמיניזם חברתי</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        אדמס סלדה מהמושג של "צדקה" מתנשאת (Charity). האידיאולוגיה שלה הייתה **"התיישבות חברתית" (Social Settlement)**: היא האמינה שהדרך היחידה לעזור למהגרים ועניים אינה בחלוקת כסף, אלא בחיים בקרבם, בהבנת המצוקות היומיומיות שלהם (תברואה, חינוך ילדים, בטיחות בעבודה), ובהפיכת החברה לדמוקרטית ושוויונית יותר. היא קראה לנשים משכילות לנצל את השכלתן מחוץ לבית לטובת המרחב הציבורי.
+                    </p>
+
+                    <h4 class="sub-header text-accentBlue decoration-accentBlue/40">הישגים מכוננים: "האל האוס" ופרס נובל</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        בשנת 1889, היא הקימה בשכונת עוני של מהגרים בשיקגו את **"האל האוס" (Hull House)**. המקום סיפק גני ילדים, מרפאות, ספריות, ומטבחים ציבוריים לאלפי מהגרים בשבוע. המוסד הזה נחשב לערש הולדתו של מקצוע **העבודה הסוציאלית המודרנית** בארה"ב. אדמס הייתה גם פציפיסטית נלהבת שהתנגדה למלחמת העולם הראשונה (מה שגרם בתחילה להשמצתה, אך לבסוף זיכה אותה בפרס נובל לשלום בשנת 1931).
+                    </p>
+                </div>
+
+                <!-- ברק אובמה -->
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-ilRed"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">המארגן והנשיא ה-44: ברק אובמה (Barack Obama)</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">שנות חיים: 1961–הווה | מעמד: סנאטור מאילינוי, והנשיא האפרו-אמריקאי הראשון של ארה"ב.</p>
+                    
+                    <div class="bg-appBg rounded-2xl p-6 border border-cardBorder mb-8 shadow-inner">
+                        <h4 class="font-black text-ilRed mb-4 text-xl">אטימולוגיה של השם: מולקולריות של ברכה וכפיפות</h4>
+                        <p class="text-textMain leading-loose mb-4 text-sm">שמו של אובמה משקף את שורשיו האפריקאיים-קנייתיים, ומהווה את אחד השמות הייחודיים ביותר בתולדות הפוליטיקה האמריקאית:</p>
+                        <ul class="space-y-3 text-lg text-textMain ml-4">
+                            <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Barack (ברק):</strong> מקורו בשפה הערבית דרך השפה הסוואהילית (Mbaraka). משמעות המילה היא "מבורך" או "מי שזכה לברכה" (מקביל לשם העברי ברוך/ברכה).</li>
+                            <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Hussein (חוסיין):</strong> שמו האמצעי. ממקור ערבי (حسين), המהווה הקטנה של המילה "חסן" (Hasan), שמשמעותה "טוב", "יפה" או "נאה".</li>
+                            <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Obama (אובמה):</strong> שם משפחה ממקור שפת ה"לואו" (Luo), קבוצה אתנית בקניה (ממנה הגיע אביו). השם נגזר מהפועל "obam", שמשמעותו "לרכון" או "להתכופף מעט". ככל הנראה ניתן לאב-קדמון שהייתה לו יציבה כפופה עקב גובהו.</li>
+                        </ul>
+                    </div>
+
+                    <h4 class="sub-header text-ilRed decoration-ilRed/40">רקע וילדות: מהוואי לרחובות שיקגו</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        אמנם ברק חוסיין אובמה נולד בהוואי (לאם אמריקאית לבנה מקנזס ולאב שחור מקניה), ובילה חלק מילדותו באינדונזיה, אך זהותו הפוליטית עוצבה לחלוטין ב**אילינוי**. לאחר לימודיו באוניברסיטת קולומביה, הוא עבר לשיקגו בשנות ה-80 ועבד כ"מארגן קהילתי" (Community Organizer) בשכונות העוני של דרום שיקגו. בהמשך סיים לימודי משפטים בהרווארד (והיה הנשיא השחור הראשון של ה-Harvard Law Review), וחזר לשיקגו ללמד משפט חוקתי ולהיכנס לפוליטיקה המדינתית של אילינוי.
+                    </p>
+
+                    <h4 class="sub-header text-ilRed decoration-ilRed/40">אידיאולוגיה: תקווה, שינוי ופרגמטיזם פרוגרסיבי</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        האידיאולוגיה של אובמה התבססה על מסר של אחדות ("אין אמריקה ליברלית ואין אמריקה שמרנית – יש את ארצות הברית של אמריקה"). הוא דגל בפרוגרסיביות חברתית (שילוב מיעוטים, זכויות להט"ב), אך מלווה בפרגמטיזם פוליטי שחתר לפשרות (למשל, בניסוח רפורמת הבריאות שלו שנשענה על מודלים של השוק הפרטי).
+                    </p>
+
+                    <h4 class="sub-header text-ilRed decoration-ilRed/40">הישגים מכוננים: אובמה-קר ושבירת מחסום הגזע</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        לאחר כהונה קצרה כסנאטור מטעם אילינוי (שם פרץ לתודעה בנאום הוועידה הדמוקרטית ב-2004), הוא נבחר לנשיאות בשנת 2008 והפך ל**נשיא האפרו-אמריקאי הראשון בתולדות ארה"ב** – אירוע היסטורי חסר תקדים. במהלך שמונה שנות כהונתו, הוא חילץ את הכלכלה מהמשבר הפיננסי של 2008 (חילוץ תעשיית הרכב), הורה על המבצע לחיסול אוסמה בן לאדן, והעביר את "חוק הגנת החולה וטיפול בר השגה" (Obamacare), שהעניק ביטוח בריאות לעשרות מיליוני אמריקאים.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. פנתיאון תרבותי -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-[#D2691E] shadow-2xl"> 
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-[#D2691E] text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">4</span>
+                פנתיאון תרבותי: מסע הפרפרים והפיצה העמוקה
+            </h2>
+            
+            <div class="space-y-12">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-[#FF8C00] mb-2 underline italic decoration-[#FF8C00]/40">חרק המדינה: פרפר דנאית מלכותית (Monarch Butterfly)</h3>
+                    <p class="text-lg text-textMuted mb-6 font-bold uppercase tracking-widest">נווט הערבות הבלתי נלאה (אומץ ב-1975)</p>
+                    <p class="leading-loose text-lg text-textMain">
+                        אמנם חיית המדינה היא הצבי לבן-הזנב (כמו במדינות רבות אחרות), אך הסמל הביולוגי המרתק ביותר של אילינוי הוא חרק המדינה: **פרפר המונרך (דנאית מלכותית)**.
+                        <br><br>
+                        הפרפר בעל הכנפיים הכתומות-שחורות-לבנות המרהיבות אומץ כסמל המדינה ביוזמה מרגשת של תלמידי כיתה ג' מהעיר דקטור (Decatur) ב-1975. הפנומנולוגיה שלו קשורה קשר הדוק לטבע של אילינוי: מדינת אילינוי מהווה "תחנת מעבר" ומסדרון אקולוגי קריטי עבור אחת מתופעות הטבע המדהימות בעולם – **הנדידה הגדולה של פרפרי המונרך**. בכל סתיו, מיליוני פרפרים עוזבים את קנדה ואת צפון ארה"ב, חוצים את שמי אילינוי לאורך נהר המיסיסיפי וימת מישיגן, ונודדים מרחק בלתי נתפס של כ-4,500 קילומטרים עד ליערות ההרריים של מקסיקו כדי להעביר את החורף. שדות הבר וה"אסקלפיאס" (Milkweed - הצמח היחיד שעליו הם מטילים ביצים) של אילינוי חיוניים להישרדות המין.
+                    </p>
+                </div>
+
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-ilRed mb-2 underline italic decoration-slate-400">המנה הלאומית: פיצת דיפ-דיש והנקניקייה של שיקגו</h3>
+                    <p class="text-lg text-textMuted mb-6 font-bold uppercase tracking-widest">ארכיטקטורה של בצק והחוק נגד קטשופ</p>
+                    <p class="leading-loose text-lg text-textMain">
+                        הקולינריה של אילינוי נשלטת כמעט לחלוטין על ידי אוכל הרחוב והמהגרים של שיקגו (שהפך לקטגוריה בפני עצמו):
+                    </p>
+                    <ul class="list-disc list-inside space-y-6 mt-6 text-textMain text-lg leading-loose">
+                        <li><span class="text-white font-bold underline decoration-ilGold">פיצת הדיפ-דיש של שיקגו (Chicago Deep-Dish Pizza):</span> ההמצאה שמרתיחה את תושבי ניו יורק, הטוענים שזו "פשטידה" (Casserole) ולא פיצה. המנה הומצאה ב-1943 בפיצריית "Pizzeria Uno". האנומליה שלה היא ארכיטקטונית: היא נאפית בתבנית ברזל עמוקה מאוד (כמו תבנית עוגה). מכיוון שזמן האפייה ארוך מאוד, הומצאה **טכניקה של בנייה הפוכה** (כדי שהגבינה לא תישרף): הבצק נדחף לדפנות, עליו מניחים שכבה עצומה של גבינת מוצרלה עבה, מעליה בשר (לרוב נקניקייה איטלקית גולמית), ולבסוף – הכל מכוסה בשכבה עבה של רוטב עגבניות מרוסקות וגסות, שמגן על המרכיבים מחום התנור.</li>
+                        <li><span class="text-white font-bold underline decoration-[#8B4513]">הנקניקייה בסגנון שיקגו (Chicago-style Hot Dog):</span> מאכל רחוב שנוצר בתקופת השפל הגדול (כ"ארוחה שלמה בלחמניה"). מדובר בנקניקיית בקר (100% בקר) המונחת בלחמניית פרג (Poppy seed bun). מעליה מעמיסים לפי הסדר המדויק: חרדל צהוב ניאון, רליש מתוק-זרחני, בצל קצוץ טרי, פלחי עגבניה אדומים, מלפפון חמוץ שלם (Spear), פלפלוני "ספורט" (Sport peppers) חריפים, וזילוף של מלח סלרי (Celery salt). **חוק הברזל (הטאבו):** חל איסור מוחלט ומוחשי להוסיף קטשופ לנקניקייה בשיקגו; בקשת קטשופ בדוכן אותנטי נחשבת לעלבון ומובילה לגירוש של הלקוח.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-ilBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
-                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+        <!-- 5. אנומליות תרבותיות וכינויים -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-textMuted shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-cardBorder text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">5</span>
+                כינויי המדינה: ניתוח פנומנולוגי
             </h2>
-            
-            <div class="space-y-14">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <!-- Land of Lincoln -->
-                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-ilGold shadow-2xl">
-                        <h3 class="text-3xl font-black text-white mb-8 underline italic">Land of Lincoln (ארץ לינקולן)</h3>
-                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מונופול על המורשת הנשיאותית העליונה</p>
-                        <p class="text-slate-300 leading-loose text-lg">
-                            אילינוי היא המדינה היחידה בארצות הברית שכינויה הרשמי (אשר אף רשום כסימן מסחרי פדרלי מאז 1955 ומתנוסס על כל לוחית רישוי) נושא שם של נשיא בודד. למרות שקנטקי ואינדיאנה יכולות לטעון בעלות על לינקולן בשל ילדותו ונעוריו, אילינוי תובעת עליו בעלות פנומנולוגית ופוליטית מוחלטת: כאן הוא עיצב את גישתו למשפט, כאן ניהל את העימותים ההיסטוריים מול דאגלס, וכאן הוא קבור. הכינוי מעניק לאילינוי יוקרה מוסרית ומשדר את התפקיד המרכזי ששיחקה בשמירה על שלמותה של ארצות הברית במהלך מלחמת האזרחים הקורעת ביותר בתולדותיה.
-                        </p>
-                    </div>
-
-                    <!-- The Prairie State -->
-                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-ilBlue shadow-2xl">
-                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Prairie State (מדינת הערבה)</h3>
-                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">זיכרון של נוף שנעלם באמצעות הפלדה</p>
-                        <p class="text-slate-300 leading-loose text-lg">
-                            לפני ההתיישבות המסיבית של המאה ה-19, כשני שלישים מאילינוי היו מכוסים ב"ערבת עשב גבוה" (Tallgrass Prairie) – סביבה קשוחה של עשבים בגובה אדם, שהייתה כמעט בלתי עבירה לחקלאים שכן שורשי העשב העמוקים שברו מחרישות עץ. הכינוי הזה נושא עימו אירוניה מרה: כיום נותרו פחות מ-0.01% מערבת העשב המקורית במדינה. מה שהכחיד את הערבה והפך את אילינוי למעצמה חקלאית היה המצאה בודדת של נפח מאילינוי ב-1837: **מחרשת הפלדה של ג'ון דיר (John Deere)**, שחתכה את האדמה הסבוכה כסכין.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-ilBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
-                וקסילולוגיה: ניתוח סמיוטי והמניפולציה של המוטו
-            </h2>
-            
-            <div class="flex flex-col items-center mb-16">
-                <!-- ייצוג ויזואלי של דגל אילינוי -->
-                <div class="w-full max-w-2xl aspect-[3/2] bg-white rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col items-center justify-center group p-4">
-                    <div class="absolute inset-0 bg-gradient-to-br from-black/5 via-transparent to-black/10 pointer-events-none z-0"></div>
-                    
-                    <div class="relative transform transition-transform duration-700 group-hover:scale-105 z-10 flex flex-col items-center">
-                        
-                        <!-- Seal Elements Simulation -->
-                        <div class="relative flex flex-col items-center">
-                            <!-- Rising Sun / Sunrise -->
-                            <div class="absolute -top-8 w-24 h-12 bg-yellow-400 rounded-t-full opacity-80 shadow-[0_0_15px_rgba(250,204,21,0.8)] z-0"></div>
-                            
-                            <!-- Bald Eagle holding ribbon -->
-                            <div class="text-[#00205B] text-7xl z-20 drop-shadow-md">🦅</div>
-                            
-                            <!-- Shield (Red, White, Blue) -->
-                            <div class="w-10 h-12 bg-white flex flex-col border border-[#00205B] shadow-sm z-30 -mt-6 ml-10" style="clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);">
-                                <div class="w-full h-1/3 bg-[#00205B]"></div>
-                                <div class="flex-grow flex">
-                                    <div class="w-1/3 bg-[#C8102E] h-full"></div>
-                                    <div class="w-1/3 bg-white h-full"></div>
-                                    <div class="w-1/3 bg-[#C8102E] h-full"></div>
-                                </div>
-                            </div>
-                            
-                            <!-- Ribbon with Motto -->
-                            <div class="absolute top-10 bg-white/90 px-2 py-1 rounded shadow-sm border border-slate-300 z-40 transform -rotate-12 w-48 text-center">
-                                <span class="text-[7px] font-black text-[#C8102E] uppercase block leading-none">State Sovereignty</span>
-                                <span class="text-[9px] font-black text-[#00205B] uppercase block leading-none mt-1">National Union</span>
-                            </div>
-                            
-                            <!-- Rock and Dates -->
-                            <div class="w-32 h-8 bg-slate-400 rounded-t-lg mt-1 z-10 flex items-center justify-center border-t border-slate-500 shadow-md">
-                                <span class="text-[8px] font-bold text-white">1818</span>
-                            </div>
-                        </div>
-
-                        <!-- The word ILLINOIS (added 1969) -->
-                        <div class="mt-4 text-[#00205B] font-black text-4xl tracking-[0.2em] uppercase drop-shadow-sm">
-                            ILLINOIS
-                        </div>
-                    </div>
-                </div>
-                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
-                    עיטם קירח ומניפולציה טיפוגרפית <br><span class="text-xl font-medium text-slate-500">(הדגל המקורי עוצב ב-1915, הטקסט נוסף ב-1969)</span>
-                </p>
-            </div>
-
-            <div class="space-y-14 text-slate-300">
-                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-ilBlue shadow-xl">
-                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-ilBlue decoration-4">נסיבות היצירה ומאבק התודעה הלאומית:</h3>
-                    <p class="text-xl leading-loose">
-                        דגל אילינוי הומצא ב-1915 בעקבות יוזמה (כרגיל באותה תקופה) של ארגון בנות המהפכה האמריקאית (DAR). העיצוב הזוכה של **לוסי דרוונט** פשוט הציג את חותם המדינה הרשמי על רקע לבן. ב-1969, לאחר שחייל ממלחמת וייטנאם (סנפורד האצ'ינסון) כתב מכתב למדינה שבו התלונן שאף אחד בבסיס שלו לא הצליח לזהות את הדגל הלבן-גנרי של אילינוי, העבירה המדינה חוק שהוסיף את המילה "ILLINOIS" בתחתית הדגל, מהלך שנוא על חובבי הרלדיקה, אך מעשי מאוד.
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-ilBlue mb-4 underline italic decoration-ilBlue/40">Land of Lincoln (ארץ של לינקולן)</h3>
+                    <p class="text-lg leading-loose text-textMuted">
+                        זהו הכינוי הרשמי של המדינה והסיסמה המופיעה על לוחיות הרישוי שלה (שאף רשמה עליה זכויות יוצרים בשנת 1955!). הפנומנולוגיה של הכינוי משקפת גאווה מוסרית ופוליטית. למרות שלינקולן נולד בקנטאקי, אילינוי מנכסת אותו אליה במלואו כיוון שבה הוא "עוצב" – כאן החלה הקריירה הפוליטית שלו, כאן התנהלו עימותי לינקולן-דאגלס המפורסמים נגד העבדות, ומכאן יצא לוושינגטון כדי להציל את האיחוד.
                     </p>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-ilGold shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-ilGold">העיטם, המגן והזריחה:</h4>
-                        <p class="leading-loose text-lg">במרכז הדגל מופיע העיטם הקירח, סמל הריבונות של ארה"ב, כשהוא יושב על סלע המסמל את מוצקותה ויציבותה של אילינוי. בשטחו של הסלע חקוקות השנים (1818 - שנת ההצטרפות, ו-1868 - שנת עיצוב החותם הנוכחי). מול העיט מונח מגן בעל 13 פסים המסמל את 13 המושבות המקוריות, וברקע נראית השמש זורחת מעל הערבה, המסמלת את עתידה המזהיר של המדינה ואת "הבוקר החדש".</p>
-                    </div>
-                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-ilRed shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-ilRed">המניפולציה של המוטו:</h4>
-                        <p class="leading-loose text-lg">הסיפור המרתק ביותר בדגל טמון בסרט שהעיט מחזיק במקורו. המוטו החוקי של המדינה הוא: **"State Sovereignty, National Union"** (ריבונות המדינה, איחוד לאומי). אולם, לאחר מלחמת האזרחים המדממת (שלינקולן הוביל), הרעיון של "ריבונות מדינתית" לפני ה"איחוד" נתפס כבגידה בערכי הצפון. מזכיר המדינה, שרון טינדייל, ניסה לשנות חוקית את הסדר ל"איחוד לאומי" קודם, אך המחוקקים סירבו. כפתרון עורמה גאוני, טינדייל עיצב את החותם כך שהמילה "National Union" (האיחוד הלאומי) תופיע ב**חזית הסרט** ובכתב גדול ובולט יותר, בעוד "State Sovereignty" מוסתרת למעלה ומקופלת תחת הסרט - מניפולציה ויזואלית שמנצחת את הטקסט המשפטי.</p>
-                    </div>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-ilGreen mb-4 underline italic decoration-ilGreen/40">The Prairie State (מדינת הערבה)</h3>
+                    <p class="text-lg leading-loose text-textMuted">
+                        הכינוי הגיאוגרפי ההיסטורי והוותיק ביותר של המדינה (משנת 1842 לערך). כאשר המתיישבים הראשונים הגיעו לאזור ממדינות החוף המזרחי (שהיו מכוסות ביערות עבותים), הם נדהמו למצוא מישורי עשב פתוחים ושטוחים לחלוטין (Prairie), שלעיתים עשבם הגיע לגובה של אדם בוגר, ונמתחו עד האופק. הכינוי מסמל את הטופוגרפיה הריקה שאפשרה בהמשך את הפיכתה של אילינוי לאימפריית חקלאות.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
-                ביבליוגרפיה ומקורות מחקריים
+        <!-- 6. וקסילולוגיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-ilRed shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-ilRed text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">6</span>
+                וקסילולוגיה: הנשר הלבן והמוטו ההפוך
             </h2>
             
-            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Illinois State Museum & Archives:</p>
-                    <p>"The Algonquian Roots of 'Illiniwek'". מחקר אנתרופולוגי-בלשני המתקן את התרגום ההיסטורי הרומנטי ("שבט גברים") ומבסס את האטימולוגיה המקורית של "אלה המדברים רגיל", כולל תוספת ה--ois הצרפתית.</p>
+            <div class="flex flex-col items-center mb-10 mt-6">
+                <!-- דגל אילינוי ב-CSS/SVG להמחשה פנימית (קליק להגדלה למעלה) -->
+                <div class="w-full max-w-lg aspect-[3/2] bg-white rounded-3xl overflow-hidden shadow-2xl border-[6px] border-slate-300 relative">
+                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full bg-white">
+                        <path d="M 120 100 Q 150 40 180 100 Q 150 140 120 100 Z" fill="#8B4513"/>
+                        <circle cx="125" cy="70" r="12" fill="#FFFFFF"/>
+                        <polygon points="113,70 120,65 120,75" fill="#FFD700"/>
+                        <path d="M 180 120 A 40 40 0 0 0 260 120 Z" fill="#FFD700"/>
+                        <path d="M 180 120 L 260 120 L 260 140 L 180 140 Z" fill="#1E90FF"/>
+                        <path d="M 40 130 L 260 130 L 260 150 L 40 150 Z" fill="#228B22"/>
+                        <path d="M 140 90 L 160 90 L 160 115 Q 150 125 140 115 Z" fill="#FFFFFF" stroke="#00205B" stroke-width="2"/>
+                        <line x1="144" y1="100" x2="144" y2="115" stroke="#C8102E" stroke-width="2"/>
+                        <line x1="150" y1="100" x2="150" y2="120" stroke="#C8102E" stroke-width="2"/>
+                        <line x1="156" y1="100" x2="156" y2="115" stroke="#C8102E" stroke-width="2"/>
+                        <rect x="140" y="90" width="20" height="10" fill="#00205B"/>
+                        <path d="M 50 60 Q 115 50 120 70" fill="none" stroke="#C8102E" stroke-width="4"/>
+                        <text x="150" y="180" font-family="sans-serif" font-weight="bold" font-size="24" fill="#00205B" text-anchor="middle" letter-spacing="2">ILLINOIS</text>
+                    </svg>
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Abraham Lincoln Presidential Library and Museum (Springfield):</p>
-                    <p>"The Lincoln-Douglas Debates of 1858". ניתוח פוליטי-משפטי של שבעת העימותים ברחבי אילינוי שעיצבו את השיח הלאומי על עבדות, ריבונות פופולרית ושלמות האיחוד.</p>
+                <p class="mt-6 text-sm font-bold text-textMuted tracking-widest uppercase bg-cardBorder px-4 py-2 rounded-full">עוצב ב-1915, שופר וקיבל את שם המדינה ב-1969</p>
+            </div>
+
+            <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-ilRed decoration-4">שבירת מוסכמות הסדין הכחול (רקע לבן):</h3>
+                <p class="leading-loose text-lg text-textMain mb-6">
+                    דגל אילינוי עוצב במקור ב-1915 על ידי לוסי סטיוארט (Lucy Stuart), כחלק מתחרות של ארגון "בנות המהפכה האמריקאית". בניגוד לרוב מדינות ארה"ב שבחרו ברקע כחול כהה ומשעמם לדגל שלהן (תבנית ה"סדין הכחול"), אילינוי בחרה ברקע לבן טהור ועליו מונח חלק מרכזי מתוך חותם המדינה (הנשר על הסלע). בשנת 1969, המחוקקים הוסיפו את המילה "ILLINOIS" בתחתית משום שמצאו כי יותר מדי אזרחים אמריקאים לא זיהו את הדגל.
+                </p>
+                <div class="space-y-4">
+                    <p class="leading-loose text-lg text-textMain">
+                        <strong class="text-ilRed">הנשר, המגן והנוף:</strong> הדגל מציג עייט קירח (Bald Eagle - סמל לאומיות אמריקאית) היושב על סלע אפור מעל ערבה ירוקה, כשמאחוריו זורח שמש (על רקע אגם מישיגן). טפריו אוחזים במגן (Shield) הכולל 13 פסים ו-13 כוכבים, המייצגים את 13 המושבות המקוריות (הצהרת נאמנות לאיחוד). 
+                    </p>
+                    <p class="leading-loose text-lg text-textMain">
+                        <strong class="text-ilGold">האנומליה הפוליטית של המוטו:</strong> במקור, המוטו של אילינוי (שנקבע לפני מלחמת האזרחים) היה "State Sovereignty, National Union" (ריבונות המדינה, איחוד לאומי). לאחר מלחמת האזרחים (והניצחון על הדרום שתבע "זכויות מדינה"), המונח "ריבונות המדינה" הפך לבעייתי ורעיל פוליטית. מזכיר המדינה של אילינוי דאז, שרון טינדייל, סירב להציג את המוטו כפי שהוא, וביצע תרגיל מבריק: בציור החותם והדגל, הוא הפך את הסרט במקור הנשר כך שהמילה "National Union" מופיעה בראש הסרט באותיות גדולות וקריאות, ואילו המילה "State Sovereignty" מופיעה למטה, **הפוכה וחצי מוסתרת!**
+                    </p>
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Department of Natural Resources (Illinois):</p>
-                    <p>"The Monarch Butterfly and the Tallgrass Prairie". מסמכים אקולוגיים על אובדן הערבה המקורית בעקבות מחרשת הפלדה של ג'ון דיר, וקידום חרק המדינה כסמל לשימור ב-1975.</p>
+            </div>
+        </section>
+
+        <!-- 7. ביבליוגרפיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-cardBorder shadow-2xl">
+            <h2 class="text-2xl font-black text-textMuted mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-cardBorder text-white w-10 h-10 rounded-lg flex items-center justify-center ml-4 text-lg">7</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            <div class="space-y-6 text-lg text-textMuted leading-loose">
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Illinois State Museum:</strong>
+                    חקר הבלשנות האלגונקווית (Irenwe·wa) וההתערבות הצרפתית שהוסיפה את סיומת ה-Ois האילמת, ליצירת השם Illinois.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Chicago History Museum:</p>
-                    <p>"The Birth of the Deep-Dish Pizza (1943)". ההיסטוריה הגסטרונומית של Pizzeria Uno ויצירת הארוחה הפחמימתית העמוקה עבור פועלי התעשייה של שיקגו.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Abraham Lincoln Presidential Library and Museum:</strong>
+                    אטימולוגיה מדוקדקת של השם 'אברהם' והטופונים האנגלי 'לינקולן', וניתוח האידיאולוגיה ההדרגתית שלו מאיסור התפשטות העבדות ועד להצהרת השחרור ב-1863.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
-                    <p>"Visual Manipulation in the Illinois State Seal". מחקר של התכסיס החזותי שביצע מזכיר המדינה שרון טינדייל בעיצוב סרט המוטו לאחר מלחמת האזרחים, כדי להבליט את ערך 'האיחוד הלאומי' מעל 'ריבונות המדינה'.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Jane Addams Hull-House Museum (Chicago):</strong>
+                    ביוגרפיה של ג'יין אדמס וייסוד "האל האוס" ב-1889 כמעבר מצדקה מתנשאת למודל של עבודה סוציאלית פרגמטית מבוססת-התיישבות דמוקרטית.
+                </div>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">The Chicago Food History Project:</strong>
+                    ההיסטוריה הארכיטקטונית של פיצת הדיפ-דיש (1943) שדרשה בנייה הפוכה למניעת שריפת הגבינה, ותופעת הנקניקייה מרובת התוספות נטולת הקטשופ מתקופת השפל הגדול.
+                </div>
+                <div>
+                    <strong class="text-white block mb-1">North American Vexillological Association (NAVA):</strong>
+                    התיעוד אודות מרד המזכיר שרון טינדייל, שהינדס את הדגל (והחותם) כך שיסתיר את המונח "ריבונות המדינה" לטובת "איחוד לאומי" בעקבות טראומת מלחמת האזרחים.
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- פוטר אתר ממותג -->
-    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
-        <div class="flex flex-col items-center gap-10">
-            <div class="flex gap-8">
-                <div class="w-6 h-6 bg-ilBlue rounded-full shadow-[0_0_15px_rgba(0,32,91,0.6)]"></div>
-                <div class="w-6 h-6 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.6)]"></div>
-                <div class="w-6 h-6 bg-ilGold rounded-full shadow-[0_0_15px_rgba(212,175,55,0.6)]"></div>
-            </div>
-            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
-                US State Origins - Ultimate Academic Archive
-            </p>
-            <p class="text-slate-400 text-4xl font-black">
-                האתר נוצר על ידי ג'מיני ורם | 2026
-            </p>
+    <!-- מודל (חלון צף) להגדלת הדגל -->
+    <div id="flagModal" class="hidden fixed inset-0 z-[100] bg-appBg/95 backdrop-blur-md flex items-center justify-center p-4 cursor-pointer" onclick="closeFlagModal()">
+        <div class="modal-animate relative w-full max-w-4xl aspect-[3/2] bg-white rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(200,16,46,0.2)] border-8 border-slate-300 cursor-default" onclick="event.stopPropagation()">
+            <!-- כפתור סגירה -->
+            <button onclick="closeFlagModal()" class="absolute top-4 right-4 z-50 bg-black/50 hover:bg-black text-white rounded-full p-3 transition-colors shadow-lg border border-white/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <!-- העתק מדויק של הדגל בגדול מבוסס SVG -->
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full bg-white">
+                <g style="filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.15));">
+                    <!-- Sun & Water Base -->
+                    <path d="M 180 120 A 40 40 0 0 0 260 120 Z" fill="#FFD700"/>
+                    <path d="M 180 120 L 260 120 L 260 140 L 180 140 Z" fill="#1E90FF"/>
+                    <!-- Prairie Base -->
+                    <path d="M 40 130 L 260 130 L 260 150 L 40 150 Z" fill="#228B22"/>
+                    
+                    <!-- Eagle Body -->
+                    <path d="M 110 100 Q 140 30 190 100 Q 150 145 110 100 Z" fill="#8B4513"/>
+                    <!-- Eagle Head -->
+                    <circle cx="120" cy="65" r="14" fill="#FFFFFF"/>
+                    <polygon points="106,65 115,60 115,70" fill="#FFD700"/>
+                    <!-- Eye -->
+                    <circle cx="120" cy="62" r="1.5" fill="#000000"/>
+                    
+                    <!-- Shield -->
+                    <path d="M 135 90 L 165 90 L 165 115 Q 150 130 135 115 Z" fill="#FFFFFF" stroke="#00205B" stroke-width="2.5"/>
+                    <line x1="140" y1="100" x2="140" y2="115" stroke="#C8102E" stroke-width="2"/>
+                    <line x1="145" y1="100" x2="145" y2="120" stroke="#C8102E" stroke-width="2"/>
+                    <line x1="150" y1="100" x2="150" y2="125" stroke="#C8102E" stroke-width="2"/>
+                    <line x1="155" y1="100" x2="155" y2="120" stroke="#C8102E" stroke-width="2"/>
+                    <line x1="160" y1="100" x2="160" y2="115" stroke="#C8102E" stroke-width="2"/>
+                    <!-- Shield Blue Top -->
+                    <rect x="135" y="90" width="30" height="10" fill="#00205B"/>
+                    <!-- Little stars in shield top -->
+                    <circle cx="140" cy="95" r="1" fill="#FFFFFF"/><circle cx="150" cy="95" r="1" fill="#FFFFFF"/><circle cx="160" cy="95" r="1" fill="#FFFFFF"/>
+                    
+                    <!-- Banner -->
+                    <path d="M 40 55 Q 115 45 115 65" fill="none" stroke="#C8102E" stroke-width="6"/>
+                    <path d="M 40 55 Q 115 45 115 65" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+                    <text x="80" y="52" font-family="serif" font-weight="bold" font-size="4" fill="#00205B" transform="rotate(5, 80, 52)">NATIONAL UNION</text>
+                </g>
+                <!-- State Name -->
+                <text x="150" y="180" font-family="sans-serif" font-weight="900" font-size="28" fill="#00205B" text-anchor="middle" letter-spacing="3">ILLINOIS</text>
+            </svg>
         </div>
-    </footer>
+        <p class="absolute bottom-10 text-textMuted font-bold tracking-widest uppercase bg-cardBg/80 px-6 py-2 rounded-full border border-cardBorder">לחץ מחוץ לדגל כדי לסגור</p>
+    </div>
+
+    <!-- פונקציות JS לחלון הצף -->
+    <script>
+        function openFlagModal() {
+            document.getElementById('flagModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // מניעת גלילה של הרקע
+        }
+        function closeFlagModal() {
+            document.getElementById('flagModal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // החזרת גלילה
+        }
+        // סגירה גם בלחיצה על כפתור Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeFlagModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
+
+
