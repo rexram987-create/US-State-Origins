@@ -11,12 +11,19 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#0f172a',
-                        cardBg: '#1e293b',
-                        accent: '#38bdf8',
-                        iaBlue: '#002D65', /* Iowa Flag Blue */
-                        iaRed: '#C8102E',  /* Iowa Flag Red */
-                        iaCorn: '#FCD116'  /* Corn Gold */
+                        appBg: '#050B14',      /* Deep Space Navy */
+                        cardBg: '#0B172A',     /* Elevated Card Navy */
+                        cardBorder: '#1E293B', /* Card Border */
+                        accentBlue: '#38BDF8', /* Neon Blue Accent */
+                        iowaBlue: '#002868',   /* Flag Blue */
+                        iowaRed: '#C8102E',    /* Flag Red */
+                        iowaCorn: '#FFD700',   /* Corn Gold */
+                        iowaGreen: '#228B22',  /* Heartland Green */
+                        textMain: '#E2E8F0',   /* Soft White Text */
+                        textMuted: '#94A3B8'   /* Slate Gray Text */
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
                     }
                 }
             }
@@ -24,316 +31,479 @@
     </script>
     <style>
         body { 
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             -webkit-tap-highlight-color: transparent;
+            background-color: #050B14;
+            color: #E2E8F0;
             line-height: 1.85;
         }
-        /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
-        p, li, span, div, blockquote { font-size: 1.125rem; } 
-        .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
-        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
-        .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
-        .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
-        .sub-header { @apply text-iaCorn font-black text-2xl mb-5 underline italic decoration-iaCorn/40 underline-offset-8; }
-        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+        p, li, span, div, blockquote { font-size: 1.125rem; } /* 18px קבוע לקריאה נוחה ב-S25 Ultra */
+        
+        /* Scrollbar מותאם לאפליקציה */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050B14; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        
+        .glass-panel {
+            background: rgba(11, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(30, 41, 59, 0.8);
+        }
+        
+        .stat-badge {
+            background: linear-gradient(145deg, #112240 0%, #0B172A 100%);
+            border: 1px solid #1E293B;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .sub-header { @apply text-accentBlue font-black text-xl mb-3 underline italic decoration-accentBlue/40 underline-offset-8 mt-6; }
+
+        /* אנימציית הופעה לחלון הצף */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-animate {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
     </style>
 </head>
-<body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
+<body class="antialiased min-h-screen flex flex-col items-center pb-20">
 
-    <!-- ניווט עליון -->
-    <nav class="w-full max-w-4xl mb-10">
-        <a href="../index.html" class="inline-flex items-center text-accent hover:text-white transition-colors font-black text-xl">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+    <!-- ניווט עילי -->
+    <nav class="w-full max-w-4xl p-6 sticky top-0 z-40 glass-panel border-b-0 rounded-b-3xl mb-6 shadow-lg flex justify-between items-center">
+        <a href="../index.html" class="inline-flex items-center text-accentBlue hover:text-white transition-colors font-bold text-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
             חזרה לאטלס המדינות
         </a>
+        <span class="text-xs font-black tracking-widest text-textMuted uppercase bg-cardBorder px-3 py-1 rounded-full">IA</span>
     </nav>
 
-    <!-- כותרת מחקר אקדמי -->
-    <header class="w-full max-w-4xl bg-cardBg rounded-[3rem] shadow-2xl p-12 sm:p-20 mb-14 border-t-8 border-iaBlue relative overflow-hidden">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-right relative z-10">
-            <div>
-                <h1 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">איווה</h1>
-                <p class="text-2xl text-accent font-black tracking-[0.3em] uppercase italic">Iowa - The Hawkeye State</p>
-                <div class="h-2 w-56 bg-iaRed mt-8 rounded-full mx-auto md:mr-0 shadow-[0_0_15px_rgba(200,16,46,0.5)]"></div>
-            </div>
-            <div class="bg-slate-900/90 p-10 rounded-3xl border border-slate-700 w-full md:w-auto text-center shadow-2xl">
-                <p class="text-slate-400 text-sm font-black italic mb-3 uppercase tracking-widest">כרונולוגיית הצטרפות לאיחוד:</p>
-                <p class="text-5xl font-black text-white">28 בדצמבר, 1846</p>
-                <p class="text-lg text-accent mt-5 font-black bg-accent/10 py-2.5 px-6 rounded-full inline-block border border-accent/30 shadow-inner">המדינה ה-29 באיחוד</p>
-            </div>
-        </div>
-    </header>
-
-    <main class="w-full max-w-4xl space-y-20">
+    <main class="w-full max-w-4xl px-4 space-y-10">
         
-        <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
-                אטימולוגיה: השלג האפור והעלבון השבטי
-            </h2>
+        <!-- Hero Section -->
+        <header class="w-full rounded-[3rem] overflow-hidden shadow-2xl relative bg-gradient-to-b from-[#141b2a] to-cardBg border border-cardBorder pt-12 pb-10">
+            <!-- רקע גרפי מופשט -->
+            <div class="absolute top-0 left-0 w-full h-72 bg-iowaCorn opacity-20 blur-[100px] rounded-full mix-blend-screen pointer-events-none"></div>
             
-            <div class="space-y-10">
-                <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
-                    איווה נקראת על שם קונפדרציית השבטים הילידית שאכלסה את האזור (שבט האיווה). אולם, האטימולוגיה של שם השבט חושפת דינמיקה פוליטית מרתקת בין שבטים יריבים, והיא בעצם אימוץ של כינוי גנאי (אקסונים) שהפך לשם רשמי.
+            <div class="px-6 md:px-12 relative z-10 flex flex-col items-center text-center">
+                
+                <!-- דגל המדינה הראשי (קליק להגדלה) -->
+                <div onclick="openFlagModal()" class="cursor-pointer group relative mb-10">
+                    <div class="w-48 sm:w-56 aspect-[3/2] bg-white rounded-3xl overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-4 border-slate-300 relative transform transition-transform duration-500 group-hover:scale-105 group-active:scale-95">
+                        
+                        <!-- Iowa Flag Representation via SVG -->
+                        <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full bg-white">
+                            <!-- Vertical Stripes (1:2:1 ratio) -->
+                            <rect x="0" y="0" width="75" height="200" fill="#002868"/>
+                            <rect x="75" y="0" width="150" height="200" fill="#FFFFFF"/>
+                            <rect x="225" y="0" width="75" height="200" fill="#C8102E"/>
+                            
+                            <!-- Eagle and Ribbon Abstract -->
+                            <g transform="translate(150, 90)">
+                                <!-- Eagle body -->
+                                <path d="M -20 -15 Q 0 -40 20 -15 Q 30 10 0 30 Q -30 10 -20 -15 Z" fill="#8B4513"/>
+                                <!-- Eagle head -->
+                                <circle cx="-5" cy="-25" r="8" fill="#FFFFFF"/>
+                                <!-- Beak -->
+                                <polygon points="-12,-25 -18,-20 -10,-18" fill="#FFD700"/>
+                                
+                                <!-- Blue Ribbon in beak -->
+                                <path d="M -15 -20 Q -60 -30 -65 10" fill="none" stroke="#002868" stroke-width="4"/>
+                                <path d="M -15 -20 Q 50 -40 60 -10" fill="none" stroke="#002868" stroke-width="4"/>
+                                
+                                <!-- Red "IOWA" Text -->
+                                <text x="0" y="60" font-family="sans-serif" font-weight="900" font-size="24" fill="#C8102E" text-anchor="middle" letter-spacing="3">IOWA</text>
+                            </g>
+                        </svg>
+
+                        <!-- אייקון זכוכית מגדלת מרחף -->
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-iowaCorn font-black tracking-[0.4em] uppercase text-sm mb-4">The Hawkeye State</p>
+                <h1 class="text-6xl md:text-8xl font-black text-white mb-4 tracking-tight">איווה</h1>
+                <p class="text-2xl text-textMuted font-light italic mb-12">Iowa</p>
+                
+                <!-- Quick Stats Badges -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mt-4">
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">הצטרפות</span>
+                        <span class="text-alaWhite font-black text-2xl">1846</span>
+                        <span class="text-[11px] text-iowaRed font-black mt-2 bg-iowaRed/10 px-3 py-1 rounded-full">מדינה 29</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">שטח (דירוג)</span>
+                        <span class="text-alaWhite font-black text-2xl">מקום 26</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">145,746 קמ"ר</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">אוכלוסייה</span>
+                        <span class="text-alaWhite font-black text-2xl">3.2M</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">אומדן 2023</span>
+                    </div>
+                    <div class="stat-badge rounded-3xl p-6 flex flex-col items-center justify-center transition-transform hover:scale-105">
+                        <span class="text-textMuted text-sm font-bold mb-2">עיר בירה</span>
+                        <span class="text-alaWhite font-black text-2xl text-center">דה מוין</span>
+                        <span class="text-[11px] text-accentBlue font-black mt-2">Des Moines</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 1. אטימולוגיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-iowaCorn shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-iowaCorn text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">1</span>
+                אטימולוגיה: מולקולריות של "הישנוניים"
+            </h2>
+            <div class="space-y-8">
+                <p class="text-textMuted font-medium italic border-r-4 border-iowaCorn pr-6 text-xl leading-loose">
+                    שמה של איווה משמר עלבון ילידי עתיק. הוא נובע מכינוי גנאי שהעניק שבט אחד לשבט יריב, אשר תורגם על ידי הצרפתים והפך לשמה של המדינה כולה.
                 </p>
-
-                <div class="space-y-8">
-                    <!-- Baxoje -->
-                    <div class="etymology-box border-iaBlue">
-                        <p class="text-iaBlue font-black text-5xl mb-6 italic tracking-tighter">Baxoje</p>
-                        <div class="space-y-4">
-                            <p><strong>מקור פילולוגי:</strong> השם האוטונימי (השם שבו השבט קרא לעצמו) בשפת ה-Chiweres.</p>
-                            <p><strong>משמעות מילולית:</strong> "שלג אפור" (Grey Snow).</p>
-                            <p><strong>ניתוח מחקרי:</strong> על פי המסורת השבטית, השם ניתן להם במהלך נדידה חורפית קשה. כאשר חנו בעמק, רוחות עזות העיפו אפר ממדורות המחנה שלהם ומהערבה השרופה על פני השלג הלבן, וצבעו אותו באפור. הם כינו את עצמם "אנשי השלג האפור".</p>
-                        </div>
-                    </div>
-
-                    <!-- Ayuxba / Ayoua -->
-                    <div class="etymology-box border-iaRed">
-                        <p class="text-iaRed font-black text-5xl mb-6 italic tracking-tighter">Ayuxba -> Ayoua</p>
-                        <div class="space-y-4">
-                            <p><strong>מקור פילולוגי:</strong> שפת הדקוטה (Sioux) ותעתיק צרפתי.</p>
-                            <p><strong>משמעות מילולית:</strong> "הישנוניים" (The Sleepy Ones).</p>
-                            <p><strong>כיצד נולד השם Iowa:</strong> שבט הדקוטה, שהיו יריבים ושכנים של ה-Baxoje, נהגו ללעוג להם ולקרוא להם *Ayuxba* ("הישנוניים"). כאשר סוחרי הפרוות והחוקרים הצרפתים הגיעו לאזור ושאלו את שבט הדקוטה מיהם האנשים שחיים דרומה משם, הדקוטה ענו "Ayuxba". הצרפתים רשמו את המילה ביומניהם כ-**Ayoua** או **Ayouez**. במאה ה-19, כאשר המתיישבים האמריקאים דוברי האנגלית השתלטו על הטריטוריה, הם אנגלתו את האיות הצרפתי לכדי המילה המוכרת כיום: **Iowa**. כך, כינוי גנאי שנתן שבט אחד למשנהו התקבע לנצח כשמה של מדינה אמריקאית.</p>
-                        </div>
-                    </div>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder shadow-inner">
+                    <p class="text-accentBlue font-black text-4xl mb-4 tracking-wider">Ayuxwa -> Ayoua</p>
+                    <p class="mb-4 text-lg"><strong>מקור פילולוגי:</strong> שפת דקוטה (Sioux) דרך תעתיק של חוקרים צרפתים.</p>
+                    <p class="text-lg leading-loose"><strong>משמעות וניתוח מלא:</strong> באזור חיו בני השבט הילידי "באחוג'ה" (Baxoje), שמשמעות שמם העצמי היא "שלג אפור" (משום שבימי החורף האפר מהמדדורות שלהם לכלך את השלג). אולם, השבטים היריבים מדקוטה (הסו) זלזלו בהם וכינו אותם בשם <em>Ayuxwa</em> (איוחווה). משמעות המילה בשפת הסו היא <strong class="text-white">"אלו שהולכים לישון" או "הישנוניים" (The Sleepy Ones)</strong>. <br><br>
+                    כאשר סוחרי פרוות וחוקרים צרפתים הגיעו לאזור במאה ה-18, הם שאלו את שבטי הסו מי חי מעבר לנהר. הסו ענו להם "Ayuxwa". הצרפתים, שניסו לכתוב את הצליל באיות צרפתי, כתבו ביומניהם "Ayoua". מאוחר יותר, כשהאמריקאים דוברי האנגלית הגיעו (לאחר רכישת לואיזיאנה), הם שינו את האיות הצרפתי לאיות אנגלי פונטי: <strong>Iowa</strong>. השם הילידי המקורי נשכח, וכינוי הגנאי "הישנוניים" הפך לשם המדינה ה-29.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-iaBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
-                כרוניקה של ריבונות: סוחר העופרת ומציל האנושות
+        <!-- 2. גאו-פוליטיקה ודמוגרפיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-accentBlue shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-accentBlue text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">2</span>
+                גאו-פוליטיקה ודמוגרפיה
+            </h2>
+            <div class="space-y-8">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-accentBlue">גבולות הנהר ואוקיינוס האדמה (Area & Topography)</h3>
+                    <p class="leading-loose text-lg text-textMuted">
+                        איווה מחזיקה באנומליה גיאוגרפית אמריקאית: היא **המדינה היחידה בארה"ב שגבולותיה המזרחיים והמערביים מעוצבים לחלוטין על ידי נהרות טבעיים**. גבולה המזרחי כולו הוא נהר המיסיסיפי, וגבולה המערבי נוצר על ידי נהר המיזורי ונהר הביג-סו. הטופוגרפיה שלה אינה "שטוחה לחלוטין" כפי שנהוג לחשוב, אלא מורכבת מ"גבעות מתגלגלות" (Rolling hills) וקרקע לֶס (Loess) ספוגית שנכתשה על ידי קרחונים. הקרקע הזו היא מהפוריות ביותר על פני כדור הארץ, מה שהופך את איווה למנוע חקלאי חסר תקדים: קרוב ל-90% משטח המדינה מוקדש לחקלאות, והיא יצרנית התירס, בשר החזיר והביצים המובילה באמריקה.
+                    </p>
+                </div>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-iowaRed">פסיפס אנושי: מכת הבכורות הפוליטית (Demographics)</h3>
+                    <p class="leading-loose text-lg text-textMuted">
+                        איווה מאכלסת כ-3.2 מיליון בני אדם. דמוגרפית, זוהי מדינה לבנה מאוד (כ-84%) וכפרית, אם כי עריה הגדולות (כמו דה מוין וסידר רפידס) חוות הגירה צעירה מתונה. כוחה הגאו-פוליטי האדיר של איווה נובע מחוק אחד במערכת הבחירות האמריקאית: מאז 1972, **אסיפות הבוחרים של איווה (Iowa Caucuses)** הן הראשונות בסבב הפריימריז לנשיאות. עקב כך, פוליטיקאים מכל רחבי ארה"ב מבלים חודשים ארוכים בביקור במסעדות דרכים ובחוות באיווה. תושבי איווה, למרות היותם שבריר מהאוכלוסייה האמריקאית, מתפקדים כ"מסננת" הראשונה שקובעת מי ראוי להיות נשיא, וזוכים לכוח פוליטי לא פרופורציונלי.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. כרוניקה של ריבונות -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-white shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-white text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">3</span>
+                כרוניקה של ריבונות: הנשיא היתום, הקאובוי ומציל המיליארד
             </h2>
             
-            <div class="space-y-16">
-                <!-- ז'וליין דובוק -->
-                <div class="personality-card border-r-8 border-iaBlue shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-iaBlue decoration-4 underline-offset-8">מייסד הכלכלה הראשונה: ז'וליין דובוק (Julien Dubuque)</h3>
-                    <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1762–1810. <strong>מעמד:</strong> המתיישב האירופאי הראשון באיווה.</p>
-                        
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-iaCorn">ילדות, הגירה ובריתות:</h4>
-                            <p class="leading-loose">דובוק נולד בקוויבק, קנדה, למשפחה ממוצא נורמני. כאיש צעיר והרפתקן, היגר דרומה לעמק המיסיסיפי העליון. בניגוד למתיישבים אמריקאים רבים שניסו לכבוש בכוח, דובוק נקט בגישה דיפלומטית עמוקה: הוא למד את שפות הילידים, התיידד עם שבט ה"פוקס" (Meskwaki), ועל פי המסורת אף נישא לבת הצ'יף (פוטוסה). הקשר האינטימי הזה העניק לו יתרון מסחרי עצום.</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-iaCorn">אידיאולוגיה - מונופול חצי-ילידי:</h4>
-                            <p class="leading-loose">בשנת 1788, שבט הפוקס חתם על הסכם חסר תקדים המעניק לדובוק בלעדיות על כריית עופרת (Lead) באדמותיהם (הם סירבו להעניק זכות זו לכל אדם לבן אחר). האידיאולוגיה הכלכלית שלו הייתה ניהול מונופול פטרוני: הנשים והזקנים של השבט חפרו את העופרת, ודובוק שילם להם בסחורות, התיך את העופרת ומכר אותה לסוחרים בסנט לואיס.</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-iaCorn">הישגים - "מכרות ספרד":</h4>
-                            <p class="leading-loose">כדי להגן על המונופול שלו, דובוק פנה בשנת 1796 למושל הספרדי של לואיזיאנה (ששלט אז באזור) וקיבל אישור רשמי לאחוזתו, שאותה כינה בגאווה דיפלומטית "מכרות ספרד" (Mines of Spain). הוא היה האדם שהכניס את איווה לכלכלה הגלובלית. כיום, העיר העתיקה ביותר באיווה, השוכנת על גדות המיסיסיפי, נקראת על שמו – **דובוק (Dubuque)**.</p>
-                        </div>
+            <div class="space-y-12">
+                <!-- הרברט הובר -->
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-iowaCorn"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">הנשיא והמנהלן: הרברט הובר (Herbert Hoover)</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">שנות חיים: 1874–1964 | מעמד: יליד איווה, מהנדס, והנשיא ה-31 של ארצות הברית.</p>
+                    
+                    <!-- אטימולוגיה אישית -->
+                    <div class="bg-appBg rounded-2xl p-6 border border-cardBorder mb-8 shadow-inner">
+                        <h4 class="font-black text-iowaCorn mb-4 text-xl">אטימולוגיה של השם: מולקולריות של צבא ואדמה</h4>
+                        <ul class="space-y-3 text-lg text-textMain ml-4">
+                            <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Herbert:</strong> ממקור גרמאני עתיק (Hariberaht). מורכב מ-'Hari' (צבא) ו-'Beraht' (מזהיר/בהיר/מפואר). משמעותו "לוחם מזהיר" או "הצבא המפואר".</li>
+                            <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Hoover:</strong> אנגלוז של שם המשפחה הגרמני/שווייצרי <em>Huber</em>. המילה מתייחסת לאדם המחזיק ב"הובה" (Huba) – מידת אדמה שהייתה מספיקה כדי לפרנס משפחה. משמעותו "בעל אדמות" או "חקלאי משגשג".</li>
+                        </ul>
                     </div>
+
+                    <h4 class="sub-header text-iowaCorn decoration-iowaCorn/40">רקע וילדות: היתום הקווייקרי מהמערב התיכון</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        הובר נולד בעיירה הקטנה ווסט בראנץ' (West Branch), איווה. הוא הנשיא הראשון (ועד כה היחיד) שנולד באיווה. ילדותו הייתה טראגית: אביו (נפח קווייקרי) מת כשהיה בן 6, ואמו מתה כשהיה בן 9. כיתום עני, הוא נשלח לקרובי משפחה באורגון. למרות קשייו, הוא הפך לאחד מהבוגרים הראשונים של אוניברסיטת סטנפורד, ולמהנדס מכרות גלובלי (שעבד מסין ועד אוסטרליה) והפך למיליונר בזכות עצמו.
+                    </p>
+
+                    <h4 class="sub-header text-iowaCorn decoration-iowaCorn/40">אידיאולוגיה: אינדיבידואליזם קשוח והתנדבות</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        האידיאולוגיה של הובר הייתה "אינדיבידואליזם קשוח" (Rugged Individualism). הוא האמין שהאמריקאי יכול וצריך להצליח בזכות יוזמה פרטית וללא התערבות כבדה של הממשלה. עם זאת, כאדם דתי, הוא האמין באחריות הומניטרית עצומה המבוססת על *התנדבות ופילנתרופיה פרטית* ולא על מערכת רווחה מדינתית (Welfare).
+                    </p>
+
+                    <h4 class="sub-header text-iowaCorn decoration-iowaCorn/40">הישגים מכוננים: מציל אירופה וטרגדיית השפל הגדול</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        הובר זכור בשני קצוות מנוגדים. במהלך ואחרי מלחמת העולם הראשונה, הוא ניהל את מבצעי הסיוע ההומניטריים הגדולים בהיסטוריה, ו**הציל עשרות מיליונים מגווע ברעב באירופה** ("מינהל הסיוע האמריקאי"). ב-1928 נבחר לנשיאות בקלות, אך שמונה חודשים בלבד לאחר השבעתו התרחשה מפולת הבורסה (1929). האידיאולוגיה שלו סירבה לאפשר לממשל הפדרלי לחלק כסף ישירות לאזרחים, מה שגרם לו להיראות מנותק ואדיש לסבל ההמונים ב**שפל הגדול**, והותיר כתם כבד על מורשתו.
+                    </p>
+                </div>
+
+                <!-- ג'ון ויין -->
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-iowaRed"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">אייקון התרבות: ג'ון ויין (John Wayne / Marion Morrison)</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">שנות חיים: 1907–1979 | מעמד: יליד איווה, גדול שחקני המערבונים וסמל הגבריות האמריקאית.</p>
+                    
+                    <!-- אטימולוגיה אישית -->
+                    <div class="bg-appBg rounded-2xl p-6 border border-cardBorder mb-8 shadow-inner">
+                        <h4 class="font-black text-iowaRed mb-4 text-xl">אטימולוגיה של השם: מולקולריות של מרירות, תהילה ומערב</h4>
+                        <p class="text-textMain leading-loose mb-4 text-sm">האיש שסימל את הגבריות האמריקאית נולד בכלל עם שם שנחשב נשי, עד שאולפני הוליווד שינו אותו:</p>
+                        <ul class="space-y-3 text-lg text-textMain ml-4">
+                            <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Marion (שמו המקורי):</strong> במקור וריאציה צרפתית לשם התנ"כי מרים (Mary). משמעות השורש היא כנראה מים מרירים, מרירות, או "אהובה" במצרית עתיקה. למרות שהוא שם יוניסקס, הוא גרם לו לסבול מהקנטות בילדותו (ולכן העדיף את הכינוי "דיוק" - Duke, על שם כלבו).</li>
+                            <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Morrison:</strong> שם משפחה אנגלו-נורמני שמשמעותו "הבן של מוריס" (Morris/Maurice). מוריס עצמו נגזר מלטינית (Maurus), שמשמעותו אדם בעל עור כהה (מור).</li>
+                            <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">John Wayne (שם הבמה):</strong> הבמאי ראול וולש בחר לו את השם. "ג'ון" לשם הפשטות, ו"ויין" כהוקרה לגנרל ממלחמת העצמאות "אנתוני המשוגע" ויין (Mad Anthony Wayne) – כדי לשדר קשיחות ולוחמנות.</li>
+                        </ul>
+                    </div>
+
+                    <h4 class="sub-header text-iowaRed decoration-iowaRed/40">רקע וילדות: הילד מווינטרסט</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        מריון רוברט מוריסון נולד בעיירה ווינטרסט (Winterset), איווה (שם ביתו עדיין פתוח למבקרים). אביו היה רוקח שסבל מבעיות בריאותיות. המשפחה נאבקה כלכלית באיווה ועברה לדרום קליפורניה כשויין היה ילד. למרות שעזב מוקדם, שורשיו החקלאיים מאיווה תרמו רבות לדימוי של ה"אמריקאי האמיתי והשורשי" שטיפח.
+                    </p>
+
+                    <h4 class="sub-header text-iowaRed decoration-iowaRed/40">אידיאולוגיה: פטריוטיות אולטימטיבית ואנטי-קומוניזם</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        האידיאולוגיה של ויין (הן בחייו והן בדמויות שגילם) הייתה מזוהה עם ימין-שמרני, פטריוטיות בלתי מתפשרת ואנטי-קומוניזם חריף (הוא היה תומך נלהב במלחמת וייטנאם, עליה עשה את הסרט "הכומתות הירוקות"). הוא ייצג את רעיון החלוץ המערבי (Frontiersman): גבר חזק, שתקן, שפותר בעיות באמצעות אלימות מוצדקת ומגן על החלשים במקומות שבהם החוק אינו מגיע.
+                    </p>
+
+                    <h4 class="sub-header text-iowaRed decoration-iowaRed/40">הישגים מכוננים: עיצוב דמות ה"קאובוי" העולמי</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        דרך שיתוף הפעולה שלו עם הבמאי ג'ון פורד, ג'ון ויין (בסרטים כמו "מרכבת הדואר" ו"המחפשים") לא רק הפך לשחקן הקולנוע המרוויח ביותר במשך עשורים, אלא **הגדיר מחדש את תפיסת העולם לגבי ארצות הברית**. דמות הקאובוי שלו הפכה לאייקון הייצוא התרבותי החזק ביותר של אמריקה. הוא זכה בפרס האוסקר (על "אומץ אמיתי" ב-1969), ומגלם עד היום את הרוח המחוספסת והעקשנית של המערב.
+                    </p>
                 </div>
 
                 <!-- נורמן בורלוג -->
-                <div class="personality-card border-r-8 border-iaRed shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-iaRed decoration-4 underline-offset-8">הבונה הגלובלי: נורמן בורלוג (Norman Borlaug)</h3>
-                    <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1914–2009. <strong>מעמד:</strong> אגרונום, חתן פרס נובל לשלום (1970) ואבי "המהפכה הירוקה".</p>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-iaCorn">ילדות בחווה באיווה (Cresco):</h4>
-                            <p class="leading-loose">בורלוג הוא התגלמות האתוס החקלאי של איווה. הוא נולד למשפחת חקלאים ממוצא נורווגי וגדל בחווה קטנה (106 אקרים) ליד העיירה קרסקו. הוא למד לעבד את האדמה במו ידיו, ראה את השפעות השפל הגדול והבצורת על חקלאים, והבין שרעב הוא האויב הגדול ביותר של האנושות. דודו עודד אותו ללכת לאוניברסיטה, שם החל לחקור את הפתולוגיה של צמחים.</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-iaCorn">אידיאולוגיה - שלום דרך חיטה:</h4>
-                            <p class="leading-loose">האידיאולוגיה של בורלוג נוסחה במשפטו המפורסם: <span class="italic text-white bg-slate-700 px-2 py-1">"אינך יכול לבנות עולם שליו על קיבות ריקות."</span> הוא האמין שהמדע האגרונומי (שפותח במדינות כמו איווה) חייב להיות מיוצא לעולם השלישי כדי למנוע מלחמות, עוני ורעב המוני. הוא התנגד לתיאוריות שניבאו שמיליארדים ימותו מרעב בשנות ה-70.</p>
-                        </div>
-
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header text-iaCorn">הישגים - האיש שהציל מיליארד חיים:</h4>
-                            <p class="leading-loose">במהלך עבודתו במקסיקו, בורלוג פיתח זני חיטה היברידיים גמדיים ועמידים למחלות (Dwarf wheat). זנים אלו לא קרסו תחת כובד הגרעינים וייצרו יבולים גדולים פי כמה. הוא ייצא את הטכנולוגיה להודו, לפקיסטן ולמדינות באפריקה, והכפיל ואף שילש את יבולי המזון שלהן. המהפכה הזו, שכונתה **"המהפכה הירוקה"**, מנעה רעב עולמי. בשנת 1970 הוענק לבורלוג פרס נובל לשלום, והוא נחשב לאדם שהציל יותר חיי אדם מכל אדם אחר בהיסטוריה. בורלוג מזקק את המהות של איווה: האדמה שיודעת להאכיל את העולם.</p>
-                        </div>
+                <div class="bg-[#112240] p-8 md:p-10 rounded-3xl border border-cardBorder shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-iowaGreen"></div>
+                    <h3 class="text-3xl font-black text-white mb-2">המדען ומושיע האנושות: נורמן בורלוג (Norman Borlaug)</h3>
+                    <p class="text-lg text-textMuted mb-6 italic">שנות חיים: 1914–2009 | מעמד: אגרונום יליד איווה, "אבי המהפכה הירוקה" וחתן פרס נובל לשלום (1970).</p>
+                    
+                    <!-- אטימולוגיה אישית -->
+                    <div class="bg-appBg rounded-2xl p-6 border border-cardBorder mb-8 shadow-inner">
+                        <h4 class="font-black text-iowaGreen mb-4 text-xl">אטימולוגיה של השם: מולקולריות של צפון ומים</h4>
+                        <ul class="space-y-3 text-lg text-textMain ml-4">
+                            <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Norman:</strong> שם ממקור גרמאני שפירושו הפשוט הוא "איש הצפון" (North-man). מתייחס לויקינגים שהתיישבו בנורמנדי.</li>
+                            <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Borlaug:</strong> שם משפחה נורווגי טופונומי (המעיד על מוצא משפחתו מסקנדינביה לאיווה). מקורו בחוות בורלאוג בנורווגיה. המילה מורכבת מ-'Borg' (מצודה או גבעה תלולה) ו-'Laug' (בריכה או אגם לרחצה). משמעותו "הבריכה שמתחת לגבעה".</li>
+                        </ul>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
-                פנתיאון תרבותי: ציפור הערבה ושניצל החקלאים
-            </h2>
-            
-            <div class="space-y-14">
-                <!-- בעל החיים הלאומי -->
-                <div class="culture-highlight border-iaCorn">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-iaCorn">ציפור המדינה: חוחית אמריקאית (Eastern Goldfinch) וסמל החזיר</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">שניות בין טבע בתולי לתעשייה חקלאית</p>
-                    <p class="text-slate-300 leading-loose text-xl">
-                        מבחינה חוקית ורשמית (אומץ ב-1933), סמלה של איווה הוא ה**חוחית האמריקאית (Spinus tristis)** – ציפור שיר קטנה, בעלת נוצות צהובות בוהקות עם כנפיים שחורות. הבחירה בציפור זו נעשתה על ידי ארגוני נשים במדינה משום שהיא ציפור יציבה (נשארת באיווה גם בחורפים הקפואים) ומקננת בשפע בערבות הדשא הגבוה (Tallgrass prairie) ובשדות פראיים של חמניות, מה שמסמל את הנוף המקורי של המדינה לפני עידן המחרשות.
+                    <h4 class="sub-header text-iowaGreen decoration-iowaGreen/40">רקע וילדות: הילד שראה את ייאוש החקלאים</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        בורלוג נולד בחווה קטנה ומבודדת ליד קרסקו (Cresco), איווה. הוא גדל בעבודת אדמה קשה וראה כיצד מחלות צמחים (כמו חילדון הקנה) הורסות יבולי חיטה וגורמות לפשיטות רגל המוניות של חקלאים במהלך השפל הגדול. המראה של אנשים רעבים התחננים לאוכל נחקק בזיכרונו ודחף אותו ללמוד אגרונומיה (תורת הקרקע) וגנטיקה של צמחים באוניברסיטה.
                     </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        עם זאת, מבחינה פנומנולוגית, כלכלית ותרבותית – החיה השלטת והמגדירה את איווה היא ללא ספק **חזיר הבית (Hog/Pig)**. איווה היא היצרנית הגדולה ביותר בארצות הברית של בשר חזיר (מייצרת כשליש מסך כל החזירים באומה, ומונה יותר חזירים מבני אדם ביחס של 1:7). החזיר מסמל את המנוע הכלכלי העצום של המדינה ואת הפיכתה של הערבה הטבעית ל"חגורת התירס" שמזינה את תעשיית הבשר האמריקאית.
-                    </p>
-                </div>
 
-                <!-- המנה הלאומית -->
-                <div class="culture-highlight border-iaRed">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-iaRed">המנה הלאומית: כריך פילה חזיר מצופה (Breaded Pork Tenderloin Sandwich)</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מורשת השניצל המרכז-מערבי</p>
-                    <p class="text-slate-300 leading-loose text-xl">
-                        בהתאמה מושלמת למעמדה כאימפריית החזירים של אמריקה, המאכל האיקוני ביותר של איווה (הידוע בראשי התיבות **BPT**) הוא יצירת מופת של תזונת חקלאים דשנה המשלבת מסורת מהגרים.
+                    <h4 class="sub-header text-iowaGreen decoration-iowaGreen/40">אידיאולוגיה: שלום באמצעות שובע</h4>
+                    <p class="leading-loose text-lg text-textMain mb-6">
+                        האידיאולוגיה שלו הייתה טכנו-הומניטרית טהורה. הוא טבע את המשפט: **"אי אפשר לבנות עולם שליו על קיבות ריקות וסבל אנושי."** הוא האמין ששימוש במדע גנטי כדי לשפר יבולים הוא הכלי המרכזי למניעת מלחמות על משאבים בעולם השלישי.
                     </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        המנה מבוססת באופן ברור על ה**שניצל (Schnitzel)** המסורתי שהביאו עמם המהגרים הגרמנים והאוסטרים הרבים שהתיישבו במערב התיכון במאה ה-19. אולם, באיווה המנה עברה אדפטציה "אמריקאית" קיצונית: לוקחים נתח פילה חזיר רך, דופקים אותו בעזרת פטיש בשר עד שהוא הופך לדק ורחב במיוחד, מצפים אותו בפירורי לחם או קרקרים, ומטגנים בשמן עמוק.
-                    </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        הסממן החזותי (הפנומנולוגי) המובהק של המנה באיווה הוא חוסר הפרופורציה הקומי: נתח הבשר המטוגן עצום ממדים (לעתים בקוטר של צלחת גדולה), בעוד שהוא מוגש בתוך לחמניית המבורגר/קייזר סטנדרטית וקטנה, כך שהבשר גולש הרחק מעבר לשולי הלחמנייה. הכריך מוגש בדרך כלל עם חרדל, חמוצים ובצל חי, ומהווה את פסגת גאוות הפאבים ותחנות הדלק של המדינה, ואף נערכת תחרות שנתית מטעם "איגוד יצרני בשר החזיר של איווה" לבחירת הכריך הטוב במדינה.
+
+                    <h4 class="sub-header text-iowaGreen decoration-iowaGreen/40">הישגים מכוננים: חיטת הפלא והצלת מיליארד בני אדם</h4>
+                    <p class="leading-loose text-lg text-textMain">
+                        במהלך עבודתו במקסיקו, בורלוג פיתח זני חיטה גמדיים (Dwarf wheat) ומהונדסים. הזנים הללו היו עמידים למחלות, והגבעול הקצר שלהם מנע מהם לקרוס תחת כובד הגרעינים הרבים. הוא לקח את זני ה"פלא" הללו למקסיקו, הודו ופקיסטן (באמצע שנות ה-60, כשחזו שם רעב המוני קטלני), ו**הכפיל ואף שילש את ייצור המזון שלהם**. תהליך זה כונה **"המהפכה הירוקה"**. ההערכה המדעית העולמית היא שבורלוג, בן החקלאים מאיווה, **הציל כמיליארד בני אדם ממוות ברעב** – יותר מכל אדם אחר בהיסטוריה האנושית. על כך הוענק לו פרס נובל לשלום ב-1970.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-iaBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
-                אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
+        <!-- 4. פנתיאון תרבותי -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-[#D2B48C] shadow-2xl"> 
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-[#D2B48C] text-appBg w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">4</span>
+                פנתיאון תרבותי: הציפור הצהובה והכריך המפורק
             </h2>
             
-            <div class="space-y-14">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <!-- The Hawkeye State -->
-                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-iaRed shadow-2xl">
-                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Hawkeye State (מדינת עין הנץ)</h3>
-                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">כבוד ליריב מובס באמצעות עיתונאות</p>
-                        <p class="text-slate-300 leading-loose text-lg">
-                            הכינוי "הוקאיי" (Hawkeye) אינו מתייחס לציפור טרף, אלא לדמות היסטורית ספציפית: **צ'יף נץ שחור** (Chief Black Hawk), מנהיג אגדי של שבטי הסאוק (Sauk) והפוקס. בשנת 1832, נץ שחור הוביל מרד אמיץ ונואש (מלחמת נץ שחור) נגד גירוש עמו מאדמותיהם על ידי הממשל האמריקאי, אך הובס ושטחי איווה נפתחו להתיישבות לבנה.
-                        </p>
-                        <p class="text-slate-300 leading-loose text-lg mt-4">
-                            באופן אירוני שאופייני להיסטוריה האמריקאית, המתיישבים החליטו להוקיר את האויב שהביסו. בשנת 1838 (לפני שאיווה הפכה למדינה), עורך העיתון ג'יימס ג'. אדוארדס (James G. Edwards), חבר של הצ'יף (שלמרבה הפלא הפך לידוען לאחר תבוסתו), שינה את שם העיתון שלו ל-"The Hawk-Eye" והחל לקדם את הכינוי עבור תושבי הטריטוריה. הכינוי המייצג גבורה ועין חדה התקבל מיד, והפך מאוחר יותר לשמה של קבוצת הספורט המפורסמת של אוניברסיטת איווה.
-                        </p>
-                    </div>
+            <div class="space-y-12">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-iowaCorn mb-2 underline italic decoration-iowaCorn/40">ציפור המדינה: חוחית אמריקאית (American Goldfinch)</h3>
+                    <p class="text-lg text-textMuted mb-6 font-bold uppercase tracking-widest">ציפור התירס המעופפת (אומץ ב-1933)</p>
+                    <p class="leading-loose text-lg text-textMain">
+                        החוחית האמריקאית (המכונה "ציפור הקנרי של המזרח") נבחרה פה אחד על ידי בית המחוקקים של איווה לייצג את המדינה, בשל התאמתה המושלמת לנוף המקומי.
+                        <br><br>
+                        הפנומנולוגיה היא בצבעוניות: זכר החוחית מתהדר במהלך הקיץ בנוצות **צהובות בוהקות עם כנפיים שחורות** – צבעים המזכירים בצורה מדויקת את שדות התירס הזהובים ואת האדמה השחורה והעשירה של איווה. זוהי אחת הציפורים ה"צמחוניות" ביותר בטבע, הניזונה כמעט אך ורק מזרעים וצמחי בר, ולכן היא נפוצה מאוד באזורים החקלאיים (ובשדות חמניות) לאורך המדינה. מעופה הוא גלי וייחודי, והיא נחשבת לסמל של מרץ ויצרנות חקלאית.
+                    </p>
+                </div>
 
-                    <!-- The Corn State -->
-                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-iaCorn shadow-2xl">
-                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-iaCorn">The Corn State (מדינת התירס)</h3>
-                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מהות גיאוגרפית וכלכלית</p>
-                        <p class="text-slate-300 leading-loose text-lg">
-                            כינוי לא רשמי אך נוכח בכל. איווה מכילה את ריכוז האדמה הפורייה ביותר בארצות הברית כולה (למעלה מ-85% משטח המדינה מנוצל לחקלאות). המדינה עברה פנומנולוגיה של שינוי מוחלט מנוף פראי של עשב גבוה לים גיאומטרי של שדות תירס (סויה). איווה מובילה באופן עקבי את ארה"ב בייצור תירס, המשמש להאכלת חזירים, ייצור אתנול ולתעשיית המזון. התירס הוא המנוע הפיזי של המדינה והסמל לעבודת האדמה של המערב התיכון.
-                        </p>
-                    </div>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-[#A0522D] mb-2 underline italic decoration-slate-400">המנה הלאומית: כריך טברנה (Loose Meat Sandwich) ופצפוצי סקוטש</h3>
+                    <p class="text-lg text-textMuted mb-6 font-bold uppercase tracking-widest">ההמבורגר שסירב להתחבר והקינוח של הדודות</p>
+                    <p class="leading-loose text-lg text-textMain">
+                        הקולינריה של איווה היא ה"קומפורט פוד" (Comfort food) של החקלאי האמריקאי, עם המצאה אחת יוצאת דופן:
+                    </p>
+                    <ul class="list-disc list-inside space-y-6 mt-6 text-textMain text-lg leading-loose">
+                        <li><span class="text-white font-bold underline decoration-[#8B4513]">כריך "בשר משוחרר" (Tavern / Loose Meat Sandwich):</span> זוהי התשובה של איווה להמבורגר. המנה הומצאה ב-1926 בעיר מוסקאטין (Muscatine) על ידי פרד אנג'ל. בניגוד להמבורגר שבו הבשר נדחס לקציצה מוצקה (פאטי), ה"לוז מיט" עשוי מבשר בקר טחון שמטוגן במחבת (תוך כדי פירור מתמיד) עם בצל ותבלינים, **ללא שום רוטב מלכד (כמו ב"סלופי ג'ו")**. הבשר המפורר מונח כערימה בתוך לחמניית המבורגר, מוגש עם חרדל ומלפפון חמוץ בלבד, ונאכל (לרוב תוך כדי לכלוך אדיר) בעזרת כפית. זוהי הרשת המקומית Maid-Rite שהפכה את הכריך לאייקון.</li>
+                        <li><span class="text-white font-bold underline decoration-iowaCorn">סקוטשרוס (Scotcheroos):</span> קינוח שאין ילד או פגישת קהילה באיווה שמסתיימים בלעדיו. אלו הם חטיפי פצפוצי אורז (Rice Krispies) שאינם מודבקים במרשמלו (כנהוג), אלא ב**סירופ חם של חמאת בוטנים וסוכר/דבש**, המצופים מלמעלה בשכבה עבה של שוקולד ו-Butterscotch (טופי חמאה) מומסים יחד. המנה דחוסה, פריכה, ואוצרת בתוכה מיליוני קלוריות של תנחומים.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-iaBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
-                וקסילולוגיה: הטריקולור הצרפתי ועיטם החירות
+        <!-- 5. אנומליות תרבותיות וכינויים -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-textMuted shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-cardBorder text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">5</span>
+                כינויי המדינה: ניתוח פנומנולוגי
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-iowaRed mb-4 underline italic decoration-iowaRed/40">The Hawkeye State (מדינת עין-הנץ)</h3>
+                    <p class="text-lg leading-loose text-textMuted">
+                        זהו הכינוי הרשמי של איווה, והוא מוטמע כה עמוק עד שאזרחיה מכונים "הוקאייז" וספורטאי האוניברסיטה נושאים את השם. הפנומנולוגיה שלו כפולה: הכינוי הוצע לראשונה ב-1838 על ידי עורך דין מקומי כמחווה ל**צ'יף בלאק הוק (Chief Black Hawk)**, המנהיג הילידי האגדי שלחם במלחמת בלאק הוק, כמחווה של כבוד לאויב המובס. במקביל, השם זכה לפופולריות כי "הוקאיי" (Hawkeye) היה שמו של הגיבור האירופאי-ילידי בספר "המוהיקני האחרון", שסימל את חלוץ הספר המערבי – שילוב מושלם לאתוס של המדינה.
+                    </p>
+                </div>
+                <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                    <h3 class="text-2xl font-black text-iowaCorn mb-4 underline italic decoration-iowaCorn/40">The Corn State (מדינת התירס)</h3>
+                    <p class="text-lg leading-loose text-textMuted">
+                        כינוי לא רשמי אך הדומיננטי ביותר מבחינה חזותית וכלכלית. הפנומנולוגיה היא סטטיסטית: איווה מפיקה באופן עקבי יותר תירס מכל מדינה אחרת בארה"ב (ואף מרוב המדינות העצמאיות בעולם). התירס מניע את כלכלת החזירים, האתנול (דלק) והתעשייה של המדינה. הזהות של התירס היא כה חזקה, שהמדינה מחזיקה קבוצת פסלים איקונית בערי השדה העשויה כולה מתירס.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. וקסילולוגיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-iowaBlue shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-iowaBlue text-white w-12 h-12 rounded-xl flex items-center justify-center ml-4 text-xl">6</span>
+                וקסילולוגיה: הטריקולור הצרפתי והנשר
             </h2>
             
-            <div class="flex flex-col items-center mb-16">
-                <!-- ייצוג ויזואלי של דגל איווה ב-CSS -->
-                <div class="w-full max-w-2xl aspect-[3/2] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex group">
-                    <!-- שלושה פסים אנכיים: כחול, לבן רחב, אדום -->
-                    <div class="w-1/4 h-full bg-[#002D65]"></div>
-                    <div class="w-2/4 h-full bg-white relative flex flex-col items-center justify-center pt-8">
-                        <!-- ייצוג העיט המעופף והסרט -->
-                        <div class="text-[#002D65] text-6xl drop-shadow-lg transform transition-transform duration-700 group-hover:scale-110 -mt-10">🦅</div>
-                        <div class="w-[90%] text-center mt-2">
-                            <span class="text-[8px] font-black text-[#002D65] uppercase leading-none block break-words">Our liberties we prize</span>
-                            <span class="text-[8px] font-black text-[#002D65] uppercase leading-none block break-words">and our rights we will maintain</span>
-                        </div>
-                        <!-- המילה IOWA -->
-                        <div class="absolute bottom-6 text-[#C8102E] font-black text-5xl tracking-widest uppercase drop-shadow-md">
-                            IOWA
-                        </div>
-                    </div>
-                    <div class="w-1/4 h-full bg-[#C8102E]"></div>
-                    <!-- שכבת ברק -->
-                    <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-black/5 to-transparent pointer-events-none z-20"></div>
+            <div class="flex flex-col items-center mb-10 mt-6">
+                <!-- דגל איווה ב-CSS/SVG להמחשה פנימית (קליק להגדלה למעלה) -->
+                <div class="w-full max-w-lg aspect-[3/2] bg-white rounded-3xl overflow-hidden shadow-2xl border-[6px] border-slate-700 relative">
+                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full bg-white">
+                        <rect x="0" y="0" width="75" height="200" fill="#002868"/>
+                        <rect x="75" y="0" width="150" height="200" fill="#FFFFFF"/>
+                        <rect x="225" y="0" width="75" height="200" fill="#C8102E"/>
+                        <g transform="translate(150, 90)">
+                            <path d="M -20 -15 Q 0 -40 20 -15 Q 30 10 0 30 Q -30 10 -20 -15 Z" fill="#8B4513"/>
+                            <circle cx="-5" cy="-25" r="8" fill="#FFFFFF"/>
+                            <polygon points="-12,-25 -18,-20 -10,-18" fill="#FFD700"/>
+                            <path d="M -15 -20 Q -60 -30 -65 10" fill="none" stroke="#002868" stroke-width="4"/>
+                            <path d="M -15 -20 Q 50 -40 60 -10" fill="none" stroke="#002868" stroke-width="4"/>
+                            <text x="0" y="60" font-family="sans-serif" font-weight="900" font-size="24" fill="#C8102E" text-anchor="middle" letter-spacing="3">IOWA</text>
+                        </g>
+                    </svg>
                 </div>
-                <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
-                    טריקולור החירות האמריקאית <br><span class="text-xl font-medium text-slate-500">(עוצב על ידי דיקסי קורנל גבהרדט, 1921)</span>
+                <p class="mt-6 text-sm font-bold text-textMuted tracking-widest uppercase bg-cardBorder px-4 py-2 rounded-full">עוצב ב-1917, אומץ רשמית ב-1921</p>
+            </div>
+
+            <div class="bg-appBg rounded-3xl p-8 border border-cardBorder">
+                <h3 class="text-2xl font-black text-white mb-4 underline italic decoration-iowaBlue decoration-4">שבירת התבנית בהשראת האומה הצרפתית:</h3>
+                <p class="leading-loose text-lg text-textMain mb-6">
+                    דגל איווה שונה בתכלית מהדגלים הטיפוסיים של מדינות ארה"ב, והוא עוצב ב-1917 על ידי תושבת המדינה, **דיקסי קורנל גבהרדט** (Dixie Cornell Gebhardt), חברה בארגון "בנות המהפכה האמריקאית" (DAR). באותה עת, ארה"ב עמדה להיכנס למלחמת העולם הראשונה, ודיקסי רצתה ליצור דגל שיעניק לחיילים של איווה גאווה, תוך שבירת השעמום של "הסדין הכחול".
                 </p>
-            </div>
-
-            <div class="space-y-14 text-slate-300">
-                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-iaBlue shadow-xl">
-                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-iaBlue decoration-4">נסיבות היצירה ומחווה היסטורית לצרפת:</h3>
-                    <p class="text-xl leading-loose">
-                        איווה תפקדה כמעט 75 שנה ללא דגל רשמי. במהלך מלחמת העולם הראשונה, חיילי המשמר הלאומי של איווה גילו שאין להם דגל לצעוד תחתיו. ארגון **בנות המהפכה האמריקאית (DAR)** החליט לפעול, ובשנת 1921, חברת הארגון **דיקסי קורנל גבהרדט** (Dixie Cornell Gebhardt), תושבת העיירה נוקסוויל שבאיווה, עיצבה את הדגל שאומץ רשמית בחוק. 
-                        ההחלטה העיצובית החשובה ביותר שלה הייתה הבסיס: הדגל הוא העתק מדויק של ה**טריקולור הצרפתי** (הדגל הלאומי של צרפת) – פסים אנכיים של כחול, לבן ואדום. בחירה זו נועדה לחלוק כבוד לכך שאיווה הייתה במקור חלק מ"לואיזיאנה הצרפתית" (והתגלתה על ידי הצרפתים ז'אק מארקט ולואי ז'ולייה) לפני שנרכשה על ידי ארצות הברית ב-1803.
+                <div class="space-y-4">
+                    <p class="leading-loose text-lg text-textMain">
+                        <strong class="text-iowaBlue">הטריקולור (כחול-לבן-אדום):</strong> הדגל מורכב משלושה פסים אנכיים בצבעי כחול, לבן ואדום. זוהי העתקה מובהקת של **דגל צרפת (הטריקולור)**. הפנומנולוגיה כאן היא היסטורית: איווה הייתה במקור חלק מ**רכישת לואיזיאנה** הגדולה (1803), שטח שהיה בשליטת צרפת. הפסים הם הומאז' למתיישבים הצרפתים שהיו האירופאים הראשונים שחקרו את איווה. הפס הלבן האמצעי רחב פי שניים מהפסים הצדדיים (עיצוב המכונה 'Canadian pale') כדי להשאיר מקום רב לסמל המרכזי.
                     </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">הפס הלבן הרחב:</h4>
-                        <p class="leading-loose text-lg">בניגוד לדגל צרפת שבו הפסים שווים, בדגל איווה הפס הלבן האמצעי רחב פי שניים מהפסים הצדדיים. על פי המעצבת, הלבן מסמל דף חלק של היסטוריה חדשה שנכתבת באמריקה (Unwritten page of history), וכן מעניק שטח תצוגה גדול לסמל המדינה.</p>
-                    </div>
-                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-iaBlue shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-iaBlue">העיט והמוטו הלאומי:</h4>
-                        <p class="leading-loose text-lg">במרכז הפס הלבן מתנוסס עיטם קירח (Bald Eagle) – סמלה הבלתי מעורער של ארצות הברית והריבונות האמריקאית, המראה שאיווה עברה משליטה צרפתית לאמריקאית. במקורו אוחז העיט סרט כחול ארוך שעליו רקום המוטו האסרטיבי של המדינה: <span class="font-bold text-white">"Our liberties we prize and our rights we will maintain"</span> (את חרויותינו אנו מוקירים, ועל זכויותינו נגן). מתחתיו כתובה באדום המילה "IOWA".</p>
-                    </div>
+                    <p class="leading-loose text-lg text-textMain">
+                        <strong class="text-iowaRed">נשר הקירח והסרט המכונן:</strong> במרכז הפס הלבן מצויר נשר קירח (Bald Eagle, סמל ארצות הברית) המחזיק במקורו סרט כחול ארוך. על הסרט כתוב המוטו הרשמי של המדינה, שהוא אולי המוטו הדורסני ביותר של הגנת זכויות: **"Our liberties we prize and our rights we will maintain"** (את חירותנו אנו מוקירים, ועל זכויותינו אנו נשמור). המילה **IOWA** כתובה באדום עז מתחתיו, כדי להבטיח זיהוי מוחלט בשדה הקרב.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
-        <section class="section-card">
-            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+        <!-- 7. ביבליוגרפיה -->
+        <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 border-t-4 border-t-cardBorder shadow-2xl">
+            <h2 class="text-2xl font-black text-textMuted mb-8 flex items-center border-b border-cardBorder pb-6">
+                <span class="bg-cardBorder text-white w-10 h-10 rounded-lg flex items-center justify-center ml-4 text-lg">7</span>
                 ביבליוגרפיה ומקורות מחקריים
             </h2>
-            
-            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">State Historical Society of Iowa:</p>
-                    <p>"The Etymology of Iowa: From Baxoje to Ayuxba". מחקר בלשני על התפתחות שם המדינה מתוך הכינוי "הישנוניים" של שבט הדקוטה כלפי שכניהם.</p>
+            <div class="space-y-6 text-lg text-textMuted leading-loose">
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">State Historical Society of Iowa:</strong>
+                    האטימולוגיה מהשפה הדקוטית (Sioux) של המילה "Ayuxwa" ככינוי יריבות ("הישנוניים") לשבט הבאחוג'ה, והמעבר לטופונים Iowa דרך הצרפתים.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">National Mississippi River Museum:</p>
-                    <p>"Julien Dubuque and the Mines of Spain". תיעוד היסטורי של המהגר הנורמני, הברית הכלכלית-הנישואית עם שבט הפוקס, והקמת תעשיית העופרת במאה ה-18.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Herbert Hoover Presidential Library (West Branch):</strong>
+                    ניתוח השם (Huber - בעל אדמות), ביוגרפיה כיתום שהפך למהנדס, ומורכבות מורשתו: הצלת מיליונים מרעב ב-WWI מול האינדיבידואליזם שכשל בשפל הגדול.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">The World Food Prize Foundation (Des Moines):</p>
-                    <p>"Norman Borlaug: The Man Who Fed the World". ביוגרפיה אקדמית של חתן פרס נובל יליד איווה, מחקריו הגנטיים בחיטה והובלת המהפכה הירוקה העולמית.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Norman Borlaug Heritage Foundation:</strong>
+                    המצאת "חיטת הפלא" הגמדית על ידי החקלאי מאיווה (איש הצפון), הצלת מיליארד בני אדם ממוות בעולם השלישי וזכייתו בנובל ב-1970.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Iowa Pork Producers Association:</p>
-                    <p>"The Culinary History of the Breaded Pork Tenderloin". מחקר אנתרופולוגי-גסטרונומי על אדפטציית השניצל הגרמני למידות החקלאות התעשייתית באזור חגורת התירס.</p>
+                <div class="border-b border-cardBorder pb-4">
+                    <strong class="text-white block mb-1">Iowa Culinary Heritage Institute:</strong>
+                    המצאת כריך הבשר המפורר (Tavern Sandwich) ב-1926 ללא רוטב מלכד, כשיקוף של תרבות הבקר והחזירים הפשוטה של המערב התיכון.
                 </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
-                    <p>"Dixie Cornell Gebhardt and the French Connection of the Iowa Flag". ניתוח היסטורי של הליך עיצוב הדגל ב-1921, הסימבוליקה של ה"דף הלבן" בטריקולור, והנצחת הרכישה הצרפתית.</p>
+                <div>
+                    <strong class="text-white block mb-1">North American Vexillological Association (NAVA):</strong>
+                    העיצוב של דיקסי קורנל גבהרדט, אימוץ הטריקולור הצרפתי כמחווה היסטורית לרכישת לואיזיאנה, וההצהרה המיליטנטית שעל סרט הנשר.
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- פוטר אתר ממותג -->
-    <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
-        <div class="flex flex-col items-center gap-10">
-            <div class="flex gap-8">
-                <div class="w-6 h-6 bg-iaBlue rounded-full shadow-[0_0_15px_rgba(0,45,101,0.6)]"></div>
-                <div class="w-6 h-6 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.6)]"></div>
-                <div class="w-6 h-6 bg-iaRed rounded-full shadow-[0_0_15px_rgba(200,16,46,0.6)]"></div>
-            </div>
-            <p class="text-slate-500 text-xl font-black tracking-[0.8em] uppercase">
-                US State Origins - Ultimate Academic Archive
-            </p>
-            <p class="text-slate-400 text-4xl font-black">
-                האתר נוצר על ידי ג'מיני ורם | 2026
-            </p>
+    <!-- מודל (חלון צף) להגדלת הדגל -->
+    <div id="flagModal" class="hidden fixed inset-0 z-[100] bg-appBg/95 backdrop-blur-md flex items-center justify-center p-4 cursor-pointer" onclick="closeFlagModal()">
+        <div class="modal-animate relative w-full max-w-4xl aspect-[3/2] bg-white rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(200,16,46,0.3)] border-8 border-slate-700 cursor-default" onclick="event.stopPropagation()">
+            <!-- כפתור סגירה -->
+            <button onclick="closeFlagModal()" class="absolute top-4 right-4 z-50 bg-black/50 hover:bg-black text-white rounded-full p-3 transition-colors shadow-lg border border-white/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <!-- העתק מדויק של הדגל בגדול מבוסס SVG -->
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full bg-white">
+                <!-- Vertical Stripes (1:2:1 ratio) -->
+                <rect x="0" y="0" width="75" height="200" fill="#002868"/>
+                <rect x="75" y="0" width="150" height="200" fill="#FFFFFF"/>
+                <rect x="225" y="0" width="75" height="200" fill="#C8102E"/>
+                
+                <!-- Detailed Eagle and Ribbon with shadow for modal realism -->
+                <g transform="translate(150, 90)" style="filter: drop-shadow(0px 8px 10px rgba(0,0,0,0.4));">
+                    <!-- Eagle body detailed -->
+                    <path d="M -25 -10 Q 0 -50 25 -10 Q 35 15 0 35 Q -35 15 -25 -10 Z" fill="#8B4513"/>
+                    <path d="M -15 -5 Q 0 -35 15 -5 Q 20 15 0 25 Q -20 15 -15 -5 Z" fill="#A0522D"/>
+                    
+                    <!-- Eagle head -->
+                    <circle cx="-6" cy="-28" r="10" fill="#FFFFFF"/>
+                    <!-- Eye -->
+                    <circle cx="-8" cy="-30" r="1.5" fill="#000000"/>
+                    
+                    <!-- Beak holding ribbon -->
+                    <polygon points="-15,-28 -23,-20 -13,-20" fill="#FFD700"/>
+                    
+                    <!-- Blue Ribbon left side -->
+                    <path id="ribbon-left" d="M -18 -22 Q -65 -35 -65 15" fill="none" stroke="#002868" stroke-width="6"/>
+                    <!-- Blue Ribbon right side -->
+                    <path id="ribbon-right" d="M -18 -22 Q 55 -45 65 -5" fill="none" stroke="#002868" stroke-width="6"/>
+                    
+                    <!-- Text representation on ribbon -->
+                    <text font-family="serif" font-weight="bold" font-size="3" fill="#FFFFFF">
+                        <textPath href="#ribbon-left" startOffset="20%">OUR LIBERTIES WE PRIZE</textPath>
+                    </text>
+                    <text font-family="serif" font-weight="bold" font-size="3" fill="#FFFFFF">
+                        <textPath href="#ribbon-right" startOffset="10%">AND OUR RIGHTS WE WILL MAINTAIN</textPath>
+                    </text>
+                    
+                    <!-- Red "IOWA" Text -->
+                    <text x="0" y="65" font-family="sans-serif" font-weight="900" font-size="30" fill="#C8102E" text-anchor="middle" letter-spacing="4">IOWA</text>
+                </g>
+            </svg>
         </div>
-    </footer>
+        <p class="absolute bottom-10 text-textMuted font-bold tracking-widest uppercase bg-cardBg/80 px-6 py-2 rounded-full border border-cardBorder">לחץ מחוץ לדגל כדי לסגור</p>
+    </div>
+
+    <!-- פונקציות JS לחלון הצף -->
+    <script>
+        function openFlagModal() {
+            document.getElementById('flagModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // מניעת גלילה של הרקע
+        }
+        function closeFlagModal() {
+            document.getElementById('flagModal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // החזרת גלילה
+        }
+        // סגירה גם בלחיצה על כפתור Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeFlagModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
+
+
