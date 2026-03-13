@@ -16,7 +16,8 @@
                         accent: '#38bdf8',
                         kyBlue: '#00205B',    /* Kentucky Navy Blue */
                         kyGold: '#C5A900',    /* Goldenrod / Bourbon Gold */
-                        bluegrass: '#1E4D2B'  /* Bluegrass Green/Blue */
+                        bluegrass: '#1E4D2B', /* Bluegrass Green/Blue */
+                        kyRed: '#B31B1B'      /* Accent Red for contrast */
                     }
                 }
             }
@@ -36,6 +37,15 @@
         .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
         .sub-header { @apply text-kyGold font-black text-2xl mb-5 underline italic decoration-kyGold/40 underline-offset-8; }
         .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
+
+        /* אנימציית הופעה לחלון הצף */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-animate {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
     </style>
 </head>
 <body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
@@ -48,6 +58,7 @@
             </svg>
             חזרה לאטלס המדינות
         </a>
+        <span class="text-xs font-black tracking-widest text-slate-400 uppercase bg-slate-800 px-3 py-1 rounded-full border border-slate-600 mr-4">KY</span>
     </nav>
 
     <!-- כותרת מחקר אקדמי -->
@@ -105,16 +116,25 @@
         <section class="section-card">
             <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
                 <span class="bg-kyBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
-                כרוניקה של ריבונות: חלוץ היערות והמושל הלוחם
+                כרוניקה של ריבונות: פורץ הדרך, פושר הפשרות ומלך הזירה
             </h2>
             
             <div class="space-y-16">
                 <!-- דניאל בון -->
                 <div class="personality-card border-r-8 border-bluegrass shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-bluegrass decoration-4 underline-offset-8">ההוגה ופורץ הדרך האגדי: דניאל בון (Daniel Boone)</h3>
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-bluegrass decoration-4 underline-offset-8">החלוץ ופורץ הדרך האגדי: דניאל בון (Daniel Boone)</h3>
                     <div class="space-y-8">
                         <p class="text-xl"><strong>שנות חיים:</strong> 1734–1820. <strong>מעמד:</strong> מגלה ארצות, צייד וגיבור לאומי של ה"ספר" (Frontier).</p>
                         
+                        <!-- אטימולוגיה אישית -->
+                        <div class="bg-appBg rounded-2xl p-6 border border-cardBorder mb-8 shadow-inner">
+                            <h4 class="font-black text-bluegrass mb-4 text-xl">אטימולוגיה של השם: משפט האל וטוב הלב</h4>
+                            <ul class="space-y-3 text-lg text-textMain ml-4">
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Daniel (דניאל):</strong> שם עברי טהור מהתנ"ך. מורכב מהמילים "דן" (שפט) ו"אל" (אלוהים). המשמעות היא "אלוהים הוא שופטי" או "משפט האל".</li>
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Boone (בון):</strong> שם משפחה אנגלו-נורמני. נגזר מהמילה הצרפתית העתיקה <em>Bon</em>, שפירושה הפשוט והברור הוא "טוב" (Good). משפחתו של בון (שמקורה באנגליה) נשאה את השם שהעיד על אדם בעל אופי טוב ונדיב.</li>
+                            </ul>
+                        </div>
+
                         <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
                             <h4 class="sub-header text-kyGold">ילדות ורקע פראי:</h4>
                             <p class="leading-loose">דניאל בון נולד בפנסילבניה למשפחה קווייקרית אדוקה (שסירבה לשאת נשק). עם זאת, כשהיה צעיר, משפחתו נודתה מהקהילה, והם היגרו לצפון קרוליינה. בון בילה את נעוריו ביערות, שם למד את אמנות הציד, הגישוש וההישרדות מחבריו בשבטי הלנאפה (Delaware). הוא מעולם לא רכש השכלה פורמלית של ממש, והכתיב שלו היה גרוע, אך הוא "קרא את היער" טוב יותר מכל אדם לבן אחר ביבשת.</p>
@@ -122,35 +142,79 @@
 
                         <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
                             <h4 class="sub-header text-kyGold">אידיאולוגיה - קריאת המערב:</h4>
-                            <p class="leading-loose">האידיאולוגיה של בון הייתה אנטי-ממסדית ומבוססת על תנועה מתמדת. הוא טען שברגע שהוא יכול לראות את עשן הארובה של שכנו – סימן שהאזור צפוף מדי ועליו לנוע מערבה. הוא חלם לחצות את מחסום הרי האפלצ'ים הבלתי-עביר ולמצוא את "קנטקי" – ארץ הציד השופעת שעליה סיפרו הילידים.</p>
+                            <p class="leading-loose">האידיאולוגיה של בון הייתה אנטי-ממסדית ומבוססת על תנועה מתמדת. הוא טען שברגע שהוא יכול לראות את עשן הארובה של שכנו – סימן שהאזור צפוף מדי ועליו לנוע מערבה (חיפוש אחר "Elbow room"). הוא חלם לחצות את מחסום הרי האפלצ'ים הבלתי-עביר ולמצוא את "קנטקי" – ארץ הציד השופעת שעליה סיפרו הילידים.</p>
                         </div>
 
                         <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
                             <h4 class="sub-header text-kyGold">הישגים מכוננים - חציבת נתיב השממה (1775):</h4>
-                            <p class="leading-loose">ב-1775, עבור חברת קרקעות יזמית (Transylvania Company), בון הוביל צוות של חוטבי עצים לחצוב נתיב דרך מעבר קמברלנד (Cumberland Gap) לתוך מרכז קנטקי. הנתיב הזה, שנקרא **"דרך השממה" (The Wilderness Road)**, הפך לעורק הראשי שדרכו מאות אלפי מתיישבים חצו אל המערב התיכון. הוא ייסד את המבצר "בונסבורו" (Boonesborough), נלחם מלחמות עקובות מדם כנגד שבט השוני (שאף חטפו את בתו ואימצו אותו עצמו לזמן קצר כשבוי), והפך את ההתיישבות בקנטקי לעובדה קיימת. בון סבל מחובות וממשפטים על בעלות אדמה בגלל חוסר יכולתו להתמודד עם עורכי דין אליטיסטים, וסיים את חייו במיזורי, אך נותר האייקון הגדול ביותר של פריצת הגבולות באמריקה.</p>
+                            <p class="leading-loose">ב-1775, עבור חברת קרקעות יזמית (Transylvania Company), בון הוביל צוות של חוטבי עצים לחצוב נתיב דרך מעבר קמברלנד (Cumberland Gap) לתוך מרכז קנטקי. הנתיב הזה, שנקרא **"דרך השממה" (The Wilderness Road)**, הפך לעורק הראשי שדרכו מאות אלפי מתיישבים חצו אל המערב התיכון. הוא ייסד את המבצר "בונסבורו", נלחם מלחמות עקובות מדם כנגד שבט השוני (שאף חטפו את בתו ואימצו אותו עצמו לזמן קצר כשבוי), והפך את ההתיישבות בקנטקי לעובדה קיימת.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- אייזק שלבי -->
+                <!-- הנרי קליי -->
                 <div class="personality-card border-r-8 border-kyBlue shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-kyBlue decoration-4 underline-offset-8">הבונה והמושל הראשון: אייזק שלבי (Isaac Shelby)</h3>
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-kyBlue decoration-4 underline-offset-8">האדריכל והדיפלומט: הנרי קליי (Henry Clay)</h3>
                     <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1750–1826. <strong>מעמד:</strong> המושל הראשון והחמישי של קנטקי.</p>
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1777–1852. <strong>מעמד:</strong> סנאטור, מזכיר המדינה, ומכונה "הפשרן הגדול" (The Great Compromiser).</p>
 
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">ילדות ורקע קרבי (Kings Mountain):</h4>
-                            <p class="leading-loose">שלבי נולד במרילנד והתחנך כמודד קרקעות. הוא רכש מוניטין לאומי במהלך מלחמת העצמאות האמריקאית, כשהיה אחד ממפקדי מיליציות ה"הרים" (Overmountain Men) יחד עם ג'ון סבייר מטנסי, שהשמידו את הכוח הבריטי בקרב קינגס מאונטיין ב-1780. המוניטין שלו כטקטיקן קשוח העניק לו כבוד עצום בקרב המתיישבים.</p>
+                        <!-- אטימולוגיה אישית -->
+                        <div class="bg-appBg rounded-2xl p-6 border border-cardBorder mb-8 shadow-inner">
+                            <h4 class="font-black text-kyBlue mb-4 text-xl">אטימולוגיה של השם: מולקולריות של אדמה ושלטון</h4>
+                            <ul class="space-y-3 text-lg text-textMain ml-4">
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Henry (הנרי):</strong> נגזר מהשם הגרמאני העתיק <em>Heimeric</em>. מורכב מ-'Heim' (בית/אחוזה) ו-'Ric' (שליט/כוח). המשמעות היא "שליט הבית" או מנהל האחוזה.</li>
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Clay (קליי):</strong> שם משפחה אנגלי טופונומי ותעסוקתי. המילה Clay משמעותה "חימר" או "אדמת חומר". השם ניתן לאנשים שחיו באזור של אדמת חימר כבדה, או לאנשים שעסקו במקצועות של כריית חימר ויצירת לבנים.</li>
+                            </ul>
                         </div>
 
                         <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">אידיאולוגיה - ריבונות ועצמאות פוליטית:</h4>
-                            <p class="leading-loose">עד 1792, קנטקי הייתה למעשה מחוז של מדינת וירג'יניה, אשר גבתה מיסים אך לא סיפקה כל הגנה צבאית מהתקפות אינדיאנים. האידיאולוגיה של שלבי הייתה עצמאות של קנטקי. הוא ארגן כנסים פוליטיים וטען שחוסר היכולת של וירג'יניה להגן עליהם מפר את האמנה החברתית, ודרש הכרה כמדינה נפרדת בתוך האיחוד.</p>
+                            <h4 class="sub-header">ילדות ורקע - כוכב הצפון של קנטקי:</h4>
+                            <p class="leading-loose">קליי נולד בוירג'יניה וזכה לחינוך משפטי מצוין אצל ג'ורג' ווית'. בגיל 20 עבר ללקסינגטון (Lexington), קנטקי – העיר שכונתה "אתונה של המערב". שם הוא התבסס כעורך דין עשיר, בעל מטעים וכריזמטור פוליטי אדיר ("הארי של המערב"). מיומנויותיו הרטוריות הפכו אותו לאחד ממעצבי המדיניות החזקים ביותר באמריקה במאה ה-19.</p>
                         </div>
 
                         <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">הישגים מכוננים - ייצוב המדינה החדשה (1792):</h4>
-                            <p class="leading-loose">עם קבלתה של קנטקי לאיחוד ב-1792 כמדינה ה-15, נבחר שלבי פה אחד למושל הראשון. הוא היה המנהל האדמיניסטרטיבי שקבע כיצד המדינה תתפקד: הוא הבטיח אספקת נשק למיליציות כדי לאבטח את הגבולות, ארגן את מערכת המשפט המקומית, ופעל לשמירה על חופש השיט בנהר המיסיסיפי מול הספרדים (דבר שהיה קריטי לסחר החקלאי). כשהיה בן 63, חזר מפרישה כדי להוביל אישית את חיילי קנטקי לניצחון בקרב תיימס (מלחמת 1812), מה שמעיד על המיליטריזם העמוק של המדינה.</p>
+                            <h4 class="sub-header">אידיאולוגיה - השיטה האמריקאית (The American System):</h4>
+                            <p class="leading-loose">האידיאולוגיה של קליי דגלה בלאומיות כלכלית אגרסיבית. הוא יצר את "השיטה האמריקאית": תוכנית שכללה מכסי מגן גבוהים (כדי להגן על תעשייה מקומית), הקמת בנק לאומי חזק, והשקעה מסיבית של הממשל הפדרלי ב"שיפורים פנימיים" (סלילת כבישים ותעלות שיחברו את מזרח ארה"ב למערב ולמדינות כמו קנטקי). </p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header">הישגים מכוננים - הפשרן שהציל את האיחוד:</h4>
+                            <p class="leading-loose">הישגו ההיסטורי העצום ביותר היה כישרונו לדחות את מלחמת האזרחים. כאשר ארה"ב עמדה על סף פילוג עקב שאלת התפשטות העבדות, קליי (בעצמו מחזיק עבדים שהתלבט מוסרית בנושא) יזם שלוש פשרות קריטיות: **פשרת מיזורי (1820)**, פשרת המכסים של 1833 (מול חברו-אויבו ג'ון ק. קלהון), ו**פשרת 1850**. למרות שרץ לנשיאות שלוש פעמים ונכשל, אברהם לינקולן (שנולד בקנטקי) העריץ אותו וכינה אותו "האידיאל הפוליטי שלי".</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- מוחמד עלי -->
+                <div class="personality-card border-r-8 border-kyRed shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-kyRed decoration-4 underline-offset-8">הגדול מכולם: מוחמד עלי (Muhammad Ali)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1942–2016. <strong>מעמד:</strong> אלוף העולם באגרוף, פעיל זכויות אזרח וסמל המאה ה-20.</p>
+
+                        <!-- אטימולוגיה אישית -->
+                        <div class="bg-appBg rounded-2xl p-6 border border-cardBorder mb-8 shadow-inner">
+                            <h4 class="font-black text-kyRed mb-4 text-xl">אטימולוגיה של השם: התהפכות זהות מוחלטת</h4>
+                            <p class="text-textMain leading-loose mb-4 text-sm">מוחמד עלי נולד בשם <strong>קאסיוס מרסלוס קליי ג'וניור</strong> (הוא קרוי על שם אביו, שנקרא על שם פוליטיקאי ואבולישניסט לבן מקנטקי מהמאה ה-19). ב-1964 המיר את דתו ושינה את שמו כדי להתנער מ"שם העבדים" שלו:</p>
+                            <ul class="space-y-3 text-lg text-textMain ml-4">
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Cassius (קאסיוס):</strong> שם לטיני קדום. הפירוש המילולי שלו הוא "חלול" או "ריק" (Empty / Vain).</li>
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Marcellus (מרסלוס):</strong> שם לטיני (צורת הקטנה למרס/מרקוס). משמעותו "פטיש קטן" או לחילופין מוקדש לאל המלחמה הרומי (מרס).</li>
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Muhammad (מוחמד):</strong> השם החדש שבחר (ניתן לו על ידי אלייז'ה מוחמד). מקור ערבי (محמّد), שמשמעותו "המהולל", "הראוי לשבח" או "המבורך".</li>
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Ali (עלי):</strong> מקור ערבי (علي). משמעותו "העליון", "הנשגב" או "הגבוה". השילוב יצר שם שמשמעותו "המהולל והנשגב", מחיקה מוחלטת של ה"חלול" וה"חימר/אדמה" משמו הקודם.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-kyRed">ילדות והאופניים הגנובים בלואיוויל:</h4>
+                            <p class="leading-loose">עלי נולד וגדל בעיר **לואיוויל (Louisville)**, קנטקי, תחת חוקי ההפרדה הגזעית הנוקשים של הדרום ("ג'ים קרואו"). הוא חווה עוני וגזענות. הפנומנולוגיה של כניסתו לאגרוף היא קומית וגורלית: בגיל 12 נגנבו אופניו האהובים. הוא רץ בדמעות לשוטר מקומי (שהיה גם מאמן אגרוף) והבטיח ש"ירביץ לגנב". השוטר אמר לו שעליו ללמוד להילחם קודם, וכך הכניס אותו לזירה.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-kyRed">אידיאולוגיה - גאווה שחורה וסרבנות פציפיסטית:</h4>
+                            <p class="leading-loose">האידיאולוגיה של עלי חרגה הרבה מעבר לספורט. הוא היה מהספורטאים הראשונים בעולם שהשתמשו בפרסומם כדי לקדם עמדה פוליטית קיצונית ("אני אמריקה שאתם לא מכירים"). הוא הצטרף ל"אומת האסלאם" (Nation of Islam) ודגל בגאווה שחורה בלתי מתפשרת. ב-1967 הוא עורר סערה לאומית כשהודיע על סירובו העקרוני והדתי להתגייס למלחמת וייטנאם: <span class="italic">"אין לי שום ריב עם הווייטקונג... אף וייטקונג לא קרא לי 'ניגר'"</span>.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-kyRed">הישגים מכוננים - "מרחף כמו פרפר, עוקץ כמו דבורה":</h4>
+                            <p class="leading-loose">עקב סירובו להתגייס, נשלל ממנו תואר אלוף העולם והוא הושעה מאיגרוף בשיא הקריירה שלו (למשך כ-3 שנים). אך עלי חזר בענק, זכה באליפות העולם במשקל כבד **שלוש פעמים שונות** (הראשון בהיסטוריה שעשה זאת), וניצח בקרבות המפורסמים ביותר בהיסטוריה ("רעש בג'ונגל", "מותחן במנילה"). עלי הפך לסמל תרבותי גלובלי. בעיר הולדתו לואיוויל, קנטקי, הוקם "מרכז מוחמד עלי" – המנציח את מורשתו למען שלום, כבוד האדם וצדק חברתי.</p>
                         </div>
                     </div>
                 </div>
@@ -296,7 +360,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
                         <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">החלוץ והמדינאי - סינתזה חברתית:</h4>
-                        <p class="leading-loose text-lg">במרכז החותם הלבן נראים שני גברים מתחבקים (או לוחצים ידיים בחוזקה). הגבר השמאלי לבוש בבגדי עור צבי ונושא כובע פרווה – זהו ה**חלוץ** (Frontiersman), המייצג את רוח הספר, הציידים ואנשי ההרים כדוגמת דניאל בון. הגבר הימני לבוש בחליפת זנבות (Tailcoat) מהמאה ה-18 – זהו ה**מדינאי** (Statesman), המייצג את עורכי הדין, הפוליטיקאים ואנשי הערים. החיבוק שלהם מצהיר שהמדינה הצעירה יכולה לשגשג רק באמצעות כבוד ואחדות בין אנשי השטח הפראיים לאנשי החוק והאדמיניסטרציה.</p>
+                        <p class="leading-loose text-lg">במרכז החותם הלבן נראים שני גברים מתחבקים (או לוחצים ידיים בחוזקה). הגבר השמאלי לבוש בבגדי עור צבי ונושא כובע פרווה – זהו ה**חלוץ** (Frontiersman), המייצג את רוח הספר, הציידים ואנשי ההרים כדוגמת דניאל בון. הגבר הימני לבוש בחליפת זנבות (Tailcoat) מהמאה ה-18 – זהו ה**מדינאי** (Statesman), המייצג את עורכי הדין, הפוליטיקאים ואנשי הערים כמו הנרי קליי. החיבוק שלהם מצהיר שהמדינה הצעירה יכולה לשגשג רק באמצעות כבוד ואחדות בין אנשי השטח הפראיים לאנשי החוק והאדמיניסטרציה.</p>
                     </div>
                     <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-kyGold shadow-2xl">
                         <h4 class="font-black text-white mb-6 text-3xl underline italic text-kyGold">המוטו ופרח מטה-הזהב:</h4>
@@ -323,16 +387,16 @@
                     <p>"Daniel Boone and the Wilderness Road". ארכיון המתעד את מסעות הציד ב-1775, הקרבות על עמק הצ'רוקי, ופריצת החומה הטופוגרפית של האפלצ'ים למערב.</p>
                 </div>
                 <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Muhammad Ali Center Archives (Louisville):</p>
+                    <p>"From Cassius to Ali: The Evolution of a Champion". התיעוד ההיסטורי והביוגרפי על גדילתו בדרום המופרד, סירובו להתגייס למלחמת וייטנאם, ומשמעות החלפת השם ה"חלול" (Cassius) לשם ה"נשגב" (Ali).</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
                     <p class="font-black text-white text-xl">University of Kentucky Equine Programs:</p>
                     <p>"The Geological Impact of Limestone on Thoroughbred Bone Density". מאמר מדעי באגרונומיה המסביר את התופעה הביולוגית של אדמת הבלוגראס והצלחת סוסי המרוץ של המדינה.</p>
                 </div>
                 <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Southern Foodways Alliance:</p>
-                    <p>"The Invention of the Hot Brown at the Brown Hotel". סקירה קולינרית של המצאת המנה בשנת 1926 כמענה לחיי הלילה וצריכת הברבון של לואיוויל (Louisville).</p>
-                </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
                     <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
-                    <p>"The Kentucky State Seal and Flag". ניתוח הרלדי של עיצוב 1792: הסינתזה החברתית של החלוץ (Frontiersman) עם פוליטיקאי החוף המזרחי (Statesman), ומקור המוטו.</p>
+                    <p>"The Kentucky State Seal and Flag". ניתוח הרלדי של עיצוב 1792: הסינתזה החברתית של החלוץ (Frontiersman) עם פוליטיקאי החוף המזרחי (Statesman), ומקור המוטו משירו של ג'ון דיקינסון.</p>
                 </div>
             </div>
         </section>
