@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>לואיזיאנה - מחקר אקדמי מורחב ומעודכן</title>
+    <title>לואיזיאנה - מחקר אקדמי מורחב ואולטימטיבי</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -14,9 +14,10 @@
                         darkBg: '#0f172a',
                         cardBg: '#1e293b',
                         accent: '#38bdf8',
-                        laBlue: '#00205B', /* Louisiana Flag Blue */
-                        laGold: '#FDB913',
-                        laRed: '#C8102E'
+                        laBlue: '#00205B',    /* Louisiana Flag Blue */
+                        laGold: '#FDB913',    /* Pelican Nest Gold */
+                        laRed: '#C8102E',     /* Blood drops Red */
+                        laPurple: '#800080'   /* Mardi Gras Purple */
                     }
                 }
             }
@@ -31,10 +32,11 @@
         /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
         p, li, span, div, blockquote { font-size: 1.125rem; } 
         .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
-        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 border-accent shadow-inner mb-8; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
         .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
         .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
-        .sub-header { @apply text-white font-black text-2xl mb-5 underline italic decoration-slate-500/50 underline-offset-8; }
+        .sub-header { @apply text-laGold font-black text-2xl mb-5 underline italic decoration-laGold/40 underline-offset-8; }
+        .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
     </style>
 </head>
 <body class="bg-darkBg text-slate-200 min-h-screen antialiased flex flex-col items-center p-4 sm:p-6 lg:p-10">
@@ -47,6 +49,7 @@
             </svg>
             חזרה לאטלס המדינות
         </a>
+        <span class="text-xs font-black tracking-widest text-slate-400 uppercase bg-slate-800 px-3 py-1 rounded-full border border-slate-600 mr-4">LA</span>
     </nav>
 
     <!-- כותרת מחקר אקדמי -->
@@ -70,13 +73,13 @@
         <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
         <section class="section-card">
             <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-laBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
-                אטימולוגיה: הפירוק המלכותי
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                אטימולוגיה: הפירוק המלכותי של "מלך השמש"
             </h2>
             
             <div class="space-y-10">
                 <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
-                    השם "לואיזיאנה" אינו רק סימון על מפה, אלא הצהרת ריבונות אימפריאלית מוחלטת שנישאה על ידי חוקרים צרפתים בלב היבשת האמריקאית. השם מהווה תעודה חיה למורשת המלוכנית האבסולוטית של צרפת במאה ה-17, ומבוסס על מבנה לטיני קלאסי המשייך רכוש לאדון.
+                    השם "לואיזיאנה" אינו רק סימון גיאוגרפי, אלא הצהרת ריבונות אימפריאלית מוחלטת שנישאה על ידי חוקרים צרפתים בלב היבשת האמריקאית. הוא מהווה תעודה חיה למורשת המלוכנית האבסולוטית של צרפת במאה ה-17, ומבוסס על מבנה לטיני המשייך רכוש לאדון.
                 </p>
 
                 <div class="space-y-8">
@@ -84,8 +87,8 @@
                     <div class="etymology-box border-laBlue">
                         <p class="text-laBlue font-black text-5xl mb-6 italic tracking-tighter">Louis (Ludovicus)</p>
                         <div class="space-y-4">
-                            <p><strong>מקור פילולוגי:</strong> שם פרטי ממקור פרנקי קדום (Hlodovic), שמשמעותו "לוחם מהולל". השם הלטיני הוא Ludovicus, והתגלגל בצרפתית ל-Louis.</p>
-                            <p><strong>הקשר היסטורי אבסולוטי:</strong> השם הוענק באופן ספציפי כדי להנציח ולפאר את **לואי ה-14** (Louis XIV), הידוע כ"מלך השמש" (Le Roi Soleil). לואי ה-14 היה סמל האבסולוטיזם הצרפתי ("המדינה זה אני"), ומגלי הארצות ביקשו להעניק לו את המתנה הגדולה ביותר האפשרית: יבשת שלמה עשירה במשאבים שתקרא על שמו, כאות לנאמנותם הבלתי מתפשרת לכתר בפריז.</p>
+                            <p><strong>מקור פילולוגי:</strong> שם פרטי ממקור פרנקי קדום (Hlodovic), שמשמעותו "לוחם מהולל" או "מפורסם בקרב". התגלגל לצרפתית כ-Louis ולטינית כ-Ludovicus.</p>
+                            <p><strong>הקשר היסטורי אבסולוטי:</strong> השם הוענק כדי להנציח ולפאר את **לואי ה-14** (Louis XIV), הידוע כ"מלך השמש". לואי ה-14 היה סמל האבסולוטיזם הצרפתי ("המדינה זה אני"). מגלי הארצות ביקשו להעניק לו את המתנה הגדולה ביותר: יבשת שלמה שתקרא על שמו.</p>
                         </div>
                     </div>
 
@@ -93,8 +96,8 @@
                     <div class="etymology-box border-laGold">
                         <p class="text-laGold font-black text-5xl mb-6 italic tracking-tighter">-iana</p>
                         <div class="space-y-4">
-                            <p><strong>מקור פילולוגי:</strong> סיומת לטינית קלאסית השמורה במשפט הרומי לציון בעלות, שיוך או נחלה מקרקעית של אדם ספציפי.</p>
-                            <p><strong>ניתוח מחקרי:</strong> השילוב יצר את התחדיש **Louisiane** בצרפתית (או Louisiana באנגלית), שפירושו המילולי והמשפטי הברור הוא <span class="text-white font-bold underline decoration-laGold">"ארצו של לואי"</span> או <span class="text-white font-bold underline decoration-laGold">"אחוזתו של לואי"</span>. כאשר הוכרז השם ב-1682, הוא לא התייחס רק למדינה הקטנה של היום, אלא לאגן הניקוז העצום של נהר המיסיסיפי כולו – משטחי קנדה בצפון ועד למפרץ מקסיקו בדרום, שטח שהיווה כשליש מיבשת אמריקה הצפונית.</p>
+                            <p><strong>מקור פילולוגי:</strong> סיומת לטינית קלאסית השמורה במשפט הרומי לציון בעלות, שיוך או נחלה.</p>
+                            <p><strong>ניתוח מחקרי:</strong> השילוב יצר את התחדיש **Louisiane** בצרפתית, שפירושו המשפטי הוא <strong class="text-white">"ארצו של לואי"</strong> (Land of Louis). ב-1682, שם זה לא התייחס רק למדינה הקטנה של היום, אלא לכל אגן הניקוז העצום של נהר המיסיסיפי – משטחי קנדה בצפון ועד למפרץ מקסיקו, שטח שהיווה כשליש מיבשת אמריקה.</p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +108,7 @@
         <section class="section-card">
             <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
                 <span class="bg-laBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
-                כרוניקה של ריבונות: אימפריאליזם ואסימילציה
+                כרוניקה של ריבונות: אימפריאליסט, מושל-משלב ואגדת ג'אז
             </h2>
             
             <div class="space-y-16">
@@ -113,44 +116,81 @@
                 <div class="personality-card border-r-8 border-laBlue shadow-2xl">
                     <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-laBlue decoration-4 underline-offset-8">ההוגה והמגלה: רנה-רובר קוואלייה (Sieur de La Salle)</h3>
                     <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1643–1687. <strong>מעמד:</strong> חוקר אימפריאלי צרפתי.</p>
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1643–1687. <strong>מעמד:</strong> חוקר אימפריאלי צרפתי וטובע השם לואיזיאנה.</p>
                         
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">ילדות ורקע מנזרי:</h4>
-                            <p class="leading-loose">לה סאל נולד ברואן (Rouen), צרפת, למשפחת סוחרים אמידה. כנער צעיר, הוא הצטרף למסדר הישועים היוקרתי מתוך כוונה להפוך לכומר. המשמעת הישועית הנוקשה חישלה את שכלו, אך האופי ההרפתקני והמרדני שלו הוביל אותו לעזוב את המסדר בגיל 22. הוא ויתר על ירושתו ונסע ל"צרפת החדשה" (קנדה המודרנית) כשהוא חסר כל, אך חמוש באמביציה לשנות את מפת העולם.</p>
+                        <!-- אטימולוגיה אישית -->
+                        <div class="bg-appBg rounded-2xl p-6 border border-cardBorder mb-8 shadow-inner">
+                            <h4 class="font-black text-laBlue mb-4 text-xl">אטימולוגיה של השם: מולקולריות של לידה מחדש ואבירות</h4>
+                            <ul class="space-y-3 text-lg text-textMain ml-4">
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">René (רנה):</strong> שם ממקור לטיני (Renatus). משמעותו "נולד מחדש" (Reborn), במקור בהקשר לטבילה הנוצרית הרוחנית.</li>
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Robert (רוברט):</strong> שם גרמאני עתיק (Hrodebert). מורכב מ-'Hrod' (תהילה) ו-'Beraht' (מזהיר). משמעותו "תהילה מזהירה".</li>
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Cavelier (קוואלייה):</strong> מילה צרפתית עתיקה (הקשורה ל-Cavalry) שפירושה רוכב סוסים או אביר.</li>
+                            </ul>
                         </div>
 
                         <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">אידיאולוגיה - שדרת השליטה הצרפתית:</h4>
-                            <p class="leading-loose">האידיאולוגיה של לה סאל הייתה גיאופוליטית טהורה. הוא זיהה כי מי שישלוט בנהר המיסיסיפי ישלוט ביבשת כולה. חזונו היה להקים שרשרת של מבצרים צרפתיים מימות הגדולות בצפון ועד למפרץ מקסיקו בדרום, ובכך ליצור "קיר חוסם" שימנע מהמושבות הבריטיות (בחוף המזרחי) ומהאימפריה הספרדית (במערב ובדרום) להתרחב פנימה לתוך אמריקה.</p>
+                            <h4 class="sub-header text-laGold">רקע ואידיאולוגיה - שדרת השליטה הצרפתית:</h4>
+                            <p class="leading-loose">לה סאל נולד בצרפת, עזב את מסדר הישועים בגיל 22 ונסע ל"צרפת החדשה" (קנדה). האידיאולוגיה שלו הייתה גיאופוליטית טהורה: הוא זיהה כי מי שישלוט בנהר המיסיסיפי ישלוט ביבשת כולה. חזונו היה להקים שרשרת של מבצרים צרפתיים מימות הגדולות בצפון ועד למפרץ מקסיקו בדרום, ובכך ליצור "קיר חוסם" שימנע מהמושבות הבריטיות להתרחב פנימה.</p>
                         </div>
 
                         <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">הבנייה, ההכרזה והמוות (1682):</h4>
-                            <p class="leading-loose">באפריל 1682, לאחר מסע מסוכן ומפרך לאורך נהר המיסיסיפי, הגיע לה סאל לשפך הנהר במפרץ מקסיקו. שם, בטקס אבסורדי באמצע הביצות, הוא הציב צלב ועמוד עץ עליו נחקק סמל צרפת, והכריז כי כל האדמות המנוקזות על ידי נהר זה שייכות למלך לואי ה-14, וקרא להן **La Louisiane**. מסעו הבא, שנועד ליישב את האזור, הסתיים באסון כשטעה בניווט והגיע לטקסס, שם נרצח בבגידה על ידי אנשיו המורעבים והמיואשים.</p>
+                            <h4 class="sub-header text-laGold">הישגים מכוננים - ההכרזה והמוות (1682):</h4>
+                            <p class="leading-loose">באפריל 1682, לאחר מסע מפרך, הגיע לה סאל לשפך הנהר במפרץ מקסיקו. שם, בטקס באמצע הביצות, הוא הציב צלב ועמוד עץ, והכריז כי כל האדמות המנוקזות על ידי הנהר שייכות למלך לואי ה-14 (**La Louisiane**). הוא נרצח מאוחר יותר בטקסס בבגידה על ידי אנשיו המיואשים במסע נוסף.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- ויליאם סי. סי. קלייבורן -->
                 <div class="personality-card border-r-8 border-laGold shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-laGold decoration-4 underline-offset-8">הבונה והמשלב האמריקאי: ויליאם סי. סי. קלייבורן (William C. C. Claiborne)</h3>
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-laGold decoration-4 underline-offset-8">המשלב האמריקאי והפיראט: ויליאם קלייבורן (William C.C. Claiborne)</h3>
                     <div class="space-y-8">
                         <p class="text-xl"><strong>שנות חיים:</strong> 1775–1817. <strong>מעמד:</strong> המושל האמריקאי הראשון של לואיזיאנה (1803–1816).</p>
 
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">רקע אישי ופוליטי:</h4>
-                            <p class="leading-loose">קלייבורן נולד בווירג'יניה והיה פוליטיקאי אמריקאי צעיר, מבריק, ושופט עליון. כאשר הנשיא תומאס ג'פרסון רכש את לואיזיאנה מנפוליאון ב-1803 ("רכישת לואיזיאנה"), הוא הטיל על קלייבורן את המשימה המסובכת ביותר באמריקה באותה עת: להפוך טריטוריה עצומה, המאוכלסת בקריאולים צרפתים-ספרדים גאים, עבדים משוחררים, פיראטים וילידים, שלא דיברו מילה באנגלית – לחלק בלתי נפרד מהרפובליקה האמריקאית.</p>
+                        <!-- אטימולוגיה אישית -->
+                        <div class="bg-appBg rounded-2xl p-6 border border-cardBorder mb-8 shadow-inner">
+                            <h4 class="font-black text-laGold mb-4 text-xl">אטימולוגיה של השם: מולקולריות של נחל הבוץ</h4>
+                            <ul class="space-y-3 text-lg text-textMain ml-4">
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">William (ויליאם):</strong> מגרמאנית (Willahelm) – "מגן בעל רצון ברזל".</li>
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Claiborne (קלייבורן):</strong> שם טופונומי אנגלי עתיק. הלחם של <em>Clæg</em> (חימר/בוץ) ו-<em>Burna</em> (נחל). "הנחל הבוצי". שם אירוני להפליא לאדם שניהל מדינה שכולה נחלי בוץ (Bayous) ואדמת דלתא טובענית.</li>
+                            </ul>
                         </div>
 
                         <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">אידיאולוגיה - אסימילציה דמוקרטית ומשפטית:</h4>
-                            <p class="leading-loose">האידיאולוגיה של קלייבורן הייתה "אינטגרציה תוך פשרה". בעוד שאר מושלי הטריטוריות האמריקאיות כפו את המשפט האנגלי המקובל (Common Law), קלייבורן הבין שהאליטה המקומית בגיאוגרפיה הצרפתית-ספרדית לא תקבל זאת. כפשרה אידיאולוגית היסטורית, הוא אישר ללואיזיאנה לשמור על מערכת חוקים המבוססת על **הקוד הנפוליאוני** ועל החוק האזרחי הרומי. עד היום, לואיזיאנה היא המדינה היחידה בארה"ב עם מערכת משפטית שונה מזו של שאר המדינות.</p>
+                            <h4 class="sub-header">אידיאולוגיה - אסימילציה דרך פשרה (הקוד הנפוליאוני):</h4>
+                            <p class="leading-loose">כאשר תומאס ג'פרסון רכש את לואיזיאנה (1803), קלייבורן נשלח למשימה הבלתי אפשרית: להפוך טריטוריה קריאולית-צרפתית גאה שלא דיברה אנגלית, לחלק מארה"ב. האידיאולוגיה שלו הייתה "אינטגרציה חכמה". במקום לכפות את המשפט האנגלי המקובל (Common Law), קלייבורן אישר ללואיזיאנה לשמור על מערכת חוקים המבוססת על **הקוד הנפוליאוני** והמשפט האזרחי הרומי (Civil Law) – עובדה שהופכת את לואיזיאנה למדינה היחידה בארה"ב עם מערכת משפטית שונה עד היום.</p>
                         </div>
 
                         <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">הישגים מכוננים - מדינה ומלחמה (1812–1815):</h4>
-                            <p class="leading-loose">קלייבורן הוביל את לואיזיאנה להפוך למדינה ה-18 באפריל 1812. המבחן הגדול ביותר שלו הגיע מיד לאחר מכן במלחמת 1812 מול הבריטים. הוא הצליח לאחד מיליציות אזרחיות, קריאולים פטריוטים, שחורים חופשיים, ואפילו את הברחותיו של הפיראט המפורסם ז'אן לאפיט, תחת פיקודו של הגנרל אנדרו ג'קסון. הניצחון ב**קרב על ניו אורלינס** ב-1815 חתם סופית את שייכותה של לואיזיאנה לאומה האמריקאית, ושילב אותה בפנתיאון ההיסטורי של ארה"ב.</p>
+                            <h4 class="sub-header">הישגים מכוננים - הפיראטים והניצחון (1815):</h4>
+                            <p class="leading-loose">במלחמת 1812, קלייבורן והגנרל אנדרו ג'קסון הגנו על ניו אורלינס מפני פלישה בריטית. כדי לנצח, קלייבורן בלע את גאוותו ואישר חנינה מלאה לאגדת הפשע המקומית, **הפיראט ז'אן לאפיט (Jean Lafitte)**, ואנשיו. הפיראטים הביאו את התותחים ואבקת השריפה שהכריעו את הקרב לטובת האמריקאים. כך קובעה לואיזיאנה כחלק בלתי נפרד מארה"ב.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- לואי ארמסטרונג -->
+                <div class="personality-card border-r-8 border-laPurple shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-laPurple decoration-4 underline-offset-8">מלך הג'אז של ניו אורלינס: לואי ארמסטרונג (Louis Armstrong)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1901–1971. <strong>מעמד:</strong> חצוצרן, זמר ואחד המוזיקאים החשובים במאה ה-20.</p>
+
+                        <!-- אטימולוגיה אישית -->
+                        <div class="bg-appBg rounded-2xl p-6 border border-cardBorder mb-8 shadow-inner">
+                            <h4 class="font-black text-laPurple mb-4 text-xl">אטימולוגיה של השם: מולקולריות של לוחם, אל וזרוע</h4>
+                            <ul class="space-y-3 text-lg text-textMain ml-4">
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Louis (לואי):</strong> בדיוק כמו השם שהעניק למדינה את שמה, משמעותו "לוחם מפורסם". (ארמסטרונג תמיד העדיף שיבטאו את שמו 'לואיס' באנגלית, ולא 'לואי' בצרפתית).</li>
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Daniel (דניאל):</strong> שמו האמצעי (שם אביו). "משפט האל" בעברית.</li>
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Armstrong (ארמסטרונג):</strong> שם משפחה אנגלו-סקוטי. משמעותו פשוטה כמשמעה: "בעל זרוע חזקה" (Strong arm). כינוי שניתן במקור לאנשים חזקים בקרב.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-laPurple">ילדות ורקע - חינוך מוזיקלי במוסד עבריינים:</h4>
+                            <p class="leading-loose">לואי (שכונה סאצ'מו - Satchmo) נולד לאם חד-הורית בשכונת "שדה הקרב" (The Battlefield) הענייה והמסוכנת בניו אורלינס. בגיל 11 הוא ירה באקדח ריק באוויר בערב השנה החדשה, נעצר ונשלח ל"מוסד לעבריינים צבעוניים" (Colored Waif's Home). שם הוא קיבל את שיעורי המוזיקה הראשונים שלו, למד לנגן על קורנט (סוג של חצוצרה קצרה), והפך למנהיג תזמורת המוסד – צעד ששינה את חייו ואת ההיסטוריה של המוזיקה.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-laPurple">אידיאולוגיה והישגים - המצאת סולו הג'אז:</h4>
+                            <p class="leading-loose">עד ארמסטרונג, הג'אז של ניו אורלינס (דיקסילנד) התאפיין באלתור קבוצתי-פוליפוני. ארמסטרונג שינה את הפרדיגמה לחלוטין: הוא המציא את **סולו הג'אז האינדיבידואלי** – שבו נגן אחד לוקח את הבמה ומאלתר מלודיה עצמאית מעל הקצב. הוא גם תרם לפופולריות של שירת ה"סקאט" (Scat - שירה של הברות חסרות משמעות). על אף שספג ביקורת לעיתים מהדור הצעיר על שהופיע מול קהל לבן "מעורב", ארמסטרונג היה דיפלומט תרבותי שהשתמש בגאונותו ובחיוכו כדי לשבור את חומות ההפרדה הגזעית בבידור האמריקאי.</p>
                         </div>
                     </div>
                 </div>
@@ -160,8 +200,8 @@
         <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
         <section class="section-card">
             <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-laBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
-                פנתיאון תרבותי: קולינריה ואגדות דתיות
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                פנתיאון תרבותי: הדם של השקנאי וכור ההיתוך של הגאמבו
             </h2>
             
             <div class="space-y-14">
@@ -170,40 +210,61 @@
                     <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-laBlue">בעל החיים הלאומי: השקנאי החום (Brown Pelican)</h3>
                     <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">ציפור המדינה הרשמית וסמל של הקרבה דתית</p>
                     <p class="text-slate-300 leading-loose text-xl">
-                        הבחירה בשקנאי החום כציפור הלאומית של לואיזיאנה חורגת הרבה מעבר לגיאוגרפיה הימית של המדינה; היא נטועה עמוק בדת הקתולית ובהיסטוריה של אירופה בימי הביניים, אשר יובאו לאזור על ידי המתיישבים הצרפתים המוקדמים.
+                        הבחירה בשקנאי החום אינה רק עניין של גיאוגרפיה ימית; היא נטועה עמוק בדת הקתולית של המתיישבים הצרפתים. על פי **אגדה נוצרית קדומה** מימי הביניים, בימי רעב ובצורת קשים, כאשר אם השקנאי אינה מוצאת מזון, היא תנקר ותרטש את החזה של עצמה באמצעות מקורה, ותאכיל את גוזליה בטיפות דמה שלה כדי שיחיו. 
                     </p>
                     <p class="text-slate-300 leading-loose text-xl mt-6">
-                        על פי **אגדה נוצרית קדומה**, בימי רעב ובצורת קשים, כאשר אם השקנאי אינה מוצאת דגים להאכיל בהם את גוזליה הגוועים ברעב, היא תנקר ותרטש את החזה של עצמה באמצעות מקורה, ותאכיל את הגוזלים בטיפות דמה שלה כדי שיחיו, גם במחיר חייה שלה. מוטיב זה, הנקרא באמנות ההרלדית "שקנאי באדיקותו" (Pelican in her piety), הפך לאחד הסמלים החזקים ביותר בנצרות להקרבתו העצמית של ישו עבור מאמיניו. 
-                    </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        לואיזיאנה, בעלת המסורת הקתולית החזקה (שהייתה חלק מזהותה נגד האמריקניזציה הפרוטסטנטית), אימצה את הסמל הזה כביטוי לאהבת המדינה לאזרחיה ולרוח של עזרה הדדית בזמני אסון – אלמנט שהוכיח את עצמו פעם אחר פעם בהתמודדות המדינה עם סופות הוריקן ושיטפונות הרסניים (כמו קתרינה).
+                        מוטיב זה, הנקרא "שקנאי באדיקותו" (Pelican in her piety), הפך לאחד הסמלים החזקים בנצרות להקרבתו של ישו. לואיזיאנה (מדינה קתולית עמוקה) אימצה את הסמל כביטוי לאהבת המדינה לאזרחיה ולרוח של עזרה הדדית. השקנאי עצמו הגיע לסף הכחדה בשנות ה-60 עקב הדברה (DDT), אך מאמצי שימור החזירו אותו למפרץ במלוא תפארתו.
                     </p>
                 </div>
 
                 <!-- המנה הלאומית -->
                 <div class="culture-highlight border-laGold">
                     <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-laGold">המנה הלאומית: גאמבו (Gumbo)</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">תבשיל המדינה הרשמי (אומץ ב-2004) וכור ההיתוך המושלם</p>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">תבשיל המדינה הרשמי - כור ההיתוך האולטימטיבי</p>
                     <p class="text-slate-300 leading-loose text-xl">
-                        אין עוד מנה באמריקה שהיא מטאפורה כה מדויקת להיסטוריה של המדינה שלה כמו ה**גאמבו**. מנה זו, שהיא צלב בין מרק סמיך לנזיד עשיר, נוצרה מתוך אילוצי ההישרדות של קבוצות אתניות שונות שנזרקו לאזור הביצות של דרום לואיזיאנה, תוך שהן מחליפות ביניהן חומרי גלם וטכניקות. 
-                    </p>
-                    <p class="text-slate-300 leading-loose text-xl mt-6">
-                        <strong class="text-white underline decoration-accent">האנטומיה של הגאמבו היא מפת ההגירה של לואיזיאנה:</strong><br>
+                        אין עוד מנה באמריקה שהיא מטאפורה כה מדויקת להיסטוריה הדמוגרפית של המדינה שלה. זהו תבשיל סמיך וכהה הנוצר משילוב של אילוצים וטכניקות של קבוצות אתניות שונות שנדחקו לביצות הדרום:
                     </p>
                     <ul class="list-disc list-inside space-y-4 mt-4 text-slate-300 leading-loose text-xl">
-                        <li><strong class="text-laGold">הבסיס הצרפתי:</strong> הנזיד מתחיל תמיד ב"רו" (Roux) – טכניקה צרפתית של השחמת קמח ושומן, שהומצאה מחדש בלואיזיאנה על ידי האקדיים (הקייג'ון) שגורשו מקנדה, תוך שימוש בשמן במקום חמאה להשגת צבע חום כהה וטעם אגוזי עמוק.</li>
-                        <li><strong class="text-laGold">הנשמה האפריקאית:</strong> מקור המילה "גאמבו" מגיע ממילים בשפות בנטו מערב-אפריקאיות (כמו *ki ngombo*) שמשמעותן **במיה** (Okra). העבדים האפריקאים שהובאו למטעים השתמשו בבמיה כדי להסמיך את המרק, והם אלו שיצרו את ציר הטעם המרכזי של המנה.</li>
-                        <li><strong class="text-laGold">המורשת הילידית (אינדיאנית):</strong> השבטים המקומיים (כמו הצ'וקטו) תרמו את אבקת ה"פילה" (Filé) – עלי עץ סאסאפרס (Sassafras) טחונים, שמשמשים כחומר מסמיך נוסף ותבלין המעניק למרק את ניחוח האדמה האופייני שלו.</li>
-                        <li><strong class="text-laGold">השילוש הקדוש (ספרדי/קריאולי):</strong> המקבילה הלואיזיאנית ל"מירפואה" הצרפתי (בצל, גזר וסלרי) מבוססת על ההשפעה הספרדית וכוללת בצל, סלרי, ו**פלפל ירוק מתוק**, שמהווים את הבסיס הארומטי לכל גאמבו אותנטי.</li>
+                        <li><strong class="text-white">הבסיס הצרפתי/קייג'ון:</strong> הנזיד מתחיל ב"רו" (Roux) – קמח מטוגן בשמן עד השחמה לקבלת טעם אגוזי עמוק (טכניקה צרפתית שעברה אדפטציה של האקדיים/קייג'ון שגורשו מקנדה).</li>
+                        <li><strong class="text-white">הנשמה האפריקאית:</strong> מקור המילה "גאמבו" מגיע משפות בנטו אפריקאיות (*ki ngombo*) שמשמעותן **במיה** (Okra). העבדים האפריקאים השתמשו בבמיה כדי להסמיך את המרק.</li>
+                        <li><strong class="text-white">המורשת האינדיאנית:</strong> השבטים המקומיים (צ'וקטו) תרמו את אבקת ה"פילה" (Filé) – עלי סאסאפרס טחונים, שמשמשים כמסמיך שני ומעניקים טעם אדמתי מובהק.</li>
+                        <li><strong class="text-white">ההשפעה הספרדית:</strong> המקבילה הקריאולית ל"מירפואה" הצרפתי (השילוש הקדוש: בצל, סלרי, ופלפל ירוק מתוק במקום גזר), שהיא בסיס הארומה של לואיזיאנה.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- 4. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <!-- 4. גאו-פוליטיקה ודמוגרפיה -->
         <section class="section-card">
             <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-laBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                <span class="bg-laRed text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">4</span>
+                גאו-פוליטיקה ודמוגרפיה: קהילות (Parishes) ואגני בוץ
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- שטח וטופוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-laBlue shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-blue-400">שטח וטופוגרפיה (Area & Topography)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        לואיזיאנה יושבת ממש על "הניקוז" של יבשת צפון אמריקה. היא מעוצבת לחלוטין על ידי **דלתת נהר המיסיסיפי**, שבה הנהר נשפך למפרץ מקסיקו. הגיאוגרפיה שלה מורכבת בעיקר מביצות סבוכות (Swamps) ואפיקי מים איטיים ועומדים הנקראים **באיו (Bayous)**. הגובה הממוצע של המדינה הוא מגוחך (רק כ-30 מטרים מעל פני הים), והעיר ניו אורלינס יושבת ברובה *מתחת* לגובה פני הים ומוגנת על ידי מערכת סכרים (Levees), מה שהפך אותה לפגיעה באופן קטלני להוריקנים (כדוגמת הוריקן קתרינה ב-2005).
+                    </p>
+                </div>
+
+                <!-- דמוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-laPurple shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-purple-400">פסיפס אנושי: קהילות גיאוגרפיות ולא מחוזות (Demographics)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        עם כ-4.6 מיליון תושבים, לואיזיאנה מציגה אנומליה מינהלית אמריקאית: אין בה "מחוזות" (Counties) כלל. במקום זאת, היא מחולקת ל-64 **קהילות כנסייתיות (Parishes)**, שריד לשלטון הצרפתי-ספרדי הקתולי. 
+                        דמוגרפית, זוהי אחת המדינות המגוונות ביותר: כשליש מאוכלוסייתה היא אפרו-אמריקאית (מורשת העבדות והמטעים). בדרום המדינה שולטת התרבות ה**קריאולית** (צאצאי צרפתים/ספרדים עירוניים) וה**קייג'ון** (Cajun - צאצאי פליטים צרפתים שגורשו מאקדיה שבקנדה במאה ה-18 ויושבו בביצות). צפון לואיזיאנה, לעומת זאת, היא הרבה יותר "אנגלו-סקסית" ודומה לאופי הדרומי והפרוטסטנטי של ארקנסו השכנה.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-laGold text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
                 אנומליה תרבותית: ניתוח פנומנולוגי של כינויי המדינה
             </h2>
             
@@ -212,77 +273,115 @@
                     <!-- The Pelican State -->
                     <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-laBlue shadow-2xl">
                         <h3 class="text-3xl font-black text-white mb-8 underline italic">The Pelican State (מדינת השקנאי)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">פנומנולוגיה של הקרבה וחוסן</p>
                         <p class="text-slate-300 leading-loose text-lg">
-                            הכינוי הרשמי של לואיזיאנה מנציח לא רק את בעל החיים האייקוני של המדינה, אלא גם את האתוס הקתולי העמוק והמסורת הקהילתית של הדרום העמוק. מעבר למימד הדתי (השקנאי הפוצע את עצמו למען גוזליו), השקנאי החום הפך במאה ה-20 לסמל אקולוגי עליון של המדינה. לאחר שכמעט נכחד כליל עקב שימוש בחומרי הדברה (DDT) בשנות ה-60, מאמצי שימור אדירים בתוך לואיזיאנה הביאו להתאוששות מרהיבה של האוכלוסייה. כך, מדינת השקנאי הפכה גם למטאפורה לכושר ההתאוששות (Resilience) של תושבי החופים מול אסונות טבע נוראיים.
+                            הכינוי הרשמי של לואיזיאנה מנציח את הציפור שעל דגלה. מעבר למימד הדתי של "השקנאי הפוצע את עצמו למען צאצאיו", השקנאי החום הפך במאה ה-20 לסמל אקולוגי עליון. לאחר שכמעט נכחד כליל (1966) במדינה עקב שימוש בחומרי הדברה, מאמצי שימור אדירים הביאו להתאוששות מרהיבה שלו. "מדינת השקנאי" הפכה למטאפורה לכושר ההתאוששות של התושבים (Resilience) מול אסונות טבע ומחלות.
                         </p>
                     </div>
 
                     <!-- The Bayou State -->
-                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-accent shadow-2xl">
-                        <h3 class="text-3xl font-black text-white mb-8 underline italic">The Bayou State (מדינת הבאיו)</h3>
+                    <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-laGreen shadow-2xl">
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-green-400">The Bayou State (מדינת הבאיו)</h3>
+                        <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">הבידוד הגיאוגרפי כמשמר תרבות</p>
                         <p class="text-slate-300 leading-loose text-lg">
-                            הכינוי מתאר מאפיין הידרולוגי וגיאוגרפי הייחודי לאזור דרום לואיזיאנה. המילה "Bayou" נובעת מהשפה הילידית הצ'וקטו (*bayuk*), ופירושה נחל קטן, מתפתל ואטי ביותר שמהווה שלוחה של נהר או אגם גדול יותר, ולעיתים עומד במקום. הבאיו לא היה רק נתיב מים, אלא אגן בידוד תרבותי: אל תוך הביצות המסועפות הללו נדחקו פליטים אקדיים מצרפת (Cajuns) וילידים, והבידוד הפיזי אפשר להם לשמר שפה, מוזיקה (זיידקו) ואורח חיים מסורתי במשך מאות שנים מבלי להיטמע ב"כור ההיתוך" האמריקאי המרכזי.
+                            "באיו" (Bayou) נובע מהשפה הילידית הצ'וקטו (*bayuk*), ופירושו נחל קטן, מתפתל ואטי המהווה שלוחה של נהר. הבאיו של לואיזיאנה אינו רק נתיב מים, אלא **אגן בידוד תרבותי**. אל תוך הביצות המסועפות הללו נדחקו הקייג'ונים (האקדיים הצרפתים) בחיפוש אחר מקלט. הבידוד הפיזי אפשר להם לשמר את שפתם הצרפתית (Louisiana French), המוזיקה שלהם (זיידקו) ואורח חייהם המסורתי במשך מאות שנים מבלי להיטמע ב"כור ההיתוך" האמריקאי.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
+        <!-- 6. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
         <section class="section-card">
             <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-laBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
-                וקסילולוגיה: ניתוח סמיוטי והיסטורי של דגל המדינה
+                <span class="bg-laBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                וקסילולוגיה: קן השקנאי ומאבק טיפות הדם
             </h2>
             
             <div class="flex flex-col items-center mb-16">
-                <!-- ייצוג ויזואלי סמלי של דגל לואיזיאנה -->
+                <!-- ייצוג ויזואלי סמלי של דגל לואיזיאנה ב-CSS -->
                 <div class="w-full max-w-2xl aspect-[3/2] bg-[#00205B] rounded-[3rem] overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.8)] border-[6px] border-slate-700 relative flex flex-col items-center justify-center group p-10">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-white/10 pointer-events-none"></div>
                     
                     <!-- מרכז הדגל - קן השקנאי -->
                     <div class="relative z-10 flex flex-col items-center transform transition-transform duration-700 group-hover:scale-105">
-                        <div class="text-white text-8xl drop-shadow-2xl mb-4">🦤</div> <!-- שימוש בסמל הציפור כאילוסטרציה לשקנאי -->
-                        <!-- שלוש טיפות דם -->
-                        <div class="absolute top-[45%] left-1/2 transform -translate-x-1/2 flex gap-1">
-                            <div class="w-2 h-3 bg-red-600 rounded-full animate-pulse shadow-[0_0_5px_rgba(220,38,38,0.8)]"></div>
-                            <div class="w-2 h-3 bg-red-600 rounded-full animate-pulse shadow-[0_0_5px_rgba(220,38,38,0.8)] delay-75"></div>
-                            <div class="w-2 h-3 bg-red-600 rounded-full animate-pulse shadow-[0_0_5px_rgba(220,38,38,0.8)] delay-150"></div>
+                        
+                        <!-- Pelican Mother & Chicks (abstracted via emojis for UI representation) -->
+                        <div class="relative flex flex-col items-center">
+                            <div class="text-white text-8xl drop-shadow-2xl mb-2 z-20">🦤</div> 
+                            <!-- The Nest -->
+                            <div class="absolute bottom-4 w-32 h-10 bg-[#FDB913]/80 rounded-full blur-[2px] z-10"></div>
+                            
+                            <!-- Three red drops of blood -->
+                            <div class="absolute top-[45%] left-1/2 transform -translate-x-1/2 flex gap-1 z-30">
+                                <div class="w-2 h-3 bg-[#C8102E] rounded-full animate-pulse shadow-[0_0_5px_rgba(200,16,46,0.8)]"></div>
+                                <div class="w-2 h-3 bg-[#C8102E] rounded-full animate-pulse shadow-[0_0_5px_rgba(200,16,46,0.8)] delay-75"></div>
+                                <div class="w-2 h-3 bg-[#C8102E] rounded-full animate-pulse shadow-[0_0_5px_rgba(200,16,46,0.8)] delay-150"></div>
+                            </div>
                         </div>
                         
-                        <!-- סרט המוטו -->
-                        <div class="mt-8 relative">
-                            <div class="bg-white px-8 py-3 rounded-lg shadow-xl border-y-2 border-slate-300">
-                                <span class="text-laBlue font-black text-sm uppercase tracking-[0.2em]">Union, Justice & Confidence</span>
+                        <!-- Ribbon with Motto -->
+                        <div class="mt-8 relative z-30">
+                            <div class="bg-white/95 px-8 py-3 rounded-lg shadow-xl border-y-2 border-slate-300 transform -rotate-1">
+                                <span class="text-[#00205B] font-black text-[11px] sm:text-sm uppercase tracking-[0.1em] sm:tracking-[0.2em]">Union, Justice & Confidence</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <p class="mt-12 text-slate-400 font-black text-3xl bg-slate-900 px-20 py-6 rounded-full border border-slate-700 shadow-2xl italic tracking-widest text-center leading-relaxed">
-                    דגל "השקנאי באדיקותו" <br><span class="text-xl font-medium text-slate-500">(הנוסח החוקי המעודכן מ-2006)</span>
+                    דגל "השקנאי באדיקותו" <br><span class="text-xl font-medium text-slate-500">(הנוסח החוקי והמעודכן משנת 2006)</span>
                 </p>
             </div>
 
             <div class="space-y-14 text-slate-300">
                 <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-laBlue shadow-xl">
-                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-laBlue decoration-4">נסיבות יצירה ומאבק על "טיפות הדם":</h3>
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-laBlue decoration-4">מסורת הדגל ומאבק האזרח הקטן על הדם (2006):</h3>
                     <p class="text-xl leading-loose">
-                        למרות שהשקנאי שימש כסמל לא רשמי של לואיזיאנה כבר מראשית המאה ה-19, הדגל הכחול אומץ רשמית על ידי המחוקקים רק ב-1 ביולי **1912**. אולם, ההיסטוריה העיצובית של הדגל כוללת מחלוקת מרתקת של זהות ותרבות שהגיעה לשיאה במאה ה-21. במקור, הסמל כלל ציור של שקנאי פוצע את חזהו ומאכיל את גוזליו מטיפות דמו. לאורך המאה ה-20, יצרני דגלים רבים השמיטו בטעות (או כדי לפשט את ההדפסה) את טיפות הדם האדומות מהחזה הלבן.
-                    </p>
-                    <p class="text-xl leading-loose mt-4">
-                        בשנת **2006**, הבחין תלמיד תיכון מלואיזיאנה כי רוב הדגלים המונפים חסרים את "הדם" המקורי. הוא פנה לבית המחוקקים של המדינה בטענה שהשמטת טיפות הדם עוקרת מן הדגל את מהותו הדתית ואת מוטיב ה"הקרבה העצמית" (Piety). בעקבות זאת, הועבר חוק מדינתי חדש ומפורש המחייב ציירים ויצרנים להציג בבירור **שלוש טיפות דם אדומות** על חזה השקנאי בדגל הרשמי.
+                        לואיזיאנה אימצה רשמית את דגל "השקנאי על שדה כחול" בשנת **1912**. אולם, לאורך המאה ה-20, יצרני דגלים מסחריים החלו להשמיט בטעות (או מטעמי פישוט וצנזורה) את טיפות הדם האדומות מחזה השקנאי. 
+                        בשנת **2006**, תלמיד חטיבת ביניים מלואיזיאנה בשם ג'וזף לומאטיקס הבחין בכך. הוא חקר ומצא שבלעדי הדם, כל המשמעות הדתית (Piety) של הקרבה אמהית למען האזרחים אובדת לחלוטין. הוא פנה למחוקק מקומי, וביחד הם העבירו חוק מדינתי תקדימי (2006) המחייב כל דגל רשמי להציג בצורה בולטת ומדויקת **שלוש טיפות דם אדומות** על חזה השקנאי. זהו ניצחון נדיר של וקסילולוגיה אזרחית.
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">צבע הרקע (כחול עמוק):</h4>
-                        <p class="leading-loose text-lg">שדה הכחול כהה אינו רק מסורת וקסילולוגית של מדינות רבות, אלא נועד להעניק בולטות קיצונית לשקנאי הלבן. הכחול מסמל נאמנות, אמת, ואת מימי נהר המיסיסיפי והמפרץ שמגדירים את גבולותיה ואת כלכלתה של המדינה.</p>
-                    </div>
                     <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-laGold shadow-2xl">
-                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-laGold">המוטו הלאומי:</h4>
-                        <p class="leading-loose text-lg">סרט הריבון שמתחת לקן נושא את המילים <strong class="text-white">"Union, Justice and Confidence"</strong> (איחוד, צדק, וביטחון עצמי). מילים אלו שולבו לסמל לראשונה בשנת 1902. "איחוד" מצביע על המסירות לאמריקה לאחר מלחמת האזרחים, "צדק" נועד לכבד את מערכת החוק הנפוליאונית השווה לכל, ו"ביטחון" בכושרה של לואיזיאנה לשגשג.</p>
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-laGold">השקנאי ושלושת הגוזלים:</h4>
+                        <p class="leading-loose text-lg">הסמל המרכזי מציג אם שקנאי עומדת בקן לצד שלושה גוזלים (למרות שבמציאות שקנאים מטילים בדרך כלל שתי ביצים). כנפיה של האם פרושות, מגוננות על הקן, והיא מורידה את ראשה כדי להאכיל אותם בבשרה ודמה. הדמויות מצוירות בלבן עם רמזים לזהב/חום. הסמל מייצג את המדינה כ"אם" המגנה והמזינה את אזרחיה ("הגוזלים").</p>
                     </div>
+                    <div class="bg-slate-900/60 p-12 rounded-[2.5rem] border-b-8 border-white shadow-2xl">
+                        <h4 class="font-black text-white mb-6 text-3xl underline italic text-slate-200">המוטו הלאומי ושדה הכחול:</h4>
+                        <p class="leading-loose text-lg">שדה הכחול נועד להבליט את הלבן של הציפור ומסמל את נאמנות המדינה ואת מימי נהר המיסיסיפי. למטה מתנוסס המוטו: <strong class="text-white">"Union, Justice and Confidence"</strong>. "איחוד" מעיד על נאמנות לארה"ב פוסט מלחמת האזרחים, "צדק" מתייחס למערכת החוק הנפוליאונית הייחודית של המדינה, ו"ביטחון עצמי" מבטא את האופטימיות של האזור.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. ביבליוגרפיה ומקורות מחקריים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">7</span>
+                ביבליוגרפיה ומקורות מחקריים
+            </h2>
+            
+            <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">The Historic New Orleans Collection:</p>
+                    <p>"The Etymology of Louisiana and the Expeditions of La Salle". מסמכים המוכיחים את ההכרזה של 1682 ואת המנגנון המשפטי של הסיומת 'iana' להענקת בעלות ליבשת למלך לואי ה-14.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Louisiana State Museum:</p>
+                    <p>"Governor Claiborne and the Civil Law Tradition". מחקר היסטורי המסביר את ההחלטה התקדימית לאשר את הקוד הנפוליאוני כאמצעי למניעת מרד קריאולי לאחר רכישת לואיזיאנה.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">The Louis Armstrong House Museum Archives:</p>
+                    <p>"From the Battlefield to the World". ביוגרפיה אטימולוגית ומוזיקלית של ארמסטרונג, המצאת סולו הג'אז, וגידולו במוסד העבריינים שהפך אותו למוזיקאי הראשי של המאה ال-20.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Southern Foodways Alliance:</p>
+                    <p>"The Melting Pot of Gumbo". אנתרופולוגיה קולינרית הממפה את הפירוק התרבותי של הגאמבו: במיה אפריקאית (Ki ngombo), מסמיך פילה ילידי, ורו צרפתי.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"The Blood of the Pelican: The 2006 Flag Revision". התיעוד המשפטי על מאבקו של התלמיד ג'וזף לומאטיקס להחזרת שלוש טיפות הדם האדומות לדגל במטרה לשמר את מורשת ה'אדיקות' (Piety).</p>
                 </div>
             </div>
         </section>
