@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>מיין - מחקר אקדמי מורחב ומעודכן</title>
+    <title>מיין - מחקר אקדמי מורחב ואולטימטיבי</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -16,7 +16,8 @@
                         accent: '#38bdf8',
                         maineBlue: '#002A86', /* State Flag Blue */
                         pineGreen: '#004C23', /* 1901 Flag Pine Green */
-                        buffGold: '#F2C75C'  /* 1901 Flag Buff Background */
+                        buffGold: '#F2C75C',  /* 1901 Flag Buff Background */
+                        lobsterRed: '#D22B2B' /* Lobster Red Accent */
                     }
                 }
             }
@@ -31,10 +32,10 @@
         /* גודל גופן 18px קבוע לטקסט רץ לנוחות מקסימלית ב-S25 Ultra */
         p, li, span, div, blockquote { font-size: 1.125rem; } 
         .section-card { @apply bg-cardBg rounded-[2.5rem] p-8 sm:p-14 shadow-2xl border border-slate-700 mb-14; }
-        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 border-accent shadow-inner mb-8; }
+        .etymology-box { @apply bg-slate-900/60 p-10 rounded-3xl border-r-4 shadow-inner mb-8; }
         .personality-card { @apply bg-slate-800/50 p-10 rounded-3xl border border-slate-600 mb-12; }
         .culture-highlight { @apply bg-slate-900/40 p-12 rounded-[2.5rem] border-l-4 mb-12 shadow-2xl; }
-        .sub-header { @apply text-white font-black text-2xl mb-5 underline italic decoration-slate-500/50 underline-offset-8; }
+        .sub-header { @apply text-buffGold font-black text-2xl mb-5 underline italic decoration-buffGold/40 underline-offset-8; }
         .highlight-text { @apply text-white font-bold bg-slate-800 px-2 py-1 rounded; }
     </style>
 </head>
@@ -48,6 +49,7 @@
             </svg>
             חזרה לאטלס המדינות
         </a>
+        <span class="text-xs font-black tracking-widest text-slate-400 uppercase bg-slate-800 px-3 py-1 rounded-full border border-slate-600 mr-4">ME</span>
     </nav>
 
     <!-- כותרת מחקר אקדמי -->
@@ -71,82 +73,157 @@
         <!-- 1. אטימולוגיה: ניתוח פילולוגי מולקולרי -->
         <section class="section-card">
             <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-pineGreen text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">1</span>
                 אטימולוגיה: המאבק בין הים לצרפת
             </h2>
             
             <div class="space-y-10">
                 <p class="leading-loose text-slate-300 font-medium italic border-r-4 border-slate-500 pr-8 text-xl">
-                    בניגוד לרוב מדינות ארה"ב, מקור השם "מיין" אינו מתועד במסמך רשמי אחד ומוחלט שמסביר את כוונת המשורר. המחקר הבלשני וההיסטורי נקרע בין שתי תיאוריות מרכזיות, כאשר המשותף להן הוא הניסיון להגדיר טריטוריה פראית ועמוסת איים.
+                    בניגוד לרוב מדינות ארה"ב, למיין אין מסמך היסטורי אחד שפוסק במדויק מדוע נבחר שמה. המחקר האקדמי נקרע בין שתי תיאוריות מרכזיות, אך שתיהן מנסות להגדיר חבל ארץ פראי וקשה להגדרה.
                 </p>
 
                 <div class="space-y-8">
-                    <!-- התיאוריה הימית -->
+                    <!-- The Main -->
                     <div class="etymology-box border-maineBlue">
                         <p class="text-maineBlue font-black text-5xl mb-6 italic tracking-tighter">The Main (Mainland)</p>
                         <div class="space-y-4">
                             <p><strong>מקור פילולוגי:</strong> אנגלית ימית (Nautical English) של המאה ה-16 וה-17.</p>
-                            <p><strong>ניתוח מחקרי והקשר גיאוגרפי:</strong> חופה של מיין מורכב מאוד, שבור למאות מפרצונים וכולל למעלה מ-3,000 איים הפזורים לאורכו. כאשר מלחים, דייגים וסוחרים אנגלים שייטו באזור, הם נזקקו למונח שוטף שיבדיל בין האיים הרבים (שבהם עגנו זמנית) לבין היבשת המוצקה והמרכזית. הם נהגו לומר שהם שטים אל "The Main" או "The Mainland" (היבשת המרכזית). עם הזמן, המונח התיאורי הפך לשם עצם פרטי. בשנת 1622, בזיכיון המלכותי שהעניק המלך ג'יימס הראשון לסר פרדיננדו גורג'ס, נכתב במפורש כי הטריטוריה תיקרא "מחוז מיין" (Province of Maine), מה שמחזק את ההשערה שזו פשוט הייתה המילה השגורה בפי המלחים שהפכה לרשמית.</p>
+                            <p><strong>ניתוח גיאוגרפי:</strong> חופה של מיין שבור ומרוסק ללמעלה מ-3,000 איים, חצאי-איים ומפרצונים. מלחים, דייגים וסוחרים אנגלים שייטו ביניהם ונזקקו למונח שיבדיל בין האיים הקטנים (שבהם עגנו זמנית) לבין היבשת המוצקה. הם נהגו לומר שהם שטים אל "The Main" או "The Mainland" (היבשת המרכזית). עם הזמן, המונח התיאורי הפך לשם עצם פרטי. בזיכיון של 1622 המוענק לפרדיננדו גורג'ס, השטח נקרא מפורשות "מחוז מיין" (Province of Maine).</p>
                         </div>
                     </div>
 
-                    <!-- התיאוריה הצרפתית -->
+                    <!-- Province du Maine -->
                     <div class="etymology-box border-buffGold">
                         <p class="text-buffGold font-black text-5xl mb-6 italic tracking-tighter">Province du Maine</p>
                         <div class="space-y-4">
-                            <p><strong>מקור פילולוגי:</strong> טופונימיה צרפתית היסטורית.</p>
-                            <p><strong>ניתוח מחקרי:</strong> תיאוריה רומנטית יותר טוענת שהשם ניתן כמחווה למחוז "מיין" (Maine) ההיסטורי בצרפת (שבירתו הייתה לה מאן - Le Mans). הטענה המקורית הייתה שהשם הוענק כדי לחלוק כבוד להנרייטה מריה, נסיכה צרפתייה שהפכה לאשתו של צ'ארלס הראשון, מלך אנגליה (אשר שלט כשהמושבה התבססה). עם זאת, חוקרים מודרניים מציינים כי להנרייטה מריה לא היה שום קשר אחוזה ישיר למחוז מיין הצרפתי, מה שמחליש תיאוריה זו. למרות זאת, בית המחוקקים של מיין בשנת 2001 אימץ החלטה שקובעת (מסיבות תיירותיות ודיפלומטיות) כי השם מגיע מהמחוז הצרפתי.</p>
+                            <p><strong>מקור פילולוגי:</strong> טופונימיה צרפתית.</p>
+                            <p><strong>ניתוח מחקרי:</strong> תיאוריה רומנטית טוענת שהשם הוא מחווה למחוז "מיין" בצרפת (אזור לה מאן). בעבר נטען שזה לכבודה של המלכה הנרייטה מריה (אשת צ'ארלס ה-1 מאנגליה), אך היסטוריונים הוכיחו שמעולם לא הייתה לה זיקה לאותו מחוז בצרפת. למרות היעדר ההוכחה, בשנת 2001 קיבל בית המחוקקים של מיין החלטה (Resolves) רשמית המכירה בתיאוריה הצרפתית כהוקרה לשורשים הצרפתיים-אקדיים (Franco-Americans) של רבים מתושבי המדינה.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. כרוניקה של ריבונות: הוגים ובונים -->
+        <!-- 2. גאו-פוליטיקה ודמוגרפיה -->
         <section class="section-card">
             <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
                 <span class="bg-pineGreen text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">2</span>
-                כרוניקה של ריבונות: ההוגה, והמשחרר ממסצ'וסטס
+                גאו-פוליטיקה ודמוגרפיה: היער הצפוני ומלחמת העצים
+            </h2>
+            
+            <div class="space-y-14">
+                <!-- שטח וטופוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-pineGreen shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-green-500">שטח וטופוגרפיה (Area & Topography)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        מיין היא המדינה המזרחית והצפונית ביותר בניו אינגלנד, והיא גדולה בשטחה יותר מכל שאר מדינות ניו אינגלנד גם יחד. הטופוגרפיה שלה פראית ומוגדרת על ידי שני יסודות: יערות וים. מיין היא **המדינה המיוערת ביותר בארצות הברית** באחוזים (קרוב ל-90% משטחה מכוסה יער עבות). חופה האטלנטי ידוע כחוף סלעי (Rocky Coast), שנוצר משחיקת קרחונים עתיקים, והוא משופע במפרצונים וצוקים דרמטיים כדוגמת אלו שבפארק הלאומי אקדיה (Acadia). פנים המדינה הררי ומגיע לשיאו ב**הר קטאהדין (Mount Katahdin)**, נקודת הסיום הצפונית של שביל האפלצ'ים המפורסם.
+                    </p>
+                </div>
+
+                <!-- דמוגרפיה -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-slate-400 shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-slate-300">פסיפס אנושי: זקנה לבנה ושורשים צרפתיים (Demographics)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        עם כ-1.3 מיליון תושבים בלבד, מיין מחזיקה בשתי אנומליות דמוגרפיות ארציות: היא **המדינה "הלבנה" ביותר בארה"ב** (כ-94% מאוכלוסייתה מוגדרים לבנים לא-היספאנים), והיא גם **המדינה בעלת הגיל החציוני המבוגר ביותר**. האוכלוסייה מרוכזת בדרום ובקו החוף (פורטלנד), בעוד צפון מיין (Aroostook County) מבודד לחלוטין. התופעה התרבותית המרתקת היא שיעור ה**פרנקו-אמריקאים**: כרבע מהאוכלוסייה הם ממוצא צרפתי-קנדי או אקדי, צאצאי הגירה ממאות קודמות, ובחלקים בצפון עדיין מדברים צרפתית בחיי היומיום.
+                    </p>
+                </div>
+
+                <!-- עיצוב גבולות -->
+                <div class="bg-slate-900/40 p-10 rounded-[2rem] border-r-8 border-lobsterRed shadow-xl">
+                    <h3 class="text-2xl font-black text-white mb-4 underline italic text-red-500">עיצוב גבולות: מלחמת העצים חסרת הדם (Aroostook War)</h3>
+                    <p class="text-slate-300 leading-loose text-lg">
+                        גבולותיה המודרניים של מיין עם קנדה שורטטו מתוך עימות דיפלומטי חמוס וביזארי. בשנות ה-1830, חוטבי עצים אמריקאים וקנדים התעמתו על שטחי יער עשירים באורנים לאורך נהר הארוסטוק בצפון. המתיחות הסלימה למה שמכונה **"מלחמת ארוסטוק" (1838–1839)**. שתי המדינות (ארה"ב ובריטניה) גייסו מיליציות ושלחו כוחות לגבול. למרבה המזל, העימות הסתיים ללא קרב יריות של ממש (אף ששני קנדים נפצעו מדובים!). הדיפלומטיה התערבה, ובשנת 1842 נחתם **הסכם ובסטר-אשברטון** שהגדיר סופית את הגבול הצפוני המפותל, והעניק למיין את שטחה העצום הנוכחי.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. כרוניקה של ריבונות: הוגים ובונים -->
+        <section class="section-card">
+            <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
+                <span class="bg-maineBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                כרוניקה של ריבונות: אדריכלי המרד וההישרדות
             </h2>
             
             <div class="space-y-16">
                 <!-- סר פרדיננדו גורג'ס -->
                 <div class="personality-card border-r-8 border-buffGold shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-buffGold decoration-4 underline-offset-8">ההוגה שמעולם לא הגיע: סר פרדיננדו גורג'ס (Sir Ferdinando Gorges)</h3>
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-buffGold decoration-4 underline-offset-8">ההוגה שמעולם לא הגיע: סר פרדיננדו גורג'ס (Ferdinando Gorges)</h3>
                     <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1565–1647. <strong>תואר היסטורי:</strong> "אבי הקולוניזציה האנגלית באמריקה".</p>
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1565–1647. <strong>מעמד:</strong> "אבי הקולוניזציה האנגלית באמריקה" ויזם הטריטוריה.</p>
                         
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">ילדות, רקע ואידיאולוגיה צבאית:</h4>
-                            <p class="leading-loose">גורג'ס נולד למשפחת אצולה באנגליה והקדיש את שנותיו הראשונות לקריירה צבאית. הוא לחם למען המלכה אליזבת הראשונה נגד הספרדים בארצות השפלה וזכה לתואר אבירות. האידיאולוגיה הקולוניאלית שלו הייתה אריסטוקרטית ופיאודלית לחלוטין: בניגוד לפוריטנים (הפילגרימים) שברחו לאמריקה כדי לחפש חופש דתי, גורג'ס ראה באמריקה הזדמנות להקים מחדש את שיטת האחוזות האירופאית. הוא רצה להקים ב"מיין" מחוז כפרי שבו הוא ישמש כלורד הפיאודלי העליון, ומתיישבים יעבדו את אדמתו כאריסים.</p>
+                        <!-- אטימולוגיה אישית -->
+                        <div class="bg-appBg rounded-2xl p-6 border border-cardBorder mb-8 shadow-inner">
+                            <h4 class="font-black text-buffGold mb-4 text-xl">אטימולוגיה של השם: מולקולריות של הרפתקה ועמק עמוק</h4>
+                            <ul class="space-y-3 text-lg text-textMain ml-4">
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Ferdinando:</strong> שם בעל מקורות ויזיגותיים-גרמאניים קדומים (*Fardi-nand*). מורכב מ-'Fardi' (מסע/הרפתקה) ו-'Nand' (אמיץ/נועז). המשמעות היא "הרפתקן אמיץ" או "המעז לנסוע". שם הולם באופן קוסמי למקים טריטוריות מעבר לים.</li>
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Gorges:</strong> שם משפחה ממוצא אנגלו-נורמני או צרפתי (Gorge), שמשמעותו מילולית "גרון" או בהקשר הגיאוגרפי "ערוץ/נקיק הרים". ייתכן שמשפחתו התגוררה ליד גיא עמוק.</li>
+                            </ul>
                         </div>
 
                         <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">הישגים והפרדוקס המחקרי:</h4>
-                            <p class="leading-loose">ב-1622 קיבל גורג'ס, יחד עם שותפו ג'ון מייסון, מענק קרקע עצום מהמלך שהשתרע בין נהר המרימק לנהר הקנבק. גורג'ס השקיע את כל הונו בארגון ספינות, שליחת ציוד וגיוס מתיישבים כדי להקים את "מחוז מיין". הוא זה שהחזיק בחיים את רעיון ההתיישבות בצפון ניו אינגלנד דרך חברת מועצת פלימות'. אולם, הפרדוקס ההיסטורי הגדול הוא ש"אבי מיין", ששלט בקרקע והתווה את גבולותיה הראשוניים, <strong class="text-white">מעולם לא דרך על אדמת אמריקה הצפונית בחייו</strong>. התוכנית הפיאודלית שלו קרסה בסופו של דבר, והמושבה שלו נבלעה על ידי מסצ'וסטס העוצמתית והמתרחבת.</p>
+                            <h4 class="sub-header text-buffGold">אידיאולוגיה - החלום הפיאודלי:</h4>
+                            <p class="leading-loose">ראלי (בדומה למיסיונרים) ראה במיין חזון צבאי ואריסטוקרטי. כלוחם ומושל העיר פלימות' באנגליה, הוא קיבל זיכיון אדיר מהמלך ב-1622. בניגוד לפוריטנים של מסצ'וסטס שחיפשו חופש, אידיאולוגיית הקולוניזציה שלו הייתה **פיאודלית**: הוא רצה להקים מערכת שבה הוא יהיה ה"לורד" העליון, והמתיישבים יהיו אריסים (Tenants) המשלמים לו דמי חכירה. הוא השקיע הון באוניות ובציוד.</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-buffGold">הפרדוקס - אב שנעדר מבנייתו:</h4>
+                            <p class="leading-loose">למרות שהוא נחשב רשמית למייסד הראשון של מיין ולמתווה גבולותיה הראשוניים, הפרדוקס המחקרי הוא ש**גורג'ס מעולם לא דרך על אדמת אמריקה מימיו**. ניסיונותיו לנהל את המושבה בשלט רחוק קרסו כלכלית, ולאחר מותו, מסצ'וסטס העוצמתית והאגרסיבית סיפחה את מיין לחלוטין למשך כמעט 200 שנה.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- וויליאם קינג -->
                 <div class="personality-card border-r-8 border-maineBlue shadow-2xl">
-                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-maineBlue decoration-4 underline-offset-8">המשחרר והמושל הראשון: וויליאם קינג (William King)</h3>
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-maineBlue decoration-4 underline-offset-8">המשחרר והאדריכל: וויליאם קינג (William King)</h3>
                     <div class="space-y-8">
-                        <p class="text-xl"><strong>שנות חיים:</strong> 1768–1852. <strong>תואר היסטורי:</strong> אדריכל העצמאות של מיין.</p>
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1768–1852. <strong>מעמד:</strong> אדריכל העצמאות והמושל הראשון של המדינה.</p>
 
-                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">ילדות ורקע - מעוני לאימפריה ימית:</h4>
-                            <p class="leading-loose">קינג נולד בסקרבורו, מיין (אז חלק ממסצ'וסטס). לאחר מות אביו כשהיה בן 7, המשפחה איבדה את כל רכושה והוא גדל בעוני קיצוני. הוא החל את דרכו כפועל פשוט במנסרה (Sawmill), ללא השכלה פורמלית. בזכות כוח רצון חריג, הוא רכש ספינה קטנה, התקדם בהדרגה, והפך לאחד מסוחרי העצים ואיילי הספנות (Shipping Magnates) העשירים והעוצמתיים ביותר בניו אינגלנד של המאה ה-19.</p>
+                        <!-- אטימולוגיה אישית -->
+                        <div class="bg-appBg rounded-2xl p-6 border border-cardBorder mb-8 shadow-inner">
+                            <h4 class="font-black text-maineBlue mb-4 text-xl">אטימולוגיה של השם: מגן הרצון והמלך</h4>
+                            <ul class="space-y-3 text-lg text-textMain ml-4">
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">William (ויליאם):</strong> ממקור גרמאני עתיק (*Willahelm*). "וילה" - רצון חזק, "הלם" - קסדה/מגן. משמעותו "מגן בעל רצון ברזל".</li>
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">King (קינג):</strong> אנגלית מובהקת (Cyning באנגלית עתיקה) - מלך, מנהיג או שליט. האיש שייסד את מיין העצמאית כיהן כמעין 'מלך' כלכלי ופוליטי שלה.</li>
+                            </ul>
                         </div>
 
                         <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">אידיאולוגיה - התנתקות ממסצ'וסטס:</h4>
-                            <p class="leading-loose">במשך כ-150 שנה, מיין לא הייתה מושבה עצמאית אלא "מחוז" נחשל שנשלט מרחוק על ידי האליטה של בוסטון, מסצ'וסטס. האידיאולוגיה של קינג הייתה מבוססת על טינה עמוקה לשלטון זה. הטינה הגיעה לשיאה במהלך **מלחמת 1812**, כאשר הצבא הבריטי פלש לחופי מיין וכבש שטחים נרחבים. ממשלת מסצ'וסטס, שהתנגדה למלחמה, פשוט סירבה לשלוח חיילים להגן על אזרחי מיין. קינג, שנאלץ לארגן מיליציות בכוחות עצמו, החליט שאין יותר אמון בבוסטון והחל להוביל תנועה פוליטית נחרצת להקמת מדינה ריבונית נפרדת.</p>
+                            <h4 class="sub-header">רקע ואידיאולוגיה - שחרור מעולה של בוסטון:</h4>
+                            <p class="leading-loose">קינג גדל בעוני לאחר שאביו מת, ולמד את חוכמת הרחוב. הוא החל כפועל במנסרה, הפך לבעל ספינות (איל ספנות), ולבסוף לאיש החזק והעשיר במיין. האידיאולוגיה שלו הייתה **אנטי-אריסטוקרטית והיפרדותית**. הוא זעם על כך שאליטת מסצ'וסטס ראתה במיין רק מחסן עצים ומיסים. במלחמת 1812, כשבריטניה כבשה חצי ממיין ומסצ'וסטס סירבה לשלוח צבא להגן עליהם, החליט קינג שחובה להתנתק ולהקים מדינה ריבונית.</p>
                         </div>
 
                         <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
-                            <h4 class="sub-header">הישגים מכוננים - "פשרת מיזורי" (1820):</h4>
-                            <p class="leading-loose">מאבקו של קינג הוביל לכתיבת חוקת מיין, אך כניסתה לאיחוד נתקלה במכשול אדיר בקונגרס האמריקאי, שהיה קרוע בשאלת העבדות. כדי לשמור על מאזן הכוחות בסנאט בין מדינות החופש למדינות העבדות, נרקמה הפוליטיקה ההיסטורית הידועה כ**פשרת מיזורי (Missouri Compromise)**: מיזורי תצורף כמדינת עבדות, ובתמורה, מיין תופרד ממסצ'וסטס ותצורף כמדינה חופשית (Free State). ב-15 במרץ 1820 הפכה מיין למדינה ה-23, וויוויליאם קינג נבחר ברוב עצום למושל הראשון שלה, מניח את היסודות לכלכלה והתעשייה המקומית.</p>
+                            <h4 class="sub-header">הישגים מכוננים - פשרת מיזורי (1820):</h4>
+                            <p class="leading-loose">קינג ניהל קמפיין מבריק לעצמאות. הוא חוקק חוקה מתקדמת (העניק זכות הצבעה גם לאפרו-אמריקאים וביטל הגבלות דת). אולם, כניסת מיין לאיחוד נתקעה בפוליטיקה הפדרלית. כדי לשמור על האיזון, התקבלה **פשרת מיזורי (Missouri Compromise)**: מיזורי נכנסה כמדינת עבדות, ומיין כמדינה חופשית (Free State). ב-1820 נותקה מיין רשמית ממסצ'וסטס, וקינג נבחר למושל הראשון ברוב של 95%, כשהוא מניח את תשתיות החינוך והכלכלה שלה.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ג'ושוע צ'מברליין -->
+                <div class="personality-card border-r-8 border-pineGreen shadow-2xl">
+                    <h3 class="text-3xl font-black text-white mb-8 italic underline decoration-pineGreen decoration-4 underline-offset-8">הלוחם והמחנך: ג'ושוע לורנס צ'מברליין (Joshua Chamberlain)</h3>
+                    <div class="space-y-8">
+                        <p class="text-xl"><strong>שנות חיים:</strong> 1828–1914. <strong>מעמד:</strong> גיבור קרב גטיסברג, גנרל, ומושל מיין.</p>
+
+                        <!-- אטימולוגיה אישית -->
+                        <div class="bg-appBg rounded-2xl p-6 border border-cardBorder mb-8 shadow-inner">
+                            <h4 class="font-black text-pineGreen mb-4 text-xl">אטימולוגיה של השם: מולקולריות של ישועה ואצולה</h4>
+                            <ul class="space-y-3 text-lg text-textMain ml-4">
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Joshua (ג'ושוע):</strong> שם עברי טהור מהתנ"ך (יהושע). המשמעות היא "אלוהים הוא ישועה".</li>
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Lawrence (לורנס):</strong> מהשם הלטיני <em>Laurentius</em> – אדם מהעיר העתיקה לורנטום (Laurentum), או כזה העטור בזר דפנה (Laurel), סמל הניצחון.</li>
+                                <li><strong class="text-white bg-slate-800 px-2 py-1 rounded">Chamberlain (צ'מברליין):</strong> שם אנגלי שמקורו צרפתי-נורמני עתיק (*Chambellan*). הפירוש הוא פקיד בכיר, שר חצר, או האדם האחראי על תאיו של המלך/אציל.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-pineGreen">רקע - הפרופסור שעזב הכל:</h4>
+                            <p class="leading-loose">צ'מברליין לא היה איש צבא, אלא אינטלקטואל מבריק שניחן בשליטה בתשע שפות שונות (כולל עברית וערבית). הוא לימד רטוריקה ודת בקולג' בודוין (Bowdoin College) במיין. אולם, כאשר פרצה מלחמת האזרחים, האידיאולוגיה המוסרית והתחושה העמוקה של חובה (Duty) לאיחוד לא הניחו לו להישאר במגדל השן. בניגוד לעצת הנהלת הקולג', הוא התנדב לצבא ומונה לסגן מפקד רגימנט ה-20 של מיין (20th Maine).</p>
+                        </div>
+
+                        <div class="bg-black/30 p-8 rounded-2xl border border-white/5">
+                            <h4 class="sub-header text-pineGreen">הישגים מכוננים - הצלת גטיסברג בכידונים (1863):</h4>
+                            <p class="leading-loose">ביולי 1863, בקרב החשוב ביותר בהיסטוריה האמריקאית (Gettysburg), הופקד צ'מברליין על הגנת הגבעה הקריטית "ליטל ראונד טופ" (Little Round Top). נאמר לו שאסור לו לסגת בשום מחיר, אחרת כל קו צבא הצפון יקרוס. לאחר מספר הדפיות מול כוחות הקונפדרציה, נגמרה לחייליו התחמושת לחלוטין. בצעד נואש של גאונות וטירוף, הורה צ'מברליין (שנפצע בעצמו) על **הסתערות כידונים חזיתית** כלפי מטה אל תוך שורות האויב. המהלך המם את הדרומיים, הוביל לשביית מאות מהם, והציל את האגף השמאלי של צבא ארה"ב. על כך עוטר במדליית הכבוד. לאחר המלחמה חזר, כיהן 4 קדנציות כמושל מיין, והפך לנשיא הקולג' שעזב.</p>
                         </div>
                     </div>
                 </div>
@@ -156,7 +233,7 @@
         <!-- 3. פנתיאון תרבותי: בעל החיים והמנה הלאומית -->
         <section class="section-card">
             <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-pineGreen text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">3</span>
                 פנתיאון תרבותי: פרא היער ופירות הים
             </h2>
             
@@ -164,28 +241,28 @@
                 <!-- בעל החיים הלאומי -->
                 <div class="culture-highlight border-pineGreen">
                     <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-pineGreen">בעל החיים הלאומי: האייל הקורא (The Moose)</h3>
-                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">חיית המדינה הרשמית וסמל היער הצפוני</p>
+                    <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">חיית המדינה הרשמית וסמל היער הצפוני (אומץ ב-1979)</p>
                     <p class="text-slate-300 leading-loose text-xl">
-                        ה**אייל הקורא (Alces alces)**, המכונה בצפון אמריקה "Moose", הוא היונק המזוהה ביותר עם הטבע הבלתי מבוית של מיין (שמעל 80% משטחה מכוסה ביערות, האחוז הגבוה ביותר בארה"ב). מיין מתגאה באוכלוסיית האיילים הקוראים הגדולה ביותר בארה"ב מחוץ לאלסקה.
+                        ה**אייל הקורא (Alces alces)**, המכונה בצפון אמריקה "Moose", הוא היונק המזוהה ביותר עם הטבע הבלתי מבוית של מיין. מיין מתגאה באוכלוסיית האיילים הקוראים הגדולה ביותר בארה"ב מחוץ לאלסקה (מעל 60,000 פרטים).
                     </p>
                     <p class="text-slate-300 leading-loose text-xl mt-6">
-                        עבור שבטי קונפדרציית ה**וואבנאקי** (Wabanaki) שחיו באזור, האייל הקורא לא היה רק חיה, אלא "סופרמרקט חי". הם השתמשו בבשרו למזון בחורפים הקשים, בעורו החסון ליצירת אוהלים ומוקסינים (נעליים), ובעצמותיו לייצור כלי עבודה וקרסים לדיג. 
+                        עבור שבטי קונפדרציית ה**וואבנאקי** (Wabanaki) שחיו באזור, האייל הקורא לא היה רק חיה, אלא "סופרמרקט חי". הם השתמשו בבשרו למזון בחורפים הקשים, בעורו החסון ליצירת אוהלים ומוקסינים, ובעצמותיו לייצור כלי עבודה. 
                     </p>
                     <p class="text-slate-300 leading-loose text-xl mt-6">
-                        כאשר תעשיית כריתת העצים (Logging) השתלטה על מיין במאה ה-19, האייל הקורא הפך לסמל של חוסן ובדידות ביערות הצפון. גובהו שיכול להגיע ליותר משני מטרים בכתפיים, וקרניו הענקיות דמויות הכף (Palmate antlers) של הזכר, הפכו אותו לאגדה בקרב ציידים ולסמל של עוצמה שקטה, מה שהוביל לשילובו במרכז סמל המדינה.
+                        כאשר תעשיית כריתת העצים (Logging) השתלטה על מיין במאה ה-19, האייל הקורא הפך לסמל של חוסן ובדידות ביערות הצפון. גובהו שיכול להגיע ליותר משני מטרים בכתפיים, וקרניו הענקיות דמויות הכף (Palmate antlers) של הזכר, הפכו אותו לאגדה בקרב ציידים ולסמל של עוצמה שקטה, מה שהוביל לשילובו המרכזי על סמל המדינה (Seal) ולבחירתו לחיית המדינה.
                     </p>
                 </div>
 
                 <!-- המנה הלאומית -->
-                <div class="culture-highlight border-accent">
-                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-accent">המנה הלאומית: לובסטר מיין (Maine Lobster) ווופי פאי (Whoopie Pie)</h3>
+                <div class="culture-highlight border-lobsterRed">
+                    <h3 class="text-3xl font-black text-white mb-8 underline italic decoration-[#D22B2B]">המנה הלאומית: לובסטר מיין (Maine Lobster) ווופי פאי</h3>
                     <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מהפך סוציולוגי מצלחת עניים לסמל סטטוס יוקרתי</p>
                     <p class="text-slate-300 leading-loose text-xl">
-                        הקולינריה של מיין היא חלון מרתק לשינויים מעמדיים בהיסטוריה האמריקאית. שני עמודי התווך שלה הם פירות ים וחטיף יערנים.
+                        הקולינריה של מיין היא חלון מרתק לשינויים מעמדיים בהיסטוריה האמריקאית. שני עמודי התווך שלה הם פירות ים וחטיף יערנים קלאסי.
                     </p>
                     <ul class="list-disc list-inside space-y-8 mt-8 text-slate-300 leading-loose text-xl">
-                        <li><span class="text-white font-bold underline decoration-pineGreen">לובסטר מיין (Homarus americanus):</span> כיום לובסטר הוא סמל עולמי לעושר ויוקרה, אבל ההיסטוריה שלו במיין שונה לחלוטין. במאות ה-17 וה-18, הלובסטרים במיין היו כה רבים, עד שהם נשטפו לחוף בערימות אחרי סערות. הם נחשבו ל"חלבון של עניים" – מזון זול שניתן חינם לבהמות, לאסירים ולמשרתים בחוזים, עד כדי כך שמשרתים תבעו להכניס סעיף בחוזה שמונע ממעסיקיהם להאכיל אותם בלובסטר יותר משלוש פעמים בשבוע. המהפך התרחש בסוף המאה ה-19, כאשר רכבות הביאו את עשירי בוסטון וניו יורק למיין כדי לברוח מהחום. הלובסטר המוגש כ"אוכל אותנטי של המקומיים" קסם להם, ועד מהרה, פיתוח סירות עם מיכלי מים חיים איפשר לשנע לובסטרים חיים למסעדות פאר במנהטן, מה שהפך את תעשיית הלובסטרים של מיין (שנשלתה במלכודות עץ על ידי דייגים קשוחים בחורף) לתעשיית מיליארדים. תצורת ההגשה הקלאסית כיום היא ה-**Lobster Roll** – בשר לובסטר טרי מעורבב עם מעט מיונז או חמאה מומסת, המוגש בתוך לחמניית נקניקייה קלויה.</li>
-                        <li><span class="text-white font-bold underline decoration-buffGold">וופי פאי (Whoopie Pie):</span> ב-2011, מיין הכריזה רשמית על ה"וופי פאי" כפינוק המדינתי (State Treat). זהו לא באמת פאי, אלא מעין סנדוויץ' עשוי משתי עוגיות שוקולד רכות וקייקיות, שביניהן שכבה עבה של קרם וניל או מרשמלו מתוק. האגדה המקומית (החופפת למסורת במדינת פנסילבניה) טוענת שנשות יערנים במיין נהגו לאפות את השאריות של בלילת העוגה, להוסיף קרם ולהכניס לתיקי האוכל של הבעלים שיצאו לכרות עצים ביערות הקפואים. כשהיערנים היו פותחים את התיק ורואים את הקינוח, הם היו צועקים "וופי!" (Whoopie!) משמחה, ומכאן שמו.</li>
+                        <li><span class="text-white font-bold underline decoration-[#D22B2B]">לובסטר מיין (Homarus americanus):</span> כיום לובסטר הוא סמל עולמי לעושר, אבל ההיסטוריה שלו במיין שונה לחלוטין. במאות ה-17 וה-18, הלובסטרים היו כה רבים, עד שהם נשטפו לחוף בערימות אחרי סערות. הם נחשבו ל"חלבון העניים" (Cockroaches of the sea) וניתנו חינם לבהמות, לאסירים ולמשרתים. המהפך התרחש בסוף המאה ה-19, כשרכבות הביאו את עשירי בוסטון לחופי מיין. הלובסטר שווק כ"מעדן אקזוטי מקומי". פיתוח סירות עם מיכלי מים אפשר לשנעם חיים למנהטן, מה שהפך את תעשיית הדיג (שנשלטת עד היום על ידי דייגים קשוחים בסירות קטנות) לאימפריה של ממש. ההגשה הפופולרית היא **Lobster Roll** (בשר טרי עם מעט מיונז או חמאה בלחמנייה קלויה חמה).</li>
+                        <li><span class="text-white font-bold underline decoration-buffGold">וופי פאי (Whoopie Pie):</span> ב-2011, מיין הכריזה רשמית על ה"וופי פאי" כפינוק המדינתי (State Treat). זהו לא באמת פאי, אלא סנדוויץ' עשוי שתי עוגיות שוקולד רכות ("קייקיות"), שביניהן קרם וניל או מרשמלו מתוק. האגדה הפנומנולוגית גורסת שנשות יערנים נהגו לאפות את שאריות הבלילה ולהכניס לתיקי האוכל של בעליהן שיצאו לכרות עצים בשלג. כשהיערנים פתחו את התיק וראו את הקינוח, הם צעקו "וופי!" (Whoopie!) משמחה (למרות שגם פנסילבניה טוענת לבעלות על הקינוח מאת קהילת האמיש).</li>
                     </ul>
                 </div>
             </div>
@@ -205,16 +282,16 @@
                         <h3 class="text-3xl font-black text-white mb-8 underline italic">The Pine Tree State</h3>
                         <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">אתוס של יערנות וספנות</p>
                         <p class="text-slate-300 leading-loose text-lg">
-                            עץ האורן (ובמיוחד ה-Eastern White Pine) הוא הלב הפועם של הכלכלה והאסתטיקה של מיין מראשית ימיה. במאה ה-18, האורנים הלבנים והעצומים של מיין (שנישאו לעתים לגובה של מעל 40 מטרים) סומנו על ידי סוכני מלך אנגליה ב"חץ הרחב" (Broad Arrow) והוחרמו בלעדית לטובת ייצור התרנים הענקיים של ספינות הצי המלכותי הבריטי. תעשיית העץ (Lumbering) היא זו שהביאה מתיישבים לעומק היבשת, וקבעה את האתוס הקשה, המתבודד והחרוץ של תושבי צפון מיין.
+                            עץ האורן הלבן המזרחי (Eastern White Pine) הוא הלב הפועם של הכלכלה והאסתטיקה של מיין מראשית ימיה. במאה ה-18, האורנים העצומים של מיין (שנישאו לגובה של מעל 40 מטרים) היו קריטיים לאימפריה הבריטית: הם סומנו על ידי סוכני המלך ב"חץ הרחב" (Broad Arrow) והוחרמו בלעדית לטובת ייצור התרנים הענקיים של ספינות הצי המלכותי הבריטי. המאבק על העצים הללו אף הוביל למהומות עוד לפני מלחמת העצמאות. תעשיית העץ (Lumbering) היא זו שהביאה מתיישבים לעומק היבשת הקפואה, וקבעה את האתוס הקשה, המתבודד והחרוץ של תושבי צפון מיין.
                         </p>
                     </div>
 
                     <!-- Vacationland -->
                     <div class="bg-slate-900/40 p-12 rounded-[2.5rem] border-r-8 border-maineBlue shadow-2xl">
-                        <h3 class="text-3xl font-black text-white mb-8 underline italic">Vacationland (ארץ החופשות)</h3>
+                        <h3 class="text-3xl font-black text-white mb-8 underline italic text-blue-400">Vacationland (ארץ החופשות)</h3>
                         <p class="text-slate-400 font-black mb-6 uppercase tracking-widest text-lg">מיתוג של אסקפיזם אמריקאי</p>
                         <p class="text-slate-300 leading-loose text-lg">
-                            זהו הכינוי המופיע על לוחיות הרישוי של המדינה מאז שנת 1936. בעוד ש"ארץ האורן" פונה לאזרח העובד, "ארץ החופשות" פונה לאליטות של החוף המזרחי. מיין מיצבה את עצמה פנומנולוגית כ"אנטיתזה" לתיעוש ולעיור המהיר של בוסטון וניו יורק. היא משווקת את אגמיה הקפואים, חופיה הסלעיים ויערותיה כשמורת טבע בתולית, מקום שבו האמריקאי יכול "לחזור למקורות". הפארק הלאומי 'אקדיה' (Acadia) הוא חוד החנית של החזון התיירותי הזה.
+                            זהו הכינוי המסחרי המופיע על לוחיות הרישוי של המדינה מאז שנת 1936. בעוד ש"ארץ האורן" פונה לאזרח העובד בספר, "ארץ החופשות" פונה לאליטות של החוף המזרחי (מסצ'וסטס, ניו יורק). מיין מיצבה את עצמה פנומנולוגית כ"אנטיתזה" לתיעוש ולעיור המהיר. היא משווקת את אגמיה הקפואים, חופיה הסלעיים, עיירות הדייגים והמגדלורים שלה כשמורת טבע בתולית, מקום שבו האמריקאי העירוני יכול לחוות אסקפיזם טהור ו"לחזור למקורות". הפארק הלאומי 'אקדיה' מהווה את חוד החנית של החזון התיירותי הזה.
                         </p>
                     </div>
                 </div>
@@ -224,8 +301,8 @@
         <!-- 5. וקסילולוגיה: ניתוח סמיוטי של דגל המדינה -->
         <section class="section-card">
             <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-pineGreen text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
-                וקסילולוגיה: הקרב על החזרה למקורות
+                <span class="bg-maineBlue text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">5</span>
+                וקסילולוגיה: הקרב על החזרה למקורות (1901 מול 1909)
             </h2>
             
             <div class="flex flex-col md:flex-row items-center justify-center gap-10 mb-16">
@@ -233,20 +310,20 @@
                 <!-- הדגל הנוכחי (1909) -->
                 <div class="flex flex-col items-center w-full max-w-sm">
                     <div class="w-full aspect-[3/2] bg-[#002A86] rounded-3xl overflow-hidden shadow-2xl border-[4px] border-slate-700 relative flex flex-col items-center justify-center p-4">
-                        <div class="text-white text-3xl font-black italic tracking-widest mt-2">DIRIGO</div>
+                        <div class="text-white text-3xl font-black italic tracking-widest mt-2 drop-shadow-md">DIRIGO</div>
                         <!-- Star -->
                         <div class="text-buffGold text-4xl mb-2 drop-shadow-md">⭐</div>
                         <!-- Shield Representation -->
-                        <div class="w-24 h-28 bg-white/10 border-2 border-buffGold rounded-b-full flex flex-col items-center justify-center p-2 relative">
-                            <span class="text-pineGreen text-3xl">🌲</span>
-                            <span class="text-slate-300 text-2xl absolute bottom-2 right-2">🦌</span> <!-- Moose -->
+                        <div class="w-24 h-28 bg-blue-200/20 border-2 border-buffGold rounded-b-[40%] flex flex-col items-center justify-center p-2 relative shadow-inner">
+                            <span class="text-green-500 text-3xl drop-shadow-md z-10">🌲</span>
+                            <span class="text-slate-200 text-2xl absolute bottom-2 right-2 drop-shadow-md z-20">🫎</span> <!-- Moose -->
                         </div>
                         <!-- Supporters Representation -->
-                        <div class="absolute inset-x-8 top-[55%] flex justify-between px-2 text-3xl">
+                        <div class="absolute inset-x-6 top-[55%] flex justify-between px-2 text-4xl drop-shadow-lg">
                             <span title="Farmer">👨‍🌾</span>
                             <span title="Seaman">⚓</span>
                         </div>
-                        <div class="mt-4 bg-white/20 px-4 py-1 rounded border border-white/40">
+                        <div class="mt-4 bg-white/20 px-4 py-1 rounded border border-white/40 shadow-sm">
                             <span class="text-[10px] text-white font-black uppercase tracking-widest">Maine</span>
                         </div>
                     </div>
@@ -261,26 +338,27 @@
                 <div class="flex flex-col items-center w-full max-w-sm">
                     <div class="w-full aspect-[3/2] bg-[#F2C75C] rounded-3xl overflow-hidden shadow-2xl border-[4px] border-slate-700 relative flex items-center justify-center p-4 group">
                         <!-- North Star -->
-                        <div class="absolute top-6 left-8 text-[#002A86] text-5xl transform transition-transform duration-500 group-hover:scale-125">★</div>
+                        <div class="absolute top-6 left-8 text-[#002A86] text-5xl transform transition-transform duration-500 group-hover:scale-125 drop-shadow-md">★</div>
                         <!-- Simple Pine Tree -->
-                        <div class="text-[#004C23] text-8xl transform transition-transform duration-500 group-hover:scale-110">🌲</div>
+                        <div class="text-[#004C23] text-8xl transform transition-transform duration-500 group-hover:scale-110 drop-shadow-md">🌲</div>
                     </div>
                     <p class="mt-6 text-buffGold font-black text-lg bg-slate-900 px-6 py-2 rounded-full border border-slate-700 shadow-xl text-center">
-                        דגל העץ הבודד (1901)
+                        דגל עץ האורן המקורי (1901)
                     </p>
                 </div>
             </div>
 
             <div class="space-y-14 text-slate-300">
-                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-pineGreen shadow-xl">
-                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-pineGreen decoration-4">מלחמת התרבות הווקסילולוגית במיין:</h3>
+                <div class="bg-slate-800/40 p-12 rounded-[2.5rem] border-r-8 border-maineBlue shadow-xl">
+                    <h3 class="text-3xl font-black text-white mb-6 italic underline decoration-maineBlue decoration-4">מלחמת התרבות הווקסילולוגית במיין:</h3>
                     <p class="text-xl leading-loose">
-                        מיין נמצאת כיום במוקד של אחד המאבקים הווקסילולוגיים המעניינים בארצות הברית. <br><br>
-                        <strong>הדגל הנוכחי (1909):</strong> בדומה למדינות רבות, ב-1909 החליטה מיין ליישר קו עם "סטנדרט צבאי" ואימצה דגל של "סדין כחול" (Blue Bedsheet) שעליו מוטבע חותם המדינה המורכב. החותם מציג את המוטו הלטיני **"Dirigo"** (אני מוביל / אני מכוון) תחת כוכב הצפון, חקלאי עם מגל (מסמל יבשה ועבודה), וימאי עם עוגן (מסמל מסחר וים). במרכז מופיע עץ אורן ואייל קורא שוכב. הבעיה בדגל זה היא שהוא אינו ניתן לזיהוי מרחוק, ונבלע בין עשרות דגלים כחולים דומים של מדינות אחרות.
+                        מיין נמצאת כיום במוקד של אחד המאבקים הווקסילולוגיים (חקר דגלים) המעניינים ביותר בארצות הברית, מאבק בין הרצון לייחודיות היסטורית לבין מורשת צבאית שמרנית. 
+                        <br><br>
+                        <strong>הדגל הנוכחי (1909):</strong> בדומה למדינות רבות (כמו פנסילבניה וניו יורק), ב-1909 החליטה מיין ליישר קו עם "סטנדרט צבאי" מהמלחמות, ואימצה דגל של "סדין כחול" (Blue Bedsheet) שעליו מוטבע חותם המדינה המורכב (שעוצב ב-1820). החותם מציג את המוטו הלטיני **"Dirigo"** (אני מוביל / אני מכוון) תחת כוכב הצפון. למטה ניצבים חקלאי עם חרמש (מסמל יבשה ועבודה), וימאי נשען על עוגן (מסמל מסחר וים). במרכז מופיע עץ אורן ענק ואייל קורא שוכב (Moose). הבעיה בדגל זה, לפי חוקרים, היא שהוא אינו ניתן לזיהוי מרחוק, ונבלע בין עשרות דגלים כחולים דומים של מדינות אחרות.
                     </p>
                     <p class="text-xl leading-loose mt-6">
-                        <strong>החזרה לדגל 1901:</strong> בשנים האחרונות פרצה תנועה ציבורית עממית עצומה להחזיר את דגלה הרשמי הראשון של מיין, משנת 1901. דגל זה מבוסס על עקרונות עיצוב מודרניים וברורים: רקע בצבע **Buff** (צבע צהבהב-חום המזכיר עור יבש, שהיה נפוץ במדי הצבא הקונטיננטלי), כוכב כחול בפינה המסמל את **כוכב הצפון** (מיין הייתה המדינה הצפונית ביותר באיחוד בעת הקמתה), ובמרכז **עץ אורן ירוק** המייצג את זהות המדינה. <br>
-                        העיצוב הפשוט והאסתטי הפך לפריט מסחרי פופולרי על חולצות, כובעים ופחיות בירה במיין. בשנת 2024, בית המחוקקים של מיין אישר לקיים משאל עם רשמי שבו האזרחים יחליטו אם לנטוש את הדגל הכחול ולחזור רשמית לדגל העץ הבודד והאייקוני של 1901. (נכון לזמן כתיבת שורות אלו, הדיון ההיסטורי הזה עדיין מעצב את הזהות של המדינה).
+                        <strong>החזרה לדגל 1901:</strong> בשנים האחרונות פרצה תנועה ציבורית עממית עצומה להחזיר את דגלה הרשמי הראשון של מיין, אשר התקיים בשנים 1901-1909 בלבד. דגל זה מבוסס על עקרונות עיצוב מודרניים וברורים: רקע בצבע **Buff** (צבע צהבהב-חום המזכיר עור, שהיה נפוץ במדי הצבא הקונטיננטלי ובו השתמש ג'ורג' וושינגטון), כוכב כחול בפינה המסמל את **כוכב הצפון** (מיין הייתה המדינה הצפונית ביותר באיחוד בעת הקמתה ב-1820), ובמרכז **עץ אורן ירוק ומינימליסטי** המייצג את זהות המדינה. <br>
+                        העיצוב הפשוט והאסתטי של הדגל משנת 1901 הפך ללהיט מסחרי פופולרי על חולצות, כובעים ופחיות בירה במיין. בעקבות הלחץ הציבורי, בית המחוקקים של מיין אישר לקיים משאל עם רשמי בסוף שנת 2024 שבו האזרחים יצביעו האם לנטוש את "הסדין הכחול" העמוס ולחזור רשמית לדגל העץ האייקוני. (נכון לזמן כתיבת שורות אלו, הדיון ההיסטורי הזה עדיין מעצב את הזהות החזותית של המדינה).
                     </p>
                 </div>
             </div>
@@ -289,37 +367,37 @@
         <!-- 6. ביבליוגרפיה ומקורות מחקריים -->
         <section class="section-card">
             <h2 class="text-3xl sm:text-4xl font-black text-accent mb-12 border-b border-slate-700 pb-8 flex items-center">
-                <span class="bg-pineGreen text-white w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
+                <span class="bg-accent text-darkBg w-14 h-14 rounded-2xl flex items-center justify-center ml-6 text-2xl font-black">6</span>
                 ביבליוגרפיה ומקורות מחקריים
             </h2>
             
             <div class="space-y-6 text-slate-300 italic text-lg leading-loose">
                 <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
                     <p class="font-black text-white text-xl">Maine Historical Society (MHS):</p>
-                    <p>"The Etymology of Maine and the Colonial Era". מחקר מקיף הסוקר את התיאוריות הבלשניות סביב ה"יבשת המרכזית" (The Main) מול ההקשר למחוז הצרפתי.</p>
+                    <p>"The Etymology of Maine: Nautical Mainland vs. French Province". מחקר מקיף הסוקר את התיאוריות הבלשניות סביב ה"יבשת המרכזית" הימית (The Main) שאומצה על ידי מלחים לעומת ההקשר המאוחר למחוז בצרפת שהתקבל בהצהרת חוק ב-2001.</p>
                 </div>
                 <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Library of Congress (LOC):</p>
-                    <p>"The Missouri Compromise and the Statehood of Maine (1820)". ארכיון מסמכים פדרליים החושף את המשא ומתן הפוליטי שהוביל להפרדת מיין ממסצ'וסטס.</p>
+                    <p class="font-black text-white text-xl">Library of Congress (LOC) - American History:</p>
+                    <p>"The Missouri Compromise and the Statehood of Maine (1820)". ארכיון מסמכים פדרליים החושף כיצד המאבק הפוליטי של ויליאם קינג להפרדת מיין ממסצ'וסטס נשען על הצורך הקריטי של הקונגרס לאזן את כניסת מיזורי כמדינת עבדות.</p>
+                </div>
+                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
+                    <p class="font-black text-white text-xl">Bowdoin College Archives / Pejepscot Historical Society:</p>
+                    <p>"Joshua L. Chamberlain: From Professor to Hero of Little Round Top". ניתוח ביוגרפי ואטימולוגי של צ'מברליין (שם של "שר חצר"), וההחלטה להסתער בכידונים בגטיסברג שהצילה את צבא האיחוד.</p>
                 </div>
                 <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
                     <p class="font-black text-white text-xl">Journal of American Culinary History:</p>
-                    <p>"From Poverty to Luxury: The Social Evolution of the Maine Lobster". מאמר אנתרופולוגי החוקר את המהפך המעמדי של הלובסטר ממאכל של אסירים למעדן עולמי.</p>
+                    <p>"From Poverty to Luxury: The Social Evolution of the Maine Lobster". מאמר אנתרופולוגי החוקר את המהפך המעמדי של הלובסטר מ"ג'וקים של הים" שהאכילו אסירים למעדן יוקרתי של עשירי ניו יורק, לצד המצאת ה'וופי פאי' על ידי נשות יערנים.</p>
                 </div>
                 <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">New England Vexillological Association:</p>
-                    <p>"The 1901 Maine Flag: History, Aesthetics, and Revival". מחקר חזותי והיסטורי על דגל עץ האורן והסיבות לתנועת הרסטורציה המודרנית.</p>
-                </div>
-                <div class="border-b border-slate-700 pb-6 mb-6 last:border-0">
-                    <p class="font-black text-white text-xl">Biographical Directory of the U.S. Congress:</p>
-                    <p>פרופילים וכתבים מקוריים של ויליאם קינג, "אבי מיין", וסר פרדיננדו גורג'ס.</p>
+                    <p class="font-black text-white text-xl">North American Vexillological Association (NAVA):</p>
+                    <p>"The 1901 Maine Flag: History, Aesthetics, and the Modern Revival". מחקר חזותי והיסטורי על דגל עץ האורן ורקע ה-Buff, והתנועה העממית הנוכחית להחזרתו כחלופה ל"סדין הכחול" המסורבל.</p>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- פוטר אתר ממותג -->
+    <!-- פוטר עם קרדיטים ומצב עדכון פלט -->
     <footer class="w-full max-w-4xl mt-40 pt-20 border-t border-slate-800 text-center pb-24">
         <div class="flex flex-col items-center gap-10">
             <div class="flex gap-8">
